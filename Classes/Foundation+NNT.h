@@ -19,7 +19,7 @@
 # if !defined(LIBNNT)
 
 #   ifdef NNT_CXX
-#     define NNTAPP_BEGIN namespace wsiapp {
+#     define NNTAPP_BEGIN namespace nntapp {
 #     define NNTAPP_END   }
 #     define NNTCAPP_BEGIN extern "C" {
 #     define NNTCAPP_END }

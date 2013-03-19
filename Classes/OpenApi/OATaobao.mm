@@ -7,7 +7,7 @@
 # import "Mime+NNT.h"
 # import "HttpRequest.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
 
@@ -56,7 +56,7 @@ NNT_BEGIN_OBJC
     UIOAuthView *authview = (UIOAuthView*)[super authView];
     authview.title.text = [OATaobao Name];
     
-    [authview registerFilter:@"wsi://oauth/2.0/redirect#" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad];
+    [authview registerFilter:@"nnt://oauth/2.0/redirect#" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad];
     [authview connect:@"authorize_success" sel:@selector(act_authorize_success:) obj:self];
     
     return authview;

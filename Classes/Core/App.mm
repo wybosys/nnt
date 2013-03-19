@@ -208,7 +208,7 @@ NNTDECL_PRIVATE_END
     // free window.
     safe_release(_window);
     
-    // end wsi.
+    // end nnt.
     [NNT Fin];
     
     NNTDECL_PRIVATE_DEALLOC();
@@ -317,7 +317,7 @@ void LoadTheme(NSString*) {
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     trace_msg(@"application: launching.");
     
-    // boot wsi.
+    // boot nnt.
     [NNT Boot];
     
     // load theme.
@@ -475,7 +475,7 @@ void LoadTheme(NSString*) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     trace_msg(@"application: launching.");
     
-    // boot wsi.
+    // boot nnt.
     [NNT Boot];
     
     // init.

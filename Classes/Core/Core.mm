@@ -42,7 +42,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-static NNT *__gs_wsi = nil;
+static NNT *__gs_nnt = nil;
 static NSConditionLock *__gs_thread_condition = nil;
 
 NNTDECL_PRIVATE_BEGIN(NNT, NSObject)
@@ -96,12 +96,12 @@ static id<NSObject> __gs_desktop = nil;
 + (NNT*)shared {
     /*
 # ifdef NNT_DEBUG
-    if (__gs_wsi == nil)
+    if (__gs_nnt == nil)
         trace_msg(@"NNT singleton object is nil");
 # endif
      */
     
-    return __gs_wsi;
+    return __gs_nnt;
 }
 
 - (id)init {
@@ -124,7 +124,7 @@ NNT_END_HEADER_C
 	trace_msg(@"NNT[OBJC] Toolkit");
     trace_fmt(@"path: %@.", [[NSBundle mainBundle] bundlePath]);
     
-    __gs_wsi = [[NNT alloc] init];
+    __gs_nnt = [[NNT alloc] init];
     __gs_thread_condition = [[NSConditionLock alloc] initWithCondition:8];
     
     // init memory of mach.
@@ -157,8 +157,8 @@ NNT_END_HEADER_C
     // release
     [__gs_desktop release];
 
-    // free wsi
-    safe_release(__gs_wsi);
+    // free nnt
+    safe_release(__gs_nnt);
     safe_release(__gs_thread_condition);
 }
 

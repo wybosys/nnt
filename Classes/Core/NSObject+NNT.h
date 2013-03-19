@@ -259,7 +259,7 @@ NNT_AUTORELEASEPOOL_END
 @end
 
 # define NNT_OBJCXX_WRAPPER(cls) \
-_wsi_objcxx_wrapper_##cls
+_nnt_objcxx_wrapper_##cls
 
 @protocol NNT_OBJCXX_WRAPPER(object)
 <NSObject>

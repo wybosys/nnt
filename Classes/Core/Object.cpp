@@ -80,7 +80,7 @@ NNT_END_NS // impl
 
 NNT_END_NS // cxx
 
-NNT_END_CXX // wsi
+NNT_END_CXX // nnt
 
 NNT_BEGIN_C
 

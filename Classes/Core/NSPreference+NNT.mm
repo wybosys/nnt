@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-using namespace wsi;
+using namespace nnt;
 
 @interface NSPreference ()
 

@@ -59,9 +59,9 @@ NNTEVENT_END
     NNT_SYNCHRONIZED(self)
     if (__gs_uiobject == nil) {
         __gs_uiobject = [[self alloc] init];
-        NNT *wsiobj = [NNT shared];
-        if (wsiobj) {
-            [wsiobj storeSet:@"::nnt::uikit::uiobject::singleton" obj:__gs_uiobject];
+        NNT *nntobj = [NNT shared];
+        if (nntobj) {
+            [nntobj storeSet:@"::nnt::uikit::uiobject::singleton" obj:__gs_uiobject];
         }
     }
     NNT_SYNCHRONIZED_END

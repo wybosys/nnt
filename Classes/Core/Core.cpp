@@ -10,7 +10,7 @@
 
 NNT_BEGIN_CXX
 
-static NNT __gs_wsiobject;
+static NNT __gs_nntobject;
 bool NNT::IsRunning = false;
 
 void NNT::Init()

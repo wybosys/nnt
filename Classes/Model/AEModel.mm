@@ -29,7 +29,7 @@ NNT_USINGCXXNAMESPACE;
     self.objparser = parser;
     [parser release];
     
-    self.url = @"http://libwsi.hp.af.cm";
+    self.url = @"http://libnnt.hp.af.cm";
     //self.url = @"http://localhost:8000";
     
     self.appid = @"toolkit";

@@ -510,7 +510,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
     [super dealloc];
 }
 
-# define DB_NAME @".wsi.ui.history.textfield"
+# define DB_NAME @".nnt.ui.history.textfield"
 
 - (BOOL)serialOut:(id)obj identity:(NSString*)idr data:(NSData*)data {
     NNTBdb* db = [[NNTBdb alloc] initWith:DB_NAME type:NSAppVarDirectory];

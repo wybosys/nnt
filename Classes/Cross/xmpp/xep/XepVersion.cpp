@@ -48,7 +48,7 @@ bool Version::save(core::data &da) const
     node->ns = "jabber:iq:version";
     node->add_node("name")->value = name;
     node->add_node("version")->value = version;
-    node->add_node("os")->value = "wsi toolkit";
+    node->add_node("os")->value = "nnt toolkit";
     
     iq.root.add(node);
     

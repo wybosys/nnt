@@ -21,7 +21,7 @@
 // ui base object.
 # import "UIObject+NNT.h"
 
-// quartz + wsi.
+// quartz + nnt.
 # import "QzAnimation.h"
 # import "QzTransition.h"
 # import "QzDisplayLink.h"

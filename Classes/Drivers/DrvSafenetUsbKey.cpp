@@ -1,5 +1,5 @@
 
-# include <wsi/NNTFoundation.h>
+# include <nnt/NNTFoundation.h>
 # include "DrvSafenetUsbKey.h"
 
 NNT_BEGIN_C

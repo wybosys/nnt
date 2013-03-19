@@ -9,7 +9,7 @@
 # import "HttpRequest.h"
 # import "Mime+NNT.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
                                   
@@ -39,10 +39,10 @@ NNT_BEGIN_OBJC
     UIOAuthView* authview = (UIOAuthView*)[super authView];
     authview.title.text = [OASina Name];
         
-    [authview registerFilter:@"wsi://oauth/2.0/redirect\\?code=\\S+" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
+    [authview registerFilter:@"nnt://oauth/2.0/redirect\\?code=\\S+" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
     [authview connect:@"authorize_success" sel:@selector(act_authorize_success:) obj:self];
     
-    [authview registerFilter:@"wsi://oauth/2.0/redirect\\?error" signal:@"authorize_failed" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
+    [authview registerFilter:@"nnt://oauth/2.0/redirect\\?error" signal:@"authorize_failed" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
     [authview connect:@"authorize_failed" sel:@selector(act_authorize_failed) obj:self];
     
     return authview;
@@ -278,7 +278,7 @@ NNT_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    self.contentType = @"multipart/form-data;boundary=wsi";
+    self.contentType = @"multipart/form-data;boundary=nnt";
     
     return self;
 }
@@ -299,8 +299,8 @@ NNT_BEGIN_OBJC
     
     ns::Data pic((NSData*)dict[@"pic"]);
     
-    ns::String boundaryS = @"--wsi\r\n";
-    ns::String boundaryE = @"--wsi--";
+    ns::String boundaryS = @"--nnt\r\n";
+    ns::String boundaryE = @"--nnt--";
     
     // append pic.
     body.append(core::type_cast<core::data>(boundaryS));
@@ -353,7 +353,7 @@ NNT_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    self.contentType = @"multipart/form-data, boundary=wsi";
+    self.contentType = @"multipart/form-data, boundary=nnt";
     
     return self;
 }
@@ -374,8 +374,8 @@ NNT_BEGIN_OBJC
     
     ns::Data pic((NSData*)dict[@"pic"]);
     
-    ns::String boundaryS = @"--wsi\r\n";
-    ns::String boundaryE = @"--wsi--";
+    ns::String boundaryS = @"--nnt\r\n";
+    ns::String boundaryE = @"--nnt--";
     
     // append pic.
     body.append(core::type_cast<core::data>(boundaryS));

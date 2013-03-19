@@ -47,9 +47,9 @@ static CMMotionManager *__gs_motion_manager = nil;
     NNT_SYNCHRONIZED(self)
     if (__gs_motion_manager == nil) {
         __gs_motion_manager = [[CMMotionManager alloc] init];
-        NNT *wsiobj = [NNT shared];
-        if (wsiobj) {
-            [wsiobj storeSet:@"::nnt::trail::motion::singleton" obj:__gs_motion_manager];
+        NNT *nntobj = [NNT shared];
+        if (nntobj) {
+            [nntobj storeSet:@"::nnt::trail::motion::singleton" obj:__gs_motion_manager];
             [__gs_motion_manager release];
         }
         motionManager = __gs_motion_manager;

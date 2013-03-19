@@ -18,7 +18,7 @@ enum _NNTDirectoryType {
     
 # ifdef NNT_JAILBREAK        
     
-    //! template directory of system in wsi.
+    //! template directory of system in nnt.
     NNTDirectoryTypeTemplate = 0x40000000, 
     
 # endif

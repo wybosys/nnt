@@ -42,16 +42,16 @@ NNTIMPL_CATEGORY(UIViewController, NNT);
 }
 
 - (void)addSubController:(UIViewController*)ctlr {    
-    NNTUIViewControllerBase* wsictlr = nil;
+    NNTUIViewControllerBase* nntctlr = nil;
     if ([ctlr isKindOfClass:[NNTUIViewControllerBase class]]) {
-        wsictlr = (NNTUIViewControllerBase*)ctlr;
+        nntctlr = (NNTUIViewControllerBase*)ctlr;
     }
     
-    if (wsictlr) {
-        if (wsictlr.superController)
+    if (nntctlr) {
+        if (nntctlr.superController)
             return;
-        wsictlr.superController = (NNTUIViewController*)self;
-        if (wsictlr.isAppeared)
+        nntctlr.superController = (NNTUIViewController*)self;
+        if (nntctlr.isAppeared)
             [ctlr viewWillAppear:NO];
     } else {
         [ctlr viewWillAppear:NO];
@@ -59,8 +59,8 @@ NNTIMPL_CATEGORY(UIViewController, NNT);
     
     [self.view addSubview:ctlr.view];
     
-    if (wsictlr) {
-        if (wsictlr.isAppeared)
+    if (nntctlr) {
+        if (nntctlr.isAppeared)
             [ctlr viewDidAppear:NO];
     } else {
         [ctlr viewDidAppear:NO];
@@ -379,8 +379,8 @@ NNTOBJECT_IMPL_NOSIGNALS;
     // subcontroller of view.
     UIView* view = self.view;
     if ([view isKindOfClass:[NNTUIView class]]) {
-        NNTUIView* wsiview = (NNTUIView*)view;
-        for (UIViewController* each in wsiview.subControllers)
+        NNTUIView* nntview = (NNTUIView*)view;
+        for (UIViewController* each in nntview.subControllers)
             [each viewDidAppear:animated];
     }
     
@@ -416,8 +416,8 @@ NNTOBJECT_IMPL_NOSIGNALS;
     // subcontroller of view.
     UIView* view = self.view;
     if ([view isKindOfClass:[NNTUIView class]]) {
-        NNTUIView* wsiview = (NNTUIView*)view;
-        for (UIViewController* each in wsiview.subControllers)
+        NNTUIView* nntview = (NNTUIView*)view;
+        for (UIViewController* each in nntview.subControllers)
             [each viewWillDisappear:animated];
     }
     
@@ -453,8 +453,8 @@ NNTOBJECT_IMPL_NOSIGNALS;
     // subcontroller of view.
     UIView* view = self.view;
     if ([view isKindOfClass:[NNTUIView class]]) {
-        NNTUIView* wsiview = (NNTUIView*)view;
-        for (UIViewController* each in wsiview.subControllers)
+        NNTUIView* nntview = (NNTUIView*)view;
+        for (UIViewController* each in nntview.subControllers)
             [each viewDidDisappear:animated];
     }
     
@@ -478,7 +478,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
     // super.
     [super viewDidLoad];    
     
-    // call wsi loading routine.
+    // call nnt loading routine.
     //[self viewIsLoading];
     [self performSelectorOnMainThread:@selector(viewIsLoading) withObject:nil waitUntilDone:YES];
     
@@ -608,9 +608,9 @@ BOOL UIOrientationEnableCheck(UIOrientationEnable orientationEnable, UIInterface
 
 @implementation NNTUIViewController
 
-@dynamic wsiview;
+@dynamic nntview;
 
-- (NNTUIView*)wsiview {
+- (NNTUIView*)nntview {
     UIView *view = self.view;
 # ifdef NNT_VERBOSE_VERBOSE
     if ([view isKindOfClass:[NNTUIView class]]) {        

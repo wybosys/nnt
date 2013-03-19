@@ -1,5 +1,5 @@
 
-# include <wsi/NNTFoundation.h>
+# include <nnt/NNTFoundation.h>
 # include "DrvSenselockUsbKey.h"
 
 NNT_BEGIN_CXX NNT_BEGIN_NS(senselock)

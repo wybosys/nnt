@@ -3,7 +3,7 @@
 # import "UITableTreeViewController.h"
 # import "UITableTreeView.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(ui)

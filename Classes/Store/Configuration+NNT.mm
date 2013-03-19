@@ -5,7 +5,7 @@
 
 NNT_BEGIN_OBJC
 
-# define kConfFileName @".wsi.config"
+# define kConfFileName @".nnt.config"
 
 NNTDECL_PRIVATE_BEGIN(NNTConfiguration, NSObject)
 {
@@ -82,14 +82,14 @@ static NNTConfiguration *__gs_confcenter = nil;
 + (NNTConfiguration*)shared {   
     NNT_SYNCHRONIZED(self)
     if (__gs_confcenter == nil) {
-        NNT *wsiobj = [NNT shared];
+        NNT *nntobj = [NNT shared];
         __gs_confcenter = [[self alloc] init];
         if (NO == [__gs_confcenter open:kConfFileName]) {
             trace_msg(@"failed to open config data.");
             zero_release(__gs_confcenter);
         }
-        if (__gs_confcenter && wsiobj) {
-            [wsiobj storeSet:@"::nnt::gs::confcenter" obj:__gs_confcenter];
+        if (__gs_confcenter && nntobj) {
+            [nntobj storeSet:@"::nnt::gs::confcenter" obj:__gs_confcenter];
         }
     }
     NNT_SYNCHRONIZED_END
@@ -336,7 +336,7 @@ Configuration::Configuration(ns::String const& file)
 
 Configuration& Configuration::shared()
 {
-    static Configuration __gs_configuration(ns::String(@".wsi.config"));
+    static Configuration __gs_configuration(ns::String(@".nnt.config"));
     return __gs_configuration;
 }
 

@@ -7,7 +7,7 @@
 # import "OADefines.h"
 # import "../UIKit/UIOAToggleView.res"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
 
@@ -371,7 +371,7 @@ NNT_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    self.contentType = @"multipart/form-data;boundary=wsi";
+    self.contentType = @"multipart/form-data;boundary=nnt";
     
     return self;
 }
@@ -392,8 +392,8 @@ NNT_BEGIN_OBJC
     
     ns::Data pic((NSData*)dict[@"pic"]);
     
-    ns::String boundaryS = @"--wsi\r\n";
-    ns::String boundaryE = @"--wsi--";
+    ns::String boundaryS = @"--nnt\r\n";
+    ns::String boundaryE = @"--nnt--";
     
     // append pic.
     body.append(core::type_cast<core::data>(boundaryS));

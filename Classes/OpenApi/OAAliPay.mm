@@ -6,7 +6,7 @@
 # import "UIOAuthView.h"
 # import "URLCodec.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
 

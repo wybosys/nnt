@@ -118,20 +118,20 @@ NNTEVENT_END
 }
 
 - (void)enableCallback {
-    static NSString* jswsi_cb = @"var wsi = new function(){this.action = function(name){ window.location = 'wsi:///ui/html/action/' + name;};return this;}";
+    static NSString* jsnnt_cb = @"var nnt = new function(){this.action = function(name){ window.location = 'nnt:///ui/html/action/' + name;};return this;}";
 
     _isEnableCallback = YES;
-    [self.additionalJavascript addObject:jswsi_cb];
+    [self.additionalJavascript addObject:jsnnt_cb];
     
     // register callback.
-    UIWebViewFilter* filter = [self registerFilter:@"wsi:///ui/html/action/\\S+" signal:kSignalWebCallback target:self type:UIWebViewFilterTypeStartLoad];
+    UIWebViewFilter* filter = [self registerFilter:@"nnt:///ui/html/action/\\S+" signal:kSignalWebCallback target:self type:UIWebViewFilterTypeStartLoad];
     filter.shouldStartLoad = NO;
     [self connect:kSignalWebCallback sel:@selector(__act_callback:)];
 }
 
 - (void)__act_callback:(NNTEventObj*)evt {
     NSString* full = (NSString*)evt.result;
-    NSArray * res = [full captureComponentsMatchedByRegex:@"wsi:///ui/html/action/(\\S+)"];
+    NSArray * res = [full captureComponentsMatchedByRegex:@"nnt:///ui/html/action/(\\S+)"];
     if (res) {
         NSString* act = [res objectAtIndex:1];
         [self emit:kSignalWebAction result:act];

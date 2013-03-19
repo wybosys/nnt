@@ -95,11 +95,11 @@ void _ace_proactor_service::open(ACE_HANDLE new_handle, ACE_Message_Block &messa
 
 void _ace_proactor_service::addresses (const ACE_INET_Addr &remote_address, const ACE_INET_Addr &local_address)
 {
-    NetAddress addr_client_wsi = ace::type_cast<NetAddress>(remote_address);
-    NetAddress addr_host_wsi = ace::type_cast<NetAddress>(local_address);
+    NetAddress addr_client_nnt = ace::type_cast<NetAddress>(remote_address);
+    NetAddress addr_host_nnt = ace::type_cast<NetAddress>(local_address);
     
 # ifdef NNT_DEBUG
-    std::cout << "get a new connect from " << addr_client_wsi.to_string() << " to " << addr_host_wsi.to_string() << std::endl;
+    std::cout << "get a new connect from " << addr_client_nnt.to_string() << " to " << addr_host_nnt.to_string() << std::endl;
 # endif
     
     std::cout << "thread: " << ACE_Proactor::instance()->number_of_threads() << std::endl;

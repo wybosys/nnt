@@ -90,7 +90,7 @@ NNTOBJECT_IMPL;
 
 @end
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 _CXXCONTROLLER_IMPL_BEGIN(NNTUISearchDisplayController)
 

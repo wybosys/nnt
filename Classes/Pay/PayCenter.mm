@@ -47,11 +47,11 @@ static PayCenter *__gs_paycenter = nil;
 }
 
 + (PayCenter*)getInstance {
-    NNT *wsiobj = [NNT shared];
-    @synchronized(wsiobj) {
+    NNT *nntobj = [NNT shared];
+    @synchronized(nntobj) {
         if (__gs_paycenter == nil) {
             __gs_paycenter = [[PayCenter alloc] init];
-            [wsiobj storeSet:@"static::paycenter" obj:__gs_paycenter];
+            [nntobj storeSet:@"static::paycenter" obj:__gs_paycenter];
             if (1 != [__gs_paycenter retainCount])
                 [__gs_paycenter release];
         }

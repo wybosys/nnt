@@ -26,7 +26,7 @@ NNTDECL_PRIVATE_END_CXX
 
 Configuration& Configuration::getInstance()
 {
-    static Configuration __gs_configuration(".wsi.config");
+    static Configuration __gs_configuration(".nnt.config");
     return __gs_configuration;
 }
 

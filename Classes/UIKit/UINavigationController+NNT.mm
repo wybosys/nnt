@@ -259,7 +259,7 @@ NNTIMPL_VIEWCONTROLLER;
     if (viewController == self.visibleViewController)
         return;
     
-    // if is wsi controller, assign navigation controller.
+    // if is nnt controller, assign navigation controller.
     if ([viewController isKindOfClass:[NNTUIViewController class]])
         viewController.navigationController = self;
     

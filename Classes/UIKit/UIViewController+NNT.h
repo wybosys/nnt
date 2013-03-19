@@ -186,7 +186,7 @@ NNT_AUTORELEASEPOOL_END; \
 
 @interface NNTUIViewController : NNTUIViewControllerBase
 
-@property (nonatomic, readonly) NNTUIView *wsiview;
+@property (nonatomic, readonly) NNTUIView *nntview;
 
 @end
 

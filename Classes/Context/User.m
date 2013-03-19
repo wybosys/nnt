@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "User.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 
 NNT_BEGIN_OBJC
 
@@ -72,7 +72,7 @@ NNTEVENT_END
 }
 
 + (NSString*)configurationNameOfIdentity:(NSString*)identity {
-    return [NSString stringWithFormat:@".wsi.%@", identity];
+    return [NSString stringWithFormat:@".nnt.%@", identity];
 }
 
 - (void)logout {

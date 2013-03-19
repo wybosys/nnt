@@ -206,7 +206,7 @@ NNT_BEGIN_OBJC
     
     self.url = @"https://graph.qq.com/share/add_share";
     self.classRpc = [HttpRequest_Get class];
-    self.site = @"http://libwsi.sf.net";
+    self.site = @"http://libnnt.sf.net";
     
     self.reference = ns::String(@"http://") + NNTGetProjectURL();
     self.site = self.reference;

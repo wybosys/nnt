@@ -434,8 +434,8 @@
 		166553AC13A6086E008DF239 /* XmlRpc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1665529713A6086E008DF239 /* XmlRpc.mm */; };
 		166553B613A6086E008DF239 /* FlateBP.h in Headers */ = {isa = PBXBuildFile; fileRef = 1665529E13A6086E008DF239 /* FlateBP.h */; };
 		166553B813A6086E008DF239 /* FlateBP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1665529F13A6086E008DF239 /* FlateBP.cpp */; };
-		166553BA13A6086E008DF239 /* Math+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 166552A013A6086E008DF239 /* Math+WSI.h */; };
-		166553BC13A6086E008DF239 /* Math+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166552A113A6086E008DF239 /* Math+WSI.cpp */; };
+		166553BA13A6086E008DF239 /* Math+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 166552A013A6086E008DF239 /* Math+NNT.h */; };
+		166553BC13A6086E008DF239 /* Math+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166552A113A6086E008DF239 /* Math+NNT.cpp */; };
 		166553BE13A6086E008DF239 /* MChart2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 166552A313A6086E008DF239 /* MChart2D.h */; };
 		166553C013A6086E008DF239 /* MChart2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 166552A413A6086E008DF239 /* MChart2D.m */; };
 		166553C213A6086E008DF239 /* MChartRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 166552A513A6086E008DF239 /* MChartRecord.h */; };
@@ -2007,8 +2007,8 @@
 		1665529713A6086E008DF239 /* XmlRpc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XmlRpc.mm; sourceTree = "<group>"; };
 		1665529E13A6086E008DF239 /* FlateBP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlateBP.h; sourceTree = "<group>"; };
 		1665529F13A6086E008DF239 /* FlateBP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlateBP.cpp; sourceTree = "<group>"; };
-		166552A013A6086E008DF239 /* Math+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Math+WSI.h"; sourceTree = "<group>"; };
-		166552A113A6086E008DF239 /* Math+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Math+WSI.cpp"; sourceTree = "<group>"; };
+		166552A013A6086E008DF239 /* Math+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Math+NNT.h"; sourceTree = "<group>"; };
+		166552A113A6086E008DF239 /* Math+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Math+NNT.cpp"; sourceTree = "<group>"; };
 		166552A313A6086E008DF239 /* MChart2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MChart2D.h; sourceTree = "<group>"; };
 		166552A413A6086E008DF239 /* MChart2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MChart2D.m; sourceTree = "<group>"; };
 		166552A513A6086E008DF239 /* MChartRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MChartRecord.h; sourceTree = "<group>"; };
@@ -3811,8 +3811,8 @@
 				16B47C2E164A034C00CCF359 /* Linear.cpp */,
 				1665529E13A6086E008DF239 /* FlateBP.h */,
 				1665529F13A6086E008DF239 /* FlateBP.cpp */,
-				166552A013A6086E008DF239 /* Math+WSI.h */,
-				166552A113A6086E008DF239 /* Math+WSI.cpp */,
+				166552A013A6086E008DF239 /* Math+NNT.h */,
+				166552A113A6086E008DF239 /* Math+NNT.cpp */,
 				165D4A2814A9BA3000FEF20D /* PreciseNumber.h */,
 				165D4A2914A9BA3000FEF20D /* PreciseNumber.mm */,
 				1620F1CE1609D39800592F83 /* LePoint.cpp */,
@@ -5506,7 +5506,7 @@
 				166553A613A6086E008DF239 /* SocketRequest.h in Headers */,
 				166553AA13A6086E008DF239 /* XmlRpc.h in Headers */,
 				166553B613A6086E008DF239 /* FlateBP.h in Headers */,
-				166553BA13A6086E008DF239 /* Math+WSI.h in Headers */,
+				166553BA13A6086E008DF239 /* Math+NNT.h in Headers */,
 				166553BE13A6086E008DF239 /* MChart2D.h in Headers */,
 				166553C213A6086E008DF239 /* MChartRecord.h in Headers */,
 				166553C613A6086E008DF239 /* Model.h in Headers */,
@@ -6261,7 +6261,7 @@
 				166553A813A6086E008DF239 /* SocketRequest.mm in Sources */,
 				166553AC13A6086E008DF239 /* XmlRpc.mm in Sources */,
 				166553B813A6086E008DF239 /* FlateBP.cpp in Sources */,
-				166553BC13A6086E008DF239 /* Math+WSI.cpp in Sources */,
+				166553BC13A6086E008DF239 /* Math+NNT.cpp in Sources */,
 				166553C013A6086E008DF239 /* MChart2D.m in Sources */,
 				166553C413A6086E008DF239 /* MChartRecord.m in Sources */,
 				166553C813A6086E008DF239 /* Model.mm in Sources */,

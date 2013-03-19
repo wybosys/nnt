@@ -38,7 +38,7 @@ int Application::execute(int argc, char *argv[])
     // create root window.
     _window = new ui::uc::Window;
     
-    // call wsi.
+    // call nnt.
     this->load();
     
     // show main window.

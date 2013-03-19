@@ -156,7 +156,7 @@ Semaphore::Semaphore(uint cnt)
     
     static int _gs_sem_id = 0;
     char buf[64];
-    snprintf(buf, sizeof(buf), "__wsi_core_semaphore_default_%d", ++_gs_sem_id);
+    snprintf(buf, sizeof(buf), "__nnt_core_semaphore_default_%d", ++_gs_sem_id);
     _hdl = sem_open(buf, O_CREAT|O_EXCL, cnt);
     if (_hdl == SEM_FAILED)
     {        

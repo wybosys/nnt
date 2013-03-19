@@ -23,10 +23,10 @@ NNT_EXTERN NSURL *NNTDirectoryTouchWithType(NSString* path, NNTDirectoryType typ
             
         case NNTDirectoryTypeSystem: {
             uint min_type = NNTDirectoryTypeMinor(type);
-            uint wsi_type = NNTDirectoryTypeWsiMinor(type);
+            uint nnt_type = NNTDirectoryTypeWsiMinor(type);
             
             /*
-            if (wsi_type && !min_type) {
+            if (nnt_type && !min_type) {
                 min_type = NSDocumentDirectory;
             }
              */
@@ -42,21 +42,21 @@ NNT_EXTERN NSURL *NNTDirectoryTouchWithType(NSString* path, NNTDirectoryType typ
                 str_tgt = NSTemporaryDirectory();
             }
             
-            if (wsi_type) {
+            if (nnt_type) {
                 
 # ifdef NNT_TARGET_MAC
-                str_tgt = [str_tgt stringByAppendingPathComponent:@"wsi"];
+                str_tgt = [str_tgt stringByAppendingPathComponent:@"nnt"];
                 str_tgt = [str_tgt stringByAppendingPathComponent:[NNTApplication shared].applicationIdentity];
 # endif
                 str_tgt = [str_tgt stringByAppendingPathComponent:@"var"];
                 
-                if (MASK_CHECK(NSTemplateDirectory, wsi_type)) {
+                if (MASK_CHECK(NSTemplateDirectory, nnt_type)) {
                     str_tgt = [str_tgt stringByAppendingPathComponent:@"tmp"];
                 }
-                else if (MASK_CHECK(NSVariableDirectory, wsi_type)) {
+                else if (MASK_CHECK(NSVariableDirectory, nnt_type)) {
                     PASS;
                 }
-                else if (MASK_CHECK(NSLogDirectory, wsi_type)) {
+                else if (MASK_CHECK(NSLogDirectory, nnt_type)) {
                     str_tgt = [str_tgt stringByAppendingPathComponent:@"log"];
                 }
             }
@@ -116,10 +116,10 @@ NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type) {
 
         case NNTDirectoryTypeSystem: {
             uint min_type = NNTDirectoryTypeMinor(type);
-            uint wsi_type = NNTDirectoryTypeWsiMinor(type);
+            uint nnt_type = NNTDirectoryTypeWsiMinor(type);
             
             /*
-            if (wsi_type && !min_type) {
+            if (nnt_type && !min_type) {
                 min_type = NSDocumentDirectory;
             }
              */
@@ -135,11 +135,11 @@ NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type) {
                 str_tgt = NSTemporaryDirectory();
             }
             
-            if (wsi_type) {
+            if (nnt_type) {
                 
 # ifdef NNT_TARGET_MAC
                 
-                str_tgt = [str_tgt stringByAppendingPathComponent:@"wsi"];
+                str_tgt = [str_tgt stringByAppendingPathComponent:@"nnt"];
                 str_tgt = [str_tgt stringByAppendingPathComponent:[NNTApplication shared].applicationIdentity];
                 
 # endif         
@@ -148,13 +148,13 @@ NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type) {
                 str_tgt = [str_tgt stringByAppendingPathComponent:@"var"];
                 
                 // var's sub directory.
-                if (MASK_CHECK(NSTemplateDirectory, wsi_type)) {
+                if (MASK_CHECK(NSTemplateDirectory, nnt_type)) {
                     str_tgt = [str_tgt stringByAppendingPathComponent:@"tmp"];
                 }
-                else if (MASK_CHECK(NSVariableDirectory, wsi_type)) {
+                else if (MASK_CHECK(NSVariableDirectory, nnt_type)) {
                     PASS;
                 }
-                else if (MASK_CHECK(NSLogDirectory, wsi_type)) {
+                else if (MASK_CHECK(NSLogDirectory, nnt_type)) {
                     str_tgt = [str_tgt stringByAppendingPathComponent:@"log"];
                 }
             }

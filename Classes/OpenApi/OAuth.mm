@@ -8,7 +8,7 @@
 # import "UIOAuthView.h"
 # import "Mime+NNT.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
 
@@ -787,8 +787,8 @@ NNTEVENT_END
     self = [super init];
     
     self.version = (version_t){2, 0, 0, "2.0"};
-    self.redirectUrl = @"wsi://oauth/2.0/redirect";
-    self.redirectCancelUrl = @"wsi://oauth/2.0/cancel";
+    self.redirectUrl = @"nnt://oauth/2.0/redirect";
+    self.redirectCancelUrl = @"nnt://oauth/2.0/cancel";
     self.responseType = @"code";
     self.code = @"";
     self.user_id = @"";

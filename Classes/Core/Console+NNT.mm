@@ -87,7 +87,7 @@ Console::~Console()
     }
 }
 
-char const* Console::prefix = "wsi";
+char const* Console::prefix = "nnt";
 char const* Console::suffix = "$ ";
 
 void Console::print(const char * str) const

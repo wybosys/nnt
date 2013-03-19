@@ -7,8 +7,8 @@ NNT_BEGIN_HEADER_C
 NNT_END_HEADER_C
 
 // load module.
-# import "_python.site/wsi.modules.h"
-# import "_python.site/pywsi.h"
+# import "_python.site/nnt.modules.h"
+# import "_python.site/pynnt.h"
 
 NNT_BEGIN_OBJC
 

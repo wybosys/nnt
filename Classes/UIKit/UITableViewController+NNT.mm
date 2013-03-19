@@ -5,7 +5,7 @@
 # import "UIViewController+NNT.h"
 # import "UITableViewCell+NNT.h"
 
-using namespace ::wsi;
+using namespace ::nnt;
 
 NNT_BEGIN_OBJC
 
