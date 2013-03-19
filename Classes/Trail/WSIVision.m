@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Core.h"
 # import "WSIVision.h"
 
 WSI_BEGIN_OBJC

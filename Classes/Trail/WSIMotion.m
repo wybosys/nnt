@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Core.h"
 # import "WSIMotion.h"
 # import <CoreMotion/CoreMotion.h>
 

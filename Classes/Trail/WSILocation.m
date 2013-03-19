@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Core.h"
 # import "WSILocation.h"
 # import <CoreLocation/CoreLocation.h>
 

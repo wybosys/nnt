@@ -127,8 +127,6 @@
 		162244CA158894FB0073B178 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244C6158894FB0073B178 /* NetAddress.h */; };
 		162244CB158894FB0073B178 /* SocketServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162244C7158894FB0073B178 /* SocketServer.cpp */; };
 		162244CC158894FB0073B178 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244C8158894FB0073B178 /* SocketServer.h */; };
-		162244D01588964D0073B178 /* BSEServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162244CE1588964D0073B178 /* BSEServer.cpp */; };
-		162244D11588964D0073B178 /* BSEServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244CF1588964D0073B178 /* BSEServer.h */; };
 		162244D51588971F0073B178 /* SocketClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244D31588971F0073B178 /* SocketClient.h */; };
 		162247901588985E0073B178 /* SocketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1622478E1588985D0073B178 /* SocketStream.cpp */; };
 		162247911588985E0073B178 /* SocketStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1622478F1588985D0073B178 /* SocketStream.h */; };
@@ -497,7 +495,7 @@
 		1671B699149833E1003987B7 /* NSOperation+WSI.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671B697149833E1003987B7 /* NSOperation+WSI.m */; };
 		1671C9CB14637E42007026FE /* UITabBarContainerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1671C9C914637E42007026FE /* UITabBarContainerController.h */; };
 		1671C9CC14637E42007026FE /* UITabBarContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1671C9CA14637E42007026FE /* UITabBarContainerController.m */; };
-		1672E59C13FA5C6A0034A607 /* WSIExecution.h in Headers */ = {isa = PBXBuildFile; fileRef = 1672E59B13FA5C6A0034A607 /* WSIExecution.h */; };
+		1672E59C13FA5C6A0034A607 /* Execution+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1672E59B13FA5C6A0034A607 /* Execution+NNT.h */; };
 		16752B8E16A69B2D00129E39 /* MaeToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 16752B8C16A69B2D00129E39 /* MaeToolkit.h */; };
 		16752B8F16A69B2D00129E39 /* MaeToolkit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16752B8D16A69B2D00129E39 /* MaeToolkit.mm */; };
 		1675AF921515FFE90046A630 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1675AF8F1515FFE90046A630 /* Core.cpp */; };
@@ -728,7 +726,7 @@
 		1689BD8713F0E6AC002008F7 /* Linear.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1689BD8413F0E6AC002008F7 /* Linear.mm */; };
 		1689C0C813F0FCFC002008F7 /* uthash.h in Headers */ = {isa = PBXBuildFile; fileRef = 1689C0C713F0FCFC002008F7 /* uthash.h */; };
 		1689C0E613F1040F002008F7 /* OpenGL_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1689C0E513F1040F002008F7 /* OpenGL_Internal.h */; };
-		1689C81B13F109E3002008F7 /* WSIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1689C81A13F109E1002008F7 /* WSIFoundation.h */; };
+		1689C81B13F109E3002008F7 /* Foundation+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1689C81A13F109E1002008F7 /* Foundation+NNT.h */; };
 		1689C81E13F10BA5002008F7 /* utlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 1689C81D13F10BA5002008F7 /* utlist.h */; };
 		168B119315425F0D00D9325A /* JuiceOpenGLDarwinDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B118F15425F0D00D9325A /* JuiceOpenGLDarwinDriver.hpp */; };
 		168B119415425F0D00D9325A /* JuiceOpenGLES1.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B119015425F0D00D9325A /* JuiceOpenGLES1.hpp */; };
@@ -1894,8 +1892,6 @@
 		162244C6158894FB0073B178 /* NetAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAddress.h; sourceTree = "<group>"; };
 		162244C7158894FB0073B178 /* SocketServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketServer.cpp; sourceTree = "<group>"; };
 		162244C8158894FB0073B178 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
-		162244CE1588964D0073B178 /* BSEServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BSEServer.cpp; sourceTree = "<group>"; };
-		162244CF1588964D0073B178 /* BSEServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSEServer.h; sourceTree = "<group>"; };
 		162244D31588971F0073B178 /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
 		1622478E1588985D0073B178 /* SocketStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketStream.cpp; sourceTree = "<group>"; };
 		1622478F1588985D0073B178 /* SocketStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketStream.h; sourceTree = "<group>"; };
@@ -2272,7 +2268,7 @@
 		1671B697149833E1003987B7 /* NSOperation+WSI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+WSI.m"; sourceTree = "<group>"; };
 		1671C9C914637E42007026FE /* UITabBarContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarContainerController.h; sourceTree = "<group>"; };
 		1671C9CA14637E42007026FE /* UITabBarContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITabBarContainerController.m; sourceTree = "<group>"; };
-		1672E59B13FA5C6A0034A607 /* WSIExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIExecution.h; sourceTree = "<group>"; };
+		1672E59B13FA5C6A0034A607 /* Execution+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Execution+NNT.h"; sourceTree = "<group>"; };
 		16752B8C16A69B2D00129E39 /* MaeToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaeToolkit.h; sourceTree = "<group>"; };
 		16752B8D16A69B2D00129E39 /* MaeToolkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MaeToolkit.mm; sourceTree = "<group>"; };
 		1675AF8F1515FFE90046A630 /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; };
@@ -2504,7 +2500,7 @@
 		1689BD8413F0E6AC002008F7 /* Linear.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Linear.mm; sourceTree = "<group>"; };
 		1689C0C713F0FCFC002008F7 /* uthash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uthash.h; sourceTree = "<group>"; };
 		1689C0E513F1040F002008F7 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
-		1689C81A13F109E1002008F7 /* WSIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIFoundation.h; sourceTree = "<group>"; };
+		1689C81A13F109E1002008F7 /* Foundation+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+NNT.h"; sourceTree = "<group>"; };
 		1689C81D13F10BA5002008F7 /* utlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utlist.h; sourceTree = "<group>"; };
 		168B118F15425F0D00D9325A /* JuiceOpenGLDarwinDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLDarwinDriver.hpp; sourceTree = "<group>"; };
 		168B119015425F0D00D9325A /* JuiceOpenGLES1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLES1.hpp; sourceTree = "<group>"; };
@@ -3671,15 +3667,6 @@
 			path = Context;
 			sourceTree = "<group>";
 		};
-		162244CD1588964D0073B178 /* Baison */ = {
-			isa = PBXGroup;
-			children = (
-				162244CE1588964D0073B178 /* BSEServer.cpp */,
-				162244CF1588964D0073B178 /* BSEServer.h */,
-			);
-			path = Baison;
-			sourceTree = "<group>";
-		};
 		162C713E15BF97270013084C /* DTrace */ = {
 			isa = PBXGroup;
 			children = (
@@ -4109,10 +4096,9 @@
 		1665526F13A6086E008DF239 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1672E59B13FA5C6A0034A607 /* WSIExecution.h */,
-				1689C81A13F109E1002008F7 /* WSIFoundation.h */,
+				1672E59B13FA5C6A0034A607 /* Execution+NNT.h */,
+				1689C81A13F109E1002008F7 /* Foundation+NNT.h */,
 				1647BFE7160C5B73007AC94E /* AI */,
-				162244CD1588964D0073B178 /* Baison */,
 				169D4818141F43AE00FBF0C8 /* BSE */,
 				1603A91915DCDE320029A54C /* Codec */,
 				16141C4613AA00D500896301 /* Context */,
@@ -6158,9 +6144,9 @@
 				1689BD8513F0E6AC002008F7 /* Linear.h in Headers */,
 				1689C0C813F0FCFC002008F7 /* uthash.h in Headers */,
 				1689C0E613F1040F002008F7 /* OpenGL_Internal.h in Headers */,
-				1689C81B13F109E3002008F7 /* WSIFoundation.h in Headers */,
+				1689C81B13F109E3002008F7 /* Foundation+NNT.h in Headers */,
 				1689C81E13F10BA5002008F7 /* utlist.h in Headers */,
-				1672E59C13FA5C6A0034A607 /* WSIExecution.h in Headers */,
+				1672E59C13FA5C6A0034A607 /* Execution+NNT.h in Headers */,
 				1684B71713FCF033000D340C /* PayCenter.h in Headers */,
 				169225F713FCF61A000770FF /* AlipayApi.h in Headers */,
 				169225FE13FCF6F6000770FF /* PayNullApi.h in Headers */,
@@ -6725,7 +6711,6 @@
 				16F7F3EE158303BD00198FCD /* NSNotification+WSI.h in Headers */,
 				162244CA158894FB0073B178 /* NetAddress.h in Headers */,
 				162244CC158894FB0073B178 /* SocketServer.h in Headers */,
-				162244D11588964D0073B178 /* BSEServer.h in Headers */,
 				162244D51588971F0073B178 /* SocketClient.h in Headers */,
 				162247911588985E0073B178 /* SocketStream.h in Headers */,
 				167BA9201589D35B0054FA81 /* ACE+WSI.h in Headers */,
@@ -7626,7 +7611,6 @@
 				16F7F3EF158303BD00198FCD /* NSNotification+WSI.mm in Sources */,
 				162244C9158894FB0073B178 /* NetAddress.cpp in Sources */,
 				162244CB158894FB0073B178 /* SocketServer.cpp in Sources */,
-				162244D01588964D0073B178 /* BSEServer.cpp in Sources */,
 				162247901588985E0073B178 /* SocketStream.cpp in Sources */,
 				167BA91F1589D35B0054FA81 /* ACE+WSI.cpp in Sources */,
 				163AE16D158ADCBA006B56DB /* XmppClient.cpp in Sources */,

@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Core.h"
 # import "VHtmlTable.h"
 # import "IVTable.h"
 # import "VHtml.h"
