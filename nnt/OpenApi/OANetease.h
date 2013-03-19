@@ -4,7 +4,7 @@
 
 # import "OAuth.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface OARequestNetease : OARequest_1_0 {
     NSString *urlCallback;
@@ -44,30 +44,30 @@ WSI_BEGIN_HEADER_OBJC
 @interface OApiNeteaseWeiboUpload : OApiNetease
 
 @property (nonatomic, copy) NSString * content;
-@property (nonatomic, retain) WCGImage* image;
+@property (nonatomic, retain) NgImage* image;
 @property (nonatomic, retain) NSData* imageData;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(netease)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(netease)
 
 typedef oauth::Provider<OANetease> Provider;
 
-WSI_BEGIN_NS(weibo)
+NNT_BEGIN_NS(weibo)
 
 typedef oauth::Function<OApiNetUserInfo> Userinfo;
 typedef oauth::PostFunction<OApiNeteaseWeiboPost> Post;
 typedef oauth::UploadFunction<OApiNeteaseWeiboUpload> Upload;
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

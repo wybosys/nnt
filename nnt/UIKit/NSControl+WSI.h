@@ -1,35 +1,35 @@
 
-# ifndef __WSI_NSCONTROL_EEB81C4DAD1B48969CAD6CA98248DD37_H_INCLUDED
-# define __WSI_NSCONTROL_EEB81C4DAD1B48969CAD6CA98248DD37_H_INCLUDED
+# ifndef __NNT_NSCONTROL_EEB81C4DAD1B48969CAD6CA98248DD37_H_INCLUDED
+# define __NNT_NSCONTROL_EEB81C4DAD1B48969CAD6CA98248DD37_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# import "NSView+WSI.h"
+# import "NSView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN signal_t kSignalAction;
+NNT_EXTERN signal_t kSignalAction;
 
-@interface NSControl (WSI)
+@interface NSControl (NNT)
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface _nscontrol_eventmonitor : cxxnsobject
 - (void)action:(NSEvent*)evt;
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# include "NSView+WSI.h"
+# include "NSView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IControl
 : public IView
@@ -114,8 +114,8 @@ protected:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif // cxx
 # endif // objc

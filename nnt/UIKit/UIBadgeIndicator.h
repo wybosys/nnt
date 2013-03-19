@@ -1,45 +1,45 @@
 
-# ifndef __WSI_UIKIT_UIBADGEINDICATOR_7057B33900104EFC81B146DD1DCD9081_H_INCLUDED
-# define __WSI_UIKIT_UIBADGEINDICATOR_7057B33900104EFC81B146DD1DCD9081_H_INCLUDED
+# ifndef __NNT_UIKIT_UIBADGEINDICATOR_7057B33900104EFC81B146DD1DCD9081_H_INCLUDED
+# define __NNT_UIKIT_UIBADGEINDICATOR_7057B33900104EFC81B146DD1DCD9081_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGMutableTextStyle);
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(NgMutableTextStyle);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
 
-@interface UIBadgeIndicator : WSIUIView {
+@interface UIBadgeIndicator : NNTUIView {
     
     //! value.
     NSString *_value;
     
     //! style.
-    WCGMutableTextStyle *_badgeStyle;
+    NgMutableTextStyle *_badgeStyle;
     
     //! badge color.
     UIColor *_badgeColor, *_badgeOverlayColor;
     
     //! line style of badge.
-    WCGMutableLineStyle *_badgeLineStyle;
+    NgMutableLineStyle *_badgeLineStyle;
     
 }
 
 @property (nonatomic, copy) NSString *value;
-@property (nonatomic, retain) WCGTextStyle *badgeStyle;
+@property (nonatomic, retain) NgTextStyle *badgeStyle;
 @property (nonatomic, retain) UIColor *badgeColor, *badgeOverlayColor;
-@property (nonatomic, retain) WCGLineStyle *badgeLineStyle;
+@property (nonatomic, retain) NgLineStyle *badgeLineStyle;
 
 @end
 
 _CXXCONTROL_DECL(UIBadgeIndicator);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class BadgeIndicator
 : public Control<BadgeIndicator,
@@ -89,8 +89,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

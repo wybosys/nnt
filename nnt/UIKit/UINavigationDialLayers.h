@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_UINAVIGATIONDIALLAYERS_F3EBAD050CB24156A271D889DB7D6037_H_INCLUDED
-# define __WSI_UIKIT_UINAVIGATIONDIALLAYERS_F3EBAD050CB24156A271D889DB7D6037_H_INCLUDED
+# ifndef __NNT_UIKIT_UINAVIGATIONDIALLAYERS_F3EBAD050CB24156A271D889DB7D6037_H_INCLUDED
+# define __NNT_UIKIT_UINAVIGATIONDIALLAYERS_F3EBAD050CB24156A271D889DB7D6037_H_INCLUDED
 
-# import "WCALayer.h"
-# import "CATextLayer+WCA.h"
+# import "NGLayer.h"
+# import "NGTextLayer.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCALayerDialRingItem);
-WSIDECL_EXTERN_CLASS(CGShadow);
+NNTDECL_EXTERN_CLASS(NgLayerDialRingItem);
+NNTDECL_EXTERN_CLASS(CGShadow);
 
-@interface WCALayerDialRingCenter : WCALayer {
+@interface NgLayerDialRingCenter : NgLayer {
     real radiusCollapse;
     real radiusExpend;
     real radius;
@@ -23,7 +23,7 @@ WSIDECL_EXTERN_CLASS(CGShadow);
 
 @end
 
-@interface WCALayerDialRing : WCALayer {
+@interface NgLayerDialRing : NgLayer {
     
     //! geomerty.
     real radiusOutter;
@@ -49,7 +49,7 @@ WSIDECL_EXTERN_CLASS(CGShadow);
 
 @end
 
-@interface WCALayerDialRingItem : WCALayer {
+@interface NgLayerDialRingItem : NgLayer {
     
     //! image.
     CGImageRef image;
@@ -67,18 +67,18 @@ WSIDECL_EXTERN_CLASS(CGShadow);
     UIColor *imageMaskColor;
     
     //! layer of badge.
-    WCALayer *layerBadge;
+    NgLayer *layerBadge;
 }
 
 @property (nonatomic, assign) CGImageRef image;
 @property (nonatomic, retain) CGShadow *edgeShadow;
 @property (nonatomic, assign) real scaleImage, deflate;
 @property (nonatomic, retain) UIColor *imageMaskColor;
-@property (nonatomic, assign) WCALayer *layerBadge;
+@property (nonatomic, assign) NgLayer *layerBadge;
 
 @end
 
-@interface WCALayerDialLabelRing : WCALayer {
+@interface NgLayerDialLabelRing : NgLayer {
     
     //! radius.
     real radius, diameter;
@@ -103,7 +103,7 @@ WSIDECL_EXTERN_CLASS(CGShadow);
 
 @end
 
-@interface WCALayerDialLabelRingItem : WCATextLayer
+@interface NgLayerDialLabelRingItem : NgTextLayer
 
 //! adapt for content, default is YES.
 @property (nonatomic, assign) BOOL adaptContent;
@@ -116,6 +116,6 @@ WSIDECL_EXTERN_CLASS(CGShadow);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

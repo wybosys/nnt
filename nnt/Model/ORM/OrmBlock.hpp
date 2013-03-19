@@ -1,10 +1,10 @@
 
-# ifndef __WSI_ORM_BLOCK_E0B3BB5E3D3D4520AA704C02773045D3_H_INCLUDED
-# define __WSI_ORM_BLOCK_E0B3BB5E3D3D4520AA704C02773045D3_H_INCLUDED
+# ifndef __NNT_ORM_BLOCK_E0B3BB5E3D3D4520AA704C02773045D3_H_INCLUDED
+# define __NNT_ORM_BLOCK_E0B3BB5E3D3D4520AA704C02773045D3_H_INCLUDED
 
 # include "OrmObject.hpp"
 
-WSI_BEGIN_HEADER_ORM
+NNT_BEGIN_HEADER_ORM
 
 class Field
 {
@@ -39,7 +39,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(type)
+NNT_BEGIN_NS(type)
 
 class nullable
 : public Field
@@ -77,7 +77,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Fields
 {    
@@ -274,6 +274,6 @@ protected:
     
 };
 
-WSI_END_HEADER_ORM
+NNT_END_HEADER_ORM
 
 # endif

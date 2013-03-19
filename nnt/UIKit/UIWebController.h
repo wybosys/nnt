@@ -1,39 +1,39 @@
 
-# ifndef __WSI_UIKIT_WEBCONTROLLER_AED1FE20F10D4F079142B55F5C731311_H_INCLUDED
-# define __WSI_UIKIT_WEBCONTROLLER_AED1FE20F10D4F079142B55F5C731311_H_INCLUDED
+# ifndef __NNT_UIKIT_WEBCONTROLLER_AED1FE20F10D4F079142B55F5C731311_H_INCLUDED
+# define __NNT_UIKIT_WEBCONTROLLER_AED1FE20F10D4F079142B55F5C731311_H_INCLUDED
 
-# import "UIViewController+WSI.h"
-# import "UIWebView+WSI.h"
-# import "UINavigationController+WSI.h"
+# import "UIViewController+NNT.h"
+# import "UIWebView+NNT.h"
+# import "UINavigationController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIWebController : WSIUIViewController {
+@interface UIWebController : NNTUIViewController {
     NSURL* url;
 }
 
 @property (nonatomic, copy) NSURL* url;
 
-- (WSIUIWebView*)webView;
+- (NNTUIWebView*)webView;
 
 @end
 
-@interface UINaviWebController : WSIUIViewController {
-    WSIUINavigationController* webNavigation;
+@interface UINaviWebController : NNTUIViewController {
+    NNTUINavigationController* webNavigation;
     UIWebController* webController;
 }
 
-@property (nonatomic, retain, readonly) WSIUINavigationController* webNavigation;
+@property (nonatomic, retain, readonly) NNTUINavigationController* webNavigation;
 @property (nonatomic, retain, readonly) UIWebController* webController;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class WebController
 : public Controller< WebController, WebView, UIWebController >
@@ -68,7 +68,7 @@ public:
 };
 
 class NaviWebController
-: public SimpleController< NaviWebController, UINaviWebController, WSIUIView >
+: public SimpleController< NaviWebController, UINaviWebController, NNTUIView >
 {
 public:
     
@@ -103,8 +103,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

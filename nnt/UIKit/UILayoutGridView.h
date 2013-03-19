@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_UILAYOUTGRIDVIEW_7D0273304D4A4FE99A4F68A2A06598EA_H_INCLUDED
-# define __WSI_UIKIT_UILAYOUTGRIDVIEW_7D0273304D4A4FE99A4F68A2A06598EA_H_INCLUDED
+# ifndef __NNT_UIKIT_UILAYOUTGRIDVIEW_7D0273304D4A4FE99A4F68A2A06598EA_H_INCLUDED
+# define __NNT_UIKIT_UILAYOUTGRIDVIEW_7D0273304D4A4FE99A4F68A2A06598EA_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(WSIUILabel);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
+NNTDECL_EXTERN_CLASS(NNTUILabel);
 
-WSIDECL_PRIVATE_HEAD(UILayoutGridView);
+NNTDECL_PRIVATE_HEAD(UILayoutGridView);
 
-@interface UILayoutGridView : WSIUIView {
+@interface UILayoutGridView : NNTUIView {
     
     //! row.
     NSUInteger _rows, _cols;
@@ -23,24 +23,24 @@ WSIDECL_PRIVATE_HEAD(UILayoutGridView);
     CGMargin _margin;
     
     //! line style.
-    WCGLineStyle *_rowLineStyle;
-    WCGLineStyle *_colLineStyle;
+    NgLineStyle *_rowLineStyle;
+    NgLineStyle *_colLineStyle;
     
     //! reuse label.
-    WSIUILabel *_reuseLabel;
+    NNTUILabel *_reuseLabel;
     
 @private
     
     NSMutableArray *_rowlines, *_collines;
     
-    WSIDECL_PRIVATE(UILayoutGridView);
+    NNTDECL_PRIVATE(UILayoutGridView);
 }
 
 @property (nonatomic, assign) NSUInteger rows, cols;
 @property (nonatomic, assign) CGPadding padding;
 @property (nonatomic, assign) CGMargin margin;
-@property (nonatomic, retain) WCGLineStyle *rowLineStyle, *colLineStyle;
-@property (nonatomic, retain) WSIUILabel *reuseLabel;
+@property (nonatomic, retain) NgLineStyle *rowLineStyle, *colLineStyle;
+@property (nonatomic, retain) NNTUILabel *reuseLabel;
 
 //! init
 - (id)initWithFrame:(CGRect)frame;
@@ -58,8 +58,8 @@ WSIDECL_PRIVATE_HEAD(UILayoutGridView);
 - (void)endAdd;
 
 //! set label.
-- (WSIUILabel*)addLabel:(NSString *)label row:(NSUInteger)row col:(NSUInteger)col;
-- (WSIUILabel*)addLabel:(NSString *)label;
+- (NNTUILabel*)addLabel:(NSString *)label row:(NSUInteger)row col:(NSUInteger)col;
+- (NNTUILabel*)addLabel:(NSString *)label;
 
 //! set subview, for merge cells.
 - (void)setSubview:(UIView *)view row:(NSUInteger)row col:(NSUInteger)col;
@@ -86,14 +86,14 @@ WSIDECL_PRIVATE_HEAD(UILayoutGridView);
 
 _CXXVIEW_DECL(UILayoutGridView);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UILabel+WSI.h"
+# include "UILabel+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class LayoutGrid
 : public View<LayoutGrid, _CXXVIEW(UILayoutGridView)>
@@ -178,27 +178,27 @@ public:
         [this->_self endAdd];
     }
     
-    WSIUILabel* add(ns::String const& text, uint row, uint col)
+    NNTUILabel* add(ns::String const& text, uint row, uint col)
     {
         return [this->_self addLabel:text row:row col:col];
     }
     
-    WSIUILabel* add(ns::String const& text)
+    NNTUILabel* add(ns::String const& text)
     {
         return [this->_self addLabel:text];
     }
     
     template <typename viewT>
-    void add(viewT const& view, uint row, uint col, typename wtl::is_same<viewT, ns::String>::differ* = NULL)
+    void add(viewT const& view, uint row, uint col, typename ntl::is_same<viewT, ns::String>::differ* = NULL)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self addSubview:*ptr row:row col:col];
     }
     
     template <typename viewT>
-    void add(viewT const& view, typename wtl::is_same<viewT, ns::String>::differ* = NULL)
+    void add(viewT const& view, typename ntl::is_same<viewT, ns::String>::differ* = NULL)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self addSubview:*ptr];
     }
     
@@ -207,9 +207,9 @@ public:
         return [this->_self viewAt:row col:col];
     }
     
-    WSIUILabel* label_at(uint row, uint col)
+    NNTUILabel* label_at(uint row, uint col)
     {
-        return (WSIUILabel*)[this->_self labelAt:row col:col];
+        return (NNTUILabel*)[this->_self labelAt:row col:col];
     }
     
     id object_at(uint row, uint col)
@@ -249,8 +249,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

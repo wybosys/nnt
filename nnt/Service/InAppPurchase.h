@@ -1,13 +1,13 @@
 
-# ifndef __WSI_SERVICE_INAPPPURCHASE_7FE2B536037546DAA010775549AC1392_H_INCLUDED
-# define __WSI_SERVICE_INAPPPURCHASE_7FE2B536037546DAA010775549AC1392_H_INCLUDED
+# ifndef __NNT_SERVICE_INAPPPURCHASE_7FE2B536037546DAA010775549AC1392_H_INCLUDED
+# define __NNT_SERVICE_INAPPPURCHASE_7FE2B536037546DAA010775549AC1392_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(SKProduct);
-WSIDECL_EXTERN_CLASS(SKPayment);
+NNTDECL_EXTERN_CLASS(SKProduct);
+NNTDECL_EXTERN_CLASS(SKPayment);
 
-@interface InAppPurchaseItem : WSIObject {
+@interface InAppPurchaseItem : NNTObject {
     
     SKProduct* _product;
     SKPayment* _payment;
@@ -23,19 +23,19 @@ WSIDECL_EXTERN_CLASS(SKPayment);
 
 @end
 
-WSI_EXTERN signal_t kSignalPaying;
-WSI_EXTERN signal_t kSignalPayFailed;
-WSI_EXTERN signal_t kSignalPaySuccess;
-WSI_EXTERN signal_t kSignalPayRestore;
+NNT_EXTERN signal_t kSignalPaying;
+NNT_EXTERN signal_t kSignalPayFailed;
+NNT_EXTERN signal_t kSignalPaySuccess;
+NNT_EXTERN signal_t kSignalPayRestore;
 
-WSIDECL_PRIVATE_HEAD(InAppPurchaseItems);
+NNTDECL_PRIVATE_HEAD(InAppPurchaseItems);
 
-@interface InAppPurchaseItems : WSIObject {
+@interface InAppPurchaseItems : NNTObject {
     
     NSSet* _identifiers;
     NSArray* _products;
     
-    WSIDECL_PRIVATE(InAppPurchaseItems);
+    NNTDECL_PRIVATE(InAppPurchaseItems);
 }
 
 @property (nonatomic, retain) NSSet* identifiers;
@@ -46,14 +46,14 @@ WSIDECL_PRIVATE_HEAD(InAppPurchaseItems);
 
 @end
 
-WSIDECL_EXTERN_CLASS(SKPaymentQueue);
+NNTDECL_EXTERN_CLASS(SKPaymentQueue);
 
-WSIDECL_PRIVATE_HEAD(InAppPurchaseService);
+NNTDECL_PRIVATE_HEAD(InAppPurchaseService);
 
-@interface InAppPurchaseService : WSIObject {
+@interface InAppPurchaseService : NNTObject {
     SKPaymentQueue* _queue;
     
-    WSIDECL_PRIVATE(InAppPurchaseService);
+    NNTDECL_PRIVATE(InAppPurchaseService);
 }
 
 + (BOOL)Payable;
@@ -63,16 +63,16 @@ WSIDECL_PRIVATE_HEAD(InAppPurchaseService);
 
 @end
 
-WSI_EXTERN signal_t kSignalFailed;
-WSI_EXTERN signal_t kSignalSuccess;
+NNT_EXTERN signal_t kSignalFailed;
+NNT_EXTERN signal_t kSignalSuccess;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(purchase)
-WSI_BEGIN_NS(inapp)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(purchase)
+NNT_BEGIN_NS(inapp)
 
 class Item
 : public ns::Object<InAppPurchaseItem>
@@ -138,9 +138,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

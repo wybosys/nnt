@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_TAGCLOUDVIEW_BBE476876CD840CEB9ADB89673A03823_H_INCLUDED
-# define __WSI_UIKIT_TAGCLOUDVIEW_BBE476876CD840CEB9ADB89673A03823_H_INCLUDED
+# ifndef __NNT_UIKIT_TAGCLOUDVIEW_BBE476876CD840CEB9ADB89673A03823_H_INCLUDED
+# define __NNT_UIKIT_TAGCLOUDVIEW_BBE476876CD840CEB9ADB89673A03823_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UIItemView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UITagCloudView);
+NNTDECL_EXTERN_CLASS(UITagCloudView);
 
 @interface UITagCloudItem : UIItemView {
     
@@ -19,7 +19,7 @@ WSIDECL_EXTERN_CLASS(UITagCloudView);
 
 @end
 
-@interface UITagCloudView : WSIUIView {
+@interface UITagCloudView : NNTUIView {
     UIItemsContainer* _items;
     real _offal, _offbl;
     CGPoint _pos;
@@ -34,18 +34,18 @@ WSIDECL_EXTERN_CLASS(UITagCloudView);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UITagCloudView);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ITagCloudView
 : public IView
@@ -95,8 +95,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

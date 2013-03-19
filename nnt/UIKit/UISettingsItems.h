@@ -1,15 +1,15 @@
 
-# ifndef __WSI_UIKIT_UISETTINGSITEMS_DC562C74A22842DE8BBD3C08032A99C0_H_INCLUDED
-# define __WSI_UIKIT_UISETTINGSITEMS_DC562C74A22842DE8BBD3C08032A99C0_H_INCLUDED
+# ifndef __NNT_UIKIT_UISETTINGSITEMS_DC562C74A22842DE8BBD3C08032A99C0_H_INCLUDED
+# define __NNT_UIKIT_UISETTINGSITEMS_DC562C74A22842DE8BBD3C08032A99C0_H_INCLUDED
 
-# import "UISwitch+WSI.h"
-# import "UISlider+WSI.h"
-# import "UITextField+WSI.h"
-# import "UITableViewCell+WSI.h"
+# import "UISwitch+NNT.h"
+# import "UISlider+NNT.h"
+# import "UITextField+NNT.h"
+# import "UITableViewCell+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UISettingsSwitch : WSIUISwitch {
+@interface UISettingsSwitch : NNTUISwitch {
     NSString *_key;
 }
 
@@ -17,7 +17,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UISettingsSlider : WSIUISlider {
+@interface UISettingsSlider : NNTUISlider {
     NSString *_key;
 }
 
@@ -25,7 +25,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UISettingsTextField : WSIUITextField {
+@interface UISettingsTextField : NNTUITextField {
     NSString *_key;
 }
 
@@ -33,7 +33,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UIToggleTableCell : WSIUITableViewCell {
+@interface UIToggleTableCell : NNTUITableViewCell {
     UILabel *_label;
     UISettingsSwitch *_toggle;
 }
@@ -45,9 +45,9 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalValueChanged;
+NNT_EXTERN signal_t kSignalValueChanged;
 
-@interface UITitleValueTableCell : WSIUITableViewCell
+@interface UITitleValueTableCell : NNTUITableViewCell
 
 @property (nonatomic, readonly) UILabel* title;
 @property (nonatomic, readonly) UILabel* value;
@@ -56,7 +56,7 @@ WSI_EXTERN signal_t kSignalValueChanged;
 
 @end
 
-@interface UITextFieldTableCell : WSIUITableViewCell {
+@interface UITextFieldTableCell : NNTUITableViewCell {
     UILabel *_label;
     UISettingsTextField *_textField;
 }
@@ -68,7 +68,7 @@ WSI_EXTERN signal_t kSignalValueChanged;
 
 @end
 
-@interface UISliderTableCell : WSIUITableViewCell {
+@interface UISliderTableCell : NNTUITableViewCell {
     UISettingsSlider *_slider;
     UIImageView *_minImage;
     UIImageView *_maxImage;
@@ -81,6 +81,6 @@ WSI_EXTERN signal_t kSignalValueChanged;
 @end
 
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

@@ -1,15 +1,15 @@
 
-# ifndef __WSI_UIKIT_PAGEROLLER_25B4484BE0B44D6E98E16CC7E4AEF1BF_H_INCLUDED
-# define __WSI_UIKIT_PAGEROLLER_25B4484BE0B44D6E98E16CC7E4AEF1BF_H_INCLUDED
+# ifndef __NNT_UIKIT_PAGEROLLER_25B4484BE0B44D6E98E16CC7E4AEF1BF_H_INCLUDED
+# define __NNT_UIKIT_PAGEROLLER_25B4484BE0B44D6E98E16CC7E4AEF1BF_H_INCLUDED
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 # include "UIPageRollerPage.h"
-# include "UIPageControl+WSI.h"
+# include "UIPageControl+NNT.h"
 # include "UIItemView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIPageRoller);
+NNTDECL_EXTERN_CLASS(UIPageRoller);
 
 @protocol UIPageRollerDataSource <NSObject>
 
@@ -26,9 +26,9 @@ WSIDECL_EXTERN_CLASS(UIPageRoller);
 
 @end
 
-WSIDECL_PRIVATE_HEAD(UIPageRoller);
+NNTDECL_PRIVATE_HEAD(UIPageRoller);
 
-@interface UIPageRoller : WSIUIControl <UIPageRollerDataSource, UIPageRollerDelegate> {
+@interface UIPageRoller : NNTUIControl <UIPageRollerDataSource, UIPageRollerDelegate> {
     
     //! delegate.
     id<UIPageRollerDataSource> _dataSource;
@@ -41,12 +41,12 @@ WSIDECL_PRIVATE_HEAD(UIPageRoller);
     UIRollerPage *_currentPage;
     
     //! the pointer to page control.
-    WSIUIPageControl* _pageControl;
+    NNTUIPageControl* _pageControl;
     
     //! pages container.
     UIItemsContainer* _pages;
     
-    WSIDECL_PRIVATE(UIPageRoller);
+    NNTDECL_PRIVATE(UIPageRoller);
 }
 
 @property (nonatomic, assign) id<UIPageRollerDataSource> dataSource;
@@ -54,7 +54,7 @@ WSIDECL_PRIVATE_HEAD(UIPageRoller);
 @property (nonatomic, assign) NSInteger numberOfCurrentPage;
 @property (nonatomic, assign) UIRollerPage* currentPage;
 @property (nonatomic, retain) UIItemsContainer *pages;
-@property (nonatomic, readonly) WSIUIPageControl* pageControl;
+@property (nonatomic, readonly) NNTUIPageControl* pageControl;
 
 - (void)clear;
 - (void)reloadData;
@@ -63,12 +63,12 @@ WSIDECL_PRIVATE_HEAD(UIPageRoller);
 
 _CXXVIEW_DECL(UIPageRoller);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IPageRoller
 : public IControl
@@ -93,7 +93,7 @@ public:
     template <typename pageT>
     void add(pageT const& obj)
     {
-        wtl::const_pointer<pageT> ptr(obj);
+        ntl::const_pointer<pageT> ptr(obj);
         _pages.add(*ptr);
     }
     
@@ -124,8 +124,8 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

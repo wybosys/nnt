@@ -1,19 +1,19 @@
 
-# ifndef __WSI_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
-# define __WSI_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
+# ifndef __NNT_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
+# define __NNT_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
 
 # import "../Graphic/styles/CGStyle.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN NSString* kStyleBackground;
+NNT_EXTERN NSString* kStyleBackground;
 
-@interface UIStyleSheet : WCGStyleSheet
+@interface UIStyleSheet : NgStyleSheet
 
-@property (nonatomic, retain) WCGFill* backgroundFill;
+@property (nonatomic, retain) NgFill* backgroundFill;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

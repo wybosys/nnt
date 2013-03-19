@@ -1,18 +1,18 @@
 
-# ifndef __WSI_PARSER_XML_D346FEB6D4B640F285D9026742145E27_H_INCLUDED
-# define __WSI_PARSER_XML_D346FEB6D4B640F285D9026742145E27_H_INCLUDED
+# ifndef __NNT_PARSER_XML_D346FEB6D4B640F285D9026742145E27_H_INCLUDED
+# define __NNT_PARSER_XML_D346FEB6D4B640F285D9026742145E27_H_INCLUDED
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 #   define USE_LIBXML
 # else
 #   define USE_LIBXERCESC
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface XmlAttribute : WSIObject {
+@interface XmlAttribute : NNTObject {
     NSString *_name, *_value;
     
 @protected
@@ -35,7 +35,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface XmlNamespace : WSIObject {
+@interface XmlNamespace : NNTObject {
     NSString *_name, *_value;
     
 @protected
@@ -58,7 +58,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface XmlNode : WSIObject {
+@interface XmlNode : NNTObject {
     
     //! name.
     NSString* _name;
@@ -157,24 +157,24 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(parser)
 
-WSICLASS(XmlAttribute);
-WSICLASS(XmlNode);
-WSICLASS(XmlDocumentType);
-WSICLASS(XmlDocument);
+NNTCLASS(XmlAttribute);
+NNTCLASS(XmlNode);
+NNTCLASS(XmlDocumentType);
+NNTCLASS(XmlDocument);
 
 class XmlNode
 : public cxx::Object<>
 {
-    WSIDECL_NOCOPY(XmlNode);
+    NNTDECL_NOCOPY(XmlNode);
     
 public:
     
@@ -254,7 +254,7 @@ public:
 class XmlAttribute
 : public XmlNode
 {
-    WSIDECL_NOCOPY(XmlAttribute);
+    NNTDECL_NOCOPY(XmlAttribute);
     
 public:  
     
@@ -267,7 +267,7 @@ public:
 class XmlDocumentType
 : public XmlNode
 {
-    WSIDECL_NOCOPY(XmlDocumentType);
+    NNTDECL_NOCOPY(XmlDocumentType);
     
 public:
     
@@ -280,8 +280,8 @@ public:
 class XmlDocument
 : public cxx::Object<>
 {
-    WSIDECL_NOCOPY(XmlDocument);
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_NOCOPY(XmlDocument);
+    NNTDECL_SIGNALS_SLOTS;
     
 public:
     XmlDocument();
@@ -362,11 +362,11 @@ protected:
     
 };
 
-WSI_END_NS 
+NNT_END_NS 
 
-WSI_EXTERN signal_t kSignalLoaded;
+NNT_EXTERN signal_t kSignalLoaded;
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,11 +1,11 @@
 
-# ifndef __WSI_UIKIT_UISCROLLHEADERVIEW_22039D89EB53475A92C125BBD27D635F_H_INCLUDED
-# define __WSI_UIKIT_UISCROLLHEADERVIEW_22039D89EB53475A92C125BBD27D635F_H_INCLUDED
+# ifndef __NNT_UIKIT_UISCROLLHEADERVIEW_22039D89EB53475A92C125BBD27D635F_H_INCLUDED
+# define __NNT_UIKIT_UISCROLLHEADERVIEW_22039D89EB53475A92C125BBD27D635F_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIPullRefreshHeaderView);
-WSIDECL_EXTERN_CLASS(UIPullMoreHeaderView);
+NNTDECL_EXTERN_CLASS(UIPullRefreshHeaderView);
+NNTDECL_EXTERN_CLASS(UIPullMoreHeaderView);
 
 enum {
 	UITableViewPullRefreshStatePulling = 0,
@@ -21,7 +21,7 @@ enum {
 };
 typedef uint UITableViewPullMoreState;
 
-@protocol WSIUITablePullRefreshDelegate <NSObject>
+@protocol NNTUITablePullRefreshDelegate <NSObject>
 
 - (void)RefreshTableHeaderDidTriggerRefresh:(UIPullRefreshHeaderView*)view;
 - (BOOL)RefreshTableHeaderDataSourceIsLoading:(UIPullRefreshHeaderView*)view;
@@ -32,16 +32,16 @@ typedef uint UITableViewPullMoreState;
 
 @end
 
-@protocol WSIUITablePullMoreDelegate <NSObject>
+@protocol NNTUITablePullMoreDelegate <NSObject>
 
 - (void)MoreTableHeaderDidTriggerRefresh:(UIPullMoreHeaderView*)view;
 - (BOOL)MoreTableHeaderDataSourceIsLoading:(UIPullMoreHeaderView*)view;
 
 @end
 
-@interface UIPullRefreshHeaderView : WSIUIView {   
+@interface UIPullRefreshHeaderView : NNTUIView {   
     @protected
-    id <WSIUITablePullRefreshDelegate> _delegate;
+    id <NNTUITablePullRefreshDelegate> _delegate;
     UITableViewPullRefreshState _state;
     
 	UILabel *_lastUpdatedLabel;
@@ -50,7 +50,7 @@ typedef uint UITableViewPullMoreState;
 	UIActivityIndicatorView *_activityView;
 }
 
-@property (nonatomic, assign) id <WSIUITablePullRefreshDelegate> delegate;
+@property (nonatomic, assign) id <NNTUITablePullRefreshDelegate> delegate;
 
 //! refresh.
 - (void)refreshLastUpdatedDate;
@@ -62,7 +62,7 @@ typedef uint UITableViewPullMoreState;
 
 @end
 
-@interface UIPullMoreHeaderView : WSIUIView {
+@interface UIPullMoreHeaderView : NNTUIView {
     
     //! no. of page.
     uint pageno;
@@ -71,14 +71,14 @@ typedef uint UITableViewPullMoreState;
     id model;
     
     @protected
-    id<WSIUITablePullMoreDelegate> _delegate;
+    id<NNTUITablePullMoreDelegate> _delegate;
     UITableViewPullMoreState _state;    
     
     UILabel* _moreLabel;
     UIActivityIndicatorView *_activityView;        
 }
 
-@property (nonatomic, assign) id<WSIUITablePullMoreDelegate> delegate;
+@property (nonatomic, assign) id<NNTUITablePullMoreDelegate> delegate;
 @property (nonatomic, assign) uint pageno;
 @property (nonatomic, retain) id model;
 
@@ -88,9 +88,9 @@ typedef uint UITableViewPullMoreState;
 
 @end
 
-WSI_EXTERN signal_t kSignalPullHeaderReload;
-WSI_EXTERN signal_t kSignalPullHeaderMore;
+NNT_EXTERN signal_t kSignalPullHeaderReload;
+NNT_EXTERN signal_t kSignalPullHeaderMore;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

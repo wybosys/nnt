@@ -1,27 +1,27 @@
 
-# ifndef __WSINS_BUTTON_D1922D19F6B84EE69C7B90467B1A2187_H_INCLUDED
-# define __WSINS_BUTTON_D1922D19F6B84EE69C7B90467B1A2187_H_INCLUDED
+# ifndef __NNTNS_BUTTON_D1922D19F6B84EE69C7B90467B1A2187_H_INCLUDED
+# define __NNTNS_BUTTON_D1922D19F6B84EE69C7B90467B1A2187_H_INCLUDED
 
-# include "NSControl+WSI.h"
+# include "NSControl+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSButton : NSButton {
-    WSIOBJECT_DECL;
+@interface NNTNSButton : NSButton {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSControl+WSI.h"
+# include "NSControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 template <uint typeID>
 struct nsbutton_type_traits
@@ -37,7 +37,7 @@ struct nsbutton_type_traits<NSMomentaryPushInButton>
     };
 };
 
-template <usize typeID, typename buttonT = WSINSButton >
+template <usize typeID, typename buttonT = NNTNSButton >
 class Button
 : public Control< Button<typeID, buttonT>, buttonT >
 {
@@ -71,8 +71,8 @@ protected:
 
 typedef Button<NSMomentaryPushInButton> PushButton;
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

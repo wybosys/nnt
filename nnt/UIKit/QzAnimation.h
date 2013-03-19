@@ -1,30 +1,30 @@
 
-# ifndef __WSI_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
-# define __WSI_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
+# ifndef __NNT_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
+# define __NNT_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
 
-# import "../Graphic/WCGPath.h"
-# import "../Core/NSValue+WSI.h"
+# import "../Graphic/NGPath.h"
+# import "../Core/NSValue+NNT.h"
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface __cxxobject_qzanimation : WSIObject
+@interface __cxxobject_qzanimation : NNTObject
 
 @end
 
-WSI_EXTERN signal_t kSignalAnimationStart;
-WSI_EXTERN signal_t kSignalAnimationStop;
+NNT_EXTERN signal_t kSignalAnimationStart;
+NNT_EXTERN signal_t kSignalAnimationStop;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "WSIUIObject.h"
+# include "UIObject+NNT.h"
 # include "QzMediaTiming.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(qz)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(qz)
 
 class Transcation
 {
@@ -65,10 +65,10 @@ public:
 
 template <typename aniT = CAAnimation>
 class Animation
-: public ::wsi::ns::Object<__cxxobject_qzanimation>,
+: public ::nnt::ns::Object<__cxxobject_qzanimation>,
 public MediaTiming<Animation<aniT> >
 {    
-    typedef ::wsi::ns::Object<__cxxobject_qzanimation> super;
+    typedef ::nnt::ns::Object<__cxxobject_qzanimation> super;
     
 protected:
     
@@ -348,8 +348,8 @@ public:
 
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

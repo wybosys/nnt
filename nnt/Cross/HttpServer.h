@@ -1,13 +1,13 @@
 
-# ifndef __WSI_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
-# define __WSI_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
+# ifndef __NNT_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
+# define __NNT_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
 
 # include "NetAddress.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
 
-WSICLASS(HttpConfig);
+NNTCLASS(HttpConfig);
 
 class HttpConfig
 {
@@ -19,8 +19,8 @@ public:
 
 };
 
-WSICLASS(HttpServer);
-WSICLASS(HttpConnection);
+NNTCLASS(HttpServer);
+NNTCLASS(HttpConnection);
 
 class HttpConnection
 {
@@ -36,12 +36,12 @@ public:
 
 };
 
-WSIDECL_PRIVATE_HEAD_CXX(HttpServer);
+NNTDECL_PRIVATE_HEAD_CXX(HttpServer);
 
 class HttpServer
 : public cxx::Class<cxx::Object<> >
 {
-    WSIDECL_PRIVATE_CXX(HttpServer);
+    NNTDECL_PRIVATE_CXX(HttpServer);
     friend class HttpConnection;
     
 public:
@@ -55,13 +55,13 @@ public:
     //! config for httpd.    
     HttpConfig config;
 
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
     
 };
 
-static cxx::signal_t kSignalNewConnection = "::wsi::connection::new";
+static cxx::signal_t kSignalNewConnection = "::nnt::connection::new";
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

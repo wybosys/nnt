@@ -1,0 +1,16 @@
+
+# ifndef __NNT_NNTCG_UTIS_49F810F07E464EC7879F55748470B3A0_H_INCLUDED
+# define __NNT_NNTCG_UTIS_49F810F07E464EC7879F55748470B3A0_H_INCLUDED
+
+# import "NGDefines.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+NgRGBAColor NgRGBAColorFromCGColor(CGColorRef color);
+
+void NgPushCGContext(CGContextRef context);
+void NgPopCGContext(void);
+
+NNT_END_HEADER_OBJC
+
+# endif

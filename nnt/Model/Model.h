@@ -1,10 +1,10 @@
 
-# ifndef __WSI_MODEL_501D4F67DA324B8A85BB74E9DF2EAB6E_H_INCLUDED
-# define __WSI_MODEL_501D4F67DA324B8A85BB74E9DF2EAB6E_H_INCLUDED
+# ifndef __NNT_MODEL_501D4F67DA324B8A85BB74E9DF2EAB6E_H_INCLUDED
+# define __NNT_MODEL_501D4F67DA324B8A85BB74E9DF2EAB6E_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 // @interface Model
 @protocol IModel
@@ -17,9 +17,9 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_EXTERN_PROTOCOL(NullObjParser);
+NNTDECL_EXTERN_PROTOCOL(NullObjParser);
 
-@interface Model : WSIObject <IModel> {
+@interface Model : NNTObject <IModel> {
     
     //! url for fetch data.
 	NSString *_url;
@@ -126,24 +126,24 @@ WSIDECL_EXTERN_PROTOCOL(NullObjParser);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class IModel;
 class Model;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 
 @interface __cxxmodel_wrapper : Model {
     @protected
-    ::wsi::ns::IModel* model;
+    ::nnt::ns::IModel* model;
 }
 
-@property (nonatomic, assign) ::wsi::ns::IModel* model;
+@property (nonatomic, assign) ::nnt::ns::IModel* model;
 
 - (NSURL*)get_url;
 
@@ -151,50 +151,50 @@ WSI_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# define WSICONVERTOR_MODEL(mdl) \
+# define NNTCONVERTOR_MODEL(mdl) \
 __cxxmodel_convertor_##mdl
 
-# define WSICONVERTOR_MODEL_DECL(mdl) \
-@interface WSICONVERTOR_MODEL(mdl) : mdl { \
+# define NNTCONVERTOR_MODEL_DECL(mdl) \
+@interface NNTCONVERTOR_MODEL(mdl) : mdl { \
 @protected \
-::wsi::ns::IModel* model; \
+::nnt::ns::IModel* model; \
 } \
-@property (nonatomic, assign) ::wsi::ns::IModel* model; \
+@property (nonatomic, assign) ::nnt::ns::IModel* model; \
 @end
 
-# define WSICONVERTOR_MODEL_IMPL(mdl) \
-WSICONVERTOR_MODEL_IMPL_BEGIN(mdl) \
-WSICONVERTOR_MODEL_IMPL_END
+# define NNTCONVERTOR_MODEL_IMPL(mdl) \
+NNTCONVERTOR_MODEL_IMPL_BEGIN(mdl) \
+NNTCONVERTOR_MODEL_IMPL_END
 
-# define WSICONVERTOR_MODEL_IMPL_BEGIN(mdl) \
-@implementation WSICONVERTOR_MODEL(mdl) \
+# define NNTCONVERTOR_MODEL_IMPL_BEGIN(mdl) \
+@implementation NNTCONVERTOR_MODEL(mdl) \
 @synthesize model; \
 
-# define WSICONVERTOR_MODEL_IMPL_END \
+# define NNTCONVERTOR_MODEL_IMPL_END \
 @end
 
 # else
 
-# define WSICONVERTOR_MODEL_DECL(mdl)
-//# define WSICONVERTOR_MODEL_IMPL(mdl)
+# define NNTCONVERTOR_MODEL_DECL(mdl)
+//# define NNTCONVERTOR_MODEL_IMPL(mdl)
 
 # endif
 
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 //! url model.
 # import "MURLModel.h"
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class IModel
-: public ::wsi::RefObject
+: public ::nnt::RefObject
 {
 public:
     
@@ -206,7 +206,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename mdlT, typename ImdlT = ns::IModel>
 class Model
@@ -260,7 +260,7 @@ public:
 
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Model
 : public tpl::Model< __cxxmodel_wrapper >
@@ -291,7 +291,7 @@ public:
     template <typename parserT>
     void set_parser(parserT const& parser)
     {
-        wtl::const_pointer<parserT> ptr(parser);
+        ntl::const_pointer<parserT> ptr(parser);
         this->_self.objparser = *ptr;
     }
     
@@ -341,8 +341,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx
@@ -350,10 +350,10 @@ WSI_END_HEADER_CXX
 # endif
 // end objc
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(model)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(model)
 
 class IModel
 	: public RefObject
@@ -362,7 +362,7 @@ public:
 
 };
 
-WSICLASS(Model);
+NNTCLASS(Model);
 
 class Model
 	: public IModel
@@ -372,7 +372,7 @@ public:
 
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename baseM = model::Model>
 class Model
@@ -383,10 +383,10 @@ public:
 
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -4,17 +4,17 @@
 
 # import "JuiceCore.hpp"
 # import "JuiceTypes.hpp"
-# import "../../Graphic/WCGPath.h"
-# import "../../Graphic/WCGColor.h"
-# import "../../Graphic/WCGGradient.h"
-# import "../../Graphic/WCGImage.h"
-# import "../../Graphic/WCGTextStyle.h"
-# import "../../Graphic/WCGContext.h"
-# import "../../Graphic/WCGFill.h"
-# import "../../Graphic/CGShadow.h"
+# import "../../Graphic/NGPath.h"
+# import "../../Graphic/NGColor.h"
+# import "../../Graphic/NGGradient.h"
+# import "../../Graphic/NGImage.h"
+# import "../../Graphic/NGTextStyle.h"
+# import "../../Graphic/NGContext.h"
+# import "../../Graphic/NGFill.h"
+# import "../../Graphic/NGShadow.h"
 
 JUICE_BEGIN 
-WSI_BEGIN_NS(cocoa)
+NNT_BEGIN_NS(cocoa)
 
 # ifdef RGB
 # undef RGB
@@ -30,12 +30,12 @@ WSI_BEGIN_NS(cocoa)
 
 class Graphics;
 
-using ::wsi::cg::Rect;
-using ::wsi::cg::Size;
-using ::wsi::cg::Point;
-using ::wsi::cg::Angle;
+using ::nnt::cg::Rect;
+using ::nnt::cg::Size;
+using ::nnt::cg::Point;
+using ::nnt::cg::Angle;
 
-WSIDECL_BOOLOBJECT(cw, ccw);
+NNTDECL_BOOLOBJECT(cw, ccw);
 
 enum
 {
@@ -43,9 +43,9 @@ enum
 };
 
 class Color
-: public ::wsi::cg::Color
+: public ::nnt::cg::Color
 {
-    typedef ::wsi::cg::Color super;
+    typedef ::nnt::cg::Color super;
     
 public:       
     
@@ -100,7 +100,7 @@ public:
     Color(colorT const& r, 
           typename colorT::color_type* = NULL)
     {
-        ::wsi::wtl::const_pointer<colorT> ptr(r);
+        ::nnt::ntl::const_pointer<colorT> ptr(r);
         _set((CGColorRef)(*ptr));
     }
     
@@ -191,9 +191,9 @@ protected:
 };
 
 class Gradient
-: public ::wsi::cg::Gradient
+: public ::nnt::cg::Gradient
 {
-    typedef ::wsi::cg::Gradient super;
+    typedef ::nnt::cg::Gradient super;
     
 public:
     
@@ -215,9 +215,9 @@ public:
 };
 
 class Image
-: public ::wsi::cg::Image
+: public ::nnt::cg::Image
 {
-    typedef ::wsi::cg::Image super;
+    typedef ::nnt::cg::Image super;
     
 public:
     
@@ -238,7 +238,7 @@ public:
         PASS;
     }
     
-    Image(::wsi::ns::String const& named)
+    Image(::nnt::ns::String const& named)
     : super(named)
     {
         PASS;
@@ -277,9 +277,9 @@ public:
 };
 
 class Fill
-: public ::wsi::cg::Fill
+: public ::nnt::cg::Fill
 {
-    typedef ::wsi::cg::Fill super;
+    typedef ::nnt::cg::Fill super;
     
 public:
     
@@ -288,7 +288,7 @@ public:
         PASS;
     }
     
-    Fill(WCGFill* r)
+    Fill(NgFill* r)
     : super(r)
     {
         PASS;
@@ -565,9 +565,9 @@ protected:
 };
 
 class String
-: public ::wsi::ns::String
+: public ::nnt::ns::String
 {
-    typedef ::wsi::ns::String super;
+    typedef ::nnt::ns::String super;
     
 public:
     
@@ -576,7 +576,7 @@ public:
         PASS;
     }
     
-    String(::wsi::ns::String const& str)
+    String(::nnt::ns::String const& str)
     : super(str)
     {
         PASS;
@@ -591,14 +591,14 @@ public:
     void draw(Graphics& gra, Point const&, bool adjust = true) const;
     void draw(Graphics& gra, Rect const&, bool adjust = true) const;
     
-    ::wsi::cg::MutableTextStyle style;
+    ::nnt::cg::MutableTextStyle style;
     
 };
 
 class Matrix
-: public ::wsi::cg::AffineTransform
+: public ::nnt::cg::AffineTransform
 {
-    typedef ::wsi::cg::AffineTransform super;
+    typedef ::nnt::cg::AffineTransform super;
     
 public:
     
@@ -671,9 +671,9 @@ public:
 };
 
 class Shadow
-: public ::wsi::cg::Shadow
+: public ::nnt::cg::Shadow
 {
-    typedef ::wsi::cg::Shadow super;
+    typedef ::nnt::cg::Shadow super;
     
 public:
     
@@ -696,7 +696,7 @@ class Path
 {
     
     typedef Path self_type;
-    typedef ::wsi::cg::MutablePath super;
+    typedef ::nnt::cg::MutablePath super;
     
 public:
     
@@ -797,8 +797,8 @@ public:
     template <typename pointsT>
     void add_lines(pointsT const& pts)
     {
-        CGPoint* ppts = (CGPoint*)::wsi::core::pointer(pts);
-        CGPathAddLines(_path, _transform, ppts, ::wsi::core::size(pts));
+        CGPoint* ppts = (CGPoint*)::nnt::core::pointer(pts);
+        CGPathAddLines(_path, _transform, ppts, ::nnt::core::size(pts));
     }
     
     template <typename pointT>
@@ -993,9 +993,9 @@ public:
         return (CGPathRef)_bezier.CGPath;
     }
     
-    operator ::wsi::cg::Path () const
+    operator ::nnt::cg::Path () const
     {
-        return ::wsi::cg::Path((CGPathRef)_bezier.CGPath);
+        return ::nnt::cg::Path((CGPathRef)_bezier.CGPath);
     }
     
     void place(Graphics&) const;
@@ -1295,7 +1295,7 @@ public:
     
     static self_type Current(CGRect rc = CGRectZero)
     {
-        return self_type(WCGGetCurrentContext(), rc);
+        return self_type(NgGetCurrentContext(), rc);
     }
     
     Layer layer() const
@@ -1310,7 +1310,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
 class Graphics
 {
@@ -1328,7 +1328,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 inline_impl void Color::fill(Graphics& gra) const
 {
@@ -1511,7 +1511,7 @@ inline_impl void Shape::draw(Graphics& gra) const
     gra.pop_state();
 }
 
-WSI_END_NS 
+NNT_END_NS 
 
 template <typename matrixT>
 class Orthogonal;

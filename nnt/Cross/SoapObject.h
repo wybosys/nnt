@@ -1,13 +1,13 @@
 
-# ifndef __WSI_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
-# define __WSI_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
+# ifndef __NNT_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
+# define __NNT_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
 
 # include "../Core/ObjectDL.h"
 
 # define SOAPDECL_BEGIN_CLASS_EX(clsnm, inst) \
-static ::wsi::lang::Class* Class() { \
+static ::nnt::lang::Class* Class() { \
 typedef clsnm soapclass_type;                                          \
-::wsi::lang::Class* cls = new ::wsi::lang::Class(#clsnm, (::wsi::lang::Class::instance_type)clsnm::inst); {
+::nnt::lang::Class* cls = new ::nnt::lang::Class(#clsnm, (::nnt::lang::Class::instance_type)clsnm::inst); {
 
 # define SOAPDECL_BEGIN_CLASS(clsnm) \
 static clsnm* instance() { return new clsnm; } \
@@ -17,9 +17,9 @@ SOAPDECL_BEGIN_CLASS_EX(clsnm, instance);
 
 # define SOAPDECL_METHOD_BEGIN_EX(mtdnm, func) \
 {\
-::wsi::lang::Method* mtd = new ::wsi::lang::Method(#mtdnm, \
-(::wsi::lang::Method::method_type)\
-(int (soapclass_type::*)(::wsi::lang::Method::params_type const&, ::wsi::lang::Method::returns_type&, void*)) \
+::nnt::lang::Method* mtd = new ::nnt::lang::Method(#mtdnm, \
+(::nnt::lang::Method::method_type)\
+(int (soapclass_type::*)(::nnt::lang::Method::params_type const&, ::nnt::lang::Method::returns_type&, void*)) \
 &soapclass_type::func);
 
 # define SOAPDECL_METHOD_BEGIN(func) \
@@ -27,8 +27,8 @@ SOAPDECL_METHOD_BEGIN_EX(func, func)
 
 # define SOAPDECL_METHOD_END cls->methods.push_back(mtd); }
 
-# define SOAPDECL_ARGUMENT(nm) mtd->params[#nm] = new ::wsi::lang::Parameter(#nm);
-# define SOAPDECL_OPTIONAL(nm) mtd->params[#nm] = new ::wsi::lang::Parameter(#nm, true);
+# define SOAPDECL_ARGUMENT(nm) mtd->params[#nm] = new ::nnt::lang::Parameter(#nm);
+# define SOAPDECL_OPTIONAL(nm) mtd->params[#nm] = new ::nnt::lang::Parameter(#nm, true);
 
 # define SOAPDECL_ARGUMENTS2(v0, v1) SOAPDECL_ARGUMENT(v0); SOAPDECL_ARGUMENT(v1);
 # define SOAPDECL_ARGUMENTS3(v0, v1, v2) SOAPDECL_ARGUMENTS2(v0, v1); SOAPDECL_ARGUMENT(v2);
@@ -39,7 +39,7 @@ SOAPDECL_METHOD_BEGIN_EX(func, func)
 # define SOAPDECL_ARGUMENTS8(v0, v1, v2, v3, v4, v5, v6, v7) SOAPDECL_ARGUMENTS7(v0, v1, v2, v3, v4, v5, v6); SOAPDECL_ARGUMENT(v7);
 # define SOAPDECL_ARGUMENTS9(v0, v1, v2, v3, v4, v5, v6, v7, v8) SOAPDECL_ARGUMENTS8(v0, v1, v2, v3, v4, v5, v6, v7); SOAPDECL_ARGUMENT(v8);
 
-# define SOAPDECL_RETURN(nm) mtd->returns[#nm] = new ::wsi::lang::Field(#nm);
+# define SOAPDECL_RETURN(nm) mtd->returns[#nm] = new ::nnt::lang::Field(#nm);
 # define SOAPDECL_RETURNS2(v0, v1) SOAPDECL_RETURN(v0); SOAPDECL_RETURN(v1);
 # define SOAPDECL_RETURNS3(v0, v1, v2) SOAPDECL_RETURNS2(v0, v1); SOAPDECL_RETURN(v2);
 # define SOAPDECL_RETURNS4(v0, v1, v2, v3) SOAPDECL_RETURNS3(v0, v1, v2); SOAPDECL_RETURN(v3);
@@ -49,15 +49,15 @@ SOAPDECL_METHOD_BEGIN_EX(func, func)
 # define SOAPDECL_RETURNS8(v0, v1, v2, v3, v4, v5, v6, v7) SOAPDECL_RETURNS7(v0, v1, v2, v3, v4, v5, v6); SOAPDECL_RETURN(v7);
 # define SOAPDECL_RETURNS9(v0, v1, v2, v3, v4, v5, v6, v7, v8) SOAPDECL_RETURNS8(v0, v1, v2, v3, v4, v5, v6, v7); SOAPDECL_RETURN(v8);
 
-# define SOAPDECL_METHOD(nm) int nm (::wsi::lang::Method::params_type const& params, ::wsi::lang::Method::returns_type& returns, void* data)
+# define SOAPDECL_METHOD(nm) int nm (::nnt::lang::Method::params_type const& params, ::nnt::lang::Method::returns_type& returns, void* data)
 
-# define SOAPIMPL_METHOD(nm, cls) int cls::nm (::wsi::lang::Method::params_type const& params, ::wsi::lang::Method::returns_type& returns, void* data)
+# define SOAPIMPL_METHOD(nm, cls) int cls::nm (::nnt::lang::Method::params_type const& params, ::nnt::lang::Method::returns_type& returns, void* data)
 
-WSI_BEGIN_HEADER_CXX 
+NNT_BEGIN_HEADER_CXX 
 
-WSIDECL_EXTERN_CLASS_NS(parser, SoapDocument);
+NNTDECL_EXTERN_CLASS_NS(parser, SoapDocument);
 
-WSI_BEGIN_NS(soap)
+NNT_BEGIN_NS(soap)
 
 class Fault
 {
@@ -74,9 +74,9 @@ public:
     core::string actor;
 };
 
-WSICLASS(Object);
+NNTCLASS(Object);
 class Object
-: public ::wsi::lang::Object
+: public ::nnt::lang::Object
 {
 public:
     Fault fault;
@@ -105,17 +105,17 @@ public:
         return cd;
     }
     
-    variant_t const& param(core::string const& key, ::wsi::lang::Method::params_type const& params) const
+    variant_t const& param(core::string const& key, ::nnt::lang::Method::params_type const& params) const
     {
-        ::wsi::lang::Method::params_type::const_iterator found = params.find(key);
+        ::nnt::lang::Method::params_type::const_iterator found = params.find(key);
         if (found == params.end())
             return variant_t::Null();
         return *found->second;
     }
     
-    variant_t& ret(core::string const& key, ::wsi::lang::Method::returns_type& returns) const
+    variant_t& ret(core::string const& key, ::nnt::lang::Method::returns_type& returns) const
     {
-        ::wsi::lang::Method::returns_type::iterator found = returns.find(key);
+        ::nnt::lang::Method::returns_type::iterator found = returns.find(key);
         if (found == returns.end())
 			return core::ref(variant_t::Null());
         return *found->second;
@@ -123,9 +123,9 @@ public:
     
 };
 
-WSIAPI(lang::Namespace*) getNamespace();
+NNTAPI(lang::Namespace*) getNamespace();
 
-WSICLASS(Invoker);
+NNTCLASS(Invoker);
 class Invoker
 {
 public:
@@ -156,7 +156,7 @@ protected:
     parser::SoapDocument* _doc;
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif

@@ -6,7 +6,7 @@
 
 JUICEIMPL_BEGIN 
 
-WSI_BEGIN_NS(ad3dmax)
+NNT_BEGIN_NS(ad3dmax)
 
 enum {
     MAINCHUNK = 0x4D4D,
@@ -18,7 +18,7 @@ enum {
     TEXMAP_DATA = 0x4140
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Archive3dmax
 {
@@ -35,7 +35,7 @@ public:
         this->close();
     }
     
-    bool open(::wsi::core::string const& file)
+    bool open(::nnt::core::string const& file)
     {
         this->close();
         
@@ -159,7 +159,7 @@ protected:
     template <typename meshT>
     bool _read_name(meshT* mesh)
     {
-        wsi::core::string name;
+        ::nnt::core::string name;
         
         int i = 0;
         char c = 0;

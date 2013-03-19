@@ -1,20 +1,20 @@
 
-# ifndef __WSI_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
-# define __WSI_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
+# ifndef __NNT_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
+# define __NNT_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(AudioPlayer);
+NNTDECL_PRIVATE_HEAD(AudioPlayer);
 
-@interface AudioPlayer : WSIObject {
+@interface AudioPlayer : NNTObject {
     
     NSURL* _target;
     NSUInteger _loopCount;
     BOOL _background;
     
-    WSIDECL_PRIVATE(AudioPlayer);
+    NNTDECL_PRIVATE(AudioPlayer);
 }
 
 @property (nonatomic, copy) NSURL* target;
@@ -26,14 +26,14 @@ WSIDECL_PRIVATE_HEAD(AudioPlayer);
 
 @end
 
-WSI_EXTERN signal_t kSignalPlayCompleted;
+NNT_EXTERN signal_t kSignalPlayCompleted;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(player)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(player)
 
 class Audio
 : public ns::Object<AudioPlayer>
@@ -54,8 +54,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // cxx
 

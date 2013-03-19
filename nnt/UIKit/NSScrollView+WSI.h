@@ -1,24 +1,24 @@
 
-# ifndef __WSINS_SCROLLVIEW_D736FE461F454250997050D89A2B9335_H_INCLUDED
-# define __WSINS_SCROLLVIEW_D736FE461F454250997050D89A2B9335_H_INCLUDED
+# ifndef __NNTNS_SCROLLVIEW_D736FE461F454250997050D89A2B9335_H_INCLUDED
+# define __NNTNS_SCROLLVIEW_D736FE461F454250997050D89A2B9335_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSScrollView : NSScrollView
+@interface NNTNSScrollView : NSScrollView
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSControl+WSI.h"
+# include "NSControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 template <typename implT, 
-typename scrollT = WSINSScrollView
+typename scrollT = NNTNSScrollView
 >
 class ScrollView
 : public View <implT, scrollT>
@@ -40,20 +40,20 @@ public:
     template <typename viewT>
     void set_document(viewT const& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self setDocumentView:*ptr];
     }
     
 };
 
 class Scroll
-: public ScrollView<Scroll, WSINSScrollView>
+: public ScrollView<Scroll, NNTNSScrollView>
 {
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

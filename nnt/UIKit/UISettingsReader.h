@@ -1,8 +1,8 @@
 
-# ifndef __WSI_UIKIT_UISETTINGSREADER_F895C32A97EA47819FAC95019A49490B_H_INCLUDED
-# define __WSI_UIKIT_UISETTINGSREADER_F895C32A97EA47819FAC95019A49490B_H_INCLUDED
+# ifndef __NNT_UIKIT_UISETTINGSREADER_F895C32A97EA47819FAC95019A49490B_H_INCLUDED
+# define __NNT_UIKIT_UISETTINGSREADER_F895C32A97EA47819FAC95019A49490B_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # define kIASKPreferenceSpecifiers             @"PreferenceSpecifiers"
 # define kIASKType                             @"Type"
@@ -95,7 +95,7 @@ WSI_BEGIN_HEADER_OBJC
     if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_4_0) { \
        __VA_ARGS__ }
 
-WSIDECL_EXTERN_CLASS(UISettingsSpecifier);
+NNTDECL_EXTERN_CLASS(UISettingsSpecifier);
 
 @interface UISettingsReader : NSObject {
     NSString        *_path;
@@ -125,6 +125,6 @@ WSIDECL_EXTERN_CLASS(UISettingsSpecifier);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

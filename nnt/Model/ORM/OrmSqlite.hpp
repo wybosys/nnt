@@ -1,12 +1,12 @@
 
-# ifndef __WSI_ORM_CUBE_SQLITE_64BCBC26C5E14F61B44522B25F91F548_H_INCLUDED
-# define __WSI_ORM_CUBE_SQLITE_64BCBC26C5E14F61B44522B25F91F548_H_INCLUDED
+# ifndef __NNT_ORM_CUBE_SQLITE_64BCBC26C5E14F61B44522B25F91F548_H_INCLUDED
+# define __NNT_ORM_CUBE_SQLITE_64BCBC26C5E14F61B44522B25F91F548_H_INCLUDED
 
 # include "OrmCube.hpp"
 # include "OrmSlice.hpp"
 # include "OrmBlock.hpp"
 
-WSI_BEGIN_HEADER_ORM
+NNT_BEGIN_HEADER_ORM
 
 class SqliteBlock
 : public RBlock
@@ -38,12 +38,12 @@ protected:
     
 };
 
-WSIDECL_PRIVATE_HEAD_CXX(SqliteCube);
+NNTDECL_PRIVATE_HEAD_CXX(SqliteCube);
 
 class SqliteCube
 : public SqlCube
 {
-    WSIDECL_PRIVATE_CXX(SqliteCube);
+    NNTDECL_PRIVATE_CXX(SqliteCube);
     
 public:
     
@@ -61,6 +61,6 @@ public:
     friend class SqliteTranscation;
 };
 
-WSI_END_HEADER_ORM
+NNT_END_HEADER_ORM
 
 # endif

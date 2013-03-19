@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_UIGRIDVIEWITEM_F84BFC3E90BE49F2B0EE203B41B6BABB_H_INCLUDED
-# define __WSI_UIKIT_UIGRIDVIEWITEM_F84BFC3E90BE49F2B0EE203B41B6BABB_H_INCLUDED
+# ifndef __NNT_UIKIT_UIGRIDVIEWITEM_F84BFC3E90BE49F2B0EE203B41B6BABB_H_INCLUDED
+# define __NNT_UIKIT_UIGRIDVIEWITEM_F84BFC3E90BE49F2B0EE203B41B6BABB_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIGridView);
-WSIDECL_EXTERN_CLASS(UIGridViewItem);
+NNTDECL_EXTERN_CLASS(UIGridView);
+NNTDECL_EXTERN_CLASS(UIGridViewItem);
 
 @protocol UIGridViewItemDelegate <NSObject>
 @optional
@@ -16,7 +16,7 @@ WSIDECL_EXTERN_CLASS(UIGridViewItem);
 
 @end
 
-@interface UIGridViewItem : WSIUIView {
+@interface UIGridViewItem : NNTUIView {
     
     //! scale view to fill item, default is NO
     BOOL _scaleToFill;
@@ -32,7 +32,7 @@ WSIDECL_EXTERN_CLASS(UIGridViewItem);
     BOOL _selfMargin;
     
     //! high light.
-    WCGFill* _highlightFill;
+    NgFill* _highlightFill;
     
     //! delegate & source.
     id <UIGridViewItemDelegate> _delegate;
@@ -45,11 +45,11 @@ WSIDECL_EXTERN_CLASS(UIGridViewItem);
 @property (nonatomic, assign) CGMargin margin;
 @property (nonatomic, assign) BOOL selfMargin;
 @property (nonatomic, assign) id <UIGridViewItemDelegate> delegate;
-@property (nonatomic, retain) WCGFill* highlightFill;
+@property (nonatomic, retain) NgFill* highlightFill;
 
 @end
 
-WSIDECL_EXTERN_CLASS(UIGridViewItemWithClose);
+NNTDECL_EXTERN_CLASS(UIGridViewItemWithClose);
 
 @protocol UIGridViewItemWithCloseDelegate <UIGridViewItemDelegate>
 
@@ -77,20 +77,20 @@ WSIDECL_EXTERN_CLASS(UIGridViewItemWithClose);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UIGridViewItem);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT,
 typename itemT
@@ -132,7 +132,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 template <typename itemT = _CXXVIEW(UIGridViewItem) >
 class GridItem
@@ -167,8 +167,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

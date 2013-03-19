@@ -1,21 +1,21 @@
 
-# ifndef __WSI_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
-# define __WSI_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
+# ifndef __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
+# define __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <stack>
 # include <map>
-# include "../WTL/Exception+WSI.h"
+# include "../TL/Exception+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-# define WSIDECL_INSTANCE_STACK(cls) \
+# define NNTDECL_INSTANCE_STACK(cls) \
 protected: \
 cls() {}
 
-WSICLASS(Object);
-WSICLASS(RefObject);
+NNTCLASS(Object);
+NNTCLASS(RefObject);
 
 class Object
 {
@@ -88,7 +88,7 @@ protected:
     
     void _check_destroy()
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         if (_reference_count)
             throw exception::earlydrop();
 # endif
@@ -598,88 +598,88 @@ protected:
 	store_type store;
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
-# include "WSIEvent.h"
+# include "Event+NNT.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-# define WSIOBJECT_DECL \
-WSIObjectAttachStrong *_store; \
-WSIObjectAttach *_attach; \
-WSIEvent *_event;
+# define NNTOBJECT_DECL \
+NNTObjectAttachStrong *_store; \
+NNTObjectAttach *_attach; \
+NNTEvent *_event;
 
-# define WSIOBJECT_PROP \
-@property (nonatomic, retain) WSIObjectAttachStrong *_store; \
-@property (nonatomic, retain) WSIObjectAttach *_attach; \
-@property (nonatomic, retain) WSIEvent *_event; \
+# define NNTOBJECT_PROP \
+@property (nonatomic, retain) NNTObjectAttachStrong *_store; \
+@property (nonatomic, retain) NNTObjectAttach *_attach; \
+@property (nonatomic, retain) NNTEvent *_event; \
 - (void)initSignals;
 
-# define WSIOBJECT_DEALLOC \
+# define NNTOBJECT_DEALLOC \
 zero_release(_attach); \
 zero_release(_store); \
 zero_release(_event);
 
-# define WSIOBJECT_IMPL_NOSIGNALS \
-WSIOBJECT_SYN; \
-- (WSIObjectAttachStrong*)_store { \
+# define NNTOBJECT_IMPL_NOSIGNALS \
+NNTOBJECT_SYN; \
+- (NNTObjectAttachStrong*)_store { \
 @synchronized(self) { if (_store == nil) { \
-_store = [[WSIObjectAttachStrong alloc] init]; \
+_store = [[NNTObjectAttachStrong alloc] init]; \
 }} \
 return _store; \
 } \
-- (WSIObjectAttach*)_attach { \
+- (NNTObjectAttach*)_attach { \
 @synchronized(self) { if (_attach == nil) { \
-_attach = [[WSIObjectAttach alloc] init]; \
+_attach = [[NNTObjectAttach alloc] init]; \
 }} \
 return _attach; \
 } \
-- (WSIEvent*)_event { \
+- (NNTEvent*)_event { \
 @synchronized(self) { if (_event == nil) { \
-_event = [[WSIEvent alloc] init]; \
+_event = [[NNTEvent alloc] init]; \
 [self initSignals]; \
 }} \
 return _event; \
 }
 
-# define WSIOBJECT_IMPL \
-WSIOBJECT_SYN; \
-- (WSIObjectAttachStrong*)_store { \
+# define NNTOBJECT_IMPL \
+NNTOBJECT_SYN; \
+- (NNTObjectAttachStrong*)_store { \
 @synchronized(self) { if (_store == nil) { \
-_store = [[WSIObjectAttachStrong alloc] init]; \
+_store = [[NNTObjectAttachStrong alloc] init]; \
 }} \
 return _store; \
 } \
-- (WSIObjectAttach*)_attach { \
+- (NNTObjectAttach*)_attach { \
 @synchronized(self) { if (_attach == nil) { \
-_attach = [[WSIObjectAttach alloc] init]; \
+_attach = [[NNTObjectAttach alloc] init]; \
 }} \
 return _attach; \
 } \
-- (WSIEvent*)_event { \
+- (NNTEvent*)_event { \
 @synchronized(self) { if (_event == nil) { \
-_event = [[WSIEvent alloc] init]; \
+_event = [[NNTEvent alloc] init]; \
 [self initSignals]; \
 }} \
 return _event; \
 } \
 - (void)initSignals {}
-# define WSIOBJECT_SYN \
+# define NNTOBJECT_SYN \
 @synthesize _store, _attach, _event;
 
-# define WSIEVENT_BEGIN \
+# define NNTEVENT_BEGIN \
 - (void)initSignals { \
 [super initSignals];
 
-# define WSIEVENT_END \
+# define NNTEVENT_END \
 }
 
-# define WSIEVENT_SIGNAL(signal) [self._event _register_signal:signal];
-# define WSIEVENT_SIGNAL_SLOT(signal, slot) [self._event _register_signal:signal sel:@selector(slot) obj:self];
+# define NNTEVENT_SIGNAL(signal) [self._event _register_signal:signal];
+# define NNTEVENT_SIGNAL_SLOT(signal, slot) [self._event _register_signal:signal sel:@selector(slot) obj:self];
 
 @protocol NSHash
 
@@ -688,7 +688,7 @@ return _event; \
 
 @end
 
-@interface WSIWeakReference : NSObject {
+@interface NNTWeakReference : NSObject {
     id obj;
 }
 
@@ -697,11 +697,11 @@ return _event; \
 - (id)initWith:(NSObject*)obj;
 
 //! create a weak reference object.
-+ (WSIWeakReference*)weakWith:(NSObject*)obj;
++ (NNTWeakReference*)weakWith:(NSObject*)obj;
 
 @end
 
-@interface WSIObjectAttachNull : NSObject {
+@interface NNTObjectAttachNull : NSObject {
     NSMutableDictionary* storePushPop;
 }
 
@@ -725,19 +725,19 @@ return _event; \
 
 @end
 
-@interface WSIObjectAttachWeak : WSIObjectAttachNull {
+@interface NNTObjectAttachWeak : NNTObjectAttachNull {
 }
 @end
 
-@interface WSIObjectAttachStrong : WSIObjectAttachNull {
+@interface NNTObjectAttachStrong : NNTObjectAttachNull {
 }
 @end
 
-typedef WSIObjectAttachWeak WSIObjectAttach;
+typedef NNTObjectAttachWeak NNTObjectAttach;
 
-# pragma mark WSIObject
+# pragma mark NNTObject
 
-@protocol WSIObject <NSObject>
+@protocol NNTObject <NSObject>
 
 - (void)lock;
 - (void)unlock;
@@ -745,8 +745,8 @@ typedef WSIObjectAttachWeak WSIObjectAttach;
 
 @end
 
-@interface WSIObject : NSObject <WSIObject> {
-    WSIOBJECT_DECL;
+@interface NNTObject : NSObject <NNTObject> {
+    NNTOBJECT_DECL;
     
     @private
     id _lock;
@@ -754,7 +754,7 @@ typedef WSIObjectAttachWeak WSIObjectAttach;
     
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 //! for arc mode, will call while dealloc.
 - (void)fini;
@@ -782,12 +782,12 @@ WSIOBJECT_PROP;
 @end
 
 //! cluster for json process.
-WSI_EXTERN NSString* json_encode_object(NSObject*);
-WSI_EXTERN NSDictionary* json_decode_string(NSString*);
+NNT_EXTERN NSString* json_encode_object(NSObject*);
+NNT_EXTERN NSDictionary* json_decode_string(NSString*);
 
 //! cluster for base64.
-WSI_EXTERN NSData* base64_encode_data(NSData*);
-WSI_EXTERN NSData* base64_decode_data(NSData*);
+NNT_EXTERN NSData* base64_encode_data(NSData*);
+NNT_EXTERN NSData* base64_decode_data(NSData*);
 
 # define selectorAsObj(arg) [NSObjectSel objectWithSel:@selector(arg)]
 
@@ -826,35 +826,35 @@ WSI_EXTERN NSData* base64_decode_data(NSData*);
 
 extern void ObjectInit();
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX_OBJC
+# ifdef NNT_CXX_OBJC
 
-# define WSIIMPL_SINGLETON(cls) ::wsi::AutoReleaseObj<cls> __gs_singleton_##cls; \
+# define NNTIMPL_SINGLETON(cls) ::nnt::AutoReleaseObj<cls> __gs_singleton_##cls; \
 + (cls*)getInstance { return __gs_singleton_##cls.getInstance(); }
 
-# define WSISINGLETON_INIT() - (void) instanceInit
+# define NNTSINGLETON_INIT() - (void) instanceInit
 
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-# define WSIDECL_SINGLETON(cls) + (cls*)getInstance;
+# define NNTDECL_SINGLETON(cls) + (cls*)getInstance;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "../WTL/String+WSI.h"
+# include "../TL/String+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cxx)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cxx)
 
 template <bool val>
 class bool_object
@@ -868,11 +868,11 @@ public:
     
 };
 
-# define WSIDECL_BOOLOBJECT(t, f) \
-const ::wsi::cxx::bool_object<true> t = ::wsi::cxx::bool_object<true>(); \
-const ::wsi::cxx::bool_object<false> f = ::wsi::cxx::bool_object<false>();
+# define NNTDECL_BOOLOBJECT(t, f) \
+const ::nnt::cxx::bool_object<true> t = ::nnt::cxx::bool_object<true>(); \
+const ::nnt::cxx::bool_object<false> f = ::nnt::cxx::bool_object<false>();
 
-# define extend_(cls) ::wsi::cxx::Class< cls >
+# define extend_(cls) ::nnt::cxx::Class< cls >
 
 template <typename SelfT>
 class Class
@@ -883,39 +883,39 @@ protected:
     typedef Class class_type;
 };
 
-# define WSIDECL_SIGNALS_SLOTS virtual void init_signals();
-# define WSIDECL_SIGNALS_BEGIN(cls, sup) void cls::init_signals() { sup::init_signals();
-# define WSIDECL_SIGNALS_END }
-# define WSI_SIGNAL(sig) this->register_signal(sig);
+# define NNTDECL_SIGNALS_SLOTS virtual void init_signals();
+# define NNTDECL_SIGNALS_BEGIN(cls, sup) void cls::init_signals() { sup::init_signals();
+# define NNTDECL_SIGNALS_END }
+# define NNT_SIGNAL(sig) this->register_signal(sig);
 
-# define WSIMPL_SIGNALS_BEGIN(supercls) void init_signals() { supercls::init_signals();
-# define WSIMPL_SIGNALS_END }
+# define NNTMPL_SIGNALS_BEGIN(supercls) void init_signals() { supercls::init_signals();
+# define NNTMPL_SIGNALS_END }
 
-typedef Event< ::wsi::RefObject > event_type;
+typedef Event< ::nnt::RefObject > event_type;
 typedef event_type::event_func event_func;
 typedef event_type::event_pure event_pure;
 typedef event_type::eventobj_t eventobj_t;
 
-WSI_EXTERN eventobj_t null_eventobj;
+NNT_EXTERN eventobj_t null_eventobj;
 
-# define _cxxaction(func) (::wsi::cxx::event_func)&func
-# define _cbaction(func) (::wsi::event_pure)func
+# define _cxxaction(func) (::nnt::cxx::event_func)&func
+# define _cbaction(func) (::nnt::event_pure)func
 
-# ifdef WSI_PURE_CXX
+# ifdef NNT_PURE_CXX
 
 #   define _action _cxxaction
 
 # else
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-#   define _cxxobjc_action(func) (::wsi::cxx::event_func)&func##_cxxobjc_mainthread
+#   define _cxxobjc_action(func) (::nnt::cxx::event_func)&func##_cxxobjc_mainthread
 #   define cxxobjc_action(func) \
-void func(::wsi::cxx::eventobj_t&); \
-void func##_cxxobjc_mainthread(::wsi::cxx::eventobj_t& evt) { \
-WSI_MAINTHREAD( \
+void func(::nnt::cxx::eventobj_t&); \
+void func##_cxxobjc_mainthread(::nnt::cxx::eventobj_t& evt) { \
+NNT_MAINTHREAD( \
 autocollect; \
-::wsi::core::down_const(this)->func(::wsi::core::down_const(evt)); \
+::nnt::core::down_const(this)->func(::nnt::core::down_const(evt)); \
 ); \
 }
 
@@ -926,11 +926,11 @@ autocollect; \
 # define OBJECT_TPL_DECL template <class BaseT>
 # define OBJECT_TPL_IMPL BaseT
 
-template <class BaseT = ::wsi::RefObject >
+template <class BaseT = ::nnt::RefObject >
 class Object
 : public Class<BaseT>
 {
-    WSIDECL_NOCOPY(Object);
+    NNTDECL_NOCOPY(Object);
     
 protected:
 
@@ -1026,7 +1026,7 @@ protected:
     
 };
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 
 template <typename objT>
 class Autolock
@@ -1050,7 +1050,7 @@ protected:
 
 };
 
-# define WSIMACRO_AUTOLOCK(obj) ::wsi::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
+# define NNTMACRO_AUTOLOCK(obj) ::nnt::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
 
 # else
 
@@ -1084,7 +1084,7 @@ protected:
 
 };
 
-# define WSIMACRO_AUTOLOCK(obj) Autolock __autolock_##__LINE__##_obj(obj);
+# define NNTMACRO_AUTOLOCK(obj) Autolock __autolock_##__LINE__##_obj(obj);
 
 # endif
 
@@ -1131,8 +1131,8 @@ protected:
     
 };
 
-# ifdef WSI_PURE_CXX
-typedef Object<> WSIObject;
+# ifdef NNT_PURE_CXX
+typedef Object<> NNTObject;
 # endif
 
 # ifndef release_ref
@@ -1357,7 +1357,7 @@ template_impl core::string Object<OBJECT_TPL_IMPL>::to_string() const
     return core::null_string;
 }
 
-template <class BaseT = ::wsi::RefObject >
+template <class BaseT = ::nnt::RefObject >
 class AutoFreeObject
 : public Object<BaseT>
 {
@@ -1518,9 +1518,9 @@ template <class T> T* ObjectSingleton<T>::m_pInstance = NULL;
 
 // implement for other.
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
-WSICLASS(TaskBackground);
+NNTCLASS(TaskBackground);
 
 class TaskBackground
 	: public RefObject
@@ -1560,7 +1560,7 @@ protected:
 
 };
 
-WSI_END_NS
+NNT_END_NS
 
 EVENT_TPL_DECL
 template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj_t& evt, void* sender) const
@@ -1614,7 +1614,7 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
 		}        
         else if (slot->redirect_signal.size())
         {
-            typedef ::wsi::cxx::Object<object_t> origin_object;
+            typedef ::nnt::cxx::Object<object_t> origin_object;
             origin_object* obj = dynamic_cast<origin_object*>(slot->target);
             obj->emit(slot->redirect_signal, evt, sender);
         }
@@ -1626,9 +1626,9 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
 	}
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(ntl)
 
 /*
 template <typename objT>
@@ -1638,12 +1638,12 @@ cxx::Autolock<objT> autolock(objT* obj)
 }
 */
 
-WSIDECL_BOOLOBJECT(enable, disable);
-WSIDECL_BOOLOBJECT(on, off);
-WSIDECL_BOOLOBJECT(active, inactive);
-WSIDECL_BOOLOBJECT(use, unuse);
+NNTDECL_BOOLOBJECT(enable, disable);
+NNTDECL_BOOLOBJECT(on, off);
+NNTDECL_BOOLOBJECT(active, inactive);
+NNTDECL_BOOLOBJECT(use, unuse);
 
-WSI_END_NS
+NNT_END_NS
 
 typedef void* (*func_new)();
 
@@ -1768,14 +1768,14 @@ protected:
     
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-WSIAPI(bool) Drop(::wsi::RefObject* obj);
-WSIAPI(void) Grab(::wsi::RefObject* obj);
+NNTAPI(bool) Drop(::nnt::RefObject* obj);
+NNTAPI(void) Grab(::nnt::RefObject* obj);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif
 

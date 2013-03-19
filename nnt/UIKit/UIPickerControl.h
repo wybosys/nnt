@@ -1,21 +1,21 @@
 
-# ifndef __WSI_UIKIT_PICKERCONTROLLER_A89F40EDEACE4BABA717095A952FA605_H_INCLUDED
-# define __WSI_UIKIT_PICKERCONTROLLER_A89F40EDEACE4BABA717095A952FA605_H_INCLUDED
+# ifndef __NNT_UIKIT_PICKERCONTROLLER_A89F40EDEACE4BABA717095A952FA605_H_INCLUDED
+# define __NNT_UIKIT_PICKERCONTROLLER_A89F40EDEACE4BABA717095A952FA605_H_INCLUDED
 
-# import "UIControl+WSI.h"
-# import "UIPickerView+WSI.h"
+# import "UIControl+NNT.h"
+# import "UIPickerView+NNT.h"
 # import "UIItemView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIPickerControl : WSIUIControl
+@interface UIPickerControl : NNTUIControl
 <UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    WSIUIPickerView* _pickerView;
+    NNTUIPickerView* _pickerView;
     NSArray* _componentItems;
 }
 
-@property (nonatomic, readonly) WSIUIPickerView* pickerView;
+@property (nonatomic, readonly) NNTUIPickerView* pickerView;
 @property (nonatomic, retain) NSArray* componentItems;
 
 // Reloading whole view or single component
@@ -31,8 +31,8 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN CGFloat kUIPickerControlHeight;
-WSI_EXTERN CGFloat kUIPickerControlItemFontSize;
+NNT_EXTERN CGFloat kUIPickerControlHeight;
+NNT_EXTERN CGFloat kUIPickerControlItemFontSize;
 
 @interface UIDrumPickerControl : UIDrumPickerView {
     UIItemsContainer* _items;
@@ -42,7 +42,7 @@ WSI_EXTERN CGFloat kUIPickerControlItemFontSize;
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
 /* ! open a picker on a desktop.
  * \param items, a 2-dim array indicate Compons-Values datas.
@@ -51,25 +51,25 @@ WSI_EXTERN signal_t kSignalSelectChanged;
  * \param target own the ok and cancel selectors.
  * \code
    NSArray* items = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@"1", @"2", nil], [NSArray arrayWithObjects:@"a", @"b", nil], nil];
-   UIPickerControl* picker = WSIOpenPickerDesktop(items, @selector(ok), @selector(cancel), target);
+   UIPickerControl* picker = NNTOpenPickerDesktop(items, @selector(ok), @selector(cancel), target);
    [picker selectRow:0 inComponent:0 animated:YES];
    [picker selectRow:1 inComponent:1 animated:YES];
    [picker connect:kSignalSelectChanged sel:@selector(changed:) object:target];
  * \endcode
  */
-WSI_EXTERN UIPickerControl* WSIOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id target);
+NNT_EXTERN UIPickerControl* NNTOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id target);
 
 _CXXCONTROL_DECL(UIPickerControl);
 _CXXCONTROL_DECL(UIDrumPickerControl);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "UISectionItems.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class PickerItemObject
 : public SectionItem
@@ -246,8 +246,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

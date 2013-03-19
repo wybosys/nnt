@@ -15,7 +15,7 @@ public:
     
     static bool couldload(xmlnode_t const*);
     virtual bool load(xmlnode_t const*);
-    virtual bool save(::wsi::core::data&) const;    
+    virtual bool save(::nnt::core::data&) const;    
     virtual void process(Client&);
     
     core::string user;

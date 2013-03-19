@@ -29,10 +29,10 @@ protected:
 public:
     
     //! name.
-    ::wsi::core::string name;
+    ::nnt::core::string name;
     
     //! identity.
-    ::wsi::core::string identity;
+    ::nnt::core::string identity;
     
     //! tag.
     int tag;
@@ -85,8 +85,8 @@ struct renderentity_wrapper : object_wrapper
 {
     func_render frender;
     func_collision fcollision;
-    ::wsi::core::string const* identity;
-    ::wsi::core::string const* name;
+    ::nnt::core::string const* identity;
+    ::nnt::core::string const* name;
     int* tag;        
 };
 

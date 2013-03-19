@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_COVERDRAWER_137199117BEE411C999FE5587B822A37_H_INCLUDED
-# define __WSI_UIKIT_COVERDRAWER_137199117BEE411C999FE5587B822A37_H_INCLUDED
+# ifndef __NNT_UIKIT_COVERDRAWER_137199117BEE411C999FE5587B822A37_H_INCLUDED
+# define __NNT_UIKIT_COVERDRAWER_137199117BEE411C999FE5587B822A37_H_INCLUDED
 
 # import "UICoverDrawerItem.h"
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UICoverDrawer);
-WSIDECL_EXTERN_CLASS(UICoverDrawerItem);
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(UICoverDrawer);
+NNTDECL_EXTERN_CLASS(UICoverDrawerItem);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @protocol UICoverDrawerDataSource <NSObject>
 @optional
@@ -43,9 +43,9 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 
 @end
 
-WSIDECL_PRIVATE_HEAD(UICoverDrawer);
+NNTDECL_PRIVATE_HEAD(UICoverDrawer);
 
-@interface UICoverDrawer : WSIUIControl {
+@interface UICoverDrawer : NNTUIControl {
             
     //! datasource & delegate.
     id <UICoverDrawerDataSource> dataSource;
@@ -108,7 +108,7 @@ WSIDECL_PRIVATE_HEAD(UICoverDrawer);
     //! dragging damp.
     real draggingDamp;
     
-    WSIDECL_PRIVATE(UICoverDrawer);
+    NNTDECL_PRIVATE(UICoverDrawer);
 }
 
 @property (nonatomic, assign) id <UICoverDrawerDataSource>    dataSource;
@@ -185,6 +185,6 @@ WSIDECL_PRIVATE_HEAD(UICoverDrawer);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

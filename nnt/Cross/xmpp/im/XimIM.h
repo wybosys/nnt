@@ -1,29 +1,29 @@
 
-# ifndef __WSI_XMPP_IM_E099753114514716A23E6EF2C691696E_H_INCLUDED
-# define __WSI_XMPP_IM_E099753114514716A23E6EF2C691696E_H_INCLUDED
+# ifndef __NNT_XMPP_IM_E099753114514716A23E6EF2C691696E_H_INCLUDED
+# define __NNT_XMPP_IM_E099753114514716A23E6EF2C691696E_H_INCLUDED
 
 # include "../core/XmppCore.h"
 # include "../core/XmppJID.h"
 
 # define XMPPIM_HEADER_BEGIN \
-WSI_BEGIN_HEADER_CXX \
-WSI_BEGIN_NS(xmpp) \
-WSI_BEGIN_NS(im)
+NNT_BEGIN_HEADER_CXX \
+NNT_BEGIN_NS(xmpp) \
+NNT_BEGIN_NS(im)
 
 # define XMPPIM_HEADER_END \
-WSI_END_NS \
-WSI_END_NS \
-WSI_END_HEADER_CXX
+NNT_END_NS \
+NNT_END_NS \
+NNT_END_HEADER_CXX
 
 # define XMPPIM_BEGIN \
-WSI_BEGIN_CXX \
-WSI_BEGIN_NS(xmpp) \
-WSI_BEGIN_NS(im)
+NNT_BEGIN_CXX \
+NNT_BEGIN_NS(xmpp) \
+NNT_BEGIN_NS(im)
 
 # define XMPPIM_END \
-WSI_END_NS \
-WSI_END_NS \
-WSI_END_CXX
+NNT_END_NS \
+NNT_END_NS \
+NNT_END_CXX
 
 XMPPIM_HEADER_BEGIN
 
@@ -39,8 +39,8 @@ typedef enum
 } 
 PresenceType;
 
-WSIAPI(PresenceType) PresenceTypeFromString(core::string const&);
-WSIAPI(core::string) PresenceTypeToString(PresenceType);
+NNTAPI(PresenceType) PresenceTypeFromString(core::string const&);
+NNTAPI(core::string) PresenceTypeToString(PresenceType);
 
 typedef enum
 {
@@ -53,8 +53,8 @@ typedef enum
 } 
 MessageType;
 
-WSIAPI(MessageType) MessageTypeFromString(core::string const&);
-WSIAPI(core::string) MessageTypeToString(MessageType);
+NNTAPI(MessageType) MessageTypeFromString(core::string const&);
+NNTAPI(core::string) MessageTypeToString(MessageType);
 
 template <typename objT>
 class ObjectImpl

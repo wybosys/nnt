@@ -1,11 +1,11 @@
 
-# ifndef __WSI_UIKIT_INITIALVIEW_A0FDB9F5567A4EF49AC20861ADF8454D_H_INCLUDED
-# define __WSI_UIKIT_INITIALVIEW_A0FDB9F5567A4EF49AC20861ADF8454D_H_INCLUDED
+# ifndef __NNT_UIKIT_INITIALVIEW_A0FDB9F5567A4EF49AC20861ADF8454D_H_INCLUDED
+# define __NNT_UIKIT_INITIALVIEW_A0FDB9F5567A4EF49AC20861ADF8454D_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIScreenImage);
-WSIDECL_EXTERN_CLASS(UIInitialView);
+NNTDECL_EXTERN_CLASS(UIScreenImage);
+NNTDECL_EXTERN_CLASS(UIInitialView);
 
 @protocol UIInitialViewDelegate <NSObject>
 
@@ -15,9 +15,9 @@ WSIDECL_EXTERN_CLASS(UIInitialView);
 
 @end
 
-@interface UIInitialView : WSIUIView <UIInitialViewDelegate> {
-    WSIUIImageView* _image;
-    WSIUIWindow* _win;
+@interface UIInitialView : NNTUIView <UIInitialViewDelegate> {
+    NNTUIImageView* _image;
+    NNTUIWindow* _win;
     //CFRunLoopRef _loop;
     real _delay;
     int _counter;
@@ -25,7 +25,7 @@ WSIDECL_EXTERN_CLASS(UIInitialView);
     id<UIInitialViewDelegate> _delegate;
 }
 
-@property (nonatomic, readonly) WSIUIImageView* imageView;
+@property (nonatomic, readonly) NNTUIImageView* imageView;
 @property (nonatomic, assign) id<UIInitialViewDelegate> delegate;
 @property (nonatomic, assign) real delay;
 @property (nonatomic, assign) UIOrientationEnable orientationEnable;
@@ -43,21 +43,21 @@ WSIDECL_EXTERN_CLASS(UIInitialView);
 
 @end
 
-WSI_EXTERN signal_t kSignalInitialWillComplete;
-WSI_EXTERN signal_t kSignalInitialComplete;
+NNT_EXTERN signal_t kSignalInitialWillComplete;
+NNT_EXTERN signal_t kSignalInitialComplete;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UIInitialView);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IInitialView
 : public IView
@@ -124,8 +124,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

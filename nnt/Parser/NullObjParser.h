@@ -1,10 +1,10 @@
 
-# ifndef __WSI_PARSER_NULLOBJPARSER_D02485F2497D4987904D29E14A0FDCBE_H_INCLUDED
-# define __WSI_PARSER_NULLOBJPARSER_D02485F2497D4987904D29E14A0FDCBE_H_INCLUDED
+# ifndef __NNT_PARSER_NULLOBJPARSER_D02485F2497D4987904D29E14A0FDCBE_H_INCLUDED
+# define __NNT_PARSER_NULLOBJPARSER_D02485F2497D4987904D29E14A0FDCBE_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol NullObjParser <NSObject>
 
@@ -22,9 +22,9 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN NSStringEncoding kParserDataEncoding;
+NNT_EXTERN NSStringEncoding kParserDataEncoding;
 
-@interface NullObjParser : WSIObject <NullObjParser> {
+@interface NullObjParser : NNTObject <NullObjParser> {
     
     //! the object which own this parser.
     id owner;
@@ -47,17 +47,17 @@ WSI_EXTERN NSStringEncoding kParserDataEncoding;
 
 @end
 
-# ifdef WSI_LIBONLY
+# ifdef NNT_LIBONLY
 
-WSI_EXTERN void ParserInit();
-WSI_EXTERN void ParserFin();
+NNT_EXTERN void ParserInit();
+NNT_EXTERN void ParserFin();
 
 # endif
 
 // signal.
-WSI_EXTERN signal_t kSignalParserError;
+NNT_EXTERN signal_t kSignalParserError;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 @interface _cxxnull_objectparser : NullObjParser
 
@@ -65,12 +65,12 @@ WSI_EXTERN signal_t kSignalParserError;
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(parser)
 
 struct IObjParser
 {
@@ -129,8 +129,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // cxx
 

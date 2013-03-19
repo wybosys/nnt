@@ -1,15 +1,15 @@
 
-# ifndef __WSI_SERVICE_DOMOBSERVICE_4EFA737C08B24B8D8FAC7CD038C4A7E0_H_INCLUDED
-# define __WSI_SERVICE_DOMOBSERVICE_4EFA737C08B24B8D8FAC7CD038C4A7E0_H_INCLUDED
+# ifndef __NNT_SERVICE_DOMOBSERVICE_4EFA737C08B24B8D8FAC7CD038C4A7E0_H_INCLUDED
+# define __NNT_SERVICE_DOMOBSERVICE_4EFA737C08B24B8D8FAC7CD038C4A7E0_H_INCLUDED
 
-# import "UIView+WSI.h"
-# import "UIViewController+WSI.h"
+# import "UIView+NNT.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(DMAdView);
+NNTDECL_EXTERN_CLASS(DMAdView);
 
-@interface DomobServiceView : WSIUIView {
+@interface DomobServiceView : NNTUIView {
     
     DMAdView* _banner;
     NSString* _appid;
@@ -27,15 +27,15 @@ WSIDECL_EXTERN_CLASS(DMAdView);
 
 _CXXVIEW_DECL(DomobServiceView);
 
-WSIDECL_PRIVATE_HEAD(DomobServiceController);
+NNTDECL_PRIVATE_HEAD(DomobServiceController);
 
-@interface DomobServiceController : WSIUIViewController
+@interface DomobServiceController : NNTUIViewController
 <UIViewControllerRotation>
 {
     
     NSString* _appid;
     
-    WSIDECL_PRIVATE(DomobServiceController);
+    NNTDECL_PRIVATE(DomobServiceController);
 }
 
 @property (nonatomic, copy) NSString* appid;
@@ -44,13 +44,13 @@ WSIDECL_PRIVATE_HEAD(DomobServiceController);
 
 _CXXCONTROLLER_DECL(DomobServiceController);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 class DomobView
 : public ui::View<DomobView, _CXXVIEW(DomobServiceView)>
@@ -77,9 +77,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

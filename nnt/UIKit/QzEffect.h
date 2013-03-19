@@ -1,8 +1,8 @@
 
-# ifndef __WSI_UIKIT_QZEFFECT_DC0ED3827ADC494D8FAB5B9C184F3819_H_INCLUDED
-# define __WSI_UIKIT_QZEFFECT_DC0ED3827ADC494D8FAB5B9C184F3819_H_INCLUDED
+# ifndef __NNT_UIKIT_QZEFFECT_DC0ED3827ADC494D8FAB5B9C184F3819_H_INCLUDED
+# define __NNT_UIKIT_QZEFFECT_DC0ED3827ADC494D8FAB5B9C184F3819_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol QzEffect <NSObject>
 
@@ -10,7 +10,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface QzEffect : WSIObject <QzEffect> {
+@interface QzEffect : NNTObject <QzEffect> {
     
     //! effect's layer.
     CALayer* _layer;
@@ -57,20 +57,20 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN NSTimeInterval kQzEffectDuration;
+NNT_EXTERN NSTimeInterval kQzEffectDuration;
 
-WSI_EXTERN signal_t kSignalEffectComplete;
+NNT_EXTERN signal_t kSignalEffectComplete;
 
-WSIDECL_OBJCXX_WRAPPER(QzEffect);
+NNTDECL_OBJCXX_WRAPPER(QzEffect);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(qz)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(qz)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 class IEffect
 : public ns::cxx::IObject
@@ -85,7 +85,7 @@ public:
     
 };
 
-template <typename objT = WSI_OBJCXX_WRAPPER(QzEffect) >
+template <typename objT = NNT_OBJCXX_WRAPPER(QzEffect) >
 class Effect
 : public ns::cxx::Object<objT, IEffect>
 {
@@ -180,17 +180,17 @@ public:
     template <typename effT>
     effT& next(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.next = *ptr;
-        return wtl::down_const(eff);
+        return ntl::down_const(eff);
     }
     
     template <typename effT>
     effT& accord(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.accord = *ptr;
-        return wtl::down_const(eff);
+        return ntl::down_const(eff);
     }
     
 protected:
@@ -207,9 +207,9 @@ protected:
 
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(effect)
+NNT_BEGIN_NS(effect)
 
 typedef tpl::Effect<> Effect;
 
@@ -356,10 +356,10 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

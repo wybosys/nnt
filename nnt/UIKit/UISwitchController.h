@@ -1,15 +1,15 @@
 
-# ifndef __WSI_CONTROLLER_PAGESWITCH_D05081DE2CE44B5D9021E7765706C869_H_INCLUDED
-# define __WSI_CONTROLLER_PAGESWITCH_D05081DE2CE44B5D9021E7765706C869_H_INCLUDED
+# ifndef __NNT_CONTROLLER_PAGESWITCH_D05081DE2CE44B5D9021E7765706C869_H_INCLUDED
+# define __NNT_CONTROLLER_PAGESWITCH_D05081DE2CE44B5D9021E7765706C869_H_INCLUDED
 
 # import "UISwitchView.h"
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-typedef WSIUIViewController UISwitchPage;
+typedef NNTUIViewController UISwitchPage;
 
-WSIDECL_PRIVATE_HEAD(UISwitchController);
+NNTDECL_PRIVATE_HEAD(UISwitchController);
 
 enum {
     UISwitchTransitionSlide,
@@ -39,7 +39,7 @@ typedef uint UISwitchTransition;
 
 //! @class UIPageSwitchController
 //! @brief for manage multi-pages view.
-@interface UISwitchController : WSIUIViewController <UISwitchDelegate> {
+@interface UISwitchController : NNTUIViewController <UISwitchDelegate> {
     
     //! current page.
     UISwitchPage *cur_page;
@@ -50,7 +50,7 @@ typedef uint UISwitchTransition;
     //! number of gesture touches. default is 2.
     uint numberOfGestureTouches;
     
-    WSIDECL_PRIVATE_EX(UISwitchController, d_ptr_ctr);
+    NNTDECL_PRIVATE_EX(UISwitchController, d_ptr_ctr);
 }
 
 @property (nonatomic, readonly) UISwitchPage *cur_page;
@@ -102,8 +102,8 @@ typedef uint UISwitchTransition;
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

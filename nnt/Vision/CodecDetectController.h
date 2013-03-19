@@ -1,26 +1,26 @@
 
-# ifndef __WSI_VISION_CODECDETECT_85B639C8E30D4E74BAC69BE8392F1BC2_H_INCLUDED
-# define __WSI_VISION_CODECDETECT_85B639C8E30D4E74BAC69BE8392F1BC2_H_INCLUDED
+# ifndef __NNT_VISION_CODECDETECT_85B639C8E30D4E74BAC69BE8392F1BC2_H_INCLUDED
+# define __NNT_VISION_CODECDETECT_85B639C8E30D4E74BAC69BE8392F1BC2_H_INCLUDED
 
 # import "ICRCameraController.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface CodecDetectMaskView : WSIUIView
+@interface CodecDetectMaskView : NNTUIView
 
 @end
 
-@interface CodecDetectView : WSIUIView {
+@interface CodecDetectView : NNTUIView {
     ICRCameraController* _icrcamera;
-    WSIUIView* _maskView;
+    NNTUIView* _maskView;
 }
 
 @property (nonatomic, readonly) ICRCameraController* icrcamera;
-@property (nonatomic, retain) WSIUIView* maskView;
+@property (nonatomic, retain) NNTUIView* maskView;
 
 @end
 
-@interface CodecDetectController : WSIUIViewController {
+@interface CodecDetectController : NNTUIViewController {
     BOOL _continuable;
     BOOL _processing;
 }
@@ -34,15 +34,15 @@ WSI_BEGIN_HEADER_OBJC
 
 _CXXCONTROLLER_DECL(CodecDetectController);
 
-WSI_EXTERN signal_t kSignalTry;
-WSI_EXTERN signal_t kSignalSuccess;
+NNT_EXTERN signal_t kSignalTry;
+NNT_EXTERN signal_t kSignalSuccess;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(vision)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(vision)
 
 class CodecDetect
 : public ui::SimpleController<CodecDetect, _CXXCONTROLLER(CodecDetectController), CodecDetectView>
@@ -70,8 +70,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

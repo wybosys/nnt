@@ -1,12 +1,12 @@
 
-# ifndef __WSI_PARSER_XMLOBJ_49D56ABF63134B9C884065F6F289FE00_H_INCLUDED
-# define __WSI_PARSER_XMLOBJ_49D56ABF63134B9C884065F6F289FE00_H_INCLUDED
+# ifndef __NNT_PARSER_XMLOBJ_49D56ABF63134B9C884065F6F289FE00_H_INCLUDED
+# define __NNT_PARSER_XMLOBJ_49D56ABF63134B9C884065F6F289FE00_H_INCLUDED
 
 # import "NullObjParser.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(XmlObjParser);
+NNTDECL_PRIVATE_HEAD(XmlObjParser);
 
 @interface XmlObjParser : NullObjParser {
     
@@ -17,7 +17,7 @@ WSIDECL_PRIVATE_HEAD(XmlObjParser);
     //! hide root. default is YES.
     BOOL _hideRoot;
     
-    WSIDECL_PRIVATE(XmlObjParser);
+    NNTDECL_PRIVATE(XmlObjParser);
 }
 
 @property (nonatomic, copy) NSString *encoding;
@@ -27,12 +27,12 @@ WSIDECL_PRIVATE_HEAD(XmlObjParser);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(parser)
 
 class XmlObject
 : public NullObjParser<XmlObjParser>
@@ -59,8 +59,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,11 +1,11 @@
 
-# ifndef __WSI_AI_BODY_b316953be4214759bd7403ef89483579_H_INCLUDED
-# define __WSI_AI_BODY_b316953be4214759bd7403ef89483579_H_INCLUDED
+# ifndef __NNT_AI_BODY_b316953be4214759bd7403ef89483579_H_INCLUDED
+# define __NNT_AI_BODY_b316953be4214759bd7403ef89483579_H_INCLUDED
 
 # include "AIBehave.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ai)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ai)
 
 class IBody
     : public IObject
@@ -20,7 +20,7 @@ public:
 
 template <typename implT>
 class Body
-    : public wtl::uml::realization<implT, IBody>
+    : public ntl::uml::realization<implT, IBody>
 {
 public:
 
@@ -55,7 +55,7 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

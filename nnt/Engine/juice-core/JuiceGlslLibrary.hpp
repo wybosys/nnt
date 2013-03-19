@@ -2,14 +2,14 @@
 # ifndef __JUICE_GLSL_LIBRARY_C0117320F9A24A24B7D6956390D2BC02_H_INCLUDED
 # define __JUICE_GLSL_LIBRARY_C0117320F9A24A24B7D6956390D2BC02_H_INCLUDED
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wunused-variable"
 # endif
 
-JUICE_BEGIN WSI_BEGIN_NS(glsl)
+JUICE_BEGIN NNT_BEGIN_NS(glsl)
 
-typedef ::wsi::core::string GLSL_TYPE;
+typedef ::nnt::core::string GLSL_TYPE;
 
 # define GLSL_CODE(name) \
 static GLSL_TYPE name =
@@ -60,7 +60,7 @@ GLSL_CODE_END
 
 # endif
 
-WSI_END_NS JUICE_END
+NNT_END_NS JUICE_END
 
 # pragma GCC diagnostic pop
 

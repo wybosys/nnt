@@ -1,94 +1,94 @@
 
-# ifndef __WSI_CORE_C4207797EACE47B4A2CC42B5539FBAD7_H_INCLUDED
-# define __WSI_CORE_C4207797EACE47B4A2CC42B5539FBAD7_H_INCLUDED
+# ifndef __NNT_CORE_C4207797EACE47B4A2CC42B5539FBAD7_H_INCLUDED
+# define __NNT_CORE_C4207797EACE47B4A2CC42B5539FBAD7_H_INCLUDED
 
 # ifdef __cplusplus
-#	define WSI_CXX
-#   define WSI_C_CXX
-#   define WSI_C_COMPATIABLE
+#	define NNT_CXX
+#   define NNT_C_CXX
+#   define NNT_C_COMPATIABLE
 #   define CXX_EXPRESS(exp) exp
 #   define C_EXPRESS(exp)
 
 #   if __cplusplus < 201103L
-#      define WSI_CXX_99 1
+#      define NNT_CXX_99 1
 #   else
-#      define WSI_CXX_11 1
+#      define NNT_CXX_11 1
 #   endif
 
 # else
-#   define WSI_C
-#   define WSI_C_COMPATIABLE
+#   define NNT_C
+#   define NNT_C_COMPATIABLE
 #   define CXX_EXPRESS(exp)
 #   define C_EXPRESS(exp) exp
 # endif
 
 # ifdef __llvm__
-#   define WSI_CC_LLVM 1
-#   define WSI_LLVM WSI_CC_LLVM
+#   define NNT_CC_LLVM 1
+#   define NNT_LLVM NNT_CC_LLVM
 # endif
 
 # ifdef __clang__
-#   define WSI_CC_CLANG 1
-#   define WSI_CLANG WSI_CC_CLANG
+#   define NNT_CC_CLANG 1
+#   define NNT_CLANG NNT_CC_CLANG
 # endif
 
 # ifdef __GNUC__
-#   define WSI_CC_GCC 1
-#   define WSI_GCC WSI_CC_GCC
+#   define NNT_CC_GCC 1
+#   define NNT_GCC NNT_CC_GCC
 # endif
 
 # ifdef __APPLE__
-#   define WSI_MACH 1
+#   define NNT_MACH 1
 #   include <TargetConditionals.h>
 # endif
 
 # ifdef __amd64
-#   define WSI_X64 1
+#   define NNT_X64 1
 # endif
 
 # if defined(__i386) || defined(_M_IX86)
-#   define WSI_X32 1
+#   define NNT_X32 1
 # endif
 
 # if (defined(__LP64__) && __LP64__) || defined(_M_IA64)
-#   define WSI_X64 1
+#   define NNT_X64 1
 # endif
 
 # ifdef __arm
-#   define WSI_ARM 1
-# ifndef WSI_X32
-#   define WSI_X32 1
+#   define NNT_ARM 1
+# ifndef NNT_X32
+#   define NNT_X32 1
 # endif
 # endif
 
 # if defined(_MSC_VER) && defined(WIN32)
 #   ifdef _MFC_VER
-#     define WSI_MFC 1 
+#     define NNT_MFC 1 
 #   endif
 // is windows.
-#   define WSI_MSVC 1
-#   define WSI_WINDOWS 1
-#   if (defined(_USRDLL) && !defined(LIBWSI)) || defined(LIBWSI)
-#     define WSI_LIBRARY
+#   define NNT_MSVC 1
+#   define NNT_WINDOWS 1
+#   if (defined(_USRDLL) && !defined(LIBNNT)) || defined(LIBNNT)
+#     define NNT_LIBRARY
 #   endif
-#   if defined(WSI_LIBRARY)
+#   if defined(NNT_LIBRARY)
 #     include "stdafx.h"
 #   endif
 #   include <Windows.h>
 //#   include <WinNT.h>
 #   include <tchar.h>
 #   include <cwchar>
-#   ifdef WSI_MFC
+#   ifdef NNT_MFC
 #     include <afx.h>
 #     include <afxwin.h>
 #   endif
 # else
 // is unix like.
-#   define WSI_UNIX 1
+#   define NNT_UNIX 1
 # endif
 
-# ifdef WSI_CXX
-#   ifdef WSI_CXX_99
+# ifdef NNT_CXX
+#   ifdef NNT_CXX_99
 
 struct _nullptr
 {
@@ -105,51 +105,51 @@ const _nullptr nullptr();
 # endif
 
 # if defined(_UNICODE)
-#   define WSI_UNICODE 1
+#   define NNT_UNICODE 1
 # endif
 
-# define WSI_VERBOSE 1
-# define WSI_VERBOSE_VERBOSE 0
+# define NNT_VERBOSE 1
+# define NNT_VERBOSE_VERBOSE 0
 
-# if defined(WSI_FRAMEWORK) && !defined(LIBWSI)
-#   define LIBWSI 1
+# if defined(NNT_FRAMEWORK) && !defined(LIBNNT)
+#   define LIBNNT 1
 # endif
 
-# if defined(WSI_LIBRARY)
-#   define APPWSI 1
+# if defined(NNT_LIBRARY)
+#   define APPNNT 1
 # endif
 
 # if defined(__OBJC__) || defined(__OBJC2__)
-#	define WSI_OBJC
+#	define NNT_OBJC
 #   if __has_feature(objc_arc)
-#     define WSI_OBJC_ARC 1
+#     define NNT_OBJC_ARC 1
 #   endif
 # endif
 
-# if defined(WSI_CXX) && !defined(WSI_OBJC)
-#   define WSI_PURE_CXX 1
+# if defined(NNT_CXX) && !defined(NNT_OBJC)
+#   define NNT_PURE_CXX 1
 # endif
 
-# if !defined(WSI_CXX) && defined(WSI_OBJC)
-#   define WSI_PURE_OBJC 1
+# if !defined(NNT_CXX) && defined(NNT_OBJC)
+#   define NNT_PURE_OBJC 1
 # endif
 
-# if defined(WSI_CXX) && defined(WSI_OBJC)
-#   define WSI_CXX_OBJC 1
+# if defined(NNT_CXX) && defined(NNT_OBJC)
+#   define NNT_CXX_OBJC 1
 # endif
 
-# if defined(WSI_C) && !defined(WSI_OBJC) && !defined(WSI_CXX)
-#   define WSI_PURE_C 1
+# if defined(NNT_C) && !defined(NNT_OBJC) && !defined(NNT_CXX)
+#   define NNT_PURE_C 1
 # endif
 
-# if defined(WSI_C) && defined(WSI_OBJC)
-#   define WSI_C_OBJC 1
+# if defined(NNT_C) && defined(NNT_OBJC)
+#   define NNT_C_OBJC 1
 # endif
 
 # ifdef TARGET_OS_IPHONE
 
-#   define WSI_IOS_MIN __IPHONE_OS_VERSION_MIN_REQUIRED
-#   define WSI_IOS_MAX __IPHONE_OS_VERSION_MAX_ALLOWED
+#   define NNT_IOS_MIN __IPHONE_OS_VERSION_MIN_REQUIRED
+#   define NNT_IOS_MAX __IPHONE_OS_VERSION_MAX_ALLOWED
 
 typedef struct { enum { VERSION = 2 }; } ios_2;
 typedef struct { enum { VERSION = 3 }; } ios_3;
@@ -177,15 +177,15 @@ typedef struct { enum { VERSION = 0 }; } ios_unknown;
 # endif
 
 #   if 0
-#   elif WSI_IOS_MIN >= __IPHONE_6_0
+#   elif NNT_IOS_MIN >= __IPHONE_6_0
 typedef ios_6 ios_version;
-#   elif WSI_IOS_MIN >= __IPHONE_5_0
+#   elif NNT_IOS_MIN >= __IPHONE_5_0
 typedef ios_5 ios_version;
-#   elif WSI_IOS_MIN >= __IPHONE_4_0
+#   elif NNT_IOS_MIN >= __IPHONE_4_0
 typedef ios_4 ios_version;
-#   elif WSI_IOS_MIN >= __IPHONE_3_0
+#   elif NNT_IOS_MIN >= __IPHONE_3_0
 typedef ios_3 ios_version;
-#   elif WSI_IOS_MIN >= __IPHONE_2_0
+#   elif NNT_IOS_MIN >= __IPHONE_2_0
 typedef ios_2 ios_version;
 #   else
 typedef ios_unknown ios_version;
@@ -193,11 +193,11 @@ typedef ios_unknown ios_version;
 
 # endif
 
-# define WSI_INLINE inline
-# define WSI_STATIC static
-# define WSI_STATIC_IMPL
-# define WSI_STATIC_CONST static const
-# define WSI_STATIC_CONST_IMPL
+# define NNT_INLINE inline
+# define NNT_STATIC static
+# define NNT_STATIC_IMPL
+# define NNT_STATIC_CONST static const
+# define NNT_STATIC_CONST_IMPL
 # define inline_impl inline
 # define template_impl
 
@@ -221,166 +221,160 @@ typedef struct {} compr_gcc;
 typedef struct {} compr_msvc;
 typedef struct {} compr_clang;
 
-# ifdef WSI_X64
+# ifdef NNT_X64
 typedef arch_x64 arch_type;
 # endif
 
-# ifdef WSI_X32
+# ifdef NNT_X32
 typedef arch_x32 arch_type;
 # endif
 
-# ifdef WSI_WINDOWS
+# ifdef NNT_WINDOWS
 typedef os_windows os_type;
-# elif defined(WSI_MACH)
+# elif defined(NNT_MACH)
 typedef os_mach os_type;
-# elif defined(WSI_UNIX)
+# elif defined(NNT_UNIX)
 typedef os_unix os_type;
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 typedef lang_objc lang_type;
-# elif defined(WSI_CXX)
+# elif defined(NNT_CXX)
 typedef lang_cxx lang_type;
-# elif defined(WSI_C)
+# elif defined(NNT_C)
 typedef lang_c lang_type;
 # endif
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 typedef compr_gcc compr_type;
-# elif defined(WSI_MSVC)
+# elif defined(NNT_MSVC)
 typedef compr_msvc compr_type;
-# elif defined(WSI_CLANG)
+# elif defined(NNT_CLANG)
 typedef compr_clang compr_type;
 # endif
 
-WSI_STATIC_CONST arch_type arch_object();
-WSI_STATIC_CONST os_type os_object();
-WSI_STATIC_CONST lang_type lang_object();
-WSI_STATIC_CONST compr_type compr_object();
+NNT_STATIC_CONST arch_type arch_object();
+NNT_STATIC_CONST os_type os_object();
+NNT_STATIC_CONST lang_type lang_object();
+NNT_STATIC_CONST compr_type compr_object();
 
-# define WSIASM_BEGIN __asm {
-# define WSIASM_END }
-# define WSIASM(exp) \
-WSIASM_BEGIN\
+# define NNTASM_BEGIN __asm {
+# define NNTASM_END }
+# define NNTASM(exp) \
+NNTASM_BEGIN\
 exp \
-WSIASM_END
+NNTASM_END
 
-# define WSI_BEGIN_CXX namespace wsi {
-# define WSI_END_CXX   }
+# define NNT_BEGIN_CXX namespace nnt {
+# define NNT_END_CXX   }
 
-# ifdef WSI_CXX
-#   define WSI_USINGCXXNAMESPACE using namespace ::wsi;
-#	define WSI_BEGIN             WSI_BEGIN_CXX
-#	define WSI_END               WSI_END_CXX
-#	define WSI_BEGIN_HEADER_C    extern "C" {
-#	define WSI_END_HEADER_C      }
-#   define WSI_BEGIN_HEADER_CXX  WSI_BEGIN_CXX
-#   define WSI_END_HEADER_CXX    WSI_END_CXX
-#   define WSI_BEGIN_HEADER_CXX_EXPLICIT WSI_BEGIN_HEADER_CXX namespace cxx {
-#   define WSI_END_HEADER_CXX_EXPLICIT WSI_END_HEADER_CXX }
-#	define WSI_BEGIN_HEADER      WSI_BEGIN_HEADER_CXX
-#	define WSI_END_HEADER        WSI_END_HEADER_CXX
-#   define WSI_BEGIN_HEADER_HPP  WSI_BEGIN_HEADER_CXX { namespace tpl {
-#   define WSI_END_HEADER_HPP    WSI_END_HEADER_HPP   }}
-#   define WSI_BEGIN_OBJC        
-#   define WSI_END_OBJC          
-#   define WSI_BEGIN_C           extern "C" {
-#   define WSI_END_C             }
-#   define WSI_NEED_CXX
+# ifdef NNT_CXX
+#   define NNT_USINGCXXNAMESPACE using namespace ::nnt;
+#	define NNT_BEGIN             NNT_BEGIN_CXX
+#	define NNT_END               NNT_END_CXX
+#	define NNT_BEGIN_HEADER_C    extern "C" {
+#	define NNT_END_HEADER_C      }
+#   define NNT_BEGIN_HEADER_CXX  NNT_BEGIN_CXX
+#   define NNT_END_HEADER_CXX    NNT_END_CXX
+#   define NNT_BEGIN_HEADER_CXX_EXPLICIT NNT_BEGIN_HEADER_CXX namespace cxx {
+#   define NNT_END_HEADER_CXX_EXPLICIT NNT_END_HEADER_CXX }
+#	define NNT_BEGIN_HEADER      NNT_BEGIN_HEADER_CXX
+#	define NNT_END_HEADER        NNT_END_HEADER_CXX
+#   define NNT_BEGIN_HEADER_HPP  NNT_BEGIN_HEADER_CXX { namespace tpl {
+#   define NNT_END_HEADER_HPP    NNT_END_HEADER_HPP   }}
+#   define NNT_BEGIN_OBJC        
+#   define NNT_END_OBJC          
+#   define NNT_BEGIN_C           extern "C" {
+#   define NNT_END_C             }
+#   define NNT_NEED_CXX
 # else
-#   define WSI_USINGCXXNAMESPACE
-#	define WSI_BEGIN
-#	define WSI_END
-#	define WSI_BEGIN_HEADER_C
-#	define WSI_END_HEADER_C
-#	define WSI_BEGIN_HEADER      WSI_BEGIN_HEADER_C
-#	define WSI_END_HEADER        WSI_END_HEADER_C
-#   define WSI_BEGIN_OBJC
-#   define WSI_END_OBJC
-#   define WSI_BEGIN_C
-#   define WSI_END_C
-#   define WSI_NEED_CXX          error, must be built as c++ source file.
+#   define NNT_USINGCXXNAMESPACE
+#	define NNT_BEGIN
+#	define NNT_END
+#	define NNT_BEGIN_HEADER_C
+#	define NNT_END_HEADER_C
+#	define NNT_BEGIN_HEADER      NNT_BEGIN_HEADER_C
+#	define NNT_END_HEADER        NNT_END_HEADER_C
+#   define NNT_BEGIN_OBJC
+#   define NNT_END_OBJC
+#   define NNT_BEGIN_C
+#   define NNT_END_C
+#   define NNT_NEED_CXX          error, must be built as c++ source file.
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 #   define CXXEXPRESS(exp) exp
 # else
 #   define CXXEXPRESS(exp)
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 #   define OBJCEXPRESS(exp) exp
 # else
 #   define OBJCEXPRESS(exp)
 # endif
 
 # if defined(__BLOCKS__)
-#   define WSI_BLOCKS
+#   define NNT_BLOCKS
 # endif
 
 # if defined(DEBUG) || defined(_DEBUG)
-#   define WSI_DEBUG
+#   define NNT_DEBUG
 # else
-#   ifndef WSI_DEBUG
-#     define WSI_RELEASE
+#   ifndef NNT_DEBUG
+#     define NNT_RELEASE
 #   endif
 # endif
 
-# ifdef WSI_DEBUG
-#	define WSIDEBUG_EXPRESS(express)    express
-#	define WSIRELEASE_EXPRESS(express)
+# ifdef NNT_DEBUG
+#	define NNTDEBUG_EXPRESS(express)    express
+#	define NNTRELEASE_EXPRESS(express)
 # endif
 
-# ifdef WSI_RELEASE
-#	define WSIDEBUG_EXPRESS(express)
-#	define WSIRELEASE_EXPRESS(express)  express
-# endif
-
-# ifndef WSI_DEBUG
-#  ifdef WSIDEBUG_BAR
-#    undef WSIDEBUG_BAR
-#  endif
+# ifdef NNT_RELEASE
+#	define NNTDEBUG_EXPRESS(express)
+#	define NNTRELEASE_EXPRESS(express)  express
 # endif
 
 # define SPACE
 # define TODO(express) {SPACE}
 # define PASS {SPACE}
 
-# define WSIMACRO_SELF(val)                    val
-# define _WSIMACRO_TOSTR(val)                  #val
-# define WSIMACRO_TOSTR(val)                  _WSIMACRO_TOSTR(val)
-# define WSIMACRO_COMBINE_2(v0, v1, sep)       WSIMACRO_SELF(v0)##sep##WSIMACRO_SELF(v1)
-# define WSIAUTO_NAME                        __wsi_autoname_ ## __LINE__ ## __FUNCTION__
+# define NNTMACRO_SELF(val)                    val
+# define _NNTMACRO_TOSTR(val)                  #val
+# define NNTMACRO_TOSTR(val)                  _NNTMACRO_TOSTR(val)
+# define NNTMACRO_COMBINE_2(v0, v1, sep)       NNTMACRO_SELF(v0)##sep##NNTMACRO_SELF(v1)
+# define NNTAUTO_NAME                        __nnt_autoname_ ## __LINE__ ## __FUNCTION__
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# define _WSIMACRO_TOSTR_OBJC(val)             @#val
-# define WSIMACRO_TOSTR_OBJC(val)             _WSIMACRO_TOSTR_OBJC(val)
+# define _NNTMACRO_TOSTR_OBJC(val)             @#val
+# define NNTMACRO_TOSTR_OBJC(val)             _NNTMACRO_TOSTR_OBJC(val)
 
-# define _WSIMACRO_TOSTR_OBJC2(val)            @val
-# define WSIMACRO_TOSTR_OBJC2(val)            _WSIMACRO_TOSTR_OBJC2(val)
+# define _NNTMACRO_TOSTR_OBJC2(val)            @val
+# define NNTMACRO_TOSTR_OBJC2(val)            _NNTMACRO_TOSTR_OBJC2(val)
 
 # endif
 
-# ifdef WSI_MSVC
-#   define WSI_NOVTABLE __declspec(novtable)
+# ifdef NNT_MSVC
+#   define NNT_NOVTABLE __declspec(novtable)
 #   define typename_
 # else
-#   define WSI_NOVTABLE
+#   define NNT_NOVTABLE
 #   define typename_ typename 
 # endif
 
 # define interface_ struct
 # define abstrace_
 
-# ifdef WSI_C
+# ifdef NNT_C
 #   define _not_  !
 #   define _xor_  ^
 #   define _and_  &
 #   define _or_   |
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # import <Foundation/Foundation.h>
 
@@ -391,7 +385,7 @@ WSIASM_END
 # define is_no == NO
 # define is_yes == YES
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 class segment_accel_type
 {
@@ -410,7 +404,7 @@ class segment_accel_type
     NSAutoreleasePool* pool;
 };
 
-# define segment_accel segment_accel_type __wsi_accel_segment;
+# define segment_accel segment_accel_type __nnt_accel_segment;
 
 # endif
 
@@ -486,7 +480,7 @@ typedef unsigned long ulong;
 
 typedef ulong uenum;
 
-#ifdef WSI_X64
+#ifdef NNT_X64
    typedef double real;
 #  define REAL_IS_DOUBLE  1
    typedef ulong uindex, usize, uinteger;
@@ -603,7 +597,7 @@ typedef union {
     int sv:24;
 } _rgb_ct;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 class _rgb_cxxt
 {
@@ -675,7 +669,7 @@ typedef union {
     int sv;
 } _rgba_ct;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 class _rgba_cxxt
 {
@@ -752,7 +746,7 @@ typedef union {
     int sv;
 } _argb_ct;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 class _argb_cxxt
 {
@@ -843,47 +837,47 @@ inline_impl _argb_ct argb(uint v)
 # define bit_at(val, pos)                ((val) & (1 << (pos)))
 # define bits_range(val, from, to)  (((val) >> (from)) & (0xffffffff >> (to)))
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# define WSIDECL_PRIVATE_HEAD(cls) @class cls; @class cls##Private
-# define WSIDECL_PRIVATE(cls) @private cls##Private *d_ptr;
-# define WSIDECL_PRIVATE_INIT(cls) { if (d_ptr == nil) {d_ptr = [cls##Private alloc]; d_ptr.d_owner = self; [d_ptr init]; }}
-# define WSIDECL_PRIVATE_DEALLOC() [d_ptr release];
-# define WSIDECL_PRIVATE_EX(cls, name) @private cls##Private *name;
-# define WSIDECL_PRIVATE_INIT_EX(cls, name) { if (name == nil) { name = [cls##Private alloc]; name.d_owner = self; [name init]; }}
-# define WSIDECL_PRIVATE_DEALLOC_EX(name) [name release];
-# define WSIDECL_D(cls) WSIDECL_PRIVATE_INIT(cls);
-# define WSIDECL_PRIVATE_BEGIN(cls, base) @interface cls##Private : base
-# define WSIDECL_PRIVATE_IMPL(cls) \
+# define NNTDECL_PRIVATE_HEAD(cls) @class cls; @class cls##Private
+# define NNTDECL_PRIVATE(cls) @private cls##Private *d_ptr;
+# define NNTDECL_PRIVATE_INIT(cls) { if (d_ptr == nil) {d_ptr = [cls##Private alloc]; d_ptr.d_owner = self; [d_ptr init]; }}
+# define NNTDECL_PRIVATE_DEALLOC() [d_ptr release];
+# define NNTDECL_PRIVATE_EX(cls, name) @private cls##Private *name;
+# define NNTDECL_PRIVATE_INIT_EX(cls, name) { if (name == nil) { name = [cls##Private alloc]; name.d_owner = self; [name init]; }}
+# define NNTDECL_PRIVATE_DEALLOC_EX(name) [name release];
+# define NNTDECL_D(cls) NNTDECL_PRIVATE_INIT(cls);
+# define NNTDECL_PRIVATE_BEGIN(cls, base) @interface cls##Private : base
+# define NNTDECL_PRIVATE_IMPL(cls) \
 @property (nonatomic, assign) cls* d_owner; \
 @end \
 @implementation cls##Private \
 @synthesize d_owner;
-# define WSIDECL_PRIVATE_END @end
+# define NNTDECL_PRIVATE_END @end
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# define WSIDECL_PRIVATE_NAME(cls)\
+# define NNTDECL_PRIVATE_NAME(cls)\
 cls##Private
 
-# define WSIDECL_PRIVATE_HEAD_CXX(cls) \
+# define NNTDECL_PRIVATE_HEAD_CXX(cls) \
 class cls; class cls##Private;
 
-# define WSIDECL_PRIVATE_CXX(cls) \
+# define NNTDECL_PRIVATE_CXX(cls) \
 friend class cls##Private; \
 typedef cls##Private private_type; \
 private_type* d_ptr;
 
-# define WSIDECL_PRIVATE_CONSTRUCT(cls) \
+# define NNTDECL_PRIVATE_CONSTRUCT(cls) \
 d_ptr = new private_type(this);
 
-# define WSIDECL_PRIVATE_DESTROY() \
+# define NNTDECL_PRIVATE_DESTROY() \
 delete d_ptr;
 
-# define WSIDECL_PRIVATE_BEGIN_CXX(cls) \
-class cls##Private : public ::wsi::cxx::Object<> { \
+# define NNTDECL_PRIVATE_BEGIN_CXX(cls) \
+class cls##Private : public ::nnt::cxx::Object<> { \
 typedef cls##Private self_type, private_type, _class; \
 typedef cls owner_type; \
 owner_type* d_owner; \
@@ -891,112 +885,112 @@ friend class cls; \
 cls##Private(cls* obj) : d_owner(obj) { init(); } \
 ~cls##Private() { dealloc(); }
 
-# define WSIDECL_PRIVATE_END_CXX };
+# define NNTDECL_PRIVATE_END_CXX };
 
-# define WSI_PRIVATE() \
+# define NNT_PRIVATE() \
 if (d_ptr == NULL) \
 d_ptr = new private_type(this);
 
-# define WSIDECL_NOCOPY(cls) \
+# define NNTDECL_NOCOPY(cls) \
 private: cls(cls const&); cls& operator = (cls const&);
 
-# define WSIDECL_NOCOPY_EX(cls, impl) \
+# define NNTDECL_NOCOPY_EX(cls, impl) \
 private: cls(impl const&); impl& operator = (impl const&);
 
-# define WSIDECL_NONEW(cls) \
+# define NNTDECL_NONEW(cls) \
 private: static void* operator new (size_t); static void* operator new[] (size_t);
 
-# ifndef WSIDECL_PRIVATE_BEGIN
-#   define WSIDECL_PRIVATE_BEGIN WSIDECL_PRIVATE_BEGIN_CXX
+# ifndef NNTDECL_PRIVATE_BEGIN
+#   define NNTDECL_PRIVATE_BEGIN NNTDECL_PRIVATE_BEGIN_CXX
 # endif
 
-# ifndef WSIDECL_PRIVATE_END
-#   define WSIDECL_PRIVATE_END WSIDECL_PRIVATE_END_CXX
+# ifndef NNTDECL_PRIVATE_END
+#   define NNTDECL_PRIVATE_END NNTDECL_PRIVATE_END_CXX
 # endif
 
-# ifndef WSIDECL_PRIVATE
-#   define WSIDECL_PRIVATE WSIDECL_PRIVATE_CXX
+# ifndef NNTDECL_PRIVATE
+#   define NNTDECL_PRIVATE NNTDECL_PRIVATE_CXX
 # endif
 
-# ifndef WSIDECL_PRIVATE_HEAD
-#   define WSIDECL_PRIVATE_HEAD WSIDECL_PRIVATE_HEAD_CXX
+# ifndef NNTDECL_PRIVATE_HEAD
+#   define NNTDECL_PRIVATE_HEAD NNTDECL_PRIVATE_HEAD_CXX
 # endif
 
 # endif
 
-# if !defined (WSI_EXPORT)
-#   ifdef WSI_MSVC
-#     define WSI_EXPORT __declspec(dllexport)
-#     define WSI_IMPORT __declspec(dllimport)
+# if !defined (NNT_EXPORT)
+#   ifdef NNT_MSVC
+#     define NNT_EXPORT __declspec(dllexport)
+#     define NNT_IMPORT __declspec(dllimport)
 #   else
-#     define WSI_EXPORT __attribute__((visibility("default")))
-#     define WSI_IMPORT 
+#     define NNT_EXPORT __attribute__((visibility("default")))
+#     define NNT_IMPORT 
 //__attribute__((visibility("default")))
 #   endif
 # endif
 
-# if !defined (WSI_CONSTRUCTOR)
-#   define WSI_CONSTRUCTOR __attribute__((constructor))
+# if !defined (NNT_CONSTRUCTOR)
+#   define NNT_CONSTRUCTOR __attribute__((constructor))
 # endif
 
-# if !defined (WSI_DESTRUCTOR)
-#   define WSI_DESTRUCTOR __attribute__((destructor))
+# if !defined (NNT_DESTRUCTOR)
+#   define NNT_DESTRUCTOR __attribute__((destructor))
 # endif
 
-# if !defined (WSI_EXTERN)
-#   if defined WSI_CXX
-#      define WSI_EXTERN_C extern "C"
+# if !defined (NNT_EXTERN)
+#   if defined NNT_CXX
+#      define NNT_EXTERN_C extern "C"
 #   else
-#      define WSI_EXTERN_C extern
+#      define NNT_EXTERN_C extern
 #   endif
-#   define WSI_EXTERN extern
+#   define NNT_EXTERN extern
 # endif
 
-# if defined(LIBWSI)
-#   define WSIAPI(retype) WSI_EXPORT retype
-#   define WSICLASS(cls)  class WSI_EXPORT cls
-#   define WSINTERFACE(itr) interface_ WSI_EXPORT itr
-//#   define WSIVAR(retype) WSI_EXTERN WSI_EXPORT retype
+# if defined(LIBNNT)
+#   define NNTAPI(retype) NNT_EXPORT retype
+#   define NNTCLASS(cls)  class NNT_EXPORT cls
+#   define NNTNTERFACE(itr) interface_ NNT_EXPORT itr
+//#   define NNTVAR(retype) NNT_EXTERN NNT_EXPORT retype
 # else
-#   define WSIAPI(retype) WSI_IMPORT retype
-#   define WSICLASS(cls)  class WSI_IMPORT cls
-#   define WSINTERFACE(itr) interface_ WSI_IMPORT itr
-//#   define WSIVAR(retype) WSI_EXTERN retype WSI_IMPORT 
+#   define NNTAPI(retype) NNT_IMPORT retype
+#   define NNTCLASS(cls)  class NNT_IMPORT cls
+#   define NNTNTERFACE(itr) interface_ NNT_IMPORT itr
+//#   define NNTVAR(retype) NNT_EXTERN retype NNT_IMPORT 
 # endif
 
-# if defined(WSI_LIBRARY)
-#   define WSIAPPCLASS(cls) class WSI_EXPORT cls
+# if defined(NNT_LIBRARY)
+#   define NNTAPPCLASS(cls) class NNT_EXPORT cls
 # else
-#   define WSIAPPCLASS(cls) class WSI_IMPORT cls
+#   define NNTAPPCLASS(cls) class NNT_IMPORT cls
 # endif
 
 // kernel
 
-# ifdef WSI_MACH
+# ifdef NNT_MACH
 
 # if defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR
-#    define WSISIM_EXPRESS(exp) exp
-#    define WSI_SIMULATOR
+#    define NNTSIM_EXPRESS(exp) exp
+#    define NNT_SIMULATOR
 # else
-#    define WSISIM_EXPRESS(exp) SPACE
-#    define WSI_DEVICE
+#    define NNTSIM_EXPRESS(exp) SPACE
+#    define NNT_DEVICE
 # endif
 
 # if (defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR) || (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE)
-#    define WSIOS_EXPRESS(exp) exp
+#    define NNTOS_EXPRESS(exp) exp
 # else
-#    define WSIOS_EXPRESS(exp) SPACE
+#    define NNTOS_EXPRESS(exp) SPACE
 # endif
 
 # if TARGET_OS_IPHONE
-#    define WSI_TARGET_IOS 1
+#    define NNT_TARGET_IOS 1
 #    define IOSEXPRESS(exp) exp
 #    define MACEXPRESS(exp) SPACE
 #    define MAC_IOS_SELECT(mac, ios) ios
-#    define WSI_ISPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#    define WSI_ISPHONE !WSI_ISPAD
+#    define NNT_ISPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#    define NNT_ISPHONE !NNT_ISPAD
 # elif TARGET_OS_MAC
-#    define WSI_TARGET_MAC 1
+#    define NNT_TARGET_MAC 1
 #    define IOSEXPRESS(exp) SPACE
 #    define MACEXPRESS(exp) exp
 #    define MAC_IOS_SELECT(mac, ios) mac
@@ -1004,70 +998,70 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # endif
 
-# ifndef WSI_TARGET_OS
-#   define WSI_CROSS_PLATFORM 1
+# ifndef NNT_TARGET_OS
+#   define NNT_CROSS_PLATFORM 1
 # endif
 
-# define WSI_BEGIN_NS(ns)        namespace ns {
-# define WSI_END_NS              }
+# define NNT_BEGIN_NS(ns)        namespace ns {
+# define NNT_END_NS              }
 
-# ifdef WSI_CXX
-#   define WSI_BEGIN_HEADER_OBJC   WSI_BEGIN_HEADER_C
-#   define WSI_END_HEADER_OBJC     WSI_END_HEADER_C
+# ifdef NNT_CXX
+#   define NNT_BEGIN_HEADER_OBJC   NNT_BEGIN_HEADER_C
+#   define NNT_END_HEADER_OBJC     NNT_END_HEADER_C
 # else
-#   define WSI_BEGIN_HEADER_OBJC
-#   define WSI_END_HEADER_OBJC
+#   define NNT_BEGIN_HEADER_OBJC
+#   define NNT_END_HEADER_OBJC
 # endif
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 
-#   define WSI_ATOMIC_ADD(x, v) __sync_fetch_and_add(&x, v)
-#   define WSI_ATOMIC_SUB(x, v) __sync_fetch_and_sub(&x, v)
+#   define NNT_ATOMIC_ADD(x, v) __sync_fetch_and_add(&x, v)
+#   define NNT_ATOMIC_SUB(x, v) __sync_fetch_and_sub(&x, v)
 
-#   define WSI_ADD_ATOMIC(x, v) __sync_add_and_fetch(&x, v)
-#   define WSI_SUB_ATOMIC(x, v) __sync_sub_and_fetch(&x, v)
+#   define NNT_ADD_ATOMIC(x, v) __sync_add_and_fetch(&x, v)
+#   define NNT_SUB_ATOMIC(x, v) __sync_sub_and_fetch(&x, v)
 
-# elif defined(WSI_MSVC)
+# elif defined(NNT_MSVC)
 
-#   define WSI_ATOMIC_ADD(x, v) InterlockedAdd(&x, v)
-#   define WSI_ATOMIC_SUB(x, v) InterlockedAdd(&x, -v)
+#   define NNT_ATOMIC_ADD(x, v) InterlockedAdd(&x, v)
+#   define NNT_ATOMIC_SUB(x, v) InterlockedAdd(&x, -v)
 
-#   define WSI_ADD_ATOMIC(x, v) InterlockedExchange(&x, v)
-#   define WSI_SUB_ATOMIC(x, v) InterlockedExchange(&x, -v)
+#   define NNT_ADD_ATOMIC(x, v) InterlockedExchange(&x, v)
+#   define NNT_SUB_ATOMIC(x, v) InterlockedExchange(&x, -v)
 
 # endif
 
-#   define WSI_ATOMIC_INC(x) WSI_ADD_ATOMIC(x, 1)
-#   define WSI_ATOMIC_DEC(x) WSI_SUB_ATOMIC(x, 1)
+#   define NNT_ATOMIC_INC(x) NNT_ADD_ATOMIC(x, 1)
+#   define NNT_ATOMIC_DEC(x) NNT_SUB_ATOMIC(x, 1)
 
-# ifdef WSI_OBJC
-#   define WSIDECL_EXTERN_CLASS_OBJC(cls)      @class cls;
-#   define WSIDECL_EXTERN_INTERFACE_OBJC(cls)  @protocol cls;
-#   define WSIDECL_EXTERN_DELEGATE_OBJC(cls)   @protocol cls##Delegate;
+# ifdef NNT_OBJC
+#   define NNTDECL_EXTERN_CLASS_OBJC(cls)      @class cls;
+#   define NNTDECL_EXTERN_INTERFACE_OBJC(cls)  @protocol cls;
+#   define NNTDECL_EXTERN_DELEGATE_OBJC(cls)   @protocol cls##Delegate;
 # endif
 
-# ifdef WSI_CXX
-#   define WSIDECL_EXTERN_CLASS_CXX(cls)      class cls;
-#   define WSIDECL_EXTERN_INTERFACE_CXX(cls)  struct cls;
-#   define WSIDECL_EXTERN_DELEGATE_CXX(cls)   class cls##Delegate;
-#   define WSIDECL_EXTERN_CLASS_NS(ns, cls)   namespace ns { class cls; }
-#   define WSIDECL_EXTERN_CLASS_NS2(ns1, ns2, cls) namespace ns1 { namespace ns2 { class cls; }}
-#   define WSIDECL_EXTERN_CLASS_NS3(ns1, ns2, ns3, cls) namespace ns1 { namespace ns2 { namespace ns3 { class cls; }}}
-#   define WSIDECL_EXTERN_CLASS_NS4(ns1, ns2, ns3, ns4, cls) namespace ns1 { namespace ns2 { namespace ns3 { namespace ns4 { class cls; }}}}
-#   define WSIDECL_INTERFACE(cls) public: virtual ~cls() {}
+# ifdef NNT_CXX
+#   define NNTDECL_EXTERN_CLASS_CXX(cls)      class cls;
+#   define NNTDECL_EXTERN_INTERFACE_CXX(cls)  struct cls;
+#   define NNTDECL_EXTERN_DELEGATE_CXX(cls)   class cls##Delegate;
+#   define NNTDECL_EXTERN_CLASS_NS(ns, cls)   namespace ns { class cls; }
+#   define NNTDECL_EXTERN_CLASS_NS2(ns1, ns2, cls) namespace ns1 { namespace ns2 { class cls; }}
+#   define NNTDECL_EXTERN_CLASS_NS3(ns1, ns2, ns3, cls) namespace ns1 { namespace ns2 { namespace ns3 { class cls; }}}
+#   define NNTDECL_EXTERN_CLASS_NS4(ns1, ns2, ns3, ns4, cls) namespace ns1 { namespace ns2 { namespace ns3 { namespace ns4 { class cls; }}}}
+#   define NNTDECL_INTERFACE(cls) public: virtual ~cls() {}
 # endif
 
-# ifdef WSI_OBJC
-#   define WSIDECL_EXTERN_CLASS               WSIDECL_EXTERN_CLASS_OBJC
-#   define WSIDECL_EXTERN_INTERFACE           WSIDECL_EXTERN_INTERFACE_OBJC
-#   define WSIDECL_EXTERN_DELEGATE            WSIDECL_EXTERN_DELEGATE_OBJC
+# ifdef NNT_OBJC
+#   define NNTDECL_EXTERN_CLASS               NNTDECL_EXTERN_CLASS_OBJC
+#   define NNTDECL_EXTERN_INTERFACE           NNTDECL_EXTERN_INTERFACE_OBJC
+#   define NNTDECL_EXTERN_DELEGATE            NNTDECL_EXTERN_DELEGATE_OBJC
 # else
-#   define WSIDECL_EXTERN_CLASS               WSIDECL_EXTERN_CLASS_CXX
-#   define WSIDECL_EXTERN_INTERFACE           WSIDECL_EXTERN_INTERFACE_CXX
-#   define WSIDECL_EXTERN_DELEGATE            WSIDECL_EXTERN_DELEGATE_CXX
+#   define NNTDECL_EXTERN_CLASS               NNTDECL_EXTERN_CLASS_CXX
+#   define NNTDECL_EXTERN_INTERFACE           NNTDECL_EXTERN_INTERFACE_CXX
+#   define NNTDECL_EXTERN_DELEGATE            NNTDECL_EXTERN_DELEGATE_CXX
 # endif
 
-# define WSIDECL_EXTERN_PROTOCOL WSIDECL_EXTERN_INTERFACE
+# define NNTDECL_EXTERN_PROTOCOL NNTDECL_EXTERN_INTERFACE
 
 # define MIN_NOT(l, r, n) (((l) == (n)) ? (r) : MIN((l), (r)))
 # define MAX_NOT(l, r, n) (((l) == (n)) ? (r) : MAX((l), (r)))
@@ -1079,53 +1073,53 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 # define MASK_UNSET(mask, val) \
 { if (MASK_CHECK(mask, val)) val ^= mask; }
 
-# ifdef WSI_DEBUG
-#	define WSIDEBUG_BREAK WSIDEBUG_EXPRESS(__asm__ int 3)
-#	define WSIDEBUG_BREAK_IF(express) WSIDEBUG_EXPRESS(if (express) WSIDEBUG_BREAK)
-#	define WSIDEBUG_ASSERT(express) WSIDEBUG_EXPRESS_IF(!(express))
+# ifdef NNT_DEBUG
+#	define NNTDEBUG_BREAK NNTDEBUG_EXPRESS(__asm__ int 3)
+#	define NNTDEBUG_BREAK_IF(express) NNTDEBUG_EXPRESS(if (express) NNTDEBUG_BREAK)
+#	define NNTDEBUG_ASSERT(express) NNTDEBUG_EXPRESS_IF(!(express))
 # else
-#	define WSIDEBUG_BREAK SPACE
-#	define WSIDEBUG_BREAK_IF(express) SPACE
-#	define WSIDEBUG_ASSERT(express) SPACE
+#	define NNTDEBUG_BREAK SPACE
+#	define NNTDEBUG_BREAK_IF(express) SPACE
+#	define NNTDEBUG_ASSERT(express) SPACE
 # endif
 
-# define WSIDECL_CATEGORY(name, cate) \
-    @interface WSI_FIX_CATEGORY_LINKBUG_##name##_##cate : name @end
+# define NNTDECL_CATEGORY(name, cate) \
+    @interface NNT_FIX_CATEGORY_LINKBUG_##name##_##cate : name @end
 
-# define WSIIMPL_CATEGORY(name, cate) \
-    @implementation WSI_FIX_CATEGORY_LINKBUG_##name##_##cate @end
+# define NNTIMPL_CATEGORY(name, cate) \
+    @implementation NNT_FIX_CATEGORY_LINKBUG_##name##_##cate @end
 
-# define WSIUSE_CATEGORY(name, cate) \
-    extern name* __WSI_FIX_CATEGORY_LINKBUG_##name##_##cate (void); \
-    name* __WSI_FIX_CATEGORY_LINKBUG_##name##_##cate (void) { WSI_FIX_CATEGORY_LINKBUG_##name##_##cate *ret = [WSI_FIX_CATEGORY_LINKBUG_##name##_##cate new]; return ret; }
+# define NNTUSE_CATEGORY(name, cate) \
+    extern name* __NNT_FIX_CATEGORY_LINKBUG_##name##_##cate (void); \
+    name* __NNT_FIX_CATEGORY_LINKBUG_##name##_##cate (void) { NNT_FIX_CATEGORY_LINKBUG_##name##_##cate *ret = [NNT_FIX_CATEGORY_LINKBUG_##name##_##cate new]; return ret; }
 
-# define WSICALL_CATEGORY(name, cate) \
-    __WSI_FIX_CATEGORY_LINKBUG_##name##_##cate()
+# define NNTCALL_CATEGORY(name, cate) \
+    __NNT_FIX_CATEGORY_LINKBUG_##name##_##cate()
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 # define _W(str) NSLocalizedString(str, SPACE)
 # else
 # define _W(str) L##str
 # endif
 
-# ifdef LIBWSI
-#   define WSILIB_EXPRESS(exp) exp
-#   define WSIBIN_EXPRESS(exp) SPACE
+# ifdef LIBNNT
+#   define NNTLIB_EXPRESS(exp) exp
+#   define NNTBIN_EXPRESS(exp) SPACE
 # else
-#   define WSILIB_EXPRESS(exp) SPACE
-#   define WSIBIN_EXPRESS(exp) exp
+#   define NNTLIB_EXPRESS(exp) SPACE
+#   define NNTBIN_EXPRESS(exp) exp
 # endif
 
-# ifdef WSI_OBJC
-WSI_BEGIN_HEADER_C
+# ifdef NNT_OBJC
+NNT_BEGIN_HEADER_C
 extern void _trace_obj         (NSString*, id);
 extern void _trace_int         (NSString*, int);
 extern void _trace_float       (NSString*, float);
 extern void _trace_msg         (NSString*);
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 /*
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 template <typename StrT>
 inline void _trace_msg(StrT const& str) { _trace_msg([NSString stringWithUTF8String:str.c_str()]); }
 inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8String:str]); }
@@ -1134,8 +1128,8 @@ inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8Str
 
 # endif
 
-# ifdef WSI_DEBUG
-#   ifdef WSI_OBJC
+# ifdef NNT_DEBUG
+#   ifdef NNT_OBJC
 #     define trace_rc(obj)       { NSLog(@ #obj "'s retain count is %d ." , [obj retainCount]); }
 #     define trace_obj(obj)      _trace_obj(@#obj, obj)
 #     define trace_int(val)      _trace_int(@#val, val)
@@ -1152,9 +1146,9 @@ inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8Str
 
 #     include <stdio.h>
 
-#     ifdef WSI_CXX
+#     ifdef NNT_CXX
 
-#       ifdef WSI_MSVC
+#       ifdef NNT_MSVC
 
 inline_impl void trace_msg(char const* msg)
 {
@@ -1223,10 +1217,10 @@ inline_impl void trace_msg(char const* msg) {
 #   define dexpress(ex)        {SPACE}
 # endif // debug.
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 #   define dthrow_msg(title, msg) dthrow([NSException exceptionWithName:title reason:msg userInfo:nil]);
-# elif defined(WSI_CXX)
-#   define dthrow_msg(title, msg) dthrow(::wsi::exception::message(msg, title))
+# elif defined(NNT_CXX)
+#   define dthrow_msg(title, msg) dthrow(::nnt::exception::message(msg, title))
 # else
 #   define dthrow_msg(title, msg)
 # endif
@@ -1276,7 +1270,7 @@ inline_impl void* ptr_offset(void* ptr, usize val)
     return (void*)((byte*)ptr + val);
 }
 
-# if defined(WSI_C) && !defined(WSI_OBJC)
+# if defined(NNT_C) && !defined(NNT_OBJC)
 typedef int bool;
 # ifndef true
 #   define true  1
@@ -1286,13 +1280,13 @@ typedef int bool;
 # endif
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 #   define OBJCMutable 1
 #   define OBJCNormal  0
 # endif
 
 //! @macro self_release auto release once after alloc
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 #   define self_release(express) [(express) release]
 #   define safe_release(obj) { if (1 == [obj retainCount]) { [obj release]; obj = nil; } else { [obj release]; } }
 #   define zero_release(obj) { [obj release]; obj = nil; }
@@ -1311,15 +1305,15 @@ typedef int bool;
 # define safe_drop(obj) { if (obj && obj->drop()) obj = 0; }
 # define safe_grab(obj) { if (obj) obj->grab(); }
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-WSIAPI(void) sleep_second(ulonglong);
-WSIAPI(void) sleep_millisecond(ulonglong);
-WSIAPI(void) sleep_microsecond(ulonglong);
-WSIAPI(void) sleep_nanosecond(ulonglong);
-WSIAPI(ulong) timestamp();
+NNTAPI(void) sleep_second(ulonglong);
+NNTAPI(void) sleep_millisecond(ulonglong);
+NNTAPI(void) sleep_microsecond(ulonglong);
+NNTAPI(void) sleep_nanosecond(ulonglong);
+NNTAPI(ulong) timestamp();
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # ifndef IN
 #   define IN
@@ -1398,22 +1392,22 @@ typedef struct _short_b4 {
     int _3:4;
 } short_b4;
 
-typedef enum _WSIValueType {
-    WSIValueTypeUnknown,
-    WSIValueTypeInt,
-    WSIValueTypeUInt,
-    WSIValueTypeShort,
-    WSIValueTypeUShort,
-    WSIValueTypeChar,
-    WSIValueTypeUChar,
-    WSIValueTypeLong,
-    WSIValueTypeULong,
-    WSIValueTypeLongLong,
-    WSIValueTypeULongLong,
-    WSIValueTypeString,
-    WSIValueTypeFloat,
-    WSIValueTypeDouble,
-} WSIValueType;
+typedef enum _NNTValueType {
+    NNTValueTypeUnknown,
+    NNTValueTypeInt,
+    NNTValueTypeUInt,
+    NNTValueTypeShort,
+    NNTValueTypeUShort,
+    NNTValueTypeChar,
+    NNTValueTypeUChar,
+    NNTValueTypeLong,
+    NNTValueTypeULong,
+    NNTValueTypeLongLong,
+    NNTValueTypeULongLong,
+    NNTValueTypeString,
+    NNTValueTypeFloat,
+    NNTValueTypeDouble,
+} NNTValueType;
 
 typedef struct {
     uint major;
@@ -1425,9 +1419,9 @@ typedef struct {
 //! 0: equal, 1: greater, -1: lesser
 extern int VersionCmp(version_t const* l, version_t const* r);
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# define WSI_OPERATOR_IMPL(type) \
+# define NNT_OPERATOR_IMPL(type) \
 inline_impl bool operator != (type const& l, type const& r) \
 { return !(l == r); } \
 inline_impl bool operator <= (type const& l, type const& r) \
@@ -1450,146 +1444,146 @@ inline_impl bool operator > (version_t const& l, version_t const& r)
     return 1 == VersionCmp(&l, &r);
 }
 
-WSI_OPERATOR_IMPL(version_t);
+NNT_OPERATOR_IMPL(version_t);
 
 # endif
 
-# ifdef WSI_LIBONLY
-#   undef WSI_LIBONLY
+# ifdef NNT_LIBONLY
+#   undef NNT_LIBONLY
 # endif
-//# define WSI_LIBONLY                1
+//# define NNT_LIBONLY                1
 
-// wsi preprocess define.
-# define WSI_VERSION_MAJOR			1
-# define WSI_VERSION_MIN			0
-# define WSI_VERSION_FIX			0
-# define WSI_CODENAME               strawberry
+// nnt preprocess define.
+# define NNT_VERSION_MAJOR			1
+# define NNT_VERSION_MIN			0
+# define NNT_VERSION_FIX			0
+# define NNT_CODENAME               strawberry
 
 // configuration.
-# define WSI_VERSION_STR            WSIMACRO_TOSTR(WSI_VERSION_MAJOR) "_" WSIMACRO_TOSTR(WSI_VERSION_MIN) "_" WSIMACRO_TOSTR(WSI_VERSION_FIX)
-# define WSI_VERSION_VALUE          ((WSI_VERSION_MAJOR << 16 & 0xff0000) | (WSI_VERSION_MIN << 8 & 0xff00) | (WSI_VERSION_FIX & 0xff))
-# define WSI_CODENAME_STR           WSIMACRO_TOSTR(WSI_CODENAME)
+# define NNT_VERSION_STR            NNTMACRO_TOSTR(NNT_VERSION_MAJOR) "_" NNTMACRO_TOSTR(NNT_VERSION_MIN) "_" NNTMACRO_TOSTR(NNT_VERSION_FIX)
+# define NNT_VERSION_VALUE          ((NNT_VERSION_MAJOR << 16 & 0xff0000) | (NNT_VERSION_MIN << 8 & 0xff00) | (NNT_VERSION_FIX & 0xff))
+# define NNT_CODENAME_STR           NNTMACRO_TOSTR(NNT_CODENAME)
 
-WSI_STATIC_CONST version_t WSIVERSION = {WSI_VERSION_MAJOR, WSI_VERSION_MIN, WSI_VERSION_FIX, WSI_VERSION_STR};
+NNT_STATIC_CONST version_t NNTVERSION = {NNT_VERSION_MAJOR, NNT_VERSION_MIN, NNT_VERSION_FIX, NNT_VERSION_STR};
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 //! get version string.
-WSIAPI(char const*) WSIVersion();
+NNTAPI(char const*) NNTVersion();
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# define WSI_SETTING_BUNDLE			@"Settings.bundle"
-# define WSI_SETTING_FILE			@"Root.plist"
-# define WSI_USE_SBJSON				1
-# define WSI_USE_TBXML              1
-# define WSI_USE_BASE64             1
-# define WSI_USE_COREPLOT           1
-# define WSI_USE_BDB                1
-# define WSI_USE_OPENCV             1
-# define WSI_DEBUGBAR_HEIGHT        20
+# define NNT_SETTING_BUNDLE			@"Settings.bundle"
+# define NNT_SETTING_FILE			@"Root.plist"
+# define NNT_USE_SBJSON				1
+# define NNT_USE_TBXML              1
+# define NNT_USE_BASE64             1
+# define NNT_USE_COREPLOT           1
+# define NNT_USE_BDB                1
+# define NNT_USE_OPENCV             1
+# define NNT_DEBUGBAR_HEIGHT        20
 
 // team infomation.
-# define WSI_BASE_URL				wybosys.com
-# define WSI_BASE_DOMAIN            com.wybosys.wsi
-# define WSI_PROJECT_URL            sf.net/p/libwsi
-# define WSI_PROJECT_DOMAIN         WSI_BASE_DOMAIN
-# define WSI_MAJOR_AUTHOR           wybosys <wybosys@gmail.com>
-# define WSI_FEEDBACK_EMAIL         wybosys@gmail.com
+# define NNT_BASE_URL				wybosys.com
+# define NNT_BASE_DOMAIN            com.wybosys.nnt
+# define NNT_PROJECT_URL            sf.net/p/nnt
+# define NNT_PROJECT_DOMAIN         NNT_BASE_DOMAIN
+# define NNT_MAJOR_AUTHOR           wybosys <wybosys@gmail.com>
+# define NNT_FEEDBACK_EMAIL         wybosys@gmail.com
 
 //! build for iOS version. <=
-# define WSI_iOS                    0x4FF
+# define NNT_iOS                    0x4FF
 
 //! the framework is build for AppStore.
-# define WSI_APPSTORE               1
+# define NNT_APPSTORE               1
 
 //! the framework is build for test jailbreak device or private device.
-# define WSI_JAILBREAK              0
+# define NNT_JAILBREAK              0
 
-# if WSI_APPSTORE == 0
-#   undef WSI_APPSTORE
+# if NNT_APPSTORE == 0
+#   undef NNT_APPSTORE
 # endif
 
-# if WSI_JAILBREAK == 0
-#   undef WSI_JAILBREAK
+# if NNT_JAILBREAK == 0
+#   undef NNT_JAILBREAK
 # endif
 
-# ifdef WSI_APPSTORE
-#   ifdef WSI_JAILBREAK
-#     ifndef WSI_DEBUG
-#       undef WSI_JAILBREAK
+# ifdef NNT_APPSTORE
+#   ifdef NNT_JAILBREAK
+#     ifndef NNT_DEBUG
+#       undef NNT_JAILBREAK
 #     else
-#       define WSI_JAILBREAK_DEBUG
+#       define NNT_JAILBREAK_DEBUG
 #     endif
 #   endif
 # endif
 
-# if !WSI_VERBOSE
-#   undef WSI_VERBOSE
+# if !NNT_VERBOSE
+#   undef NNT_VERBOSE
 # endif
 
-# if !WSI_VERBOSE_VERBOSE
-#   undef WSI_VERBOSE_VERBOSE
+# if !NNT_VERBOSE_VERBOSE
+#   undef NNT_VERBOSE_VERBOSE
 # endif
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 # else
-#   ifdef WSI_VERBOSE
-#     undef WSI_VERBOSE
+#   ifdef NNT_VERBOSE
+#     undef NNT_VERBOSE
 #   endif
-#   ifdef WSI_VERBOSE_VERBOSE
-#     undef WSI_VERBOSE_VERBOSE
+#   ifdef NNT_VERBOSE_VERBOSE
+#     undef NNT_VERBOSE_VERBOSE
 #   endif
 # endif
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
-# if WSI_iOS < 0x300
-#   define WSI_iOS_1
-#   define WSI_iOS_2
-#   define WSI_iOS2
+# if NNT_iOS < 0x300
+#   define NNT_iOS_1
+#   define NNT_iOS_2
+#   define NNT_iOS2
 #   undef __IPHONE_OS_VERSION_MAX_ALLOWED
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_2_2
 # endif
 
-# if WSI_iOS < 0x400 && WSI_iOS >= 0x300
-#   define WSI_iOS_1
-#   define WSI_iOS_2
-#   define WSI_iOS_3
-#   define WSI_iOS3
+# if NNT_iOS < 0x400 && NNT_iOS >= 0x300
+#   define NNT_iOS_1
+#   define NNT_iOS_2
+#   define NNT_iOS_3
+#   define NNT_iOS3
 #   undef __IPHONE_OS_VERSION_MAX_ALLOWED
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_3_2
 # endif
 
-# if WSI_iOS < 0x500 && WSI_iOS >= 0x400
-#   define WSI_iOS_1
-#   define WSI_iOS_2
-#   define WSI_iOS_3
-#   define WSI_iOS_4
-#   define WSI_iOS4
+# if NNT_iOS < 0x500 && NNT_iOS >= 0x400
+#   define NNT_iOS_1
+#   define NNT_iOS_2
+#   define NNT_iOS_3
+#   define NNT_iOS_4
+#   define NNT_iOS4
 #   undef __IPHONE_OS_VERSION_MAX_ALLOWED
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_4_3
 # endif
 
-# if WSI_iOS < 0x600 && WSI_iOS >= 0x500
-#   define WSI_iOS_1
-#   define WSI_iOS_2
-#   define WSI_iOS_3
-#   define WSI_iOS_4
-#   define WSI_iOS_5
-#   define WSI_iOS5
+# if NNT_iOS < 0x600 && NNT_iOS >= 0x500
+#   define NNT_iOS_1
+#   define NNT_iOS_2
+#   define NNT_iOS_3
+#   define NNT_iOS_4
+#   define NNT_iOS_5
+#   define NNT_iOS5
 #   undef __IPHONE_OS_VERSION_MAX_ALLOWED
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_5_0
 # endif
 
-# if WSI_iOS < 0x700 && WSI_iOS >= 0x600
-#   define WSI_iOS_1
-#   define WSI_iOS_2
-#   define WSI_iOS_3
-#   define WSI_iOS_4
-#   define WSI_iOS_5
-#   define WSI_iOS_6
-#   define WSI_iOS6
+# if NNT_iOS < 0x700 && NNT_iOS >= 0x600
+#   define NNT_iOS_1
+#   define NNT_iOS_2
+#   define NNT_iOS_3
+#   define NNT_iOS_4
+#   define NNT_iOS_5
+#   define NNT_iOS_6
+#   define NNT_iOS6
 #   undef __IPHONE_OS_VERSION_MAX_ALLOWED
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_NA
 # endif
@@ -1598,7 +1592,7 @@ WSI_END_HEADER_C
 
 // global include
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 #   pragma warning (disable: 4996)
 #   pragma warning (disable: 4068)
 #   pragma warning (disable: 4273)
@@ -1607,14 +1601,14 @@ WSI_END_HEADER_C
 #   pragma warning (disable: 4819)
 # endif
 
-# ifdef WSI_CLANG
+# ifdef NNT_CLANG
 #   pragma GCC diagnostic ignored "-Wbind-to-temporary-copy"
-#   ifdef WSI_DEBUG
+#   ifdef NNT_DEBUG
 #     pragma GCC diagnostic ignored "-Wshorten-64-to-32"
 #   endif
 # endif
 
-# ifdef WSI_UNIX
+# ifdef NNT_UNIX
 #   include <unistd.h>
 #   include <pthread.h>
 #   include <sys/errno.h>
@@ -1627,14 +1621,14 @@ WSI_END_HEADER_C
 # include <sys/types.h>
 # include <signal.h>
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <iostream>
 # include <iomanip>
 # include <string>
 # include <algorithm>
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 //using namespace std;
 
@@ -1643,11 +1637,11 @@ typedef _ignore_null *ignore_null;
 
 namespace cxx {}
 
-# ifdef WSI_PURE_CXX
+# ifdef NNT_PURE_CXX
 using namespace cxx;
 # endif
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
@@ -1655,9 +1649,9 @@ WSI_END_HEADER_CXX
 # include "./Object.h"
 
 // pre include objc's object for may inherited by C++ object.
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-#   ifdef WSI_TARGET_MAC
+#   ifdef NNT_TARGET_MAC
 #     import <Cocoa/Cocoa.h>
 #   endif
 
@@ -1666,8 +1660,8 @@ WSI_END_HEADER_CXX
 typedef struct {} objc_type;
 
 #   import <Foundation/Foundation.h>
-#   import "./NSObject+WSI.h"
-#   import "./NSLock+WSI.h"
+#   import "./NSObject+NNT.h"
+#   import "./NSLock+NNT.h"
 
 # endif
 
@@ -1676,56 +1670,56 @@ typedef struct {} objc_type;
 # endif
 
 // include C++ Base Classes.
-# include "../WTL/Exception+WSI.h"
-# include "../WTL/Types+WSI.h"
-# include "../WTL/Operator+WSI.h"
-# include "../WTL/Function+WSI.h"
-# include "../WTL/String+WSI.h"
-# include "../WTL/Vector+WSI.h"
-# include "../WTL/List+WSI.h"
-# include "../WTL/Map+WSI.h"
-//# include "../WTL/Bimap+WSI.h"
-# include "../WTL/Tuple+WSI.h"
-# include "../WTL/Data+WSI.h"
-# include "../WTL/Algorithm+WSI.h"
-# include "../WTL/Regex+WSI.h"
-# include "../WTL/SmartPtr+WSI.h"
-# include "../WTL/Closure+WSI.h"
-# include "../WTL/Variant+WSI.h"
+# include "../TL/Exception+NNT.h"
+# include "../TL/Types+NNT.h"
+# include "../TL/Operator+NNT.h"
+# include "../TL/Function+NNT.h"
+# include "../TL/String+NNT.h"
+# include "../TL/Vector+NNT.h"
+# include "../TL/List+NNT.h"
+# include "../TL/Map+NNT.h"
+//# include "../TL/Bimap+NNT.h"
+# include "../TL/Tuple+NNT.h"
+# include "../TL/Data+NNT.h"
+# include "../TL/Algorithm+NNT.h"
+# include "../TL/Regex+NNT.h"
+# include "../TL/SmartPtr+NNT.h"
+# include "../TL/Closure+NNT.h"
+# include "../TL/Variant+NNT.h"
 
 // ignore assert.
 # include <assert.h>
 # ifdef assert
-#   define WSI_ASSERT assert
+#   define NNT_ASSERT assert
 #   undef assert
 # endif
 
 // include unit test.
 # include "UnitTest.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 // include Objective-C Base Classes.
-#   import "NSString+WSI.h"
-#   import "NSNumber+WSI.h"
-#   import "NSArray+WSI.h"
-#   import "NSDictionary+WSI.h"
-#   import "NSData+WSI.h"
-#   import "NSSet+WSI.h"
-#   import "NSIndex+WSI.h"
-#   import "NSURL+WSI.h"
-#   import "NSURLConnection+WSI.h"
-#   import "NSDate+WSI.h"
-#   import "NSLocale+WSI.h"
-#   import "NSRunLoop+WSI.h"
-#   import "Time+WSI.h"
+#   import "NSString+NNT.h"
+#   import "NSNumber+NNT.h"
+#   import "NSArray+NNT.h"
+#   import "NSDictionary+NNT.h"
+#   import "NSData+NNT.h"
+#   import "NSSet+NNT.h"
+#   import "NSIndex+NNT.h"
+#   import "NSURL+NNT.h"
+#   import "NSURLConnection+NNT.h"
+#   import "NSDate+NNT.h"
+#   import "NSLocale+NNT.h"
+#   import "NSRunLoop+NNT.h"
+#   import "Time+NNT.h"
 #   import "Msgbox.h"
-#   import "Console+WSI.h"
+#   import "Console+NNT.h"
 
 # endif
 
 // hook
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 @interface func_object : NSObject {
 	void* addr; //! address of function
@@ -1741,27 +1735,27 @@ typedef struct {} objc_type;
 @end
 
 typedef enum {
-	WSIHookTypeInit     = 0,
-	WSIHookTypeFin      = 1,
-    WSIHookTypeActive   = 2,
-    WSIHookTypeInactive = 3,
-    WSIHookTypeBoot     = 4,
-    WSIHookTypeAll      = 9999,
-} WSIHookType;
+	NNTHookTypeInit     = 0,
+	NNTHookTypeFin      = 1,
+    NNTHookTypeActive   = 2,
+    NNTHookTypeInactive = 3,
+    NNTHookTypeBoot     = 4,
+    NNTHookTypeAll      = 9999,
+} NNTHookType;
 
-WSIDECL_PRIVATE_HEAD(WSI);
+NNTDECL_PRIVATE_HEAD(NNT);
 
-@interface WSI : WSIObject {
-    WSIDECL_PRIVATE(WSI);
+@interface NNT : NNTObject {
+    NNTDECL_PRIVATE(NNT);
 }
 
-//! shared wsi.
-+ (WSI*)shared;
+//! shared nnt.
++ (NNT*)shared;
 
-//! Init WSI environment [static].
+//! Init NNT environment [static].
 + (void)Init;
 
-//! Finalize WSI enviromnet [static].
+//! Finalize NNT enviromnet [static].
 + (void)Fin;
 
 //! other
@@ -1770,10 +1764,10 @@ WSIDECL_PRIVATE_HEAD(WSI);
 + (void)Boot;
 
 //! register HOOK. [static].
-+ (void)Register:(WSIHookType)__type hookFunc:(func_object*)__func;
++ (void)Register:(NNTHookType)__type hookFunc:(func_object*)__func;
 
 //! invoke hooks
-+ (void)InvokeHook:(WSIHookType)__type;
++ (void)InvokeHook:(NNTHookType)__type;
 
 //! thread.
 + (void)ThreadUse;
@@ -1781,44 +1775,44 @@ WSIDECL_PRIVATE_HEAD(WSI);
 
 @end
 
-WSI_EXTERN NSString* WSIGetMajorAuthor();
-WSI_EXTERN NSString* WSIGetBaseURL();
-WSI_EXTERN NSString* WSIGetProjectURL();
-WSI_EXTERN NSString* WSIGetFeedbackEmail();
+NNT_EXTERN NSString* NNTGetMajorAuthor();
+NNT_EXTERN NSString* NNTGetBaseURL();
+NNT_EXTERN NSString* NNTGetProjectURL();
+NNT_EXTERN NSString* NNTGetFeedbackEmail();
 
 # else
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-WSICLASS(WSI);
+NNTCLASS(NNT);
 
-class WSI
+class NNT
 : public cxx::Object<>
 {
 public:
     
     //! environment pack.
-	WSI_STATIC void Init();
-	WSI_STATIC void Fini();
+	NNT_STATIC void Init();
+	NNT_STATIC void Fini();
     
     //! state.
-    WSI_STATIC bool IsRunning;
+    NNT_STATIC bool IsRunning;
     
 };
 
 inline_impl void Init()
 {
-    WSI::Init();
+    NNT::Init();
 }
 
 inline_impl void Fini()
 {
-    WSI::Fini();
+    NNT::Fini();
 }
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 # endif
@@ -1848,8 +1842,8 @@ inline_impl real rand01()
 #   define MAX(a, b) (((a) > (b)) ? (a) : (b)) 
 # endif
 
-# if !WSI_USE_OPENCV
-# undef WSI_USE_OPENCV
+# if !NNT_USE_OPENCV
+# undef NNT_USE_OPENCV
 # endif
 
 # endif

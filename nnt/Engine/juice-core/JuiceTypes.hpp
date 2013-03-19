@@ -488,9 +488,9 @@ public:
         return _mat(r, c);
     }
     
-    ::wsi::core::string to_string() const
+    ::nnt::core::string to_string() const
     {
-        ::wsi::core::stringstream ss;
+        ::nnt::core::stringstream ss;
         ss << _mat;
         return ss.str();
     }

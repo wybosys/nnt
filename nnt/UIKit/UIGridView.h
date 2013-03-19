@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
-# define __WSI_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
+# ifndef __NNT_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
+# define __NNT_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
 
 # import "UIGridViewItem.h"
-# import "UIScrollView+WSI.h"
+# import "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCALayer);
+NNTDECL_EXTERN_CLASS(NgLayer);
 
-WSIDECL_PRIVATE_HEAD(UIGridView);
+NNTDECL_PRIVATE_HEAD(UIGridView);
 
-@interface UIGridView : WSIUIScrollView {
+@interface UIGridView : NNTUIScrollView {
     
     //! rows and cols.
     NSUInteger _rows, _cols;
@@ -32,13 +32,13 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
     NSArray *_children;
     
     //! item's default background fill.
-    WCGFill *_itemBackgroundFill;
+    NgFill *_itemBackgroundFill;
     
     //! item scaleToFit. default is NO.
     BOOL _itemScaleToFit;
     
     //! item's high light fill.
-    WCGFill *_itemHighlight;
+    NgFill *_itemHighlight;
     
     //! item size.
     CGSize _preferredItemSize;
@@ -47,18 +47,18 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
     CGShadow *_itemShadow;
     
     //! item border.
-    WCGLineStyle *_itemBorder;
+    NgLineStyle *_itemBorder;
     
     //! class for instance item, default is UIGridViewItem.
     Class _classItem;
     
     //! split line style. default is nil.
-    WCGLineStyle *_rowLineStyle, *_colLineStyle;
+    NgLineStyle *_rowLineStyle, *_colLineStyle;
     
     //! enable animated, default is YES.
     BOOL _enableAnimated;
     
-    WSIDECL_PRIVATE(UIGridView);
+    NNTDECL_PRIVATE(UIGridView);
 }
 
 @property (nonatomic) NSUInteger rows, cols;
@@ -67,15 +67,15 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
 @property (nonatomic) CGMargin margin;
 @property (nonatomic) BOOL enableFillIndex;
 @property (nonatomic, readonly) NSArray *children;
-@property (nonatomic, retain) WCGFill *itemBackgroundFill;
+@property (nonatomic, retain) NgFill *itemBackgroundFill;
 @property (nonatomic, assign) BOOL itemScaleToFit;
 @property (nonatomic, retain) CGShadow *itemShadow;
 @property (nonatomic, assign) CGSize preferredItemSize;
-@property (nonatomic, retain) WCGLineStyle *itemBorder;
+@property (nonatomic, retain) NgLineStyle *itemBorder;
 @property (nonatomic, assign) BOOL enableAnimated;
 @property (nonatomic, assign) Class classItem;
-@property (nonatomic, retain) WCGFill *itemHighlight;
-@property (nonatomic, retain) WCGLineStyle *rowLineStyle, *colLineStyle;
+@property (nonatomic, retain) NgFill *itemHighlight;
+@property (nonatomic, retain) NgLineStyle *rowLineStyle, *colLineStyle;
 
 - (id)initWithFrame:(CGRect)frame;
 - (id)initWithFrame:(CGRect)frame rows:(NSUInteger)rows cols:(NSUInteger)cols;
@@ -113,17 +113,17 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
 
 _CXXVIEW_DECL(UIGridView);
 
-WSI_EXTERN signal_t kSignalContentClicked;
-WSI_EXTERN signal_t kSignalItemClicked;
+NNT_EXTERN signal_t kSignalContentClicked;
+NNT_EXTERN signal_t kSignalItemClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIScrollView+WSI.h"
+# include "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT, 
 typename gridT = _CXXVIEW(UIGridView)
@@ -227,7 +227,7 @@ public:
     template <typename objT>
     void add(objT const& item)
     {
-        wtl::const_pointer<objT> ptr(item);
+        ntl::const_pointer<objT> ptr(item);
         id obj = *ptr;
         if ([obj isKindOfClass:[UIGridViewItem class]])
             add((UIGridViewItem*)obj);
@@ -283,8 +283,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

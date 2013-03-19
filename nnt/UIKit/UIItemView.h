@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_ITEMVIEW_2A4718702D1840D6A77E281025FF17E5_H_INCLUDED
-# define __WSI_UIKIT_ITEMVIEW_2A4718702D1840D6A77E281025FF17E5_H_INCLUDED
+# ifndef __NNT_UIKIT_ITEMVIEW_2A4718702D1840D6A77E281025FF17E5_H_INCLUDED
+# define __NNT_UIKIT_ITEMVIEW_2A4718702D1840D6A77E281025FF17E5_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIItemView : WSIUIView {
+@interface UIItemView : NNTUIView {
     UIView* _contentView;
 }
 
@@ -25,7 +25,7 @@ _CXXVIEW_DECL(UIItemView);
 
 @end
 
-@interface UIItemsContainer : WSIObject {
+@interface UIItemsContainer : NNTObject {
     NSMutableArray* _items;
     id<UIItemsDatasource> _dataSource;
 }
@@ -42,16 +42,16 @@ _CXXVIEW_DECL(UIItemView);
 
 @end
 
-WSI_EXTERN signal_t kSignalContentClicked;
-WSI_EXTERN signal_t kSignalItemClicked;
+NNT_EXTERN signal_t kSignalContentClicked;
+NNT_EXTERN signal_t kSignalItemClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT, typename contentT>
 class ItemView
@@ -97,7 +97,7 @@ public:
     template <typename itemT>
     void add(itemT const& item)
     {
-        wtl::const_pointer<itemT> ptr(item);
+        ntl::const_pointer<itemT> ptr(item);
         UIItemsContainer* con = _impl();
         [con.items addObject:*ptr];
     }
@@ -111,7 +111,7 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 template <typename contentT>
 class Itemlize
@@ -126,8 +126,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -7,9 +7,9 @@
 # include "juice-impl/Juice3DMax.hpp"
 # include "juice-impl/JuiceSVG.hpp"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 # include "juice-impl/JuiceViewController.h"
 # endif
 

@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_COVERFLOW_922B0AC7F4274193BF6E9E1B842FA5AB_H_INCLUDED
-# define __WSI_UIKIT_COVERFLOW_922B0AC7F4274193BF6E9E1B842FA5AB_H_INCLUDED
+# ifndef __NNT_UIKIT_COVERFLOW_922B0AC7F4274193BF6E9E1B842FA5AB_H_INCLUDED
+# define __NNT_UIKIT_COVERFLOW_922B0AC7F4274193BF6E9E1B842FA5AB_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UIItemView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UICoverFlow);
-WSIDECL_EXTERN_CLASS(UICoverFlowItem);
+NNTDECL_EXTERN_CLASS(UICoverFlow);
+NNTDECL_EXTERN_CLASS(UICoverFlowItem);
 
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
 @protocol UICoverFlowDelegate <NSObject>
 @optional
@@ -19,9 +19,9 @@ WSI_EXTERN signal_t kSignalSelectChanged;
 
 @end
 
-WSIDECL_PRIVATE_HEAD(UICoverFlow);
+NNTDECL_PRIVATE_HEAD(UICoverFlow);
 
-@interface UICoverFlow : WSIUIView {
+@interface UICoverFlow : NNTUIView {
     
     id <UICoverFlowDelegate> _delegate;
         
@@ -70,7 +70,7 @@ WSIDECL_PRIVATE_HEAD(UICoverFlow);
     //! items.
     UIItemsContainer* _items;
     
-    WSIDECL_PRIVATE(UICoverFlow);
+    NNTDECL_PRIVATE(UICoverFlow);
 }
 
 @property (nonatomic, assign) id <UICoverFlowDelegate> delegate;
@@ -100,18 +100,18 @@ WSIDECL_PRIVATE_HEAD(UICoverFlow);
 @end
 
 //! item selected changed.
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
 _CXXVIEW_DECL(UICoverFlow);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 class ICoverflow
 : public IView
@@ -207,7 +207,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Coverflow
 : public tpl::Coverflow<Coverflow>
@@ -221,8 +221,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

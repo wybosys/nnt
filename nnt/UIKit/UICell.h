@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_UICELL_A79090DA408F434BB2C7302B2D501B27_H_INCLUDED
-# define __WSI_UIKIT_UICELL_A79090DA408F434BB2C7302B2D501B27_H_INCLUDED
+# ifndef __NNT_UIKIT_UICELL_A79090DA408F434BB2C7302B2D501B27_H_INCLUDED
+# define __NNT_UIKIT_UICELL_A79090DA408F434BB2C7302B2D501B27_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(WCGTextStyle);
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @protocol NSCell <NSObject>
 
@@ -16,7 +16,7 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 
 @end
 
-@interface NSCellLine : WSIObject <NSCellLine> {
+@interface NSCellLine : NNTObject <NSCellLine> {
     
     NSCellLine *nextLine;
     NSCellLine *prevLine;
@@ -25,13 +25,13 @@ WSIDECL_EXTERN_CLASS(WCGFill);
     real pos; //! position(offset from pre line) of self.
     real absolutePos; //! position from first line.
     
-    WCGLineStyle *style;
+    NgLineStyle *style;
 }
 
 @property (nonatomic, assign) NSCellLine *nextLine, *prevLine;
 @property (nonatomic, assign) NSUInteger npos;
 @property (nonatomic, assign) real pos;
-@property (nonatomic, retain) WCGLineStyle *style;
+@property (nonatomic, retain) NgLineStyle *style;
 @property (nonatomic, readonly, getter = getAbsolutePos) real absolutePos;
 
 - (real)getAbsolutePos;
@@ -42,10 +42,10 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 
 @end
 
-@interface NSCell : WSIObject <NSCell> {
+@interface NSCell : NNTObject <NSCell> {
     
     NSString *text;
-    WCGTextStyle *textStyle;
+    NgTextStyle *textStyle;
         
     NSCellLine *lineLeft, *lineRight, *lineTop, *lineBottom;
     
@@ -55,7 +55,7 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 }
 
 @property (nonatomic, copy) NSString *text;
-@property (nonatomic, retain) WCGTextStyle *textStyle;
+@property (nonatomic, retain) NgTextStyle *textStyle;
 @property (nonatomic, assign) NSCellLine *lineLeft, *lineRight, *lineTop, *lineBottom;
 @property (nonatomic, readonly, getter = getWidth) real width;
 @property (nonatomic, readonly, getter = getHeight) real height;
@@ -73,15 +73,15 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 @interface UICell : UIView {
     
     NSCell *cell;
-    WCGFill *cellFill;
+    NgFill *cellFill;
     
 }
 
 @property (nonatomic, readonly) NSCell *cell;
-@property (nonatomic, retain) WCGFill *cellFill;
+@property (nonatomic, retain) NgFill *cellFill;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

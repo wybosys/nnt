@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
-# define __WSI_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
+# ifndef __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
+# define __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
 
-# import "WSIUIObject.h"
+# import "UIObject+NNT.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSView (WSI)
+@interface NSView (NNT)
 
 - (id)initWithZero;
 
@@ -17,58 +17,58 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
-@interface WSINSView : NSView {
+@interface NNTNSView : NSView {
     
     //! background fill.
-    WCGFill* backgroundFill;
+    NgFill* backgroundFill;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
-@property (nonatomic, retain) WCGFill* backgroundFill;
+@property (nonatomic, retain) NgFill* backgroundFill;
 
 - (void)layoutSubviews;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IView;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_nsview_wrapper <NSObject>
 
-@property (nonatomic, assign) ::wsi::ui::IView* _cxxobj;
+@property (nonatomic, assign) ::nnt::ui::IView* _cxxobj;
 
 @end
 
-@interface _cxx_nsview_wrapper : WSINSView <_cxx_nsview_wrapper>
+@interface _cxx_nsview_wrapper : NNTNSView <_cxx_nsview_wrapper>
 {
-    ::wsi::ui::IView* _cxxobj;    
+    ::nnt::ui::IView* _cxxobj;    
 }
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# include "WSIUIObject.h"
-# include "../Graphic/WCGFill.h"
+# include "UIObject+NNT.h"
+# include "../Graphic/NGFill.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IView
 : public IObject
@@ -137,17 +137,17 @@ public:
 
     template <typename subviewT>
     inline void add_subview(subviewT const& view,
-                            typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                            typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [this->_self addSubview:*ptr];
     }
     
     template <typename subviewT>
     inline void remove_subview(subviewT const& view,
-                               typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                               typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [*ptr removeFromSuperview];
     }
     
@@ -169,7 +169,7 @@ public:
     //! add sub controller or sub view smart.
     template <typename elementT>
     inline void add_sub(elementT const& elemT,
-                        typename wtl::mixin_type<elementT>::type::empty_type* empty = NULL)
+                        typename ntl::mixin_type<elementT>::type::empty_type* empty = NULL)
     {
         this->_add_sub(elemT, empty);
     }
@@ -228,8 +228,8 @@ private:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

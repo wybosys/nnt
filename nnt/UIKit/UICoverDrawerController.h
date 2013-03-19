@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_COVERDRAWERCONTROLLER_05FCA8B740A24B78AF597FE0A025515D_H_INCLUDED
-# define __WSI_UIKIT_COVERDRAWERCONTROLLER_05FCA8B740A24B78AF597FE0A025515D_H_INCLUDED
+# ifndef __NNT_UIKIT_COVERDRAWERCONTROLLER_05FCA8B740A24B78AF597FE0A025515D_H_INCLUDED
+# define __NNT_UIKIT_COVERDRAWERCONTROLLER_05FCA8B740A24B78AF597FE0A025515D_H_INCLUDED
 
 # import "UICoverDrawer.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UICoverDrawData : WSIObject {
+@interface UICoverDrawData : NNTObject {
     
     //! title.
     NSString* title;
@@ -23,7 +23,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UICoverDrawerController : WSIUIViewController <UICoverDrawerDataSource, UICoverDrawerDelegate> {
+@interface UICoverDrawerController : NNTUIViewController <UICoverDrawerDataSource, UICoverDrawerDelegate> {
     
     //! datas.
     NSArray* datas;
@@ -36,6 +36,6 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

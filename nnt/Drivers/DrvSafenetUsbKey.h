@@ -1,8 +1,8 @@
 
-# ifndef __WSI_DRIVER_SAFENETUSBKEY_6163e98bc03348c6add2f4bbb96a78df_H_INCLUDED
-# define __WSI_DRIVER_SAFENETUSBKEY_6163e98bc03348c6add2f4bbb96a78df_H_INCLUDED
+# ifndef __NNT_DRIVER_SAFENETUSBKEY_6163e98bc03348c6add2f4bbb96a78df_H_INCLUDED
+# define __NNT_DRIVER_SAFENETUSBKEY_6163e98bc03348c6add2f4bbb96a78df_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <SentinelKeys.h>
 
@@ -15,54 +15,54 @@ typedef struct {
 } sfnt_t;
 
 //! to string
-WSIAPI(char const*)
+NNTAPI(char const*)
 sfnt_tostring(sfnt_t*);
 
 //! to int
-WSIAPI(int)
+NNTAPI(int)
 sfnt_toint(sfnt_t*);
 
 //! is suc
-WSIAPI(bool)
+NNTAPI(bool)
 sfnt_failed(sfnt_t*);
 
 //! get errid
-WSIAPI(dword)
+NNTAPI(dword)
 sfnt_errid(sfnt_t*);
 
 //! init
-WSIAPI(sfnt_t*) 
+NNTAPI(sfnt_t*) 
 sfnt_init();
 
 //! fin
-WSIAPI(void)
+NNTAPI(void)
 sfnt_fin(sfnt_t*);
 
 //! get license
-WSIAPI(void)
+NNTAPI(void)
 sfnt_getlicense(dword devid, byte* softwarekey, dword licid, dword flags, sfnt_t* sfnt);
 
 //! query feature
-WSIAPI(void)
+NNTAPI(void)
 sfnt_queryfeature(dword featureid, dword flags, byte* query, dword length, dword rlen, sfnt_t* sfnt);
 
 //! read string
-WSIAPI(void)
+NNTAPI(void)
 sfnt_readstring(dword featureid, sfnt_t* sfnt);
 
 //! read integer
-WSIAPI(void)
+NNTAPI(void)
 sfnt_readinteger(dword featureid, sfnt_t* sfnt);
 
 //! counter dec
-WSIAPI(void)
+NNTAPI(void)
 sfnt_counterdecrement(dword featureid, dword value, sfnt_t* fnt);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX WSI_BEGIN_NS(sfnt)
+NNT_BEGIN_HEADER_CXX NNT_BEGIN_NS(sfnt)
 
 class Config
 {
@@ -78,7 +78,7 @@ class Config
     dword LEN_OF_ALL_SERVERS;
 };
 
-//WSICLASS(Standalone);
+//NNTCLASS(Standalone);
 
 class Standalone
 {
@@ -113,7 +113,7 @@ class Standalone
     Config const* _cfg;
 };
 
-WSI_END_NS WSI_END_HEADER_CXX
+NNT_END_NS NNT_END_HEADER_CXX
 
 # endif
 

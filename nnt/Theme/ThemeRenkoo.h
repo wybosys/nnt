@@ -1,15 +1,15 @@
 
-# ifndef __WSI_THEME_RENKOO_3C1EFEF102774E178F46D87C70CFD36A_H_INCLUDED
-# define __WSI_THEME_RENKOO_3C1EFEF102774E178F46D87C70CFD36A_H_INCLUDED
+# ifndef __NNT_THEME_RENKOO_3C1EFEF102774E178F46D87C70CFD36A_H_INCLUDED
+# define __NNT_THEME_RENKOO_3C1EFEF102774E178F46D87C70CFD36A_H_INCLUDED
 
-# import "WCALayerTheme.h"
+# import "NGLayerTheme.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
-@interface ThemeRenkoo : WCALayerTheme <WCALayerTheme> {
-    WCGFill *img_indicator, *img_background;
+@interface ThemeRenkoo : NgLayerTheme <NgLayerTheme> {
+    NgFill *img_indicator, *img_background;
 }
 
 @property (nonatomic, assign) CGColorRef borderColor;
@@ -23,6 +23,6 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

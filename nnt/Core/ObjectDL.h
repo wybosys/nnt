@@ -1,17 +1,17 @@
 
-# ifndef __WSI_CORE_OBJECT_DESCRIBE_LAYER_6F1619FB1BA5482D842D3ED4E1362E55_H_INCLUDED
-# define __WSI_CORE_OBJECT_DESCRIBE_LAYER_6F1619FB1BA5482D842D3ED4E1362E55_H_INCLUDED
+# ifndef __NNT_CORE_OBJECT_DESCRIBE_LAYER_6F1619FB1BA5482D842D3ED4E1362E55_H_INCLUDED
+# define __NNT_CORE_OBJECT_DESCRIBE_LAYER_6F1619FB1BA5482D842D3ED4E1362E55_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(lang)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(lang)
 
-WSICLASS(Object);
-WSICLASS(Method);
-WSICLASS(Field);
-WSICLASS(Class);
-WSICLASS(Namespace);
+NNTCLASS(Object);
+NNTCLASS(Method);
+NNTCLASS(Field);
+NNTCLASS(Class);
+NNTCLASS(Namespace);
 
 class Object
 {
@@ -46,7 +46,7 @@ protected:
 class Field
 : public Object
 {
-    WSIDECL_NOCOPY(Field);
+    NNTDECL_NOCOPY(Field);
     
 public:
     Field()
@@ -155,7 +155,7 @@ public:
 class Method
 : public Object
 {
-    WSIDECL_NOCOPY(Method);
+    NNTDECL_NOCOPY(Method);
     
 public:
     Method()    
@@ -261,7 +261,7 @@ public:
 class Class
 : public Object
 {
-    WSIDECL_NOCOPY(Class);
+    NNTDECL_NOCOPY(Class);
     
 public:
     Class()
@@ -394,20 +394,20 @@ enum {
 typedef uint INVOKE_STA;
 
 //! get namespace.
-WSIAPI(Namespace*) getNamespace(core::string const& = "");
+NNTAPI(Namespace*) getNamespace(core::string const& = "");
 
 //! add namespace.
-WSIAPI(Namespace*) addNamespace(core::string const&);
+NNTAPI(Namespace*) addNamespace(core::string const&);
 
 //! instance a class's object in namespace.
-WSIAPI(Object*) instanceObject(Namespace const*, Class const*);
+NNTAPI(Object*) instanceObject(Namespace const*, Class const*);
 
 //! find decl class.
-WSIAPI(Class const*) findDeclClass(Namespace const*, Class const*);
+NNTAPI(Class const*) findDeclClass(Namespace const*, Class const*);
 
 //! invoke a class on object.
-WSIAPI(INVOKE_STA) invokeClass(Object* obj, Class const* objcls, void*);
-WSIAPI(INVOKE_STA) invokeClass(Object* obj, Class const* objcls, Class const* declclass, void*);
+NNTAPI(INVOKE_STA) invokeClass(Object* obj, Class const* objcls, void*);
+NNTAPI(INVOKE_STA) invokeClass(Object* obj, Class const* objcls, Class const* declclass, void*);
 
 class Namespace
 {
@@ -457,12 +457,12 @@ public:
     classes_type classes;
 };
 
-WSI_BEGIN_NS(fp)
+NNT_BEGIN_NS(fp)
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

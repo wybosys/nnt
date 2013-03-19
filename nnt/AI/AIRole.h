@@ -1,11 +1,11 @@
 
-# ifndef __WSIAI_ROLE_01f912d84eb0481a8ad950eeadd35cea_H_INCLUDED
-# define __WSIAI_ROLE_01f912d84eb0481a8ad950eeadd35cea_H_INCLUDED
+# ifndef __NNTAI_ROLE_01f912d84eb0481a8ad950eeadd35cea_H_INCLUDED
+# define __NNTAI_ROLE_01f912d84eb0481a8ad950eeadd35cea_H_INCLUDED
 
 # include "AIAction.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ai)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ai)
 
 class IRoles;
 
@@ -22,20 +22,20 @@ public:
 };
 
 class IRoles
-    : public wtl::IArray<IRole*>
+    : public ntl::IArray<IRole*>
 {
 
 };
 
 class Roles
-    : public wtl::Arraylize<IRole*, core::refpointer_vector<IRole>, IRoles>
+    : public ntl::Arraylize<IRole*, core::refpointer_vector<IRole>, IRoles>
 {
 
 };
 
 template <typename implT>
 class Role
-    : public wtl::uml::realization<implT, IRole>
+    : public ntl::uml::realization<implT, IRole>
 {
 public:
 
@@ -89,7 +89,7 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

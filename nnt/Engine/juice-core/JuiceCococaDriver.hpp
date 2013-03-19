@@ -1,21 +1,21 @@
 
 # ifndef __JUICE_COCOCA_DRIVER_C9DEF0BA8D35433B9970EE337339B551_H_INCLUDED
 # define __JUICE_COCOCA_DRIVER_C9DEF0BA8D35433B9970EE337339B551_H_INCLUDED
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # include "JuiceDriver.hpp"
 # include "JuiceCocoa++.hpp"
-# include "../../Graphic/WCGContext.h"
+# include "../../Graphic/NGContext.h"
 
 JUICE_BEGIN
 
 typedef struct {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     typedef UIView* drawable_type;
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     typedef NSView* drawable_type;
 # endif
     
@@ -126,7 +126,7 @@ public:
     void flush()
     {
         // draw _context to current.
-        CGContextRef ctx = WCGGetCurrentContext();
+        CGContextRef ctx = NgGetCurrentContext();
         if (ctx == NULL)
             return;
         
@@ -254,7 +254,7 @@ public:
     
 protected:
     
-    ::wsi::cg::Rect _bounds;
+    ::nnt::cg::Rect _bounds;
     context_type _context;
     context_type* _ptrcontext;
     drawable_type _drawable;

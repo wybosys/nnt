@@ -1,15 +1,15 @@
 
-# ifndef __WSI_CORE_FS_LOCAL_0FEF86C0EB2946BDB848E4A729428AD1_H_INCLUDED
-# define __WSI_CORE_FS_LOCAL_0FEF86C0EB2946BDB848E4A729428AD1_H_INCLUDED
+# ifndef __NNT_CORE_FS_LOCAL_0FEF86C0EB2946BDB848E4A729428AD1_H_INCLUDED
+# define __NNT_CORE_FS_LOCAL_0FEF86C0EB2946BDB848E4A729428AD1_H_INCLUDED
 
 # include "Filesystem.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Local
 {
@@ -19,19 +19,19 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER
+NNT_END_NS
+NNT_END_HEADER
 
 # endif
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(fs)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(fs)
 
-WSICLASS(Local);
+NNTCLASS(Local);
 
 class Local
 : public Filesystem
@@ -58,10 +58,10 @@ public:
     
 };
 
-WSIAPI(bool) save(core::data const& data, core::string const& name);
+NNTAPI(bool) save(core::data const& data, core::string const& name);
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

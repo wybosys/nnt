@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_THEME_43232220F0E242C782869ABF9BF8F1BA_H_INCLUDED
-# define __WSI_UIKIT_THEME_43232220F0E242C782869ABF9BF8F1BA_H_INCLUDED
+# ifndef __NNT_UIKIT_THEME_43232220F0E242C782869ABF9BF8F1BA_H_INCLUDED
+# define __NNT_UIKIT_THEME_43232220F0E242C782869ABF9BF8F1BA_H_INCLUDED
 
-# import "../Core/Directory+WSI.h"
+# import "../Core/Directory+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 @interface NSObject (UITheme)
 
@@ -15,14 +15,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(NSObject, UITheme);
+NNTDECL_CATEGORY(NSObject, UITheme);
 
 # endif
 
-WSIDECL_PRIVATE_HEAD(UITheme);
+NNTDECL_PRIVATE_HEAD(UITheme);
 
-@interface UITheme : WSIObject {    
-    WSIDECL_PRIVATE_EX(UITheme, d_ptr_theme);
+@interface UITheme : NNTObject {    
+    NNTDECL_PRIVATE_EX(UITheme, d_ptr_theme);
 }
 
 - (id)init;
@@ -32,7 +32,7 @@ WSIDECL_PRIVATE_HEAD(UITheme);
 
 //! load theme file.
 - (BOOL)loadTheme:(NSString*)name;
-- (BOOL)loadTheme:(NSString *)name type:(WSIDirectoryType)type;
+- (BOOL)loadTheme:(NSString *)name type:(NNTDirectoryType)type;
 
 //! instance a object by key from theme.
 - (id)instanceObject:(char const*)key;
@@ -74,36 +74,36 @@ typedef bool (*UIThemeWalkFunc)(char const* key, uint klen, id obj);
 @end
 
 //! get current theme.
-WSI_EXTERN UITheme* currentTheme;
+NNT_EXTERN UITheme* currentTheme;
 
 //! load theme.
-WSI_EXTERN void LoadTheme(NSString* name);
+NNT_EXTERN void LoadTheme(NSString* name);
 
 //! select theme.
-WSI_EXTERN void SelectTheme(UITheme*);
+NNT_EXTERN void SelectTheme(UITheme*);
 
-//# ifdef WSI_DEBUG
+//# ifdef NNT_DEBUG
 //extern void AppDebugThemeInit(UITheme*);
 //# endif
 
-# define WSIDEBUG_THEME //void AppDebugThemeInit(UITheme* theme)
+# define NNTDEBUG_THEME //void AppDebugThemeInit(UITheme* theme)
 
 # ifndef _R
 #   define _R(resid) [currentTheme instanceObject:resid]
 # endif
 
-# ifdef WSI_DEBUG
-#   define WSIDEBUG_THEME_IMPL //void AppDebugThemeInit(UITheme* theme) {}
+# ifdef NNT_DEBUG
+#   define NNTDEBUG_THEME_IMPL //void AppDebugThemeInit(UITheme* theme) {}
 # else
-#   define WSIDEBUG_THEME_IMPL SPACE
+#   define NNTDEBUG_THEME_IMPL SPACE
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ThemeItem
 {
@@ -159,7 +159,7 @@ public:
         return [this->_self loadTheme:theme];
     }
     
-    bool load(ns::String const& theme, WSIDirectoryType type)
+    bool load(ns::String const& theme, NNTDirectoryType type)
     {
         return [this->_self loadTheme:theme type:type];
     }
@@ -246,8 +246,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,11 +1,11 @@
 
-# ifndef __WSI_CORE_UNITTEST_80BD7E74F16847CAACF350555991EC76_H_INCLUDED
-# define __WSI_CORE_UNITTEST_80BD7E74F16847CAACF350555991EC76_H_INCLUDED
+# ifndef __NNT_CORE_UNITTEST_80BD7E74F16847CAACF350555991EC76_H_INCLUDED
+# define __NNT_CORE_UNITTEST_80BD7E74F16847CAACF350555991EC76_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ut)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ut)
 
 class Case
 : public RefObject
@@ -70,17 +70,17 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-WSIAPI(::wsi::ut::Suite*) UTSuiteDefault();
-WSIAPI(void) UTSuiteFree(::wsi::ut::Suite*);
-WSIAPI(bool) UTSuiteAddCase(::wsi::ut::Case*, ::wsi::ut::Suite*);
-WSIAPI(void) UTSuiteRun(::wsi::ut::Suite*);
+NNTAPI(::nnt::ut::Suite*) UTSuiteDefault();
+NNTAPI(void) UTSuiteFree(::nnt::ut::Suite*);
+NNTAPI(bool) UTSuiteAddCase(::nnt::ut::Case*, ::nnt::ut::Suite*);
+NNTAPI(void) UTSuiteRun(::nnt::ut::Suite*);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif
 

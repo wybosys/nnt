@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_SETCONTROLLERS_A043447233E54EC0BC3B92F704F3AC6D_H_INCLUDED
-# define __WSI_UIKIT_SETCONTROLLERS_A043447233E54EC0BC3B92F704F3AC6D_H_INCLUDED
+# ifndef __NNT_UIKIT_SETCONTROLLERS_A043447233E54EC0BC3B92F704F3AC6D_H_INCLUDED
+# define __NNT_UIKIT_SETCONTROLLERS_A043447233E54EC0BC3B92F704F3AC6D_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UISetControllers : WSIUIViewController {
+@interface UISetControllers : NNTUIViewController {
     
     //! set for all controller.
     NSMutableSet* _set;
@@ -25,22 +25,22 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalItemInserted;
-WSI_EXTERN signal_t kSignalItemRemoved;
+NNT_EXTERN signal_t kSignalItemInserted;
+NNT_EXTERN signal_t kSignalItemRemoved;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIViewController+WSI.h"
+# include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SetControllers
 : public SimpleController<SetControllers, 
 UISetControllers, 
-WSIUIView>
+NNTUIView>
 {
 public:
     
@@ -52,7 +52,7 @@ public:
     template <typename ctlrT>
     void add(ctlrT const& ctlr)
     {
-        wtl::const_pointer<ctlrT> ptr(ctlr);
+        ntl::const_pointer<ctlrT> ptr(ctlr);
         [this->_self add:*ptr];
     }
     
@@ -73,8 +73,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,23 +1,23 @@
 
-# ifndef __WSI_NSSTYLESTRING_5004149A982048D4B3BE9135A4A8B6E3_H_INCLUDED
-# define __WSI_NSSTYLESTRING_5004149A982048D4B3BE9135A4A8B6E3_H_INCLUDED
+# ifndef __NNT_NSSTYLESTRING_5004149A982048D4B3BE9135A4A8B6E3_H_INCLUDED
+# define __NNT_NSSTYLESTRING_5004149A982048D4B3BE9135A4A8B6E3_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGTextStyle);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
 
-@interface NSStyleString : WSIObject {
+@interface NSStyleString : NNTObject {
     
     //! string.
     NSString* string;
     
     //! text style.
-    WCGTextStyle* textStyle;
+    NgTextStyle* textStyle;
     
 }
 
 @property (nonatomic, copy) NSString* string;
-@property (nonatomic, retain) WCGTextStyle* textStyle;
+@property (nonatomic, retain) NgTextStyle* textStyle;
 
 //! init.
 - (id)initWithString:(NSString*)str;
@@ -27,6 +27,6 @@ WSIDECL_EXTERN_CLASS(WCGTextStyle);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

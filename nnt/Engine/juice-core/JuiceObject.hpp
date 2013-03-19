@@ -130,7 +130,7 @@ protected:
 };
 
 template <typename classT, typename setT = null_op>
-class WSI_NOVTABLE Property
+class NNT_NOVTABLE Property
 {
     typedef Property<classT> self_type;
     

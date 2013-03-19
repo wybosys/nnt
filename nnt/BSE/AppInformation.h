@@ -1,29 +1,29 @@
 
-# ifndef __WSI_BSE_APPINFO_40F3FDB0844B43B08730AA11F9FE0DD3_H_INCLUDED
-# define __WSI_BSE_APPINFO_40F3FDB0844B43B08730AA11F9FE0DD3_H_INCLUDED
+# ifndef __NNT_BSE_APPINFO_40F3FDB0844B43B08730AA11F9FE0DD3_H_INCLUDED
+# define __NNT_BSE_APPINFO_40F3FDB0844B43B08730AA11F9FE0DD3_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIApplication);
-WSIDECL_EXTERN_CLASS(Server);
+NNTDECL_EXTERN_CLASS(NNTApplication);
+NNTDECL_EXTERN_CLASS(Server);
 
-@interface BSEAppInformation : WSIObject {
-    WSIApplication* _app;
+@interface BSEAppInformation : NNTObject {
+    NNTApplication* _app;
     Server* _serv;
 }
 
-@property (nonatomic, assign) WSIApplication* app;
+@property (nonatomic, assign) NNTApplication* app;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(bse)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(bse)
 
 class Application
 {
@@ -39,8 +39,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

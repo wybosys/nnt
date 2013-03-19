@@ -5,24 +5,24 @@
 # include "../XmppObject.h"
 
 # define XMPPCORE_HEADER_BEGIN \
-WSI_BEGIN_HEADER_CXX \
-WSI_BEGIN_NS(xmpp) \
-WSI_BEGIN_NS(cor)
+NNT_BEGIN_HEADER_CXX \
+NNT_BEGIN_NS(xmpp) \
+NNT_BEGIN_NS(cor)
 
 # define XMPPCORE_HEADER_END \
-WSI_END_NS \
-WSI_END_NS \
-WSI_END_HEADER_CXX
+NNT_END_NS \
+NNT_END_NS \
+NNT_END_HEADER_CXX
 
 # define XMPPCORE_BEGIN \
-WSI_BEGIN_CXX \
-WSI_BEGIN_NS(xmpp) \
-WSI_BEGIN_NS(cor)
+NNT_BEGIN_CXX \
+NNT_BEGIN_NS(xmpp) \
+NNT_BEGIN_NS(cor)
 
 # define XMPPCORE_END \
-WSI_END_NS \
-WSI_END_NS \
-WSI_END_CXX
+NNT_END_NS \
+NNT_END_NS \
+NNT_END_CXX
 
 XMPPCORE_HEADER_BEGIN
 
@@ -53,8 +53,8 @@ typedef enum
 }
 IqType;
 
-WSIAPI(IqType) IqTypeFromString(core::string const&);
-WSIAPI(core::string) IqTypeToString(IqType);
+NNTAPI(IqType) IqTypeFromString(core::string const&);
+NNTAPI(core::string) IqTypeToString(IqType);
 
 enum
 {

@@ -1,14 +1,14 @@
 
-# ifndef __WSI_JUICECONTROLLER_62B9F4E96EB94EB2937B8B42D3A81ABB_H_INCLUDED
-# define __WSI_JUICECONTROLLER_62B9F4E96EB94EB2937B8B42D3A81ABB_H_INCLUDED
+# ifndef __NNT_JUICECONTROLLER_62B9F4E96EB94EB2937B8B42D3A81ABB_H_INCLUDED
+# define __NNT_JUICECONTROLLER_62B9F4E96EB94EB2937B8B42D3A81ABB_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(NSJuiceController)
+NNTDECL_EXTERN_CLASS(NSJuiceController)
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "JuiceImpl.h"
 
@@ -22,10 +22,10 @@ struct _Types
     typedef ::juice::cocoa::Matrix matrix_type;
     typedef ::juice::Rect<vertex_type, ::juice::Size2d<float> > viewport_type;
     typedef ::juice::BoundingBox<vertex_type> bounding_type;
-    typedef ::wsi::core::vector< ::juice::renderentity_wrapper> entities_type;
-    typedef ::wsi::core::vector<vertex_type> vertices_type;
-    typedef ::wsi::core::vector<index_type> indexies_type;
-    typedef ::wsi::core::vector<color_type> colors_type;
+    typedef ::nnt::core::vector< ::juice::renderentity_wrapper> entities_type;
+    typedef ::nnt::core::vector<vertex_type> vertices_type;
+    typedef ::nnt::core::vector<index_type> indexies_type;
+    typedef ::nnt::core::vector<color_type> colors_type;
 };
 
 class Material
@@ -75,12 +75,12 @@ JUICEIMPL_END
 
 # endif
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSJuiceController : WSINSViewController
+@interface NSJuiceController : NNTNSViewController
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CORE_APP_E360275B13394967BD08A1ACD9F2F9C4_H_INCLUDED
-# define __WSI_CORE_APP_E360275B13394967BD08A1ACD9F2F9C4_H_INCLUDED
+# ifndef __NNT_CORE_APP_E360275B13394967BD08A1ACD9F2F9C4_H_INCLUDED
+# define __NNT_CORE_APP_E360275B13394967BD08A1ACD9F2F9C4_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class IArguments
 {
@@ -33,19 +33,19 @@ public:
     
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-IOSEXPRESS(WSIDECL_EXTERN_CLASS(UIStatusBarControl));
+IOSEXPRESS(NNTDECL_EXTERN_CLASS(UIStatusBarControl));
 
-WSIDECL_PRIVATE_HEAD(WSIApplication);
+NNTDECL_PRIVATE_HEAD(NNTApplication);
 
-@interface WSIApplication : WSIObject <
+@interface NNTApplication : NNTObject <
 IOSEXPRESS(UIApplicationDelegate)
 MACEXPRESS(NSApplicationDelegate)
 > {
@@ -59,7 +59,7 @@ MACEXPRESS(NSApplicationDelegate)
     //! root view controller.
     MAC_IOS_SELECT(NSViewController, UIViewController) *_rootViewController;
     
-    WSIDECL_PRIVATE(WSIApplication);
+    NNTDECL_PRIVATE(NNTApplication);
 }
 
 @property (nonatomic, copy) NSString *applicationName, *applicationIdentity, *applicationURLScheme, *urlInAppStore;
@@ -71,14 +71,14 @@ MACEXPRESS(NSApplicationDelegate)
 - (void)load;
 
 // for mac.
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 
 - (void)load:(NSNotification*)aNotification;
 
 # endif
 
 // for ios.
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 //! window.
 - (UIWindow*)currentWindow;
@@ -98,8 +98,8 @@ MACEXPRESS(NSApplicationDelegate)
 # endif
 
 //! shared.
-+ (WSIApplication*)shared;
-+ (WSIApplication*)current;
++ (NNTApplication*)shared;
++ (NNTApplication*)current;
 
 //! enable file cache.
 - (void)enableFileCache;
@@ -116,7 +116,7 @@ MACEXPRESS(NSApplicationDelegate)
 
 @end
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 @interface OpenURLObject : NSObject
 
@@ -126,77 +126,77 @@ MACEXPRESS(NSApplicationDelegate)
 
 @end
 
-WSI_EXTERN bool __need_manual_appear;
+NNT_EXTERN bool __need_manual_appear;
 
-WSI_EXTERN bool WSI_DEVICE_ISIPHONE;
-WSI_EXTERN bool WSI_DEVICE_ISIPHONE_SIMULATOR;
-WSI_EXTERN bool WSI_DEVICE_ISIPAD;
-WSI_EXTERN bool WSI_DEVICE_ISIPAD_SIMULATOR;
-WSI_EXTERN bool WSI_DEVICE_ISIPOD;
-WSI_EXTERN bool WSI_DEVICE_ISSIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPHONE;
+NNT_EXTERN bool NNT_DEVICE_ISIPHONE_SIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD_SIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPOD;
+NNT_EXTERN bool NNT_DEVICE_ISSIMULATOR;
 
-WSI_EXTERN bool WSI_SUPPORT_BLOCKS;
-WSI_EXTERN bool WSI_SUPPORT_MULTITASKS;
+NNT_EXTERN bool NNT_SUPPORT_BLOCKS;
+NNT_EXTERN bool NNT_SUPPORT_MULTITASKS;
 
-WSI_EXTERN double DEVICE_VERSION;
+NNT_EXTERN double DEVICE_VERSION;
 
 # endif
 
 //! open a url.
-WSI_EXTERN signal_t kSignalAppOpenUrl;
-WSI_EXTERN NSString *kWSIApp_Url;
-WSI_EXTERN NSString *kWSIApp_Source;
-WSI_EXTERN NSString *kWSIApp_Anno;
-WSI_EXTERN NSString *kWSIApp_App;
+NNT_EXTERN signal_t kSignalAppOpenUrl;
+NNT_EXTERN NSString *kOpenUrlTarget;
+NNT_EXTERN NSString *kOpenUrlSource;
+NNT_EXTERN NSString *kOpenUrlAnno;
+NNT_EXTERN NSString *kOpenUrlApp;
 
 //! notification.
-WSI_EXTERN signal_t kSignalNotification;
-WSI_EXTERN signal_t kSignalDeviceToken;
+NNT_EXTERN signal_t kSignalNotification;
+NNT_EXTERN signal_t kSignalDeviceToken;
 
 //! app control.
-WSI_EXTERN signal_t kSignalAppFinishLaunching;
-WSI_EXTERN signal_t kSignalMemoryWarning;
+NNT_EXTERN signal_t kSignalAppFinishLaunching;
+NNT_EXTERN signal_t kSignalMemoryWarning;
 
 //! hide.
-WSI_EXTERN signal_t kSignalAppHiding;
-WSI_EXTERN signal_t kSignalAppHiden;
-WSI_EXTERN signal_t kSignalAppShowing;
-WSI_EXTERN signal_t kSignalAppShown;
+NNT_EXTERN signal_t kSignalAppHiding;
+NNT_EXTERN signal_t kSignalAppHiden;
+NNT_EXTERN signal_t kSignalAppShowing;
+NNT_EXTERN signal_t kSignalAppShown;
 
 //! active.
-WSI_EXTERN signal_t kSignalAppActiving;
-WSI_EXTERN signal_t kSignalAppActived;
-WSI_EXTERN signal_t kSignalAppInactiving;
-WSI_EXTERN signal_t kSignalAppInactived;
+NNT_EXTERN signal_t kSignalAppActiving;
+NNT_EXTERN signal_t kSignalAppActived;
+NNT_EXTERN signal_t kSignalAppInactiving;
+NNT_EXTERN signal_t kSignalAppInactived;
 
 //! background.
-WSI_EXTERN signal_t kSignalAppBackground;
-WSI_EXTERN signal_t kSignalAppBackgroundExpired;
+NNT_EXTERN signal_t kSignalAppBackground;
+NNT_EXTERN signal_t kSignalAppBackgroundExpired;
 
 //! key.
-WSI_EXTERN NSString* kConfigDeviceToken;
+NNT_EXTERN NSString* kConfigDeviceToken;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# ifdef WSI_TARGET_IOS
-# include "UIWindow+WSI.h"
+# ifdef NNT_TARGET_IOS
+# include "UIWindow+NNT.h"
 # else
-# include "../UIKit/NSWindow+WSI.h"
+# include "../UIKit/NSWindow+NNT.h"
 # endif
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIApplicationDelegate : WSIApplication
+@interface NNTApplicationDelegate : NNTApplication
 @end
 
-@interface WSIAppImplementation : WSIApplicationDelegate
+@interface NNTAppImplementation : NNTApplicationDelegate
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class _ApplicationWrapper;
 
@@ -204,13 +204,13 @@ class Application
 : public ns::Object<>,
 public IApplication
 {
-    WSIDECL_NOCOPY(Application);
+    NNTDECL_NOCOPY(Application);
     friend class _ApplicationWrapper;
     
 public:
     
     Application();
-    Application(WSIApplication*);
+    Application(NNTApplication*);
     ~Application();
     
     //! get instance of app.
@@ -237,7 +237,7 @@ public:
     template <typename ctlrT>
     void set_root(ctlrT& ctlr)
     {
-        wtl::const_pointer<ctlrT> ptr(ctlr);
+        ntl::const_pointer<ctlrT> ptr(ctlr);
         this->_do_set_root(*ptr);
         _root = &ctlr;
     }
@@ -251,7 +251,7 @@ public:
     
     //! overridable function.
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
     //! callback for background run.
     virtual void background_expired();
@@ -261,7 +261,7 @@ public:
     template <typename viewT>
     void set_initial(viewT& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         this->_do_set_initial(*ptr);
     }
     
@@ -269,7 +269,7 @@ public:
     
 # endif
     
-    WSIApplication* nsobject()
+    NNTApplication* nsobject()
     {
         return _app;
     }
@@ -282,14 +282,14 @@ protected:
     
     void _do_set_root(MAC_IOS_SELECT(NSViewController, UIViewController)* ctlr);
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
     void _do_set_initial(UIView*);
     
 # endif
     
     //! object.
-    WSIApplication* _app;
+    NNTApplication* _app;
     
     //! window.
     ui::Window _win;
@@ -302,17 +302,17 @@ protected:
     
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-WSICLASS(Environment);
+NNTCLASS(Environment);
 
 class Environment
 {
@@ -324,29 +324,29 @@ public:
 public:
     
     //! get instance.
-    WSI_STATIC Environment* getInstance();
+    NNT_STATIC Environment* getInstance();
     
     //! get directory.
-    WSI_STATIC core::string workingDirectory();
+    NNT_STATIC core::string workingDirectory();
     
     //! replace working directory, not change to system's current directory.
-    WSI_STATIC void replaceWorkingDirectory(core::string const&);
+    NNT_STATIC void replaceWorkingDirectory(core::string const&);
     
 };
 
-# ifdef WSI_CROSS_PLATFORM
+# ifdef NNT_CROSS_PLATFORM
 
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(uc)
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(uc)
 
 class Window;
 
-WSI_END_NS
-WSI_END_NS
+NNT_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
-WSICLASS(Console);
+NNTCLASS(Console);
 
 class Console
     : public cxx::Object<>,
@@ -369,7 +369,7 @@ protected:
 
 };
 
-WSICLASS(Application);
+NNTCLASS(Application);
 
 class Application
 : public cxx::Object<>,
@@ -417,11 +417,11 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

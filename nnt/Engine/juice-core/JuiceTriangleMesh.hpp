@@ -76,25 +76,25 @@ public:
         drv->set_material(&mesh->material);
         
         // add vertex.
-        drv->add_vertices((typename vertex_type::value_type const*)::wsi::core::pointer(mesh->vertices),
+        drv->add_vertices((typename vertex_type::value_type const*)::nnt::core::pointer(mesh->vertices),
                           cnt_vertices);
         
         // add normal.
         if (cnt_normals)
         {
-            drv->add_normals((typename vertex_type::value_type const*)::wsi::core::pointer(mesh->normals),
+            drv->add_normals((typename vertex_type::value_type const*)::nnt::core::pointer(mesh->normals),
                              cnt_normals);
         }
         
         // add color.
         if (cnt_colors)
         {
-            drv->add_colors((typename color_type::value_type const*)::wsi::core::pointer(mesh->colors),
+            drv->add_colors((typename color_type::value_type const*)::nnt::core::pointer(mesh->colors),
                             cnt_colors);
         }
         
         // add index.
-        drv->add_indexies(::wsi::core::pointer(mesh->indexies), 
+        drv->add_indexies(::nnt::core::pointer(mesh->indexies), 
                           cnt_indexies);
         
         // draw triangle.

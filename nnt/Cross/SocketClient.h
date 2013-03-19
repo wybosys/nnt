@@ -1,35 +1,35 @@
 
-# ifndef __WSI_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
-# define __WSI_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
+# ifndef __NNT_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
+# define __NNT_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
 
 # include "NetAddress.h"
-# include "../Core/Time+WSI.h"
+# include "../Core/Time+NNT.h"
 # include "SocketStream.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 //! emit while connected.
-WSI_EXTERN cxx::signal_t kSignalSuccess;
+NNT_EXTERN cxx::signal_t kSignalSuccess;
 
 //! emit while failed.
-WSI_EXTERN cxx::signal_t kSignalFailed;
+NNT_EXTERN cxx::signal_t kSignalFailed;
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
-WSICLASS(SocketClient);
-WSICLASS(SocketClientAsync);
+NNTCLASS(SocketClient);
+NNTCLASS(SocketClientAsync);
 
-WSIDECL_PRIVATE_HEAD_CXX(SocketClient);
+NNTDECL_PRIVATE_HEAD_CXX(SocketClient);
 
 class SocketClient
 : public cxx::Object<>
 {
     typedef cxx::Object<> super;
-    WSIDECL_PRIVATE_CXX(SocketClient);
+    NNTDECL_PRIVATE_CXX(SocketClient);
     
 public:
     
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
     
     SocketClient();
     ~SocketClient();
@@ -46,17 +46,17 @@ public:
     
 };
 
-WSIDECL_PRIVATE_HEAD_CXX(SocketClientAsync);
+NNTDECL_PRIVATE_HEAD_CXX(SocketClientAsync);
 
 class SocketClientAsync
 : public cxx::Object<>
 {
     typedef cxx::Object<> super;
-    WSIDECL_PRIVATE_CXX(SocketClientAsync);
+    NNTDECL_PRIVATE_CXX(SocketClientAsync);
     
 public:
     
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
     
     SocketClientAsync();
     ~SocketClientAsync();
@@ -73,7 +73,7 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

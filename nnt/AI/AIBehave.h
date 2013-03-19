@@ -1,11 +1,11 @@
 
-# ifndef __WSIAI_BEHAVE_7817be5c36d3449eadcb6a042c0c6491_H_INCLUDED
-# define __WSIAI_BEHAVE_7817be5c36d3449eadcb6a042c0c6491_H_INCLUDED
+# ifndef __NNTAI_BEHAVE_7817be5c36d3449eadcb6a042c0c6491_H_INCLUDED
+# define __NNTAI_BEHAVE_7817be5c36d3449eadcb6a042c0c6491_H_INCLUDED
 
 # include "AIRole.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ai)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ai)
 
 class IBehave
     : public IObject
@@ -19,7 +19,7 @@ public:
 
 template <typename implT>
 class Behave
-    : public wtl::uml::realization<implT, IBehave>
+    : public ntl::uml::realization<implT, IBehave>
 {
 public:
 
@@ -53,18 +53,18 @@ protected:
 };
 
 class IBehaves
-    : public wtl::IArray<IBehave*>
+    : public ntl::IArray<IBehave*>
 {
 
 };
 
 class Behaves
-    : public wtl::Arraylize<IBehave*, core::refpointer_vector<IBehave>, IBehaves>
+    : public ntl::Arraylize<IBehave*, core::refpointer_vector<IBehave>, IBehaves>
 {
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

@@ -1,18 +1,18 @@
 
-# ifndef __WSI_UTIL_ALPHABETFLOW_0CA15CFEB8294B4B83171ED3ACB8088A_H_INCLUDED
-# define __WSI_UTIL_ALPHABETFLOW_0CA15CFEB8294B4B83171ED3ACB8088A_H_INCLUDED
+# ifndef __NNT_UTIL_ALPHABETFLOW_0CA15CFEB8294B4B83171ED3ACB8088A_H_INCLUDED
+# define __NNT_UTIL_ALPHABETFLOW_0CA15CFEB8294B4B83171ED3ACB8088A_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 //! need free memory manual.
 char *alphabetflow_next(char const*, uint);
 char *alphabetflow_prev(char const*, uint);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface AlphabetFlow : NSObject {
     
@@ -37,12 +37,12 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class AlphabetFlow
 : public ns::Object< ::AlphabetFlow >
@@ -76,16 +76,16 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class AlphabetFlow
 {
@@ -109,7 +109,7 @@ public:
     
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

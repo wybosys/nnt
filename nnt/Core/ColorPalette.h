@@ -1,12 +1,12 @@
 
-# ifndef __WSI_CORE_COLORPALETTE_739813B0652648548BFE6BE86F74051F_H_INCLUDED
-# define __WSI_CORE_COLORPALETTE_739813B0652648548BFE6BE86F74051F_H_INCLUDED
+# ifndef __NNT_CORE_COLORPALETTE_739813B0652648548BFE6BE86F74051F_H_INCLUDED
+# define __NNT_CORE_COLORPALETTE_739813B0652648548BFE6BE86F74051F_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-# define WSI_COLORWHEEL_COMPSIZE 7
+# define NNT_COLORWHEEL_COMPSIZE 7
 
-WSI_EXTERN uint ColorWheel [][WSI_COLORWHEEL_COMPSIZE];
+NNT_EXTERN uint ColorWheel [][NNT_COLORWHEEL_COMPSIZE];
 
 typedef struct {
     const uint* colorwheel;
@@ -17,23 +17,23 @@ typedef struct {
 } colorpicker_t;
 
 //! init a color wheel.
-WSI_EXTERN colorpicker_t ColorWheelPicker(void);
+NNT_EXTERN colorpicker_t ColorWheelPicker(void);
 
 //! pick next color.
-WSI_EXTERN uint ColorPickerNextColor(colorpicker_t*);
+NNT_EXTERN uint ColorPickerNextColor(colorpicker_t*);
 
 //! pick color at index.
-WSI_EXTERN uint ColorPickerAtIndex(colorpicker_t*, uint);
+NNT_EXTERN uint ColorPickerAtIndex(colorpicker_t*, uint);
 
 //! reset color wheel.
-WSI_EXTERN void ColorPickerReset(colorpicker_t*);
+NNT_EXTERN void ColorPickerReset(colorpicker_t*);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(core)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(core)
 
 class ColorWheel
 {
@@ -65,8 +65,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

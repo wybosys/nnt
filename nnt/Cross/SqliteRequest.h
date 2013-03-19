@@ -1,20 +1,20 @@
 
-# ifndef __WSI_CROSS_SQLITEREQUEST_4DCF3D599EC7490F835FD69AF828E379_H_INCLUDED
-# define __WSI_CROSS_SQLITEREQUEST_4DCF3D599EC7490F835FD69AF828E379_H_INCLUDED
+# ifndef __NNT_CROSS_SQLITEREQUEST_4DCF3D599EC7490F835FD69AF828E379_H_INCLUDED
+# define __NNT_CROSS_SQLITEREQUEST_4DCF3D599EC7490F835FD69AF828E379_H_INCLUDED
 
 # include "NullRpc.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# include "Directory+WSI.h"
+# include "Directory+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface SqliteRequest : NullRpc {
-    WSIDirectoryType _directoryType;
+    NNTDirectoryType _directoryType;
 }
 
-@property (nonatomic, assign) WSIDirectoryType directoryType;
+@property (nonatomic, assign) NNTDirectoryType directoryType;
 
 @end
 
@@ -26,12 +26,12 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
 
 class SqliteRequest
 : public ns::Object< ::SqliteRequest >
@@ -51,8 +51,8 @@ class WritableSqliteRequest
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // objc-cxx
 

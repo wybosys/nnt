@@ -1,15 +1,15 @@
 
-# ifndef __WSI_SERVICE_IAD_6064499B0ADF4310AC3285C7FCB1FFE2_H_INCLUDED
-# define __WSI_SERVICE_IAD_6064499B0ADF4310AC3285C7FCB1FFE2_H_INCLUDED
+# ifndef __NNT_SERVICE_IAD_6064499B0ADF4310AC3285C7FCB1FFE2_H_INCLUDED
+# define __NNT_SERVICE_IAD_6064499B0ADF4310AC3285C7FCB1FFE2_H_INCLUDED
 
-# import "UIView+WSI.h"
-# import "UIViewController+WSI.h"
+# import "UIView+NNT.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(ADBannerView);
+NNTDECL_EXTERN_CLASS(ADBannerView);
 
-@interface IAdServiceView : WSIUIView {
+@interface IAdServiceView : NNTUIView {
     ADBannerView* _banner;
 }
 
@@ -19,25 +19,25 @@ WSIDECL_EXTERN_CLASS(ADBannerView);
 
 _CXXVIEW_DECL(IAdServiceView);
 
-WSIDECL_PRIVATE_HEAD(IAdServiceController);
+NNTDECL_PRIVATE_HEAD(IAdServiceController);
 
-@interface IAdServiceController : WSIUIViewController
+@interface IAdServiceController : NNTUIViewController
 <UIViewControllerRotation>
 {
-    WSIDECL_PRIVATE(IAdServiceController);
+    NNTDECL_PRIVATE(IAdServiceController);
 }
 
 @end
 
 _CXXCONTROLLER_DECL(IAdServiceController);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 class iAdView
 : public ui::View<iAdView, _CXXVIEW(IAdServiceView)>
@@ -66,9 +66,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -4,7 +4,7 @@
 
 JUICE_BEGIN
 
-# if defined(WSI_OBJC) && defined(WSI_TARGET_MAC)
+# if defined(NNT_OBJC) && defined(NNT_TARGET_MAC)
 
 typedef struct {
     typedef NSView* drawable_type;
@@ -24,7 +24,7 @@ public:
     
     _macgl_Driver(implT* obj)
     {
-        typedef ::wsi::wtl::value_type<context_type>::type context_impl;
+        typedef ::nnt::ntl::value_type<context_type>::type context_impl;
         
         NSOpenGLPixelFormatAttribute attributes[] = { 
             NSOpenGLPFADoubleBuffer,
@@ -94,7 +94,7 @@ protected:
 
 # define JUICE_OPENGL_DRIVER_IMPL _macgl_Driver<implT, typesT>
 
-# elif defined(WSI_OBJC) && defined(WSI_TARGET_IOS)
+# elif defined(NNT_OBJC) && defined(NNT_TARGET_IOS)
 
 typedef struct {
     typedef id drawable_type;
@@ -144,7 +144,7 @@ public:
     _iosgl_Driver(implT* obj)
     : _frameBuffer(0), _renderBuffer(0), _depthBuffer(0)
     {
-        typedef ::wsi::wtl::value_type<context_type>::type context_impl;
+        typedef ::nnt::ntl::value_type<context_type>::type context_impl;
         
         if (obj == NULL)
         {

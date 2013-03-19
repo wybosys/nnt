@@ -2,10 +2,10 @@
 # ifndef __JUICE_SPIRIT_B509E9128EA64072BF9FF697DA7F7F94_H_INCLUDED
 # define __JUICE_SPIRIT_B509E9128EA64072BF9FF697DA7F7F94_H_INCLUDED
 
-# include "../../Math/Math+WSI.h"
+# include "../../Math/Math+NNT.h"
 
 JUICE_BEGIN 
-WSI_BEGIN_NS(spirit)
+NNT_BEGIN_NS(spirit)
 
 template <typename implT, typename typesT>
 class Object
@@ -364,7 +364,7 @@ public:
     real cur_x, cur_y, cur_z;
 };
 
-WSI_END_NS 
+NNT_END_NS 
 JUICE_END
 
 # endif

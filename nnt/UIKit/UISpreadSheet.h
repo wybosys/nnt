@@ -1,18 +1,18 @@
 
-# ifndef __WSI_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
-# define __WSI_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
+# ifndef __NNT_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
+# define __NNT_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UISpreadSheet);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCell);
-WSIDECL_EXTERN_CLASS(UISpreadSheetRow);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCellMatrix);
-WSIDECL_EXTERN_CLASS(NSCellLine);
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(WCGTextStyle);
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WCGColor);
+NNTDECL_PRIVATE_HEAD(UISpreadSheet);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCell);
+NNTDECL_EXTERN_CLASS(UISpreadSheetRow);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCellMatrix);
+NNTDECL_EXTERN_CLASS(NSCellLine);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
+NNTDECL_EXTERN_CLASS(NgFill);
+NNTDECL_EXTERN_CLASS(NgColor);
 
 typedef enum {
     UISpreadSheetCellMatrixTypeCornerLeftTop = 0x01,
@@ -44,7 +44,7 @@ typedef enum {
 - (NSUInteger)sheetColsNumber:(UISpreadSheet*)sheet;
 
 //! request header number of sheet for every direction.
-- (NSUInteger)sheetHeadersNumber:(UISpreadSheet*)sheet dir:(WCGDirection)dir;
+- (NSUInteger)sheetHeadersNumber:(UISpreadSheet*)sheet dir:(NgDirection)dir;
 
 @end
 
@@ -68,13 +68,13 @@ typedef enum {
 - (void)sheetInit:(UISpreadSheet*)sheet;
 
 //! request line style for row.
-- (WCGLineStyle*)sheetRowLineStyle:(UISpreadSheet*)sheet row:(NSUInteger)row;
+- (NgLineStyle*)sheetRowLineStyle:(UISpreadSheet*)sheet row:(NSUInteger)row;
 
 //! request line style for col.
-- (WCGLineStyle*)sheetColLineStyle:(UISpreadSheet*)sheet col:(NSUInteger)col;
+- (NgLineStyle*)sheetColLineStyle:(UISpreadSheet*)sheet col:(NSUInteger)col;
 
 //! request text-style for every cell.
-- (WCGTextStyle*)sheetTextStyle:(UISpreadSheet*)sheet row:(NSUInteger)row col:(NSUInteger)col;
+- (NgTextStyle*)sheetTextStyle:(UISpreadSheet*)sheet row:(NSUInteger)row col:(NSUInteger)col;
 
 //! request string value for every cell.
 - (NSString*)sheetTextString:(UISpreadSheet*)sheet row:(NSUInteger)row col:(NSUInteger)col;
@@ -86,7 +86,7 @@ typedef enum {
 - (void)sheetDidTouchs:(UISpreadSheet*)sheet cells:(NSArray*)cells matrix:(UISpreadSheetCellMatrix*)matrix;
 
 //! request fill for every cell.
-- (WCGFill*)sheetFill:(UISpreadSheet*)sheet row:(NSUInteger)row col:(NSUInteger)col;
+- (NgFill*)sheetFill:(UISpreadSheet*)sheet row:(NSUInteger)row col:(NSUInteger)col;
 
 //! draw every cell. return YES will draw default cell.
 - (void)sheetDrawCell:(UISpreadSheet*)sheet cell:(UISpreadSheetCell*)cell context:(CGContextRef)context;
@@ -99,7 +99,7 @@ typedef enum {
 
 @end
 
-@interface UISpreadSheet : WSIUIControl <UISpreadSheetDelegate, UISpreadSheetDataSource> {
+@interface UISpreadSheet : NNTUIControl <UISpreadSheetDelegate, UISpreadSheetDataSource> {
     
     //! datasource and delegate.
     id <UISpreadSheetDataSource> dataSource;
@@ -112,16 +112,16 @@ typedef enum {
     real rowHeight;
     
     //! line style for col, should override by delegate.
-    WCGLineStyle *colLineStyle;
+    NgLineStyle *colLineStyle;
     
     //! line style for row, should override by delegate.
-    WCGLineStyle *rowLineStyle;
+    NgLineStyle *rowLineStyle;
     
     //! text style for cell, should override by delegate.
-    WCGTextStyle *textStyle;
+    NgTextStyle *textStyle;
     
     //! fill for cell, should override by delegate.
-    WCGFill *cellFill;
+    NgFill *cellFill;
     
     //! highlight color, when one cell touched, sheet will draw a cross on screen.
     UIColor *selHighlightColor;
@@ -139,15 +139,15 @@ typedef enum {
     //! reselect on selected cell, default is NO.
     BOOL reselectSelectedCell;
     
-    WSIDECL_PRIVATE(UISpreadSheet);
+    NNTDECL_PRIVATE(UISpreadSheet);
 }
 
 @property (nonatomic, assign) id <UISpreadSheetDataSource> dataSource;
 @property (nonatomic, assign) id <UISpreadSheetDelegate> delegate;
 @property (nonatomic, assign) real colWidth, rowHeight;
-@property (nonatomic, retain) WCGLineStyle *colLineStyle, *rowLineStyle;
-@property (nonatomic, retain) WCGTextStyle *textStyle;
-@property (nonatomic, retain) WCGFill *cellFill;
+@property (nonatomic, retain) NgLineStyle *colLineStyle, *rowLineStyle;
+@property (nonatomic, retain) NgTextStyle *textStyle;
+@property (nonatomic, retain) NgFill *cellFill;
 @property (nonatomic, retain) UIColor *selHighlightColor;
 @property (nonatomic, assign) NSArray *selectedCells;
 @property (nonatomic, assign) BOOL stretchColForFit, stretchRowForFit, stretchColForFitForce, stretchRowForFitForce;
@@ -213,11 +213,11 @@ typedef enum {
 
 - (real)rowHeight:(NSUInteger)row;
 - (real)colWidth:(NSUInteger)col;
-- (WCGLineStyle*)rowLineStyle:(NSUInteger)row;
-- (WCGLineStyle*)colLineStyle:(NSUInteger)col;
+- (NgLineStyle*)rowLineStyle:(NSUInteger)row;
+- (NgLineStyle*)colLineStyle:(NSUInteger)col;
 - (NSString*)cellText:(NSUInteger)row col:(NSUInteger)col;
-- (WCGTextStyle*)cellTextStyle:(NSUInteger)row col:(NSUInteger)col;
-- (WCGFill*)cellFill:(NSUInteger)row col:(NSUInteger)col;
+- (NgTextStyle*)cellTextStyle:(NSUInteger)row col:(NSUInteger)col;
+- (NgFill*)cellFill:(NSUInteger)row col:(NSUInteger)col;
 
 @end
 
@@ -242,9 +242,9 @@ typedef enum {
 
 @end
 
-WSIDECL_EXTERN_CLASS(UISpreadSheetHeaderVec);
-WSIDECL_EXTERN_CLASS(UISpreadSheetHeaderHov);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCorner);
+NNTDECL_EXTERN_CLASS(UISpreadSheetHeaderVec);
+NNTDECL_EXTERN_CLASS(UISpreadSheetHeaderHov);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCorner);
 
 @interface UISpreadSheet (children)
 
@@ -260,34 +260,34 @@ WSIDECL_EXTERN_CLASS(UISpreadSheetCorner);
 
 @end
 
-WSI_EXTERN signal_t kSignalSheetTouchs;
+NNT_EXTERN signal_t kSignalSheetTouchs;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 # import "UISpreadSheetCell.h"
 # import "UISpreadSheetCellMatrix.h"
 # import "UISpreadSheetHeader.h"
 # import "UISpreadSheetCorner.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SpreadSheet;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 class _cxxwrapper_spreadsheet
 {
 public:
-    wsi::ui::SpreadSheet* sheet;
+    ::nnt::ui::SpreadSheet* sheet;
     
-    wsi::ui::SpreadSheet* operator -> ()
+    ::nnt::ui::SpreadSheet* operator -> ()
     {
         return sheet;
     }
@@ -301,10 +301,10 @@ public:
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SpreadSheet
 : public Control<SpreadSheet, 
@@ -457,8 +457,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

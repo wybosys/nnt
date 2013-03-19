@@ -1,38 +1,38 @@
 
-# ifndef __WSI_UIKIT_UISPREADSHEETCELL_5F679FE7960B4DF09F88A747CE74822F_H_INCLUDED
-# define __WSI_UIKIT_UISPREADSHEETCELL_5F679FE7960B4DF09F88A747CE74822F_H_INCLUDED
+# ifndef __NNT_UIKIT_UISPREADSHEETCELL_5F679FE7960B4DF09F88A747CE74822F_H_INCLUDED
+# define __NNT_UIKIT_UISPREADSHEETCELL_5F679FE7960B4DF09F88A747CE74822F_H_INCLUDED
 
 # import "UICell.h"
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(sheet)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(sheet)
 
 class Cell;
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UISpreadSheetRow);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCellMatrixLayer);
+NNTDECL_EXTERN_CLASS(UISpreadSheetRow);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCellMatrixLayer);
 
 @interface UISpreadSheetCell : NSCell {
     
-    WCGFill *cellFill;
+    NgFill *cellFill;
     CGRect frame;
     UISpreadSheetCellMatrixLayer *layer;
     UISpreadSheetRow *parentRow;
     
 }
 
-@property (nonatomic, retain) WCGFill *cellFill;
+@property (nonatomic, retain) NgFill *cellFill;
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, readonly) CGRect bounds;
 @property (nonatomic, assign) UISpreadSheetCellMatrixLayer *layer;
@@ -48,24 +48,24 @@ WSIDECL_EXTERN_CLASS(UISpreadSheetCellMatrixLayer);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 @interface _cxx_sheetcell : UISpreadSheetCell {
 @public
-    ::wsi::ui::sheet::Cell* cell;
+    ::nnt::ui::sheet::Cell* cell;
 }
 
 @end
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(sheet)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(sheet)
 
 class Cell
 : public ui::Object<Cell, _cxx_sheetcell>
@@ -190,9 +190,9 @@ public:
 
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,18 +1,18 @@
 
-# ifndef __WSI_UIKIT_UICHMCONTROLLER_A383D5DFEA844E779D9265318138AC60_H_INCLUDED
-# define __WSI_UIKIT_UICHMCONTROLLER_A383D5DFEA844E779D9265318138AC60_H_INCLUDED
+# ifndef __NNT_UIKIT_UICHMCONTROLLER_A383D5DFEA844E779D9265318138AC60_H_INCLUDED
+# define __NNT_UIKIT_UICHMCONTROLLER_A383D5DFEA844E779D9265318138AC60_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UICHMController);
+NNTDECL_PRIVATE_HEAD(UICHMController);
 
-@interface UICHMController : WSIUIViewController {
+@interface UICHMController : NNTUIViewController {
     
     UINavigationController *navi;
     
-    WSIDECL_PRIVATE(UICHMController);
+    NNTDECL_PRIVATE(UICHMController);
 }
 
 @property (nonatomic, retain) UINavigationController *navi;
@@ -36,19 +36,19 @@ WSIDECL_PRIVATE_HEAD(UICHMController);
 _CXXCONTROLLER_DECL(UICHMController);
 
 //! signal for file loaded.
-WSI_EXTERN signal_t kSignalFileLoaded;
+NNT_EXTERN signal_t kSignalFileLoaded;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class CHMController
-: public SimpleController<CHMController, _CXXCONTROLLER(UICHMController), WSIUIView>
+: public SimpleController<CHMController, _CXXCONTROLLER(UICHMController), NNTUIView>
 {
-    typedef SimpleController<CHMController, _CXXCONTROLLER(UICHMController), WSIUIView> super;
+    typedef SimpleController<CHMController, _CXXCONTROLLER(UICHMController), NNTUIView> super;
     
 public:
     
@@ -74,8 +74,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

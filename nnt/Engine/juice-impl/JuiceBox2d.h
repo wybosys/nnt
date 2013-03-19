@@ -6,12 +6,12 @@
 
 JUICEIMPL_BEGIN
 
-WSIDECL_PRIVATE_HEAD_CXX(PhysicsBox2d);
+NNTDECL_PRIVATE_HEAD_CXX(PhysicsBox2d);
 
 class PhysicsBox2d
 : public Physics<PhysicsBox2d, Types3d>
 {
-    WSIDECL_PRIVATE_CXX(PhysicsBox2d);
+    NNTDECL_PRIVATE_CXX(PhysicsBox2d);
     
     typedef Physics<PhysicsBox2d, Types3d> super;
     

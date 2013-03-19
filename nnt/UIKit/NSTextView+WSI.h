@@ -1,29 +1,29 @@
 
-# ifndef __WSINS_TEXTVIEW_F6E2A58E55DC4BBF97C7CEBDF553E07D_H_INCLUDED
-# define __WSINS_TEXTVIEW_F6E2A58E55DC4BBF97C7CEBDF553E07D_H_INCLUDED
+# ifndef __NNTNS_TEXTVIEW_F6E2A58E55DC4BBF97C7CEBDF553E07D_H_INCLUDED
+# define __NNTNS_TEXTVIEW_F6E2A58E55DC4BBF97C7CEBDF553E07D_H_INCLUDED
 
-# include "NSControl+WSI.h"
-# include "NSScrollView+WSI.h"
+# include "NSControl+NNT.h"
+# include "NSScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSTextView : NSTextView
+@interface NNTNSTextView : NSTextView
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSScrollView+WSI.h"
+# include "NSScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class TextView
-: public View< TextView, WSINSTextView >
+: public View< TextView, NNTNSTextView >
 {
-    typedef View< WSINSTextView > super;
+    typedef View< NNTNSTextView > super;
     
 public:
     
@@ -49,8 +49,8 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

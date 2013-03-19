@@ -1,13 +1,13 @@
 
-# ifndef __WSI_ICRCAMERA_CONTROLLER_F96B81C48BDF4E298379824561273B1B_H_INCLUDED
-# define __WSI_ICRCAMERA_CONTROLLER_F96B81C48BDF4E298379824561273B1B_H_INCLUDED
+# ifndef __NNT_ICRCAMERA_CONTROLLER_F96B81C48BDF4E298379824561273B1B_H_INCLUDED
+# define __NNT_ICRCAMERA_CONTROLLER_F96B81C48BDF4E298379824561273B1B_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 # import "UICameraView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface ICRCameraView : WSIUIView {
+@interface ICRCameraView : NNTUIView {
     UICameraView* _camera;
 }
 
@@ -15,13 +15,13 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_PRIVATE_HEAD(ICRCameraController);
+NNTDECL_PRIVATE_HEAD(ICRCameraController);
 
-@interface ICRCameraController : WSIUIViewController {
+@interface ICRCameraController : NNTUIViewController {
     
     ICRCameraView* _cameraView;    
     
-    WSIDECL_PRIVATE(ICRCameraController);
+    NNTDECL_PRIVATE(ICRCameraController);
 }
 
 @property (nonatomic, readonly) ICRCameraView* cameraView;
@@ -31,20 +31,20 @@ WSIDECL_PRIVATE_HEAD(ICRCameraController);
 
 @end
 
-WSI_EXTERN signal_t kSignalSnapshot;
+NNT_EXTERN signal_t kSignalSnapshot;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXCONTROLLER_DECL(ICRCameraController);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IICRCamera
 : public IViewController
@@ -88,8 +88,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

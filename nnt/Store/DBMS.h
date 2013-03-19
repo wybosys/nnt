@@ -1,12 +1,12 @@
 
-# ifndef __WSI_STORE_DBMS_5BBD27B4DB7B4D4492B1D349EF766475_H_INCLUDED
-# define __WSI_STORE_DBMS_5BBD27B4DB7B4D4492B1D349EF766475_H_INCLUDED
+# ifndef __NNT_STORE_DBMS_5BBD27B4DB7B4D4492B1D349EF766475_H_INCLUDED
+# define __NNT_STORE_DBMS_5BBD27B4DB7B4D4492B1D349EF766475_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-# import "../Core/Directory+WSI.h"
+# import "../Core/Directory+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol IDBMS <NSObject>
 
@@ -22,7 +22,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @protocol IDBMSUrl <IDBMS>
 
-- (BOOL)openDbWith:(NSString*)path type:(WSIDirectoryType)type;
+- (BOOL)openDbWith:(NSString*)path type:(NNTDirectoryType)type;
 - (BOOL)openDbWithUrl:(NSURL*)url;
 
 @end
@@ -30,14 +30,14 @@ WSI_BEGIN_HEADER_OBJC
 @interface DBMSAbstract : NSObject <IDBMS>
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
 class connection_info
 {
@@ -60,7 +60,7 @@ public:
     
 };
 
-WSICLASS(IDBMS);
+NNTCLASS(IDBMS);
 
 class IDBMS
     : public RefObject
@@ -93,14 +93,14 @@ public:
     
 };
 
-# define WSIDECL_DBMS_DRIVER \
+# define NNTDECL_DBMS_DRIVER \
 static core::string identity; \
 static IDBMS* dbmsInstance();
 
-WSIAPI(IDBMS*) instanceDatabaseByIdentity(core::string const& identity);
+NNTAPI(IDBMS*) instanceDatabaseByIdentity(core::string const& identity);
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

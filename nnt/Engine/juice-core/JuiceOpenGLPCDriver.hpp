@@ -199,7 +199,7 @@ protected:
     
 protected:
     
-    ::wsi::core::set<void*> _lights;
+    ::nnt::core::set<void*> _lights;
     
 };
 

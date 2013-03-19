@@ -12,9 +12,9 @@
 
 XMPP_HEADER_BEGIN
 
-WSICLASS(Client);
+NNTCLASS(Client);
 
-WSIDECL_PRIVATE_HEAD_CXX(Client);
+NNTDECL_PRIVATE_HEAD_CXX(Client);
 
 class ClientSetting
 {
@@ -53,7 +53,7 @@ class ResponseFactory;
 class Client
 : public cxx::Object<>
 {
-    WSIDECL_PRIVATE_CXX(Client);
+    NNTDECL_PRIVATE_CXX(Client);
     typedef cxx::Object<> super;
     
 public:
@@ -71,7 +71,7 @@ public:
     template <typename objT>
     bool execute(objT& obj, typename objT::response_object_empty_type* = NULL) const;
     
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
     
     //! read counter.
     ulong counter_challenge() const;
@@ -103,13 +103,13 @@ public:
         
 };
 
-WSI_STATIC_CONST cxx::signal_t kSignalConnected = "::wsi::xmpp::connected";
-WSI_STATIC_CONST cxx::signal_t kSignalDisconnected = "::wsi::xmpp::disconnected";
-WSI_STATIC_CONST cxx::signal_t kSignalFailure = "::wsi::xmpp::failure";
-WSI_STATIC_CONST cxx::signal_t kSignalBind = "::wsi::xmpp::bind";
-WSI_STATIC_CONST cxx::signal_t kSignalSession = "::wsi::xmpp::session";
-WSI_STATIC_CONST cxx::signal_t kSignalDiscoInfo = "::wsi::xmpp::disco::info";
-WSI_STATIC_CONST cxx::signal_t kSignalDiscoItems = "::wsi::xmpp::disco::items";
+NNT_STATIC_CONST cxx::signal_t kSignalConnected = "::nnt::xmpp::connected";
+NNT_STATIC_CONST cxx::signal_t kSignalDisconnected = "::nnt::xmpp::disconnected";
+NNT_STATIC_CONST cxx::signal_t kSignalFailure = "::nnt::xmpp::failure";
+NNT_STATIC_CONST cxx::signal_t kSignalBind = "::nnt::xmpp::bind";
+NNT_STATIC_CONST cxx::signal_t kSignalSession = "::nnt::xmpp::session";
+NNT_STATIC_CONST cxx::signal_t kSignalDiscoInfo = "::nnt::xmpp::disco::info";
+NNT_STATIC_CONST cxx::signal_t kSignalDiscoItems = "::nnt::xmpp::disco::items";
 
 template <typename objT>
 inline_impl bool Client::execute(objT& obj, typename objT::response_object_empty_type*) const

@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_TABBARCONTAINER_386756BAC78F4B2897780506508B8CC3_H_INCLUDED
-# define __WSI_UIKIT_TABBARCONTAINER_386756BAC78F4B2897780506508B8CC3_H_INCLUDED
+# ifndef __NNT_UIKIT_TABBARCONTAINER_386756BAC78F4B2897780506508B8CC3_H_INCLUDED
+# define __NNT_UIKIT_TABBARCONTAINER_386756BAC78F4B2897780506508B8CC3_H_INCLUDED
 
-# import "UIViewController+WSI.h"
-# import "UITabBar+WSI.h"
+# import "UIViewController+NNT.h"
+# import "UITabBar+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UITabBarContainerController : WSIUIViewController <WSIUITabBarDelegate> {
+@interface UITabBarContainerController : NNTUIViewController <NNTUITabBarDelegate> {
     
     //! controllers.
     NSArray *viewControllers;
@@ -16,7 +16,7 @@ WSI_BEGIN_HEADER_OBJC
 	UIViewController *selectedViewController;
     
     //! tabBar.
-	WSIUITabBar *tabBar;
+	NNTUITabBar *tabBar;
         
     //! selectedIndex.
     NSUInteger selectedIndex;
@@ -24,7 +24,7 @@ WSI_BEGIN_HEADER_OBJC
 }
 
 @property (nonatomic, retain) NSArray *viewControllers;
-@property (nonatomic, retain) WSIUITabBar *tabBar;
+@property (nonatomic, retain) NNTUITabBar *tabBar;
 @property (nonatomic, retain) UIViewController *selectedViewController;
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
@@ -32,6 +32,6 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

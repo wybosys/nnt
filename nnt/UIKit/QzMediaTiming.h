@@ -1,23 +1,23 @@
 
-# ifndef __WSI_UIKIT_QZ_MEDIATIMING_7CD04C6FA1C24D9990200E5F958B83AC_H_INCLUDED
-# define __WSI_UIKIT_QZ_MEDIATIMING_7CD04C6FA1C24D9990200E5F958B83AC_H_INCLUDED
+# ifndef __NNT_UIKIT_QZ_MEDIATIMING_7CD04C6FA1C24D9990200E5F958B83AC_H_INCLUDED
+# define __NNT_UIKIT_QZ_MEDIATIMING_7CD04C6FA1C24D9990200E5F958B83AC_H_INCLUDED
 
 # import <QuartzCore/CAMediaTiming.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(qz)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(qz)
 
 template <typename implT>
 class MediaTiming
-: public wtl::uml::implementation<implT>
+: public ntl::uml::implementation<implT>
 {
-    typedef wtl::uml::implementation<implT> super;
+    typedef ntl::uml::implementation<implT> super;
     
 public:
     
@@ -107,8 +107,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,10 +1,10 @@
 
-# ifndef __WSI_SERVICE_APPSTORE_D521E33D1FE945BEBA035F7EB78B3817_H_INCLUDED
-# define __WSI_SERVICE_APPSTORE_D521E33D1FE945BEBA035F7EB78B3817_H_INCLUDED
+# ifndef __NNT_SERVICE_APPSTORE_D521E33D1FE945BEBA035F7EB78B3817_H_INCLUDED
+# define __NNT_SERVICE_APPSTORE_D521E33D1FE945BEBA035F7EB78B3817_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(RateAppReminder);
+NNTDECL_EXTERN_CLASS(RateAppReminder);
 
 @protocol RateAppReminderDelegate <NSObject>
 
@@ -13,16 +13,16 @@ WSIDECL_EXTERN_CLASS(RateAppReminder);
 
 @end
 
-WSIDECL_PRIVATE_HEAD(RateAppReminder);
+NNTDECL_PRIVATE_HEAD(RateAppReminder);
 
-@interface RateAppReminder : WSIObject
+@interface RateAppReminder : NNTObject
 <RateAppReminderDelegate>
 {
     
     id<RateAppReminderDelegate> _delegate;
     NSString* _appurl;
     
-    WSIDECL_PRIVATE(RateAppReminder);
+    NNTDECL_PRIVATE(RateAppReminder);
 }
 
 @property (nonatomic, assign) id<RateAppReminderDelegate> delegate;
@@ -40,6 +40,6 @@ WSIDECL_PRIVATE_HEAD(RateAppReminder);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

@@ -1,12 +1,12 @@
 
-# ifndef __WSI_MODEL_ITEM_B71DAF1671084AE0898CE8C1E11634D3_H_INCLUDED
-# define __WSI_MODEL_ITEM_B71DAF1671084AE0898CE8C1E11634D3_H_INCLUDED
+# ifndef __NNT_MODEL_ITEM_B71DAF1671084AE0898CE8C1E11634D3_H_INCLUDED
+# define __NNT_MODEL_ITEM_B71DAF1671084AE0898CE8C1E11634D3_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface MItem : WSIObject {
+@interface MItem : NNTObject {
     
     //! store child items.
     NSMutableArray* _children;
@@ -24,14 +24,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(model)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(model)
 
 class Item
 : public RefObject
@@ -105,7 +105,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
 template <typename valT, typename varT, typename strT>
 class Item
@@ -124,10 +124,10 @@ public:
     varT value;
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_OBJC
+NNT_END_NS
+NNT_END_HEADER_OBJC
 
 # endif
 

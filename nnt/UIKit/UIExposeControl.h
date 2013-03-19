@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UIKIT_UIEXPOSEHORCONTROL_1C88961625BB4D6E8E2494B79D30D722_H_INCLUDED
-# define __WSI_UIKIT_UIEXPOSEHORCONTROL_1C88961625BB4D6E8E2494B79D30D722_H_INCLUDED
+# ifndef __NNT_UIKIT_UIEXPOSEHORCONTROL_1C88961625BB4D6E8E2494B79D30D722_H_INCLUDED
+# define __NNT_UIKIT_UIEXPOSEHORCONTROL_1C88961625BB4D6E8E2494B79D30D722_H_INCLUDED
 
-# import "UIScrollView+WSI.h"
+# import "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIGridView);
+NNTDECL_EXTERN_CLASS(UIGridView);
 
-@interface UIExposeControl : WSIUIScrollView <UIScrollViewDelegate> {
+@interface UIExposeControl : NNTUIScrollView <UIScrollViewDelegate> {
     
     //! grid view.
     UIGridView *_gridView;
@@ -83,15 +83,15 @@ WSIDECL_EXTERN_CLASS(UIGridView);
 _CXXCONTROL_DECL(UIExposeHorControl);
 _CXXCONTROL_DECL(UIExposeVecControl);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIScrollView+WSI.h"
+# include "UIScrollView+NNT.h"
 # include "UIGridView.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT, typename exposeT>
 class Expose
@@ -126,7 +126,7 @@ public:
              each != items.end();
              ++each)
         {
-            wtl::const_pointer<typename conT::value_type> ptr(*each);
+            ntl::const_pointer<typename conT::value_type> ptr(*each);
             
             UIView* item = *ptr;                  
             
@@ -139,7 +139,7 @@ public:
     template <typename viewT>
     void add_item(viewT const& v)
     {
-        wtl::const_pointer<viewT> ptr(v);
+        ntl::const_pointer<viewT> ptr(v);
         [this->_self addItem:*ptr];
     }
     
@@ -194,7 +194,7 @@ public:
     template <typename itemT>
     uint index_of(itemT const& item) const
     {
-        wtl::const_pointer<itemT> ptr(item);
+        ntl::const_pointer<itemT> ptr(item);
         return [this->_self indexOfItem:*ptr];
     }
     
@@ -232,8 +232,8 @@ _CXXCONTROL(UIExposeVecControl)
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,11 +1,11 @@
 
-# ifndef __WSIAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
-# define __WSIAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
+# ifndef __NNTAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
+# define __NNTAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
 
-# include "../WTL/Interface+WSI.h"
+# include "../TL/Interface+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ai)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ai)
 
 class IActions;
 
@@ -20,20 +20,20 @@ public:
 };
 
 class IActions
-    : public wtl::IArray<IAction*>
+    : public ntl::IArray<IAction*>
 {
 
 };
 
 class Actions
-    : public wtl::Arraylize<IAction*, core::refpointer_vector<IAction>, IActions>
+    : public ntl::Arraylize<IAction*, core::refpointer_vector<IAction>, IActions>
 {
 
 };
 
 template <typename implT>
 class Action
-    : public wtl::uml::realization<implT, IAction>
+    : public ntl::uml::realization<implT, IAction>
 {
 public:
 
@@ -56,7 +56,7 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

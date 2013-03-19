@@ -1,20 +1,20 @@
 
-# ifndef __WSI_UIKIT_UIIMAGEDESKTOP_A3BC9B1BD8CF4481BA0D10FD853A0525_H_INCLUDED
-# define __WSI_UIKIT_UIIMAGEDESKTOP_A3BC9B1BD8CF4481BA0D10FD853A0525_H_INCLUDED
+# ifndef __NNT_UIKIT_UIIMAGEDESKTOP_A3BC9B1BD8CF4481BA0D10FD853A0525_H_INCLUDED
+# define __NNT_UIKIT_UIIMAGEDESKTOP_A3BC9B1BD8CF4481BA0D10FD853A0525_H_INCLUDED
 
 # import "UIDesktop.h"
-# import "CoreGraphic+WSI.h"
+# import "Graphic+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIUIButton);
+NNTDECL_EXTERN_CLASS(NNTUIButton);
 
-WSIDECL_EXTERN_CLASS(WSIUIImageView);
+NNTDECL_EXTERN_CLASS(NNTUIImageView);
 
-@interface UIImageDesktop : WSIUIDesktop {
+@interface UIImageDesktop : NNTUIDesktop {
 
     //! image view.
-    WSIUIImageView *imageView;
+    NNTUIImageView *imageView;
     
     //! padding in percent, default is .1, .1, .1, .1.
     CGPadding padding;
@@ -24,7 +24,7 @@ WSIDECL_EXTERN_CLASS(WSIUIImageView);
     
     //! show close button. default is YES.
     BOOL showClose;
-    WSIUIButton* buttonClose;
+    NNTUIButton* buttonClose;
     
     @private
     CGPoint _pt_moving;
@@ -32,11 +32,11 @@ WSIDECL_EXTERN_CLASS(WSIUIImageView);
     CGRect _origin_rc;
 }
 
-@property (nonatomic, retain) WSIUIImageView *imageView;
+@property (nonatomic, retain) NNTUIImageView *imageView;
 @property (nonatomic, assign) CGPadding padding;
 @property (nonatomic, assign) BOOL isMoving;
 @property (nonatomic, assign) BOOL showClose;
-@property (nonatomic, retain) WSIUIButton* buttonClose;
+@property (nonatomic, retain) NNTUIButton* buttonClose;
 
 //! init.
 - (id)init;
@@ -48,6 +48,6 @@ WSIDECL_EXTERN_CLASS(WSIUIImageView);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

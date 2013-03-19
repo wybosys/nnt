@@ -1,15 +1,15 @@
 
-# ifndef __WSI_UIKIT_UIDESKTOP_EBB4619514D14923B7C9ADA1BE96F3C9_H_INCLUDED
-# define __WSI_UIKIT_UIDESKTOP_EBB4619514D14923B7C9ADA1BE96F3C9_H_INCLUDED
+# ifndef __NNT_UIKIT_UIDESKTOP_EBB4619514D14923B7C9ADA1BE96F3C9_H_INCLUDED
+# define __NNT_UIKIT_UIDESKTOP_EBB4619514D14923B7C9ADA1BE96F3C9_H_INCLUDED
 
-# import "UIWindow+WSI.h"
-# import "UIView+WSI.h"
+# import "UIWindow+NNT.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(QzEffect);
+NNTDECL_EXTERN_CLASS(QzEffect);
 
-@interface WSIUIDesktop : WSIUIView {
+@interface NNTUIDesktop : NNTUIView {
     
     //! content frame.
     CGRect _contentFrame;
@@ -28,7 +28,7 @@ WSIDECL_EXTERN_CLASS(QzEffect);
 @property (nonatomic, assign) BOOL enableAutoClose, enableAutoCloseAnimated;
 @property (nonatomic, retain) QzEffect *effectShow, *effectClose;
 
-+ (WSIUIDesktop*)desktop;
++ (NNTUIDesktop*)desktop;
 
 //! show desktop with animated.
 - (void)show:(BOOL)animated;
@@ -50,21 +50,21 @@ WSIDECL_EXTERN_CLASS(QzEffect);
 
 @end
 
-WSI_EXTERN signal_t kSignalClosed;
-WSI_EXTERN signal_t kSignalShown;
+NNT_EXTERN signal_t kSignalClosed;
+NNT_EXTERN signal_t kSignalShown;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-_CXXVIEW_DECL(WSIUIDesktop);
+_CXXVIEW_DECL(NNTUIDesktop);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IDesktop
 : public IView
@@ -76,7 +76,7 @@ public:
 };
 
 class Desktop
-: public View<Desktop, _CXXVIEW(WSIUIDesktop), IDesktop>
+: public View<Desktop, _CXXVIEW(NNTUIDesktop), IDesktop>
 {
 public:
     
@@ -134,21 +134,21 @@ public:
     template <typename effT>
     void set_close(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.effectClose = *ptr;
     }
     
     template <typename effT>
     void set_show(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.effectShow = *ptr;
     }
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

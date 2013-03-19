@@ -1,23 +1,23 @@
 
-# ifndef __WSI_UIKIT_LINESEPARATOR_A15BB916F7324A89A09E5033C2260CB5_H_INCLUDED
-# define __WSI_UIKIT_LINESEPARATOR_A15BB916F7324A89A09E5033C2260CB5_H_INCLUDED
+# ifndef __NNT_UIKIT_LINESEPARATOR_A15BB916F7324A89A09E5033C2260CB5_H_INCLUDED
+# define __NNT_UIKIT_LINESEPARATOR_A15BB916F7324A89A09E5033C2260CB5_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGMutableLineStyle);
+NNTDECL_EXTERN_CLASS(NgMutableLineStyle);
 
-@interface UILineSeparator : WSIUIView {
+@interface UILineSeparator : NNTUIView {
     
     //! line style.
-    WCGMutableLineStyle* _lineStyle;
+    NgMutableLineStyle* _lineStyle;
     
 }
 
-@property (nonatomic, retain) WCGMutableLineStyle* lineStyle;
+@property (nonatomic, retain) NgMutableLineStyle* lineStyle;
 
-- (id)initWithLineStyle:(WCGLineStyle*)ls;
+- (id)initWithLineStyle:(NgLineStyle*)ls;
 - (id)initWithDashPattern:(NSArray*)pat;
 
 @end
@@ -30,6 +30,6 @@ WSIDECL_EXTERN_CLASS(WCGMutableLineStyle);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

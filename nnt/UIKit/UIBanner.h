@@ -1,11 +1,11 @@
 
-# ifndef __WSI_UIKIT_UIBANNER_E02B2B15EC7B4111949C85628197530E_H_INCLUDED
-# define __WSI_UIKIT_UIBANNER_E02B2B15EC7B4111949C85628197530E_H_INCLUDED
+# ifndef __NNT_UIKIT_UIBANNER_E02B2B15EC7B4111949C85628197530E_H_INCLUDED
+# define __NNT_UIKIT_UIBANNER_E02B2B15EC7B4111949C85628197530E_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIBanner);
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(UIBanner);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 typedef enum {
     UIBannerPositionTop,
@@ -42,7 +42,7 @@ typedef enum {
     UILabel *textLabel;
     
     //! backgroud fill
-    WCGFill *backgroundFill;
+    NgFill *backgroundFill;
     
     //! height
     NSUInteger height;
@@ -54,7 +54,7 @@ typedef enum {
 @property (nonatomic) BOOL indicatorEnable;
 @property (nonatomic) int indicatorPosition;
 @property (nonatomic, readonly) UILabel *textLabel;
-@property (nonatomic, retain) WCGFill *backgroundFill;
+@property (nonatomic, retain) NgFill *backgroundFill;
 @property (nonatomic) NSUInteger height;
 
 //! init
@@ -71,6 +71,6 @@ typedef enum {
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

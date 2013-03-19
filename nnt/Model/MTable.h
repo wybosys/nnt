@@ -1,13 +1,13 @@
 
-# ifndef __WSI_MODEL_TABLE_2E1DBE3F0E024917BEBE87D75D450B32_H_INCLUDED
-# define __WSI_MODEL_TABLE_2E1DBE3F0E024917BEBE87D75D450B32_H_INCLUDED
+# ifndef __NNT_MODEL_TABLE_2E1DBE3F0E024917BEBE87D75D450B32_H_INCLUDED
+# define __NNT_MODEL_TABLE_2E1DBE3F0E024917BEBE87D75D450B32_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # import "Model.h"
 # import "IVTable.h"
 
-WSIDECL_PRIVATE_HEAD(MTable);
+NNTDECL_PRIVATE_HEAD(MTable);
 
 @interface MTable : Model <IVTable> {
     
@@ -15,7 +15,7 @@ WSIDECL_PRIVATE_HEAD(MTable);
     uint from; //! record from
     uint many; //! how many records should be get
 	
-	WSIDECL_PRIVATE(MTable);
+	NNTDECL_PRIVATE(MTable);
 }
 
 @property (nonatomic) uint all_records;
@@ -28,6 +28,6 @@ WSIDECL_PRIVATE_HEAD(MTable);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

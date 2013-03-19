@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_UICOVERDRAWERVIEW_FF6C4D93E17B44F1A06E6813CD37B63C_H_INCLUDED
-# define __WSI_UIKIT_UICOVERDRAWERVIEW_FF6C4D93E17B44F1A06E6813CD37B63C_H_INCLUDED
+# ifndef __NNT_UIKIT_UICOVERDRAWERVIEW_FF6C4D93E17B44F1A06E6813CD37B63C_H_INCLUDED
+# define __NNT_UIKIT_UICOVERDRAWERVIEW_FF6C4D93E17B44F1A06E6813CD37B63C_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UICoverDrawer.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UICoverDrawerView);
-WSIDECL_EXTERN_CLASS(UICoverDrawer);
+NNTDECL_PRIVATE_HEAD(UICoverDrawerView);
+NNTDECL_EXTERN_CLASS(UICoverDrawer);
 
-@interface UICoverDrawerView : WSIUIView {
+@interface UICoverDrawerView : NNTUIView {
     
     //! drawer.
     UICoverDrawer *drawer;
@@ -18,7 +18,7 @@ WSIDECL_EXTERN_CLASS(UICoverDrawer);
     //! scale.
     real scale;
     
-    WSIDECL_PRIVATE(UICoverDrawerView);
+    NNTDECL_PRIVATE(UICoverDrawerView);
 }
 
 @property (nonatomic, assign) UICoverDrawer *drawer;
@@ -32,6 +32,6 @@ WSIDECL_EXTERN_CLASS(UICoverDrawer);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

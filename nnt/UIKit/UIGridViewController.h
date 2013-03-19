@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_GRIDVIEWCONTROLLER_562689865C2A4AB0ACC98598A4543F12_H_INCLUDED
-# define __WSI_UIKIT_GRIDVIEWCONTROLLER_562689865C2A4AB0ACC98598A4543F12_H_INCLUDED
+# ifndef __NNT_UIKIT_GRIDVIEWCONTROLLER_562689865C2A4AB0ACC98598A4543F12_H_INCLUDED
+# define __NNT_UIKIT_GRIDVIEWCONTROLLER_562689865C2A4AB0ACC98598A4543F12_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIGridViewController : WSIUIViewController {
+@interface UIGridViewController : NNTUIViewController {
     usize rows, cols;
 }
 
@@ -15,27 +15,27 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIViewController+WSI.h"
+# include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 _CXXCONTROLLER_DECL(UIGridViewController);
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class GridViewController
 : public SimpleController<GridViewController,
-_CXXCONTROLLER(UIGridViewController), WSIUIView
+_CXXCONTROLLER(UIGridViewController), NNTUIView
 >
 {
     typedef SimpleController<GridViewController,
     _CXXCONTROLLER(UIGridViewController),
-    WSIUIView
+    NNTUIView
     > super;
     
 public:
@@ -67,8 +67,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
