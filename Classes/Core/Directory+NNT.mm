@@ -23,7 +23,7 @@ NNT_EXTERN NSURL *NNTDirectoryTouchWithType(NSString* path, NNTDirectoryType typ
             
         case NNTDirectoryTypeSystem: {
             uint min_type = NNTDirectoryTypeMinor(type);
-            uint nnt_type = NNTDirectoryTypeWsiMinor(type);
+            uint nnt_type = NNTDirectoryTypeNNTMinor(type);
             
             /*
             if (nnt_type && !min_type) {
@@ -116,7 +116,7 @@ NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type) {
 
         case NNTDirectoryTypeSystem: {
             uint min_type = NNTDirectoryTypeMinor(type);
-            uint nnt_type = NNTDirectoryTypeWsiMinor(type);
+            uint nnt_type = NNTDirectoryTypeNNTMinor(type);
             
             /*
             if (nnt_type && !min_type) {
