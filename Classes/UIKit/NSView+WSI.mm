@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "NSView+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

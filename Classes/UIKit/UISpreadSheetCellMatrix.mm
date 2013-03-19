@@ -5,7 +5,7 @@
 # import "UISpreadSheetCell.h"
 # import "UISpreadSheetCellMatrixLayer.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

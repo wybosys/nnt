@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "WCALayerShapes.h"
+# import "NGLayerShapes.h"
 
 NNT_BEGIN_OBJC
 
-@implementation WCAShapeLayer
+@implementation NgShapeLayer
 
 @end
 

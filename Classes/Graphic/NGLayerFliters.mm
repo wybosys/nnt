@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "WCALayerFliters.h"
+# import "NGLayerFliters.h"
 
 NNT_BEGIN_OBJC
 
 NNT_USINGCXXNAMESPACE;
 
-@implementation WCALayerFilters
+@implementation NgLayerFilters
 
 - (void)dealloc {
     [super dealloc];
@@ -18,7 +18,7 @@ NNT_USINGCXXNAMESPACE;
 
 @end
 
-@implementation CALayer (WCALayerFilters)
+@implementation CALayer (NgLayerFilters)
 
 - (void)applyFilter:(id<WCALayerFilters>)filter {
     [filter applyLayer:self];
@@ -26,9 +26,9 @@ NNT_USINGCXXNAMESPACE;
 
 @end
 
-NNTIMPL_CATEGORY(CALayer, WCALayerFilters);
+NNTIMPL_CATEGORY(CALayer, NgLayerFilters);
 
-NNTIMPL_OBJCXX_WRAPPER_BEGIN(WCALayerFilters)
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(NgLayerFilters)
 
 - (void)applyLayer:(CALayer *)layer {
     ca::filter::tpl::IFilter* filter = (ca::filter::tpl::IFilter*)self._cxxobj;

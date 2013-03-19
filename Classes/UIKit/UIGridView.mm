@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIGridView.h"
-# import "WCAArrowIndicator.h"
+# import "NGArrowIndicator.h"
 # import "UILineSeparator.h"
 
 NNT_BEGIN_OBJC

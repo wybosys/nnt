@@ -5,7 +5,7 @@
 # import "NGGradient.h"
 # import "NGColor.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIKit.res"
 # import "NGImage.h"
 # import "UIStyleSheet.h"

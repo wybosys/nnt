@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIPopupDialog.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "App.h"
 # import "Layout.h"
 

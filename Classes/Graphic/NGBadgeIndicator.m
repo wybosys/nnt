@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "WCABadgeIndicator.h"
-# import "CoreGraphic+NNT.h"
+# import "NGBadgeIndicator.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 
-@interface WCABadgeIndicator ()
+@interface NgBadgeIndicator ()
 
 - (void)setupInstance;
 
 @end
 
-@implementation WCABadgeIndicator
+@implementation NgBadgeIndicator
 
 @synthesize value, badgeColor, badgeStyle, badgeLineStyle;
 

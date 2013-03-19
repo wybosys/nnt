@@ -21,16 +21,16 @@ NNTDECL_PRIVATE_HEAD(UINavigationDial);
 
 @end
 
-NNTDECL_EXTERN_CLASS(WCALayerDialRingItem);
-NNTDECL_EXTERN_CLASS(WCALayerDialLabelRingItem);
-NNTDECL_EXTERN_CLASS(WCALayerDialRingCenter);
-NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
+NNTDECL_EXTERN_CLASS(NgLayerDialRingItem);
+NNTDECL_EXTERN_CLASS(NgLayerDialLabelRingItem);
+NNTDECL_EXTERN_CLASS(NgLayerDialRingCenter);
+NNTDECL_EXTERN_CLASS(NgBadgeIndicator);
 
 @interface UINavigationDialItem : NNTObject {
     //! layer.
-    WCALayerDialRingItem *layerItem;
-    WCALayerDialLabelRingItem *layerLabel;
-    WCABadgeIndicator *layerBadge;
+    NgLayerDialRingItem *layerItem;
+    NgLayerDialLabelRingItem *layerLabel;
+    NgBadgeIndicator *layerBadge;
     
     //! color.
     UIColor *imageMaskColor;
@@ -46,9 +46,9 @@ NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
     NSString *badgeValue;
 }
 
-@property (nonatomic, retain) WCALayerDialRingItem      *layerItem;
-@property (nonatomic, retain) WCALayerDialLabelRingItem *layerLabel;
-@property (nonatomic, retain) WCABadgeIndicator         *layerBadge;
+@property (nonatomic, retain) NgLayerDialRingItem      *layerItem;
+@property (nonatomic, retain) NgLayerDialLabelRingItem *layerLabel;
+@property (nonatomic, retain) NgBadgeIndicator         *layerBadge;
 @property (nonatomic, retain) UIColor                   *imageMaskColor;
 @property (nonatomic, retain) NNTUIViewController       *viewController;
 @property (nonatomic, retain) NgFill                   *labelFill;

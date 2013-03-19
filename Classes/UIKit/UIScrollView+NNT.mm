@@ -3,7 +3,7 @@
 # import "UIScrollView+NNT.h"
 # import "UIView+NNT.h"
 # import "NNTUIObject.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # include <cmath>
 
 NNT_BEGIN_OBJC

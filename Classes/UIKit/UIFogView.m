@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIFogView.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

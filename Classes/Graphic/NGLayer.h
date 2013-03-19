@@ -8,9 +8,9 @@
 NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_EXTERN_CLASS(NgFill);
-NNTDECL_EXTERN_CLASS(WCALayerTheme);
+NNTDECL_EXTERN_CLASS(NgLayerTheme);
 
-@interface CALayer (WCA)
+@interface CALayer (Ng)
 
 //! move funcitons.
 - (void)moveTo:(CGPoint)pt;
@@ -26,19 +26,19 @@ NNTDECL_EXTERN_CLASS(WCALayerTheme);
 - (CGPoint)clientCenterPoint;
 
 //! set theme.
-- (void)applyTheme:(WCALayerTheme*)theme;
+- (void)applyTheme:(NgLayerTheme*)theme;
 
 @end
 
-NNTDECL_CATEGORY(CALayer, WCA);
+NNTDECL_CATEGORY(CALayer, Ng);
 
-@interface WCALayer : CALayer {
+@interface NgLayer : CALayer {
     
     //! fill.
     NgFill *backgroundFill;
     
     //! theme.
-    WCALayerTheme *theme;
+    NgLayerTheme *theme;
     
     NNTOBJECT_DECL;
 }
@@ -46,7 +46,7 @@ NNTDECL_CATEGORY(CALayer, WCA);
 NNTOBJECT_PROP;
 
 @property (nonatomic, retain) NgFill *backgroundFill;
-@property (nonatomic, retain) WCALayerTheme *theme;
+@property (nonatomic, retain) NgLayerTheme *theme;
 
 //! init.
 - (id)init;
@@ -60,7 +60,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include "WCAObject.h"
+# include "NGObject.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ca)

@@ -3,7 +3,7 @@
 # define __NNT_UIKIT_POPUPDIALOG_101B1EBFC60C48A794C4BA52AA9B4E67_H_INCLUDED
 
 # import "UIView+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIButton+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC

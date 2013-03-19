@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTChar.h"
+# include "Char+NNT.h"
 
 NNT_BEGIN_C
 

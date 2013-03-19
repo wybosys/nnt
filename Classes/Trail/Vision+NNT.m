@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTVision.h"
+# import "Vision+NNT.h"
 
 NNT_BEGIN_OBJC
 

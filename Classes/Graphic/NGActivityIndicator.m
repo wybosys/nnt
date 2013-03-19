@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "WCAActivityIndicator.h"
+# import "NGActivityIndicator.h"
 # import "NGBase.h"
 
 NNT_BEGIN_OBJC
 
-@interface WCAActivityIndicator ()
+@interface NgActivityIndicator ()
 
 - (void)__init;
 
 @end
 
-@implementation WCAActivityIndicator
+@implementation NgActivityIndicator
 
 @synthesize startAngle, endAngle, offsetAngle;
 @synthesize ringWidth;

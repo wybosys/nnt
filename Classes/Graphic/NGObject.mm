@@ -1,3 +1,3 @@
 
 # import "Core.h"
-# import "WCAObject.h"
+# import "NGObject.h"

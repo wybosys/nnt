@@ -1,18 +1,18 @@
 
 # import "Core.h"
-# import "WCAArrowIndicator.h"
-# import "CoreGraphic+NNT.h"
+# import "NGArrowIndicator.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 
-@interface WCAArrowIndicator ()
+@interface NgArrowIndicator ()
 
 - (void)__init;
 - (void)draw6:(CGContextRef)ctx;
 
 @end
 
-@implementation WCAArrowIndicator
+@implementation NgArrowIndicator
 
 @synthesize lineStyle;
 @synthesize arrowStyle;
@@ -41,12 +41,12 @@ NNT_BEGIN_OBJC
     ls.lineColor = [NgColor whiteColor];
     lineStyle = ls;
     
-    arrowStyle = WCAArrowIndicatorStyle6;
+    arrowStyle = NgArrowIndicatorStyle6;
 }
 
 - (void)drawInContext:(CGContextRef)ctx {
     switch (arrowStyle) {
-        case WCAArrowIndicatorStyle6: {
+        case NgArrowIndicatorStyle6: {
             [self draw6:ctx];
         } break;
     }

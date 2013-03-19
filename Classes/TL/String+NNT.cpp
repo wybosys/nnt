@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "String+NNT.h"
-# include "../Core/NNTChar.h"
+# include "../Core/Char+NNT.h"
 # include <stdarg.h>
 # include "../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>

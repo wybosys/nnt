@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "CGAnimation.h"
+# import "NGAnimation.h"
 
 NNT_BEGIN_OBJC
 

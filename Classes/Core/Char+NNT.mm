@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTChar.h"
+# import "Char+NNT.h"
 
 NNT_BEGIN_OBJC
 

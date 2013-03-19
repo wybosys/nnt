@@ -3,7 +3,7 @@
 # import "UITableView+NNT.h"
 # import "UIView+NNT.h"
 # import "NNTUIObject.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIScrollHeaderView.h"
 
 NNT_BEGIN_OBJC

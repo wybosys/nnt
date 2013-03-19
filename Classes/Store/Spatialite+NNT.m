@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTSpatialite.h"
+# import "Spatialite+NNT.h"
 # include <sqlite3.h>
 # import "../3rd/spatialite/spatialite.h"
 

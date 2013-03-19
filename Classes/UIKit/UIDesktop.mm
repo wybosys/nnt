@@ -3,7 +3,7 @@
 # import "UIDesktop.h"
 # import <QuartzCore/QuartzCore.h>
 # import "UIDevice+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIScreen+NNT.h"
 # import "App.h"
 # import "QzEffect.h"

@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIAddressBookPickController.h"
-# import "NNTContact.h"
+# import "Contact+NNT.h"
 
 NNT_BEGIN_OBJC
 

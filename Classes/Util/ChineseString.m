@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "ChineseString.h"
-# import "NNTChar.h"
+# import "Char+NNT.h"
 
 NNT_BEGIN_OBJC
 

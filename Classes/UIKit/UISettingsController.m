@@ -9,7 +9,7 @@
 # import "UISettingsSpecifierValuesController.h"
 # import "UISettingsItems.h"
 # import "UITableView+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

@@ -8,7 +8,7 @@
 # import <QuartzCore/QuartzCore.h>
 # import "NGTextStyle.h"
 # import "NGGradient.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

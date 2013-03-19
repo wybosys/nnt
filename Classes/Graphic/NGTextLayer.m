@@ -1,19 +1,19 @@
 
 # import "Core.h"
-# import "CATextLayer+WCA.h"
+# import "NGTextLayer.h"
 # import "NGTextStyle.h"
 # import "NGDefines.h"
 # import "NGContext.h"
 
 NNT_BEGIN_OBJC
 
-@interface WCATextLayer ()
+@interface NgTextLayer ()
 
 - (void)__init;
 
 @end
 
-@implementation WCATextLayer
+@implementation NgTextLayer
 
 @synthesize string;
 @synthesize textStyle;

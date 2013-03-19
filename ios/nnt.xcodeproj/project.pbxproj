@@ -316,8 +316,8 @@
 		1644C91816DF4B6F0035EF59 /* NSValue+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1644C91616DF4B6F0035EF59 /* NSValue+NNT.mm */; };
 		1644C91D16DF59010035EF59 /* QzMediaTiming.h in Headers */ = {isa = PBXBuildFile; fileRef = 1644C91B16DF59010035EF59 /* QzMediaTiming.h */; };
 		1644C91E16DF59010035EF59 /* QzMediaTiming.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1644C91C16DF59010035EF59 /* QzMediaTiming.mm */; };
-		1646C23F140BA407009B3E79 /* WSILua.h in Headers */ = {isa = PBXBuildFile; fileRef = 1646C23D140BA407009B3E79 /* WSILua.h */; };
-		1646C241140BA407009B3E79 /* WSILua.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1646C23E140BA407009B3E79 /* WSILua.mm */; };
+		1646C23F140BA407009B3E79 /* Lua+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1646C23D140BA407009B3E79 /* Lua+NNT.h */; };
+		1646C241140BA407009B3E79 /* Lua+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1646C23E140BA407009B3E79 /* Lua+NNT.mm */; };
 		1647BFEA160C5B73007AC94E /* ChatRobotSTART.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1647BFE8160C5B73007AC94E /* ChatRobotSTART.cpp */; };
 		1647BFEB160C5B73007AC94E /* ChatRobotSTART.h in Headers */ = {isa = PBXBuildFile; fileRef = 1647BFE9160C5B73007AC94E /* ChatRobotSTART.h */; };
 		1647BFEF160C5C0E007AC94E /* IChatRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1647BFED160C5C0E007AC94E /* IChatRobot.cpp */; };
@@ -734,12 +734,12 @@
 		1693688E16F192960021909E /* uuid_ui128.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693687316F192960021909E /* uuid_ui128.c */; };
 		1693689116F192960021909E /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693687616F192960021909E /* uuid.c */; };
 		1693689316F192960021909E /* uuid++.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1693687816F192960021909E /* uuid++.cc */; };
-		16936C7316F1A3C70021909E /* Nodejs+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936C7116F1A3C70021909E /* Nodejs+WSI.h */; };
-		16936C7416F1A3C70021909E /* Nodejs+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936C7216F1A3C70021909E /* Nodejs+WSI.mm */; };
-		16936FEB16F1AF160021909E /* Nodejs+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */; };
-		16936FEF16F1AF1E0021909E /* V8+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEC16F1AF1D0021909E /* V8+WSI.cpp */; };
-		16936FF016F1AF1E0021909E /* V8+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936FED16F1AF1D0021909E /* V8+WSI.h */; };
-		16936FF116F1AF1E0021909E /* V8+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEE16F1AF1E0021909E /* V8+WSI.mm */; };
+		16936C7316F1A3C70021909E /* Nodejs+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936C7116F1A3C70021909E /* Nodejs+NNT.h */; };
+		16936C7416F1A3C70021909E /* Nodejs+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936C7216F1A3C70021909E /* Nodejs+NNT.mm */; };
+		16936FEB16F1AF160021909E /* Nodejs+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEA16F1AF160021909E /* Nodejs+NNT.cpp */; };
+		16936FEF16F1AF1E0021909E /* V8+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEC16F1AF1D0021909E /* V8+NNT.cpp */; };
+		16936FF016F1AF1E0021909E /* V8+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936FED16F1AF1D0021909E /* V8+NNT.h */; };
+		16936FF116F1AF1E0021909E /* V8+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEE16F1AF1E0021909E /* V8+NNT.mm */; };
 		169379F1151B0364007644DC /* NSFileConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 169379EF151B0364007644DC /* NSFileConnection.h */; };
 		169379F2151B0364007644DC /* NSFileConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 169379F0151B0364007644DC /* NSFileConnection.m */; };
 		16967E7D16D612A000D0F33A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16967E7C16D612A000D0F33A /* GameKit.framework */; };
@@ -942,8 +942,8 @@
 		16A5F13014A1D5BD00503290 /* scheme-private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A5F12C14A1D5BD00503290 /* scheme-private.h */; };
 		16A5F13114A1D5BD00503290 /* scheme.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A5F12D14A1D5BD00503290 /* scheme.c */; };
 		16A5F13214A1D5BD00503290 /* scheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A5F12E14A1D5BD00503290 /* scheme.h */; };
-		16A5F13614A1D77100503290 /* WSITinyScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A5F13414A1D77100503290 /* WSITinyScheme.h */; };
-		16A5F13714A1D77100503290 /* WSITinyScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A5F13514A1D77100503290 /* WSITinyScheme.m */; };
+		16A5F13614A1D77100503290 /* TinyScheme+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A5F13414A1D77100503290 /* TinyScheme+NNT.h */; };
+		16A5F13714A1D77100503290 /* TinyScheme+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A5F13514A1D77100503290 /* TinyScheme+NNT.m */; };
 		16A5F2E114A1DC6300503290 /* tinyscheme.prv.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */; };
 		16A7B887157E63B0007B11D0 /* UIActionSheet+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A7B885157E63B0007B11D0 /* UIActionSheet+NNT.h */; };
 		16A7B888157E63B0007B11D0 /* UIActionSheet+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A7B886157E63B0007B11D0 /* UIActionSheet+NNT.mm */; };
@@ -977,7 +977,7 @@
 		16ADF2A91602CD1A008B242B /* DTraceLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16ADF2A61602CD19008B242B /* DTraceLibrary.cpp */; };
 		16ADF2AA1602CD1A008B242B /* DTraceLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ADF2A71602CD19008B242B /* DTraceLibrary.h */; };
 		16ADF2AB1602CD1A008B242B /* DTraceLibrary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16ADF2A81602CD19008B242B /* DTraceLibrary.mm */; };
-		16ADF2AE1602CE1C008B242B /* WSILua.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16ADF2AD1602CE1C008B242B /* WSILua.cpp */; };
+		16ADF2AE1602CE1C008B242B /* Lua+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16ADF2AD1602CE1C008B242B /* Lua+NNT.cpp */; };
 		16AF98B915D39816009338B6 /* SocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AF98B815D39814009338B6 /* SocketClient.cpp */; };
 		16AFE91F15B66D3F00220161 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AFE91C15B66D3F00220161 /* openssl_wrapper.m */; };
 		16AFE92015B66D3F00220161 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AFE91D15B66D3F00220161 /* RSADataSigner.m */; };
@@ -1052,8 +1052,6 @@
 		16C2DAA414457F5E00CA6EDF /* UICameraView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C2D94314457F5D00CA6EDF /* UICameraView.mm */; };
 		16C2DAA614457F5E00CA6EDF /* UICell.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C2D94414457F5D00CA6EDF /* UICell.h */; };
 		16C2DAA814457F5E00CA6EDF /* UICell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2D94514457F5D00CA6EDF /* UICell.m */; };
-		16C2DAAA14457F5E00CA6EDF /* UIChartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C2D94614457F5D00CA6EDF /* UIChartController.h */; };
-		16C2DAAC14457F5E00CA6EDF /* UIChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2D94714457F5D00CA6EDF /* UIChartController.m */; };
 		16C2DAAE14457F5E00CA6EDF /* UICHMController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C2D94814457F5D00CA6EDF /* UICHMController.h */; };
 		16C2DAB014457F5E00CA6EDF /* UICHMController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C2D94914457F5D00CA6EDF /* UICHMController.mm */; };
 		16C2DAB214457F5E00CA6EDF /* UICHMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C2D94A14457F5D00CA6EDF /* UICHMView.h */; };
@@ -1267,13 +1265,13 @@
 		16CEB9F714A30DAD002DB496 /* UIScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEB9F514A30DAD002DB496 /* UIScrollHeaderView.m */; };
 		16CF543D15E38A9F0021AEBD /* XmppClose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CF543B15E38A9F0021AEBD /* XmppClose.cpp */; };
 		16CF543E15E38A9F0021AEBD /* XmppClose.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CF543C15E38A9F0021AEBD /* XmppClose.h */; };
-		16CFAB7914A2C0B1000C30DB /* wsi.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7714A2C0B1000C30DB /* wsi.core.h */; };
-		16CFAB7A14A2C0B1000C30DB /* wsi.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7814A2C0B1000C30DB /* wsi.core.m */; };
-		16CFAB7D14A2C280000C30DB /* wsi.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7B14A2C280000C30DB /* wsi.modules.h */; };
-		16CFAB7E14A2C280000C30DB /* wsi.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7C14A2C280000C30DB /* wsi.modules.m */; };
-		16CFAB8314A2CBFD000C30DB /* pywsi.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8114A2CBFD000C30DB /* pywsi.h */; };
-		16CFAB8414A2CBFD000C30DB /* pywsi.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB8214A2CBFD000C30DB /* pywsi.mm */; };
-		16CFAB8A14A2D445000C30DB /* WSIScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8914A2D445000C30DB /* WSIScript.h */; };
+		16CFAB7914A2C0B1000C30DB /* nnt.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7714A2C0B1000C30DB /* nnt.core.h */; };
+		16CFAB7A14A2C0B1000C30DB /* nnt.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7814A2C0B1000C30DB /* nnt.core.m */; };
+		16CFAB7D14A2C280000C30DB /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7B14A2C280000C30DB /* nnt.modules.h */; };
+		16CFAB7E14A2C280000C30DB /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7C14A2C280000C30DB /* nnt.modules.m */; };
+		16CFAB8314A2CBFD000C30DB /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8114A2CBFD000C30DB /* pynnt.h */; };
+		16CFAB8414A2CBFD000C30DB /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB8214A2CBFD000C30DB /* pynnt.mm */; };
+		16CFAB8A14A2D445000C30DB /* Script+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8914A2D445000C30DB /* Script+NNT.h */; };
 		16CFB6AC13AAFA8E00FAFCAC /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFB6A813AAFA8E00FAFCAC /* FtpServer.h */; };
 		16CFB6AE13AAFA8E00FAFCAC /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFB6A913AAFA8E00FAFCAC /* FtpServer.m */; };
 		16CFB6B013AAFA8E00FAFCAC /* LighttpdServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFB6AA13AAFA8E00FAFCAC /* LighttpdServer.h */; };
@@ -1282,8 +1280,8 @@
 		16CFB6B813AAFB4B00FAFCAC /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFB6B513AAFB4B00FAFCAC /* Network.m */; };
 		16D0187A147B9BB600B0A489 /* UIPickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D01878147B9BB400B0A489 /* UIPickerControl.h */; };
 		16D0187B147B9BB600B0A489 /* UIPickerControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D01879147B9BB500B0A489 /* UIPickerControl.mm */; };
-		16D0DAC31490BC56002F309D /* WSIPython.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D0DAC11490BC56002F309D /* WSIPython.h */; };
-		16D0DAC41490BC56002F309D /* WSIPython.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D0DAC21490BC56002F309D /* WSIPython.mm */; };
+		16D0DAC31490BC56002F309D /* Python+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D0DAC11490BC56002F309D /* Python+NNT.h */; };
+		16D0DAC41490BC56002F309D /* Python+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D0DAC21490BC56002F309D /* Python+NNT.mm */; };
 		16D11F17156A10AD00F87A51 /* UIStackControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D11F15156A10AA00F87A51 /* UIStackControllers.h */; };
 		16D11F18156A10AD00F87A51 /* UIStackControllers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D11F16156A10AB00F87A51 /* UIStackControllers.mm */; };
 		16D11F1C156A110100F87A51 /* UISetControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D11F1A156A10FF00F87A51 /* UISetControllers.h */; };
@@ -1888,8 +1886,8 @@
 		1644C91616DF4B6F0035EF59 /* NSValue+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSValue+NNT.mm"; sourceTree = "<group>"; };
 		1644C91B16DF59010035EF59 /* QzMediaTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QzMediaTiming.h; sourceTree = "<group>"; };
 		1644C91C16DF59010035EF59 /* QzMediaTiming.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QzMediaTiming.mm; sourceTree = "<group>"; };
-		1646C23D140BA407009B3E79 /* WSILua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSILua.h; sourceTree = "<group>"; };
-		1646C23E140BA407009B3E79 /* WSILua.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WSILua.mm; sourceTree = "<group>"; };
+		1646C23D140BA407009B3E79 /* Lua+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Lua+NNT.h"; sourceTree = "<group>"; };
+		1646C23E140BA407009B3E79 /* Lua+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Lua+NNT.mm"; sourceTree = "<group>"; };
 		1647BFE8160C5B73007AC94E /* ChatRobotSTART.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChatRobotSTART.cpp; sourceTree = "<group>"; };
 		1647BFE9160C5B73007AC94E /* ChatRobotSTART.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRobotSTART.h; sourceTree = "<group>"; };
 		1647BFED160C5C0E007AC94E /* IChatRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IChatRobot.cpp; sourceTree = "<group>"; };
@@ -2314,12 +2312,12 @@
 		1693687316F192960021909E /* uuid_ui128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_ui128.c; path = "../contrib/ossp-uuid/uuid_ui128.c"; sourceTree = "<group>"; };
 		1693687616F192960021909E /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid.c; path = "../contrib/ossp-uuid/uuid.c"; sourceTree = "<group>"; };
 		1693687816F192960021909E /* uuid++.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "uuid++.cc"; path = "../contrib/ossp-uuid/uuid++.cc"; sourceTree = "<group>"; };
-		16936C7116F1A3C70021909E /* Nodejs+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nodejs+WSI.h"; sourceTree = "<group>"; };
-		16936C7216F1A3C70021909E /* Nodejs+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Nodejs+WSI.mm"; sourceTree = "<group>"; };
-		16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Nodejs+WSI.cpp"; sourceTree = "<group>"; };
-		16936FEC16F1AF1D0021909E /* V8+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "V8+WSI.cpp"; sourceTree = "<group>"; };
-		16936FED16F1AF1D0021909E /* V8+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "V8+WSI.h"; sourceTree = "<group>"; };
-		16936FEE16F1AF1E0021909E /* V8+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "V8+WSI.mm"; sourceTree = "<group>"; };
+		16936C7116F1A3C70021909E /* Nodejs+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nodejs+NNT.h"; sourceTree = "<group>"; };
+		16936C7216F1A3C70021909E /* Nodejs+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Nodejs+NNT.mm"; sourceTree = "<group>"; };
+		16936FEA16F1AF160021909E /* Nodejs+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Nodejs+NNT.cpp"; sourceTree = "<group>"; };
+		16936FEC16F1AF1D0021909E /* V8+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "V8+NNT.cpp"; sourceTree = "<group>"; };
+		16936FED16F1AF1D0021909E /* V8+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "V8+NNT.h"; sourceTree = "<group>"; };
+		16936FEE16F1AF1E0021909E /* V8+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "V8+NNT.mm"; sourceTree = "<group>"; };
 		169379EF151B0364007644DC /* NSFileConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileConnection.h; sourceTree = "<group>"; };
 		169379F0151B0364007644DC /* NSFileConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileConnection.m; sourceTree = "<group>"; };
 		16967E7C16D612A000D0F33A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -2524,8 +2522,8 @@
 		16A5F12C14A1D5BD00503290 /* scheme-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "scheme-private.h"; sourceTree = "<group>"; };
 		16A5F12D14A1D5BD00503290 /* scheme.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scheme.c; sourceTree = "<group>"; };
 		16A5F12E14A1D5BD00503290 /* scheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scheme.h; sourceTree = "<group>"; };
-		16A5F13414A1D77100503290 /* WSITinyScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSITinyScheme.h; sourceTree = "<group>"; };
-		16A5F13514A1D77100503290 /* WSITinyScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSITinyScheme.m; sourceTree = "<group>"; };
+		16A5F13414A1D77100503290 /* TinyScheme+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TinyScheme+NNT.h"; sourceTree = "<group>"; };
+		16A5F13514A1D77100503290 /* TinyScheme+NNT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TinyScheme+NNT.m"; sourceTree = "<group>"; };
 		16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyscheme.prv.h; sourceTree = "<group>"; };
 		16A7B885157E63B0007B11D0 /* UIActionSheet+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+NNT.h"; sourceTree = "<group>"; };
 		16A7B886157E63B0007B11D0 /* UIActionSheet+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIActionSheet+NNT.mm"; sourceTree = "<group>"; };
@@ -2559,7 +2557,7 @@
 		16ADF2A61602CD19008B242B /* DTraceLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DTraceLibrary.cpp; sourceTree = "<group>"; };
 		16ADF2A71602CD19008B242B /* DTraceLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTraceLibrary.h; sourceTree = "<group>"; };
 		16ADF2A81602CD19008B242B /* DTraceLibrary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DTraceLibrary.mm; sourceTree = "<group>"; };
-		16ADF2AD1602CE1C008B242B /* WSILua.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WSILua.cpp; sourceTree = "<group>"; };
+		16ADF2AD1602CE1C008B242B /* Lua+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Lua+NNT.cpp"; sourceTree = "<group>"; };
 		16AF98B815D39814009338B6 /* SocketClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketClient.cpp; sourceTree = "<group>"; };
 		16AFE91C15B66D3F00220161 /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = openssl_wrapper.m; path = ../contrib/Alipay/Utilities/src/openssl_wrapper.m; sourceTree = "<group>"; };
 		16AFE91D15B66D3F00220161 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSADataSigner.m; path = ../contrib/Alipay/Utilities/src/RSADataSigner.m; sourceTree = "<group>"; };
@@ -2634,8 +2632,6 @@
 		16C2D94314457F5D00CA6EDF /* UICameraView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UICameraView.mm; sourceTree = "<group>"; };
 		16C2D94414457F5D00CA6EDF /* UICell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICell.h; sourceTree = "<group>"; };
 		16C2D94514457F5D00CA6EDF /* UICell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICell.m; sourceTree = "<group>"; };
-		16C2D94614457F5D00CA6EDF /* UIChartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIChartController.h; sourceTree = "<group>"; };
-		16C2D94714457F5D00CA6EDF /* UIChartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIChartController.m; sourceTree = "<group>"; };
 		16C2D94814457F5D00CA6EDF /* UICHMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICHMController.h; sourceTree = "<group>"; };
 		16C2D94914457F5D00CA6EDF /* UICHMController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UICHMController.mm; sourceTree = "<group>"; };
 		16C2D94A14457F5D00CA6EDF /* UICHMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICHMView.h; sourceTree = "<group>"; };
@@ -2849,13 +2845,13 @@
 		16CEB9F514A30DAD002DB496 /* UIScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollHeaderView.m; sourceTree = "<group>"; };
 		16CF543B15E38A9F0021AEBD /* XmppClose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppClose.cpp; sourceTree = "<group>"; };
 		16CF543C15E38A9F0021AEBD /* XmppClose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppClose.h; sourceTree = "<group>"; };
-		16CFAB7714A2C0B1000C30DB /* wsi.core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wsi.core.h; sourceTree = "<group>"; };
-		16CFAB7814A2C0B1000C30DB /* wsi.core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wsi.core.m; sourceTree = "<group>"; };
-		16CFAB7B14A2C280000C30DB /* wsi.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wsi.modules.h; sourceTree = "<group>"; };
-		16CFAB7C14A2C280000C30DB /* wsi.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wsi.modules.m; sourceTree = "<group>"; };
-		16CFAB8114A2CBFD000C30DB /* pywsi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pywsi.h; sourceTree = "<group>"; };
-		16CFAB8214A2CBFD000C30DB /* pywsi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pywsi.mm; sourceTree = "<group>"; };
-		16CFAB8914A2D445000C30DB /* WSIScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIScript.h; sourceTree = "<group>"; };
+		16CFAB7714A2C0B1000C30DB /* nnt.core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.core.h; sourceTree = "<group>"; };
+		16CFAB7814A2C0B1000C30DB /* nnt.core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.core.m; sourceTree = "<group>"; };
+		16CFAB7B14A2C280000C30DB /* nnt.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.modules.h; sourceTree = "<group>"; };
+		16CFAB7C14A2C280000C30DB /* nnt.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.modules.m; sourceTree = "<group>"; };
+		16CFAB8114A2CBFD000C30DB /* pynnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pynnt.h; sourceTree = "<group>"; };
+		16CFAB8214A2CBFD000C30DB /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
+		16CFAB8914A2D445000C30DB /* Script+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Script+NNT.h"; sourceTree = "<group>"; };
 		16CFB6A813AAFA8E00FAFCAC /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		16CFB6A913AAFA8E00FAFCAC /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
 		16CFB6AA13AAFA8E00FAFCAC /* LighttpdServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LighttpdServer.h; sourceTree = "<group>"; };
@@ -2865,8 +2861,8 @@
 		16CFB6BC13AB03C400FAFCAC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		16D01878147B9BB400B0A489 /* UIPickerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPickerControl.h; sourceTree = "<group>"; };
 		16D01879147B9BB500B0A489 /* UIPickerControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIPickerControl.mm; sourceTree = "<group>"; };
-		16D0DAC11490BC56002F309D /* WSIPython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIPython.h; sourceTree = "<group>"; };
-		16D0DAC21490BC56002F309D /* WSIPython.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WSIPython.mm; sourceTree = "<group>"; };
+		16D0DAC11490BC56002F309D /* Python+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Python+NNT.h"; sourceTree = "<group>"; };
+		16D0DAC21490BC56002F309D /* Python+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Python+NNT.mm"; sourceTree = "<group>"; };
 		16D11F15156A10AA00F87A51 /* UIStackControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStackControllers.h; sourceTree = "<group>"; };
 		16D11F16156A10AB00F87A51 /* UIStackControllers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIStackControllers.mm; sourceTree = "<group>"; };
 		16D11F1A156A10FF00F87A51 /* UISetControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISetControllers.h; sourceTree = "<group>"; };
@@ -3500,21 +3496,21 @@
 			isa = PBXGroup;
 			children = (
 				16CFAB7614A2C0B1000C30DB /* _python.site */,
-				16CFAB8914A2D445000C30DB /* WSIScript.h */,
-				1646C23D140BA407009B3E79 /* WSILua.h */,
-				1646C23E140BA407009B3E79 /* WSILua.mm */,
-				16ADF2AD1602CE1C008B242B /* WSILua.cpp */,
-				16D0DAC11490BC56002F309D /* WSIPython.h */,
-				16D0DAC21490BC56002F309D /* WSIPython.mm */,
-				16A5F13414A1D77100503290 /* WSITinyScheme.h */,
-				16A5F13514A1D77100503290 /* WSITinyScheme.m */,
+				16CFAB8914A2D445000C30DB /* Script+NNT.h */,
+				1646C23D140BA407009B3E79 /* Lua+NNT.h */,
+				1646C23E140BA407009B3E79 /* Lua+NNT.mm */,
+				16ADF2AD1602CE1C008B242B /* Lua+NNT.cpp */,
+				16D0DAC11490BC56002F309D /* Python+NNT.h */,
+				16D0DAC21490BC56002F309D /* Python+NNT.mm */,
+				16A5F13414A1D77100503290 /* TinyScheme+NNT.h */,
+				16A5F13514A1D77100503290 /* TinyScheme+NNT.m */,
 				16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */,
-				16936C7116F1A3C70021909E /* Nodejs+WSI.h */,
-				16936C7216F1A3C70021909E /* Nodejs+WSI.mm */,
-				16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */,
-				16936FED16F1AF1D0021909E /* V8+WSI.h */,
-				16936FEC16F1AF1D0021909E /* V8+WSI.cpp */,
-				16936FEE16F1AF1E0021909E /* V8+WSI.mm */,
+				16936C7116F1A3C70021909E /* Nodejs+NNT.h */,
+				16936C7216F1A3C70021909E /* Nodejs+NNT.mm */,
+				16936FEA16F1AF160021909E /* Nodejs+NNT.cpp */,
+				16936FED16F1AF1D0021909E /* V8+NNT.h */,
+				16936FEC16F1AF1D0021909E /* V8+NNT.cpp */,
+				16936FEE16F1AF1E0021909E /* V8+NNT.mm */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -4845,8 +4841,6 @@
 				16C2D94314457F5D00CA6EDF /* UICameraView.mm */,
 				16C2D94414457F5D00CA6EDF /* UICell.h */,
 				16C2D94514457F5D00CA6EDF /* UICell.m */,
-				16C2D94614457F5D00CA6EDF /* UIChartController.h */,
-				16C2D94714457F5D00CA6EDF /* UIChartController.m */,
 				16C2D94814457F5D00CA6EDF /* UICHMController.h */,
 				16C2D94914457F5D00CA6EDF /* UICHMController.mm */,
 				16C2D94A14457F5D00CA6EDF /* UICHMView.h */,
@@ -5152,12 +5146,12 @@
 		16CFAB7614A2C0B1000C30DB /* _python.site */ = {
 			isa = PBXGroup;
 			children = (
-				16CFAB8114A2CBFD000C30DB /* pywsi.h */,
-				16CFAB8214A2CBFD000C30DB /* pywsi.mm */,
-				16CFAB7B14A2C280000C30DB /* wsi.modules.h */,
-				16CFAB7C14A2C280000C30DB /* wsi.modules.m */,
-				16CFAB7714A2C0B1000C30DB /* wsi.core.h */,
-				16CFAB7814A2C0B1000C30DB /* wsi.core.m */,
+				16CFAB8114A2CBFD000C30DB /* pynnt.h */,
+				16CFAB8214A2CBFD000C30DB /* pynnt.mm */,
+				16CFAB7B14A2C280000C30DB /* nnt.modules.h */,
+				16CFAB7C14A2C280000C30DB /* nnt.modules.m */,
+				16CFAB7714A2C0B1000C30DB /* nnt.core.h */,
+				16CFAB7814A2C0B1000C30DB /* nnt.core.m */,
 			);
 			path = _python.site;
 			sourceTree = "<group>";
@@ -5546,7 +5540,7 @@
 				169225FE13FCF6F6000770FF /* PayNullApi.h in Headers */,
 				168731181404CE5D0059ABC5 /* MustacheParser.h in Headers */,
 				16307F001404F48D002559FA /* GRMustacheWrapper.h in Headers */,
-				1646C23F140BA407009B3E79 /* WSILua.h in Headers */,
+				1646C23F140BA407009B3E79 /* Lua+NNT.h in Headers */,
 				169C0AC1140CDED5008F26FF /* Bdb+NNT.h in Headers */,
 				169C0AC8140CDF36008F26FF /* LevelDB+NNT.h in Headers */,
 				160A6CC9140DBAF800F2778C /* DBMSqlite.h in Headers */,
@@ -5564,7 +5558,6 @@
 				16C2DA9E14457F5E00CA6EDF /* UIButton+NNT.h in Headers */,
 				16C2DAA214457F5E00CA6EDF /* UICameraView.h in Headers */,
 				16C2DAA614457F5E00CA6EDF /* UICell.h in Headers */,
-				16C2DAAA14457F5E00CA6EDF /* UIChartController.h in Headers */,
 				16C2DAAE14457F5E00CA6EDF /* UICHMController.h in Headers */,
 				16C2DAB214457F5E00CA6EDF /* UICHMView.h in Headers */,
 				16C2DAB614457F5E00CA6EDF /* UIColor+NNT.h in Headers */,
@@ -5724,7 +5717,7 @@
 				29497400148F4D150012E232 /* UIOAToggleView.h in Headers */,
 				16C9B5E4149050DA00B46E80 /* UICacheActivityIndicatorView.h in Headers */,
 				16C9B7191490988700B46E80 /* ASIHttpRequest+WSI.h in Headers */,
-				16D0DAC31490BC56002F309D /* WSIPython.h in Headers */,
+				16D0DAC31490BC56002F309D /* Python+NNT.h in Headers */,
 				1606EACD14958B0900748D81 /* UIContactField.h in Headers */,
 				168995E41497268900B5FDBF /* ChineseString.h in Headers */,
 				1671B698149833E1003987B7 /* NSOperation+NNT.h in Headers */,
@@ -5763,12 +5756,12 @@
 				16A5F12F14A1D5BD00503290 /* opdefines.h in Headers */,
 				16A5F13014A1D5BD00503290 /* scheme-private.h in Headers */,
 				16A5F13214A1D5BD00503290 /* scheme.h in Headers */,
-				16A5F13614A1D77100503290 /* WSITinyScheme.h in Headers */,
+				16A5F13614A1D77100503290 /* TinyScheme+NNT.h in Headers */,
 				16A5F2E114A1DC6300503290 /* tinyscheme.prv.h in Headers */,
-				16CFAB7914A2C0B1000C30DB /* wsi.core.h in Headers */,
-				16CFAB7D14A2C280000C30DB /* wsi.modules.h in Headers */,
-				16CFAB8314A2CBFD000C30DB /* pywsi.h in Headers */,
-				16CFAB8A14A2D445000C30DB /* WSIScript.h in Headers */,
+				16CFAB7914A2C0B1000C30DB /* nnt.core.h in Headers */,
+				16CFAB7D14A2C280000C30DB /* nnt.modules.h in Headers */,
+				16CFAB8314A2CBFD000C30DB /* pynnt.h in Headers */,
+				16CFAB8A14A2D445000C30DB /* Script+NNT.h in Headers */,
 				16CEB9F614A30DAD002DB496 /* UIScrollHeaderView.h in Headers */,
 				165D4A2A14A9BA3000FEF20D /* PreciseNumber.h in Headers */,
 				16A1C56E14BC356300B30F19 /* cvimage+wsi.h in Headers */,
@@ -6177,8 +6170,8 @@
 				1644C91D16DF59010035EF59 /* QzMediaTiming.h in Headers */,
 				167D544D16E03D4D00F68533 /* OAWeChat.h in Headers */,
 				1693685D16F185CC0021909E /* HttpParser.h in Headers */,
-				16936C7316F1A3C70021909E /* Nodejs+WSI.h in Headers */,
-				16936FF016F1AF1E0021909E /* V8+WSI.h in Headers */,
+				16936C7316F1A3C70021909E /* Nodejs+NNT.h in Headers */,
+				16936FF016F1AF1E0021909E /* V8+NNT.h in Headers */,
 				16AC1CF416F2D1A100316206 /* HttpServer.h in Headers */,
 				16E7E08A16F83B0200C7406D /* Algorithm+NNT.h in Headers */,
 				16E7E08C16F83B0200C7406D /* Assembly+NNT.h in Headers */,
@@ -6294,7 +6287,7 @@
 				1692260013FCF6F6000770FF /* PayNullApi.mm in Sources */,
 				1687311A1404CE5D0059ABC5 /* MustacheParser.m in Sources */,
 				16307F021404F48D002559FA /* GRMustacheWrapper.m in Sources */,
-				1646C241140BA407009B3E79 /* WSILua.mm in Sources */,
+				1646C241140BA407009B3E79 /* Lua+NNT.mm in Sources */,
 				169C0AC3140CDED5008F26FF /* Bdb+NNT.m in Sources */,
 				169C0ACA140CDF36008F26FF /* LevelDB+NNT.mm in Sources */,
 				160A6EA8140DE21200F2778C /* Configuration+NNT.mm in Sources */,
@@ -6310,7 +6303,6 @@
 				16C2DAA014457F5E00CA6EDF /* UIButton+NNT.mm in Sources */,
 				16C2DAA414457F5E00CA6EDF /* UICameraView.mm in Sources */,
 				16C2DAA814457F5E00CA6EDF /* UICell.m in Sources */,
-				16C2DAAC14457F5E00CA6EDF /* UIChartController.m in Sources */,
 				16C2DAB014457F5E00CA6EDF /* UICHMController.mm in Sources */,
 				16C2DAB414457F5E00CA6EDF /* UICHMView.mm in Sources */,
 				16C2DAB814457F5E00CA6EDF /* UIColor+NNT.m in Sources */,
@@ -6456,7 +6448,7 @@
 				29497401148F4D150012E232 /* UIOAToggleView.mm in Sources */,
 				16C9B5E5149050DA00B46E80 /* UICacheActivityIndicatorView.m in Sources */,
 				16C9B71A1490988700B46E80 /* ASIHttpRequest+WSI.mm in Sources */,
-				16D0DAC41490BC56002F309D /* WSIPython.mm in Sources */,
+				16D0DAC41490BC56002F309D /* Python+NNT.mm in Sources */,
 				1606EACE14958B0900748D81 /* UIContactField.mm in Sources */,
 				1689958A1496FF0D00B5FDBF /* Char+NNT.cpp in Sources */,
 				168995E014971E6000B5FDBF /* Char+NNT.mm in Sources */,
@@ -6493,10 +6485,10 @@
 				16CCBCC014A1700200FDEB99 /* StyleStringParser.mm in Sources */,
 				16CCBCC514A176A800FDEB99 /* NSStyleString.mm in Sources */,
 				16A5F13114A1D5BD00503290 /* scheme.c in Sources */,
-				16A5F13714A1D77100503290 /* WSITinyScheme.m in Sources */,
-				16CFAB7A14A2C0B1000C30DB /* wsi.core.m in Sources */,
-				16CFAB7E14A2C280000C30DB /* wsi.modules.m in Sources */,
-				16CFAB8414A2CBFD000C30DB /* pywsi.mm in Sources */,
+				16A5F13714A1D77100503290 /* TinyScheme+NNT.m in Sources */,
+				16CFAB7A14A2C0B1000C30DB /* nnt.core.m in Sources */,
+				16CFAB7E14A2C280000C30DB /* nnt.modules.m in Sources */,
+				16CFAB8414A2CBFD000C30DB /* pynnt.mm in Sources */,
 				16CEB9F714A30DAD002DB496 /* UIScrollHeaderView.m in Sources */,
 				165D4A2B14A9BA3000FEF20D /* PreciseNumber.mm in Sources */,
 				16A1C56C14BC356300B30F19 /* cvimage+wsi.cpp in Sources */,
@@ -6951,7 +6943,7 @@
 				16A1B93F16018FAB00981BC4 /* XepSubject.cpp in Sources */,
 				16ADF2A91602CD1A008B242B /* DTraceLibrary.cpp in Sources */,
 				16ADF2AB1602CD1A008B242B /* DTraceLibrary.mm in Sources */,
-				16ADF2AE1602CE1C008B242B /* WSILua.cpp in Sources */,
+				16ADF2AE1602CE1C008B242B /* Lua+NNT.cpp in Sources */,
 				1620F1D41609D39900592F83 /* LePoint.cpp in Sources */,
 				1620F1D61609D39900592F83 /* LeRect.cpp in Sources */,
 				1620F1D81609D39900592F83 /* LeSize.cpp in Sources */,
@@ -7057,10 +7049,10 @@
 				1693688E16F192960021909E /* uuid_ui128.c in Sources */,
 				1693689116F192960021909E /* uuid.c in Sources */,
 				1693689316F192960021909E /* uuid++.cc in Sources */,
-				16936C7416F1A3C70021909E /* Nodejs+WSI.mm in Sources */,
-				16936FEB16F1AF160021909E /* Nodejs+WSI.cpp in Sources */,
-				16936FEF16F1AF1E0021909E /* V8+WSI.cpp in Sources */,
-				16936FF116F1AF1E0021909E /* V8+WSI.mm in Sources */,
+				16936C7416F1A3C70021909E /* Nodejs+NNT.mm in Sources */,
+				16936FEB16F1AF160021909E /* Nodejs+NNT.cpp in Sources */,
+				16936FEF16F1AF1E0021909E /* V8+NNT.cpp in Sources */,
+				16936FF116F1AF1E0021909E /* V8+NNT.mm in Sources */,
 				16AC1CF016F2D08E00316206 /* mongoose.c in Sources */,
 				16AC1CF316F2D1A100316206 /* HttpServer.cpp in Sources */,
 				16E7E08916F83B0200C7406D /* Algorithm+NNT.cpp in Sources */,

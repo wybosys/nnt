@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTLocation.h"
+# import "Location+NNT.h"
 # import <CoreLocation/CoreLocation.h>
 
 NNT_BEGIN_OBJC

@@ -2,14 +2,14 @@
 # import "Core.h"
 # import "UINavigationDialLayers.h"
 # import "Math+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIColor+NNT.h"
 
 NNT_BEGIN_OBJC
 
 //# define DRAW_ITEM_CENTER
 
-@implementation WCALayerDialRingCenter
+@implementation NgLayerDialRingCenter
 
 @synthesize radiusExpend, radiusCollapse, radius;
 
@@ -49,13 +49,13 @@ NNT_BEGIN_OBJC
 
 @end
 
-@interface WCALayerDialRing ()
+@interface NgLayerDialRing ()
 
 //- (NSArray*)copyItems;
 
 @end
 
-@implementation WCALayerDialRing
+@implementation NgLayerDialRing
 
 @synthesize radiusInner, radiusOutter, diameterOuter;
 @synthesize ringShadowOuter, ringShadowInner;
@@ -78,7 +78,7 @@ NNT_BEGIN_OBJC
 - (id)initWithLayer:(id)layer {
     self = [super initWithLayer:layer];
     if (self && [layer isKindOfClass:[self class]]) {
-        WCALayerDialRing *ring = (WCALayerDialRing*)layer;
+        NgLayerDialRing *ring = (NgLayerDialRing*)layer;
                 
         self.ringShadowOuter = ring.ringShadowOuter;
         self.ringShadowInner = ring.ringShadowInner;
@@ -141,7 +141,7 @@ NNT_BEGIN_OBJC
     [itemLayers release];
     itemLayers = [arr retain];
     
-    for (WCALayerDialRingItem *layer in itemLayers) {
+    for (NgLayerDialRingItem *layer in itemLayers) {
         [self addSublayer:layer];
     }
 }
@@ -149,8 +149,8 @@ NNT_BEGIN_OBJC
 /*
 - (NSArray*)copyItems {
     NSMutableArray *arr = [[[NSMutableArray alloc] initWithCapacity:[itemLayers count]] autorelease];
-    for (WCALayerDialRingItem *each in itemLayers) {
-        WCALayerDialRingItem *item = [[WCALayerDialRingItem alloc] init];
+    for (NgLayerDialRingItem *each in itemLayers) {
+        NgLayerDialRingItem *item = [[NgLayerDialRingItem alloc] init];
         [arr addObject:item];
         [item release];
     }
@@ -171,7 +171,7 @@ NNT_BEGIN_OBJC
     real const itemDistance = radiusOutter - itemLength * .5f;
     
     for (uint i = 0; i < [itemLayers count]; ++i) {
-        WCALayerDialRingItem *item = [itemLayers objectAtIndex:i];        
+        NgLayerDialRingItem *item = [itemLayers objectAtIndex:i];        
         
         [item setAffineTransform:CGAffineTransformIdentity];        
                 
@@ -256,7 +256,7 @@ NNT_BEGIN_OBJC
         CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
         CGPoint *pts = (CGPoint*)malloc([itemLayers count] * sizeof(CGPoint));
         for (uint i = 0; i < [itemLayers count]; ++i) {
-            pts[i] = [((WCALayerRingItem*)[itemLayers objectAtIndex:i]) centerPoint];
+            pts[i] = [((NgLayerRingItem*)[itemLayers objectAtIndex:i]) centerPoint];
         }
         CGContextAddLines(ctx, pts, [itemLayers count]);
         CGContextClosePath(ctx);
@@ -266,7 +266,7 @@ NNT_BEGIN_OBJC
 # endif
     
     /*
-    for (WCALayerRingItem *each in itemLayers) {
+    for (NgLayerRingItem *each in itemLayers) {
         [each drawInContext:ctx];
     }
      */
@@ -275,7 +275,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCALayerDialRingItem
+@implementation NgLayerDialRingItem
 
 @synthesize image;
 @synthesize edgeShadow;
@@ -298,7 +298,7 @@ NNT_BEGIN_OBJC
     self = [super initWithLayer:layer];
     if (self && [layer isKindOfClass:[self class]]) {
         
-        WCALayerDialRingItem *item = (WCALayerDialRingItem*)layer;
+        NgLayerDialRingItem *item = (NgLayerDialRingItem*)layer;
         self.image = item.image;
         self.edgeShadow = item.edgeShadow;
         self.scaleImage = item.scaleImage;
@@ -344,7 +344,7 @@ NNT_BEGIN_OBJC
     }
 }
 
-- (void)setLayerBadge:(WCALayer*)layer {
+- (void)setLayerBadge:(NgLayer*)layer {
     if (layerBadge == layer) {
         [layerBadge setNeedsDisplay];
         return;
@@ -357,7 +357,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCALayerDialLabelRing
+@implementation NgLayerDialLabelRing
 
 @synthesize radius, diameter;
 @synthesize itemLayers;
@@ -376,7 +376,7 @@ NNT_BEGIN_OBJC
 - (id)initWithLayer:(id)layer {
     self = [super initWithLayer:layer];
     if (self && [layer isKindOfClass:[self class]]) {
-        WCALayerDialLabelRing *ring = (WCALayerDialLabelRing*)layer;
+        NgLayerDialLabelRing *ring = (NgLayerDialLabelRing*)layer;
         
         self.radius = ring.radius;        
         self.clockwise = ring.clockwise;
@@ -409,7 +409,7 @@ NNT_BEGIN_OBJC
 - (void)setItemLayers:(NSArray *)arr {
     [itemLayers release];
     itemLayers = [arr retain];
-    for (WCATextLayer *layer in itemLayers) {
+    for (NgTextLayer *layer in itemLayers) {
         [self addSublayer:layer];
     }
 }
@@ -422,7 +422,7 @@ NNT_BEGIN_OBJC
     real dangle = M_2PI / [itemLayers count];       
     
     for (uint i = 0; i < [itemLayers count]; ++i) {
-        WCALayerDialLabelRingItem *item = [itemLayers objectAtIndex:i];  
+        NgLayerDialLabelRingItem *item = [itemLayers objectAtIndex:i];  
         CGRect rc_item = CGRectMakeSz(item.preferredSize);
         
         if (item.adaptContent) {
@@ -472,7 +472,7 @@ NNT_BEGIN_OBJC
         CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
         CGPoint *pts = (CGPoint*)malloc([itemLayers count] * sizeof(CGPoint));
         for (uint i = 0; i < [itemLayers count]; ++i) {
-            pts[i] = [((WCATextLayer*)[itemLayers objectAtIndex:i]) centerPoint];
+            pts[i] = [((NgTextLayer*)[itemLayers objectAtIndex:i]) centerPoint];
         }
         CGContextAddLines(ctx, pts, [itemLayers count]);
         CGContextClosePath(ctx);
@@ -489,7 +489,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCALayerDialLabelRingItem
+@implementation NgLayerDialLabelRingItem
 
 @synthesize adaptContent;
 @synthesize preferredSize;

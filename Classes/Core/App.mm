@@ -4,7 +4,7 @@
 # include <stdio.h>
 # import "NNTUIObject.h"
 # import "FileCache.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "NNTConfiguration.h"
 # import "CmdArguments.h"
 # import "AppInformation.h"

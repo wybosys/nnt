@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "UIActivityIndicatorView+NNT.h"
-# import "WCAActivityIndicator.h"
+# import "NGActivityIndicator.h"
 # import "Math+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 
@@ -112,7 +112,7 @@ NNT_BEGIN_OBJC
 - (void)_showProgressRing {
     // create indicator.
     if (indicatorActivity == nil) {
-        indicatorActivity = [[WCAActivityIndicator alloc] init];
+        indicatorActivity = [[NgActivityIndicator alloc] init];
         indicatorActivity.startAngle = 0;
         indicatorActivity.endAngle = self.progressAngle;
         [self.layer addSublayer:indicatorActivity];

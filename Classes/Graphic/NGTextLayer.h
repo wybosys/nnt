@@ -2,13 +2,13 @@
 # ifndef __NNT_UIKIT_CATEXTLAYER_A0045FCE78F44B0BA9AAE5679E6C64C2_H_INCLUDED
 # define __NNT_UIKIT_CATEXTLAYER_A0045FCE78F44B0BA9AAE5679E6C64C2_H_INCLUDED
 
-# include "WCALayer.h"
+# include "NGLayer.h"
 
 NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_EXTERN_CLASS(NgTextStyle);
 
-@interface WCATextLayer : WCALayer {
+@interface NgTextLayer : NgLayer {
     
     id string;
     NgTextStyle *textStyle;

@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "WCALayer.h"
-# import "WCALayerTheme.h"
+# import "NGLayer.h"
+# import "NGLayerTheme.h"
 # import "NGColor.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 
-@implementation WCALayerTheme
+@implementation NgLayerTheme
 
 @synthesize background;
 
@@ -26,7 +26,7 @@ NNT_BEGIN_OBJC
 # ifdef NNT_TARGET_IOS
 
 - (UIImage*)createImage:(CGSize)size {
-    WCALayer *layer = [[WCALayer alloc] init];
+    NgLayer *layer = [[NgLayer alloc] init];
     layer.frame = CGRectMakeSz(size);
 
     // set in layer.

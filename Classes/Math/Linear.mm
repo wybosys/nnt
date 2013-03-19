@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "Linear.h"
-# include "CoreGraphic+NNT.h"
+# include "Graphic+NNT.h"
 
 NNT_BEGIN_C
 

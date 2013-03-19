@@ -2,7 +2,7 @@
 # ifndef __NNT_UIKIT_WCABADGEINDICATOR_D0BBC7B6A6CE4CE19E7FADDA095C024C_H_INCLUDED
 # define __NNT_UIKIT_WCABADGEINDICATOR_D0BBC7B6A6CE4CE19E7FADDA095C024C_H_INCLUDED
 
-# import "WCALayer.h"
+# import "NGLayer.h"
 # import "NGColor.h"
 
 NNT_BEGIN_HEADER_OBJC
@@ -10,7 +10,7 @@ NNT_BEGIN_HEADER_OBJC
 NNTDECL_EXTERN_CLASS(NgMutableTextStyle);
 NNTDECL_EXTERN_CLASS(NgLineStyle);
 
-@interface WCABadgeIndicator : WCALayer {
+@interface NgBadgeIndicator : NgLayer {
     
     //! value.
     NSString *value;

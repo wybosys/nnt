@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCAActivityIndicator);
+NNTDECL_EXTERN_CLASS(NgActivityIndicator);
 
 @interface NNTUIActivityIndicatorView : NNTUIView {
     
@@ -14,7 +14,7 @@ NNTDECL_EXTERN_CLASS(WCAActivityIndicator);
     BOOL showProgressRing;
     
     //! activity indicator. alloc while used. default is nil.
-    WCAActivityIndicator* indicatorActivity;
+    NgActivityIndicator* indicatorActivity;
     
     //! progress value.
     real progressValue;
@@ -28,7 +28,7 @@ NNTDECL_EXTERN_CLASS(WCAActivityIndicator);
 
 @property (nonatomic, assign) real progressValue, progressMax;
 @property (nonatomic, assign) BOOL showProgressRing;
-@property (nonatomic, retain) WCAActivityIndicator* indicatorActivity;
+@property (nonatomic, retain) NgActivityIndicator* indicatorActivity;
 @property (nonatomic, readonly) UIActivityIndicatorView* activityView;
 
 - (id)initWithFrame:(CGRect)frame;

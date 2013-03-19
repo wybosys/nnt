@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UITearView.h"
 # import "UIDesktop.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIColor+NNT.h"
 # import <QuartzCore/QuartzCore.h>
 

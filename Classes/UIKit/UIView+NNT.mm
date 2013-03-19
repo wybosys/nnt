@@ -3,7 +3,7 @@
 # import "UIView+NNT.h"
 # import "UITearView.h"
 # import "../Store/NNTConfiguration.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import <QuartzCore/QuartzCore.h>
 # import "NNTUIObject.h"
 # import "Math+NNT.h"

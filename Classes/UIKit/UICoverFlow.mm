@@ -3,7 +3,7 @@
 # import "UICoverFlow.h"
 # import "UICoverFlowItem.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIImageView+NNT.h"
 # import "UIImage+NNT.h"
 

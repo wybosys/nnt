@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTTinyScheme.h"
+# import "TinyScheme+NNT.h"
 # import "scheme.h"
 # import "tinyscheme.prv.h"
 

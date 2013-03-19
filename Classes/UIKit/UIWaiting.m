@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIWaiting.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "App.h"
 
 NNT_BEGIN_OBJC

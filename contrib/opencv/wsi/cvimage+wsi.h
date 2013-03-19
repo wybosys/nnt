@@ -2,10 +2,10 @@
 # ifndef __WSI_OPENCV_IMAGE_430581C8829044A58B6ABD6D75A48F4C_H_INCLUDED
 # define __WSI_OPENCV_IMAGE_430581C8829044A58B6ABD6D75A48F4C_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-//WSI_EXTERN IplImage* cvLoadImageFromData(byte const* data, usize len);
+//NNT_EXTERN IplImage* cvLoadImageFromData(byte const* data, usize len);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif

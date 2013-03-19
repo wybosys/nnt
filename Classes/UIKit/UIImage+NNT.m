@@ -5,13 +5,13 @@
 # import "Math+NNT.h"
 # import "NGFillImage.h"
 # import "NGImage.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 # import "Directory+NNT.h"
 # import "UIScreen+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC
 
-WCGImage* NgMaskImage(CGImageRef dst, CGImageRef src);
+NgImage* NgMaskImage(CGImageRef dst, CGImageRef src);
 
 @implementation UIImage (NNT)
 

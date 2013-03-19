@@ -3,7 +3,7 @@
 # import "UIBadgeIndicator.h"
 # import <QuartzCore/QuartzCore.h>
 # import "NGTextStyle.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "JuiceCocoa++.hpp"
 
 NNT_BEGIN_OBJC

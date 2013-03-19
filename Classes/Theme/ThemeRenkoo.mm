@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "ThemeRenkoo.h"
-# import "WCALayer.h"
+# import "NGLayer.h"
 # import "Layout.h"
 
 NNT_BEGIN_OBJC
@@ -45,12 +45,12 @@ static const usize ldata_green[2] = {
 - (void)setInLayer:(CALayer *)layer {    
     layer.backgroundColor = self.background;
         
-    WCALayer *ly_indicator = [[WCALayer alloc] init];
+    NgLayer *ly_indicator = [[NgLayer alloc] init];
     ly_indicator.backgroundFill = img_indicator;
     [layer insertSublayer:ly_indicator atIndex:0];
     [ly_indicator release];
     
-    WCALayer *ly_background = [[WCALayer alloc] init];
+    NgLayer *ly_background = [[NgLayer alloc] init];
     ly_background.backgroundFill = img_background;
     ly_background.masksToBounds = YES;
     ly_background.cornerRadius = 5;

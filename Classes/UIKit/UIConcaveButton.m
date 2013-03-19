@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIConcaveButton.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "NGColor.h"
 # import "UIColor+NNT.h"
 

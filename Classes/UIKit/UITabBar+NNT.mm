@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UITabBar+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import <QuartzCore/QuartzCore.h>
 # import "UIBadgeIndicator.h"
 # import "UIColor+NNT.h"

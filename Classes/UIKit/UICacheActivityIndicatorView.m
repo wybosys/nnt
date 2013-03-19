@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UICacheActivityIndicatorView.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIActivityIndicatorView+NNT.h"
 
 NNT_BEGIN_OBJC

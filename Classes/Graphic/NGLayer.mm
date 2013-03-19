@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "WCALayer.h"
+# import "NGLayer.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+NNT.h"
-# import "WCALayerTheme.h"
+# import "Graphic+NNT.h"
+# import "NGLayerTheme.h"
 
 NNT_BEGIN_OBJC
 
-NNTIMPL_CATEGORY(CALayer, WCA);
+NNTIMPL_CATEGORY(CALayer, Ng);
 
-@implementation CALayer (WCA)
+@implementation CALayer (Ng)
 
 - (void)moveTo:(CGPoint)pt {
     CGRect rc = self.frame;
@@ -53,14 +53,14 @@ NNTIMPL_CATEGORY(CALayer, WCA);
     return pt;
 }
 
-- (void)applyTheme:(WCALayerTheme *)theme {
+- (void)applyTheme:(NgLayerTheme *)theme {
     self.backgroundColor = theme.background;
     [theme setInLayer:self];
 }
 
 @end
 
-@implementation WCALayer
+@implementation NgLayer
 
 NNTOBJECT_IMPL;
 
@@ -101,7 +101,7 @@ NNTOBJECT_IMPL;
     PASS;
 }
 
-- (void)applyTheme:(WCALayerTheme *)__theme {
+- (void)applyTheme:(NgLayerTheme *)__theme {
     [super applyTheme:__theme];
     self.theme = __theme;
 }

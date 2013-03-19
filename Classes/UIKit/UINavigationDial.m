@@ -3,9 +3,9 @@
 # import "UINavigationDial.h"
 # import "UINavigationDialLayers.h"
 # import "Math+NNT.h"
-# import "WCABadgeIndicator.h"
-# import "CoreGraphic+NNT.h"
-# import "CGShadow.h"
+# import "NGBadgeIndicator.h"
+# import "Graphic+NNT.h"
+# import "NGShadow.h"
 # import <QuartzCore/QuartzCore.h>
 # import "UIViewController+NNT.h"
 
@@ -16,9 +16,9 @@ NSString *kSignalDialClicked = @"::nnt::uikit::dial::clicked";
 @interface UINavigationDialPrivate : NSObject {
     UINavigationDial *d_owner;
     
-    WCALayerDialRing *layer_ring;
-    WCALayerDialLabelRing *layer_label;
-    WCALayerDialRingCenter *layer_center;
+    NgLayerDialRing *layer_ring;
+    NgLayerDialLabelRing *layer_label;
+    NgLayerDialRingCenter *layer_center;
     
     //real oldOuter;
     
@@ -30,9 +30,9 @@ NSString *kSignalDialClicked = @"::nnt::uikit::dial::clicked";
 }
 
 @property (nonatomic, assign) UINavigationDial *d_owner;
-@property (nonatomic, retain) WCALayerDialRing *layer_ring;
-@property (nonatomic, retain) WCALayerDialLabelRing *layer_label;
-@property (nonatomic, retain) WCALayerDialRingCenter *layer_center;
+@property (nonatomic, retain) NgLayerDialRing *layer_ring;
+@property (nonatomic, retain) NgLayerDialLabelRing *layer_label;
+@property (nonatomic, retain) NgLayerDialRingCenter *layer_center;
 @property (nonatomic, assign) CGPoint pt_rotate;
 @property (nonatomic, assign) BOOL in_rotating, waiting_click;
 @property (nonatomic, assign) UISwipeGestureRecognizer *rgz_ges;
@@ -51,9 +51,9 @@ NSString *kSignalDialClicked = @"::nnt::uikit::dial::clicked";
 - (id)init {
     self = [super init];
         
-    layer_ring = [[WCALayerDialRing alloc] init]; 
-    layer_label = [[WCALayerDialLabelRing alloc] init];
-    layer_center = [[WCALayerDialRingCenter alloc] init];
+    layer_ring = [[NgLayerDialRing alloc] init]; 
+    layer_label = [[NgLayerDialLabelRing alloc] init];
+    layer_center = [[NgLayerDialRingCenter alloc] init];
     
     layer_label.hidden = YES;
     
@@ -470,9 +470,9 @@ NNTEVENT_END
 - (id)init {
     self = [super init];
     
-    layerItem = [[WCALayerDialRingItem alloc] init];
-    layerLabel = [[WCALayerDialLabelRingItem alloc] init];
-    layerBadge = [[WCABadgeIndicator alloc] init];
+    layerItem = [[NgLayerDialRingItem alloc] init];
+    layerLabel = [[NgLayerDialLabelRingItem alloc] init];
+    layerBadge = [[NgBadgeIndicator alloc] init];
     
     return self;
 }

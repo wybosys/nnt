@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UINavigationDialView.h"
 # import "UINavigationDial.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 

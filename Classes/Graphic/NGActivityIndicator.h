@@ -2,12 +2,12 @@
 # ifndef __NNT_UIKIT_WCACITVITYINDICATOR_207EF731080546E1973968018B1A9CF5_H_INCLUDED
 # define __NNT_UIKIT_WCACITVITYINDICATOR_207EF731080546E1973968018B1A9CF5_H_INCLUDED
 
-# import "WCALayer.h"
+# import "NGLayer.h"
 # import "NGColor.h"
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCAActivityIndicator : WCALayer {
+@interface NgActivityIndicator : NgLayer {
     //! start angle, in rad, default is 0, cw.
     real startAngle;
     

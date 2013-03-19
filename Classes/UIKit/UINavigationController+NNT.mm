@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UINavigationController+NNT.h"
 # import "UIView+NNT.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIViewController+NNT.h"
 # import "UIButton+NNT.h"
 # import "UIBarButtonItem+NNT.h"

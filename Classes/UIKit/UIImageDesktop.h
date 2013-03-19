@@ -3,7 +3,7 @@
 # define __NNT_UIKIT_UIIMAGEDESKTOP_A3BC9B1BD8CF4481BA0D10FD853A0525_H_INCLUDED
 
 # import "UIDesktop.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC
 

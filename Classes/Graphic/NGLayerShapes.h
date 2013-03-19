@@ -4,11 +4,11 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@protocol WCAShapeLayer <NSObject>
+@protocol NgShapeLayer <NSObject>
 
 @end
 
-@interface WCAShapeLayer : CAShapeLayer < WCAShapeLayer >
+@interface NgShapeLayer : CAShapeLayer < NgShapeLayer >
 
 @end
 
@@ -25,7 +25,7 @@ NNT_BEGIN_NS(shape)
 NNT_BEGIN_NS(tpl)
 
 template <typename implT,
-typename objcT = WCAShapeLayer>
+typename objcT = NgShapeLayer>
 class Shape
 : public ns::Object<objcT>
 {

@@ -2,29 +2,29 @@
 # ifndef __NNT_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
 # define __NNT_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
 
-# import "WCALayer.h"
+# import "NGLayer.h"
 
 NNT_BEGIN_HEADER_OBJC
 
-@protocol WCALayerFilters <NSObject>
+@protocol NgLayerFilters <NSObject>
 
 - (void)applyLayer:(CALayer*)layer;
 
 @end
 
-@interface WCALayerFilters : NNTObject < WCALayerFilters >
+@interface NgLayerFilters : NNTObject < NgLayerFilters >
 
 @end
 
-@interface CALayer (WCALayerFilters)
+@interface CALayer (NgLayerFilters)
 
 - (void)applyFilter:(id<WCALayerFilters>)filter;
 
 @end
 
-NNTDECL_CATEGORY(CALayer, WCALayerFilters);
+NNTDECL_CATEGORY(CALayer, NgLayerFilters);
 
-NNTDECL_OBJCXX_WRAPPER(WCALayerFilters);
+NNTDECL_OBJCXX_WRAPPER(NgLayerFilters);
 
 NNT_END_HEADER_OBJC
 
@@ -48,7 +48,7 @@ public:
 };
 
 template <typename implT,
-typename filterT = NNT_OBJCXX_WRAPPER(WCALayerFilters),
+typename filterT = NNT_OBJCXX_WRAPPER(NgLayerFilters),
 typename interT = IFilter
 >
 class Filter

@@ -3,7 +3,7 @@
 # import "UIImageView+NNT.h"
 # import "AbstractCache.h"
 # import "UIImageDesktop.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIColor+NNT.h"
 # import "UIView+NNT.h"
 # import "NNTUIObject.h"

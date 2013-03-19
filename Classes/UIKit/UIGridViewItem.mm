@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIGridViewItem.h"
 # import "Layout.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 # import "UIGridView.h"
 # import "UIButton+NNT.h"
 # import "UILabel+NNT.h"

@@ -96,7 +96,6 @@
 # import "UICoverDrawer.h"
 # import "UICoverDrawerItem.h"
 # import "UICoverDrawerController.h"
-# import "UIChartController.h"
 # import "UIBanner.h"
 # import "UIGridView.h"
 # import "UILayoutGridView.h"
