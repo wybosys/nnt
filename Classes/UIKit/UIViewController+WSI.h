@@ -372,7 +372,7 @@ public:
     template <typename otherctlrT>
     void present(otherctlrT const& ctlr, bool animated = true, bool modal = true)
     {
-        wtl::const_pointer<otherctlrT> ptr(ctlr);
+        ntl::const_pointer<otherctlrT> ptr(ctlr);
         [this->_self presentModalViewController:*ptr animated:modal];
     }
     
@@ -656,17 +656,17 @@ public:
     
     template <typename subcontrollerT>
     void add_subcontroller(subcontrollerT const& ctlr,
-                                  typename wtl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
+                                  typename ntl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
     {
-        wtl::const_pointer<subcontrollerT> ptr(ctlr);
+        ntl::const_pointer<subcontrollerT> ptr(ctlr);
         [this->_self addSubController:*ptr];
     }
     
     template <typename subcontrollerT>
     void remove_subcontroller(subcontrollerT const& ctlr,
-                                     typename wtl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
+                                     typename ntl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
     {
-        wtl::const_pointer<subcontrollerT> ptr(ctlr);
+        ntl::const_pointer<subcontrollerT> ptr(ctlr);
         [*ptr removeFromSuperController];
     }
     

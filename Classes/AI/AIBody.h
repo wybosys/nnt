@@ -20,7 +20,7 @@ public:
 
 template <typename implT>
 class Body
-    : public wtl::uml::realization<implT, IBody>
+    : public ntl::uml::realization<implT, IBody>
 {
 public:
 

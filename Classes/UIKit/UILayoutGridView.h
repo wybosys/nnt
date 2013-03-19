@@ -189,16 +189,16 @@ public:
     }
     
     template <typename viewT>
-    void add(viewT const& view, uint row, uint col, typename wtl::is_same<viewT, ns::String>::differ* = NULL)
+    void add(viewT const& view, uint row, uint col, typename ntl::is_same<viewT, ns::String>::differ* = NULL)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self addSubview:*ptr row:row col:col];
     }
     
     template <typename viewT>
-    void add(viewT const& view, typename wtl::is_same<viewT, ns::String>::differ* = NULL)
+    void add(viewT const& view, typename ntl::is_same<viewT, ns::String>::differ* = NULL)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self addSubview:*ptr];
     }
     

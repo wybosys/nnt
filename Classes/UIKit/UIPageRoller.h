@@ -93,7 +93,7 @@ public:
     template <typename pageT>
     void add(pageT const& obj)
     {
-        wtl::const_pointer<pageT> ptr(obj);
+        ntl::const_pointer<pageT> ptr(obj);
         _pages.add(*ptr);
     }
     

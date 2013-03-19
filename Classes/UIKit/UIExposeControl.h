@@ -126,7 +126,7 @@ public:
              each != items.end();
              ++each)
         {
-            wtl::const_pointer<typename conT::value_type> ptr(*each);
+            ntl::const_pointer<typename conT::value_type> ptr(*each);
             
             UIView* item = *ptr;                  
             
@@ -139,7 +139,7 @@ public:
     template <typename viewT>
     void add_item(viewT const& v)
     {
-        wtl::const_pointer<viewT> ptr(v);
+        ntl::const_pointer<viewT> ptr(v);
         [this->_self addItem:*ptr];
     }
     
@@ -194,7 +194,7 @@ public:
     template <typename itemT>
     uint index_of(itemT const& item) const
     {
-        wtl::const_pointer<itemT> ptr(item);
+        ntl::const_pointer<itemT> ptr(item);
         return [this->_self indexOfItem:*ptr];
     }
     

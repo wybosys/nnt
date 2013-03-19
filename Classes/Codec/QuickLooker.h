@@ -59,7 +59,7 @@ public:
     template <typename itemsT>
     void set_items(itemsT const& items)
     {
-        wtl::const_pointer<itemsT> ptr(items);
+        ntl::const_pointer<itemsT> ptr(items);
         this->_self.documents = *ptr;
     }
     

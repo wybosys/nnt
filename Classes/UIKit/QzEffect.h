@@ -180,17 +180,17 @@ public:
     template <typename effT>
     effT& next(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.next = *ptr;
-        return wtl::down_const(eff);
+        return ntl::down_const(eff);
     }
     
     template <typename effT>
     effT& accord(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.accord = *ptr;
-        return wtl::down_const(eff);
+        return ntl::down_const(eff);
     }
     
 protected:

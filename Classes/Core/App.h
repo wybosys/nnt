@@ -237,7 +237,7 @@ public:
     template <typename ctlrT>
     void set_root(ctlrT& ctlr)
     {
-        wtl::const_pointer<ctlrT> ptr(ctlr);
+        ntl::const_pointer<ctlrT> ptr(ctlr);
         this->_do_set_root(*ptr);
         _root = &ctlr;
     }
@@ -261,7 +261,7 @@ public:
     template <typename viewT>
     void set_initial(viewT& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         this->_do_set_initial(*ptr);
     }
     

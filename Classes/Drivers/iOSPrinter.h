@@ -177,7 +177,7 @@ public:
     template <typename fmtT>
     void add(fmtT const& fmt, uint atidx = 0)
     {
-        wtl::const_pointer<fmtT> ptr(fmt);
+        ntl::const_pointer<fmtT> ptr(fmt);
         [this->_self addPrintFormatter:*ptr startingAtPageAtIndex:atidx];
     }
     

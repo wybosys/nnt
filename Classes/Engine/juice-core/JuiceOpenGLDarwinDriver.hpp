@@ -24,7 +24,7 @@ public:
     
     _macgl_Driver(implT* obj)
     {
-        typedef ::wsi::wtl::value_type<context_type>::type context_impl;
+        typedef ::wsi::ntl::value_type<context_type>::type context_impl;
         
         NSOpenGLPixelFormatAttribute attributes[] = { 
             NSOpenGLPFADoubleBuffer,
@@ -144,7 +144,7 @@ public:
     _iosgl_Driver(implT* obj)
     : _frameBuffer(0), _renderBuffer(0), _depthBuffer(0)
     {
-        typedef ::wsi::wtl::value_type<context_type>::type context_impl;
+        typedef ::wsi::ntl::value_type<context_type>::type context_impl;
         
         if (obj == NULL)
         {

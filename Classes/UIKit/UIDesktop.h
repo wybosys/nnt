@@ -134,14 +134,14 @@ public:
     template <typename effT>
     void set_close(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.effectClose = *ptr;
     }
     
     template <typename effT>
     void set_show(effT const& eff)
     {
-        wtl::const_pointer<effT> ptr(eff);
+        ntl::const_pointer<effT> ptr(eff);
         this->_self.effectShow = *ptr;
     }
     

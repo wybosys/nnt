@@ -122,14 +122,14 @@ public:
     template <typename viewT>
     void set_topheader(viewT const& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         this->_self.topHeaderView = *ptr;
     }
     
     template <typename viewT>
     void set_bottomheader(viewT const& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         this->_self.bottomHeaderView = *ptr;
     }
     

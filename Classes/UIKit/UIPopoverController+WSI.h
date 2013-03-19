@@ -98,7 +98,7 @@ public:
     template <typename viewT>
     void present(cg::Rect const& rc, viewT const& view, bool animated = ui::animate)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self presentPopoverFromRect:rc inView:*ptr animated:animated];
     }
     

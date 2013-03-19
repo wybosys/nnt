@@ -83,7 +83,7 @@ public:
     template <typename ctlrT>
     void add(ctlrT const& ctlr)
     {
-        wtl::const_pointer<ctlrT> ptr(ctlr);
+        ntl::const_pointer<ctlrT> ptr(ctlr);
         _ctlrs.add(*ptr);
     }
     

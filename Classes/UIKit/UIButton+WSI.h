@@ -369,7 +369,7 @@ public:
     template <typename btnT>
     void add(btnT const& btn)
     {
-        wtl::const_pointer<btnT> ptr(btn);
+        ntl::const_pointer<btnT> ptr(btn);
         [this->_self add:(UIButton*)*ptr];
     }
     

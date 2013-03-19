@@ -145,9 +145,9 @@ public:
         
     template <typename controllerT>
     void push(controllerT const& ctlr, bool animated = true,
-              typename wtl::mixin_type<controllerT>::type::controller_type const* = NULL)
+              typename ntl::mixin_type<controllerT>::type::controller_type const* = NULL)
     {
-        wtl::const_pointer<controllerT> ptr(ctlr);
+        ntl::const_pointer<controllerT> ptr(ctlr);
         [this->_self pushViewController:*ptr animated:animated];
     }
     

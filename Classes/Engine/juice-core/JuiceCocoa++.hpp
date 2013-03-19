@@ -100,7 +100,7 @@ public:
     Color(colorT const& r, 
           typename colorT::color_type* = NULL)
     {
-        ::wsi::wtl::const_pointer<colorT> ptr(r);
+        ::wsi::ntl::const_pointer<colorT> ptr(r);
         _set((CGColorRef)(*ptr));
     }
     

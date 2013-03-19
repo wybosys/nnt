@@ -19,7 +19,7 @@ public:
 
 template <typename implT>
 class Behave
-    : public wtl::uml::realization<implT, IBehave>
+    : public ntl::uml::realization<implT, IBehave>
 {
 public:
 
@@ -53,13 +53,13 @@ protected:
 };
 
 class IBehaves
-    : public wtl::IArray<IBehave*>
+    : public ntl::IArray<IBehave*>
 {
 
 };
 
 class Behaves
-    : public wtl::Arraylize<IBehave*, core::refpointer_vector<IBehave>, IBehaves>
+    : public ntl::Arraylize<IBehave*, core::refpointer_vector<IBehave>, IBehaves>
 {
 
 };

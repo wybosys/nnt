@@ -20,20 +20,20 @@ public:
 };
 
 class IActions
-    : public wtl::IArray<IAction*>
+    : public ntl::IArray<IAction*>
 {
 
 };
 
 class Actions
-    : public wtl::Arraylize<IAction*, core::refpointer_vector<IAction>, IActions>
+    : public ntl::Arraylize<IAction*, core::refpointer_vector<IAction>, IActions>
 {
 
 };
 
 template <typename implT>
 class Action
-    : public wtl::uml::realization<implT, IAction>
+    : public ntl::uml::realization<implT, IAction>
 {
 public:
 

@@ -40,7 +40,7 @@ public:
     template <typename viewT>
     void set_document(viewT const& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self setDocumentView:*ptr];
     }
     

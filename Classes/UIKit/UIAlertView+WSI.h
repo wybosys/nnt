@@ -110,7 +110,7 @@ public:
     template <typename viewT>
     void add_sub(viewT const& view)
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         [this->_self appendSubview:*ptr];
     }
     

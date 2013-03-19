@@ -159,7 +159,7 @@ struct sqlexpress_table
     
 };
 
-typedef wtl::sqlexpress < ns::String, sqlexpress_table> sqlexpress;
+typedef ntl::sqlexpress < ns::String, sqlexpress_table> sqlexpress;
 
 NNT_END_NS
 

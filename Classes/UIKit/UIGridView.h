@@ -227,7 +227,7 @@ public:
     template <typename objT>
     void add(objT const& item)
     {
-        wtl::const_pointer<objT> ptr(item);
+        ntl::const_pointer<objT> ptr(item);
         id obj = *ptr;
         if ([obj isKindOfClass:[UIGridViewItem class]])
             add((UIGridViewItem*)obj);

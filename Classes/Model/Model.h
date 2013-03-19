@@ -291,7 +291,7 @@ public:
     template <typename parserT>
     void set_parser(parserT const& parser)
     {
-        wtl::const_pointer<parserT> ptr(parser);
+        ntl::const_pointer<parserT> ptr(parser);
         this->_self.objparser = *ptr;
     }
     

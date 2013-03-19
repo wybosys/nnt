@@ -215,7 +215,7 @@ public:
     template <typename mdlT>
     bool retrieve(mdlT const& model)
     {
-        wtl::mutable_pointer<mdlT> ptr(model);
+        ntl::mutable_pointer<mdlT> ptr(model);
         return [this->_self retrieve_cxxmodel:&(*ptr)];
     }
     

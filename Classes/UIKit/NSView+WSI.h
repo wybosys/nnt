@@ -137,17 +137,17 @@ public:
 
     template <typename subviewT>
     inline void add_subview(subviewT const& view,
-                            typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                            typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [this->_self addSubview:*ptr];
     }
     
     template <typename subviewT>
     inline void remove_subview(subviewT const& view,
-                               typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                               typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [*ptr removeFromSuperview];
     }
     
@@ -169,7 +169,7 @@ public:
     //! add sub controller or sub view smart.
     template <typename elementT>
     inline void add_sub(elementT const& elemT,
-                        typename wtl::mixin_type<elementT>::type::empty_type* empty = NULL)
+                        typename ntl::mixin_type<elementT>::type::empty_type* empty = NULL)
     {
         this->_add_sub(elemT, empty);
     }

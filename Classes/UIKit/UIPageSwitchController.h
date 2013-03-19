@@ -68,7 +68,7 @@ public:
         typename pagesT::const_iterator each = pages.begin();
         while (each != pages.end())
         {
-            wtl::const_pointer<typename pagesT::value_type> ptr(*each);
+            ntl::const_pointer<typename pagesT::value_type> ptr(*each);
             
             // add page.
             [this->_self add_page:*ptr];
@@ -76,7 +76,7 @@ public:
             ++each;
         }
         
-        wtl::const_pointer<typename pagesT::value_type> ptr(pages.front());
+        ntl::const_pointer<typename pagesT::value_type> ptr(pages.front());
         [this->_self set_page:*ptr];
     }
     

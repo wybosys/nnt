@@ -269,14 +269,14 @@ public:
     template <typename filterT>
     void use_filter(filterT const& ft)
     {
-        wtl::const_pointer<filterT> ptr(ft);
+        ntl::const_pointer<filterT> ptr(ft);
         [this->_self applyFilter:*ptr];
     }
     
     template <typename shapeT>
     void use_mask(shapeT const& sp)
     {
-        wtl::const_pointer<shapeT> ptr(sp);
+        ntl::const_pointer<shapeT> ptr(sp);
         this->_self.mask = *ptr;
     }
     

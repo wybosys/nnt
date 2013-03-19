@@ -77,7 +77,7 @@ public:
     template <typename viewT>
     void add(viewT const& v)
     {
-        wtl::const_pointer<viewT> ptr(v);
+        ntl::const_pointer<viewT> ptr(v);
         _items.add(*ptr);
     }
     

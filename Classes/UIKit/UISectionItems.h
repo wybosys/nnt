@@ -91,7 +91,7 @@ public:
     template <typename valT>
     item_type& add(valT const& val)
     {
-        wtl::const_pointer<valT> ptr(val);
+        ntl::const_pointer<valT> ptr(val);
         
         item_type* var = new item_type;
         var->var = *ptr;

@@ -365,23 +365,23 @@ public:
     }
     
     template <typename keyT, typename valT>
-    typename ::wsi::wtl::cxx_type<valT>::type
+    typename ::wsi::ntl::cxx_type<valT>::type
     get(keyT const& key, valT const& null) const
     {
         core::data da;
         if (find(core::type_cast<core::data>(key), da) == false)
             return null;
-        return core::type_cast< typename ::wsi::wtl::cxx_type<valT>::type >(da);
+        return core::type_cast< typename ::wsi::ntl::cxx_type<valT>::type >(da);
     }
     
     template <typename valT>
-    typename ::wsi::wtl::cxx_type<valT>::type
+    typename ::wsi::ntl::cxx_type<valT>::type
     get(core::data const& key, valT const& null) const
     {
         core::data da;
         if (find(key, da) == false)
             return null;
-        return core::type_cast< typename ::wsi::wtl::cxx_type<valT>::type >(da);
+        return core::type_cast< typename ::wsi::ntl::cxx_type<valT>::type >(da);
     }
     
     void clear();

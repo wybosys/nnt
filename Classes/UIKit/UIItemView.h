@@ -97,7 +97,7 @@ public:
     template <typename itemT>
     void add(itemT const& item)
     {
-        wtl::const_pointer<itemT> ptr(item);
+        ntl::const_pointer<itemT> ptr(item);
         UIItemsContainer* con = _impl();
         [con.items addObject:*ptr];
     }

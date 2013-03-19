@@ -149,7 +149,7 @@ public:
     template <typename viewT>
     void set_according(viewT const& obj)
     {
-        wtl::const_pointer<viewT> ptr(obj);
+        ntl::const_pointer<viewT> ptr(obj);
         this->_self.accordingView = *ptr;
     }
     

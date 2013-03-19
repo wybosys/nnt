@@ -83,9 +83,9 @@ public:
     //! set title view.
     template <typename viewT>
     void set_title(viewT const& v,
-                   typename wtl::mixin_type<viewT>::type::view_type const* = NULL)
+                   typename ntl::mixin_type<viewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<viewT> ptr(v);
+        ntl::const_pointer<viewT> ptr(v);
         this->_self.titleView = *ptr;
     }
     

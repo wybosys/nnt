@@ -15,9 +15,9 @@ NNT_BEGIN_NS(qz)
 
 template <typename implT>
 class MediaTiming
-: public wtl::uml::implementation<implT>
+: public ntl::uml::implementation<implT>
 {
-    typedef wtl::uml::implementation<implT> super;
+    typedef ntl::uml::implementation<implT> super;
     
 public:
     

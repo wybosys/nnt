@@ -602,7 +602,7 @@ NNT_END_HEADER_CXX
 
 # endif
 
-# include "NNTEvent.h"
+# include "Event+NNT.h"
 
 # ifdef NNT_OBJC
 
@@ -1628,7 +1628,7 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
 
 NNT_END_NS
 
-NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(ntl)
 
 /*
 template <typename objT>

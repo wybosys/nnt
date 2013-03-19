@@ -214,7 +214,7 @@ NNTAPI(bool) tocard(core::string const&, VCard&);
 
 NNT_END_NS
 
-NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(ntl)
 
 template <>
 inline_impl core::string type_cast<core::string, cross::VCard>(cross::VCard const& cd)

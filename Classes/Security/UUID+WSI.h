@@ -38,7 +38,7 @@ protected:
     
 };
 
-NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(ntl)
 
 template <>
 inline_impl string type_cast<string, uuid>(uuid const& uid)

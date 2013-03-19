@@ -41,7 +41,7 @@ public:
     template <typename viewT>
     cg::Point location(viewT const& view) const
     {
-        wtl::const_pointer<viewT> ptr(view);
+        ntl::const_pointer<viewT> ptr(view);
         return [this->_self locationInView:*ptr];
     }
     

@@ -425,17 +425,17 @@ public:
     
     template <typename subcontrollerT>
     void add_subcontroller(subcontrollerT const& ctlr,
-                                  typename wtl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
+                                  typename ntl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
     {
-        wtl::const_pointer<subcontrollerT> ptr(ctlr);
+        ntl::const_pointer<subcontrollerT> ptr(ctlr);
         [this->_self addSubController:*ptr];
     }
     
     template <typename subcontrollerT>
     void remove_subcontroller(subcontrollerT const& ctlr,
-                                     typename wtl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
+                                     typename ntl::mixin_type<subcontrollerT>::type::controller_type const* = NULL)
     {
-        wtl::const_pointer<subcontrollerT> ptr(ctlr);
+        ntl::const_pointer<subcontrollerT> ptr(ctlr);
         [*ctlr removeFromSuperController];
     }
     
@@ -446,23 +446,23 @@ public:
     
     template <typename aniT>
     void add_animation(aniT const& ani, ns::String const& name = ns::null_string, 
-                              typename wtl::mixin_type<aniT>::type::animation_type const* = NULL)
+                              typename ntl::mixin_type<aniT>::type::animation_type const* = NULL)
     {
-        wtl::const_pointer<aniT> ptr(ani);
+        ntl::const_pointer<aniT> ptr(ani);
         [(CALayer*)this->_self.layer addAnimation:*ptr forKey:name];
     }
     
     template <typename effectT>
     void add_effect(effectT const& eff)
     {
-        wtl::const_pointer<effectT> ptr(eff);
+        ntl::const_pointer<effectT> ptr(eff);
         [*ptr active:layer()];
     }
     
     template <typename gesT>
     void set_gesture(gesT const& eff)
     {
-        wtl::const_pointer<gesT> ptr(eff);
+        ntl::const_pointer<gesT> ptr(eff);
         [this->_self addGestureRecognizer:*ptr];
     }
     
@@ -603,17 +603,17 @@ public:
     
     template <typename subviewT>
     void add_subview(subviewT const& view,
-                            typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                            typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [this->_self addSubview:*ptr];
     }
     
     template <typename subviewT>
     void remove_subview(subviewT const& view,
-                               typename wtl::mixin_type<subviewT>::type::view_type const* = NULL)
+                               typename ntl::mixin_type<subviewT>::type::view_type const* = NULL)
     {
-        wtl::const_pointer<subviewT> ptr(view);
+        ntl::const_pointer<subviewT> ptr(view);
         [*ptr removeFromSuperview];
     }
     
@@ -656,7 +656,7 @@ public:
     //! add sub controller or sub view smart.
     template <typename elementT>
     void add_sub(elementT& elemT,
-                        typename wtl::mixin_type<elementT>::type::empty_type* empty = NULL)
+                        typename ntl::mixin_type<elementT>::type::empty_type* empty = NULL)
     {
         this->_add_sub(elemT, empty);
     }
@@ -671,7 +671,7 @@ public:
     //! remove sub controller or sub view smart.
     template <typename elementT>
     void remove_sub(elementT& elemT,
-                 typename wtl::mixin_type<elementT>::type::empty_type* empty = NULL)
+                 typename ntl::mixin_type<elementT>::type::empty_type* empty = NULL)
     {
         this->_remove_sub(elemT, empty);
     }
@@ -895,7 +895,7 @@ public:
     
     template <typename elementT>
     void set_content(elementT const& elemT,
-                            typename wtl::mixin_type<elementT>::type::empty_type* empty = NULL)
+                            typename ntl::mixin_type<elementT>::type::empty_type* empty = NULL)
     {
         this->_set_content(elemT, empty);
     }

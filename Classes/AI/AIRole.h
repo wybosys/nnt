@@ -22,20 +22,20 @@ public:
 };
 
 class IRoles
-    : public wtl::IArray<IRole*>
+    : public ntl::IArray<IRole*>
 {
 
 };
 
 class Roles
-    : public wtl::Arraylize<IRole*, core::refpointer_vector<IRole>, IRoles>
+    : public ntl::Arraylize<IRole*, core::refpointer_vector<IRole>, IRoles>
 {
 
 };
 
 template <typename implT>
 class Role
-    : public wtl::uml::realization<implT, IRole>
+    : public ntl::uml::realization<implT, IRole>
 {
 public:
 
