@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "OADefines.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString* OA_KAIXIN_APPKEY = @"3451093530234ab2d11bed7a9d901b4f";
 NSString* OA_KAIXIN_APPSECRET = @"b27706ca178561baa42c67c0fb71dcb7";
@@ -39,4 +39,4 @@ NSString* OA_ALIPAY_KEY = @"jhncxnfry67ako3faflx8ht29h5peou2";
 
 NSString* OA_WECHAT_PARTENER = @"wx88f683af76365092";
 
-WSI_END_OBJC
+NNT_END_OBJC

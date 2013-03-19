@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "Console+WSI.h"
-# import "Directory+WSI.h"
+# import "Console+NNT.h"
+# import "Directory+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalPrint = @"::wsi::console::print";
 
 # define CON ((::wsi::Console*)h_console)
 
-static WSIConsole* __gs_console = nil;
+static NNTConsole* __gs_console = nil;
 
-@implementation WSIConsole
+@implementation NNTConsole
 
 - (id)init {
     self = [super init];
@@ -27,9 +27,9 @@ static WSIConsole* __gs_console = nil;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPrint)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPrint)
+NNTEVENT_END
 
 - (void)print:(NSString*)str {
     [self emit:kSignalPrint result:str];
@@ -43,23 +43,23 @@ WSIEVENT_END
     CON->println(str.UTF8String);
 }
 
-+ (WSIConsole*)shared {
-    WSI_SYNCHRONIZED(self)
++ (NNTConsole*)shared {
+    NNT_SYNCHRONIZED(self)
     
     if (__gs_console == nil) {
         __gs_console = [[self alloc] init];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return __gs_console;
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 Console::Console()
 {
@@ -111,4 +111,4 @@ void* Console::watcher_input(void *arg)
     return NULL;
 }
 
-WSI_END_CXX
+NNT_END_CXX

@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "ChineseString.h"
-# import "WSIChar.h"
+# import "NNTChar.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation ChineseString
 
@@ -33,4 +33,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

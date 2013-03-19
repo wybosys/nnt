@@ -2,13 +2,13 @@
 # import "Core.h"
 # import "UIGridViewItem.h"
 # import "Layout.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "UIGridView.h"
-# import "UIButton+WSI.h"
-# import "UILabel+WSI.h"
-# import "UIColor+WSI.h"
+# import "UIButton+NNT.h"
+# import "UILabel+NNT.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIGridViewItem
 
@@ -44,9 +44,9 @@ WSI_BEGIN_OBJC
     [super addSubview:view];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_END
 
 - (void)setMargin:(CGMargin)margin {
     _margin = margin;
@@ -108,7 +108,7 @@ WSIEVENT_END
 
 # pragma mark margin event
 
-- (void)_act_clicked:(WSIEventObj*)evt {
+- (void)_act_clicked:(NNTEventObj*)evt {
     if ([_content hasSignal:kSignalViewClicked]) {
         [_content emit:kSignalViewClicked];
     }
@@ -227,7 +227,7 @@ WSIEVENT_END
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    WSIUILabel* tmplabel = [[WSIUILabel alloc] initWithZero];
+    NNTUILabel* tmplabel = [[NNTUILabel alloc] initWithZero];
     tmplabel.backgroundColor = [UIColor clearColor];
     tmplabel.textAlignment = UITextAlignmentCenter;
     self.label = tmplabel;
@@ -276,4 +276,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UIGridViewItem);
 
-WSI_END_OBJC
+NNT_END_OBJC

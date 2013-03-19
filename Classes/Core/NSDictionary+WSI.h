@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CORE_NSDICTIONARY_92F95E99F8914B5F9073D5807516B939_H_INCLUDED
-# define __WSI_CORE_NSDICTIONARY_92F95E99F8914B5F9073D5807516B939_H_INCLUDED
+# ifndef __NNT_CORE_NSDICTIONARY_92F95E99F8914B5F9073D5807516B939_H_INCLUDED
+# define __NNT_CORE_NSDICTIONARY_92F95E99F8914B5F9073D5807516B939_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSDictionary (WSI)
+@interface NSDictionary (NNT)
 
 //! object for key with null object.
 - (id)objectForKey:(id)key null:(id)null;
@@ -34,7 +34,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface NSMutableDictionary (WSI)
+@interface NSMutableDictionary (NNT)
 
 //! set key - obj.
 - (void)setKey:(id)key forObj:(id)obj;
@@ -44,17 +44,17 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(NSDictionary, WSI);
-WSIDECL_CATEGORY(NSMutableDictionary, WSI);
+NNTDECL_CATEGORY(NSDictionary, NNT);
+NNTDECL_CATEGORY(NSMutableDictionary, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename TDict>
 class Dictionary
@@ -103,7 +103,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 template <typename TDict>
 class dictionary
@@ -180,7 +180,7 @@ protected:
         
         dict_type& operator = (id val)
         {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             if (val == nil)
                 dthrow_msg(@"NULL", @"the object for insert is NULL.");
 # endif
@@ -277,10 +277,10 @@ public:
 typedef dictionary<NSMutableDictionary> MutableDictionary;
 typedef dictionary<NSDictionary> Dictionary;
 
-WSI_EXTERN Dictionary null_dictionary;
+NNT_EXTERN Dictionary null_dictionary;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

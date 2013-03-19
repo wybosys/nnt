@@ -3,7 +3,7 @@
 # include "SocketServer.h"
 # include "SocketStream.h"
 
-# include "../../contrib/ace/ACE+WSI.h"
+# include "../../contrib/ace/ACE+NNT.h"
 # include <ace/Proactor.h>
 # include <ace/Asynch_Acceptor.h>
 # include <ace/POSIX_Proactor.h>
@@ -11,14 +11,14 @@
 # include <ace/Acceptor.h>
 # include <ace/SOCK_Acceptor.h>
 
-WSI_BEGIN_CXX 
+NNT_BEGIN_CXX 
 
 signal_t kSignalConnected = "::wsi::cross::connected";
 signal_t kSignalDisconnected = "::wsi::cross::disconnected";
 signal_t kSignalBytesAvailable = "::wsi::cross::bytes";
 signal_t kSignalClosed = "::wsi::cross::closed";
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
 # define USE_REACTOR
 //# define USE_PROACTOR
@@ -98,7 +98,7 @@ void _ace_proactor_service::addresses (const ACE_INET_Addr &remote_address, cons
     NetAddress addr_client_wsi = ace::type_cast<NetAddress>(remote_address);
     NetAddress addr_host_wsi = ace::type_cast<NetAddress>(local_address);
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     std::cout << "get a new connect from " << addr_client_wsi.to_string() << " to " << addr_host_wsi.to_string() << std::endl;
 # endif
     
@@ -233,7 +233,7 @@ int _ace_svc_handler::open(void *)
     peer.get_local_addr(addr);
     NetAddress addr_host = ace::type_cast<NetAddress>(addr);
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     std::cout << "get a new connect from " << addr_client.to_string() << " to " << addr_host.to_string() << std::endl;
 # endif        
     
@@ -326,7 +326,7 @@ bool _ace_acceptor::open(NetAddress const& in_addr)
     return true;
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(SocketServer)
+NNTDECL_PRIVATE_BEGIN_CXX(SocketServer)
 
 class _ace_task
 : public ACE_Task_Base
@@ -435,22 +435,22 @@ void stop()
     this->task.stop();
 }
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 SocketServer::SocketServer()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SocketServer);
+    NNTDECL_PRIVATE_CONSTRUCT(SocketServer);
 }
 
 SocketServer::~SocketServer()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(SocketServer, super)
-WSI_SIGNAL(kSignalConnected)
-WSI_SIGNAL(kSignalDisconnected)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(SocketServer, super)
+NNT_SIGNAL(kSignalConnected)
+NNT_SIGNAL(kSignalDisconnected)
+NNTDECL_SIGNALS_END
 
 bool SocketServer::listen(const core::string &addr)
 {
@@ -464,5 +464,5 @@ void SocketServer::stop()
     d_ptr->stop();
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

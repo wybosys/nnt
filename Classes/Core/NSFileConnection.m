@@ -4,7 +4,7 @@
 # include <sys/stat.h>
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 usize kFileConnectionDefaultCacheSize = 4096;
 
@@ -50,16 +50,16 @@ signal_t kSignalFileConnectionError = @"::wsi::filecnt::error";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalFileConnectionOpened)
-WSIEVENT_SIGNAL(kSignalFileConnectionError)
-WSIEVENT_SIGNAL(kSignalFileConnectionFinish)
-WSIEVENT_SIGNAL(kSignalFileConnectionReceiveData)
-WSIEVENT_SIGNAL(kSignalFileConnectionDataChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalFileConnectionOpened)
+NNTEVENT_SIGNAL(kSignalFileConnectionError)
+NNTEVENT_SIGNAL(kSignalFileConnectionFinish)
+NNTEVENT_SIGNAL(kSignalFileConnectionReceiveData)
+NNTEVENT_SIGNAL(kSignalFileConnectionDataChanged)
+NNTEVENT_END
 
 - (void)_load_file {
-    [WSI ThreadUse];    
+    [NNT ThreadUse];    
 
     char const* objcpath = [[self.url relativePath] UTF8String];    
 
@@ -73,7 +73,7 @@ WSIEVENT_END
         if (!_cancel)
             [self emit:kSignalFileConnectionError];
         
-        [WSI ThreadFree];
+        [NNT ThreadFree];
         return;
     } else {
         if (!_cancel)
@@ -81,7 +81,7 @@ WSIEVENT_END
     }
     
     // set ui.
-    [WSIApplication shared].networkActivityIndicatorVisible = YES;
+    [NNTApplication shared].networkActivityIndicatorVisible = YES;
 
     // prepare global buffer.
     NSMutableData* data = [[NSMutableData alloc] initWithCapacity:_sta.st_size];
@@ -126,9 +126,9 @@ WSIEVENT_END
     fclose(fd);
 
     // reset ui.
-    [WSIApplication shared].networkActivityIndicatorVisible = NO;
+    [NNTApplication shared].networkActivityIndicatorVisible = NO;
 
-    [WSI ThreadFree];
+    [NNT ThreadFree];
 }
 
 - (void)cancel {
@@ -163,4 +163,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

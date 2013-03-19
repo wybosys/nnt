@@ -3,7 +3,7 @@
 # import "UISwitchView.h"
 # import "UISwitchController.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @implementation UISwitchView
 
@@ -40,4 +40,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

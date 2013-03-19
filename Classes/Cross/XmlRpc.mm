@@ -3,9 +3,9 @@
 # import "XmlRpc.h"
 # import "Model.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface XmlRpcPrivate : WSIObject <XmlRpcDelegate, NSXMLParserDelegate> {
+@interface XmlRpcPrivate : NNTObject <XmlRpcDelegate, NSXMLParserDelegate> {
 	XmlRpc *owner;
 	//NSURL *url;
 	NSString *protocol;
@@ -145,7 +145,7 @@ LABEL_RETURN:
 }
 
 - (NSDictionary*)send_call:(NSData *)__reqdata  url:(NSURL*)url {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
 
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 	[request setValue:[[NSNumber numberWithInt:(int)[__reqdata length]] stringValue] forHTTPHeaderField:@"Content-length"];
@@ -361,7 +361,7 @@ LABEL_RETURN:
 - (NSObject*)call:(Model *)model withUrl:(NSURL*)url {
     [super call:model withUrl:url];
     
-    WSIRPC_CALLROUND;
+    NNTRPC_CALLROUND;
     
     NSString* __method = model.method;
     NSArray* __params = model.params;
@@ -401,4 +401,4 @@ LABEL_RETURN:
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

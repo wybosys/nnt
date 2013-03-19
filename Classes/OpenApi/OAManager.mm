@@ -5,7 +5,7 @@
 // impls.
 # import "OAuths.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface OAManagerPrivate : NSObject
 
@@ -43,20 +43,20 @@ WSI_BEGIN_OBJC
 
 @implementation OAManager
 
-WSIIMPL_SINGLETON(OAManager);
+NNTIMPL_SINGLETON(OAManager);
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(OAManager);
+    NNTDECL_PRIVATE_INIT(OAManager);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSISINGLETON_INIT() {
+NNTSINGLETON_INIT() {
     
     // register main class.
 //    [self _register_api:[OASinaWeibo class] 
@@ -188,4 +188,4 @@ WSISINGLETON_INIT() {
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

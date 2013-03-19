@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIDEVICE_E8838E6451704A509091C2EB03C4E619_H_INCLUDED
-# define __WSI_UIDEVICE_E8838E6451704A509091C2EB03C4E619_H_INCLUDED
+# ifndef __NNT_UIDEVICE_E8838E6451704A509091C2EB03C4E619_H_INCLUDED
+# define __NNT_UIDEVICE_E8838E6451704A509091C2EB03C4E619_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIDevice (WSI)
+@interface UIDevice (NNT)
 
 //! get orient transforam.
 - (CGAffineTransform)orientTransform;
@@ -23,23 +23,23 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(UIDevice, WSI);
+NNTDECL_CATEGORY(UIDevice, NNT);
 
-WSI_EXTERN bool need_manual_appear();
-WSI_EXTERN bool support_blocks();
-WSI_EXTERN bool support_multitasks();
-WSI_EXTERN double device_version();
+NNT_EXTERN bool need_manual_appear();
+NNT_EXTERN bool support_blocks();
+NNT_EXTERN bool support_multitasks();
+NNT_EXTERN double device_version();
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # import <AudioToolbox/AudioToolbox.h>
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename devT = UIDevice>
 class Device
@@ -54,12 +54,12 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 typedef tpl::Device<> Device;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

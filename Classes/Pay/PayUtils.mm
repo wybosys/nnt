@@ -3,8 +3,8 @@
 # import "PayUtils.h"
 
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(pay)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(pay)
 
 ns::String utils::orderid()
 {
@@ -28,5 +28,5 @@ ulong utils::ordertime()
     return timestamp();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

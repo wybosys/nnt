@@ -1,10 +1,10 @@
 
-# ifndef __WSI_NSINDEX_69D2462138EC42129CFC96EE6D018FD9_H_INCLUDED
-# define __WSI_NSINDEX_69D2462138EC42129CFC96EE6D018FD9_H_INCLUDED
+# ifndef __NNT_NSINDEX_69D2462138EC42129CFC96EE6D018FD9_H_INCLUDED
+# define __NNT_NSINDEX_69D2462138EC42129CFC96EE6D018FD9_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSIndexPath : NSIndexPath {
+@interface NNTNSIndexPath : NSIndexPath {
     uint _section;
     uint _row;
 }
@@ -13,17 +13,17 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class IndexPath
-: public Object<WSINSIndexPath>
+: public Object<NNTNSIndexPath>
 {
-    typedef Object<WSINSIndexPath> super;
+    typedef Object<NNTNSIndexPath> super;
     
 public:
     
@@ -33,7 +33,7 @@ public:
     }
     
     IndexPath(id path)
-    : super((WSINSIndexPath*)path)
+    : super((NNTNSIndexPath*)path)
     {
         PASS;
     }
@@ -51,8 +51,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

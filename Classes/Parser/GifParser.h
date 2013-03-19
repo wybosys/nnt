@@ -1,12 +1,12 @@
 
-# ifndef __WSI_PARSER_GIF_5B07783BD9AB4849A5F9EC90089B899E_H_INCLUDED
-# define __WSI_PARSER_GIF_5B07783BD9AB4849A5F9EC90089B899E_H_INCLUDED
+# ifndef __NNT_PARSER_GIF_5B07783BD9AB4849A5F9EC90089B899E_H_INCLUDED
+# define __NNT_PARSER_GIF_5B07783BD9AB4849A5F9EC90089B899E_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface GifImage : WSIObject {
+@interface GifImage : NNTObject {
     CGImageRef image;
     uint delay; //! in milliseconds.
 }
@@ -16,7 +16,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface GifParser : WSIObject {
+@interface GifParser : NNTObject {
     NSArray* images; //! GifImage array.
 }
 
@@ -27,11 +27,11 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class gif_image_t
 {
@@ -59,7 +59,7 @@ public:
     CGImageRef image;
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

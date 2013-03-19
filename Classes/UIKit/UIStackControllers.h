@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_STACKCONTROLLERS_327512831325431E8DDBF046AD07B377_H_INCLUDED
-# define __WSI_UIKIT_STACKCONTROLLERS_327512831325431E8DDBF046AD07B377_H_INCLUDED
+# ifndef __NNT_UIKIT_STACKCONTROLLERS_327512831325431E8DDBF046AD07B377_H_INCLUDED
+# define __NNT_UIKIT_STACKCONTROLLERS_327512831325431E8DDBF046AD07B377_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIStackControllers : WSIUIViewController {
+@interface UIStackControllers : NNTUIViewController {
     
     //! set for all controller.
     NSMutableArray* _stack;
@@ -21,20 +21,20 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalItemInserted;
-WSI_EXTERN signal_t kSignalItemRemoved;
+NNT_EXTERN signal_t kSignalItemInserted;
+NNT_EXTERN signal_t kSignalItemRemoved;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class StackControllers
 : public SimpleController<StackControllers,
 UIStackControllers,
-WSIUIView>
+NNTUIView>
 {
 public:
     
@@ -57,8 +57,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

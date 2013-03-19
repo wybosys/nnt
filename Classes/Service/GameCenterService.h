@@ -1,16 +1,16 @@
 
-# ifndef __WSI_SERVICE_GAMECENTER_07EFB3B072F64724A840470E86B62DED_H_INCLUDED
-# define __WSI_SERVICE_GAMECENTER_07EFB3B072F64724A840470E86B62DED_H_INCLUDED
+# ifndef __NNT_SERVICE_GAMECENTER_07EFB3B072F64724A840470E86B62DED_H_INCLUDED
+# define __NNT_SERVICE_GAMECENTER_07EFB3B072F64724A840470E86B62DED_H_INCLUDED
 
 # import <GameKit/GameKit.h>
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(GameCenterService);
+NNTDECL_PRIVATE_HEAD(GameCenterService);
 
-@interface GameCenterService : WSIObject {
-    WSIDECL_PRIVATE(GameCenterService);
+@interface GameCenterService : NNTObject {
+    NNTDECL_PRIVATE(GameCenterService);
     
     NSString *_playerId, /**_playerName,*/ *_playerNickname;
     
@@ -25,7 +25,7 @@ WSIDECL_PRIVATE_HEAD(GameCenterService);
 
 @end
 
-@interface GameCenterAchievement : WSIObject {
+@interface GameCenterAchievement : NNTObject {
     GKAchievement* _achievement;
     NSString* _identifier;
 }
@@ -39,7 +39,7 @@ WSIDECL_PRIVATE_HEAD(GameCenterService);
 
 @end
 
-@interface GameCenterAchievements : WSIObject {
+@interface GameCenterAchievements : NNTObject {
     NSDictionary* _records;
 }
 
@@ -50,7 +50,7 @@ WSIDECL_PRIVATE_HEAD(GameCenterService);
 
 @end
 
-@interface GameCenterScore : WSIObject {
+@interface GameCenterScore : NNTObject {
     GKScore* _score;
     int64_t _value;
     int64_t _context;
@@ -60,7 +60,7 @@ WSIDECL_PRIVATE_HEAD(GameCenterService);
 
 @end
 
-@interface GameCenterLeaderboard : WSIObject {
+@interface GameCenterLeaderboard : NNTObject {
     GKLeaderboard* _lb;
     NSString* _identifier;
 }
@@ -72,14 +72,14 @@ WSIDECL_PRIVATE_HEAD(GameCenterService);
 
 @end
 
-WSI_EXTERN signal_t kSignalSuccess;
+NNT_EXTERN signal_t kSignalSuccess;
 
 @interface GameCenterAchievementsController : GKAchievementViewController <GKAchievementViewControllerDelegate>
 {
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
@@ -87,23 +87,23 @@ _CXXCONTROLLER_DECL(GameCenterAchievementsController);
 
 @interface GameCenterLeaderboardController : GKLeaderboardViewController <GKLeaderboardViewControllerDelegate>
 {
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
 _CXXCONTROLLER_DECL(GameCenterLeaderboardController);
 
-WSI_EXTERN signal_t kSignalUserLogin;
+NNT_EXTERN signal_t kSignalUserLogin;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(game)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(game)
 
 class GameCenter
 : public ns::Object<GameCenterService>
@@ -200,8 +200,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

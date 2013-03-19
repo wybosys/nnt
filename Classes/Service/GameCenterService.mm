@@ -2,11 +2,11 @@
 # import "Core.h"
 # import "GameCenterService.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_EXTERN double DEVICE_VERSION;
+NNT_EXTERN double DEVICE_VERSION;
 
 @interface GameCenterAchievement ()
 
@@ -14,7 +14,7 @@ WSI_EXTERN double DEVICE_VERSION;
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(GameCenterService, WSIObject) {
+NNTDECL_PRIVATE_BEGIN(GameCenterService, NNTObject) {
     GKLocalPlayer* _player;
 }
 
@@ -22,7 +22,7 @@ WSIDECL_PRIVATE_BEGIN(GameCenterService, WSIObject) {
 
 + (BOOL)isAvaliable;
 
-WSIDECL_PRIVATE_IMPL(GameCenterService)
+NNTDECL_PRIVATE_IMPL(GameCenterService)
 
 @synthesize player = _player;
 
@@ -55,7 +55,7 @@ WSIDECL_PRIVATE_IMPL(GameCenterService)
     return (gcClass && osVersionSupported);
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @interface GameCenterService ()
 
@@ -69,16 +69,16 @@ WSIDECL_PRIVATE_END
 
 + (id)shared {
     static GameCenterService* serv = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (serv == nil)
         serv = [[[self class] alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return serv;
 }
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(GameCenterService);
+    NNTDECL_PRIVATE_INIT(GameCenterService);
     
     // auth.
     if (![self authenticated])
@@ -92,13 +92,13 @@ WSIDECL_PRIVATE_END
     //safe_release(_playerName);
     safe_release(_playerNickname);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalUserLogin)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalUserLogin)
+NNTEVENT_END
 
 - (BOOL)authenticated {
     return d_ptr.player.authenticated;
@@ -166,11 +166,11 @@ WSIEVENT_END
 
 + (GameCenterAchievements*)shared {
     static GameCenterAchievements* ret = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (ret == nil) {
         ret = [[[self class] alloc] init];
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
@@ -197,9 +197,9 @@ WSIEVENT_END
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSuccess)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSuccess)
+NNTEVENT_END
 
 - (GKAchievement*)achievement {
     if (_achievement == nil) {
@@ -363,7 +363,7 @@ WSIEVENT_END
 
 @implementation GameCenterAchievementsController
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super init];
@@ -374,7 +374,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -395,7 +395,7 @@ _CXXCONTROLLER_IMPL(GameCenterAchievementsController);
 
 @implementation GameCenterLeaderboardController
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super init];
@@ -406,7 +406,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -425,10 +425,10 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 _CXXCONTROLLER_IMPL(GameCenterLeaderboardController);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(game)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(game)
 
 GameCenter::GameCenter()
 {
@@ -578,5 +578,5 @@ LeaderboardController::~LeaderboardController()
     
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

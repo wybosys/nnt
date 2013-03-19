@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "UISlider+WSI.h"
+# import "UISlider+NNT.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUISlider
+@implementation NNTUISlider
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -18,12 +18,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalValueChanged);
+    NNTEVENT_SIGNAL(kSignalValueChanged);
 }
 
 - (void)setValue:(float)val {
@@ -51,9 +51,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 @dynamic maximumValue, minimumValue, currentValue;
 
 - (void)__init {
-    title = [[WSIUILabel alloc] initWithZero];
-    slider = [[WSIUISlider alloc] initWithZero];
-    value = [[WSIUILabel alloc] initWithZero];
+    title = [[NNTUILabel alloc] initWithZero];
+    slider = [[NNTUISlider alloc] initWithZero];
+    value = [[NNTUILabel alloc] initWithZero];
     
     [slider connect:kSignalValueChanged sel:@selector(_act_value_changed) obj:self];
     
@@ -85,9 +85,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
     return [[[UISliderTitleValue alloc] initWith:title max:max min:min cur:cur] autorelease];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalValueChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalValueChanged)
+NNTEVENT_END
 
 - (void)dealloc {
     zero_release(title);
@@ -194,4 +194,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -2,23 +2,23 @@
 # import "Core.h"
 # import "App.h"
 # include <stdio.h>
-# import "WSIUIObject.h"
+# import "NNTUIObject.h"
 # import "FileCache.h"
-# import "CoreGraphic+WSI.h"
-# import "WSIConfiguration.h"
+# import "CoreGraphic+NNT.h"
+# import "NNTConfiguration.h"
 # import "CmdArguments.h"
 # import "AppInformation.h"
-# import "UUID+WSI.h"
+# import "UUID+NNT.h"
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
-#   import "UIDevice+WSI.h"
+#   import "UIDevice+NNT.h"
 #   import "UICacheActivityIndicatorView.h"
 #   import "AppStoreService.h"
 
 # endif
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 #   define USE_DTRACE
 # endif
 
@@ -28,13 +28,13 @@
 #   import MAC_IOS_SELECT("./null.prv.h", "DTraceLogoSwitch.h")
 # endif
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 static Application* __cxxgs_app = NULL;
 
-WSI_END_CXX
+NNT_END_CXX
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define kCacheActivityIndicatorDuration .5f
 # define kCacheActivityIndicatorHideWait 2.f
@@ -61,21 +61,21 @@ NSString* kConfigDeviceToken = @"::wsi::config::device::token";
 
 extern void LoadTheme(NSString*);
 
-static WSIApplication *__gs_app = nil;
+static NNTApplication *__gs_app = nil;
 bool __need_manual_appear = false;
-bool WSI_DEVICE_ISIPHONE = false;
-bool WSI_DEVICE_ISIPHONE_SIMULATOR = false;
-bool WSI_DEVICE_ISIPAD = false;
-bool WSI_DEVICE_ISIPAD_SIMULATOR = false;
-bool WSI_DEVICE_ISIPOD = false;
-bool WSI_DEVICE_ISSIMULATOR = false;
-bool WSI_SUPPORT_BLOCKS = false;
-bool WSI_SUPPORT_MULTITASKS = false;
+bool NNT_DEVICE_ISIPHONE = false;
+bool NNT_DEVICE_ISIPHONE_SIMULATOR = false;
+bool NNT_DEVICE_ISIPAD = false;
+bool NNT_DEVICE_ISIPAD_SIMULATOR = false;
+bool NNT_DEVICE_ISIPOD = false;
+bool NNT_DEVICE_ISSIMULATOR = false;
+bool NNT_SUPPORT_BLOCKS = false;
+bool NNT_SUPPORT_MULTITASKS = false;
 double DEVICE_VERSION = 0;
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
-@interface IOSDefaultWindow : WSIUIWindow {
+@interface IOSDefaultWindow : NNTUIWindow {
 # ifdef USE_DTRACE
     DTraceLogoSwitch* _logo;
 # endif
@@ -119,7 +119,7 @@ double DEVICE_VERSION = 0;
 
 # endif
 
-WSIDECL_PRIVATE_BEGIN(WSIApplication, WSIObject)
+NNTDECL_PRIVATE_BEGIN(NNTApplication, NNTObject)
 MACEXPRESS(<NSWindowDelegate>)
 {
     BSEAppInformation* _bse_appinfo;
@@ -128,7 +128,7 @@ MACEXPRESS(<NSWindowDelegate>)
 @property (nonatomic, assign) int countNetworkActivityIndicator;
 @property (nonatomic, assign) BOOL appIsActivity;
 
-WSIDECL_PRIVATE_IMPL(WSIApplication)
+NNTDECL_PRIVATE_IMPL(NNTApplication)
 
 @synthesize countNetworkActivityIndicator;
 @synthesize appIsActivity;
@@ -150,9 +150,9 @@ WSIDECL_PRIVATE_IMPL(WSIApplication)
     [super dealloc];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@implementation WSIApplication
+@implementation NNTApplication
 
 @synthesize window = _window;
 @synthesize applicationName = _applicationName, applicationURLScheme = _applicationURLScheme, applicationIdentity = _applicationIdentity, urlInAppStore = _urlInAppStore;
@@ -161,10 +161,10 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIApplication);
+    NNTDECL_PRIVATE_INIT(NNTApplication);
     
-    // init WSI environment.
-    [WSI Init];
+    // init NNT environment.
+    [NNT Init];
     
     // bin app to global.
     __gs_app = self;
@@ -172,19 +172,19 @@ WSIDECL_PRIVATE_END
     if (::wsi::__cxxgs_app)
         ::wsi::__cxxgs_app->replace(__gs_app);
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
     __need_manual_appear = need_manual_appear();
     
-    WSI_DEVICE_ISIPHONE_SIMULATOR = [UIDevice isIPhoneSimulator];
-    WSI_DEVICE_ISIPHONE = [UIDevice isIPhone] | WSI_DEVICE_ISIPHONE_SIMULATOR;
-    WSI_DEVICE_ISIPAD_SIMULATOR = [UIDevice isIPadSimulator];
-    WSI_DEVICE_ISIPAD = [UIDevice isIPad] | WSI_DEVICE_ISIPAD_SIMULATOR;
-    WSI_DEVICE_ISIPOD = [UIDevice isIPod];
-    WSI_DEVICE_ISSIMULATOR = WSI_DEVICE_ISIPHONE_SIMULATOR | WSI_DEVICE_ISIPAD_SIMULATOR;
+    NNT_DEVICE_ISIPHONE_SIMULATOR = [UIDevice isIPhoneSimulator];
+    NNT_DEVICE_ISIPHONE = [UIDevice isIPhone] | NNT_DEVICE_ISIPHONE_SIMULATOR;
+    NNT_DEVICE_ISIPAD_SIMULATOR = [UIDevice isIPadSimulator];
+    NNT_DEVICE_ISIPAD = [UIDevice isIPad] | NNT_DEVICE_ISIPAD_SIMULATOR;
+    NNT_DEVICE_ISIPOD = [UIDevice isIPod];
+    NNT_DEVICE_ISSIMULATOR = NNT_DEVICE_ISIPHONE_SIMULATOR | NNT_DEVICE_ISIPAD_SIMULATOR;
     
-    WSI_SUPPORT_BLOCKS = support_blocks();
-    WSI_SUPPORT_MULTITASKS = support_multitasks();
+    NNT_SUPPORT_BLOCKS = support_blocks();
+    NNT_SUPPORT_MULTITASKS = support_multitasks();
     DEVICE_VERSION = device_version();
     
 # endif
@@ -209,13 +209,13 @@ WSIDECL_PRIVATE_END
     safe_release(_window);
     
     // end wsi.
-    [WSI Fin];
+    [NNT Fin];
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (UIWindow*)window {
     if (_window)
@@ -241,7 +241,7 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)setNetworkActivityIndicatorVisible:(BOOL)val {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     if (val) {
         ++d_ptr.countNetworkActivityIndicator;
@@ -255,7 +255,7 @@ WSIDECL_PRIVATE_END
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 + (NSString*)Identity {
@@ -267,39 +267,39 @@ WSIDECL_PRIVATE_END
 }
 
 + (NSString*)DeviceIdentity {
-    NSString* idr = [[WSIConfiguration shared] get:@"::wsi::device::identity" null:nil];
+    NSString* idr = [[NNTConfiguration shared] get:@"::wsi::device::identity" null:nil];
     if (idr != nil)
         return idr;
     idr = uuid_string();
-    [[WSIConfiguration shared] set:@"::wsi::device::identity" val:idr];
+    [[NNTConfiguration shared] set:@"::wsi::device::identity" val:idr];
     return idr;
 }
 
 # endif // end ios.
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAppOpenUrl)
-WSIEVENT_SIGNAL(kSignalAppHiding)
-WSIEVENT_SIGNAL(kSignalAppHiden)
-WSIEVENT_SIGNAL(kSignalAppShowing)
-WSIEVENT_SIGNAL(kSignalAppShown)
-WSIEVENT_SIGNAL(kSignalAppActiving)
-WSIEVENT_SIGNAL(kSignalAppActived)
-WSIEVENT_SIGNAL(kSignalAppInactiving)
-WSIEVENT_SIGNAL(kSignalAppInactived)
-WSIEVENT_SIGNAL(kSignalAppFinishLaunching)
-WSIEVENT_SIGNAL(kSignalAppBackground)
-WSIEVENT_SIGNAL(kSignalAppBackgroundExpired)
-WSIEVENT_SIGNAL(kSignalNotification)
-WSIEVENT_SIGNAL(kSignalDeviceToken)
-WSIEVENT_SIGNAL(kSignalMemoryWarning)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAppOpenUrl)
+NNTEVENT_SIGNAL(kSignalAppHiding)
+NNTEVENT_SIGNAL(kSignalAppHiden)
+NNTEVENT_SIGNAL(kSignalAppShowing)
+NNTEVENT_SIGNAL(kSignalAppShown)
+NNTEVENT_SIGNAL(kSignalAppActiving)
+NNTEVENT_SIGNAL(kSignalAppActived)
+NNTEVENT_SIGNAL(kSignalAppInactiving)
+NNTEVENT_SIGNAL(kSignalAppInactived)
+NNTEVENT_SIGNAL(kSignalAppFinishLaunching)
+NNTEVENT_SIGNAL(kSignalAppBackground)
+NNTEVENT_SIGNAL(kSignalAppBackgroundExpired)
+NNTEVENT_SIGNAL(kSignalNotification)
+NNTEVENT_SIGNAL(kSignalDeviceToken)
+NNTEVENT_SIGNAL(kSignalMemoryWarning)
+NNTEVENT_END
 
-+ (WSIApplication*)shared {
++ (NNTApplication*)shared {
     return __gs_app;
 }
 
-+ (WSIApplication*)current {
++ (NNTApplication*)current {
     return __gs_app;
 }
 
@@ -308,7 +308,7 @@ WSIEVENT_END
 }
 
 // for mac
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 
 void LoadTheme(NSString*) {
     PASS;
@@ -318,7 +318,7 @@ void LoadTheme(NSString*) {
     trace_msg(@"application: launching.");
     
     // boot wsi.
-    [WSI Boot];
+    [NNT Boot];
     
     // load theme.
     LoadTheme(nil);
@@ -376,7 +376,7 @@ void LoadTheme(NSString*) {
     d_ptr.appIsActivity = YES;
     
     // active hook.
-    [WSI Active];
+    [NNT Active];
     
     // sig.
     [self emit:kSignalAppActived];               
@@ -394,7 +394,7 @@ void LoadTheme(NSString*) {
     d_ptr.appIsActivity = NO;
     
     // hook.
-    [WSI Inactive];
+    [NNT Inactive];
     
     // sig.
     [self emit:kSignalAppInactived];              
@@ -438,7 +438,7 @@ void LoadTheme(NSString*) {
 # endif
 
 // for IOS
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     trace_msg(@"application: launched.");
@@ -476,7 +476,7 @@ void LoadTheme(NSString*) {
     trace_msg(@"application: launching.");
     
     // boot wsi.
-    [WSI Boot];
+    [NNT Boot];
     
     // init.
     [self load:application options:launchOptions];
@@ -516,7 +516,7 @@ void LoadTheme(NSString*) {
     // set.
     [NSObject refobjSet:&_rootViewController ref:ctlr];
     
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
     
     self.window.rootViewController = _rootViewController;
     
@@ -532,7 +532,7 @@ void LoadTheme(NSString*) {
 - (void)background:(UIApplication*)app {
     trace_msg(@"run background operation.");
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     
     NSTimeInterval ti = app.backgroundTimeRemaining;
     trace_fmt(@"left %d seconds for background run.", (int)ti);
@@ -568,11 +568,11 @@ void LoadTheme(NSString*) {
         return nil;
     NSString* str = [arr objectAtIndex:0 null:nil];
     if (str == nil) {
-        [WSIObject refobjCopy:&_applicationURLScheme ref:@""];
+        [NNTObject refobjCopy:&_applicationURLScheme ref:@""];
         return nil;
     }
     
-    [WSIObject refobjCopy:&_applicationURLScheme ref:str];
+    [NNTObject refobjCopy:&_applicationURLScheme ref:str];
     
     return str;
 }
@@ -582,11 +582,11 @@ void LoadTheme(NSString*) {
         return _applicationName;
     NSString *str = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleNameKey];
     if (str == nil) {
-        [WSIObject refobjCopy:&_applicationName ref:@""];
+        [NNTObject refobjCopy:&_applicationName ref:@""];
         return _applicationName;
     }
     
-    [WSIObject refobjCopy:&_applicationName ref:str];
+    [NNTObject refobjCopy:&_applicationName ref:str];
 
     return _applicationName;
 }
@@ -596,21 +596,21 @@ void LoadTheme(NSString*) {
         return _applicationIdentity;
     NSString *str = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleIdentifierKey];
     if (str == nil) {
-        [WSIObject refobjCopy:&_applicationIdentity ref:@""];
+        [NNTObject refobjCopy:&_applicationIdentity ref:@""];
         return _applicationIdentity;
     }
     
-    [WSIObject refobjCopy:&_applicationIdentity ref:str];
+    [NNTObject refobjCopy:&_applicationIdentity ref:str];
 
     return _applicationIdentity;
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     trace_msg(@"application: terminating.");
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     [Msgbox warn:@"Application Terminating !"];
 # endif
 }
@@ -618,7 +618,7 @@ void LoadTheme(NSString*) {
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     trace_msg(@"application: memory warning!");
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     [Msgbox warn:@"memory is not enough, please reboot your device or close unused apps !"];
 # endif
     
@@ -635,7 +635,7 @@ void LoadTheme(NSString*) {
     d_ptr.appIsActivity = YES;
     
     // call active process.
-    [WSI Active];
+    [NNT Active];
     
     // emit signal.
     [self emit:kSignalAppActived];
@@ -668,7 +668,7 @@ static UIBackgroundTaskIdentifier __gs_background_identitier = UIBackgroundTaskI
     d_ptr.appIsActivity = NO;
     
     // call inactive process.
-    [WSI Inactive];
+    [NNT Inactive];
     
     // emit signal.
     [self emit:kSignalAppInactived];
@@ -696,17 +696,17 @@ static UIBackgroundTaskIdentifier __gs_background_identitier = UIBackgroundTaskI
     trace_msg(@"application: rotated.");
         
     // send signal.
-    [[WSIUIObject shared] emit:kSignalOrientationChanged];
+    [[NNTUIObject shared] emit:kSignalOrientationChanged];
 }
 
-NSString *kWSIApp_Url = @"url";
-NSString *kWSIApp_Source = @"source";
-NSString *kWSIApp_Anno = @"annotation";
-NSString *kWSIApp_App = @"app";
+NSString *kOpenUrlTarget = @"url";
+NSString *kOpenUrlSource = @"source";
+NSString *kOpenUrlAnno = @"annotation";
+NSString *kOpenUrlApp = @"app";
 
 - (BOOL)application:
 
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 (UIApplication *)application 
             openURL:(NSURL *)url 
   sourceApplication:(NSString *)sourceApplication 
@@ -716,7 +716,7 @@ NSString *kWSIApp_App = @"app";
 handleOpenURL:(NSURL *)url
 # endif
 {
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 # else
     id sourceApplication = @"";
     id annotation = @"";
@@ -739,7 +739,7 @@ handleOpenURL:(NSURL *)url
 # endif
 
 - (void)enableFileCache {
-    FileCache *cache = [[FileCache alloc] initWithPath:@"cache" type:NSVariableDirectory | WSIDirectoryTypeSystem];
+    FileCache *cache = [[FileCache alloc] initWithPath:@"cache" type:NSVariableDirectory | NNTDirectoryTypeSystem];
     cache.policyLimit = YES;
     [cache setDefault];
     [cache release];
@@ -762,11 +762,11 @@ handleOpenURL:(NSURL *)url
     trace_msg(@"recieve iCloud data changed.");
 }
 
-# ifdef WSI_iOS_3
+# ifdef NNT_iOS_3
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_fmt(@"receive a local notification: %@.", notification.alertBody);
 # endif
     
@@ -790,7 +790,7 @@ handleOpenURL:(NSURL *)url
     trace_obj(deviceToken);
     
     // get device token.
-    [[WSIConfiguration shared] set:kConfigDeviceToken data:deviceToken];
+    [[NNTConfiguration shared] set:kConfigDeviceToken data:deviceToken];
     
     // signal.
     [self emit:kSignalDeviceToken result:deviceToken];
@@ -812,7 +812,7 @@ handleOpenURL:(NSURL *)url
 
 @end
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 @implementation OpenURLObject
 
@@ -830,9 +830,9 @@ handleOpenURL:(NSURL *)url
 
 # endif
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 class Arguments
 : public IArguments
@@ -871,7 +871,7 @@ Application::Application()
     __cxxgs_app = this;
 }
 
-Application::Application(WSIApplication* app)
+Application::Application(NNTApplication* app)
 : _argu(NULL)
 {
     _app = app;
@@ -903,7 +903,7 @@ ui::Window& Application::window()
 
 void Application::open(ns::URL const& url)
 {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     [[UIApplication sharedApplication] openURL:url];
 # endif
 }
@@ -918,17 +918,17 @@ int Application::execute(int argc, char* argv[])
 int Application::_do_execute(int argc, char *argv[])
 {
     int ret;
-    WSI_AUTORELEASEPOOL_BEGIN
+    NNT_AUTORELEASEPOOL_BEGIN
     
     try
     {
-        WSI_AUTORELEASEPOOL_BEGIN
+        NNT_AUTORELEASEPOOL_BEGIN
         
         // main routine.
         
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
         
-        ret = UIApplicationMain(argc, argv, nil, NSStringFromClass([WSIAppImplementation class]));
+        ret = UIApplicationMain(argc, argv, nil, NSStringFromClass([NNTAppImplementation class]));
         
 # else
         
@@ -936,17 +936,17 @@ int Application::_do_execute(int argc, char *argv[])
         
 # endif
         
-        WSI_AUTORELEASEPOOL_END
+        NNT_AUTORELEASEPOOL_END
     }
     catch (NSException* ex)
     {
         trace_fmt(@"Exception: %@: %@ %@.", ex.name, ex.reason, ex.userInfo);
     }
-    catch (exception::message const& WSIDEBUG_EXPRESS(ex))
+    catch (exception::message const& NNTDEBUG_EXPRESS(ex))
     {
         trace_fmt(@"Exception: %@.", core::type_cast<ns::String>(ex.get()).nsobject());
     }
-    catch (::std::exception const& WSIDEBUG_EXPRESS(ex))
+    catch (::std::exception const& NNTDEBUG_EXPRESS(ex))
     {
         trace_fmt(@"Exception: %@.", core::type_cast<ns::String>(core::string(ex.what())).nsobject());
     }
@@ -955,7 +955,7 @@ int Application::_do_execute(int argc, char *argv[])
         trace_msg(@"Exception: unknown exception.");
     }
     
-    WSI_AUTORELEASEPOOL_END
+    NNT_AUTORELEASEPOOL_END
     return ret;
 }
 
@@ -989,7 +989,7 @@ void Application::_do_set_root(MAC_IOS_SELECT(NSViewController, UIViewController
     __gs_app.rootViewController = ctlr;
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 bool Application::is_activity() const
 {
@@ -1025,11 +1025,11 @@ public:
     
 };
 
-WSI_END_CXX
+NNT_END_CXX
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIApplicationDelegate
+@implementation NNTApplicationDelegate
 
 - (void)load {
     ::wsi::_ApplicationWrapper::set(::wsi::Application::getInstance(), __gs_app);
@@ -1038,8 +1038,8 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIAppImplementation
+@implementation NNTAppImplementation
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

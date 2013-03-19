@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UITabBarContainerController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UITabBarContainerController ()
 
@@ -19,7 +19,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
         
-    tabBar = [[WSIUITabBar alloc] initWithZero];
+    tabBar = [[NNTUITabBar alloc] initWithZero];
     tabBar.delegate = self;
     
     return self;
@@ -33,15 +33,15 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_END
 
 - (void)loadView {
     self.view = tabBar;
 }
 
-- (void)tabBar:(WSIUITabBar *)aTabBar didSelectTabAtIndex:(NSInteger)index {
+- (void)tabBar:(NNTUITabBar *)aTabBar didSelectTabAtIndex:(NSInteger)index {
 	UIViewController *vc = [self.viewControllers objectAtIndex:index];
 	if (self.selectedViewController == vc) {
 		if ([self.selectedViewController isKindOfClass:[UINavigationController class]]) {
@@ -104,7 +104,7 @@ WSIEVENT_END
     
 	NSMutableArray *tabs = [NSMutableArray arrayWithCapacity:self.viewControllers.count];
 	for (UIViewController *vc in self.viewControllers) {
-        WSIUITabBarItem *item = [WSIUITabBarItem alloc];
+        NNTUITabBarItem *item = [NNTUITabBarItem alloc];
         
         [vc attachSet:kTabBarController obj:self];
         [vc attachSet:kTabBarItem       obj:item];
@@ -190,4 +190,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

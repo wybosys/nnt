@@ -1,10 +1,10 @@
 
-# ifndef __WSI_PAYCENTER_55EEBCF63F6B4579920C0CD4C1D0AB54_H_INCLUDED
-# define __WSI_PAYCENTER_55EEBCF63F6B4579920C0CD4C1D0AB54_H_INCLUDED
+# ifndef __NNT_PAYCENTER_55EEBCF63F6B4579920C0CD4C1D0AB54_H_INCLUDED
+# define __NNT_PAYCENTER_55EEBCF63F6B4579920C0CD4C1D0AB54_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface PayCenter : WSIObject {
+@interface PayCenter : NNTObject {
     
     @private
     NSDictionary *classes;
@@ -19,14 +19,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalPayReceive;
+NNT_EXTERN signal_t kSignalPayReceive;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(pay)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(pay)
 
 class Center
 : public ns::Object< ::PayCenter >
@@ -47,11 +47,11 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 typedef pay::Center PayCenter;
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

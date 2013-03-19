@@ -1,27 +1,27 @@
 
 # import "Core.h"
-# import "UILabel+WSI.h"
+# import "UILabel+NNT.h"
 # import "FontManager.h"
 # import "FontLabelStringDrawing.h"
 # import "ZFont.h"
-# import "WSIUIObject.h"
+# import "NNTUIObject.h"
 # import "WCGFill.h"
 # import "StyleStringParser.h"
 # import "NSStyleString.h"
-# import "UIScreen+WSI.h"
-# import "UIView+WSI.h"
+# import "UIScreen+NNT.h"
+# import "UIView+NNT.h"
 # import "QzDisplayLink.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalMarqueeNext = @"::wsi::marquee::next";
 
 static CGPoint __gs_view_touchpoint = {-999999, -999999};
 static BOOL __gs_view_waitingtouch = NO;
 
-@implementation UILabel (WSI)
+@implementation UILabel (NNT)
 
-WSIUIVIEW_NOTINHERIT_MUST_IMPL;
+NNTUIVIEW_NOTINHERIT_MUST_IMPL;
 
 - (void)applyTextStyle:(WCGTextStyle*)ts {
     self.font = [ts uiFont];
@@ -35,15 +35,15 @@ WSIUIVIEW_NOTINHERIT_MUST_IMPL;
 
 @end
 
-@interface WSIUILabel ()
+@interface NNTUILabel ()
 
 - (void)_update_fontscale;
 
 @end
 
-@implementation WSIUILabel
+@implementation NNTUILabel
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @dynamic multiLines;
 @synthesize scaleToFit = _scaleToFit;
@@ -68,7 +68,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 	//zero_release(zAttributedText);
     zero_release(_backgroundFill);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -85,11 +85,11 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewClicked);
-    WSIEVENT_SIGNAL(kSignalTouchesBegin);
-    WSIEVENT_SIGNAL(kSignalTouchesEnd);
-    WSIEVENT_SIGNAL(kSignalTouchesMoved);
-    WSIEVENT_SIGNAL(kSignalTouchesCancel);
+    NNTEVENT_SIGNAL(kSignalViewClicked);
+    NNTEVENT_SIGNAL(kSignalTouchesBegin);
+    NNTEVENT_SIGNAL(kSignalTouchesEnd);
+    NNTEVENT_SIGNAL(kSignalTouchesMoved);
+    NNTEVENT_SIGNAL(kSignalTouchesCancel);
 }
 
 - (void)copyStyle:(UILabel *)r {
@@ -100,7 +100,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)setBackgroundFill:(WCGFill *)fill {
-    [WSIObject refobjSet:&_backgroundFill ref:fill];
+    [NNTObject refobjSet:&_backgroundFill ref:fill];
 }
 
 - (void)drawRect:(CGRect)rect {         
@@ -116,12 +116,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (CGSize)textSize {
     CGSize ret;
     
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     NSString* tmpstr = [NSString stringWithFormat:@" %@ ", self.text];
     ret = [tmpstr sizeWithFont:self.font];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return ret;
 }
@@ -129,11 +129,11 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (CGSize)directTextSize {
     CGSize ret;
     
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     ret = [self.text sizeWithFont:self.font];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return ret;
 }
@@ -146,12 +146,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (CGSize)textsSize {
     CGSize ret;
     
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     CGRect rc = [self textRectForBounds:CGRectMake(0, 0, 9999, 9999) limitedToNumberOfLines:self.numberOfLines];
     ret = rc.size;
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return ret;
 }
@@ -265,7 +265,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUILabel (FontLabel)
+@implementation NNTUILabel (FontLabel)
 
 - (id)initWithFrame:(CGRect)frame fontName:(NSString *)fontName pointSize:(CGFloat)pointSize {
 	return [self initWithFrame:frame zFont:[[FontManager sharedManager] zFontWithName:fontName pointSize:pointSize]];
@@ -434,7 +434,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
  
  */
 
-WSIIMPL_CATEGORY(UILabel, WSI);
+NNTIMPL_CATEGORY(UILabel, NNT);
 
 @implementation UIStyleLabel
 
@@ -480,26 +480,26 @@ WSIIMPL_CATEGORY(UILabel, WSI);
 
 @end
 
-_CXXCONTROL_IMPL(WSIUILabel);
+_CXXCONTROL_IMPL(NNTUILabel);
 
-WSIDECL_PRIVATE_BEGIN(UIMarqueeLabel, WSIObject)
+NNTDECL_PRIVATE_BEGIN(UIMarqueeLabel, NNTObject)
 {
 @public
     int offset;
     int width;
     bool valid;
     bool need;
-    WSINSTimer* timer;
+    NNTNSTimer* timer;
 }
 
-WSIDECL_PRIVATE_IMPL(UIMarqueeLabel)
+NNTDECL_PRIVATE_IMPL(UIMarqueeLabel)
 
 - (id)init {
     self = [super init];
     
     valid = need = false;
     
-    timer = [[WSINSTimer alloc] init];
+    timer = [[NNTNSTimer alloc] init];
     [timer connect:kSignalTimerFired sel:@selector(act_marquee_routine) obj:self];
     
     return self;
@@ -536,7 +536,7 @@ WSIDECL_PRIVATE_IMPL(UIMarqueeLabel)
     [d_owner setNeedsDisplay];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIMarqueeLabel
 
@@ -550,18 +550,18 @@ marqueeStep = _marqueeStep;
     _marqueeStep = 1;
     _marqueeSpeed = 10;
     
-    WSIDECL_PRIVATE_INIT(UIMarqueeLabel);
+    NNTDECL_PRIVATE_INIT(UIMarqueeLabel);
     return self;
 }
 
 - (void)dealloc {    
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalMarqueeNext);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalMarqueeNext);
+NNTEVENT_END
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -599,4 +599,4 @@ WSIEVENT_END
 
 _CXXCONTROL_IMPL(UIMarqueeLabel);
 
-WSI_END_OBJC
+NNT_END_OBJC

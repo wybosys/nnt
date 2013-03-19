@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIItemView.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIItemView
 
@@ -57,10 +57,10 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalItemClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalItemClicked)
+NNTEVENT_END
 
 - (NSUInteger)count {
     if ([_dataSource respondsToSelector:@selector(numberOfItems:)])
@@ -93,7 +93,7 @@ WSIEVENT_END
     [item connect:kSignalViewClicked sel:@selector(_act_item_clicked:) obj:self];
 }
 
-- (void)_act_item_clicked:(WSIEventObj*)evt {
+- (void)_act_item_clicked:(NNTEventObj*)evt {
     UIItemView* item = (id)evt.sender;
     
     [self emit:kSignalContentClicked result:item.contentView];
@@ -104,4 +104,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UIItemView);
 
-WSI_END_OBJC
+NNT_END_OBJC

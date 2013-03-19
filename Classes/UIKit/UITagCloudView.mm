@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "UITagCloudView.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UITagCloudItem
 
@@ -73,12 +73,12 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (void)_act_touchesbegin:(WSIEventObj*)evt {
+- (void)_act_touchesbegin:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     _pos = [[touches anyObject] locationInView:self];
 }
 
-- (void)_act_touchesmoved:(WSIEventObj*)evt {    
+- (void)_act_touchesmoved:(NNTEventObj*)evt {    
     NSSet* touches = (NSSet*)evt.result;
     CGPoint pt = [[touches anyObject] locationInView:self];
     CGRect rc = self.bounds;
@@ -135,4 +135,4 @@ WSI_BEGIN_OBJC
 
 _CXXVIEW_IMPL(UITagCloudView);
 
-WSI_END_OBJC
+NNT_END_OBJC

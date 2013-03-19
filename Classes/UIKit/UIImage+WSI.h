@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_UIIMAGE_0EA16C00F66747D9B2A3A4540759D85B_H_INCLUDED
-# define __WSI_UIKIT_UIIMAGE_0EA16C00F66747D9B2A3A4540759D85B_H_INCLUDED
+# ifndef __NNT_UIKIT_UIIMAGE_0EA16C00F66747D9B2A3A4540759D85B_H_INCLUDED
+# define __NNT_UIKIT_UIIMAGE_0EA16C00F66747D9B2A3A4540759D85B_H_INCLUDED
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UIImage (WSI)
+@interface UIImage (NNT)
 
 //! named auto check retina mode.
 + (UIImage *)retinaImageNamed:(NSString*)str;
@@ -68,24 +68,24 @@ WSI_BEGIN_OBJC
 //! mask src image with dst image
 UIImage *UIMaskImage(UIImage *dst, UIImage *src);
 
-@interface WSIUIImage : UIImage {
-    WSIOBJECT_DECL;
+@interface NNTUIImage : UIImage {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
-+ (WSIUIImage *)imageNamed:(NSString *)name;
++ (NNTUIImage *)imageNamed:(NSString *)name;
 
 @end
 
-WSIDECL_CATEGORY(UIImage, WSI);
+NNTDECL_CATEGORY(UIImage, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class Image
 : public ::wsi::ns::Object<UIImage>
@@ -182,8 +182,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

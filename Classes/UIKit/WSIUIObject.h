@@ -1,8 +1,8 @@
 
-# ifndef __WSI_UIKIT_selfECT_7A7189911D1847BD9A8BB8EA634B694C_H_INCLUDED
-# define __WSI_UIKIT_selfECT_7A7189911D1847BD9A8BB8EA634B694C_H_INCLUDED
+# ifndef __NNT_UIKIT_selfECT_7A7189911D1847BD9A8BB8EA634B694C_H_INCLUDED
+# define __NNT_UIKIT_selfECT_7A7189911D1847BD9A8BB8EA634B694C_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 typedef enum
 {
@@ -13,7 +13,7 @@ typedef enum
     TruncatingTail,
     TruncatingMiddle,
 }
-WSILineBreadMode;
+NNTLineBreadMode;
 
 typedef enum
 {
@@ -21,13 +21,13 @@ typedef enum
     Center,
     Right
 }
-WSIAlignment;
+NNTAlignment;
 
-# if WSI_IOS_MIN >= __IPHONE_6_0
+# if NNT_IOS_MIN >= __IPHONE_6_0
 
 //#   define TextAlignment(op) NSTextAlignment##op
 
-static UILineBreakMode LineBreak(WSILineBreadMode mode)
+static UILineBreakMode LineBreak(NNTLineBreadMode mode)
 {
     UILineBreakMode ret;
     switch (mode)
@@ -47,7 +47,7 @@ static UILineBreakMode LineBreak(WSILineBreadMode mode)
 
 //#   define TextAlignment(op) UITextAlignment##op
 
-static UILineBreakMode LineBreak(WSILineBreadMode mode)
+static UILineBreakMode LineBreak(NNTLineBreadMode mode)
 {
     uint ret;
     switch (mode)
@@ -65,7 +65,7 @@ static UILineBreakMode LineBreak(WSILineBreadMode mode)
 
 # endif
 
-@interface WSIUIObject : WSIObject {
+@interface NNTUIObject : NNTObject {
     
     //! event of global is processing.
     BOOL isGlobalEventProcessing;
@@ -76,26 +76,26 @@ static UILineBreakMode LineBreak(WSILineBreadMode mode)
 
 @property (nonatomic, readonly) BOOL isGlobalEventProcessing;
 
-+ (WSIUIObject*)shared;
++ (NNTUIObject*)shared;
 
 @end
 
-@interface WSIUIObject (event)
+@interface NNTUIObject (event)
 
 - (void)emit_begin;
 - (void)emit_end;
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_EXTERN bool WSI_DEVICE_ISIPHONE;
-WSI_EXTERN bool WSI_DEVICE_ISIPHONE_SIMULATOR;
-WSI_EXTERN bool WSI_DEVICE_ISIPAD;
-WSI_EXTERN bool WSI_DEVICE_ISIPAD_SIMULATOR;
-WSI_EXTERN bool WSI_DEVICE_ISIPOD;
+NNT_EXTERN bool NNT_DEVICE_ISIPHONE;
+NNT_EXTERN bool NNT_DEVICE_ISIPHONE_SIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD_SIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPOD;
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 template <typename valT>
 class _device
@@ -116,21 +116,21 @@ public:
     
     operator valT const& () const
     {
-        if (WSI_DEVICE_ISIPAD)
+        if (NNT_DEVICE_ISIPAD)
             return val_pad;
         return val_phone;
     }
     
     valT const& value() const
     {
-        if (WSI_DEVICE_ISIPAD)
+        if (NNT_DEVICE_ISIPAD)
             return val_pad;
         return val_phone;
     }
     
     valT const* operator -> () const
     {
-        if (WSI_DEVICE_ISIPAD)
+        if (NNT_DEVICE_ISIPAD)
             return &val_pad;
         return &val_phone;
     }
@@ -144,16 +144,16 @@ static _device<valT> device(valT const& phone, valT const& pad)
     return _device<valT>(phone, pad);
 }
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
-template <WSIAlignment Type>
+template <NNTAlignment Type>
 class TextAlignment
 {
 public:
     
     TextAlignment()
     {
-# if WSI_IOS_MIN >= __IPHONE_6_0
+# if NNT_IOS_MIN >= __IPHONE_6_0
         switch (Type)
         {
             case Left: align = NSTextAlignmentLeft; break;
@@ -397,14 +397,14 @@ public:
 # define interface_cast(obj, type) \
 (dynamic_cast<type*>((::wsi::RefObject*)obj))
 
-WSIDECL_BOOLOBJECT(animate, nonanimate);
-WSIDECL_BOOLOBJECT(show, hide);
-WSIDECL_BOOLOBJECT(on, off);
-WSIDECL_BOOLOBJECT(active, inactive);
-WSIDECL_BOOLOBJECT(left, hold);
+NNTDECL_BOOLOBJECT(animate, nonanimate);
+NNTDECL_BOOLOBJECT(show, hide);
+NNTDECL_BOOLOBJECT(on, off);
+NNTDECL_BOOLOBJECT(active, inactive);
+NNTDECL_BOOLOBJECT(left, hold);
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 @interface cxxnsobject : NSObject {
     id target;
@@ -416,15 +416,15 @@ WSI_END_HEADER_CXX
 
 # endif
 
-WSI_EXTERN signal_t kSignalTouchesBegin;
-WSI_EXTERN signal_t kSignalTouchesEnd;
-WSI_EXTERN signal_t kSignalTouchesMoved;
-WSI_EXTERN signal_t kSignalTouchesOffset;
-WSI_EXTERN signal_t kSignalTouchesCancel;
-WSI_EXTERN signal_t kSignalOrientationChanged;
-WSI_EXTERN signal_t kSignalThemeChanged;
-WSI_EXTERN signal_t kSignalDeviceShaked;
+NNT_EXTERN signal_t kSignalTouchesBegin;
+NNT_EXTERN signal_t kSignalTouchesEnd;
+NNT_EXTERN signal_t kSignalTouchesMoved;
+NNT_EXTERN signal_t kSignalTouchesOffset;
+NNT_EXTERN signal_t kSignalTouchesCancel;
+NNT_EXTERN signal_t kSignalOrientationChanged;
+NNT_EXTERN signal_t kSignalThemeChanged;
+NNT_EXTERN signal_t kSignalDeviceShaked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

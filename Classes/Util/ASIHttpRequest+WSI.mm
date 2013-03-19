@@ -2,17 +2,17 @@
 # import "Core.h"
 # import "ASIHTTPRequest.h"
 # import "ASIHTTPRequestDelegate.h"
-# import "ASIHttpRequest+WSI.h"
+# import "ASIHttpRequest+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSIASIHttpRequest ()
+@interface NNTASIHttpRequest ()
 
 - (void)_exit;
 
 @end
 
-@implementation WSIASIHttpRequest
+@implementation NNTASIHttpRequest
 
 @dynamic delegate;
 @synthesize receiveData;
@@ -37,17 +37,17 @@ WSI_BEGIN_OBJC
     return _httpreq.url;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalURLConnectionSendRequest)
-WSIEVENT_SIGNAL(kSignalURLConnectionReceiveResponse)
-WSIEVENT_SIGNAL(kSignalURLConnectionReceiveData)
-WSIEVENT_SIGNAL(kSignalURLConnectionDataChanged)
-WSIEVENT_SIGNAL(kSignalURLConnectionFinish)
-WSIEVENT_SIGNAL(kSignalURLConnectionError)
-WSIEVENT_SIGNAL(kSignalURLConnectionExit)
-WSIEVENT_SIGNAL(kSignalURLConnectionWillRedirect)
-WSIEVENT_SIGNAL(kSignalURLConnectionRedirected)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalURLConnectionSendRequest)
+NNTEVENT_SIGNAL(kSignalURLConnectionReceiveResponse)
+NNTEVENT_SIGNAL(kSignalURLConnectionReceiveData)
+NNTEVENT_SIGNAL(kSignalURLConnectionDataChanged)
+NNTEVENT_SIGNAL(kSignalURLConnectionFinish)
+NNTEVENT_SIGNAL(kSignalURLConnectionError)
+NNTEVENT_SIGNAL(kSignalURLConnectionExit)
+NNTEVENT_SIGNAL(kSignalURLConnectionWillRedirect)
+NNTEVENT_SIGNAL(kSignalURLConnectionRedirected)
+NNTEVENT_END
 
 - (void)_exit { 
     [self emit:kSignalURLConnectionExit];
@@ -115,4 +115,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

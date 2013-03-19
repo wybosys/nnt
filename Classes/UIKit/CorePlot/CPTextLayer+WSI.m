@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPTextLayer (WSI)
+@implementation CPTextLayer (NNT)
 
 - (void)drawInContext:(CGContextRef)ctx {
     [super drawInContext:ctx];    
@@ -12,4 +12,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

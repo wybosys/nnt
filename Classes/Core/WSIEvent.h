@@ -1,44 +1,44 @@
 
-# ifndef __WSI_EVENT_B0FAA1EB4E8D45EC8CE2DF04845E7E60_H_INCLUDED
-# define __WSI_EVENT_B0FAA1EB4E8D45EC8CE2DF04845E7E60_H_INCLUDED
+# ifndef __NNT_EVENT_B0FAA1EB4E8D45EC8CE2DF04845E7E60_H_INCLUDED
+# define __NNT_EVENT_B0FAA1EB4E8D45EC8CE2DF04845E7E60_H_INCLUDED
 
-# ifdef WSI_CXX_OBJC
+# ifdef NNT_CXX_OBJC
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class Object;
 class EventObj;
 
-# ifndef WSIOBJECT_DEFINED
+# ifndef NNTOBJECT_DEFINED
 
 typedef void (Object::*objevent_func)(EventObj&);
 
 # endif
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSISignal);
-WSIDECL_EXTERN_CLASS(WSISlot);
-WSIDECL_EXTERN_CLASS(NSDatePeriod);
-WSIDECL_EXTERN_CLASS(WSIEventObj);
+NNTDECL_EXTERN_CLASS(NNTSignal);
+NNTDECL_EXTERN_CLASS(NNTSlot);
+NNTDECL_EXTERN_CLASS(NSDatePeriod);
+NNTDECL_EXTERN_CLASS(NNTEventObj);
 
 typedef NSString *signal_t;
 
-typedef void (*slot_function_callback)(WSIEventObj*);
+typedef void (*slot_function_callback)(NNTEventObj*);
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-typedef void (^slot_block_callback)(WSIEventObj*);
+typedef void (^slot_block_callback)(NNTEventObj*);
 
 # endif
 
-@interface WSISlot : NSObject < NSCopying > {
+@interface NNTSlot : NSObject < NSCopying > {
     
     //! selector.
     SEL _sel;
@@ -56,12 +56,12 @@ typedef void (^slot_block_callback)(WSIEventObj*);
     int _shotcount;
     
     //! the slot's signal when emit.
-    WSISignal *_signal;
+    NNTSignal *_signal;
     
     //! drop the event, default is NO.
     BOOL _veto;
     
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     
     //! block
     slot_block_callback _block;
@@ -80,7 +80,7 @@ typedef void (^slot_block_callback)(WSIEventObj*);
     //! u can bind everything on data.
     void* _data;
     
-# ifdef WSI_CXX
+# ifdef NNT_CXX
     
     ::wsi::Object* _cxx_target;
     ::wsi::objevent_func _cxx_action;
@@ -111,7 +111,7 @@ typedef void (^slot_block_callback)(WSIEventObj*);
 @property (nonatomic, retain) id result;
 @property (nonatomic, assign) void* data;
 @property (nonatomic, assign) int shotcount;
-@property (nonatomic, assign) WSISignal *signal;
+@property (nonatomic, assign) NNTSignal *signal;
 @property (nonatomic, assign) BOOL veto;
 @property (nonatomic, assign) slot_function_callback function;
 @property (nonatomic, copy)   signal_t redirect;
@@ -120,14 +120,14 @@ typedef void (^slot_block_callback)(WSIEventObj*);
 @property (nonatomic, readonly) BOOL waitFrequency;
 @property (nonatomic, retain) NSDatePeriod* period;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 @property (nonatomic, assign) ::wsi::Object* cxx_target;
 @property (nonatomic, assign) ::wsi::objevent_func cxx_action;
 
 # endif
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
 @property (nonatomic, assign) slot_block_callback block;
 
@@ -156,13 +156,13 @@ typedef void (^slot_block_callback)(WSIEventObj*);
 
 @end
 
-@interface WSIEventObj : NSObject {
-    WSISlot *_slot, *_origin;
+@interface NNTEventObj : NSObject {
+    NNTSlot *_slot, *_origin;
 }
 
-@property (nonatomic, readonly) WSISlot* slot;
+@property (nonatomic, readonly) NNTSlot* slot;
 
-- (id)initWithSlot:(WSISlot*)slot;
+- (id)initWithSlot:(NNTSlot*)slot;
 
 @property (nonatomic, readonly) SEL sel;
 @property (nonatomic, readonly) NSObject *handler;
@@ -170,7 +170,7 @@ typedef void (^slot_block_callback)(WSIEventObj*);
 @property (nonatomic, readonly) id result;
 @property (nonatomic, readonly) void* data;
 @property (nonatomic, readonly) int shotcount;
-@property (nonatomic, readonly) WSISignal *signal;
+@property (nonatomic, readonly) NNTSignal *signal;
 @property (nonatomic, readonly) signal_t redirect;
 @property (nonatomic, readonly) real frequency;
 @property (nonatomic, readonly) BOOL waitFrequency;
@@ -180,18 +180,18 @@ typedef void (^slot_block_callback)(WSIEventObj*);
 
 @end
 
-typedef WSISlot slot_t;
+typedef NNTSlot slot_t;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# ifndef WSI_PURE_CXX
+# ifndef NNT_PURE_CXX
 #   define _action(act) (::wsi::objevent_func)&act
 # endif
 
-WSIDECL_EXTERN_CLASS(NSDatePeriod);
+NNTDECL_EXTERN_CLASS(NSDatePeriod);
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Slot
 {
@@ -251,14 +251,14 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
-# define WSIDECL_SIGNAL(signal) SPACE
+# define NNTDECL_SIGNAL(signal) SPACE
 
-@interface WSISignal : NSObject {
+@interface NNTSignal : NSObject {
     
     //! name of signal.
     NSString *_name;
@@ -278,35 +278,35 @@ WSI_END_HEADER_CXX
 @property (/*atomic, */assign) BOOL enable;
 
 //! register a slot.
-- (WSISlot*)register_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)register_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
 
 //! find slot.
-- (WSISlot*)find_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)find_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (WSISlot*)register_block:(slot_block_callback)block delay:(real)delay;
+- (NNTSlot*)register_block:(slot_block_callback)block delay:(real)delay;
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-- (WSISlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (NNTSlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
 
 # endif
 
 //! register a slot use static function.
-- (WSISlot*)register_function:(slot_function_callback)function delay:(real)delay;
+- (NNTSlot*)register_function:(slot_function_callback)function delay:(real)delay;
 
 //! register a slot will redirect signal.
-- (WSISlot*)register_redirect:(signal_t)sig obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)register_redirect:(signal_t)sig obj:(NSObject*)obj delay:(real)delay;
 
 //! remove slot.
 - (void)remove_slot:(SEL)sel obj:(NSObject*)obj;
 - (void)remove_slot:(NSObject*)obj;
 - (void)remove_slots;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)remove_action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
 - (void)remove_target:(::wsi::Object*)target;
@@ -319,14 +319,14 @@ WSI_END_HEADER_CXX
 - (void)emit:(void*)obj result:(id)result data:(void*)data;
 
 //! index of slot.
-- (NSUInteger)indexOfSlot:(WSISlot*)slot;
+- (NSUInteger)indexOfSlot:(NNTSlot*)slot;
 
 //! count.
 - (NSUInteger)count;
 
 @end
 
-@interface WSIEvent : NSObject {
+@interface NNTEvent : NSObject {
     
     //! store for all signals.
     NSMutableDictionary *_signals;
@@ -347,13 +347,13 @@ WSI_END_HEADER_CXX
 @property (nonatomic,    assign) NSMutableArray *redirects;
 
 //! register a signal with name.
-- (WSISignal*)_register_signal:(signal_t)name;
+- (NNTSignal*)_register_signal:(signal_t)name;
 
 //! has signal.
 - (BOOL)_hasSignal:(signal_t)sig;
 
 //! find signal.
-- (WSISignal*)_find_signal:(signal_t)sig;
+- (NNTSignal*)_find_signal:(signal_t)sig;
 
 //! remove a signal.
 - (void)_remove_signal:(signal_t)name;
@@ -368,29 +368,29 @@ WSI_END_HEADER_CXX
 - (void)_enable:(signal_t)sig tog:(BOOL)tog;
 
 //! connect a signal with slot.
-- (WSISlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj;
-- (WSISlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
-- (WSISlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj;
-- (WSISlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj;
+- (NNTSlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj;
+- (NNTSlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj delay:(real)delay;
 
 //! redirect to.
-- (void)_redirect:(WSIEvent*)evt;
-- (void)_disredirect:(WSIEvent*)evt;
+- (void)_redirect:(NNTEvent*)evt;
+- (void)_disredirect:(NNTEvent*)evt;
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (WSISlot*)_connect:(signal_t)sig block:(slot_block_callback)block;
-- (WSISlot*)_connect:(signal_t)sig block:(slot_block_callback)block delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig block:(slot_block_callback)block;
+- (NNTSlot*)_connect:(signal_t)sig block:(slot_block_callback)block delay:(real)delay;
 
 # endif
 
-- (WSISlot*)_connect:(signal_t)sig func:(slot_function_callback)func;
-- (WSISlot*)_connect:(signal_t)sig func:(slot_function_callback)func delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig func:(slot_function_callback)func;
+- (NNTSlot*)_connect:(signal_t)sig func:(slot_function_callback)func delay:(real)delay;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-- (WSISlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
-- (WSISlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
+- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
 
 # endif
 
@@ -401,7 +401,7 @@ WSI_END_HEADER_CXX
 - (void)_disconnect_signal:(signal_t)sig;
 - (void)_disconnect_all;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)_disconnect:(signal_t)sig target:(::wsi::Object*)target action:(::wsi::objevent_func)action;
 - (void)_disconnect_target:(::wsi::Object*)target;
@@ -410,8 +410,8 @@ WSI_END_HEADER_CXX
 # endif
 
 //! find connect.
-- (WSISlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj;
-- (WSISlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
+- (NNTSlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj;
+- (NNTSlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay;
 
 //! global.
 + (void)EnableEverywhere;
@@ -419,11 +419,11 @@ WSI_END_HEADER_CXX
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class EventObj
 {
@@ -463,7 +463,7 @@ protected:
     
 public:
     
-    EventObj(WSIEventObj* evt)
+    EventObj(NNTEventObj* evt)
     : _evt(evt)
     {
         [_evt retain];
@@ -515,40 +515,40 @@ public:
         
 protected:
 
-    WSIEventObj* _evt;
+    NNTEventObj* _evt;
 
 };
 
-WSI_EXTERN EventObj null_eventobj;
+NNT_EXTERN EventObj null_eventobj;
 
-WSI_END_HEADER_CXX
-
-# endif
+NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_CXX
+# endif
+
+# ifdef NNT_CXX
 
 # include <map>
 # include <string>
 # include <vector>
 # include <list>
 
-# include "../WTL/Exception+WSI.h"
+# include "../WTL/Exception+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_NS(ns)
 
 using ::signal_t;
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_BEGIN_NS(cxx)
+NNT_BEGIN_NS(cxx)
 
 typedef ::std::string signal_t;
 
@@ -765,7 +765,7 @@ Event<EVENT_TPL_IMPL>::connect(signal_t const& sig, object_t* tgt, event_func fu
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";
@@ -789,7 +789,7 @@ Event<EVENT_TPL_IMPL>::connect(signal_t const&  sig, event_pure act)
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";
@@ -812,7 +812,7 @@ Event<EVENT_TPL_IMPL>::redirect(signal_t const& sig, signal_t const& sigto, obje
     typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to redirect signal: [";
         msg += sig;
         msg += "] .";
@@ -859,7 +859,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, object
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -888,7 +888,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, object
     typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -916,7 +916,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, event_
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -950,7 +950,7 @@ template_impl void Event<EVENT_TPL_IMPL>::unblock(signal_t const& sig)
     typename_ block_type::iterator found = ::std::find(_block.begin(), _block.end(), sig);
     if (found == _block.end())
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";
@@ -971,19 +971,19 @@ template_impl bool Event<EVENT_TPL_IMPL>::exist(signal_t const& sig) const
 EVENT_TPL_DECL
 template_impl void Event<EVENT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t& evt, void* sender) const
 {
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     NSAutoreleasePool *__tmp_autoreleasepool = [[NSAutoreleasePool alloc] init];
 # endif
     
     _do_emit(sig, evt, sender);
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     [__tmp_autoreleasepool drain];
 # endif
 }
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

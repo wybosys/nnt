@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "UIConcaveButton.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "WCGColor.h"
-# import "UIColor+WSI.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIConcaveButton
 
@@ -75,4 +75,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

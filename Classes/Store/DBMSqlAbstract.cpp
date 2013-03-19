@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "DBMSqlAbstract.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(store)
 
 DBMSqlDatatable::DBMSqlDatatable()
 : next(NULL), prev(NULL)
@@ -67,5 +67,5 @@ void DBMSqlDatatable::clear()
     }
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

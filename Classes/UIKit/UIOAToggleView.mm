@@ -1,13 +1,13 @@
 
 # import "Core.h"
 # import "UIOAToggleView.h"
-# import "UISwitch+WSI.h"
+# import "UISwitch+NNT.h"
 # import "OAToggle.h"
 # import "UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UIOAToggleViewPrivate : WSIObject {
+@interface UIOAToggleViewPrivate : NNTObject {
     UIOAToggleView *d_owner;
     OAToggle *toggle;
 }
@@ -72,7 +72,7 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (void)act_toggle:(WSIEventObj*)evt {
+- (void)act_toggle:(NNTEventObj*)evt {
     
     UIImageSwitch* imageSwitch = (UIImageSwitch*)evt.sender;
     [self toggle_begin:imageSwitch];
@@ -107,20 +107,20 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (void)act_toggle_close:(WSIEventObj*)evt {
+- (void)act_toggle_close:(NNTEventObj*)evt {
     
     UIImageSwitch *imageSwitch = (UIImageSwitch*)evt.sender;
     NSString *name = [imageSwitch storeFind:@"name"];
-    WSIUIAlertView *alertView = [[WSIUIAlertView alloc] initWithTitle:_W(@"Logout") message:[_W(@"If Logout") stringByAppendingFormat:@"%@", _W(name)] cancelButtonTitle:_W(@"cancel") okButtonTitle:_W(@"ok")];
+    NNTUIAlertView *alertView = [[NNTUIAlertView alloc] initWithTitle:_W(@"Logout") message:[_W(@"If Logout") stringByAppendingFormat:@"%@", _W(name)] cancelButtonTitle:_W(@"cancel") okButtonTitle:_W(@"ok")];
     [alertView storeSet:@"imageSwitch" obj:imageSwitch];
     [alertView connect:kSignalIndexYes sel:@selector(act_toggle_close_ok:) obj:self];
     [alertView show];
     [alertView release];
 }
 
-- (void)act_toggle_close_ok:(WSIEventObj*)evt {
+- (void)act_toggle_close_ok:(NNTEventObj*)evt {
     
-    WSIUIAlertView *alertView = (WSIUIAlertView*)evt.sender;
+    NNTUIAlertView *alertView = (NNTUIAlertView*)evt.sender;
     UIImageSwitch *imageSwitch = (UIImageSwitch*)[alertView storeFind:@"imageSwitch"];
     [toggle del:[[imageSwitch storeFind:@"index"] unsignedIntValue]]; 
     
@@ -132,7 +132,7 @@ WSI_BEGIN_OBJC
     [imageSwitch setNeedsDisplay];
 }
 
-- (void)act_toggle_authorize_success:(WSIEventObj*)evt {
+- (void)act_toggle_authorize_success:(NNTEventObj*)evt {
     
     UIImageSwitch *imageSwitch = [(id)evt.sender storeFind:@"imageSwitch"];
     imageSwitch.value = 1;
@@ -150,12 +150,12 @@ WSI_BEGIN_OBJC
 
 - (id)initWithFrame:(CGRect)frame {    
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UIOAToggleView);
+    NNTDECL_PRIVATE_INIT(UIOAToggleView);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -171,6 +171,6 @@ WSI_BEGIN_OBJC
     [d_ptr initToggle];
 }
 
-WSI_END_OBJC
+NNT_END_OBJC
 
 @end

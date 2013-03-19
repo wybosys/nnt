@@ -3,23 +3,23 @@
 # include "SocketClient.h"
 # include "SocketStream.h"
 
-# include "../../contrib/ace/ACE+WSI.h"
+# include "../../contrib/ace/ACE+NNT.h"
 # include <ace/Connector.h>
 # include <ace/SOCK_Connector.h>
 # include <ace/Asynch_Connector.h>
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 cxx::signal_t kSignalSuccess = "::wsi::success";
 cxx::signal_t kSignalFailed = "::wsi::failed";
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 #   define USE_PROACTOR_MODE
 # else
 #   define USE_REACTOR_MODE
 # endif
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
 // sync ace.
 
@@ -134,7 +134,7 @@ public:
             _peer.emit(kSignalBytesAvailable, eventobj_t::Data(&_peer));
         }
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 		trace_msg("read stream: " + core::string(_peer.buffer->c_str(), _peer.buffer->length()));
 # endif
 
@@ -329,7 +329,7 @@ public:
 
 // sync impl.
 
-WSIDECL_PRIVATE_BEGIN_CXX(SocketClient)
+NNTDECL_PRIVATE_BEGIN_CXX(SocketClient)
 
 void init()
 {
@@ -343,22 +343,22 @@ void dealloc()
 
 _ace_connector_sync connector;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 SocketClient::SocketClient()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SocketClient);
+    NNTDECL_PRIVATE_CONSTRUCT(SocketClient);
 }
 
 SocketClient::~SocketClient()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(SocketClient, super)
-WSI_SIGNAL(kSignalSuccess)
-WSI_SIGNAL(kSignalFailed)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(SocketClient, super)
+NNT_SIGNAL(kSignalSuccess)
+NNT_SIGNAL(kSignalFailed)
+NNTDECL_SIGNALS_END
 
 bool SocketClient::connect_to(cross::NetAddress const& addr, core::Timeout const& tm)
 {    
@@ -395,7 +395,7 @@ SocketStream const& SocketClient::stream() const
 
 // async impl.
 
-WSIDECL_PRIVATE_BEGIN_CXX(SocketClientAsync)
+NNTDECL_PRIVATE_BEGIN_CXX(SocketClientAsync)
 
 void init()
 {
@@ -432,22 +432,22 @@ _ace_connector_async connector;
 _ace_handler_async *handler;
 # endif
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 SocketClientAsync::SocketClientAsync()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SocketClientAsync);
+    NNTDECL_PRIVATE_CONSTRUCT(SocketClientAsync);
 }
 
 SocketClientAsync::~SocketClientAsync()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(SocketClientAsync, super)
-WSI_SIGNAL(kSignalSuccess)
-WSI_SIGNAL(kSignalFailed)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(SocketClientAsync, super)
+NNT_SIGNAL(kSignalSuccess)
+NNT_SIGNAL(kSignalFailed)
+NNTDECL_SIGNALS_END
 
 void SocketClientAsync::connect_to(cross::NetAddress const& addr, core::Timeout const& tm)
 {    
@@ -523,5 +523,5 @@ SocketStream const& SocketClientAsync::stream() const
     return d_ptr->handler->stream();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

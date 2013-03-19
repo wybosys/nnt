@@ -2,14 +2,14 @@
 # import "Core.h"
 # import "CHMObjParser.h"
 # import "CHMParser.h"
-# import "HTMLNode+WSI.h"
+# import "HTMLNode+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 int func_enum(chm_t *chm, chm_unitinfo *ui, void *context);
 int func_load_file(chm_t *chm, chm_unitinfo *ui, void *context);
 
-WSIUSE_CATEGORY(HTMLNode, WSI);
+NNTUSE_CATEGORY(HTMLNode, NNT);
 
 @implementation CHMTree
 
@@ -178,12 +178,12 @@ int func_enum(chm_t *chm, chm_unitinfo *ui, void *context) {
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(CHMObjParser);
+    NNTDECL_PRIVATE_INIT(CHMObjParser);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -251,4 +251,4 @@ int func_load_file(chm_t *chm, chm_unitinfo *ui, void *context) {
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

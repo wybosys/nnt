@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPPlotRange (WSI)
+@implementation CPPlotRange (NNT)
 
 @end
 
@@ -12,4 +12,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

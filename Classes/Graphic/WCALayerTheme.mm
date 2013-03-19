@@ -3,9 +3,9 @@
 # import "WCALayer.h"
 # import "WCALayerTheme.h"
 # import "WCGColor.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation WCALayerTheme
 
@@ -23,7 +23,7 @@ WSI_BEGIN_OBJC
     PASS;
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (UIImage*)createImage:(CGSize)size {
     WCALayer *layer = [[WCALayer alloc] init];
@@ -49,4 +49,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -3,15 +3,15 @@
 # import "UISMSController.h"
 # import <MessageUI/MessageUI.h>
 # import "App.h"
-# import "UIDevice+WSI.h"
+# import "UIDevice+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(UISMSController, WSIObject) < MFMessageComposeViewControllerDelegate >
+NNTDECL_PRIVATE_BEGIN(UISMSController, NNTObject) < MFMessageComposeViewControllerDelegate >
 
 @property (nonatomic, readonly) MFMessageComposeViewController* ctlr;
 
-WSIDECL_PRIVATE_IMPL(UISMSController)
+NNTDECL_PRIVATE_IMPL(UISMSController)
 
 @synthesize ctlr;
 
@@ -37,7 +37,7 @@ WSIDECL_PRIVATE_IMPL(UISMSController)
     [d_owner release];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UISMSController
 
@@ -49,7 +49,7 @@ WSIDECL_PRIVATE_END
     
     _recipients = [[NSMutableArray alloc] init];
 
-    WSIDECL_PRIVATE_INIT(UISMSController);    
+    NNTDECL_PRIVATE_INIT(UISMSController);    
     return self;
 }
 
@@ -57,7 +57,7 @@ WSIDECL_PRIVATE_END
     zero_release(_recipients);
     zero_release(body);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -70,7 +70,7 @@ WSIDECL_PRIVATE_END
     d_ptr.ctlr.recipients = _recipients;
     d_ptr.ctlr.body = body;
     
-    [[WSIApplication shared].window.rootViewController presentModalViewController:d_ptr.ctlr animated:YES];
+    [[NNTApplication shared].window.rootViewController presentModalViewController:d_ptr.ctlr animated:YES];
 }
 
 - (void)add:(NSString*)phone {
@@ -83,4 +83,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

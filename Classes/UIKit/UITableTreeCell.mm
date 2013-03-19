@@ -3,7 +3,7 @@
 # import "UITableTreeCell.h"
 # import "UITableTreeViewController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UITableViewGroupCell
 
@@ -50,4 +50,4 @@ WSI_BEGIN_OBJC
 _CXXVIEW_IMPL_BEGIN(UITableViewGroupCell)
 _CXXVIEW_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

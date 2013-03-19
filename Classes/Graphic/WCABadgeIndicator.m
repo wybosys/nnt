@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "WCABadgeIndicator.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface WCABadgeIndicator ()
 
@@ -103,4 +103,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

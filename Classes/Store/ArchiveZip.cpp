@@ -3,11 +3,11 @@
 # include "ArchiveZip.h"
 # include <sys/stat.h>
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 # include "../../contrib/zip/zip.h"
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX NNT_BEGIN_NS(store)
 
 Zip::Zip()
 : zp(NULL)
@@ -68,4 +68,4 @@ void UnZip::close() {
     }
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

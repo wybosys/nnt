@@ -2,27 +2,27 @@
 # import "Core.h"
 # import "UIDesktop.h"
 # import <QuartzCore/QuartzCore.h>
-# import "UIDevice+WSI.h"
-# import "CoreGraphic+WSI.h"
-# import "UIScreen+WSI.h"
+# import "UIDevice+NNT.h"
+# import "CoreGraphic+NNT.h"
+# import "UIScreen+NNT.h"
 # import "App.h"
 # import "QzEffect.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString *kSignalClosed = @"::wsi::closed";
 NSString *kSignalShown = @"::wsi::shown";
 
-@implementation WSIUIDesktop
+@implementation NNTUIDesktop
 
 @synthesize contentFrame = _contentFrame, preferredContentFrame = _preferredContentFrame;
 @synthesize enableAutoClose = _enableAutoClose, enableAutoCloseAnimated = _enableAutoCloseAnimated;
 @synthesize effectClose = _effectClose, effectShow = _effectShow;
 
-+ (WSIUIDesktop*)desktop {
-    return [[[WSIUIDesktop alloc] initWithZero] autorelease];
++ (NNTUIDesktop*)desktop {
+    return [[[NNTUIDesktop alloc] initWithZero] autorelease];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -54,7 +54,7 @@ NSString *kSignalShown = @"::wsi::shown";
     }
     
     // set default position.
-    UIView* parent = [WSIApplication shared].window.rootViewController.view;
+    UIView* parent = [NNTApplication shared].window.rootViewController.view;
     self.frame = parent.bounds;
     
     // sigs.
@@ -71,10 +71,10 @@ NSString *kSignalShown = @"::wsi::shown";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalShown)
-WSIEVENT_SIGNAL(kSignalClosed)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalShown)
+NNTEVENT_SIGNAL(kSignalClosed)
+NNTEVENT_END
 
 - (void)show:(BOOL)animated {
     [self retain];
@@ -83,7 +83,7 @@ WSIEVENT_END
     [self layoutSubviews];
     
     // add view and show.
-    UIView* parent = [WSIApplication shared].window.rootViewController.view;
+    UIView* parent = [NNTApplication shared].window.rootViewController.view;
     [parent addSubview:self];
     
     if (animated) {
@@ -107,7 +107,7 @@ WSIEVENT_END
             [_effectClose active:each.layer];
         }
         
-        WSI_MAINTHREAD(
+        NNT_MAINTHREAD(
         [self performSelector:@selector(act_close)
                    withObject:nil
                    afterDelay:kQzEffectDuration]
@@ -148,11 +148,11 @@ WSIEVENT_END
     return rc;
 }
 
-- (void)_act_desktop_touches_began:(WSIEventObj*)evt {
+- (void)_act_desktop_touches_began:(NNTEventObj*)evt {
     PASS;
 }
 
-- (void)_act_desktop_touches_ended:(WSIEventObj*)evt {
+- (void)_act_desktop_touches_ended:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     
     if (_enableAutoClose == NO)
@@ -169,7 +169,7 @@ WSIEVENT_END
     }
 }
 
-- (void)_act_desktop_touches_moved:(WSIEventObj*)evt {
+- (void)_act_desktop_touches_moved:(NNTEventObj*)evt {
     PASS;
 }
 
@@ -180,7 +180,7 @@ WSIEVENT_END
 
 @end
 
-_CXXVIEW_IMPL_BEGIN(WSIUIDesktop)
+_CXXVIEW_IMPL_BEGIN(NNTUIDesktop)
 
 - (NSArray*)contentViews {
     ui::IDesktop* cxx = dynamic_cast<ui::IDesktop*>(self._cxxobj);
@@ -189,4 +189,4 @@ _CXXVIEW_IMPL_BEGIN(WSIUIDesktop)
 
 _CXXVIEW_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

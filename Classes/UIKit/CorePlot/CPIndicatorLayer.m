@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
-# import "Math+WSI.h"
+# import "CorePlot+NNT.h"
+# import "Math+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @interface CPIndicatorLayerPrivate : NSObject {
     CPIndicatorLayer *d_owner;
@@ -35,7 +35,7 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(CPIndicatorLayer);
+    NNTDECL_PRIVATE_INIT(CPIndicatorLayer);
     
     baseHeight = .1f;
     
@@ -49,7 +49,7 @@ WSI_BEGIN
     [indicatorBaseColor release];
     [identifier release];
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -130,4 +130,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

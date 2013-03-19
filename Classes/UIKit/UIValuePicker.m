@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "UIValuePicker.h"
 # import "UIValuePickerView.h"
-# import "UIButton+WSI.h"
-# import "UIViewController+WSI.h"
+# import "UIButton+NNT.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIValuePicker
 
@@ -18,7 +18,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    pickerController = [[WSIUIViewController alloc] init];
+    pickerController = [[NNTUIViewController alloc] init];
     
     pickerView = [[UIValuePickerView alloc] initWithZero];
     pickerController.view = pickerView;    
@@ -54,9 +54,9 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged);
+NNTEVENT_END
 
 - (void)act_number_inc:(id)obj {
     if (_numberMode) {
@@ -232,4 +232,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

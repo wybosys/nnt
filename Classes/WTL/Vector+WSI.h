@@ -1,14 +1,14 @@
 
-# ifndef __WSI_CORE_VECTOR_56FAB19464A7411FAD0AFBC152A4AD2E_H_INCLUDED
-# define __WSI_CORE_VECTOR_56FAB19464A7411FAD0AFBC152A4AD2E_H_INCLUDED
+# ifndef __NNT_CORE_VECTOR_56FAB19464A7411FAD0AFBC152A4AD2E_H_INCLUDED
+# define __NNT_CORE_VECTOR_56FAB19464A7411FAD0AFBC152A4AD2E_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <vector>
 # include <stack>
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
 using std::stack;
 
@@ -537,15 +537,15 @@ static wtl::vector<valT> tovector(wtl::stack<valT2> const* psck)
     return re;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_NS(core)
 
 using wtl::string;
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 template <class valT>
 inline_impl ::wsi::wtl::vector<valT>& operator << (::wsi::wtl::vector<valT>& left, valT const& right) 
@@ -561,15 +561,15 @@ inline_impl ::wsi::wtl::vector<valT const*>& operator << (::wsi::wtl::vector<val
     return con;
 }
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 typedef ::wsi::wtl::vector<id> _NSVector;
 typedef _NSVector::iterator NSVectorIterator;
 typedef _NSVector::const_iterator NSVectorConstIterator;
 
-@interface NSVector : WSIObject {
+@interface NSVector : NNTObject {
     _NSVector *_vector;
 }
 
@@ -580,7 +580,7 @@ typedef _NSVector::const_iterator NSVectorConstIterator;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

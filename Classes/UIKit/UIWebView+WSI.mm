@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "UIWebView+WSI.h"
+# import "UIWebView+NNT.h"
 # import "../3rd/jquery.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalLoadFinish = @"::wsi::ui::load::finish";
 signal_t kSignalLoadError = @"::wsi::ui::load::error";
@@ -11,7 +11,7 @@ signal_t kSignalLinkClicked = @"::wsi::ui::link::clicked";
 signal_t kSignalWebCallback = @"::wsi::ui::web::callback";
 signal_t kSignalWebAction = @"::wsi::ui::web::action";
 
-@implementation UIWebView (WSI)
+@implementation UIWebView (NNT)
 
 - (void)loadHTMLStringLocal:(NSString *)string {
     [self loadHTMLString:string baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
@@ -52,7 +52,7 @@ signal_t kSignalWebAction = @"::wsi::ui::web::action";
 
 @end
 
-@implementation WSIUIWebView
+@implementation NNTUIWebView
 
 @synthesize additionalJavascript;
 @dynamic content;
@@ -80,7 +80,7 @@ signal_t kSignalWebAction = @"::wsi::ui::web::action";
     
     _webView.delegate = nil;
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -96,20 +96,20 @@ signal_t kSignalWebAction = @"::wsi::ui::web::action";
     [self loadHTMLString:string baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalLoadFinish)
-WSIEVENT_SIGNAL(kSignalLoadError)
-WSIEVENT_SIGNAL(kSignalLinkClicked)
-WSIEVENT_SIGNAL(kSignalWebCallback)
-WSIEVENT_SIGNAL(kSignalWebAction)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalLoadFinish)
+NNTEVENT_SIGNAL(kSignalLoadError)
+NNTEVENT_SIGNAL(kSignalLinkClicked)
+NNTEVENT_SIGNAL(kSignalWebCallback)
+NNTEVENT_SIGNAL(kSignalWebAction)
+NNTEVENT_END
 
 - (NSMutableArray*)additionalJavascript {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (additionalJavascript == nil) {
         additionalJavascript = [[NSMutableArray alloc] initWithCapacity:4];
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return additionalJavascript;
 }
 
@@ -129,7 +129,7 @@ WSIEVENT_END
     [self connect:kSignalWebCallback sel:@selector(__act_callback:)];
 }
 
-- (void)__act_callback:(WSIEventObj*)evt {
+- (void)__act_callback:(NNTEventObj*)evt {
     NSString* full = (NSString*)evt.result;
     NSArray * res = [full captureComponentsMatchedByRegex:@"wsi:///ui/html/action/(\\S+)"];
     if (res) {
@@ -218,7 +218,7 @@ WSIEVENT_END
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if (additionalJavascript) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         for (NSString* each in additionalJavascript) {
             NSString* result = [self stringByEvaluatingJavaScriptFromString:each];
             trace_msg(result);
@@ -328,9 +328,9 @@ WSIEVENT_END
 
 @end
 
-WSIIMPL_CATEGORY(UIWebView, WSI);
+NNTIMPL_CATEGORY(UIWebView, NNT);
 
-_CXXVIEW_IMPL_BEGIN(WSIUIWebView)
+_CXXVIEW_IMPL_BEGIN(NNTUIWebView)
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     BOOL ret = [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
@@ -339,4 +339,4 @@ _CXXVIEW_IMPL_BEGIN(WSIUIWebView)
 
 _CXXVIEW_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

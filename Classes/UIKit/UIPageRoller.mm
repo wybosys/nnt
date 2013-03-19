@@ -2,17 +2,17 @@
 # import "Core.h"
 # import "UIPageRoller.h"
 # import "UIPageRollerPage.h"
-# import "UIGesture+WSI.h"
+# import "UIGesture+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(UIPageRoller, WSIObject)
+NNTDECL_PRIVATE_BEGIN(UIPageRoller, NNTObject)
 
 @property (nonatomic, readonly) NSMutableArray* pages;
 
-WSIDECL_PRIVATE_IMPL(UIPageRoller)
+NNTDECL_PRIVATE_IMPL(UIPageRoller)
 
 @synthesize pages;
 
@@ -27,7 +27,7 @@ WSIDECL_PRIVATE_IMPL(UIPageRoller)
     [super dealloc];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @interface UIPageRoller ()
 
@@ -48,9 +48,9 @@ pages = _pages;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UIPageRoller);
+    NNTDECL_PRIVATE_INIT(UIPageRoller);
     
-    _pageControl = [[WSIUIPageControl alloc] initWithZero];
+    _pageControl = [[NNTUIPageControl alloc] initWithZero];
     [self addSubview:_pageControl];
     [_pageControl connect:kSignalSelectChanged sel:@selector(_act_page_changed:) obj:self];
     safe_release(_pageControl);
@@ -59,8 +59,8 @@ pages = _pages;
     _delegate = self;
     
     // ges.
-    WSIUISwipeGestureRecognizer* ges_left = [[WSIUISwipeGestureRecognizer alloc] init];
-    WSIUISwipeGestureRecognizer* ges_right = [[WSIUISwipeGestureRecognizer alloc] init];
+    NNTUISwipeGestureRecognizer* ges_left = [[NNTUISwipeGestureRecognizer alloc] init];
+    NNTUISwipeGestureRecognizer* ges_right = [[NNTUISwipeGestureRecognizer alloc] init];
     ges_left.direction = UISwipeGestureRecognizerDirectionLeft;
     ges_right.direction = UISwipeGestureRecognizerDirectionRight;
     [ges_left connect:kSignalGestureActive sel:@selector(_act_gesture_left) obj:self];
@@ -79,7 +79,7 @@ pages = _pages;
 - (void)dealloc {
     safe_release(_pages);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -219,7 +219,7 @@ pages = _pages;
 
 // callback.
 
-- (void)_act_page_changed:(WSIEventObj*)evt {
+- (void)_act_page_changed:(NNTEventObj*)evt {
     [self selectPageByIndex:_pageControl.currentPage animated:YES];
 }
 
@@ -261,4 +261,4 @@ _CXXVIEW_IMPL_BEGIN(UIPageRoller)
 
 _CXXVIEW_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

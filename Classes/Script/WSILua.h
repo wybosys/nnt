@@ -1,10 +1,10 @@
 
-# ifndef __WSI_LUA_811675FC155E4821BDC91B270362A462_H_INCLUDED
-# define __WSI_LUA_811675FC155E4821BDC91B270362A462_H_INCLUDED
+# ifndef __NNT_LUA_811675FC155E4821BDC91B270362A462_H_INCLUDED
+# define __NNT_LUA_811675FC155E4821BDC91B270362A462_H_INCLUDED
 
-# include "WSIScript.h"
+# include "NNTScript.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 struct _wlua_State
 {
@@ -21,28 +21,28 @@ struct _wlua_Processor
 typedef _wlua_State wlua_State;
 typedef _wlua_Processor wlua_Processor;
 
-WSIAPI(wlua_Processor*) wlua_Open();
-WSIAPI(void) wlua_Close(wlua_Processor*);
-WSIAPI(void) wluaopen_kernel(struct lua_State*);
+NNTAPI(wlua_Processor*) wlua_Open();
+NNTAPI(void) wlua_Close(wlua_Processor*);
+NNTAPI(void) wluaopen_kernel(struct lua_State*);
 
 static struct lua_State* wluaL(wlua_Processor* proc)
 {
     return proc->state.state;
 }
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 // for object-c
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSILua);
+NNTDECL_PRIVATE_HEAD(NNTLua);
 
-@interface WSILua : WSIObject <WSIScript> {
+@interface NNTLua : NNTObject <NNTScript> {
     
-    WSIDECL_PRIVATE(WSILua);
+    NNTDECL_PRIVATE(NNTLua);
 }
 
 @property (nonatomic, readonly) wlua_Processor* processor;
@@ -52,16 +52,16 @@ WSIDECL_PRIVATE_HEAD(WSILua);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
 // for c++
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(script)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(script)
 
 class Lua
 : public cxx::Object<>
@@ -77,8 +77,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

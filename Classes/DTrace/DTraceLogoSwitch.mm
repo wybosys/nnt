@@ -4,7 +4,7 @@
 # import "DTrace.res"
 # import "DTraceController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation DTraceLogoSwitch
 
@@ -49,4 +49,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

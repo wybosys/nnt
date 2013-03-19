@@ -1,86 +1,86 @@
 
-# ifndef __WSI_CORE_STRING_97921F73AF9D4FAD99AA5C45D592CFB2_H_INCLUDED
-# define __WSI_CORE_STRING_97921F73AF9D4FAD99AA5C45D592CFB2_H_INCLUDED
+# ifndef __NNT_CORE_STRING_97921F73AF9D4FAD99AA5C45D592CFB2_H_INCLUDED
+# define __NNT_CORE_STRING_97921F73AF9D4FAD99AA5C45D592CFB2_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 //! @param len, if -1, will calc the input str's length by strlen.
 int str_indexof_char(char const*, char c, int len, int offset);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <string>
 # include <vector>
 # include <deque>
 # include <stack>
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(wtl)
 
 using ::std::string;
 using ::std::stringstream;
 
 //! present bytes as HEX char, must pass length of bytes.
-WSIAPI(string) hex_cast(byte const* bytes, usize len);
+NNTAPI(string) hex_cast(byte const* bytes, usize len);
 
 //! replace/
-WSIAPI(string) replace(string const&, string const& from, string const& to);
-WSIAPI(string&) replace_of(string&, string const& from, string const& to);
+NNTAPI(string) replace(string const&, string const& from, string const& to);
+NNTAPI(string&) replace_of(string&, string const& from, string const& to);
 
 //! present bytes from HEX char.
-WSIAPI(bool) hex_cast(string const&, byte** bytes, usize* len);
+NNTAPI(bool) hex_cast(string const&, byte** bytes, usize* len);
 
 //! splite string.
-WSIAPI(void) split(string const& str, string const& by, ::std::vector<string>& res, bool compress = true);
-WSIAPI(void) split(string const& str, string const& by, ::std::deque<string>& res, bool compress = true);
+NNTAPI(void) split(string const& str, string const& by, ::std::vector<string>& res, bool compress = true);
+NNTAPI(void) split(string const& str, string const& by, ::std::deque<string>& res, bool compress = true);
 
 //! format.
-WSIAPI(string) format(char const*, ...);
+NNTAPI(string) format(char const*, ...);
 
 //! to string.
-WSIAPI(string) tostr(int);
-WSIAPI(string) tostr(uint);
-WSIAPI(string) tostr(float);
-WSIAPI(string) tostr(double);
-WSIAPI(string) tostr(short);
-WSIAPI(string) tostr(ushort);
-WSIAPI(string) tostr(long);
-WSIAPI(string) tostr(ulong);
+NNTAPI(string) tostr(int);
+NNTAPI(string) tostr(uint);
+NNTAPI(string) tostr(float);
+NNTAPI(string) tostr(double);
+NNTAPI(string) tostr(short);
+NNTAPI(string) tostr(ushort);
+NNTAPI(string) tostr(long);
+NNTAPI(string) tostr(ulong);
 
 inline_impl string const& tostr(string const& str) {
     return str;
 };
 
 //! to number.
-WSIAPI(int) toint(string const&);
-WSIAPI(uint) touint(string const&);
-WSIAPI(bool) tobool(string const&);
-WSIAPI(short) toshort(string const&);
-WSIAPI(ushort) toushort(string const&);
-WSIAPI(long) tolong(string const&);
-WSIAPI(ulong) toulong(string const&);
-WSIAPI(float) tofloat(string const&);
-WSIAPI(double) todouble(string const&);
-WSIAPI(real) toreal(string const&);
-WSIAPI(int) hex2int(string const&);
-WSIAPI(long) hex2long(string const&);
-WSIAPI(longlong) hex2longlong(string const&);
+NNTAPI(int) toint(string const&);
+NNTAPI(uint) touint(string const&);
+NNTAPI(bool) tobool(string const&);
+NNTAPI(short) toshort(string const&);
+NNTAPI(ushort) toushort(string const&);
+NNTAPI(long) tolong(string const&);
+NNTAPI(ulong) toulong(string const&);
+NNTAPI(float) tofloat(string const&);
+NNTAPI(double) todouble(string const&);
+NNTAPI(real) toreal(string const&);
+NNTAPI(int) hex2int(string const&);
+NNTAPI(long) hex2long(string const&);
+NNTAPI(longlong) hex2longlong(string const&);
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSIAPI(bool) tobool(NSString*);
-WSIAPI(string) tostr(NSString*);
-WSIAPI(int) toint(NSString*);
-WSIAPI(uint) touint(NSString*);
-WSIAPI(short) toshort(NSString*);
-WSIAPI(ushort) toushort(NSString*);
-WSIAPI(long) tolong(NSString*);
-WSIAPI(ulong) toulong(NSString*);
-WSIAPI(float) tofloat(NSString*);
-WSIAPI(double) todouble(NSString*);
-WSIAPI(real) toreal(NSString*);
+NNTAPI(bool) tobool(NSString*);
+NNTAPI(string) tostr(NSString*);
+NNTAPI(int) toint(NSString*);
+NNTAPI(uint) touint(NSString*);
+NNTAPI(short) toshort(NSString*);
+NNTAPI(ushort) toushort(NSString*);
+NNTAPI(long) tolong(NSString*);
+NNTAPI(ulong) toulong(NSString*);
+NNTAPI(float) tofloat(NSString*);
+NNTAPI(double) todouble(NSString*);
+NNTAPI(real) toreal(NSString*);
 
 # endif
 
@@ -108,21 +108,21 @@ inline_impl string& operator << (string& str, valT const& val)
     return str;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_NS(core)
 
 using namespace wtl;
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_C_COMPATIABLE
+# ifdef NNT_C_COMPATIABLE
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 static const char MAP_BINARY_ASCII_LOWER[16] = {
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
@@ -911,15 +911,15 @@ static const char MAP_ASCII_BINARY_XID[] = {
     0
 };
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIString : NSString <NSHash> {
+@interface NNTString : NSString <NSHash> {
     
 }
 
@@ -927,7 +927,7 @@ WSI_BEGIN_HEADER_OBJC
 
 extern CFStringEncoding CFStringEncodingFromWindowsLocaleCode(udword lang);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

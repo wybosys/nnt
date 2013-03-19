@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "WCGLineStyle.h"
 # import "WCGColor.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /**	@cond */
 @interface WCGLineStyle ()
@@ -225,4 +225,4 @@ IOSEXPRESS(
 @end
 
 
-WSI_END_OBJC
+NNT_END_OBJC

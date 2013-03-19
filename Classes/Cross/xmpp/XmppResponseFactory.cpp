@@ -148,7 +148,7 @@ void AbstractResponseFactory::unregister_object(FactoryObject const& obj)
 
 // impl.
 
-WSIDECL_PRIVATE_BEGIN_CXX(ResponseFactory)
+NNTDECL_PRIVATE_BEGIN_CXX(ResponseFactory)
 
 void init()
 {
@@ -171,16 +171,16 @@ ChallengeFactory fct_challenge;
 SuccessFactory fct_success;
 BlackholeFactory fct_blackhole;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 ResponseFactory::ResponseFactory()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(ResponseFactory);
+    NNTDECL_PRIVATE_CONSTRUCT(ResponseFactory);
 }
 
 ResponseFactory::~ResponseFactory()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void ResponseFactory::set_client(Client & client)

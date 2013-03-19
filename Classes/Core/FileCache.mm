@@ -1,12 +1,12 @@
 
 # import "Core.h"
 # import "FileCache.h"
-# import "Directory+WSI.h"
+# import "Directory+NNT.h"
 //# import <Google/GDataXMLNode.h>
 # import "coretypes.h"
 # import "XmlParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface CacheItemArrayFileCache : CacheItem
 @end
@@ -27,10 +27,10 @@ WSI_BEGIN_OBJC
 
 @synthesize url;
 
-- (id)initWithPath:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWithPath:(NSString *)path type:(NNTDirectoryType)type {
     self = [super init];
         
-    self.url = WSIDirectoryCreateWithType(path, type);
+    self.url = NNTDirectoryCreateWithType(path, type);
     
     return self;
 }
@@ -47,7 +47,7 @@ WSI_BEGIN_OBJC
     NSString *str_path;
     
     //! type of directory.
-    WSIDirectoryType dir_type;
+    NNTDirectoryType dir_type;
     
     //! filesystem manager.
     NSFileManager *fs_mgr;
@@ -57,7 +57,7 @@ WSI_BEGIN_OBJC
 
 @property (nonatomic, assign) FileCache *d_owner;
 @property (nonatomic, copy) NSString *str_path;
-@property (nonatomic, assign) WSIDirectoryType dir_type;
+@property (nonatomic, assign) NNTDirectoryType dir_type;
 @property (nonatomic, assign) NSFileManager *fs_mgr;
 
 @end
@@ -71,7 +71,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    dir_type = WSIDirectoryTypeNone;
+    dir_type = NNTDirectoryTypeNone;
     fs_mgr = [NSFileManager defaultManager];
     
     return self;
@@ -95,7 +95,7 @@ WSI_BEGIN_OBJC
 @synthesize indexFile;
 
 - (void)__init {
-    WSIDECL_PRIVATE_INIT(FileCache);
+    NNTDECL_PRIVATE_INIT(FileCache);
     
     self.indexFile = @"index.xml";
 }
@@ -106,7 +106,7 @@ WSI_BEGIN_OBJC
     return self;
 }
 
-- (id)initWithPath:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWithPath:(NSString *)path type:(NNTDirectoryType)type {
     self = [super initWithPath:path type:type];        
     [self __init];
     
@@ -118,7 +118,7 @@ WSI_BEGIN_OBJC
 
 - (void)dealloc {
     zero_release(indexFile);
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -126,7 +126,7 @@ WSI_BEGIN_OBJC
     Class ret = nil;
     switch ([(NSObject*)obj coreType]) {
         default: {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             NSString *msg = [NSString stringWithFormat:@"cache warning: caching a [%s] class object", object_getClassName(obj)];
             trace_msg(msg);
 # endif
@@ -164,7 +164,7 @@ WSI_BEGIN_OBJC
     
     NSError* error = nil;
     
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     // make index file.
     //GDataXMLElement* root = [[GDataXMLElement alloc] initWithXMLString:@"<root />" error:&error];
@@ -265,7 +265,7 @@ WSI_BEGIN_OBJC
 }
 
 - (BOOL)load {    
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
     
     [self begin_load];
     
@@ -282,7 +282,7 @@ WSI_BEGIN_OBJC
     
     BOOL enable_load = YES;
     
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     // read index file.
     //GDataXMLDocument* doc = [[GDataXMLDocument alloc] initWithData:data options:0 error:&error];
@@ -319,7 +319,7 @@ WSI_BEGIN_OBJC
     //NSArray* xml_indexes = [root elementsForName:@"index"];
     parser::XmlNode::nodes_result xml_indexes = root->nodes("index");
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     uint _sum = 0;
 # endif
     
@@ -358,13 +358,13 @@ WSI_BEGIN_OBJC
         if ([self addItem:item])
         //[super addItemUnsafe:item];
         {
-            WSIDEBUG_EXPRESS(++_sum);
+            NNTDEBUG_EXPRESS(++_sum);
         }
         
         safe_release(item);
     }
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_fmt(@"load %d[%d] items",
               _sum,
               //(uint)[xml_indexes count]
@@ -412,13 +412,13 @@ WSI_BEGIN_OBJC
 - (NSData*)toData {
     if (self.data == nil)
         return nil;
-    NSString *str = [WSIObject json_encode:self.data];
+    NSString *str = [NNTObject json_encode:self.data];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    self.data = [WSIObject json_decode:str];
+    self.data = [NNTObject json_decode:str];
     [str release];
     return YES;
 }
@@ -430,13 +430,13 @@ WSI_BEGIN_OBJC
 - (NSData*)toData {
     if (self.data == nil)
         return nil;
-    NSString *str = [WSIObject json_encode:self.data];
+    NSString *str = [NNTObject json_encode:self.data];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    self.data = [WSIObject json_decode:str];
+    self.data = [NNTObject json_decode:str];
     [str release];
     return YES;
 }
@@ -448,13 +448,13 @@ WSI_BEGIN_OBJC
 - (NSData*)toData {
     if (self.data == nil)
         return nil;
-    NSString *str = [WSIObject json_encode:self.data];
+    NSString *str = [NNTObject json_encode:self.data];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    self.data = [WSIObject json_decode:str];
+    self.data = [NNTObject json_decode:str];
     [str release];
     return YES;
 }
@@ -493,4 +493,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

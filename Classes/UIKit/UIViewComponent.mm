@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "UIViewComponent.h"
-# import "UILabel+WSI.h"
+# import "UILabel+NNT.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UITitleLabel
 
@@ -13,13 +13,13 @@ WSI_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    WSIUILabel *lbl = nil;
+    NNTUILabel *lbl = nil;
     
-    lbl = [[WSIUILabel alloc] initWithZero];
+    lbl = [[NNTUILabel alloc] initWithZero];
     self.title = lbl;
     [lbl release];
     
-    lbl = [[WSIUILabel alloc] initWithZero];
+    lbl = [[NNTUILabel alloc] initWithZero];
     self.label = lbl;
     [lbl release];
 
@@ -55,4 +55,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

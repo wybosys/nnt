@@ -1,22 +1,22 @@
 
 # import "Core.h"
-# import "UIImagePickerController+WSI.h"
+# import "UIImagePickerController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUIImagePickerController
+@implementation NNTUIImagePickerController
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 + (id)controller {
-    return [[[WSIUIImagePickerController alloc] init] autorelease];
+    return [[[NNTUIImagePickerController alloc] init] autorelease];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

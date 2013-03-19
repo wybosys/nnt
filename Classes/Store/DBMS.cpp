@@ -2,14 +2,14 @@
 # include "Core.h"
 # include "DBMS.h"
 
-# include "WSIBdb.h"
-# include "WSISqlite.h"
-# include "WSIMySql.h"
-//# include "WSIOracle.h"
-//# include "WSIPostgreSql.h"
-# include "WSISqlServer.h"
+# include "NNTBdb.h"
+# include "NNTSqlite.h"
+# include "NNTMySql.h"
+//# include "NNTOracle.h"
+//# include "NNTPostgreSql.h"
+# include "NNTSqlServer.h"
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX NNT_BEGIN_NS(store)
 
 class map_drivers
 {
@@ -41,4 +41,4 @@ IDBMS* instanceDatabaseByIdentity(core::string const& identity)
     return ret;
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

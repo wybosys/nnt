@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "XmlParserUtil.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(parser)
 
 core::string XmlAttributeUtil::AttributeFind(core::string const& tgt, core::string const& str)
 {
@@ -21,5 +21,5 @@ core::string XmlAttributeUtil::AttributeMake(core::string const& name, core::str
     return name + "=" + "\"" + value + "\"";
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

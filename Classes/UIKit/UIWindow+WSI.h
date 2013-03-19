@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_UIWINDOW_0FF9A4A16B9A4C748F0767B40B61148D_H_INCLUDED
-# define __WSI_UIKIT_UIWINDOW_0FF9A4A16B9A4C748F0767B40B61148D_H_INCLUDED
+# ifndef __NNT_UIKIT_UIWINDOW_0FF9A4A16B9A4C748F0767B40B61148D_H_INCLUDED
+# define __NNT_UIKIT_UIWINDOW_0FF9A4A16B9A4C748F0767B40B61148D_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIWindow (WSI)
+@interface UIWindow (NNT)
 
 //! get bounds with screen's coordinate.
 - (CGRect)boundsOnScreen;
@@ -20,41 +20,41 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WSIUIWindow : UIWindow {
-    WSIOBJECT_DECL;
+@interface NNTUIWindow : UIWindow {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalBecomeKey;
-WSI_EXTERN signal_t kSignalResignKey;
+NNT_EXTERN signal_t kSignalBecomeKey;
+NNT_EXTERN signal_t kSignalResignKey;
 
-WSIDECL_CATEGORY(UIWindow, WSI);
+NNTDECL_CATEGORY(UIWindow, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class Application;
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
 class Window
-: public ui::Control<Window, WSIUIWindow>
+: public ui::Control<Window, NNTUIWindow>
 {   
-    typedef ui::Control<Window, WSIUIWindow> super;    
-    WSIDECL_NOCOPY(Window);
+    typedef ui::Control<Window, NNTUIWindow> super;    
+    NNTDECL_NOCOPY(Window);
     
 public:    
         
     Window(UIWindow* win = nil)
-    : super((WSIUIWindow*)win)
+    : super((NNTUIWindow*)win)
     {
         PASS;
     }
@@ -67,8 +67,8 @@ public:
     friend class Application;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -3,10 +3,10 @@
 # import "UIBadgeIndicator.h"
 # import <QuartzCore/QuartzCore.h>
 # import "WCGTextStyle.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIBadgeIndicator
 
@@ -122,4 +122,4 @@ badgeLineStyle = _badgeLineStyle;
 
 _CXXCONTROL_IMPL(UIBadgeIndicator);
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -7,7 +7,7 @@
 
 XMPP_BEGIN
 
-WSIDECL_PRIVATE_BEGIN_CXX(Client)
+NNTDECL_PRIVATE_BEGIN_CXX(Client)
 
 void init()
 {
@@ -74,7 +74,7 @@ void act_bytes(cxx::eventobj_t& evt)
     // parse data.
     if (stm->read_all(da, tm))
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         trace_msg("XMPP will process: " + core::type_cast<core::string>(da));
 # endif
 
@@ -123,7 +123,7 @@ bool binded, sessioned;
 //! state machine.
 wf::Machine machine;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 ClientSetting::ClientSetting()
 : 
@@ -137,23 +137,23 @@ mechanism(cor::MECHANISM_UNKNOWN)
 
 Client::Client()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Client);
+    NNTDECL_PRIVATE_CONSTRUCT(Client);
 }
 
 Client::~Client()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(Client, super)
-WSI_SIGNAL(kSignalConnected)
-WSI_SIGNAL(kSignalDisconnected)
-WSI_SIGNAL(kSignalFailure)
-WSI_SIGNAL(kSignalBind)
-WSI_SIGNAL(kSignalSession)
-WSI_SIGNAL(kSignalDiscoInfo)
-WSI_SIGNAL(kSignalDiscoItems)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(Client, super)
+NNT_SIGNAL(kSignalConnected)
+NNT_SIGNAL(kSignalDisconnected)
+NNT_SIGNAL(kSignalFailure)
+NNT_SIGNAL(kSignalBind)
+NNT_SIGNAL(kSignalSession)
+NNT_SIGNAL(kSignalDiscoInfo)
+NNT_SIGNAL(kSignalDiscoItems)
+NNTDECL_SIGNALS_END
 
 void Client::start()
 {

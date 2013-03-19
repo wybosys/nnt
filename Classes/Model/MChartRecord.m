@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "MChartRecord.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @implementation MChartRecord
 
@@ -17,4 +17,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

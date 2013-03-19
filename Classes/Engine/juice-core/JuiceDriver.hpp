@@ -2,7 +2,7 @@
 # ifndef __JUICE_DRIVER_4D7C76030B8B469AA04036A2AF72A0D1_H_INCLUDED
 # define __JUICE_DRIVER_4D7C76030B8B469AA04036A2AF72A0D1_H_INCLUDED
 
-# include "../../Core/Task+WSI.h"
+# include "../../Core/Task+NNT.h"
 
 JUICE_BEGIN
 
@@ -106,7 +106,7 @@ public:
     template <typename materialT>
     void set_material(materialT*);
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     void _error_check();
 # endif
     

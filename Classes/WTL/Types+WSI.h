@@ -1,8 +1,8 @@
 
-# ifndef __WSI_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
-# define __WSI_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
+# ifndef __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
+# define __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <set>
 # include <deque>
@@ -10,9 +10,9 @@
 # include <sstream>
 # include <bitset>
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <typename valT>
 inline_impl id to_object(valT const& obj)
@@ -22,7 +22,7 @@ inline_impl id to_object(valT const& obj)
 
 # endif
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 typedef enum
 {
@@ -80,7 +80,7 @@ struct to_object
     }
 };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <typename T>
 struct to_objcobject
@@ -206,7 +206,7 @@ struct cxx_type<T const&>
     typedef T type;
 };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <typename T>
 struct objc_type
@@ -278,7 +278,7 @@ struct mixin_type<T const&>
     typedef T const* const_pointer;
 };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <>
 struct mixin_type<id>
@@ -378,7 +378,7 @@ protected:
     
 };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <>
 class const_pointer < NSObject* >
@@ -407,8 +407,8 @@ protected:
     
 };
 
-# define WSINS_CONST_POINTER(valT) \
-WSI_BEGIN_NS(wtl) \
+# define NNTNS_CONST_POINTER(valT) \
+NNT_BEGIN_NS(wtl) \
 template <> \
 class const_pointer <valT> \
 { \
@@ -428,7 +428,7 @@ return (value_type)_obj; \
 protected: \
 value_type _obj; \
 }; \
-WSI_END_NS
+NNT_END_NS
 
 # endif // objc
 
@@ -498,7 +498,7 @@ struct inherit
     typedef base2T _2;
 };
 
-WSI_BEGIN_NS(uml)
+NNT_BEGIN_NS(uml)
 
 template <typename implT>
 class implementation
@@ -663,7 +663,7 @@ protected:
 
 };
 
-WSI_END_NS // uml
+NNT_END_NS // uml
 
 template <typename T>
 class reference
@@ -734,9 +734,9 @@ protected:
     
 };
 
-WSI_END_NS // wtl
+NNT_END_NS // wtl
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

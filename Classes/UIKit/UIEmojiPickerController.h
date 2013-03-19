@@ -2,11 +2,11 @@
 # ifndef __EMOJICONTROLLER_D1FC21DD325445288D48C7CD77DF0CD4_H_INCLUDED
 # define __EMOJICONTROLLER_D1FC21DD325445288D48C7CD77DF0CD4_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface UIEmojiPickerView : UISwitchView
 
-@property (nonatomic, readonly) WSIUIPageControl *page;
+@property (nonatomic, readonly) NNTUIPageControl *page;
 
 @end
 
@@ -22,18 +22,18 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalEmojiSelected;
+NNT_EXTERN signal_t kSignalEmojiSelected;
 
 _CXXCONTROLLER_DECL(UIEmojiPickerController);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-#include "UIViewController+WSI.h"
+#include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class EmojiPickerController
 : public SimpleController<
@@ -57,8 +57,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

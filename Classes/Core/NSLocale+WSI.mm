@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "NSLocale+WSI.h"
+# import "NSLocale+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 Locale::Locale()
 {
@@ -30,5 +30,5 @@ ns::String Locale::identifier() const
     return this->_self.localeIdentifier;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

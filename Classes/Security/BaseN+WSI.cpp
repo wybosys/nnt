@@ -1,14 +1,14 @@
 
 # include "Core.h"
-# include "BaseN+WSI.h"
+# include "BaseN+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/pem.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 void base64::encode(void *data, usize dlen, core::vector<byte> &out)
 {
@@ -144,4 +144,4 @@ core::data base64::decode(core::data const& da)
     return ret;
 }
 
-WSI_END_CXX
+NNT_END_CXX

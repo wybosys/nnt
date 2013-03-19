@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "NSWindow+WSI.h"
+# import "NSWindow+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSWindow (WSI)
+@implementation NSWindow (NNT)
 
 - (id)initWithFrame:(NSRect)frame {
     return [self initWithContentRect:frame
@@ -19,14 +19,14 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSWindow
+@implementation NNTNSWindow
 
 @synthesize keyWindow;
 
 # define INIT \
 keyWindow = YES;
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
     self = [super initWithContentRect:contentRect styleMask:aStyle backing:bufferingType defer:flag];
@@ -40,7 +40,7 @@ WSIOBJECT_IMPL;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -50,4 +50,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

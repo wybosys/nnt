@@ -1,13 +1,13 @@
 
 # include "Core.h"
-# include "File+WSI.h"
+# include "File+NNT.h"
 # include <iostream>
 # include <fstream>
 # include <boost/iostreams/filtering_stream.hpp>
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
-WSIDECL_PRIVATE_BEGIN_CXX(File)
+NNTDECL_PRIVATE_BEGIN_CXX(File)
 
 void init()
 {
@@ -34,16 +34,16 @@ void close()
 ::boost::iostreams::filtering_istream fin;
 ::boost::iostreams::filtering_ostream fout;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 File::File()
 {
-	WSIDECL_PRIVATE_CONSTRUCT(File);
+	NNTDECL_PRIVATE_CONSTRUCT(File);
 }
 
 File::~File()
 {
-	WSIDECL_PRIVATE_DESTROY();
+	NNTDECL_PRIVATE_DESTROY();
 }
 
 bool File::read(core::string const& path)
@@ -84,4 +84,4 @@ void File::close()
 	d_ptr->close();
 }
 
-WSI_END_CXX
+NNT_END_CXX

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "Preferences.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @interface PreferencesPrivate : NSObject {
 	NSDictionary *settings;
@@ -24,8 +24,8 @@ WSI_BEGIN
 
 - (void)retriveSettings {
 	NSString *path_bundle = [[NSBundle mainBundle] bundlePath];
-	NSString *path_settingsbundle = [path_bundle stringByAppendingPathComponent:WSI_SETTING_BUNDLE];
-	NSString *path_file = [path_settingsbundle stringByAppendingPathComponent:WSI_SETTING_FILE];
+	NSString *path_settingsbundle = [path_bundle stringByAppendingPathComponent:NNT_SETTING_BUNDLE];
+	NSString *path_file = [path_settingsbundle stringByAppendingPathComponent:NNT_SETTING_FILE];
 	NSDictionary *settingsdict = [NSDictionary dictionaryWithContentsOfFile:path_file];
 	NSArray *settingsarr = [settingsdict objectForKey:@"PreferenceSpecifiers"];
 	NSDictionary *item;
@@ -44,8 +44,8 @@ WSI_BEGIN
 	NSString* ret = [[NSUserDefaults standardUserDefaults] stringForKey:__key];
 	if (ret) return ret; 
 	NSString *path_bundle = [[NSBundle mainBundle] bundlePath];
-	NSString *path_settingsbundle = [path_bundle stringByAppendingPathComponent:WSI_SETTING_BUNDLE];
-	NSString *path_file = [path_settingsbundle stringByAppendingPathComponent:WSI_SETTING_FILE];
+	NSString *path_settingsbundle = [path_bundle stringByAppendingPathComponent:NNT_SETTING_BUNDLE];
+	NSString *path_file = [path_settingsbundle stringByAppendingPathComponent:NNT_SETTING_FILE];
 	NSDictionary *settingsdict = [NSDictionary dictionaryWithContentsOfFile:path_file];
 	NSArray *prefs = [settingsdict objectForKey:@"PreferenceSpecifiers"];
 	NSDictionary *item;
@@ -82,4 +82,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

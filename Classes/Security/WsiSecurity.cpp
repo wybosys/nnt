@@ -2,13 +2,13 @@
 # include "Core.h"
 # include "WsiSecurity.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 core::string nonce::simple()
 {
     core::stringstream oss;
 
-# ifdef WSI_MACH
+# ifdef NNT_MACH
 
     oss << arc4random() % (9999999 - 123400) + 123400;
 
@@ -21,4 +21,4 @@ core::string nonce::simple()
     return oss.str();
 }
 
-WSI_END_CXX
+NNT_END_CXX

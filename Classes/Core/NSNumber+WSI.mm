@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "NSNumber+WSI.h"
+# import "NSNumber+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIIMPL_CATEGORY(NSNumber, WSI);
+NNTIMPL_CATEGORY(NSNumber, NNT);
 
-@implementation NSNumber (WSI)
+@implementation NSNumber (NNT)
 
 - (NSString*) stringValueBinary {
     return [NSNumber StringValueBinary:[self intValue]];
@@ -45,26 +45,26 @@ WSIIMPL_CATEGORY(NSNumber, WSI);
 # endif
 }
 
-- (WSIValueType)valueType {
+- (NNTValueType)valueType {
     char const* type = [self objCType];
     if (strcmp(type, @encode(int)) == 0)
-        return WSIValueTypeInt;
+        return NNTValueTypeInt;
     else if (strcmp(type, @encode(long)) == 0)
-        return WSIValueTypeLong;
+        return NNTValueTypeLong;
     else if (strcmp(type, @encode(float)) == 0)
-        return WSIValueTypeFloat;
+        return NNTValueTypeFloat;
     else if (strcmp(type, @encode(double)) == 0)
-        return WSIValueTypeDouble;
+        return NNTValueTypeDouble;
     else if (strcmp(type, @encode(long long)) == 0)
-        return WSIValueTypeLongLong;
-    return WSIValueTypeUnknown;
+        return NNTValueTypeLongLong;
+    return NNTValueTypeUnknown;
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 ::NSNumber *number(int val) {
     return [::NSNumber numberWithInt:val];
@@ -110,4 +110,4 @@ WSI_BEGIN_CXX
     return val ? NSNumberYes : NSNumberNo;
 }
 
-WSI_END_CXX
+NNT_END_CXX

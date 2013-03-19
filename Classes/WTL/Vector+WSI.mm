@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "Vector+WSI.h"
+# include "Vector+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSVector
 
@@ -37,4 +37,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

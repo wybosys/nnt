@@ -1,13 +1,13 @@
 
-# ifndef __WSI_XMPP_XEP_VCARD_199C3FA2E19749FF8DD2DCDAF0096F17_H_INCLUDED
-# define __WSI_XMPP_XEP_VCARD_199C3FA2E19749FF8DD2DCDAF0096F17_H_INCLUDED
+# ifndef __NNT_XMPP_XEP_VCARD_199C3FA2E19749FF8DD2DCDAF0096F17_H_INCLUDED
+# define __NNT_XMPP_XEP_VCARD_199C3FA2E19749FF8DD2DCDAF0096F17_H_INCLUDED
 
-# include "../../VCard+WSI.h"
+# include "../../VCard+NNT.h"
 # include "XepCore.h"
 
 XMPPXEP_HEADER_BEGIN
 
-WSICLASS(VCard);
+NNTCLASS(VCard);
 
 class VCard
 : public ObjectImpl<VCard>
@@ -27,7 +27,7 @@ public:
     cross::VCard* vcard;
 };
 
-WSICLASS(VCardUpdate);
+NNTCLASS(VCardUpdate);
 
 class VCardUpdate
 : public ExtendObject<VCardUpdate, VCard>
@@ -41,7 +41,7 @@ public:
     
 };
 
-WSICLASS(VCardV4);
+NNTCLASS(VCardV4);
 
 class VCardV4
 : public ObjectImpl<VCardV4>

@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSViewController+WSI.h"
-# import "NSView+WSI.h"
+# import "NSViewController+NNT.h"
+# import "NSView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSViewController (WSI)
+@implementation NNTNSViewController (NNT)
 
 - (void)viewDidLoad {
     [self viewIsLoading];
@@ -33,7 +33,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSViewController
+@implementation NNTNSViewController
 
 @synthesize identity;
 
@@ -54,7 +54,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)loadView {
-    WSINSView* view = [[WSINSView alloc] initWithFrame:NSZeroRect];
+    NNTNSView* view = [[NNTNSView alloc] initWithFrame:NSZeroRect];
     [self setView:view];
     [view release];
 }
@@ -100,4 +100,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

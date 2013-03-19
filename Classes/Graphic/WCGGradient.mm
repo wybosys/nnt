@@ -4,9 +4,9 @@
 # import "WCGColorSpace.h"
 # import "WCGColor.h"
 # import "WCGUtils.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface WCGGradient()
 
@@ -1394,10 +1394,10 @@ void resolveHSV(CGFloat *color1, CGFloat *color2)	// H value may be undefined (i
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cg)
 
 Gradient::Gradient(cg::Color const& begin,
                    cg::Color const& end,
@@ -1425,5 +1425,5 @@ void Gradient::set_angle(real angle)
     this->_self.angle = RAD2ANGLE(angle);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

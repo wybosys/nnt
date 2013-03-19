@@ -5,9 +5,9 @@
 # import "UISpreadSheetCell.h"
 # import "UISpreadSheetCellMatrixLayer.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UISpreadSheetRow
 
@@ -353,4 +353,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

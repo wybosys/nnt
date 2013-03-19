@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "UIWaiting.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 static int popup_count = 0;
 static int overlap_count = 0;
@@ -13,10 +13,10 @@ static int overlap_count = 0;
 
 + (id)shared {
     static UIWaitingPopup* __gs_waitingpopup;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (!__gs_waitingpopup)
         __gs_waitingpopup = [[self alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __gs_waitingpopup;
 }
 
@@ -64,17 +64,17 @@ static int overlap_count = 0;
 
 + (id)shared {
     static UIWaitingOverlap* __gs_waiting;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (!__gs_waiting)
         __gs_waiting = [[self alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __gs_waiting;
 }
 
 - (id)init {
     self = [super init];
     
-    UIView* root = [WSIApplication shared].window.rootViewController.view;
+    UIView* root = [NNTApplication shared].window.rootViewController.view;
     _hud = [[UIView alloc] initWithFrame:root.bounds];
     
     return self;
@@ -92,7 +92,7 @@ static int overlap_count = 0;
 - (void)_doShow {
     overlap_count += 1;
     if (overlap_count == 1) {
-        UIView* root = [WSIApplication shared].window.rootViewController.view;
+        UIView* root = [NNTApplication shared].window.rootViewController.view;
         _hud = [[UIView alloc] initWithFrame:root.bounds];
         
         // add label.
@@ -157,4 +157,4 @@ static int overlap_count = 0;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "NSHttpCache.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSHttpCache
 
@@ -41,4 +41,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

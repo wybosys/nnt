@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "UIToolbar+WSI.h"
+# import "UIToolbar+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUIToolbar
+@implementation NNTUIToolbar
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -23,4 +23,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

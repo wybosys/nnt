@@ -3,9 +3,9 @@
 # import "UIOAuthView.h"
 # import "NSHttpCache.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIOAuthContent
 
@@ -15,7 +15,7 @@ WSI_BEGIN_OBJC
     self = [super initWithFrame:frame];
     
     // back.
-    _back = [[WSIUIView alloc] initWithZero];
+    _back = [[NNTUIView alloc] initWithZero];
     _back.backgroundColor = [UIColor blackColor];
     //_back.layer.opacity = .4f;
     //_back.layer.cornerRadius = 10;
@@ -28,13 +28,13 @@ WSI_BEGIN_OBJC
     safe_release(_back);
     
     // title.
-    _title = [[WSIUILabel alloc] initWithZero];
+    _title = [[NNTUILabel alloc] initWithZero];
     _title.textColor = [UIColor whiteColor];
     [self addSubview:_title];
     safe_release(_title);
     
     // web.
-    _web = [[WSIUIWebView alloc] initWithZero];
+    _web = [[NNTUIWebView alloc] initWithZero];
     //web.scalesPageToFit = YES;
     _web.layer.cornerRadius = 10;
     _web.layer.masksToBounds = YES;
@@ -105,16 +105,16 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalLoadFinish)
-WSIEVENT_SIGNAL(kSignalLoadError)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalLoadFinish)
+NNTEVENT_SIGNAL(kSignalLoadError)
+NNTEVENT_END
 
-- (WSIUIWebView*)web {
+- (NNTUIWebView*)web {
     return _authContent.web;
 }
 
-- (WSIUILabel*)title {
+- (NNTUILabel*)title {
     return _authContent.title;
 }
 
@@ -153,4 +153,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

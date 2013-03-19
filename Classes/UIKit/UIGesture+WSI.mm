@@ -1,14 +1,14 @@
 
 # import "Core.h"
-# import "UIGesture+WSI.h"
+# import "UIGesture+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalGestureActive = @"::wsi::ui::gesture::active";
 
-@implementation WSIUISwipeGestureRecognizer
+@implementation NNTUISwipeGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -17,12 +17,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UISwipeGestureRecognizer*)rec {
@@ -31,9 +31,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUITapGestureRecognizer
+@implementation NNTUITapGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -42,12 +42,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UITapGestureRecognizer*)rec {
@@ -56,9 +56,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUIPinchGestureRecognizer
+@implementation NNTUIPinchGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -67,12 +67,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UIPinchGestureRecognizer*)rec {
@@ -81,9 +81,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUIRotationGestureRecognizer
+@implementation NNTUIRotationGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -92,12 +92,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UIRotationGestureRecognizer*)rec {
@@ -106,9 +106,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUIPanGestureRecognizer
+@implementation NNTUIPanGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -117,12 +117,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UIPanGestureRecognizer*)rec {
@@ -131,9 +131,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUILongPressGestureRecognizer
+@implementation NNTUILongPressGestureRecognizer
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super initWithTarget:self action:@selector(_active:)];
@@ -142,12 +142,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalGestureActive);
+    NNTEVENT_SIGNAL(kSignalGestureActive);
 }
 
 - (void)_active:(UILongPressGestureRecognizer*)rec {
@@ -156,4 +156,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

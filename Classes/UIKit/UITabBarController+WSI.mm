@@ -1,21 +1,21 @@
 
 # import "Core.h"
-# import "UITabBarController+WSI.h"
-# import "UITabBarView+WSI.h"
+# import "UITabBarController+NNT.h"
+# import "UITabBarView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_EXTERN bool __need_manual_appear;
+NNT_EXTERN bool __need_manual_appear;
 
 real kUITabBarHeight = 44;
 
-@implementation UITabBarController (WSI)
+@implementation UITabBarController (NNT)
 
 @end
 
-WSIIMPL_CATEGORY(UITabBarController, WSI);
+NNTIMPL_CATEGORY(UITabBarController, NNT);
 
-@interface WSIUITabBarController ()
+@interface NNTUITabBarController ()
 
 - (void)loadTabs;
 
@@ -23,17 +23,17 @@ WSIIMPL_CATEGORY(UITabBarController, WSI);
 
 @end
 
-@implementation WSIUITabBarController
+@implementation NNTUITabBarController
 
 @synthesize viewControllers, tabBar, selectedTab, selectedViewController, tabBarView, selectedIndex;
 
 - (id)init {
     self = [super init];                
     
-    tabBar = [[WSIUITabBar alloc] initWithFrame:CGRectMake(0, 0, 0, kUITabBarHeight)];    
+    tabBar = [[NNTUITabBar alloc] initWithFrame:CGRectMake(0, 0, 0, kUITabBarHeight)];    
     tabBar.delegate = self;            
     
-    tabBarView = [[WSIUITabBarView alloc] initWithZero];
+    tabBarView = [[NNTUITabBarView alloc] initWithZero];
 	tabBarView.backgroundColor = [UIColor clearColor];  
     tabBarView.tabBar = tabBar;   
     
@@ -56,7 +56,7 @@ WSIIMPL_CATEGORY(UITabBarController, WSI);
     [super viewDidLoad];
 }
 
-- (void)tabBar:(WSIUITabBar *)aTabBar didSelectTabAtIndex:(NSInteger)index {
+- (void)tabBar:(NNTUITabBar *)aTabBar didSelectTabAtIndex:(NSInteger)index {
 	UIViewController *vc = [self.viewControllers objectAtIndex:index];
 	if (self.selectedViewController == vc) {
 		if ([self.selectedViewController isKindOfClass:[UINavigationController class]]) {
@@ -134,7 +134,7 @@ NSString *kTabBarItem = @"wsi::ui::TabBarItem";
     
 	NSMutableArray *tabs = [NSMutableArray arrayWithCapacity:self.viewControllers.count];
 	for (UIViewController *vc in self.viewControllers) {        
-        WSIUITabBarItem *item = [WSIUITabBarItem alloc];
+        NNTUITabBarItem *item = [NNTUITabBarItem alloc];
         
         [vc attachSet:kTabBarController obj:self];
         [vc attachSet:kTabBarItem       obj:item];
@@ -221,15 +221,15 @@ NSString *kTabBarItem = @"wsi::ui::TabBarItem";
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
 
 void TabBarController::update()
 {
     this->_self.viewControllers = _ctlrs;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

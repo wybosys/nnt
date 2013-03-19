@@ -1,28 +1,28 @@
 
-# ifndef __WSI_UIKIT_UIBUTTON_CA342FA80851403C9D2E315A470E0823_H_INCLUDED
-# define __WSI_UIKIT_UIBUTTON_CA342FA80851403C9D2E315A470E0823_H_INCLUDED
+# ifndef __NNT_UIKIT_UIBUTTON_CA342FA80851403C9D2E315A470E0823_H_INCLUDED
+# define __NNT_UIKIT_UIBUTTON_CA342FA80851403C9D2E315A470E0823_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WCGColor);
-WSIDECL_EXTERN_CLASS(UIStyleSheet);
+NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGColor);
+NNTDECL_EXTERN_CLASS(UIStyleSheet);
 
-@interface UIButton (WSI)
+@interface UIButton (NNT)
 
 + (UIButton*)buttonCloseRedRound;
 + (UIButton*)buttonCloseGrayRound;
 
-WSIUIVIEW_NOTINHERIT_MUST_DECL;
+NNTUIVIEW_NOTINHERIT_MUST_DECL;
 
 @end
 
-WSIDECL_CATEGORY(UIButton, WSI);
+NNTDECL_CATEGORY(UIButton, NNT);
 
-@interface WSIUIButton : UIButton <WSIUIViewLock> {
-    WSIOBJECT_DECL;
+@interface NNTUIButton : UIButton <NNTUIViewLock> {
+    NNTOBJECT_DECL;
     
     //! background gradient. it can be Array, Single.
     id<NSObject> _backgroundGradient;
@@ -48,7 +48,7 @@ WSIDECL_CATEGORY(UIButton, WSI);
     int __lockposition;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, readonly) BOOL isTouched;
 @property (nonatomic, retain) id<NSObject> backgroundGradient;
@@ -71,11 +71,11 @@ WSIOBJECT_PROP;
 
 @end
 
-@interface UIStyledButton : WSIUIButton
+@interface UIStyledButton : NNTUIButton
 
 @end
 
-@interface UIClearButton : WSIUIButton
+@interface UIClearButton : NNTUIButton
 
 + (id)button;
 
@@ -89,7 +89,7 @@ WSIOBJECT_PROP;
 
 @end
 
-@interface UIBevelButton : WSIUIButton {
+@interface UIBevelButton : NNTUIButton {
     //! inner shadow color.
     WCGColor *innerShadowColor;
     
@@ -111,8 +111,8 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalViewClicked;
-WSI_EXTERN signal_t kSignalButtonClicked;
+NNT_EXTERN signal_t kSignalViewClicked;
+NNT_EXTERN signal_t kSignalButtonClicked;
 
 //! other buttons.
 
@@ -153,7 +153,7 @@ typedef enum {
 
 @end
 
-@interface UIButtonGroup : WSIObject {
+@interface UIButtonGroup : NNTObject {
     NSMutableArray* _buttons;
     
     @protected
@@ -171,7 +171,7 @@ typedef enum {
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UIClearButton);
 _CXXVIEW_DECL(UISystemButton);
@@ -180,18 +180,18 @@ _CXXVIEW_DECL(UIStateButton);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
-# include "UILabel+WSI.h"
-# include "UIImageView+WSI.h"
+# include "UIControl+NNT.h"
+# include "UILabel+NNT.h"
+# include "UIImageView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
-template <typename implT, typename buttonT = WSIUIButton>
+template <typename implT, typename buttonT = NNTUIButton>
 class Button
 : public Control<implT, buttonT>
 {      
@@ -251,14 +251,14 @@ public:
     Label& title()
     {
         if (_title == NULL)
-            _title = new Label((WSIUILabel*)this->_self.titleLabel);
+            _title = new Label((NNTUILabel*)this->_self.titleLabel);
         return *_title;
     }
     
     ImageView& image() 
     {
         if (_image == NULL)
-            _image = new ImageView((WSIUIImageView*)this->_self.imageView);
+            _image = new ImageView((NNTUIImageView*)this->_self.imageView);
         return *_image;
     }
     
@@ -386,8 +386,8 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -3,7 +3,7 @@
 # import "AVCamSnapshotManager.h"
 # import "AVCamUtilities.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface AVCamCaptureManager (InternalUtilityMethods)
 
@@ -143,4 +143,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

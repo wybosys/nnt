@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
-# import "Math+WSI.h"
+# import "CorePlot+NNT.h"
+# import "Math+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @interface CPPieChart ()
 
@@ -17,7 +17,7 @@ WSI_BEGIN
 
 @end
 
-@implementation CPPieChart (WSI)
+@implementation CPPieChart (NNT)
 
 - (CGPoint)centerPoint:(CGContextRef)context {
     CGRect plotAreaBounds = self.plotArea.bounds;
@@ -65,7 +65,7 @@ WSI_BEGIN
 
 @end
 
-@interface UICPPieChart (WSI)
+@interface UICPPieChart (NNT)
 
 - (void)drawIndicatorsInContext:(CGContextRef)context;
 - (void)drawIndicatorInContext:(CGContextRef)context indicator:(UICPIndicatorLayer*)indicator;
@@ -222,7 +222,7 @@ WSI_BEGIN
 
 @end
 
-@implementation UICPPieChart (WSI)
+@implementation UICPPieChart (NNT)
 
 - (void)drawIndicatorsInContext:(CGContextRef)context {
     // remove old indicator
@@ -271,13 +271,13 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICPPieChart);
+    NNTDECL_PRIVATE_INIT(UICPPieChart);
     return self;
 }
 
 - (void)dealloc {
     [outLine release];
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -721,4 +721,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

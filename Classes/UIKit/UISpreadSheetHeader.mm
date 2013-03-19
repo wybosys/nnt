@@ -3,7 +3,7 @@
 # import "UISpreadSheetHeader.h"
 # import "UISpreadSheetCell.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UISpreadSheetHeader
 
@@ -50,4 +50,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

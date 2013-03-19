@@ -1,13 +1,13 @@
 
-# ifndef __WSIWTL_CPU_3ffe14fd59e2497bb1f47f4aaf283182_H_INCLUDED
-# define __WSIWTL_CPU_3ffe14fd59e2497bb1f47f4aaf283182_H_INCLUDED
+# ifndef __NNTWTL_CPU_3ffe14fd59e2497bb1f47f4aaf283182_H_INCLUDED
+# define __NNTWTL_CPU_3ffe14fd59e2497bb1f47f4aaf283182_H_INCLUDED
 
-# include "Hardware+WSI.h"
-# include "Assembly+WSI.h"
+# include "Hardware+NNT.h"
+# include "Assembly+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
-WSI_BEGIN_NS(cpu)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(cpu)
 
 template <typename _cpuT>
 struct _info_traits
@@ -49,7 +49,7 @@ public:
 	bool has_brandstring()
 	{
 		bool b;
-		WSIASM_BEGIN;
+		NNTASM_BEGIN;
 		mov eax, 80000000h;
 		cpuid;
 		cmp eax, 80000004h;
@@ -60,7 +60,7 @@ UNSUPPORT:
 		mov byte ptr [b], 0h;
 END:
 		nop;
-		WSIASM_END;
+		NNTASM_END;
 		return b;
 	}
 
@@ -68,13 +68,13 @@ END:
 	{
 		dword b, c, d;
 
-		WSIASM_BEGIN;
+		NNTASM_BEGIN;
 		mov eax, 0h;
 		cpuid;
 		mov b, ebx;
 		mov c, ecx;
 		mov d, edx;
-		WSIASM_END;
+		NNTASM_END;
 
 		core::data buf;
 		buf.append(&b, 4);
@@ -89,24 +89,24 @@ END:
 		dword a, c, d;
 		core::data buf;
 
-		WSIASM_BEGIN;
+		NNTASM_BEGIN;
 		mov eax, 1h;
 		cpuid;
 		mov d, edx;
 		mov a, eax;
-		WSIASM_END;
+		NNTASM_END;
 
 		// unsupport.
 		if (bit_at(d, 18) == 0)
 			return buf;
 
 		// support.
-		WSIASM_BEGIN;
+		NNTASM_BEGIN;
 		mov eax, 03h;
 		cpuid;
 		mov c, ecx;
 		mov d, edx;
-		WSIASM_END;
+		NNTASM_END;
 		
 		buf.append(&a, 8);
 		buf.append(&c, 8);
@@ -118,8 +118,8 @@ END:
 
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

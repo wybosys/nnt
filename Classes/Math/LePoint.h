@@ -1,12 +1,12 @@
 
-# ifndef __WSIMATH_POINT_94F09D7041034A179A65AAA181622AB1_H_INCLUDED
-# define __WSIMATH_POINT_94F09D7041034A179A65AAA181622AB1_H_INCLUDED
+# ifndef __NNTMATH_POINT_94F09D7041034A179A65AAA181622AB1_H_INCLUDED
+# define __NNTMATH_POINT_94F09D7041034A179A65AAA181622AB1_H_INCLUDED
 
-# include "Math+WSI.h"
+# include "Math+NNT.h"
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 template <typename valT, uint dim>
 class Point
@@ -164,7 +164,7 @@ public:
 template <typename valT>
 const Point<valT, 3> Point<valT, 3>::Zero = Point<valT, 3>();
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

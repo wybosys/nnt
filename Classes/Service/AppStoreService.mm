@@ -1,15 +1,15 @@
 
 # import "Core.h"
 # import "AppStoreService.h"
-# import "WSIConfiguration.h"
+# import "NNTConfiguration.h"
 # import "AppInformation.h"
 # import <UIKit/UIKit.h>
-# import "Mach+WSI.h"
-# import "Time+WSI.h"
+# import "Mach+NNT.h"
+# import "Time+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString* kRateAppReminderAllowRemind = @"::wsi::app::service::rateapp::reminder::allow";
 NSString* kRateAppReminderAllowRemindDelay = @"::wsi::app::service::rateapp::reminder::allow::delay";
@@ -73,29 +73,29 @@ NSString* kRateAppReminderAllowRemindDelay = @"::wsi::app::service::rateapp::rem
     switch (buttonIndex)
     {
         case 0: {
-            NSString* app = [WSIApplication shared].urlInAppStore;
+            NSString* app = [NNTApplication shared].urlInAppStore;
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:app]];
         } break;
         case 1: {
             PASS; // delay.
         } break;
         case 2: {
-            [[WSIConfiguration shared] set:kRateAppReminderAllowRemind boolValue:NO];
+            [[NNTConfiguration shared] set:kRateAppReminderAllowRemind boolValue:NO];
         } break;
     }
 }
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(RateAppReminder, NSObject)
+NNTDECL_PRIVATE_BEGIN(RateAppReminder, NSObject)
 <UIAlertViewDelegate>
 {
-    WSINSTimer* _timer;
+    NNTNSTimer* _timer;
 }
 
-@property (nonatomic, retain) WSINSTimer* timer;
+@property (nonatomic, retain) NNTNSTimer* timer;
 
-WSIDECL_PRIVATE_IMPL(RateAppReminder)
+NNTDECL_PRIVATE_IMPL(RateAppReminder)
 
 @synthesize timer = _timer;
 
@@ -112,7 +112,7 @@ WSIDECL_PRIVATE_IMPL(RateAppReminder)
 - (void)remind {
     if ([d_owner.delegate rateReminderCanRemind:d_owner])
     {
-        WSINSTimer* tmr = [[WSINSTimer alloc] init];
+        NNTNSTimer* tmr = [[NNTNSTimer alloc] init];
         tmr.interval = CHECK_INTERVAL;
         [[tmr connect: ::kSignalTimerFired sel:@selector(act_remind) obj:self] backgroundThread];
         self.timer = tmr;
@@ -131,7 +131,7 @@ WSIDECL_PRIVATE_IMPL(RateAppReminder)
     self.timer = nil;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation RateAppReminder
 
@@ -140,7 +140,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(RateAppReminder);
+    NNTDECL_PRIVATE_INIT(RateAppReminder);
     
     self.delegate = self;
     
@@ -150,25 +150,25 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_appurl);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
 + (RateAppReminder*)shared {
     static RateAppReminder* ret = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (ret == nil)
         ret = [[[self class] alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
 + (BOOL)AllowRemind {
-    return [[WSIConfiguration shared] getBool:kRateAppReminderAllowRemind null:YES];
+    return [[NNTConfiguration shared] getBool:kRateAppReminderAllowRemind null:YES];
 }
 
 + (BOOL)AllowRemindDelay {
-    return [[WSIConfiguration shared] getBool:kRateAppReminderAllowRemindDelay null:YES];
+    return [[NNTConfiguration shared] getBool:kRateAppReminderAllowRemindDelay null:YES];
 }
 
 - (void)remind {
@@ -196,4 +196,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,12 +1,12 @@
 
 # include "Core.h"
-# include "Directory+WSI.h"
-# include "Boost+WSI.h"
+# include "Directory+NNT.h"
+# include "Boost+NNT.h"
 # include <boost/tokenizer.hpp>
 # include <sys/stat.h>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(core)
 
 core::string dot(core::string const& path) 
 {
@@ -52,7 +52,7 @@ core::string dotdot(core::string const& path)
 
 bool mkdir(core::string const& path)
 {    
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 	return ::CreateDirectoryA(path.c_str(), NULL) == TRUE;
 # else
     int sta = ::mkdir(path.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
@@ -78,7 +78,7 @@ bool mkdirs(core::string const& path)
     {
         dir += *each + "/";
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 		sta = ::CreateDirectoryA(dir.c_str(), NULL) == TRUE;
 # else
         sta = ::mkdir(dir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
@@ -88,5 +88,5 @@ bool mkdirs(core::string const& path)
     return sta == 0;
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

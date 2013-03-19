@@ -4,7 +4,7 @@
 # import <iAd/iAd.h>
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation IAdServiceView
 
@@ -35,10 +35,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(IAdServiceController, NSObject)
+NNTDECL_PRIVATE_BEGIN(IAdServiceController, NSObject)
 <ADBannerViewDelegate>
 
-WSIDECL_PRIVATE_IMPL(IAdServiceController)
+NNTDECL_PRIVATE_IMPL(IAdServiceController)
 
 # pragma mark banner delegate
 
@@ -62,18 +62,18 @@ WSIDECL_PRIVATE_IMPL(IAdServiceController)
     
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation IAdServiceController
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(IAdServiceController);    
+    NNTDECL_PRIVATE_INIT(IAdServiceController);    
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -89,7 +89,7 @@ WSIDECL_PRIVATE_END
     [super viewDidLoad];
 }
 
-- (void)viewController:(WSIUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
+- (void)viewController:(NNTUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
     IAdServiceView* view = (IAdServiceView*)self.view;
     if (UIInterfaceOrientationIsLandscape(orientation))
         view.banner.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
@@ -102,11 +102,11 @@ WSIDECL_PRIVATE_END
 _CXXVIEW_IMPL(IAdServiceView);
 _CXXCONTROLLER_IMPL(IAdServiceController);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 iAdView::iAdView()
 {
@@ -144,6 +144,6 @@ void iAdController::view_loaded()
     
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

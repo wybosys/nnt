@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "NSImageView+WSI.h"
+# import "NSImageView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSImageView (WSI)
+@implementation NSImageView (NNT)
 
 - (id)initWithURL:(NSURL*)url {
     self = [super initWithZero];
@@ -20,8 +20,8 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSImageView
+@implementation NNTNSImageView
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_UITEXTFIELD_87EDC93DA1DF4CAE925EA33DD7C12EF6_H_INCLUDED
-# define __WSI_UIKIT_UITEXTFIELD_87EDC93DA1DF4CAE925EA33DD7C12EF6_H_INCLUDED
+# ifndef __NNT_UIKIT_UITEXTFIELD_87EDC93DA1DF4CAE925EA33DD7C12EF6_H_INCLUDED
+# define __NNT_UIKIT_UITEXTFIELD_87EDC93DA1DF4CAE925EA33DD7C12EF6_H_INCLUDED
 
-# import "UIControl+WSI.h"
-# import "UITableViewController+WSI.h"
+# import "UIControl+NNT.h"
+# import "UITableViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSIUITextField);
+NNTDECL_PRIVATE_HEAD(NNTUITextField);
 
 typedef enum
 {
@@ -15,15 +15,15 @@ typedef enum
     UIReturnKeyEnableManual,
 } UIReturnKeyEnableType;
 
-@interface UITextField (WSI)
+@interface UITextField (NNT)
 
 - (void)applyTextStyle:(WCGTextStyle*)ts;
 
 @end
 
-WSIDECL_CATEGORY(UITextField, WSI);
+NNTDECL_CATEGORY(UITextField, NNT);
 
-@interface WSIUITextField : UITextField {
+@interface NNTUITextField : UITextField {
     
     //! restrict string for input, regex format.
     NSString *_inputRestrict;
@@ -37,11 +37,11 @@ WSIDECL_CATEGORY(UITextField, WSI);
     //! padding.
     CGPadding _padding;
     
-    WSIOBJECT_DECL;
-    WSIDECL_PRIVATE(WSIUITextField);
+    NNTOBJECT_DECL;
+    NNTDECL_PRIVATE(NNTUITextField);
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, copy) NSString *inputRestrict;
 @property (nonatomic, copy) NSString *validRestrict;
@@ -54,7 +54,7 @@ WSIOBJECT_PROP;
 
 @end
 
-@interface UISuggestTextField : WSIUITextField < UIItemProvider > {
+@interface UISuggestTextField : NNTUITextField < UIItemProvider > {
     
     //! data source.
     NSObject < UIItemProvider > *_dataSource;
@@ -66,7 +66,7 @@ WSIOBJECT_PROP;
     NSArray* _datas;
     
     @private
-    WSIUITableViewController* _items;
+    NNTUITableViewController* _items;
     
 }
 
@@ -96,30 +96,30 @@ WSIOBJECT_PROP;
 @end
 
 //! signal, emit while value changed.
-WSI_EXTERN signal_t kSignalValueChanged;
+NNT_EXTERN signal_t kSignalValueChanged;
 
 //! signal, emit while begin editing.
-WSI_EXTERN signal_t kSignalBeginEditing;
+NNT_EXTERN signal_t kSignalBeginEditing;
 
 //! signal, emit while end editing.
-WSI_EXTERN signal_t kSignalEndEditing;
+NNT_EXTERN signal_t kSignalEndEditing;
 
 //! signal, emit while text's valid status is changed.
-WSI_EXTERN signal_t kSignalValidChanged;
+NNT_EXTERN signal_t kSignalValidChanged;
 
 //! clear.
-WSI_EXTERN signal_t kSignalEditingClear;
+NNT_EXTERN signal_t kSignalEditingClear;
 
 //! return.
-WSI_EXTERN signal_t kSignalEditingReturn;
+NNT_EXTERN signal_t kSignalEditingReturn;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT>
 class Keyboard
@@ -199,7 +199,7 @@ public:
     
 };
 
-template <typename uiT = WSIUITextField >
+template <typename uiT = NNTUITextField >
 class TextField
 : public TextInput< Control< TextField<uiT>, uiT > >
 {        
@@ -326,7 +326,7 @@ public:
     }
 };
 
-WSI_END_NS
+NNT_END_NS
 
 typedef tpl::TextField<> TextField;
 
@@ -342,7 +342,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename uiT = UISuggestTextField >
 class SuggestTextField
@@ -367,7 +367,7 @@ public:
     core::vector<ns::String> items;
 };
 
-WSI_END_NS
+NNT_END_NS
 
 typedef tpl::SuggestTextField<> SuggestTextField;
 
@@ -403,11 +403,11 @@ protected:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

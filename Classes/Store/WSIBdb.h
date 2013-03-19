@@ -1,17 +1,17 @@
 
-# ifndef __WSI_STORE_BDB_6931173E025148F28BC3D31442FCEC52_H_INCLUDED
-# define __WSI_STORE_BDB_6931173E025148F28BC3D31442FCEC52_H_INCLUDED
+# ifndef __NNT_STORE_BDB_6931173E025148F28BC3D31442FCEC52_H_INCLUDED
+# define __NNT_STORE_BDB_6931173E025148F28BC3D31442FCEC52_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # import "DBMSNoSqlAbstract.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSIBdb);
+NNTDECL_PRIVATE_HEAD(NNTBdb);
 
-@interface WSIBdb : DBMSNoSqlUrlAbstract {    
-    WSIDECL_PRIVATE(WSIBdb);
+@interface NNTBdb : DBMSNoSqlUrlAbstract {    
+    NNTDECL_PRIVATE(NNTBdb);
     
     //! if readonly. default is NO.
     BOOL _readonly;
@@ -33,27 +33,27 @@ WSIDECL_PRIVATE_HEAD(WSIBdb);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "DBMSNoSqlAbstract.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_HEAD_CXX(Bdb);
+NNTDECL_PRIVATE_HEAD_CXX(Bdb);
 
 class Bdb
 : public DBMSNoSqlAbstract
 {
-    WSIDECL_NOCOPY(Bdb);
-    WSIDECL_PRIVATE_CXX(Bdb);
+    NNTDECL_NOCOPY(Bdb);
+    NNTDECL_PRIVATE_CXX(Bdb);
     
 public:
-    WSIDECL_DBMS_DRIVER;
+    NNTDECL_DBMS_DRIVER;
     
     Bdb();
     virtual ~Bdb();
@@ -101,7 +101,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(test)
+NNT_BEGIN_NS(test)
 
 class Bdb
 : public ut::Case
@@ -120,16 +120,16 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
-WSIAPI(::wsi::store::test::Bdb*) UTBdb();
+NNTAPI(::wsi::store::test::Bdb*) UTBdb();
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif
 

@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_ACTIVITYINDICATOR_BAR_EE909A3D33994A8E89EC103E4748019A_H_INCLUDED
-# define __WSI_UIKIT_ACTIVITYINDICATOR_BAR_EE909A3D33994A8E89EC103E4748019A_H_INCLUDED
+# ifndef __NNT_UIKIT_ACTIVITYINDICATOR_BAR_EE909A3D33994A8E89EC103E4748019A_H_INCLUDED
+# define __NNT_UIKIT_ACTIVITYINDICATOR_BAR_EE909A3D33994A8E89EC103E4748019A_H_INCLUDED
 
-# import "UIView+WSI.h"
-# import "UIActivityIndicatorView+WSI.h"
+# import "UIView+NNT.h"
+# import "UIActivityIndicatorView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UIActivityIndicatorBar);
+NNTDECL_PRIVATE_HEAD(UIActivityIndicatorBar);
 
-@interface UIActivityIndicatorBar : WSIUIView {
+@interface UIActivityIndicatorBar : NNTUIView {
     
-    WSIDECL_PRIVATE(UIActivityIndicatorBar);
+    NNTDECL_PRIVATE(UIActivityIndicatorBar);
 }
 
 - (void)startAnimating;
@@ -19,19 +19,19 @@ WSIDECL_PRIVATE_HEAD(UIActivityIndicatorBar);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UIActivityIndicatorBar);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(activity)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(activity)
 
 class Bar
 : public View<Bar, _CXXVIEW(UIActivityIndicatorBar), IIndicator>
@@ -60,9 +60,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -5,15 +5,15 @@
 
 using namespace ::wsi;
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
 
 typedef _CXXVIEW(UITableViewGroupCell) UITableViewGroupCell;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UITableTreeViewController
 
@@ -168,7 +168,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView willDisplayCell:(UITableViewCell *)_cell forRowAtIndexPath:(NSIndexPath *)indexPath {    
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)_cell;
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)_cell;
     ui::impl::TableTreeController* table = (ui::impl::TableTreeController*)self._cxxtable;
     ui::TableTreeSection const& sec = table->section_at(indexPath.section);
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
@@ -203,7 +203,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {        
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     ui::impl::TableTreeController* table = (ui::impl::TableTreeController*)self._cxxtable;
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
     ui::TableTreeCellObject& cellobj = (ui::TableTreeCellObject&)cxxcell->object();
@@ -261,7 +261,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
 
     // cell select status changed.
@@ -291,7 +291,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     ui::impl::TableTreeController* table = (ui::impl::TableTreeController*)self._cxxtable;
 
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         ui::TableCellObject const& var = table->section_at(indexPath.section).object_at(indexPath.row);
         if (var.removable) {
@@ -329,4 +329,4 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 
 _CXXCONTROLLER_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

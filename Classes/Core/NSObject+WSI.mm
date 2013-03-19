@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "NSObject+WSI.h"
+# import "NSObject+NNT.h"
 # import <objc/runtime.h>
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define USE_EXCEPTION 0
 # if !USE_EXCEPTION
 #   undef USE_EXCEPTION
 # endif
 
-@implementation NSObject (WSI)
+@implementation NSObject (NNT)
 
 - (void)emit:(NSString *)signal {
     [self emit:signal result:nil data:0];
@@ -37,23 +37,23 @@ WSI_BEGIN_OBJC
     [self emit:signal result:nil data:data sender:sender];
 }
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 BOOL __gs_debug_attachstore_error_enable = YES;
 
 # ifdef USE_EXCEPTION
 
-#   define WSINS_ERR \
+#   define NNTNS_ERR \
 else if (__gs_debug_attachstore_error_enable) { \
-NSString *msg = [NSString stringWithFormat:@"this [%@] class isn't inherit from WSIObject or use WSIOBJECT_ macros", [NSString stringWithUTF8String:object_getClassName(self)]]; \
+NSString *msg = [NSString stringWithFormat:@"this [%@] class isn't inherit from NNTObject or use NNTOBJECT_ macros", [NSString stringWithUTF8String:object_getClassName(self)]]; \
 @throw [NSException exceptionWithName:@"wsi::nsobject" reason:msg userInfo:nil]; \
 }
 
 # else
 
-#   define WSINS_ERR \
+#   define NNTNS_ERR \
 else if (__gs_debug_attachstore_error_enable) { \
-NSString *msg = [NSString stringWithFormat:@"this [%@] class isn't inherit from WSIObject or use WSIOBJECT_ macros", [NSString stringWithUTF8String:object_getClassName(self)]]; \
+NSString *msg = [NSString stringWithFormat:@"this [%@] class isn't inherit from NNTObject or use NNTOBJECT_ macros", [NSString stringWithUTF8String:object_getClassName(self)]]; \
 trace_msg(msg); \
 }
 
@@ -61,7 +61,7 @@ trace_msg(msg); \
 
 # else
 
-#   define WSINS_ERR SPACE
+#   define NNTNS_ERR SPACE
 
 # endif
 
@@ -70,7 +70,7 @@ trace_msg(msg); \
 - (BOOL)supportSignalSlot {
     if ([self respondsToSelector:@selector(_event)]) {
         id obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([obj isKindOfClass:[WSIEvent class]]) {
+        if ([obj isKindOfClass:[NNTEvent class]]) {
             return YES;
         }
     }
@@ -80,31 +80,31 @@ trace_msg(msg); \
 - (void)emit:(NSString *)signal result:(id)result data:(void*)data {
     if ([self respondsToSelector:@selector(_event)]) {
         id obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)obj;
+        if ([obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)obj;
             [event _emit:signal sender:self result:result data:data];
-        } WSINS_ERR;
-    }  WSINS_ERR;
+        } NNTNS_ERR;
+    }  NNTNS_ERR;
 }
 
 - (void)emit:(NSString *)signal result:(id)result data:(void*)data sender:(void*)sender {
     if ([self respondsToSelector:@selector(_event)]) {
         id obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)obj;
+        if ([obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)obj;
             [event _emit:signal sender:sender result:result data:data];
-        } WSINS_ERR;
-    }  WSINS_ERR;
+        } NNTNS_ERR;
+    }  NNTNS_ERR;
 }
 
 - (void)register_signal:(NSString *)signal {
     if ([self respondsToSelector:@selector(_event)]) {
         id obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)obj;
+        if ([obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)obj;
             [event _register_signal:signal];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)register_signal:(NSString*)signal sel:(SEL)sel obj:(id)obj {
@@ -131,11 +131,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal sel:sel obj:obj delay:delay];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
@@ -143,11 +143,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal sel:sel obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
@@ -155,11 +155,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal sig:sig obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
@@ -167,11 +167,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal sig:sig obj:obj delay:delay];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
@@ -186,8 +186,8 @@ trace_msg(msg); \
 - (BOOL)is_connected:(id)signal sel:(SEL)sel obj:(id)obj {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             return [event _find_connect:signal sel:sel obj:obj] != nil;
         }
     }
@@ -197,62 +197,62 @@ trace_msg(msg); \
 - (void)enable_signals:(BOOL)val {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             event.enable = val;
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)enable_signal:(id)signal val:(BOOL)val {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _enable:signal tog:val];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (void)register_signal:(NSString*)signal block:(void (^)(WSIEventObj*))block {
+- (void)register_signal:(NSString*)signal block:(void (^)(NNTEventObj*))block {
     [self register_signal:signal];
     [self connect:signal block:block];
 }
 
-- (void)register_signal:(NSString*)signal block:(void (^)(WSIEventObj*))block delay:(real)delay {
+- (void)register_signal:(NSString*)signal block:(void (^)(NNTEventObj*))block delay:(real)delay {
     [self register_signal:signal];
     [self connect:signal block:block delay:delay];
 }
 
-- (slot_t*)connect:(NSString*)signal block:(void (^)(WSIEventObj*))block {
+- (slot_t*)connect:(NSString*)signal block:(void (^)(NNTEventObj*))block {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal block:block];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
-- (slot_t*)connect:(NSString*)signal block:(void (^)(WSIEventObj*))block delay:(real)delay {
+- (slot_t*)connect:(NSString*)signal block:(void (^)(NNTEventObj*))block delay:(real)delay {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal block:block delay:delay];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
     [self register_signal:signal];
@@ -268,11 +268,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal action:action target:target];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
@@ -280,11 +280,11 @@ trace_msg(msg); \
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal action:action target:target delay:delay];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;   
 }
 
@@ -293,78 +293,78 @@ trace_msg(msg); \
 - (BOOL)hasSignal:(id)sig {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             return [event _hasSignal:sig];
         }
     }
     return NO;
 }
 
-- (WSISignal*)find_signal:(id)sig {
+- (NNTSignal*)find_signal:(id)sig {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             return [event _find_signal:sig];
         }
     }
     return nil;
 }
 
-- (slot_t*)connect:(NSString*)signal func:(void (*)(WSIEventObj*))func {
+- (slot_t*)connect:(NSString*)signal func:(void (*)(NNTEventObj*))func {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal func:func];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
-- (slot_t*)connect:(NSString*)signal func:(void (*)(WSIEventObj*))func delay:(real)delay {
+- (slot_t*)connect:(NSString*)signal func:(void (*)(NNTEventObj*))func delay:(real)delay {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             ret = [event _connect:signal func:func delay:delay];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return ret;
 }
 
 - (void)disconnect:(NSString *)signal sel:(SEL)sel obj:(id)obj {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect:signal sel:sel obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)disconnect:(NSString *)signal obj:(id)obj {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect:signal obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)disconnect:(id)obj {
     // disconnect signal & slot.
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     
     // dis redirect.
     [self disredirect:obj];
@@ -373,59 +373,59 @@ trace_msg(msg); \
 - (void)disconnect_signal:(id)signal {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect_signal:signal];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)disconnect_target:(::wsi::Object*)target {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect_target:target];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)disconnect_all {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect_all];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)disconnect_target:(::wsi::Object *)target signal:(id)signal {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
-            WSIEvent *event = (WSIEvent*)evt_obj;
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
+            NNTEvent *event = (NNTEvent*)evt_obj;
             [event _disconnect_target:target signal:signal];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)redirect:(NSObject*)obj {
-    WSIEvent *evt_self = nil, *evt_target = nil;
+    NNTEvent *evt_self = nil, *evt_target = nil;
     
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
             evt_self = evt_obj;
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     
     if ([obj respondsToSelector:@selector(_event)]) {
         id evt_obj = [obj performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
             evt_target = evt_obj;
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     
     if (evt_self && evt_target) {
         [evt_self _redirect:evt_target];
@@ -433,21 +433,21 @@ trace_msg(msg); \
 }
 
 - (void)disredirect:(NSObject*)obj {
-    WSIEvent *evt_self = nil, *evt_target = nil;
+    NNTEvent *evt_self = nil, *evt_target = nil;
     
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
             evt_self = evt_obj;
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     
     if ([obj respondsToSelector:@selector(_event)]) {
         id evt_obj = [obj performSelector:@selector(_event) withObject:nil];
-        if ([evt_obj isKindOfClass:[WSIEvent class]]) {
+        if ([evt_obj isKindOfClass:[NNTEvent class]]) {
             evt_target = evt_obj;
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     
     if (evt_self && evt_target) {
         [evt_self _disredirect:evt_target];
@@ -457,7 +457,7 @@ trace_msg(msg); \
 - (BOOL)supportStore {
     if ([self respondsToSelector:@selector(_store)]) {
         id anyobj = [self performSelector:@selector(_store) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttachStrong class]]) {
+        if ([anyobj isKindOfClass:[NNTObjectAttachStrong class]]) {
             return YES;
         }
     }
@@ -466,7 +466,7 @@ trace_msg(msg); \
 
 - (void)storePush:(id)key obj:(id)obj {
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"store: push a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -475,16 +475,16 @@ trace_msg(msg); \
     
     if ([self respondsToSelector:@selector(_store)]) {
         id anyobj = [self performSelector:@selector(_store) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttachStrong class]]) {
-            WSIObjectAttachStrong *store = (WSIObjectAttachStrong*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttachStrong class]]) {
+            NNTObjectAttachStrong *store = (NNTObjectAttachStrong*)anyobj;
             [store push:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)storeSet:(id)key obj:(id)obj {
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"store: set a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -493,16 +493,16 @@ trace_msg(msg); \
 
     if ([self respondsToSelector:@selector(_store)]) {
         id anyobj = [self performSelector:@selector(_store) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttachStrong class]]) {
-            WSIObjectAttachStrong *store = (WSIObjectAttachStrong*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttachStrong class]]) {
+            NNTObjectAttachStrong *store = (NNTObjectAttachStrong*)anyobj;
             [store set:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (id)storeSwap:(id)key obj:(id)obj {
     if (obj == 0) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"store: swap with a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -511,22 +511,22 @@ trace_msg(msg); \
 
     if ([self respondsToSelector:@selector(_store)]) {
         id anyobj = [self performSelector:@selector(_store) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttachStrong class]]) {
-            WSIObjectAttachStrong *store = (WSIObjectAttachStrong*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttachStrong class]]) {
+            NNTObjectAttachStrong *store = (NNTObjectAttachStrong*)anyobj;
             return [store swap:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return nil;
 }
 
 - (id)storePop:(id)key {
     if ([self respondsToSelector:@selector(_store)]) {
         id obj = [self performSelector:@selector(_store) withObject:nil];
-        if ([obj isKindOfClass:[WSIObjectAttachStrong class]]) {
-            WSIObjectAttachStrong *store = (WSIObjectAttachStrong*)obj;
+        if ([obj isKindOfClass:[NNTObjectAttachStrong class]]) {
+            NNTObjectAttachStrong *store = (NNTObjectAttachStrong*)obj;
             return [store pop:key];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return nil;
 }
 
@@ -540,11 +540,11 @@ trace_msg(msg); \
 - (id)storeFind:(id)key {
     if ([self respondsToSelector:@selector(_store)]) {
         id obj = [self performSelector:@selector(_store) withObject:nil];
-        if ([obj isKindOfClass:[WSIObjectAttachStrong class]]) {
-            WSIObjectAttachStrong *store = (WSIObjectAttachStrong*)obj;
+        if ([obj isKindOfClass:[NNTObjectAttachStrong class]]) {
+            NNTObjectAttachStrong *store = (NNTObjectAttachStrong*)obj;
             return [store find:key];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return nil;
 }
 
@@ -558,7 +558,7 @@ trace_msg(msg); \
 - (BOOL)supportAttach {
     if ([self respondsToSelector:@selector(_attach)]) {
         id anyobj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttach class]]) {
+        if ([anyobj isKindOfClass:[NNTObjectAttach class]]) {
             return YES;
         }
     }
@@ -567,7 +567,7 @@ trace_msg(msg); \
 
 - (void)attachPush:(id)key obj:(id)obj {
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"attach: push a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -576,16 +576,16 @@ trace_msg(msg); \
 
     if ([self respondsToSelector:@selector(_attach)]) {
         id anyobj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttach class]]) {
-            WSIObjectAttach *store = (WSIObjectAttach*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttach class]]) {
+            NNTObjectAttach *store = (NNTObjectAttach*)anyobj;
             [store push:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (void)attachSet:(id)key obj:(id)obj {
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"attach: set a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -594,16 +594,16 @@ trace_msg(msg); \
 
     if ([self respondsToSelector:@selector(_attach)]) {
         id anyobj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttach class]]) {
-            WSIObjectAttach *store = (WSIObjectAttach*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttach class]]) {
+            NNTObjectAttach *store = (NNTObjectAttach*)anyobj;
             [store set:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
 }
 
 - (id)attachSwap:(id)key obj:(id)obj {
     if (obj == 0) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"attach: swap with a NULL object !"];
         THROW_MSG(msg);
 # endif
@@ -612,22 +612,22 @@ trace_msg(msg); \
 
     if ([self respondsToSelector:@selector(_attach)]) {
         id anyobj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([anyobj isKindOfClass:[WSIObjectAttach class]]) {
-            WSIObjectAttach *store = (WSIObjectAttach*)anyobj;
+        if ([anyobj isKindOfClass:[NNTObjectAttach class]]) {
+            NNTObjectAttach *store = (NNTObjectAttach*)anyobj;
             return [store swap:key obj:obj];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return Nil;
 }
 
 - (id)attachPop:(id)key {
     if ([self respondsToSelector:@selector(_attach)]) {
         id obj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([obj isKindOfClass:[WSIObjectAttach class]]) {
-            WSIObjectAttach *store = (WSIObjectAttach*)obj;
+        if ([obj isKindOfClass:[NNTObjectAttach class]]) {
+            NNTObjectAttach *store = (NNTObjectAttach*)obj;
             return [store pop:key];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return nil;    
 }
 
@@ -641,11 +641,11 @@ trace_msg(msg); \
 - (id)attachFind:(id)key {
     if ([self respondsToSelector:@selector(_attach)]) {
         id obj = [self performSelector:@selector(_attach) withObject:nil];
-        if ([obj isKindOfClass:[WSIObjectAttach class]]) {
-            WSIObjectAttach *store = (WSIObjectAttach*)obj;
+        if ([obj isKindOfClass:[NNTObjectAttach class]]) {
+            NNTObjectAttach *store = (NNTObjectAttach*)obj;
             return [store find:key];
-        } WSINS_ERR;
-    } WSINS_ERR;
+        } NNTNS_ERR;
+    } NNTNS_ERR;
     return nil;
 }
 
@@ -658,7 +658,7 @@ trace_msg(msg); \
 
 + (void)refobjSet:(id*)left obj:(id*)right {
     [*right retain];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     safe_release(*left);
 # else
     [*left release];
@@ -669,7 +669,7 @@ trace_msg(msg); \
 
 + (void)refobjSet:(id*)left ref:(id)right {
     [right retain];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     safe_release(*left);
 # else
     [*left release];
@@ -680,7 +680,7 @@ trace_msg(msg); \
 
 + (void)refobjCopy:(id*)left obj:(id*)right {
     [*right retain];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     safe_release(*left);
 # else
     [*left release];
@@ -691,7 +691,7 @@ trace_msg(msg); \
 
 + (void)refobjCopy:(id*)left ref:(id)right {
     [right retain];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     safe_release(*left);
 # else
     [*left release];
@@ -708,8 +708,8 @@ trace_msg(msg); \
     return CoreTypeObject;
 }
 
-- (WSIValueType)valueType {
-    return WSIValueTypeUnknown;
+- (NNTValueType)valueType {
+    return NNTValueTypeUnknown;
 }
 
 - (void*)object {
@@ -820,7 +820,7 @@ bool objc_setPropertyValue(id value, id obj, char const* name) {
     return true;
 }
 
-WSIIMPL_CATEGORY(NSObject, WSI);
+NNTIMPL_CATEGORY(NSObject, NNT);
 
 @implementation _cxxobject_perform_wrapper
 
@@ -842,9 +842,9 @@ dispatch_queue_t kQueueDefault;
 dispatch_queue_t kQueueSignalSlot;
 char const* DISPATCH_QUEUE_PRIORITY_SIGNALSLOT = "::wsi::gcd::queue::signalslot";
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class QueueSignalSlot
 {
@@ -860,4 +860,4 @@ public:
 
 static QueueSignalSlot __gs_queue_signalslot;
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX

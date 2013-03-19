@@ -4,12 +4,12 @@
 # import "OADefines.h"
 # import "OAuthParser.h"
 # import "UIOAuthView.h"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 # import "HttpRequest.h"
 
 using namespace ::wsi;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestTaobao
 
@@ -18,7 +18,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     self.urlAuthorize = @"https://oauth.taobao.com/authorize";
 # else
     self.urlAuthorize = @"https://oauth.taobao.com/authorize?view=wap";
@@ -62,7 +62,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj*)evt {
+- (void)act_authorize_success:(NNTEventObj*)evt {
     // get refresh token.
     ns::Array res([evt.result captureComponentsMatchedByRegex:@"refresh_token=(\\w+)"]);
     OARequestTaobao* req = (OARequestTaobao*)self.request;
@@ -245,4 +245,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

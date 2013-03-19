@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "EmojiCodec.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(sys)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(sys)
 
 # define ADD(key, val) _map.insert(key, val)
 
@@ -533,5 +533,5 @@ core::string const& EmojiConverter::unicode(core::string const& str) const
     return found->second;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UISettingsWebController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 
-WSI_END_OBJC
+NNT_END_OBJC

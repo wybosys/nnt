@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "MTable.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-WSIDECL_PRIVATE_BEGIN(MTable, WSIObject)
+NNTDECL_PRIVATE_BEGIN(MTable, NNTObject)
 {
 	NSMutableArray *_col;
 	NSMutableArray *_colid;
@@ -15,7 +15,7 @@ WSIDECL_PRIVATE_BEGIN(MTable, WSIObject)
 @property (nonatomic, retain) NSMutableArray *col;
 @property (nonatomic, retain) NSMutableArray *rows;
 
-WSIDECL_PRIVATE_IMPL(MTable)
+NNTDECL_PRIVATE_IMPL(MTable)
 
 @synthesize col = _col, colid = _colid, rows = _rows;
 
@@ -37,7 +37,7 @@ WSIDECL_PRIVATE_IMPL(MTable)
     [super fini];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation MTable
 
@@ -45,7 +45,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
 	self = [super init];
-    WSIDECL_PRIVATE_INIT(MTable);
+    NNTDECL_PRIVATE_INIT(MTable);
     
     from = 0;
     many = -1;
@@ -54,7 +54,7 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)fini {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super fini];
 }
 
@@ -165,4 +165,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END
+NNT_END

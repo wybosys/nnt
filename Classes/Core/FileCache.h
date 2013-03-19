@@ -1,11 +1,11 @@
 
-# ifndef __WSI_CORE_FILECACHE_02C2CCCD4CB9495FBD2AF30387725DD2_H_INCLUDED
-# define __WSI_CORE_FILECACHE_02C2CCCD4CB9495FBD2AF30387725DD2_H_INCLUDED
+# ifndef __NNT_CORE_FILECACHE_02C2CCCD4CB9495FBD2AF30387725DD2_H_INCLUDED
+# define __NNT_CORE_FILECACHE_02C2CCCD4CB9495FBD2AF30387725DD2_H_INCLUDED
 
-# import "Directory+WSI.h"
+# import "Directory+NNT.h"
 # import "AbstractCache.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface AbstractUrlCache : AbstractCache {    
     NSURL *url;
@@ -14,24 +14,24 @@ WSI_BEGIN_HEADER_OBJC
 @property (nonatomic, copy) NSURL *url;
 
 //! init
-- (id)initWithPath:(NSString*)path type:(WSIDirectoryType)type;
+- (id)initWithPath:(NSString*)path type:(NNTDirectoryType)type;
 
 @end
 
-WSIDECL_PRIVATE_HEAD(FileCache);
+NNTDECL_PRIVATE_HEAD(FileCache);
 
 @interface FileCache : AbstractUrlCache {    
     
     //! index file.
     NSString* indexFile;
     
-    WSIDECL_PRIVATE(FileCache);
+    NNTDECL_PRIVATE(FileCache);
 }
 
 @property (nonatomic, copy) NSString* indexFile;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

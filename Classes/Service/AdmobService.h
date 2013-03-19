@@ -1,17 +1,17 @@
 
-# ifndef __WSI_SERVICE_ADMOB_5B2E9E51E9984F378A22D5D4EC7DE13C_H_INCLUDED
-# define __WSI_SERVICE_ADMOB_5B2E9E51E9984F378A22D5D4EC7DE13C_H_INCLUDED
+# ifndef __NNT_SERVICE_ADMOB_5B2E9E51E9984F378A22D5D4EC7DE13C_H_INCLUDED
+# define __NNT_SERVICE_ADMOB_5B2E9E51E9984F378A22D5D4EC7DE13C_H_INCLUDED
 
-# import "UIView+WSI.h"
-# import "UIViewController+WSI.h"
+# import "UIView+NNT.h"
+# import "UIViewController+NNT.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(GADBannerView);
+NNTDECL_EXTERN_CLASS(GADBannerView);
 
-@interface AdmobServiceView  : WSIUIView {
+@interface AdmobServiceView  : NNTUIView {
     GADBannerView* _banner;
 }
 
@@ -21,14 +21,14 @@ WSIDECL_EXTERN_CLASS(GADBannerView);
 
 _CXXVIEW_DECL(AdmobServiceView);
 
-WSIDECL_PRIVATE_HEAD(AdmobServiceController);
+NNTDECL_PRIVATE_HEAD(AdmobServiceController);
 
-@interface AdmobServiceController : WSIUIViewController
+@interface AdmobServiceController : NNTUIViewController
 <UIViewControllerRotation>
 {
     NSString* _appid;
     
-    WSIDECL_PRIVATE(AdmobServiceController);
+    NNTDECL_PRIVATE(AdmobServiceController);
 }
 
 @property (nonatomic, copy) NSString* appid;
@@ -37,13 +37,13 @@ WSIDECL_PRIVATE_HEAD(AdmobServiceController);
 
 _CXXCONTROLLER_DECL(AdmobServiceController);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 class AdmobView
 : public ui::View<AdmobView, _CXXVIEW(AdmobServiceView)>
@@ -72,9 +72,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -2,16 +2,16 @@
 # ifndef __DBMS_SQLITE_07002ABECBAE405DA641E9E3074CF666_H_INCLUDED
 # define __DBMS_SQLITE_07002ABECBAE405DA641E9E3074CF666_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # import "./DBMSqlAbstract.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSISqlite);
+NNTDECL_PRIVATE_HEAD(NNTSqlite);
 
-@interface WSISqlite : DBMSqlUrlAbstract {    
-    WSIDECL_PRIVATE(WSISqlite);
+@interface NNTSqlite : DBMSqlUrlAbstract {    
+    NNTDECL_PRIVATE(NNTSqlite);
 }
 
 //! run sql query.
@@ -31,28 +31,28 @@ WSIDECL_PRIVATE_HEAD(WSISqlite);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "DBMSqlAbstract.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_HEAD_CXX(Sqlite);
+NNTDECL_PRIVATE_HEAD_CXX(Sqlite);
 
 class Sqlite
 : public DBMSqlAbstract
 {
-    WSIDECL_NOCOPY(Sqlite);
-    WSIDECL_PRIVATE_CXX(Sqlite);
+    NNTDECL_NOCOPY(Sqlite);
+    NNTDECL_PRIVATE_CXX(Sqlite);
     
 public:
     
-    WSIDECL_DBMS_DRIVER;
+    NNTDECL_DBMS_DRIVER;
     
     Sqlite();
     ~Sqlite();
@@ -111,7 +111,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(sqlite)
+NNT_BEGIN_NS(sqlite)
 
 template <typename strT, typename tabT>
 struct sqlexpress_table
@@ -133,9 +133,9 @@ struct sqlexpress_table
     
 };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_NS(objc)
+NNT_BEGIN_NS(objc)
 
 using namespace store::objc;
 
@@ -161,14 +161,14 @@ struct sqlexpress_table
 
 typedef wtl::sqlexpress < ns::String, sqlexpress_table> sqlexpress;
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

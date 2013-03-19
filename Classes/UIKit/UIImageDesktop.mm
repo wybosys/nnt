@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "UIImageDesktop.h"
-# import "UIImageView+WSI.h"
-# import "UIButton+WSI.h"
+# import "UIImageView+NNT.h"
+# import "UIButton+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UIImageDesktop ()
 
@@ -31,7 +31,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    WSIUIImageView *img = [[WSIUIImageView alloc] init];
+    NNTUIImageView *img = [[NNTUIImageView alloc] init];
     self.imageView = img;
     [img release];
     
@@ -44,7 +44,7 @@ WSI_BEGIN_OBJC
 - (id)initWithImage:(UIImage *)image {
     self = [super init];
     
-    WSIUIImageView *img = [[WSIUIImageView alloc] initWithImage:image];
+    NNTUIImageView *img = [[NNTUIImageView alloc] initWithImage:image];
     self.imageView = img;
     [img release];
     
@@ -57,7 +57,7 @@ WSI_BEGIN_OBJC
 - (id)initWithURL:(NSURL *)url cache:(BOOL)cache {
     self = [super init];
     
-    WSIUIImageView *img = [[WSIUIImageView alloc] initWithURL:url cache:cache];
+    NNTUIImageView *img = [[NNTUIImageView alloc] initWithURL:url cache:cache];
     self.imageView = img;
     [img release];
     
@@ -104,7 +104,7 @@ WSI_BEGIN_OBJC
     return arr;
 }
 
-- (void)setImageView:(WSIUIImageView *)__imageView {
+- (void)setImageView:(NNTUIImageView *)__imageView {
     [imageView removeFromSuperview];
     imageView = [__imageView retain];
     imageView.userInteractionEnabled = NO;
@@ -118,8 +118,8 @@ WSI_BEGIN_OBJC
     [imageView moveToCenter:CGRectCenterPoint(&desk)];
 }
 
-- (void)act_imageloaded:(WSIEventObj*)obj {
-    WSIUIImageView *view = (WSIUIImageView*)obj.sender;
+- (void)act_imageloaded:(NNTEventObj*)obj {
+    NNTUIImageView *view = (NNTUIImageView*)obj.sender;
     
     CGRect desk = self.bounds;
     CGRect image = CGRectMakeSz(view.image.size);
@@ -219,4 +219,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

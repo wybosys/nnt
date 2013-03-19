@@ -3,7 +3,7 @@
 # import "UIVideoController.h"
 # import <MediaPlayer/MediaPlayer.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIVideoController
 
@@ -58,4 +58,4 @@ WSI_BEGIN_OBJC
 
 _CXXCONTROLLER_IMPL(UIVideoController);
 
-WSI_END_OBJC
+NNT_END_OBJC

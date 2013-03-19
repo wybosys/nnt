@@ -54,7 +54,7 @@ public:
     Client* client;
 };
 
-WSIDECL_PRIVATE_BEGIN_CXX(Clientor)
+NNTDECL_PRIVATE_BEGIN_CXX(Clientor)
 
 void init()
 {
@@ -86,17 +86,17 @@ void act_discoitems(eventobj_t& evt)
     d_owner->client().statemachine().process(wf::State(obj->idr), (void*)obj);
 }
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 Clientor::Clientor()
 : _client(NULL)
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Clientor);
+    NNTDECL_PRIVATE_CONSTRUCT(Clientor);
 }
 
 Clientor::Clientor(Client& cli)
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
     
     set(cli);
 }

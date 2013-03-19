@@ -30,7 +30,7 @@ bool Success::save(core::data & da) const
     return true;
 }
 
-WSI_EXTERN wf::State kStateAuth;
+NNT_EXTERN wf::State kStateAuth;
 
 void Success::process(Client & cli)
 {

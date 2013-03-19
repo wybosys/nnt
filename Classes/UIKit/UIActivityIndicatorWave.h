@@ -1,15 +1,15 @@
 
-# ifndef __WSI_UIKIT_ACTIVITYINDICATOR_WAVE_1E7A00621D2647F490F10B72B2283131_H_INCLUDED
-# define __WSI_UIKIT_ACTIVITYINDICATOR_WAVE_1E7A00621D2647F490F10B72B2283131_H_INCLUDED
+# ifndef __NNT_UIKIT_ACTIVITYINDICATOR_WAVE_1E7A00621D2647F490F10B72B2283131_H_INCLUDED
+# define __NNT_UIKIT_ACTIVITYINDICATOR_WAVE_1E7A00621D2647F490F10B72B2283131_H_INCLUDED
 
-# import "UIActivityIndicatorView+WSI.h"
+# import "UIActivityIndicatorView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UIActivityIndicatorWave);
+NNTDECL_PRIVATE_HEAD(UIActivityIndicatorWave);
 
-@interface UIActivityIndicatorWave : WSIUIView {
-    WSIDECL_PRIVATE(UIActivityIndicatorWave);
+@interface UIActivityIndicatorWave : NNTUIView {
+    NNTDECL_PRIVATE(UIActivityIndicatorWave);
 }
 
 - (void)startAnimating;
@@ -17,19 +17,19 @@ WSIDECL_PRIVATE_HEAD(UIActivityIndicatorWave);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXVIEW_DECL(UIActivityIndicatorWave);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(activity)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(activity)
 
 class Wave
 : public View<Wave, _CXXVIEW(UIActivityIndicatorWave), IIndicator>
@@ -58,9 +58,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

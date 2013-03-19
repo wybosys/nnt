@@ -5,10 +5,10 @@
 # import "UISpreadSheetCellMatrix.h"
 # import "UISpreadSheetHeader.h"
 # import "UISpreadSheetCorner.h"
-# import "CoreGraphic+WSI.h"
-# import "UIColor+WSI.h"
+# import "CoreGraphic+NNT.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalSheetTouchs = @"::wsi::ui::sheet::touches";
 
@@ -211,7 +211,7 @@ signal_t kSignalSheetTouchs = @"::wsi::ui::sheet::touches";
     if (self == nil)
         return self;
 
-    WSIDECL_PRIVATE_INIT(UISpreadSheet);
+    NNTDECL_PRIVATE_INIT(UISpreadSheet);
     
     self.backgroundColor = [UIColor whiteColor];
                 
@@ -246,13 +246,13 @@ signal_t kSignalSheetTouchs = @"::wsi::ui::sheet::touches";
     zero_release(cellFill);
     zero_release(selHighlightColor);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSheetTouchs);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSheetTouchs);
+NNTEVENT_END
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
@@ -973,4 +973,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

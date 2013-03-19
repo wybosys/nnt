@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "WSIChar.h"
+# import "NNTChar.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString* chinese2pinyin(unichar ch) {
     NSString* str = @"";
@@ -77,4 +77,4 @@ NSArray* chinese2pinyin_stream(void const* __buf, size_t len) {
     return [ret autorelease];
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

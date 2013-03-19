@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "UIStackControllers.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UIStackView : WSIUIView
+@interface UIStackView : NNTUIView
 
 @property (nonatomic, assign) UIStackControllers* stackController;
 
@@ -41,10 +41,10 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalItemInserted)
-WSIEVENT_SIGNAL(kSignalItemRemoved)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalItemInserted)
+NNTEVENT_SIGNAL(kSignalItemRemoved)
+NNTEVENT_END
 
 - (void)loadView {
     UIStackView* view = [[UIStackView alloc] initWithZero];
@@ -92,4 +92,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSArray+WSI.h"
+# import "NSArray+NNT.h"
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSArray (WSI)
+@implementation NSArray (NNT)
 
 - (id)first {
     return [self objectAtIndex:0 null:nil];
@@ -159,11 +159,11 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSArray, WSI);
+NNTIMPL_CATEGORY(NSArray, NNT);
 
 uint kNSMutableArrayInitCapacity = 4;
 
-@implementation NSMutableArray (WSI)
+@implementation NSMutableArray (NNT)
 
 + (NSMutableArray*)safeArray:(id)obj {
     if (obj == nil) {
@@ -234,59 +234,9 @@ uint kNSMutableArrayInitCapacity = 4;
 
 @end
 
-WSIIMPL_CATEGORY(NSMutableArray, WSI);
+NNTIMPL_CATEGORY(NSMutableArray, NNT);
 
-@implementation WSINSArray
-
-@dynamic first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
-
-- (id)first {
-    return [self objectAtIndex:0];
-}
-
-- (id)second {
-    return [self objectAtIndex:1];
-}
-
-- (id)v0 {
-    return [self objectAtIndex:0];
-}
-
-- (id)v1 {
-    return [self objectAtIndex:1];
-}
-
-- (id)v2 {
-    return [self objectAtIndex:2];
-}
-
-- (id)v3 {
-    return [self objectAtIndex:3];
-}
-
-- (id)v4 {
-    return [self objectAtIndex:4];
-}
-
-- (id)v5 {
-    return [self objectAtIndex:5];
-}
-
-- (id)v6 {
-    return [self objectAtIndex:6];
-}
-
-- (id)v7 {
-    return [self objectAtIndex:7];
-}
-
-- (id)v8 {
-    return [self objectAtIndex:8];
-}
-
-@end
-
-@implementation WSINSMutableArray
+@implementation NNTNSArray
 
 @dynamic first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
 
@@ -336,13 +286,63 @@ WSIIMPL_CATEGORY(NSMutableArray, WSI);
 
 @end
 
-WSI_END_OBJC
+@implementation NNTNSMutableArray
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+@dynamic first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
+
+- (id)first {
+    return [self objectAtIndex:0];
+}
+
+- (id)second {
+    return [self objectAtIndex:1];
+}
+
+- (id)v0 {
+    return [self objectAtIndex:0];
+}
+
+- (id)v1 {
+    return [self objectAtIndex:1];
+}
+
+- (id)v2 {
+    return [self objectAtIndex:2];
+}
+
+- (id)v3 {
+    return [self objectAtIndex:3];
+}
+
+- (id)v4 {
+    return [self objectAtIndex:4];
+}
+
+- (id)v5 {
+    return [self objectAtIndex:5];
+}
+
+- (id)v6 {
+    return [self objectAtIndex:6];
+}
+
+- (id)v7 {
+    return [self objectAtIndex:7];
+}
+
+- (id)v8 {
+    return [self objectAtIndex:8];
+}
+
+@end
+
+NNT_END_OBJC
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 Array const null_array = Array();
 MutableArray const null_mutablearray = MutableArray();
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

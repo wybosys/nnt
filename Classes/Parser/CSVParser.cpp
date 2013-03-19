@@ -2,13 +2,13 @@
 # include "Core.h"
 # include "CSVParser.h"
 
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/spirit/include/classic.hpp>
 # include <boost/spirit/include/qi.hpp>
 # include <boost/spirit/include/phoenix.hpp>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(parser)
 
 using ::boost::spirit::qi::grammar;
 using ::boost::spirit::qi::rule;
@@ -98,7 +98,7 @@ void _do_row::operator () (csv_grammar* gmr) const
 	gmr->ptr_row = NULL;
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(CSVParser)
+NNTDECL_PRIVATE_BEGIN_CXX(CSVParser)
 
 void init()
 {
@@ -112,16 +112,16 @@ void dealloc()
 
 csv_grammar* grammar;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 CSVParser::CSVParser()
 {
-	WSIDECL_PRIVATE_CONSTRUCT(CSVParser);
+	NNTDECL_PRIVATE_CONSTRUCT(CSVParser);
 }
 
 CSVParser::~CSVParser()
 {
-	WSIDECL_PRIVATE_DESTROY();
+	NNTDECL_PRIVATE_DESTROY();
 }
 
 bool CSVParser::parse(core::string const& str)
@@ -140,5 +140,5 @@ void CSVParser::clear()
 	this->rows.clear();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

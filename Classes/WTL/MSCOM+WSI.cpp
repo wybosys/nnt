@@ -1,8 +1,8 @@
 
 # include "Core.h"
 
-# ifdef WSI_WINDOWS
+# ifdef NNT_WINDOWS
 
-# include "MSCOM+WSI.h"
+# include "MSCOM+NNT.h"
 
 # endif

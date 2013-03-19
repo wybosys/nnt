@@ -1,24 +1,24 @@
 
 # import "Core.h"
-# import "WSILocation.h"
+# import "NNTLocation.h"
 # import <CoreLocation/CoreLocation.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalLocationChanged = @"::wsi::trail::locaion::changed";
 signal_t kSignalHeadingChanged = @"::wsi::trail::heading::changed";
 signal_t kSignalRegionEnter = @"::wsi::trail::region::enter";
 signal_t kSignalRegionExit = @"::wsi::trail::region::exit";
 
-@interface WSILocationPrivate : WSIObject <CLLocationManagerDelegate> {
+@interface NNTLocationPrivate : NNTObject <CLLocationManagerDelegate> {
     
 }
 
-@property (nonatomic, assign) WSILocation *d_owner;
+@property (nonatomic, assign) NNTLocation *d_owner;
 
 @end
 
-@implementation WSILocationPrivate
+@implementation NNTLocationPrivate
 
 @synthesize d_owner;
 
@@ -35,7 +35,7 @@ signal_t kSignalRegionExit = @"::wsi::trail::region::exit";
     [d_owner emit:kSignalHeadingChanged result:newHeading];
 }
 
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 
 - (void)locationManager:(CLLocationManager *)manager
          didEnterRegion:(CLRegion *)region {
@@ -51,14 +51,14 @@ signal_t kSignalRegionExit = @"::wsi::trail::region::exit";
 
 @end
 
-@implementation WSILocation
+@implementation NNTLocation
 
 @synthesize locationManager;
 @dynamic distanceFilter, desiredAccuracy;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSILocation);
+    NNTDECL_PRIVATE_INIT(NNTLocation);
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = d_ptr;
@@ -69,16 +69,16 @@ signal_t kSignalRegionExit = @"::wsi::trail::region::exit";
 - (void)dealloc {
     zero_release(locationManager);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalLocationChanged)
-WSIEVENT_SIGNAL(kSignalHeadingChanged)
-WSIEVENT_SIGNAL(kSignalRegionEnter)
-WSIEVENT_SIGNAL(kSignalRegionExit)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalLocationChanged)
+NNTEVENT_SIGNAL(kSignalHeadingChanged)
+NNTEVENT_SIGNAL(kSignalRegionEnter)
+NNTEVENT_SIGNAL(kSignalRegionExit)
+NNTEVENT_END
 
 - (void)start {
     [locationManager startUpdatingLocation];
@@ -109,17 +109,17 @@ WSIEVENT_END
 @dynamic locationEnable;
 
 - (BOOL)locationEnable {
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
     return [CLLocationManager locationServicesEnabled];
 # endif
-# ifdef WSI_iOS3
+# ifdef NNT_iOS3
     return self.locationManager.locationServicesEnabled;
 # endif
 }
 
 @end
 
-@implementation WSILocation (location)
+@implementation NNTLocation (location)
 
 @dynamic location;
 
@@ -129,9 +129,9 @@ WSIEVENT_END
 
 @end
 
-@implementation WSILocation (heading)
+@implementation NNTLocation (heading)
 
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 
 @dynamic heading;
 
@@ -143,4 +143,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

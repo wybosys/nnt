@@ -1,8 +1,8 @@
 
-# ifndef __WSI_PARSER_CHMPARSER_393D2ECF534C43828C3A9C11C3E6FE69_H_INCLUDED
-# define __WSI_PARSER_CHMPARSER_393D2ECF534C43828C3A9C11C3E6FE69_H_INCLUDED
+# ifndef __NNT_PARSER_CHMPARSER_393D2ECF534C43828C3A9C11C3E6FE69_H_INCLUDED
+# define __NNT_PARSER_CHMPARSER_393D2ECF534C43828C3A9C11C3E6FE69_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # define CHM_ITSF_V2_LEN  (0x58)
 # define CHM_ITSF_V3_LEN  (0x60)
@@ -154,6 +154,6 @@ extern bool chm_enumerate(chm_t*, int what, CHM_ENUMERATOR e, void *context);
 extern bool chm_enumerate_dir(chm_t*, const char *prefix, int what, CHM_ENUMERATOR e, void *context);
 extern qword chm_retrieve_object(chm_t *chm, chm_unitinfo *ui, unsigned char *buf, uqword addr, qword len);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif

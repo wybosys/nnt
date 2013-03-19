@@ -4,7 +4,7 @@
 # import "JuiceViewController.h"
 # import "JuiceSVG.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 class ProvinceMesh
 : public ::juice::RenderEntity<ProvinceMesh, ::wsi::juice::Types>
@@ -230,7 +230,7 @@ public:
     
 };
 
-@interface UIChinaMapView : WSIUIView {
+@interface UIChinaMapView : NNTUIView {
     UIChinaMapScreenManager _screenManager;
 }
 
@@ -268,7 +268,7 @@ public:
     _screenManager.resume();
 }
 
-- (void)act_clicked:(WSIEventObj*)evt {
+- (void)act_clicked:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     CGPoint pt = [[touches anyObject] locationInView:self];
     ProvincesTree::entities_type::const_iterator each = _screenManager.tree.entities.begin();
@@ -618,4 +618,4 @@ ProvinceMesh* ProvinceMesh::TianJing()
     return mesh;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

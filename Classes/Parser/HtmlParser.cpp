@@ -6,7 +6,7 @@
 # include <libxml2/libxml/HTMLtree.h>
 # include <libxml2/libxml/HTMLparser.h>
 
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/spirit/include/classic.hpp>
 # include <boost/spirit/include/phoenix.hpp>
 # include <boost/spirit/include/qi.hpp>
@@ -16,8 +16,8 @@
 
 # include "CSSParser.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(html)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(html)
 
 using ::boost::spirit::qi::grammar;
 using ::boost::spirit::qi::rule;
@@ -830,5 +830,5 @@ void Document::combine(core::data& ret, query_result const& con, core::string co
     }
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

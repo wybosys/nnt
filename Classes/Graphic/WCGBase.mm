@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "WCGBase.h"
-# import "../Math/Math+WSI.h"
+# import "../Math/Math+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 CGPoint CGRectCenterPoint(CGRect const* rc) {
     CGPoint pt;
@@ -261,4 +261,4 @@ CGRect CGRectBound(CGRect rect, BOOL max) {
     return rect;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

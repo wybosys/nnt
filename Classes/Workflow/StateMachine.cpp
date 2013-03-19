@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "StateMachine.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(wf)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(wf)
 
 State::State(int v)
 : scalar(v)
@@ -69,7 +69,7 @@ void Machine::process(State const& sta, void* param)
         if (rc < 0)
         {
             // failed.
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             
             core::string msg = "failed to run a operation of state: ";
             if (sta.scalar)
@@ -135,5 +135,5 @@ void Machine::remove(State const& sta, Operation const* ope)
     found->second.erase(iter);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

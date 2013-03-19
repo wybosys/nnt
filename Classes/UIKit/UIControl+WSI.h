@@ -1,8 +1,8 @@
 
-# ifndef __WSI_UIKIT_UICONTROL_207D01A25A2F41D2BE94BF75853EC49A_H_INCLUDED
-# define __WSI_UIKIT_UICONTROL_207D01A25A2F41D2BE94BF75853EC49A_H_INCLUDED
+# ifndef __NNT_UIKIT_UICONTROL_207D01A25A2F41D2BE94BF75853EC49A_H_INCLUDED
+# define __NNT_UIKIT_UICONTROL_207D01A25A2F41D2BE94BF75853EC49A_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol UIItemProvider <NSObject>
 
@@ -18,24 +18,24 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGFill);
 
-@interface WSIUIControl : UIControl {
-    WSIOBJECT_DECL;        
+@interface NNTUIControl : UIControl {
+    NNTOBJECT_DECL;        
     
     //! background fill.
     WCGFill *backgroundFill;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, retain) WCGFill *backgroundFill;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifndef WSI_CXX
+# ifndef NNT_CXX
 
 # define _CXXCONTROL(cls)
 # define _CXXCONTROL_DECL_BEGIN(cls)
@@ -47,9 +47,9 @@ WSI_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIView+WSI.h"
+# include "UIView+NNT.h"
 
 # define _CXXCONTROL(cls) _objc_cxx_##cls##_wrapper
 
@@ -83,8 +83,8 @@ return _cxxobj->cxxobject(); \
 _CXXCONTROL_IMPL_BEGIN(cls) \
 _CXXCONTROL_IMPL_END
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IControl
 : public IView
@@ -104,7 +104,7 @@ class Control
 {   
     typedef View<implT, ctlT, interT> super;
     typedef Control<implT, ctlT, interT> self_type;
-    WSIDECL_NOCOPY_EX(Control, self_type);
+    NNTDECL_NOCOPY_EX(Control, self_type);
     
 public:
     
@@ -156,8 +156,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

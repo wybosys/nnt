@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_WEBVIEW_61152C4AE05A4CDD81DBFCC04A1D8967_H_INCLUDED
-# define __WSI_UIKIT_WEBVIEW_61152C4AE05A4CDD81DBFCC04A1D8967_H_INCLUDED
+# ifndef __NNT_UIKIT_WEBVIEW_61152C4AE05A4CDD81DBFCC04A1D8967_H_INCLUDED
+# define __NNT_UIKIT_WEBVIEW_61152C4AE05A4CDD81DBFCC04A1D8967_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIWebView (WSI)
+@interface UIWebView (NNT)
 
 //! load html in local domain.
 - (void)loadHTMLStringLocal:(NSString *)string;
@@ -46,7 +46,7 @@ typedef uint UIWebViewFilterType;
 
 @end
 
-@interface WSIUIWebView : WSIUIView <UIWebViewDelegate> {    
+@interface NNTUIWebView : NNTUIView <UIWebViewDelegate> {    
     //! additional javascript while 
     NSMutableArray* additionalJavascript;
     
@@ -110,37 +110,37 @@ typedef uint UIWebViewFilterType;
 
 @end
 
-WSIDECL_CATEGORY(UIWebView, WSI);
+NNTDECL_CATEGORY(UIWebView, NNT);
 
 //! signal while finish load.
-WSI_EXTERN signal_t kSignalLoadFinish;
+NNT_EXTERN signal_t kSignalLoadFinish;
 
 //! signal while meet a error.
-WSI_EXTERN signal_t kSignalLoadError;
+NNT_EXTERN signal_t kSignalLoadError;
 
 //! signal while link is clicked.
-WSI_EXTERN signal_t kSignalLinkClicked;
+NNT_EXTERN signal_t kSignalLinkClicked;
 
 //! signal while meet a callback.
-WSI_EXTERN signal_t kSignalWebCallback;
+NNT_EXTERN signal_t kSignalWebCallback;
 
 //! signal while meet a action.
-WSI_EXTERN signal_t kSignalWebAction;
+NNT_EXTERN signal_t kSignalWebAction;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-_CXXVIEW_DECL(WSIUIWebView);
+_CXXVIEW_DECL(NNTUIWebView);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IWebView
 : public IView
@@ -150,13 +150,13 @@ class IWebView
 
 class WebView
 : public View<WebView, 
-_CXXVIEW(WSIUIWebView),
+_CXXVIEW(NNTUIWebView),
 IWebView
 >
 {
     
     typedef  View<WebView, 
-    _CXXVIEW(WSIUIWebView),
+    _CXXVIEW(NNTUIWebView),
     IWebView
     > super;
     
@@ -257,8 +257,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

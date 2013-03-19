@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "Tuple+WSI.h"
+# import "Tuple+NNT.h"
 # import "../Core/coretypes.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSPair
 
@@ -435,6 +435,6 @@ NSObject *tuple(id v0, id v1, ...) {
     return ret;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC
 
 # endif

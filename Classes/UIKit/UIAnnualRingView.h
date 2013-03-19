@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_ANNUALRING_F1E77F2FE460475BA722093779950FBF_H_INCLUDED
-# define __WSI_UIKIT_ANNUALRING_F1E77F2FE460475BA722093779950FBF_H_INCLUDED
+# ifndef __NNT_UIKIT_ANNUALRING_F1E77F2FE460475BA722093779950FBF_H_INCLUDED
+# define __NNT_UIKIT_ANNUALRING_F1E77F2FE460475BA722093779950FBF_H_INCLUDED
 
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 # import "UIItemView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIAnnualRingSingle : WSIUIView <UIItemsDatasource> {
+@interface UIAnnualRingSingle : NNTUIView <UIItemsDatasource> {
     real _length, _radius;
     UIColor* _ringColor;
     WCGFill* _ringFill;
@@ -38,7 +38,7 @@ WSI_BEGIN_HEADER_OBJC
 _CXXVIEW_DECL_BEGIN(UIAnnualRingSingle)
 _CXXVIEW_DECL_END
 
-@interface UIAnnualRingControl : WSIUIControl {
+@interface UIAnnualRingControl : NNTUIControl {
     NSMutableArray* _rings;
 }
 
@@ -64,20 +64,20 @@ _CXXVIEW_DECL_END
 
 _CXXVIEW_DECL(UIAnnualRingControl);
 
-WSI_EXTERN signal_t kSignalRingRotated;
-WSI_EXTERN signal_t kSignalContentClicked;
-WSI_EXTERN signal_t kSignalItemLayoutted;
-WSI_EXTERN signal_t kSignalItemsLayoutted;
-WSI_EXTERN signal_t kSignalItemInserted;
-WSI_EXTERN signal_t kSignalItemRemoving;
-WSI_EXTERN signal_t kSignalItemRemoved;
+NNT_EXTERN signal_t kSignalRingRotated;
+NNT_EXTERN signal_t kSignalContentClicked;
+NNT_EXTERN signal_t kSignalItemLayoutted;
+NNT_EXTERN signal_t kSignalItemsLayoutted;
+NNT_EXTERN signal_t kSignalItemInserted;
+NNT_EXTERN signal_t kSignalItemRemoving;
+NNT_EXTERN signal_t kSignalItemRemoved;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IAnnualRingSingle
 : public IView
@@ -256,8 +256,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

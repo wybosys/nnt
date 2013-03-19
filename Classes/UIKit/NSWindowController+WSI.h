@@ -1,38 +1,38 @@
 
-# ifndef __WSI_UIKIT_NSWINDOWCONTROLLER_D136458CA3364439944BBF6B5BFF5FCC_H_INCLUDED
-# define __WSI_UIKIT_NSWINDOWCONTROLLER_D136458CA3364439944BBF6B5BFF5FCC_H_INCLUDED
+# ifndef __NNT_UIKIT_NSWINDOWCONTROLLER_D136458CA3364439944BBF6B5BFF5FCC_H_INCLUDED
+# define __NNT_UIKIT_NSWINDOWCONTROLLER_D136458CA3364439944BBF6B5BFF5FCC_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSINSViewController);
+NNTDECL_EXTERN_CLASS(NNTNSViewController);
 
-@interface WSINSWindowControllerBase : NSWindowController {    
+@interface NNTNSWindowControllerBase : NSWindowController {    
     
     //! content view controller.
-    WSINSViewController* contentViewController;
+    NNTNSViewController* contentViewController;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
     
     @private
     NSWindow* __window;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
-@property (nonatomic, retain) WSINSViewController* contentViewController;
+@property (nonatomic, retain) NNTNSViewController* contentViewController;
 
 //! other.
 - (void)windowIsLoading;
 
 @end
 
-@interface WSINSWindowController : WSINSWindowControllerBase
+@interface NNTNSWindowController : NNTNSWindowControllerBase
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

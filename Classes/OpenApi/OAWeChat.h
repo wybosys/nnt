@@ -1,16 +1,16 @@
 
-# ifndef __WSI_OPENAPI_WECHAT_D851BC7271AF46D4BAAA5A63A44671C7_H_INCLUDED
-# define __WSI_OPENAPI_WECHAT_D851BC7271AF46D4BAAA5A63A44671C7_H_INCLUDED
+# ifndef __NNT_OPENAPI_WECHAT_D851BC7271AF46D4BAAA5A63A44671C7_H_INCLUDED
+# define __NNT_OPENAPI_WECHAT_D851BC7271AF46D4BAAA5A63A44671C7_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WeChat);
+NNTDECL_PRIVATE_HEAD(WeChat);
 
-@interface WeChat : WSIObject {
+@interface WeChat : NNTObject {
     
     NSString *_appid, *_callback;
     
-    WSIDECL_PRIVATE(WeChat);
+    NNTDECL_PRIVATE(WeChat);
 }
 
 @property (nonatomic, copy) NSString *appid, *callback;
@@ -19,7 +19,7 @@ WSIDECL_PRIVATE_HEAD(WeChat);
 
 @end
 
-@interface WeChatPost : WSIObject {
+@interface WeChatPost : NNTObject {
     NSString *_content;
 }
 
@@ -27,13 +27,13 @@ WSIDECL_PRIVATE_HEAD(WeChat);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(tencent)
-WSI_BEGIN_NS(wechat)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(tencent)
+NNT_BEGIN_NS(wechat)
 
 class Post
 : public ns::Object<WeChatPost>
@@ -78,9 +78,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

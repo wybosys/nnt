@@ -1,13 +1,13 @@
 
 # import "Core.h"
 # import "UIAddressBookPickController.h"
-# import "WSIContact.h"
+# import "NNTContact.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIAddressBookPickController
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @synthesize presentOfController;
 @synthesize popover;
@@ -21,7 +21,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (id)initWithParentController {
-    UIViewController* ctlr = [WSIApplication shared].window.rootViewController;
+    UIViewController* ctlr = [NNTApplication shared].window.rootViewController;
     //UIViewController* ctlr = [UIApplication sharedApplication].keyWindow.rootViewController;
     return [self initWithParentController:ctlr];
 }
@@ -35,12 +35,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalSelectChanged);
+    NNTEVENT_SIGNAL(kSignalSelectChanged);
 }
 
 - (void)present {
@@ -91,7 +91,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
-    WSIPerson* objperson = [[WSIPerson alloc] initWithRecord:person];
+    NNTPerson* objperson = [[NNTPerson alloc] initWithRecord:person];
     
     ABMultiValueRef phoneProperty = ABRecordCopyValue(person, property);
     int idx = ABMultiValueGetIndexForIdentifier(phoneProperty, identifier);
@@ -111,4 +111,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

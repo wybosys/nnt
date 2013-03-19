@@ -1,15 +1,15 @@
 
 # include "Core.h"
 # include <QtGui/QtGui>
-# include "QtApplication+WSI.h"
+# include "QtApplication+NNT.h"
 # include "../UIKit/Cross/UcKernel.h"
 # include "../UIKit/Cross/UcWindow.h"
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 # endif
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
 QApplication* __gsqt_application = NULL;
 Application* __gs_application = NULL;
@@ -69,5 +69,5 @@ IArguments* Application::arguments()
     return NULL;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

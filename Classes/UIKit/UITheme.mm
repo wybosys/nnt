@@ -2,13 +2,13 @@
 # import "Core.h"
 # import "UITheme.h"
 # include "uictypes.h"
-# import "WSIBdb.h"
-# import "WSIConfiguration.h"
-# import "WSIUIObject.h"
+# import "NNTBdb.h"
+# import "NNTConfiguration.h"
+# import "NNTUIObject.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 @implementation NSObject (UITheme)
 
@@ -28,7 +28,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSObject, UITheme);
+NNTIMPL_CATEGORY(NSObject, UITheme);
 
 # endif
 
@@ -65,12 +65,12 @@ UITheme* currentTheme = nil;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(UITheme, d_ptr_theme);
+    NNTDECL_PRIVATE_INIT_EX(UITheme, d_ptr_theme);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_theme);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_theme);
     [super dealloc];
 }
 
@@ -79,27 +79,27 @@ UITheme* currentTheme = nil;
 }
 
 - (NSString*)themeName {
-    return ((WSIBdb*)d_ptr_theme.store).name;
+    return ((NNTBdb*)d_ptr_theme.store).name;
 }
 
 - (BOOL)loadTheme:(NSString *)name {
-    return [self loadTheme:name type:WSIDirectoryTypeBundle];
+    return [self loadTheme:name type:NNTDirectoryTypeBundle];
 }
 
-- (BOOL)loadTheme:(NSString *)name type:(WSIDirectoryType)type {
+- (BOOL)loadTheme:(NSString *)name type:(NNTDirectoryType)type {
     if (d_ptr_theme.store) {
         d_ptr_theme.store = nil;
     }
     
-    WSIBdb* store = [[WSIBdb alloc] init];
+    NNTBdb* store = [[NNTBdb alloc] init];
     
-# ifdef WSI_TARGET_IOS
-#   ifdef WSI_DEVICE
+# ifdef NNT_TARGET_IOS
+#   ifdef NNT_DEVICE
     (store).readonly = YES;
 #   endif
 # endif
     
-# ifndef WSI_DEBUG
+# ifndef NNT_DEBUG
     (store).readonly = YES;
 # endif   
     
@@ -221,7 +221,7 @@ UITheme* currentTheme = nil;
             NSString* name = [[NSString alloc] initWithBytes:key length:klen encoding:NSUTF8StringEncoding];
             if (name)
                 arr << name;
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             else
                 trace_msg(name);
 # endif
@@ -235,7 +235,7 @@ UITheme* currentTheme = nil;
 void LoadTheme(NSString* name) {
     NSString* theme_name = name;
     if (theme_name == nil)
-        theme_name = [[WSIConfiguration shared] get:@"theme::selected"];
+        theme_name = [[NNTConfiguration shared] get:@"theme::selected"];
     if (theme_name == nil) {
         theme_name = [NSString stringWithFormat:@"default.%@", [UITheme themeExtension]];
     }
@@ -244,8 +244,8 @@ void LoadTheme(NSString* name) {
         SelectTheme(theme);
     }    
 
-//# ifndef WSIUI_NO_THEME
-//# ifdef WSI_DEBUG
+//# ifndef NNTUI_NO_THEME
+//# ifdef NNT_DEBUG
 //    AppDebugThemeInit(theme);
 //# endif
 //# endif
@@ -254,20 +254,20 @@ void LoadTheme(NSString* name) {
 }
 
 void SelectTheme(UITheme* theme) {
-    WSIUIObject* ui_obj = [WSIUIObject shared];
+    NNTUIObject* ui_obj = [NNTUIObject shared];
     
     [ui_obj storeSet:@"theme::selected" obj:theme];
     currentTheme = theme;
     
     // store for next time.
-    [[WSIConfiguration shared] set:@"theme::selected" val:theme.themeName];
+    [[NNTConfiguration shared] set:@"theme::selected" val:theme.themeName];
     
     // emit signal.
     [ui_obj emit:kSignalThemeChanged result:currentTheme];
 }
 
 /*
-# if defined(WSI_FRAMEWORK) && defined(WSI_DEBUG)
+# if defined(NNT_FRAMEWORK) && defined(NNT_DEBUG)
 
 void AppDebugThemeInit(UITheme* theme)
 {
@@ -277,4 +277,4 @@ void AppDebugThemeInit(UITheme* theme)
 # endif
  */
 
-WSI_END_OBJC
+NNT_END_OBJC

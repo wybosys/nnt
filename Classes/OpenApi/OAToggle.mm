@@ -4,7 +4,7 @@
 # import "OAuths.h"
 # import "OAManager.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface OAToggle ()
 
@@ -106,11 +106,11 @@ WSI_BEGIN_OBJC
     [obj release];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(@"kSignalToggleAuthorizeSuccess")
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(@"kSignalToggleAuthorizeSuccess")
+NNTEVENT_END
 
-- (void)__suc_authorize:(WSIEventObj*)evt {
+- (void)__suc_authorize:(NNTEventObj*)evt {
     wsi::ns::MutableDictionary dict;
     dict[@"enable"] = NSNumberYes;
 
@@ -184,4 +184,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

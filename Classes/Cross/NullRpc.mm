@@ -5,7 +5,7 @@
 # import "Model.h"
 # import "NullObjParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NullRpc
 
@@ -17,7 +17,7 @@ WSI_BEGIN_OBJC
     
     _showProgress = YES;
     
-    _verbose = WSIDEBUG_EXPRESS(YES) WSIRELEASE_EXPRESS(NO);
+    _verbose = NNTDEBUG_EXPRESS(YES) NNTRELEASE_EXPRESS(NO);
     
     return self;
 }
@@ -56,17 +56,17 @@ WSI_BEGIN_OBJC
 }
 
 - (void)progress_begin {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-    [WSIApplication shared].networkActivityIndicatorVisible = YES;
+    [NNTApplication shared].networkActivityIndicatorVisible = YES;
     
 # endif
 }
 
 - (void)progress_end {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-    [WSIApplication shared].networkActivityIndicatorVisible = NO;
+    [NNTApplication shared].networkActivityIndicatorVisible = NO;
     
 # endif
 }
@@ -79,7 +79,7 @@ WSI_BEGIN_OBJC
 
 @implementation NullRpc (async)
 
-- (void)connection:(WSINSURLConnection *)connection didReceiveData:(NSData *)data {
+- (void)connection:(NNTNSURLConnection *)connection didReceiveData:(NSData *)data {
     NSMutableData *tgt_data = [connection storeFind:@"::wsi::core::connection::data"];
     if (tgt_data == nil) {
         tgt_data = [[NSMutableData alloc] initWithData:data];
@@ -92,12 +92,12 @@ WSI_BEGIN_OBJC
     [connection emit:kSignalURLConnectionReceiveData result:tgt_data];
 }
 
-- (void)connectionDidFinishLoading:(WSINSURLConnection *)connection {
+- (void)connectionDidFinishLoading:(NNTNSURLConnection *)connection {
     NSMutableData *tgt_data = [connection storeFind:@"::wsi::core::connection::data"];
     [connection emit:kSignalURLConnectionFinish result:tgt_data];
 }
 
-- (void)connection:(WSINSURLConnection *)connection didFailWithError:(NSError *)error {
+- (void)connection:(NNTNSURLConnection *)connection didFailWithError:(NSError *)error {
     [connection emit:kSignalURLConnectionError];
 }
 
@@ -107,4 +107,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

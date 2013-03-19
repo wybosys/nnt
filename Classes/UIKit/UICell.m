@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UICell.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSCellLine
 
@@ -152,4 +152,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

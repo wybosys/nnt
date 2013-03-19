@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "CmdArguments.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 CmdArguments::CmdArguments(int argc /* = 0 */, char* argv[] /* = NULL */)
 {
@@ -36,4 +36,4 @@ core::string& CmdArguments::operator [] (int idx)
     return arguments[idx];
 }
 
-WSI_END_CXX
+NNT_END_CXX

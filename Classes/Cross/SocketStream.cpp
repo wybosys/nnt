@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "SocketStream.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
 SocketStream::SocketStream(void* r, void* w)
 : reader(r), writer(w), wait(true)
@@ -101,5 +101,5 @@ NetAddress SocketStream::remote_address() const
 
 SocketStream null_stream;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -4,8 +4,8 @@
 
 # include "XmppResponseFactory.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(xmpp)
 
 class StreamFactory
 : public AbstractResponseFactory
@@ -21,7 +21,7 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

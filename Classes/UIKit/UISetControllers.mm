@@ -2,11 +2,11 @@
 # import "Core.h"
 # import "UISetControllers.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UISetView : WSIUIView {
+@interface UISetView : NNTUIView {
     UIView *_current;
 }
 
@@ -42,10 +42,10 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalItemInserted)
-WSIEVENT_SIGNAL(kSignalItemRemoved)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalItemInserted)
+NNTEVENT_SIGNAL(kSignalItemRemoved)
+NNTEVENT_END
 
 - (void)loadView {
     UISetView* view = [[UISetView alloc] initWithZero];
@@ -83,4 +83,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

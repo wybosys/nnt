@@ -4,7 +4,7 @@
 
 # include "../../Parser/SVGParser.h"
 
-JUICE_BEGIN WSI_BEGIN_NS(svg)
+JUICE_BEGIN NNT_BEGIN_NS(svg)
 
 template <typename pathT>
 void __callback_load(::wsi::svg::PathParser::Action const* _act, void* ctx)
@@ -52,6 +52,6 @@ static bool load(pathT& path, ::wsi::core::string const& str)
     return true;
 }
 
-WSI_END_NS JUICE_END
+NNT_END_NS JUICE_END
 
 # endif

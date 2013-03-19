@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "UITabBar+WSI.h"
-# import "CoreGraphic+WSI.h"
+# import "UITabBar+NNT.h"
+# import "CoreGraphic+NNT.h"
 # import <QuartzCore/QuartzCore.h>
 # import "UIBadgeIndicator.h"
-# import "UIColor+WSI.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalArrowMoving = @"::wsi::ui::arrow:moving";
 signal_t kSignalArrowMoved = @"::wsi::ui::arrow:moved";
@@ -16,13 +16,13 @@ real kTabMargin = 2.0f;
 # define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 # define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
-@interface WSIUITabBarItem ()
+@interface NNTUITabBarItem ()
 
 - (void)synclyt_badge;
 
 @end
 
-@implementation WSIUITabBarItem
+@implementation NNTUITabBarItem
 
 @synthesize titleImage, rightBorder, itemStyle, title;
 @synthesize normalTitleStyle, selectedTitleStyle, maskNormalColor, maskHighlightColor;
@@ -37,7 +37,7 @@ real kTabMargin = 2.0f;
             
     self.adjustsImageWhenHighlighted = NO;
     self.backgroundColor = [UIColor clearColor];
-    self.itemStyle = WSIUITabBarItemStyleDefault;
+    self.itemStyle = NNTUITabBarItemStyleDefault;
     self.layer.cornerRadius = 5.f;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 0.f;
@@ -153,7 +153,7 @@ real kTabMargin = 2.0f;
                           
         CGSize sz_title = [theSelectedTs sizeOfString:theTitle];
         switch (itemStyle) {
-            case WSIUITabBarItemStyleDefault: {            
+            case NNTUITabBarItemStyleDefault: {            
                 rc_img = rc_client;
                 rc_img.size.height -= sz_title.height;
                 uint width = MIN(rc_img.size.width, rc_img.size.height);
@@ -194,7 +194,7 @@ real kTabMargin = 2.0f;
         }
                 
         if (self.titleImage) {
-            [[WSIUITabBarItem HighlightImage:self.titleImage 
+            [[NNTUITabBarItem HighlightImage:self.titleImage 
                                        color:maskHighlightColor 
                                           bk:!self.enableGraphite] drawInRect:rc_img];
             CGContextAddTextInRect(ctx, rc_title, theTitle, theSelectedTs);
@@ -206,7 +206,7 @@ real kTabMargin = 2.0f;
         
         CGSize sz_title = [theNormalTs sizeOfString:theTitle];
         switch (itemStyle) {
-            case WSIUITabBarItemStyleDefault: {            
+            case NNTUITabBarItemStyleDefault: {            
                 rc_img = rc_client;
                 rc_img.size.height -= sz_title.height;
                 uint width = MIN(rc_img.size.width, rc_img.size.height);
@@ -219,7 +219,7 @@ real kTabMargin = 2.0f;
         }; 
      
         if (self.titleImage) {
-            [[WSIUITabBarItem NormalImage:self.titleImage color:maskNormalColor] drawInRect:rc_img];
+            [[NNTUITabBarItem NormalImage:self.titleImage color:maskNormalColor] drawInRect:rc_img];
             CGContextAddTextInRect(ctx, rc_title, theTitle, theNormalTs);
         } else {
             CGContextAddTextInRect(ctx, rc_client, theTitle, theNormalTs);
@@ -280,7 +280,7 @@ real kTabMargin = 2.0f;
 
 @end
 
-@implementation WSIUITabBarItemArrow
+@implementation NNTUITabBarItemArrow
 
 @synthesize color;
 
@@ -317,13 +317,13 @@ real kTabMargin = 2.0f;
 
 @end
 
-@interface WSIUITabBar ()
+@interface NNTUITabBar ()
 
 - (void)positionArrowAnimated:(BOOL)animated;
 
 @end
 
-@implementation WSIUITabBar
+@implementation NNTUITabBar
 
 @synthesize padding;
 @synthesize tabs, delegate, arrow, selectedTab;
@@ -361,7 +361,7 @@ real kTabMargin = 2.0f;
         
         self.itemSelectedColor = [NSArray arrayWithObjects:[UIColor colorWithRGB:0x1b1b1b], [UIColor colorWithRGB:0x0d0d0d], nil];
                     
-        arrow = [[WSIUITabBarItemArrow alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];        
+        arrow = [[NNTUITabBarItemArrow alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];        
         self.arrowPosition = UITabBarArrowPositionTop;
 		[self addSubview:self.arrow];
         
@@ -402,11 +402,11 @@ real kTabMargin = 2.0f;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_SIGNAL(kSignalArrowMoving)
-WSIEVENT_SIGNAL(kSignalArrowMoved)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_SIGNAL(kSignalArrowMoving)
+NNTEVENT_SIGNAL(kSignalArrowMoved)
+NNTEVENT_END
 
 - (void)setArrow:(UIView *)view {
     [arrow removeFromSuperview];
@@ -417,7 +417,7 @@ WSIEVENT_END
 }
 
 - (void)setTabs:(NSArray *)array {
-	for (WSIUITabBarItem *each in tabs) {
+	for (NNTUITabBarItem *each in tabs) {
 		[each removeFromSuperview];
 	}
 	
@@ -425,7 +425,7 @@ WSIEVENT_END
 	tabs = [array retain];
 	
     for (uint i = 0; i < [array count]; ++i) {
-        WSIUITabBarItem *item = [array objectAtIndex:i];
+        NNTUITabBarItem *item = [array objectAtIndex:i];
         
         item.userInteractionEnabled = YES;
         item.selectedColor = self.itemSelectedColor;
@@ -438,7 +438,7 @@ WSIEVENT_END
     }
 }
 
-- (void)setSelectedTab:(WSIUITabBarItem *)aTab animated:(BOOL)animated {
+- (void)setSelectedTab:(NNTUITabBarItem *)aTab animated:(BOOL)animated {
 	if (aTab == selectedTab)
         return;
     
@@ -453,11 +453,11 @@ WSIEVENT_END
     [self positionArrowAnimated:animated];        
 }
 
-- (void)setSelectedTab:(WSIUITabBarItem *)aTab {
+- (void)setSelectedTab:(NNTUITabBarItem *)aTab {
 	[self setSelectedTab:aTab animated:YES];
 }
 
-- (void)tabSelected:(WSIUITabBarItem *)sender {
+- (void)tabSelected:(NNTUITabBarItem *)sender {
 	[self.delegate tabBar:self didSelectTabAtIndex:[self.tabs indexOfObject:sender]];
 }
 
@@ -579,7 +579,7 @@ WSIEVENT_END
             rect.size.height -= rc.size.height;
         }
         
-        for (WSIUITabBarItem *tab in self.tabs) {
+        for (NNTUITabBarItem *tab in self.tabs) {
             rect.origin.x += kTabMargin;
             tab.frame = rect;
             rect.origin.x += rect.size.width;        		
@@ -601,7 +601,7 @@ WSIEVENT_END
         }
         
         rect.origin.x = spacing;
-        for (WSIUITabBarItem *tab in self.tabs) {
+        for (NNTUITabBarItem *tab in self.tabs) {
             tab.frame = rect;
             rect.origin.x += self.itemWidth;
         }
@@ -617,4 +617,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

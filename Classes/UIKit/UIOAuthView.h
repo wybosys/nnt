@@ -1,29 +1,29 @@
 
-# ifndef __WSI_UIKIT_OAUTHVIEW_5ED8F98ADED541488D576F184D86BEF5_H_INCLUDED
-# define __WSI_UIKIT_OAUTHVIEW_5ED8F98ADED541488D576F184D86BEF5_H_INCLUDED
+# ifndef __NNT_UIKIT_OAUTHVIEW_5ED8F98ADED541488D576F184D86BEF5_H_INCLUDED
+# define __NNT_UIKIT_OAUTHVIEW_5ED8F98ADED541488D576F184D86BEF5_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UIPopupDialog.h"
-# import "UIWebView+WSI.h"
+# import "UIWebView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIOAuthView);
+NNTDECL_EXTERN_CLASS(UIOAuthView);
 
-@interface UIOAuthContent : WSIUIView {
+@interface UIOAuthContent : NNTUIView {
     
-    WSIUILabel* _title;
-    WSIUIWebView* _web;
+    NNTUILabel* _title;
+    NNTUIWebView* _web;
     
     @public
     UIOAuthView* parent;
     
     @private
-    WSIUIView* _back;
+    NNTUIView* _back;
 }
 
-@property (nonatomic, readonly) WSIUILabel* title;
-@property (nonatomic, readonly) WSIUIWebView* web;
+@property (nonatomic, readonly) NNTUILabel* title;
+@property (nonatomic, readonly) NNTUIWebView* web;
 
 @end
 
@@ -32,8 +32,8 @@ WSIDECL_EXTERN_CLASS(UIOAuthView);
 }
 
 @property (nonatomic, readonly) UIOAuthContent* authContent;
-@property (nonatomic, readonly) WSIUIWebView* web;
-@property (nonatomic, readonly) WSIUILabel* title;
+@property (nonatomic, readonly) NNTUIWebView* web;
+@property (nonatomic, readonly) NNTUILabel* title;
 
 - (void)loadRequest:(NSURLRequest *)request;
 - (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script;
@@ -45,9 +45,9 @@ WSIDECL_EXTERN_CLASS(UIOAuthView);
 
 @end
 
-WSI_EXTERN signal_t kSignalLoadFinish;
-WSI_EXTERN signal_t kSignalLoadError;
+NNT_EXTERN signal_t kSignalLoadFinish;
+NNT_EXTERN signal_t kSignalLoadError;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

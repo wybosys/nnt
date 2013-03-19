@@ -3,7 +3,7 @@
 # import "UIPDFController.h"
 # import "UIPDFView.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UIPDFControllerPrivate : NSObject {
     UIPDFController *d_owner;
@@ -52,12 +52,12 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UIPDFController);
+    NNTDECL_PRIVATE_INIT(UIPDFController);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -82,4 +82,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

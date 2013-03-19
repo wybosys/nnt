@@ -3,9 +3,9 @@
 # import "AppInformation.h"
 # import "AEMInformation.h"
 # import "Server.h"
-# import "WSIConfiguration.h"
+# import "NNTConfiguration.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation BSEAppInformation
 
@@ -25,7 +25,7 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-- (void)setApp:(WSIApplication *)app {
+- (void)setApp:(NNTApplication *)app {
     if (app == _app)
         return;
     _app = app;
@@ -37,9 +37,9 @@ WSI_BEGIN_OBJC
 }
 
 - (void)_do_init {
-    NSString* appname = [WSIApplication Name];
-    NSString* appid = [WSIApplication Identity];
-    NSString* devid = [WSIApplication DeviceIdentity];
+    NSString* appname = [NNTApplication Name];
+    NSString* appid = [NNTApplication Identity];
+    NSString* devid = [NNTApplication DeviceIdentity];
 
     // increase any counter.
     {
@@ -67,24 +67,24 @@ WSI_BEGIN_OBJC
 - (void)act_finish_loading {
     // increase app launch counter.
     {
-        uint val = [[WSIConfiguration shared] getInt:@"::wsi::app::counter::launch" null:0];
+        uint val = [[NNTConfiguration shared] getInt:@"::wsi::app::counter::launch" null:0];
         val += 1;
-        [[WSIConfiguration shared] set:@"::wsi::app::counter::launch" intValue:val];
+        [[NNTConfiguration shared] set:@"::wsi::app::counter::launch" intValue:val];
     }
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(bse)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(bse)
 
 uint Application::Counter::Launch()
 {
-    uint val = [[WSIConfiguration shared] getInt:@"::wsi::app::counter::launch" null:1];
+    uint val = [[NNTConfiguration shared] getInt:@"::wsi::app::counter::launch" null:1];
     return val;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

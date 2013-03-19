@@ -3,7 +3,7 @@
 # import "UISettingsSpecifier.h"
 # import "UISettingsReader.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UISettingsSpecifier ()
 
@@ -231,4 +231,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

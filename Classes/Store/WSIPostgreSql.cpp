@@ -1,18 +1,18 @@
 
 # include "Core.h"
-# include "WSIPostgreSql.h"
+# include "NNTPostgreSql.h"
 # include "../Cross/NetAddress.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <postgresql/libpq-fe.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(PostgreSql)
+NNTDECL_PRIVATE_BEGIN_CXX(PostgreSql)
 
 void init()
 {
@@ -35,7 +35,7 @@ void close()
 
 PGconn* pg;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string PostgreSql::identity = "postgresql";
 
@@ -46,12 +46,12 @@ IDBMS* PostgreSql::dbmsInstance()
 
 PostgreSql::PostgreSql()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(PostgreSql);
+    NNTDECL_PRIVATE_CONSTRUCT(PostgreSql);
 }
 
 PostgreSql::~PostgreSql()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool PostgreSql::connect(const wsi::store::connection_info & info)
@@ -238,5 +238,5 @@ void PgSqlDatatable::update()
     }
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

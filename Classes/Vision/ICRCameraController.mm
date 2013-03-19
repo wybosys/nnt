@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "ICRCameraController.h"
-# import "Time+WSI.h"
-# import "UIImage+WSI.h"
+# import "Time+NNT.h"
+# import "UIImage+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation ICRCameraView
 
@@ -26,20 +26,20 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(ICRCameraController, NSObject) {
-    WSINSTimer* _timer;
+NNTDECL_PRIVATE_BEGIN(ICRCameraController, NSObject) {
+    NNTNSTimer* _timer;
     BOOL _processing;
 }
 
 - (void)suspend;
 - (void)resume;
 
-WSIDECL_PRIVATE_IMPL(ICRCameraController)
+NNTDECL_PRIVATE_IMPL(ICRCameraController)
 
 - (id)init {
     self = [super init];
     
-    [_timer = [WSINSTimer alloc] initWithTimeInterval:1 repeats:YES];
+    [_timer = [NNTNSTimer alloc] initWithTimeInterval:1 repeats:YES];
     [_timer connect:kSignalTimerFired sel:@selector(act_timer) obj:self];
     [_timer start];
     
@@ -68,7 +68,7 @@ WSIDECL_PRIVATE_IMPL(ICRCameraController)
 }
 
      
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation ICRCameraController
 
@@ -76,18 +76,18 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];            
-    WSIDECL_PRIVATE_INIT(ICRCameraController);        
+    NNTDECL_PRIVATE_INIT(ICRCameraController);        
     return self;
 }
 
 - (void)dealloc {        
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSnapshot)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSnapshot)
+NNTEVENT_END
 
 - (void)loadView {
     _cameraView = [[ICRCameraView alloc] initWithZero];
@@ -111,4 +111,4 @@ WSIEVENT_END
 
 _CXXCONTROLLER_IMPL(ICRCameraController);
 
-WSI_END_OBJC
+NNT_END_OBJC

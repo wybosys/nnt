@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UIKIT_ADDRESSBOOKPICKCONTROLLER_03C1B899209147D6AE0AEC09CEBF2F0B_H_INCLUDED
-# define __WSI_UIKIT_ADDRESSBOOKPICKCONTROLLER_03C1B899209147D6AE0AEC09CEBF2F0B_H_INCLUDED
+# ifndef __NNT_UIKIT_ADDRESSBOOKPICKCONTROLLER_03C1B899209147D6AE0AEC09CEBF2F0B_H_INCLUDED
+# define __NNT_UIKIT_ADDRESSBOOKPICKCONTROLLER_03C1B899209147D6AE0AEC09CEBF2F0B_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 # import <AddressBookUI/AddressBookUI.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface UIAddressBookPickController : ABPeoplePickerNavigationController <ABPeoplePickerNavigationControllerDelegate> {
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
     
     //! the controller will use to present this controller.
     UIViewController* presentOfController;
@@ -20,7 +20,7 @@ WSI_BEGIN_HEADER_OBJC
     UIView *referenceView, *referenceSuperView;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, assign) UIViewController* presentOfController;
 @property (nonatomic, assign) BOOL popover;
@@ -38,8 +38,8 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

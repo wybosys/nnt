@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "DBMSNoSqlAbstract.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation DBMSNoSqlAbstract
 
@@ -78,7 +78,7 @@ WSI_BEGIN_OBJC
 
 @implementation DBMSNoSqlUrlAbstract
 
-- (id)initWith:(NSString*)path type:(WSIDirectoryType)type {
+- (id)initWith:(NSString*)path type:(NNTDirectoryType)type {
     self = [self init];
     if (![self openDbWith:path type:type]) {
         [self release];
@@ -87,8 +87,8 @@ WSI_BEGIN_OBJC
     return self;
 }
 
-- (BOOL)openDbWith:(NSString*)path type:(WSIDirectoryType)type {
-    NSURL *url = WSIDirectoryCreateWithType(@"", type);
+- (BOOL)openDbWith:(NSString*)path type:(NNTDirectoryType)type {
+    NSURL *url = NNTDirectoryCreateWithType(@"", type);
     if (url == nil)
         return NO;
     url = [url URLByAppendingPathComponent:path];
@@ -103,4 +103,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

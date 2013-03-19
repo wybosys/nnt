@@ -1,19 +1,19 @@
 
-# ifndef __WSI_STORE_CONFCENTER_0BB0C7F159894961B61B55C69084913C_H_INCLUDED
-# define __WSI_STORE_CONFCENTER_0BB0C7F159894961B61B55C69084913C_H_INCLUDED
+# ifndef __NNT_STORE_CONFCENTER_0BB0C7F159894961B61B55C69084913C_H_INCLUDED
+# define __NNT_STORE_CONFCENTER_0BB0C7F159894961B61B55C69084913C_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSIConfiguration);
+NNTDECL_PRIVATE_HEAD(NNTConfiguration);
 
-@interface WSIConfiguration : WSIObject {
+@interface NNTConfiguration : NNTObject {
     
     //! default is NO.
     bool _readonly;
     
-    WSIDECL_PRIVATE(WSIConfiguration);
+    NNTDECL_PRIVATE(NNTConfiguration);
 }
 
 @property (nonatomic, assign) bool readonly;
@@ -21,7 +21,7 @@ WSIDECL_PRIVATE_HEAD(WSIConfiguration);
 - (id)init;
 - (id)initWithFile:(NSString*)file;
 
-+ (WSIConfiguration*)shared;
++ (NNTConfiguration*)shared;
 
 //! set key-value.
 - (void)set:(NSString*)key val:(NSString*)val;
@@ -69,24 +69,24 @@ WSIDECL_PRIVATE_HEAD(WSIConfiguration);
 - (void)clear;
 
 //! static.
-+ (WSIConfiguration*)configuration:(NSString*)file;
++ (NNTConfiguration*)configuration:(NSString*)file;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(store)
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(store)
+NNT_BEGIN_NS(ns)
 
 using namespace ::wsi::ns;
 
 class Configuration
-: public Object<WSIConfiguration>
+: public Object<NNTConfiguration>
 {
-    typedef Object<WSIConfiguration> super;
+    typedef Object<NNTConfiguration> super;
     
 public:
     
@@ -258,29 +258,29 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
-WSICLASS(Configuration);
+NNTCLASS(Configuration);
 
 class connection_info;
 
-WSIDECL_PRIVATE_HEAD_CXX(Configuration);
+NNTDECL_PRIVATE_HEAD_CXX(Configuration);
 
 class Configuration
 {
-    WSIDECL_PRIVATE_CXX(Configuration);
-    WSIDECL_NOCOPY(Configuration);
+    NNTDECL_PRIVATE_CXX(Configuration);
+    NNTDECL_NOCOPY(Configuration);
     
 public:
     
@@ -288,13 +288,13 @@ public:
     explicit Configuration(core::string const&);
     ~Configuration();    
     
-# ifdef WSI_PURE_CXX
+# ifdef NNT_PURE_CXX
     
     static Configuration& getInstance();
     
 # endif
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     
     explicit Configuration(ns::String const&);
     
@@ -325,7 +325,7 @@ public:
         return set((void*)key.bytes(), key.length(), (void*)data.bytes(), data.length());
     }    
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
     //! in objc.
     bool set_obj(ns::String const& key, id obj);
@@ -394,8 +394,8 @@ protected:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

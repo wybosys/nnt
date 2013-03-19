@@ -1,8 +1,8 @@
 
-# ifndef __WSI_WCG_WCGIMAGE_F477E3EABF0D48AEBF5B8937847823C6_H_INCLUDED
-# define __WSI_WCG_WCGIMAGE_F477E3EABF0D48AEBF5B8937847823C6_H_INCLUDED
+# ifndef __NNT_WCG_WCGIMAGE_F477E3EABF0D48AEBF5B8937847823C6_H_INCLUDED
+# define __NNT_WCG_WCGIMAGE_F477E3EABF0D48AEBF5B8937847823C6_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface WCGImage : NSObject <NSCopying, NSCoding> {
 @private
@@ -73,12 +73,12 @@ CGSize CGImageGetSize(CGImageRef img);
 //! create a image use pixels.
 CGImageRef WCGLoadPixelsImage(rgba_t* pixels, uint width, uint height);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cg)
 
 class Image
 : public ::wsi::ns::Object<WCGImage>
@@ -157,8 +157,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

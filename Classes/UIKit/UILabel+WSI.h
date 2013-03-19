@@ -1,27 +1,27 @@
 
-# ifndef __WSI_UIKIT_UILABEL_25522F6AFF374CD9874B033B280994A7_H_INCLUDED
-# define __WSI_UIKIT_UILABEL_25522F6AFF374CD9874B033B280994A7_H_INCLUDED
+# ifndef __NNT_UIKIT_UILABEL_25522F6AFF374CD9874B033B280994A7_H_INCLUDED
+# define __NNT_UIKIT_UILABEL_25522F6AFF374CD9874B033B280994A7_H_INCLUDED
 
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 
 // thanks to FontLabel of Zynga Game Networks.
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 //@class ZFont;
 //@class ZAttributedString;
 
-@interface UILabel (WSI)
+@interface UILabel (NNT)
 
-WSIUIVIEW_NOTINHERIT_MUST_DECL;
+NNTUIVIEW_NOTINHERIT_MUST_DECL;
 
 //! set textstyle.
 - (void)applyTextStyle:(WCGTextStyle*)ts;
 
 @end
 
-@interface WSIUILabel : UILabel {
-    WSIOBJECT_DECL;
+@interface NNTUILabel : UILabel {
+    NNTOBJECT_DECL;
     
     //! background fill.
     WCGFill *_backgroundFill;
@@ -50,7 +50,7 @@ WSIUIVIEW_NOTINHERIT_MUST_DECL;
 //@property (nonatomic, copy) ZAttributedString *zAttributedText;
 @property (nonatomic, assign) BOOL sendGlobalEvent;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (id)initWithFrame:(CGRect)frame;
 
@@ -74,15 +74,15 @@ WSIOBJECT_PROP;
 
 @end
 
-WSIDECL_PRIVATE_HEAD(UIMarqueeLabel);
+NNTDECL_PRIVATE_HEAD(UIMarqueeLabel);
 
-@interface UIMarqueeLabel : WSIUILabel {
+@interface UIMarqueeLabel : NNTUILabel {
     
     //! marquee's step(default is 1) and speed(default is 10ms).
     int _marqueeStep;
     int _marqueeSpeed;
     
-    WSIDECL_PRIVATE(UIMarqueeLabel);
+    NNTDECL_PRIVATE(UIMarqueeLabel);
 }
 
 @property (nonatomic, assign) int marqueeStep, marqueeSpeed;
@@ -94,7 +94,7 @@ WSIDECL_PRIVATE_HEAD(UIMarqueeLabel);
 
 /*
  
-@interface WSIUILabel (FontLabel)
+@interface NNTUILabel (FontLabel)
 
 @property (nonatomic, setter=setCGFont:) CGFontRef cgFont __AVAILABILITY_INTERNAL_DEPRECATED;
 @property (nonatomic, assign) CGFloat pointSize __AVAILABILITY_INTERNAL_DEPRECATED;
@@ -112,11 +112,11 @@ WSIDECL_PRIVATE_HEAD(UIMarqueeLabel);
  
  */
 
-WSIDECL_CATEGORY(UILabel, WSI);
+NNTDECL_CATEGORY(UILabel, NNT);
 
 //! @class UIStyleLabel
 //! @code @"<text style=\"font-size:20;font-color:#FF0000;\">RED</text><text style=\"font-size:40;font-color:#0000FF;\">BLUE</text>"
-@interface UIStyleLabel : WSIUILabel {
+@interface UIStyleLabel : NNTUILabel {
     NSArray* styleStrings;
 }
 
@@ -125,23 +125,23 @@ WSIDECL_CATEGORY(UILabel, WSI);
 @end
 
 //! emit while marquee running at the end.
-WSI_EXTERN signal_t kSignalMarqueeNext;
+NNT_EXTERN signal_t kSignalMarqueeNext;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-_CXXCONTROL_DECL(WSIUILabel);
+_CXXCONTROL_DECL(NNTUILabel);
 _CXXCONTROL_DECL(UIMarqueeLabel);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT, typename labelT>
 class Label
@@ -261,13 +261,13 @@ public:
     
 };
     
-WSI_END_NS
+NNT_END_NS
     
 class Label
-: public tpl::Label<Label, _CXXCONTROL(WSIUILabel)>
+: public tpl::Label<Label, _CXXCONTROL(NNTUILabel)>
 {
     
-    typedef tpl::Label<Label, _CXXCONTROL(WSIUILabel)> super;
+    typedef tpl::Label<Label, _CXXCONTROL(NNTUILabel)> super;
   
 public:
     
@@ -276,7 +276,7 @@ public:
         PASS;
     }
     
-    Label(WSIUILabel* lbl)
+    Label(NNTUILabel* lbl)
     : super(lbl)
     {
         PASS;
@@ -303,7 +303,7 @@ public:
         PASS;
     }
     
-    MarqueeLabel(WSIUILabel* lbl)
+    MarqueeLabel(NNTUILabel* lbl)
     : super(lbl)
     {
         PASS;
@@ -348,8 +348,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

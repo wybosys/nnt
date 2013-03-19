@@ -1,6 +1,6 @@
 
-# ifndef __WSIWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
-# define __WSIWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
+# ifndef __NNTWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
+# define __NNTWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
 
 #   define _WIN32_DCOM
 
@@ -12,10 +12,10 @@
 #   include <Wbemidl.h>
 #   pragma comment(lib, "wbemuuid.lib")
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
-# ifdef WSI_WINDOWS
+# ifdef NNT_WINDOWS
 
 template <>
 inline_impl int type_cast<int, VARIANT>(VARIANT const& var)
@@ -37,7 +37,7 @@ inline_impl core::string type_cast<core::string, VARIANT>(VARIANT const& var)
 
 # endif
 
-WSI_BEGIN_NS(windows)
+NNT_BEGIN_NS(windows)
 
 template <LONG ComInitializeFlag>
 class ComObject
@@ -272,7 +272,7 @@ protected:
 
 };
 
-WSI_BEGIN_NS(wbem)
+NNT_BEGIN_NS(wbem)
 
 template <typename baseT>
 class SoftwareIterator
@@ -472,10 +472,10 @@ public:
 
 };
 
-WSI_END_NS // end wbem
+NNT_END_NS // end wbem
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

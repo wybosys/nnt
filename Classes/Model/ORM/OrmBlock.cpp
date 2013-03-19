@@ -3,7 +3,7 @@
 # include "OrmBlock.hpp"
 # include "OrmSlice.hpp"
 
-WSI_BEGIN_ORM
+NNT_BEGIN_ORM
 
 Field::Field()
 :type(FT_Null),
@@ -45,7 +45,7 @@ Field Field::operator | (Field const& r) const
     return ret;
 }
 
-WSI_BEGIN_NS(type)
+NNT_BEGIN_NS(type)
 
 nullable::nullable()
 {
@@ -73,7 +73,7 @@ blob::blob()
     type = FT_Blob;
 }
 
-WSI_END_NS
+NNT_END_NS
 
 Field& Fields::at(core::string const& name)
 {
@@ -235,4 +235,4 @@ Variant& RBlock::operator [] (core::string const& name)
     return at(name);
 }
 
-WSI_END_ORM
+NNT_END_ORM

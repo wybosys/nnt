@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "NSTableView+WSI.h"
+# import "NSTableView+NNT.h"
 
 signal_t kSignalSelectChanged = @"::wsi::ui::select::changed";
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSTableView
+@implementation NNTNSTableView
 
 - (void)deselectSelection {
     [self deselectColumn:self.selectedColumn];
@@ -64,4 +64,4 @@ WSI_BEGIN_OBJC
 @end
  */
 
-WSI_END_OBJC
+NNT_END_OBJC

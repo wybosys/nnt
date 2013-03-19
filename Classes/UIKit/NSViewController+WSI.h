@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UKIT_NSVIEWCONTROLLER_56E33B1729B7447094D28C58C88BC1DF_H_INCLUDED
-# define __WSI_UKIT_NSVIEWCONTROLLER_56E33B1729B7447094D28C58C88BC1DF_H_INCLUDED
+# ifndef __NNT_UKIT_NSVIEWCONTROLLER_56E33B1729B7447094D28C58C88BC1DF_H_INCLUDED
+# define __NNT_UKIT_NSVIEWCONTROLLER_56E33B1729B7447094D28C58C88BC1DF_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSViewController (WSI)
+@interface NSViewController (NNT)
 
 - (void)viewDidLoad;
 - (void)viewIsLoading;
@@ -17,7 +17,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WSINSViewController : NSViewController {
+@interface NNTNSViewController : NSViewController {
     NSView* _view;
     NSString* identity;
 }
@@ -26,14 +26,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSView+WSI.h"
+# include "NSView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class IViewController
 : public IObject
@@ -45,10 +45,10 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_nscontroller_wrapper <NSObject>
 
@@ -56,17 +56,17 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface _cxx_nsviewcontroller_wrapper : WSINSViewController <_cxx_nscontroller_wrapper>
+@interface _cxx_nsviewcontroller_wrapper : NNTNSViewController <_cxx_nscontroller_wrapper>
 {
     ::wsi::ui::IViewController* _cxxobj;
 }
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT, typename viewT,
 typename ctlrT = _cxx_nsviewcontroller_wrapper,
@@ -177,8 +177,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

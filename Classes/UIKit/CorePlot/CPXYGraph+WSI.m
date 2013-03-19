@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPXYGraph (WSI)
+@implementation CPXYGraph (NNT)
 
 @end
 
@@ -48,7 +48,7 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICPXYGraph);    
+    NNTDECL_PRIVATE_INIT(UICPXYGraph);    
     
     [d_ptr init_view];
     
@@ -56,14 +56,14 @@ WSI_BEGIN
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)newFrame xScaleType:(CPScaleType)newXScaleType yScaleType:(CPScaleType)newYScaleType {
     self = [super initWithFrame:newFrame xScaleType:newXScaleType yScaleType:newYScaleType];  
     if (self) {
-        WSIDECL_PRIVATE_INIT(UICPXYGraph);
+        NNTDECL_PRIVATE_INIT(UICPXYGraph);
         [d_ptr init_view];
     }
     return self;
@@ -71,4 +71,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

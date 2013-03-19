@@ -3,7 +3,7 @@
 # import "UIGridPageController.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIGridPage
 
@@ -40,9 +40,9 @@ WSI_BEGIN_OBJC
 
 @end
 
-@interface UIGridPageControllerView : WSIUIView
+@interface UIGridPageControllerView : NNTUIView
 
-@property (nonatomic, readonly) WSIUIPageControl* ctl_page;
+@property (nonatomic, readonly) NNTUIPageControl* ctl_page;
 @property (nonatomic, assign) UIGridPageController* ctlr_owner;
 
 @end
@@ -55,7 +55,7 @@ WSI_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    ctl_page = [[WSIUIPageControl alloc] initWithZero];
+    ctl_page = [[NNTUIPageControl alloc] initWithZero];
     [self addSubview:ctl_page];
     [ctl_page release];
     
@@ -94,7 +94,7 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UIGridPageController);
+    NNTDECL_PRIVATE_INIT(UIGridPageController);
     
     pageClass = [UIGridPage class];
     
@@ -104,12 +104,12 @@ WSI_BEGIN_OBJC
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_END
 
 - (void)loadView {
     UIGridPageControllerView* view = [[UIGridPageControllerView alloc] initWithZero];
@@ -122,7 +122,7 @@ WSIEVENT_END
     PASS;
 }
 
-- (void)__act_page_changed:(WSIEventObj*)evt {
+- (void)__act_page_changed:(NNTEventObj*)evt {
     UISwitchPage* page = ((NSPair*)evt.result).first;
     uindex idx = [self index_of:page];  
     if (idx != NSNotFound) {
@@ -168,11 +168,11 @@ WSIEVENT_END
     view.ctl_page.currentPage = 0;
 }
 
-- (WSIUIPageControl*)pageControl {
+- (NNTUIPageControl*)pageControl {
     UIGridPageControllerView* view = (UIGridPageControllerView*)self.view;
     return view.ctl_page;
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

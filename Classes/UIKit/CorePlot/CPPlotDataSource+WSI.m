@@ -1,7 +1,7 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-WSI_END
+NNT_END

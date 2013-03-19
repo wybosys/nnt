@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "AlphabetFlow.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 char *alphabetflow_next(char const* str, uint len)
 {
@@ -100,9 +100,9 @@ char *alphabetflow_prev(char const* str, uint len)
     return buf;
 }
 
-WSI_END_C
+NNT_END_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 AlphabetFlow::AlphabetFlow()
 {
@@ -152,4 +152,4 @@ core::string AlphabetFlow::prev()
     return curValue;
 }
 
-WSI_END_CXX
+NNT_END_CXX

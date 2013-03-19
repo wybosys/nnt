@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_UITEARVIEW_3A2524AD54FF496289910F19384D14E5_H_INCLUDED
-# define __WSI_UIKIT_UITEARVIEW_3A2524AD54FF496289910F19384D14E5_H_INCLUDED
+# ifndef __NNT_UIKIT_UITEARVIEW_3A2524AD54FF496289910F19384D14E5_H_INCLUDED
+# define __NNT_UIKIT_UITEARVIEW_3A2524AD54FF496289910F19384D14E5_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(CGShadow);
-WSIDECL_PRIVATE_HEAD(UITearView);
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(CGShadow);
+NNTDECL_PRIVATE_HEAD(UITearView);
+NNTDECL_EXTERN_CLASS(WCGFill);
 
-@interface UITearView : WSIUIView {
+@interface UITearView : NNTUIView {
     
     //! view of target.
     UIView *targetView;
@@ -60,7 +60,7 @@ WSIDECL_EXTERN_CLASS(WCGFill);
     //! use desktop. default is YES.
     BOOL desktopMode;
     
-    WSIDECL_PRIVATE(UITearView);
+    NNTDECL_PRIVATE(UITearView);
 }
 
 @property (nonatomic, assign) UIView *targetView, *sourceView;
@@ -91,7 +91,7 @@ WSIDECL_EXTERN_CLASS(WCGFill);
 
 @end
 
-WSI_EXTERN signal_t kSignalViewClose;
+NNT_EXTERN signal_t kSignalViewClose;
 
 @interface UITearViewHov : UITearView {
     
@@ -105,12 +105,12 @@ WSI_EXTERN signal_t kSignalViewClose;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename tearT>
 class TearView
@@ -192,8 +192,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -3,14 +3,14 @@
 # import "AbstractCache.h"
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define CACHE_LIMIT_COUNT 10
 # define CACHE_LIMIT_SIZE 5120
 # define CACHE_BUFFER 10
 # define CACHE_BUFFER_OVERFLOW 15
 
-@interface AbstractCachePrivate : WSIObject {
+@interface AbstractCachePrivate : NNTObject {
 
     //! if enable limit control.
     BOOL _skip_limit_control;
@@ -62,7 +62,7 @@ WSI_BEGIN_OBJC
     if (_skip_limit_control)
         return NO;
     
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
         
     // adjust buffer.
     if ([_storage_time count] > d_owner.cfgBufferOverflow) {
@@ -126,7 +126,7 @@ WSI_BEGIN_OBJC
     if (!skip && d_owner.policyLimit) {
         if ([arr count] >= d_owner.cfgCount) {
             
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             trace_fmt(@"cache limit control: processing %d; there is %d; in memory is %d.", (int)arr.count, (int)d_owner.count, (int)(_storage_freq.count + _storage_time.count));
 # endif
             
@@ -166,7 +166,7 @@ static AbstractCache *__gs_defaultCache = nil;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(AbstractCache, d_ptr_cache);
+    NNTDECL_PRIVATE_INIT_EX(AbstractCache, d_ptr_cache);
     
     _timestamp = time(NULL);
     _policyLimit = _policySize = NO;
@@ -184,7 +184,7 @@ static AbstractCache *__gs_defaultCache = nil;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_cache);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_cache);
     [super dealloc];
 }
 
@@ -196,7 +196,7 @@ static AbstractCache *__gs_defaultCache = nil;
     Class ret = nil;
     switch ([(NSObject*)obj coreType]) {
         default: {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             NSString *msg = [NSString stringWithFormat:@"cache warning: skip a [%s] class object", object_getClassName(obj)];
             trace_msg(msg);
 # endif
@@ -276,7 +276,7 @@ static AbstractCache *__gs_defaultCache = nil;
     // store.
     [d_ptr_cache.storage setObject:item forKey:item.code];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     
     trace_fmt(@"added a cache item, there is [%d] items.",
               (int)[self count]);
@@ -290,7 +290,7 @@ static AbstractCache *__gs_defaultCache = nil;
 }
 
 - (id)objectForKey:(NSString<NSHash> *)key {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
     
     id ret = nil;
     NSString *code = [key uniqueIdentify];
@@ -314,7 +314,7 @@ static AbstractCache *__gs_defaultCache = nil;
         // if is overdate.
         if ([item is_overdate]) {
             
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
             trace_msg(@"a cache item is timeout.");
 # endif
             
@@ -332,7 +332,7 @@ static AbstractCache *__gs_defaultCache = nil;
 }
 
 - (id)itemForKey:(NSString<NSHash> *)key {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
     
     NSString *code = [key uniqueIdentify];
     
@@ -359,7 +359,7 @@ static AbstractCache *__gs_defaultCache = nil;
     // remove from storage.
     [d_ptr_cache.storage removeObjectForKey:item.code];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_fmt(@"a cache item was removed, there is [%d] items.", (int)[self count]);
 # endif
 }
@@ -398,7 +398,7 @@ static AbstractCache *__gs_defaultCache = nil;
 }
 
 + (id)setDefault:(id)cache {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
 
     [__gs_defaultCache save];
     [__gs_defaultCache release];
@@ -408,7 +408,7 @@ static AbstractCache *__gs_defaultCache = nil;
         [__gs_defaultCache load];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return cache;
 }
 
@@ -417,7 +417,7 @@ static AbstractCache *__gs_defaultCache = nil;
 }
 
 - (BOOL)save {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
     
     for (id key in d_ptr_cache.storage) {
         id item = [d_ptr_cache.storage objectForKey:key];        
@@ -648,7 +648,7 @@ static AbstractCache *__gs_defaultCache = nil;
         return;
     
     safe_release(_data);
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (_data != nil) {
         trace_fmt(@"the cache data remain in memory but should be free. retain count: %d .", [_data retainCount]);
     }
@@ -714,22 +714,22 @@ static AbstractCache *__gs_defaultCache = nil;
     if (_data == nil)
         return nil;
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:[WSIObject json_encode:self.data] forKey:@"value"];
+    [dict setValue:[NNTObject json_encode:self.data] forKey:@"value"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.timestamp] forKey:@"timestamp"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.overdate] forKey:@"overdate"];
-    NSString *str = [WSIObject json_encode:dict];
+    NSString *str = [NNTObject json_encode:dict];
     [dict release];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [WSIObject json_decode:str];
+    NSDictionary *dict = [NNTObject json_decode:str];
     [str release];
     self.timestamp = [[dict valueForKey:@"timestamp"] unsignedLongValue];
     self.overdate = [[dict valueForKey:@"overdate"] unsignedLongValue];
     NSString *value = [dict valueForKey:@"value"];
-    self.data = [WSIObject json_decode:value];
+    self.data = [NNTObject json_decode:value];
     return YES;
 }
 
@@ -741,22 +741,22 @@ static AbstractCache *__gs_defaultCache = nil;
     if (_data == nil)
         return nil;
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:[WSIObject json_encode:self.data] forKey:@"value"];
+    [dict setValue:[NNTObject json_encode:self.data] forKey:@"value"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.timestamp] forKey:@"timestamp"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.overdate] forKey:@"overdate"];
-    NSString *str = [WSIObject json_encode:dict];
+    NSString *str = [NNTObject json_encode:dict];
     [dict release];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [WSIObject json_decode:str];
+    NSDictionary *dict = [NNTObject json_decode:str];
     [str release];
     self.timestamp = [[dict valueForKey:@"timestamp"] unsignedLongValue];
     self.overdate = [[dict valueForKey:@"overdate"] unsignedLongValue];
     NSString *value = [dict valueForKey:@"value"];
-    self.data = [WSIObject json_decode:value];
+    self.data = [NNTObject json_decode:value];
     return YES;
 }
 
@@ -768,22 +768,22 @@ static AbstractCache *__gs_defaultCache = nil;
     if (_data == nil)
         return nil;
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:[WSIObject json_encode:self.data] forKey:@"value"];
+    [dict setValue:[NNTObject json_encode:self.data] forKey:@"value"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.timestamp] forKey:@"timestamp"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.overdate] forKey:@"overdate"];
-    NSString *str = [WSIObject json_encode:dict];
+    NSString *str = [NNTObject json_encode:dict];
     [dict release];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [WSIObject json_decode:str];
+    NSDictionary *dict = [NNTObject json_decode:str];
     [str release];
     self.timestamp = [[dict valueForKey:@"timestamp"] unsignedLongValue];
     self.overdate = [[dict valueForKey:@"overdate"] unsignedLongValue];
     NSString *value = [dict valueForKey:@"value"];
-    self.data = [WSIObject json_decode:value];
+    self.data = [NNTObject json_decode:value];
     return YES;
 }
 
@@ -798,14 +798,14 @@ static AbstractCache *__gs_defaultCache = nil;
     [dict setValue:(NSString*)self.data forKey:@"value"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.timestamp] forKey:@"timestamp"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.overdate] forKey:@"overdate"];
-    NSString *str = [WSIObject json_encode:dict];
+    NSString *str = [NNTObject json_encode:dict];
     [dict release];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [WSIObject json_decode:str];
+    NSDictionary *dict = [NNTObject json_decode:str];
     [str release];
     self.timestamp = [[dict valueForKey:@"timestamp"] unsignedLongValue];
     self.overdate = [[dict valueForKey:@"overdate"] unsignedLongValue];
@@ -821,33 +821,33 @@ static AbstractCache *__gs_defaultCache = nil;
     if (_data == nil)
         return nil;
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    NSData *base64 = [WSIObject base64_encode:(NSData*)self.data];
+    NSData *base64 = [NNTObject base64_encode:(NSData*)self.data];
     NSString *value = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];
     [dict setValue:value forKey:@"value"];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.timestamp] forKey:@"timestamp"];
     [value release];
     [dict setValue:[NSNumber numberWithUnsignedLong:self.overdate] forKey:@"overdate"];
-    NSString *str = [WSIObject json_encode:dict];
+    NSString *str = [NNTObject json_encode:dict];
     [dict release];
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)fromData:(NSData *)__data {
     NSString *str = [[NSString alloc] initWithData:__data encoding:NSUTF8StringEncoding];
-    NSDictionary *dict = [WSIObject json_decode:str];
+    NSDictionary *dict = [NNTObject json_decode:str];
     [str release];
     self.timestamp = [[dict valueForKey:@"timestamp"] unsignedLongValue];
     self.overdate = [[dict valueForKey:@"overdate"] unsignedLongValue];
     id value = [dict valueForKey:@"value"];
-    self.data = [WSIObject base64_decode:[(NSString*)value dataUsingEncoding:NSUTF8StringEncoding]];
+    self.data = [NNTObject base64_decode:[(NSString*)value dataUsingEncoding:NSUTF8StringEncoding]];
     return YES;
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 void CacheBoot();
 void CacheFin();
@@ -855,10 +855,10 @@ void CacheActive();
 void CacheInactive();
 
 void CacheInit() {
-    [WSI Register:WSIHookTypeFin hookFunc:[func_object withAddr:(void*)&CacheFin]];
-    [WSI Register:WSIHookTypeActive hookFunc:[func_object withAddr:(void*)&CacheActive]];
-    [WSI Register:WSIHookTypeInactive hookFunc:[func_object withAddr:(void*)&CacheInactive]];
-    //[WSI Register:WSIHookTypeBoot hookFunc:[func_object withAddr:(void*)&CacheBoot]];
+    [NNT Register:NNTHookTypeFin hookFunc:[func_object withAddr:(void*)&CacheFin]];
+    [NNT Register:NNTHookTypeActive hookFunc:[func_object withAddr:(void*)&CacheActive]];
+    [NNT Register:NNTHookTypeInactive hookFunc:[func_object withAddr:(void*)&CacheInactive]];
+    //[NNT Register:NNTHookTypeBoot hookFunc:[func_object withAddr:(void*)&CacheBoot]];
 }
 
 void CacheBoot() {
@@ -904,4 +904,4 @@ void CacheInactive() {
     trace_msg(@"cache is saved.");
 }
 
-WSI_END_C
+NNT_END_C

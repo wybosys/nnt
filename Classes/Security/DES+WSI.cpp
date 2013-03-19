@@ -1,15 +1,15 @@
 
 # include "Core.h"
-# include "DES+WSI.h"
+# include "DES+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/des.h>
 # include <math.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 void des::encrypt(char const* key, core::string const& in, core::vector<byte>& out)
 {
@@ -70,4 +70,4 @@ void des::decrypt(char const* key, core::vector<byte> const& in, core::string& o
     free(buf);
 }
 
-WSI_END_CXX
+NNT_END_CXX

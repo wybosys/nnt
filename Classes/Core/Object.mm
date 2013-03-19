@@ -1,21 +1,21 @@
 
 # import "Core.h"
 
-# ifdef WSI_USE_SBJSON
+# ifdef NNT_USE_SBJSON
 #   import <SBJson/SBJsonWriter.h>
 #   import <SBJson/SBJsonParser.h>
 # endif
 
-# ifdef WSI_USE_BASE64
+# ifdef NNT_USE_BASE64
 #   import <Google/GTMBase64.h>
 # endif
 
 # import "coretypes.h"
-# import "Task+WSI.h"
+# import "Task+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIWeakReference
+@implementation NNTWeakReference
 
 @synthesize obj;
 
@@ -25,13 +25,13 @@ WSI_BEGIN_OBJC
     return self;
 }
 
-+ (WSIWeakReference*)weakWith:(NSObject *)obj {
-    return [[[WSIWeakReference alloc] initWith:obj] autorelease];
++ (NNTWeakReference*)weakWith:(NSObject *)obj {
+    return [[[NNTWeakReference alloc] initWith:obj] autorelease];
 }
 
 @end
 
-@implementation WSIObjectAttachNull
+@implementation NNTObjectAttachNull
 
 @synthesize storePushPop;
 
@@ -141,25 +141,25 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIObjectAttachWeak
+@implementation NNTObjectAttachWeak
 
 - (id)pack:(id)__obj {
-    return [WSIWeakReference weakWith:__obj];
+    return [NNTWeakReference weakWith:__obj];
 }
 
 - (id)unpack:(id)__obj {
-    WSIWeakReference *obj = (WSIWeakReference*)__obj;
+    NNTWeakReference *obj = (NNTWeakReference*)__obj;
     return obj.obj;
 }
 
 - (id)get:(id)__obj {
-    WSIWeakReference *obj = (WSIWeakReference*)__obj;
+    NNTWeakReference *obj = (NNTWeakReference*)__obj;
     return obj.obj;
 }
 
 @end
 
-@implementation WSIObjectAttachStrong
+@implementation NNTObjectAttachStrong
 
 - (id)unpack:(id)obj {
     return [[obj retain] autorelease];
@@ -167,9 +167,9 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIObject
+@implementation NNTObject
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (id)init {
     self = [super init];
@@ -188,7 +188,7 @@ WSIOBJECT_IMPL;
     safe_release(_lock);
     safe_release(_block);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -197,57 +197,57 @@ WSIOBJECT_IMPL;
 }
 
 - (void)lock {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (_lock == nil) {
-        _lock = [[WSINSLock alloc] init];
-        //_lock= [[WSINSConditionLock alloc] initWithCondition:1];
+        _lock = [[NNTNSLock alloc] init];
+        //_lock= [[NNTNSConditionLock alloc] initWithCondition:1];
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     [_lock lock];
 }
 
 - (void)unlock {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (_lock == nil)
         @throw [NSException exceptionWithName:@"lock-unlock" reason:@"lost lock object" userInfo:NULL];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     [_lock unlock];
 }
 
 - (BOOL)tryLock {
     BOOL ret;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (_lock == nil) {
-        _lock = [[WSINSLock alloc] init];
-        //_lock= [[WSINSConditionLock alloc] initWithCondition:1];
+        _lock = [[NNTNSLock alloc] init];
+        //_lock= [[NNTNSConditionLock alloc] initWithCondition:1];
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     ret = [_lock tryLock];
     return ret;
 }
 
 - (void)block {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (_block == nil)
-        _block = [[WSICondition alloc] init];
-    WSI_SYNCHRONIZED_END
+        _block = [[NNTCondition alloc] init];
+    NNT_SYNCHRONIZED_END
     
     [_block wait];
 }
 
 - (void)unblock {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (_block == nil)
         @throw [NSException exceptionWithName:@"block-unblock" reason:@"lost block object" userInfo:NULL];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     [(NSCondition*)_block signal];
 }
 
-# ifdef WSI_USE_SBJSON
+# ifdef NNT_USE_SBJSON
 
 + (NSString*)json_encode:(NSObject*)__obj {
 	SBJsonWriter *jsonWriter = [SBJsonWriter new];    
@@ -269,7 +269,7 @@ WSIOBJECT_IMPL;
 
 # endif
 
-# ifdef WSI_USE_BASE64
+# ifdef NNT_USE_BASE64
 
 + (NSData*)base64_encode:(NSData *)data {
     return [GTMBase64 encodeData:data];
@@ -285,14 +285,14 @@ static int __gs_looponce_count = 0;
 
 - (BOOL)loopOnce {
     BOOL ret = NO;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     ++__gs_looponce_count;
     if (__gs_looponce_count == 1) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
         ret = YES;
     }
     --__gs_looponce_count;
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
@@ -386,4 +386,4 @@ void ObjectInit () {
     NSNumberNo  =  NSNumber0;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

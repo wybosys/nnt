@@ -1,18 +1,18 @@
 
-# ifndef __WSI_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
-# define __WSI_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
+# ifndef __NNT_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
+# define __NNT_UIKIT_SPREADSHEET_7452B2845C4541B9A1F47218E00EF9E3_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UISpreadSheet);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCell);
-WSIDECL_EXTERN_CLASS(UISpreadSheetRow);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCellMatrix);
-WSIDECL_EXTERN_CLASS(NSCellLine);
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(WCGTextStyle);
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WCGColor);
+NNTDECL_PRIVATE_HEAD(UISpreadSheet);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCell);
+NNTDECL_EXTERN_CLASS(UISpreadSheetRow);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCellMatrix);
+NNTDECL_EXTERN_CLASS(NSCellLine);
+NNTDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(WCGTextStyle);
+NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGColor);
 
 typedef enum {
     UISpreadSheetCellMatrixTypeCornerLeftTop = 0x01,
@@ -99,7 +99,7 @@ typedef enum {
 
 @end
 
-@interface UISpreadSheet : WSIUIControl <UISpreadSheetDelegate, UISpreadSheetDataSource> {
+@interface UISpreadSheet : NNTUIControl <UISpreadSheetDelegate, UISpreadSheetDataSource> {
     
     //! datasource and delegate.
     id <UISpreadSheetDataSource> dataSource;
@@ -139,7 +139,7 @@ typedef enum {
     //! reselect on selected cell, default is NO.
     BOOL reselectSelectedCell;
     
-    WSIDECL_PRIVATE(UISpreadSheet);
+    NNTDECL_PRIVATE(UISpreadSheet);
 }
 
 @property (nonatomic, assign) id <UISpreadSheetDataSource> dataSource;
@@ -242,9 +242,9 @@ typedef enum {
 
 @end
 
-WSIDECL_EXTERN_CLASS(UISpreadSheetHeaderVec);
-WSIDECL_EXTERN_CLASS(UISpreadSheetHeaderHov);
-WSIDECL_EXTERN_CLASS(UISpreadSheetCorner);
+NNTDECL_EXTERN_CLASS(UISpreadSheetHeaderVec);
+NNTDECL_EXTERN_CLASS(UISpreadSheetHeaderHov);
+NNTDECL_EXTERN_CLASS(UISpreadSheetCorner);
 
 @interface UISpreadSheet (children)
 
@@ -260,27 +260,27 @@ WSIDECL_EXTERN_CLASS(UISpreadSheetCorner);
 
 @end
 
-WSI_EXTERN signal_t kSignalSheetTouchs;
+NNT_EXTERN signal_t kSignalSheetTouchs;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 # import "UISpreadSheetCell.h"
 # import "UISpreadSheetCellMatrix.h"
 # import "UISpreadSheetHeader.h"
 # import "UISpreadSheetCorner.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SpreadSheet;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 class _cxxwrapper_spreadsheet
 {
@@ -301,10 +301,10 @@ public:
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SpreadSheet
 : public Control<SpreadSheet, 
@@ -457,8 +457,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

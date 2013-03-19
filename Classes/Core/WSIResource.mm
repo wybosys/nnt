@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "WSIResource.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIResource
+@implementation NNTResource
 
 + (BOOL)IsExist:(NSString *)tgt {
-    NSString* file = [WSIResource PathOf:tgt];
+    NSString* file = [NNTResource PathOf:tgt];
     NSFileManager* fs = [NSFileManager defaultManager];
     return [fs fileExistsAtPath:file];
 }
@@ -15,7 +15,7 @@ WSI_BEGIN_OBJC
 + (NSString *)PathOf:(NSString*)tgt {
     NSString* bundle = [[NSBundle mainBundle] bundlePath];
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     bundle = [bundle stringByAppendingPathComponent:@"Contents"];
     bundle = [bundle stringByAppendingPathComponent:@"Resources"];
 # endif
@@ -25,11 +25,11 @@ WSI_BEGIN_OBJC
 }
 
 + (NSString *)ContentOf:(NSString*)tgt {
-    return [WSIResource ContentOf:tgt inBundle:YES];
+    return [NNTResource ContentOf:tgt inBundle:YES];
 }
 
 + (NSString *)ContentOf:(NSString*)tgt inBundle:(BOOL)inBundle {
-    NSString *path = inBundle == YES ? [WSIResource PathOf:tgt] : tgt;
+    NSString *path = inBundle == YES ? [NNTResource PathOf:tgt] : tgt;
     NSData *data = [[[NSData alloc] initWithContentsOfFile:path] autorelease];
     if (nil == data) {
         trace_fmt(@"failed to load %@, it may be non-exist.", path);
@@ -40,7 +40,7 @@ WSI_BEGIN_OBJC
 }
 
 + (NSData *)DataOf:(NSString*)tgt inBundle:(BOOL)inBundle {
-    NSString *path = inBundle == YES ? [WSIResource PathOf:tgt] : tgt;
+    NSString *path = inBundle == YES ? [NNTResource PathOf:tgt] : tgt;
     NSData *data = [[[NSData alloc] initWithContentsOfFile:path] autorelease];
     if (nil == data) {
         trace_fmt(@"failed to load %@, it may be non-exist.", path);
@@ -50,23 +50,23 @@ WSI_BEGIN_OBJC
 }
 
 + (NSData *)DataOf:(NSString*)tgt {
-     return [WSIResource DataOf:tgt inBundle:YES];
+     return [NNTResource DataOf:tgt inBundle:YES];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 bool Resource::IsExist(NSString *tgt)
 {
-    return [WSIResource IsExist:tgt];
+    return [NNTResource IsExist:tgt];
 }
 
 core::string Resource::PathOf(::NSString *tgt)
 {
-    ::NSString* str = [WSIResource PathOf:tgt];
+    ::NSString* str = [NNTResource PathOf:tgt];
     return wtl::tostr(str);
 }
 
@@ -76,4 +76,4 @@ core::string Resource::PathOf(const core::string &tgt)
     return Resource::PathOf(str);
 }
 
-WSI_END_CXX
+NNT_END_CXX

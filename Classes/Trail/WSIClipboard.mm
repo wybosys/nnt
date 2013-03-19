@@ -1,20 +1,20 @@
 
 # import "Core.h"
-# import "WSIClipboard.h"
+# import "NNTClipboard.h"
 # import <UIKit/UIKit.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalContentChanged = @"::wsi::content::changed";
 
-WSIDECL_PRIVATE_BEGIN(Clipboard, WSIObject)
+NNTDECL_PRIVATE_BEGIN(Clipboard, NNTObject)
 {
     UIPasteboard* _pb;
 }
 
 @property (nonatomic, retain) UIPasteboard* pb;
 
-WSIDECL_PRIVATE_IMPL(Clipboard)
+NNTDECL_PRIVATE_IMPL(Clipboard)
 
 @synthesize pb = _pb;
 
@@ -50,13 +50,13 @@ WSIDECL_PRIVATE_IMPL(Clipboard)
     [d_owner emit:kSignalContentChanged];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation Clipboard
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(Clipboard);
+    NNTDECL_PRIVATE_INIT(Clipboard);
     
     d_ptr.pb = [UIPasteboard generalPasteboard];
     
@@ -65,7 +65,7 @@ WSIDECL_PRIVATE_END
 
 - (id)initWithUnique {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(Clipboard);
+    NNTDECL_PRIVATE_INIT(Clipboard);
     
     d_ptr.pb = [UIPasteboard pasteboardWithUniqueName];
     
@@ -74,7 +74,7 @@ WSIDECL_PRIVATE_END
 
 - (id)initWithName:(NSString *)name {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(Clipboard);
+    NNTDECL_PRIVATE_INIT(Clipboard);
 
     d_ptr.pb = [UIPasteboard pasteboardWithName:name create:YES];
     
@@ -82,13 +82,13 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentChanged)
+NNTEVENT_END
 
 - (UIPasteboard*)pasteboard {
     return d_ptr.pb;
@@ -96,10 +96,10 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(sys)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(sys)
 
 Clipboard::Clipboard()
 {
@@ -185,5 +185,5 @@ uint Clipboard::count() const
     return this->_self.pasteboard.items.count;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "QzDisplayLink.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalDisplayLink = @"::wsi::ui::displaylink::got";
 
@@ -24,9 +24,9 @@ signal_t kSignalDisplayLink = @"::wsi::ui::displaylink::got";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalDisplayLink)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalDisplayLink)
+NNTEVENT_END
 
 - (void)_cb_displaylink {
     [self emit:kSignalDisplayLink];
@@ -42,4 +42,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

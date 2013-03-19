@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "WCALayerFliters.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 @implementation WCALayerFilters
 
@@ -26,15 +26,15 @@ WSI_USINGCXXNAMESPACE;
 
 @end
 
-WSIIMPL_CATEGORY(CALayer, WCALayerFilters);
+NNTIMPL_CATEGORY(CALayer, WCALayerFilters);
 
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(WCALayerFilters)
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(WCALayerFilters)
 
 - (void)applyLayer:(CALayer *)layer {
     ca::filter::tpl::IFilter* filter = (ca::filter::tpl::IFilter*)self._cxxobj;
     filter->apply(layer);
 }
 
-WSIIMPL_OBJCXX_WRAPPER_END
+NNTIMPL_OBJCXX_WRAPPER_END
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,39 +1,39 @@
 
-# ifndef __WSI_UIKIT_NSWINDOW_27BE1DCDAA73403293DDC9A4F580AD88_H_INCLUDED
-# define __WSI_UIKIT_NSWINDOW_27BE1DCDAA73403293DDC9A4F580AD88_H_INCLUDED
+# ifndef __NNT_UIKIT_NSWINDOW_27BE1DCDAA73403293DDC9A4F580AD88_H_INCLUDED
+# define __NNT_UIKIT_NSWINDOW_27BE1DCDAA73403293DDC9A4F580AD88_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSWindow (WSI)
+@interface NSWindow (NNT)
 
 - (id)initWithFrame:(NSRect)frame;
 - (id)initWithZero;
 
 @end
 
-@interface WSINSWindow : NSWindow {
-    WSIOBJECT_DECL;
+@interface NNTNSWindow : NSWindow {
+    NNTOBJECT_DECL;
     
     BOOL keyWindow;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, assign) BOOL keyWindow;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "WSIUIObject.h"
+# include "NNTUIObject.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class Application;
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
 class Window
 : public Object<Window, NSWindow>
@@ -56,8 +56,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

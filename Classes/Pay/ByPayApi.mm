@@ -4,13 +4,13 @@
 # import "ByPayApi-iPhone.prv.h"
 # import "ByPayApi-iPad.prv.h"
 # import "App.h"
-# import "MDN+WSI.h"
-# import "RSA+WSI.h"
-# import "BaseN+WSI.h"
+# import "MDN+NNT.h"
+# import "RSA+NNT.h"
+# import "BaseN+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation ByPayApi
 
@@ -59,7 +59,7 @@ WSI_BEGIN_OBJC
     ns::Dictionary props(data);
     
     ByPayApiController* ctlr = nil;
-    if (WSI_DEVICE_ISIPAD) {
+    if (NNT_DEVICE_ISIPAD) {
         ctlr = [[ByPayApiPad alloc] init];
     } else {
         ctlr = [[ByPayApiPhone alloc] init];
@@ -86,7 +86,7 @@ WSI_BEGIN_OBJC
         }
     }
 
-    [[WSIApplication shared].window.rootViewController presentModalViewControllerWithAnimated:ctlr];
+    [[NNTApplication shared].window.rootViewController presentModalViewControllerWithAnimated:ctlr];
 
     safe_release(ctlr);
     
@@ -95,4 +95,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

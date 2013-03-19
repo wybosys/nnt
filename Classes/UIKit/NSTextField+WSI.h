@@ -1,28 +1,28 @@
 
-# ifndef __WSINS_TEXTFIELD_BD94C50603C64535857268CD1A1A8B87_H_INCLUDED
-# define __WSINS_TEXTFIELD_BD94C50603C64535857268CD1A1A8B87_H_INCLUDED
+# ifndef __NNTNS_TEXTFIELD_BD94C50603C64535857268CD1A1A8B87_H_INCLUDED
+# define __NNTNS_TEXTFIELD_BD94C50603C64535857268CD1A1A8B87_H_INCLUDED
 
-# include "NSControl+WSI.h"
+# include "NSControl+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSTextField : NSTextField
+@interface NNTNSTextField : NSTextField
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSControl+WSI.h"
+# include "NSControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class TextField
-: public Control < TextField, WSINSTextField >
+: public Control < TextField, NNTNSTextField >
 {
-    typedef Control < TextField, WSINSTextField > super;
+    typedef Control < TextField, NNTNSTextField > super;
     
 public:
     
@@ -48,8 +48,8 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

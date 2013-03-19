@@ -1,20 +1,20 @@
 
-# ifndef __WSI_SEC_UUID_3A474467B7D644BC8726DF63AD0A305C_H_INCLUDED
-# define __WSI_SEC_UUID_3A474467B7D644BC8726DF63AD0A305C_H_INCLUDED
+# ifndef __NNT_SEC_UUID_3A474467B7D644BC8726DF63AD0A305C_H_INCLUDED
+# define __NNT_SEC_UUID_3A474467B7D644BC8726DF63AD0A305C_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN NSString* uuid_string();
+NNT_EXTERN NSString* uuid_string();
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-WSICLASS(uuid);
+NNTCLASS(uuid);
 
 class uuid
 {
@@ -38,7 +38,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <>
 inline_impl string type_cast<string, uuid>(uuid const& uid)
@@ -46,8 +46,8 @@ inline_impl string type_cast<string, uuid>(uuid const& uid)
     return uid.to_string();
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif

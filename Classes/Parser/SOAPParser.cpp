@@ -4,18 +4,18 @@
 # include "../Core/ObjectDL.h"
 # include "../Cross/SoapObject.h"
 
-WSI_BEGIN_CXX 
+NNT_BEGIN_CXX 
 
-WSI_BEGIN_NS(soap)
+NNT_BEGIN_NS(soap)
 
 lang::Namespace* getNamespace()
 {
     return lang::addNamespace("soap");
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_NS(parser)
 
 SoapDocument::SoapDocument()
 {
@@ -40,5 +40,5 @@ void SoapDocument::loaded()
     XmlDocument::loaded();
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

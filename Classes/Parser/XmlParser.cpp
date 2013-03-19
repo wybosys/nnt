@@ -4,18 +4,18 @@
 # include "../Security/WsiSecurity.h"
 
 # ifdef USE_LIBXERCESC
-#   include "../../contrib/libxml/LIBXERCESC+WSI.h"
+#   include "../../contrib/libxml/LIBXERCESC+NNT.h"
 # endif
 
 # ifdef USE_LIBXML
-#   include "../../contrib/libxml/LIBXML+WSI.h"
+#   include "../../contrib/libxml/LIBXML+NNT.h"
 # endif
 
-WSI_BEGIN_CXX 
+NNT_BEGIN_CXX 
 
 signal_t kSignalLoaded = "::wsi::loaded";
 
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_NS(parser)
 
 XmlNode::XmlNode()
 : first(NULL), last(NULL), prev(NULL), next(NULL), parent(NULL)
@@ -224,9 +224,9 @@ XmlDocument::~XmlDocument()
 
 }
 
-WSIDECL_SIGNALS_BEGIN(XmlDocument, cxx::Object<>)
-WSI_SIGNAL(kSignalLoaded)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(XmlDocument, cxx::Object<>)
+NNT_SIGNAL(kSignalLoaded)
+NNTDECL_SIGNALS_END
 
 # ifdef USE_LIBXERCESC
 
@@ -1411,5 +1411,5 @@ bool XmlSaxDocument::parse_file(const core::string & file)
 
 # endif
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "MChart2D.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @implementation MChart2DValue 
 
@@ -75,12 +75,12 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(MChart2D, _d_ptr_chart2d);    
+    NNTDECL_PRIVATE_INIT_EX(MChart2D, _d_ptr_chart2d);    
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC_EX(_d_ptr_chart2d);
+    NNTDECL_PRIVATE_DEALLOC_EX(_d_ptr_chart2d);
     [super dealloc];
 }
 
@@ -114,4 +114,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

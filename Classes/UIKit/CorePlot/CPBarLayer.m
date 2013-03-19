@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 # import "CPBarLayer.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation CPBarLayer
 
@@ -66,4 +66,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

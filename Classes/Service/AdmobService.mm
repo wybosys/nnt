@@ -4,14 +4,14 @@
 # import <Admob/GADBannerView.h>
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define DEFAULT_PUBLISHERID_IPHONE @"a1512c21815168e"
 # define DEFAULT_PUBLISHERID_IPAD @"a1512c3119d6fa1"
 
-WSI_EXTERN bool WSI_DEVICE_ISSIMULATOR;
-WSI_EXTERN bool WSI_DEVICE_ISIPHONE;
-WSI_EXTERN bool WSI_DEVICE_ISIPAD;
+NNT_EXTERN bool NNT_DEVICE_ISSIMULATOR;
+NNT_EXTERN bool NNT_DEVICE_ISIPHONE;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD;
 
 @implementation AdmobServiceView
 
@@ -45,10 +45,10 @@ WSI_EXTERN bool WSI_DEVICE_ISIPAD;
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(AdmobServiceController, WSIObject)
+NNTDECL_PRIVATE_BEGIN(AdmobServiceController, NNTObject)
 <GADBannerViewDelegate>
 
-WSIDECL_PRIVATE_IMPL(AdmobServiceController)
+NNTDECL_PRIVATE_IMPL(AdmobServiceController)
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
     
@@ -75,7 +75,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation AdmobServiceController
 
@@ -83,9 +83,9 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(AdmobServiceController);
+    NNTDECL_PRIVATE_INIT(AdmobServiceController);
     
-    if (WSI_DEVICE_ISIPHONE)
+    if (NNT_DEVICE_ISIPHONE)
         self.appid = DEFAULT_PUBLISHERID_IPHONE;
     else
         self.appid = DEFAULT_PUBLISHERID_IPAD;
@@ -96,7 +96,7 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_appid);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -111,16 +111,16 @@ WSIDECL_PRIVATE_END
     
     AdmobServiceView* view = (AdmobServiceView*)self.view;
     
-    view.banner.rootViewController = [WSIApplication shared].rootViewController;
+    view.banner.rootViewController = [NNTApplication shared].rootViewController;
     view.banner.delegate = d_ptr;
     view.banner.adUnitID = _appid;
     
     // load request.
     GADRequest* req = [GADRequest request];
-    if (WSI_DEVICE_ISSIMULATOR) {
+    if (NNT_DEVICE_ISSIMULATOR) {
         req.testDevices = [NSArray arrayWithObject:GAD_SIMULATOR_ID];
     } else {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         req.testDevices = [NSArray arrayWithObjects:@"784136f9b6bab4fe0e003f63a0b34f44", nil];
 # endif
     }
@@ -128,7 +128,7 @@ WSIDECL_PRIVATE_END
     [view.banner loadRequest:req];
 }
 
-- (void)viewController:(WSIUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
+- (void)viewController:(NNTUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
     AdmobServiceView* view = (AdmobServiceView*)self.view;
     if (UIInterfaceOrientationIsLandscape(orientation))
         view.banner.adSize = kGADAdSizeSmartBannerLandscape;
@@ -142,11 +142,11 @@ WSIDECL_PRIVATE_END
 _CXXVIEW_IMPL(AdmobServiceView);
 _CXXCONTROLLER_IMPL(AdmobServiceController);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 AdmobView::AdmobView()
 {
@@ -169,6 +169,6 @@ void AdmobController::set_appid(ns::String const& str)
     this->_self.appid = str;
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

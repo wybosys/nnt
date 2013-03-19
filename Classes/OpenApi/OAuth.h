@@ -1,11 +1,11 @@
 
-# ifndef __WSI_OA_AUTH_183E2EDD5CA349BB8C08F187D3B1DB0C_H_INCLUDED
-# define __WSI_OA_AUTH_183E2EDD5CA349BB8C08F187D3B1DB0C_H_INCLUDED
+# ifndef __NNT_OA_AUTH_183E2EDD5CA349BB8C08F187D3B1DB0C_H_INCLUDED
+# define __NNT_OA_AUTH_183E2EDD5CA349BB8C08F187D3B1DB0C_H_INCLUDED
 
 # import "OANull.h"
 # import "../Security/SecSignature.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 enum {
     OAuthApiTypeUnknown,
@@ -15,7 +15,7 @@ enum {
 
 typedef uint OAuthApiType;
 
-WSI_EXTERN NSString* kOAuthHttpConentType;
+NNT_EXTERN NSString* kOAuthHttpConentType;
 
 // string category for oauth.
 @interface NSString (OAuth)
@@ -103,7 +103,7 @@ WSI_EXTERN NSString* kOAuthHttpConentType;
 
 @end
 
-@interface OAuthorize_1_0 : WSIObject <OAuthorize_1_0> {
+@interface OAuthorize_1_0 : NNTObject <OAuthorize_1_0> {
     
     //! url for callback.
     NSString* _urlCallback;
@@ -138,9 +138,9 @@ WSI_EXTERN NSString* kOAuthHttpConentType;
 
 @end
 
-WSI_EXTERN signal_t kSignalAuthorizeSuccess;
-WSI_EXTERN signal_t kSignalAuthorizeFailed;
-WSI_EXTERN signal_t kSignalAuthorizeExit;
+NNT_EXTERN signal_t kSignalAuthorizeSuccess;
+NNT_EXTERN signal_t kSignalAuthorizeFailed;
+NNT_EXTERN signal_t kSignalAuthorizeExit;
 
 @interface OAccess_1_0 : OANull {
     
@@ -179,7 +179,7 @@ WSI_EXTERN signal_t kSignalAuthorizeExit;
 
 @end
 
-@interface OAuth_1_0 : WSIObject <OAuth> {
+@interface OAuth_1_0 : NNTObject <OAuth> {
     
     OARequest_1_0* _request;
     OAuthorize_1_0* _authorize;
@@ -302,7 +302,7 @@ WSI_EXTERN signal_t kSignalAuthorizeExit;
 
 @end
 
-@interface OAuthorize_2_0 : WSIObject <OAuthorize_2_0> {
+@interface OAuthorize_2_0 : NNTObject <OAuthorize_2_0> {
 
     OARequest_2_0 *_request;
     
@@ -350,7 +350,7 @@ WSI_EXTERN signal_t kSignalAuthorizeExit;
 
 @end
 
-@interface OAuth_2_0 : WSIObject <OAuth> {
+@interface OAuth_2_0 : NNTObject <OAuth> {
     
     OARequest_2_0* _request;
     OAuthorize_2_0* _authorize;
@@ -394,12 +394,12 @@ WSI_EXTERN signal_t kSignalAuthorizeExit;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(oauth)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(oauth)
 
 template <typename apiT>
 class Function
@@ -516,8 +516,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

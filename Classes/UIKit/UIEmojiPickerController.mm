@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "NNTFoundation.h"
 # include "UIEmojiPickerController.h"
 
 # define ROWS 4
 # define COLS 6
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
 
@@ -15,7 +15,7 @@ signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
 
 - (id)initWithZero {
     self = [super initWithZero];
-    page = [[WSIUIPageControl alloc] initWithZero];
+    page = [[NNTUIPageControl alloc] initWithZero];
     page.selectedColor = [UIColor redColor];
     page.normalColor = [UIColor grayColor];
     [self addSubview:page];
@@ -50,7 +50,7 @@ signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
 {
     [self.gridView clearItems];
     for (uint idx = 0; idx < [arr count]; ++idx) {
-        WSIUILabel* lbl_emoji = [[WSIUILabel alloc] initWithZero];
+        NNTUILabel* lbl_emoji = [[NNTUILabel alloc] initWithZero];
         lbl_emoji.textAlignment = UITextAlignmentCenter;
         lbl_emoji.text = [arr objectAtIndex:idx];
         [self.gridView addChildView:lbl_emoji];
@@ -64,9 +64,9 @@ signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
 
 @synthesize emojis;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalEmojiSelected)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalEmojiSelected)
+NNTEVENT_END
 
 - (id)init {
     self = [super init];
@@ -109,7 +109,7 @@ WSIEVENT_END
     [self instanceRootPage];
 }
 
-- (void)act_page_create:(WSIEventObj*)evt {
+- (void)act_page_create:(NNTEventObj*)evt {
     UIEmojiPage* page = (UIEmojiPage*)evt.result;
     [page.gridView connect:kSignalContentClicked sel:@selector(act_click_grid:) obj:self];
     uint page_num = [self index_of:page];
@@ -131,7 +131,7 @@ WSIEVENT_END
     [page load:temp];
 }
 
-- (void)act_select_changed:(WSIEventObj*)evt {
+- (void)act_select_changed:(NNTEventObj*)evt {
     UIEmojiPickerView* view = (UIEmojiPickerView*)self.view;
     UISwitchPage* page = ((NSPair*)evt.result).first;
     uindex idx = [self index_of:page];
@@ -140,7 +140,7 @@ WSIEVENT_END
     }
 }
 
-- (void)act_click_grid:(WSIEventObj*)evt {
+- (void)act_click_grid:(NNTEventObj*)evt {
     [self emit:kSignalEmojiSelected result:evt.result];
 }
 
@@ -148,4 +148,4 @@ WSIEVENT_END
 
 _CXXCONTROLLER_IMPL(UIEmojiPickerController);
 
-WSI_END_OBJC
+NNT_END_OBJC

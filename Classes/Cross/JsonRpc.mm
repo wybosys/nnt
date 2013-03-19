@@ -3,9 +3,9 @@
 # import "JsonRpc.h"
 # import "Model.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface JsonRpcPrivate : WSIObject <JsonRpcDelegate> {
+@interface JsonRpcPrivate : NNTObject <JsonRpcDelegate> {
 	NSString *protocol;
 	NSString *reqid;
 	JsonRpc *owner;
@@ -44,7 +44,7 @@ WSI_BEGIN_OBJC
 						__params, @"params",
 						reqid, @"id",
 					nil];
-	NSString *json = [WSIObject json_encode:req];
+	NSString *json = [NNTObject json_encode:req];
 	
 	NSData *json_data = [json dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -56,7 +56,7 @@ WSI_BEGIN_OBJC
 }
 
 - (NSDictionary*)send_call:(NSData *)__reqdata {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
 
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 	[request setValue:[[NSNumber numberWithInt:(int)[__reqdata length]] stringValue] forHTTPHeaderField:@"Content-Length"];
@@ -77,7 +77,7 @@ WSI_BEGIN_OBJC
 	
 	// parse receive
 	NSString *str = [[[NSString alloc] initWithBytes:[data bytes] length:[data length] encoding:NSUTF8StringEncoding] autorelease];
-	NSDictionary *json = [WSIObject json_decode:str];
+	NSDictionary *json = [NNTObject json_decode:str];
 	if (json == nil)
         return nil;
 	
@@ -163,11 +163,11 @@ WSI_BEGIN_OBJC
 }
 
 - (NSObject*)call:(NSString *)__method params:(NSObject *)__params parser:(id)__parser {
-    WSIRPC_CALLROUND;
+    NNTRPC_CALLROUND;
     
 	return [d_ptr call:__method params:(NSArray*)__params];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

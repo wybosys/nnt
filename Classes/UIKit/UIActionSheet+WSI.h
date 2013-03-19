@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_ACTIONSHEET_3D38E9B5B0C34E08981D6240854902DD_H_INCLUDED
-# define __WSI_UIKIT_ACTIONSHEET_3D38E9B5B0C34E08981D6240854902DD_H_INCLUDED
+# ifndef __NNT_UIKIT_ACTIONSHEET_3D38E9B5B0C34E08981D6240854902DD_H_INCLUDED
+# define __NNT_UIKIT_ACTIONSHEET_3D38E9B5B0C34E08981D6240854902DD_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUIActionSheet : UIActionSheet <UIActionSheetDelegate> {
+@interface NNTUIActionSheet : UIActionSheet <UIActionSheetDelegate> {
     NSMutableDictionary* _items;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (id)initWithTitle:(NSString*)title;
 - (id)addItem:(NSString*)title;
@@ -18,29 +18,29 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalCancelButtonClicked;
-WSI_EXTERN signal_t kSignalDestructButtonClicked;
+NNT_EXTERN signal_t kSignalCancelButtonClicked;
+NNT_EXTERN signal_t kSignalDestructButtonClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ActionSheet
-: public Object<ActionSheet, WSIUIActionSheet>
+: public Object<ActionSheet, NNTUIActionSheet>
 {
 public:
     
     ActionSheet()
     {
-        this->_self = [[WSIUIActionSheet alloc] initWithTitle:@""];
+        this->_self = [[NNTUIActionSheet alloc] initWithTitle:@""];
     }
     
     explicit ActionSheet(ns::String const& title)
     {
-        this->_self = [[WSIUIActionSheet alloc] initWithTitle:title];
+        this->_self = [[NNTUIActionSheet alloc] initWithTitle:title];
     }
         
     void set_title(ns::String const& title)
@@ -75,8 +75,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -3,7 +3,7 @@
 # import "AEMInformation.h"
 # import "HttpRequest.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface AEMHttpRequest : HttpRequest_Get
 
@@ -99,4 +99,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

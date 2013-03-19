@@ -4,7 +4,7 @@
 
 # import "OAuth.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface OARequestSohu : OARequest_1_0 
 @end
@@ -39,6 +39,6 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 #endif

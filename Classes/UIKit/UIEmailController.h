@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_EMAILCONTROLLER_B7B799FC02D94D0FA2D3830E9C235517_H_INCLUDED
-# define __WSI_UIKIT_EMAILCONTROLLER_B7B799FC02D94D0FA2D3830E9C235517_H_INCLUDED
+# ifndef __NNT_UIKIT_EMAILCONTROLLER_B7B799FC02D94D0FA2D3830E9C235517_H_INCLUDED
+# define __NNT_UIKIT_EMAILCONTROLLER_B7B799FC02D94D0FA2D3830E9C235517_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UIEmailController);
+NNTDECL_PRIVATE_HEAD(UIEmailController);
 
-@interface UIEmailController : WSIObject {
+@interface UIEmailController : NNTObject {
     
     NSMutableArray* _to;
     NSMutableArray* _cc;
@@ -14,7 +14,7 @@ WSIDECL_PRIVATE_HEAD(UIEmailController);
     
     NSString *_body, *_html;
     
-    WSIDECL_PRIVATE(UIEmailController);
+    NNTDECL_PRIVATE(UIEmailController);
 }
 
 @property (nonatomic, copy) NSArray *to; 
@@ -32,12 +32,12 @@ WSIDECL_PRIVATE_HEAD(UIEmailController);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class EmailController
 : public ns::Object<UIEmailController>
@@ -81,8 +81,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

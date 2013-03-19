@@ -3,13 +3,13 @@
 # import "UIEmailController.h"
 # import <MessageUI/MessageUI.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(UIEmailController, WSIObject) <MFMailComposeViewControllerDelegate>
+NNTDECL_PRIVATE_BEGIN(UIEmailController, NNTObject) <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, readonly) MFMailComposeViewController* ctlr;
 
-WSIDECL_PRIVATE_IMPL(UIEmailController)
+NNTDECL_PRIVATE_IMPL(UIEmailController)
 
 @synthesize ctlr;
 
@@ -33,7 +33,7 @@ WSIDECL_PRIVATE_IMPL(UIEmailController)
     [d_owner release];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIEmailController
 
@@ -47,7 +47,7 @@ WSIDECL_PRIVATE_END
     _cc = [[NSMutableArray alloc] init];
     _bcc = [[NSMutableArray alloc] init];
     
-    WSIDECL_PRIVATE_INIT(UIEmailController);
+    NNTDECL_PRIVATE_INIT(UIEmailController);
     return self;
 }
 
@@ -56,7 +56,7 @@ WSIDECL_PRIVATE_END
     zero_release(_cc);
     zero_release(_bcc);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -88,9 +88,9 @@ WSIDECL_PRIVATE_END
         [d_ptr.ctlr setMessageBody:_body isHTML:NO];
     }
     
-    [[WSIApplication shared].window.rootViewController presentModalViewController:d_ptr.ctlr animated:YES];
+    [[NNTApplication shared].window.rootViewController presentModalViewController:d_ptr.ctlr animated:YES];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

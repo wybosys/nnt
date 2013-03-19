@@ -1,40 +1,40 @@
 
-# ifndef __WSI_UIKIT_SEARCHDISPLAYCONTROLLER_80E3B4DAC6BC4777BA9605218EBE420C_H_INCLUDED
-# define __WSI_UIKIT_SEARCHDISPLAYCONTROLLER_80E3B4DAC6BC4777BA9605218EBE420C_H_INCLUDED
+# ifndef __NNT_UIKIT_SEARCHDISPLAYCONTROLLER_80E3B4DAC6BC4777BA9605218EBE420C_H_INCLUDED
+# define __NNT_UIKIT_SEARCHDISPLAYCONTROLLER_80E3B4DAC6BC4777BA9605218EBE420C_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUISearchDisplayController : UISearchDisplayController <UISearchDisplayDelegate> {
-    WSIOBJECT_DECL;
+@interface NNTUISearchDisplayController : UISearchDisplayController <UISearchDisplayDelegate> {
+    NNTOBJECT_DECL;
     
     UIView* _accordingView;
 }
 
 @property (nonatomic, assign) UIView* accordingView;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-_CXXCONTROLLER_DECL(WSIUISearchDisplayController);
+_CXXCONTROLLER_DECL(NNTUISearchDisplayController);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UISearchBar+WSI.h"
-# include "UITableViewController+WSI.h"
-# include "UINavigationController+WSI.h"
+# include "UISearchBar+NNT.h"
+# include "UITableViewController+NNT.h"
+# include "UINavigationController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(tpl)
 
 class ISearchDisplayController
 : public IViewController
@@ -50,7 +50,7 @@ template <typename implT, typename tabT, typename barT = ui::SearchBar >
 class SearchDisplayController
 : public SimpleController<
 implT,
-_CXXCONTROLLER(WSIUISearchDisplayController),
+_CXXCONTROLLER(NNTUISearchDisplayController),
 UIView,
 _NullView<UIView>,
 ISearchDisplayController
@@ -59,7 +59,7 @@ ISearchDisplayController
     
     typedef SimpleController<
     implT,
-    _CXXCONTROLLER(WSIUISearchDisplayController),
+    _CXXCONTROLLER(NNTUISearchDisplayController),
     UIView,
     _NullView<UIView>,
     ISearchDisplayController
@@ -173,9 +173,9 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 class SearchDisplayController
 : public tpl::SearchDisplayController<SearchDisplayController, ui::impl::TableController>
@@ -183,7 +183,7 @@ class SearchDisplayController
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 template <typename tabT, typename barT = ui::SearchBar>
 class SearchDisplayController
@@ -206,8 +206,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

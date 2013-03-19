@@ -1,24 +1,24 @@
 
 # import "Core.h"
-# import "WSIPython.h"
+# import "NNTPython.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 # import "../../3rd/python/Include/Python.h"
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 // load module.
 # import "_python.site/wsi.modules.h"
 # import "_python.site/pywsi.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSIPythonPrivate : NSObject
+@interface NNTPythonPrivate : NSObject
 
-@property (nonatomic, assign) WSIPython* d_owner;
+@property (nonatomic, assign) NNTPython* d_owner;
 
 @end
 
-@implementation WSIPythonPrivate
+@implementation NNTPythonPrivate
 
 @synthesize d_owner;
 
@@ -27,10 +27,10 @@ WSI_BEGIN_OBJC
     
     Py_SetPythonHome((char*)"");
     Py_InitializeEx(0);
-    Py_SetProgramName((char*)"PyWSI");
+    Py_SetProgramName((char*)"PyNNT");
     
     // load modules.
-    PyWSI_LoadModules();
+    PyNNT_LoadModules();
     
     return self;
 }
@@ -46,16 +46,16 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIPython
+@implementation NNTPython
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIPython);
+    NNTDECL_PRIVATE_INIT(NNTPython);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -71,9 +71,9 @@ WSI_BEGIN_OBJC
 }
 
 - (NSString*)errorMessage {
-    return PyWSI_ErrorMessage();
+    return PyNNT_ErrorMessage();
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

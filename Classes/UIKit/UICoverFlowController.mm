@@ -4,7 +4,7 @@
 # import "UICoverFlow.h"
 # import "UICoverFlowItem.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UICoverFlowData
 
@@ -79,4 +79,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

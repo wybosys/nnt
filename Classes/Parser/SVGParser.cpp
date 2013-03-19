@@ -1,16 +1,16 @@
 
 # include "Core.h"
 # include "SVGParser.h"
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 #   pragma warning (disable: 4244)
 # endif
 
 # include <boost/spirit/include/classic.hpp>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(svg)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(svg)
 
 PathParser::PathParser()
 {
@@ -350,5 +350,5 @@ bool PathParser::parse(const core::string & _str, callback_action act, void* ctx
     return true;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

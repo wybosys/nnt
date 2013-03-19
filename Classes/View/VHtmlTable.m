@@ -3,9 +3,9 @@
 # import "VHtmlTable.h"
 # import "IVTable.h"
 # import "VHtml.h"
-# import "WSIResource.h"
+# import "NNTResource.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @implementation VHtmlTable
 
@@ -19,7 +19,7 @@ WSI_BEGIN
 
 	NSMutableString *table = [[NSMutableString new] autorelease];
     
-    [html appendString:[VHtml make_css:[WSIResource ContentOf:@"VHtmlTable_CSS.css"]]];
+    [html appendString:[VHtml make_css:[NNTResource ContentOf:@"VHtmlTable_CSS.css"]]];
     
 	[table appendString:@"<table class=\"ipad_tb_02\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">"];
 	
@@ -66,4 +66,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

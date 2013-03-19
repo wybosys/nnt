@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "UIDevice+WSI.h"
+# import "UIDevice+NNT.h"
 # import <sys/utsname.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 double device_version() {
     double version = [[UIDevice currentDevice].systemVersion doubleValue];
@@ -74,7 +74,7 @@ static uint detectDevice() {
     return detected;
 }
 
-WSIIMPL_CATEGORY(UIDevice, WSI);
+NNTIMPL_CATEGORY(UIDevice, NNT);
 
 @interface UIDevice ()
 
@@ -82,7 +82,7 @@ WSIIMPL_CATEGORY(UIDevice, WSI);
 
 @end
 
-@implementation UIDevice (WSI)
+@implementation UIDevice (NNT)
 
 - (CGAffineTransform)orientTransform {
     CGAffineTransform ret = CGAffineTransformIdentity;
@@ -190,4 +190,4 @@ WSIIMPL_CATEGORY(UIDevice, WSI);
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

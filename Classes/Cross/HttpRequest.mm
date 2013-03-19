@@ -4,13 +4,13 @@
 # import "Model.h"
 # import "NullObjParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(HttpRequest, NSObject)
+NNTDECL_PRIVATE_BEGIN(HttpRequest, NSObject)
 
-WSIDECL_PRIVATE_IMPL(HttpRequest)
+NNTDECL_PRIVATE_IMPL(HttpRequest)
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @interface HttpRequest ()
 
@@ -25,7 +25,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(HttpRequest);
+    NNTDECL_PRIVATE_INIT(HttpRequest);
     
     self.method = @"POST";
     
@@ -43,7 +43,7 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     zero_release(cookieURLs);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -69,8 +69,8 @@ WSIDECL_PRIVATE_END
     if (self.verbose)
         trace_obj(url);
     
-    WSIRPC_CALLROUND;
-    WSIMACRO_LOCKOBJ(self);
+    NNTRPC_CALLROUND;
+    NNTMACRO_LOCKOBJ(self);
     
     // clean.
     [self _cookie_clean];
@@ -122,7 +122,7 @@ WSIDECL_PRIVATE_END
     NSError *error = nil;
     
     // get data.
-    NSData *repdata = [WSINSURLConnection sendSynchronousRequest:request
+    NSData *repdata = [NNTNSURLConnection sendSynchronousRequest:request
                                                returningResponse:&respone
                                                            error:&error];
     if (nil == repdata
@@ -192,4 +192,4 @@ NSString* HttpRequestGetMethod(Class cls) {
     return [cls Method];
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

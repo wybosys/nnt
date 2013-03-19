@@ -1,10 +1,10 @@
 
 # include "Core.h"
 # include "OrmSqlite.hpp"
-# include "WSISqlite.h"
+# include "NNTSqlite.h"
 # include <sqlite/sqlite3.h>
 
-WSI_BEGIN_ORM
+NNT_BEGIN_ORM
 
 class Sqlite
 {
@@ -62,7 +62,7 @@ public:
     
 };
 
-WSIDECL_PRIVATE_BEGIN_CXX(SqliteCube)
+NNTDECL_PRIVATE_BEGIN_CXX(SqliteCube)
 
 friend class SqliteBlock;
 friend class SqliteTranscation;
@@ -85,16 +85,16 @@ sqlite3* db() const
 
 store::Sqlite cnt;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 SqliteCube::SqliteCube()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SqliteCube);
+    NNTDECL_PRIVATE_CONSTRUCT(SqliteCube);
 }
 
 SqliteCube::~SqliteCube()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool SqliteCube::use(core::string const& file)
@@ -423,4 +423,4 @@ bool SqliteBlock::_update()
     return sta == SQLITE_DONE;
 }
 
-WSI_END_ORM
+NNT_END_ORM

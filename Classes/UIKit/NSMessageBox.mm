@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "NSMessageBox.h"
-# import "NSView+WSI.h"
+# import "NSView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface NSMessageBoxView : WSINSView
+@interface NSMessageBoxView : NNTNSView
 
 @end
 
@@ -29,4 +29,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

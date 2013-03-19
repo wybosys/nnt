@@ -2,14 +2,14 @@
 # import "Core.h"
 # import "QzAnimation.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation __cxxobject_qzanimation
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAnimationStart)
-WSIEVENT_SIGNAL(kSignalAnimationStop)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAnimationStart)
+NNTEVENT_SIGNAL(kSignalAnimationStop)
+NNTEVENT_END
 
 - (void)animationDidStart:(CAAnimation *)anim {
     [self emit:kSignalAnimationStart];
@@ -21,10 +21,10 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(qz)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(qz)
 
 Transcation::Transcation()
 {
@@ -76,5 +76,5 @@ Transcation::ValuePair& Transcation::ValuePair::operator = (id obj)
     return *this;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -3,7 +3,7 @@
 # import "SystemAudio.h"
 # import <AudioToolbox/AudioToolbox.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface SAudioID : NSObject {
     SystemSoundID aid;
@@ -23,10 +23,10 @@ WSI_BEGIN_OBJC
 
 + (id)defaultManager {
     static SystemAudioManager* __default_manager = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (__default_manager == nil)
         __default_manager = [[SystemAudioManager alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __default_manager;
 }
 
@@ -72,4 +72,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

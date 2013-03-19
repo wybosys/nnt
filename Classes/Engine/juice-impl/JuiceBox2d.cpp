@@ -5,7 +5,7 @@
 
 JUICEIMPL_BEGIN
 
-WSIDECL_PRIVATE_BEGIN_CXX(PhysicsBox2d)
+NNTDECL_PRIVATE_BEGIN_CXX(PhysicsBox2d)
 
 void init()
 {
@@ -25,16 +25,16 @@ b2World* world;
 b2BodyDef* ground_def;
 b2Body* ground_body;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 PhysicsBox2d::PhysicsBox2d()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(PhysicsBox2d);
+    NNTDECL_PRIVATE_CONSTRUCT(PhysicsBox2d);
 }
 
 PhysicsBox2d::~PhysicsBox2d()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void PhysicsBox2d::set_gravity(real y, real x)

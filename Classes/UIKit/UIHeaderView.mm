@@ -3,7 +3,7 @@
 # import "UIHeaderView.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalAction = @"::wsi::action";
 
@@ -13,9 +13,9 @@ signal_t kSignalAction = @"::wsi::action";
 @synthesize direction = _direction;
 @synthesize autoScale = _autoScale;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAction);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAction);
+NNTEVENT_END
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -59,11 +59,11 @@ WSIEVENT_END
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
         
-    _normalLabel = [[WSIUILabel alloc] initWithZero];
+    _normalLabel = [[NNTUILabel alloc] initWithZero];
     [self addSubview:_normalLabel];
     safe_release(_normalLabel);
     
-    _actionLabel = [[WSIUILabel alloc] initWithZero];
+    _actionLabel = [[NNTUILabel alloc] initWithZero];
     [self addSubview:_actionLabel];
     safe_release(_actionLabel);
     
@@ -78,7 +78,7 @@ WSIEVENT_END
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     CGRectLayoutVBox lyt(self.bounds);
     CGRectLayoutLinear lnr(lyt);
@@ -109,7 +109,7 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
 _CXXVIEW_IMPL(UIHeaderView);
 _CXXVIEW_IMPL(UIActivityHeaderView);

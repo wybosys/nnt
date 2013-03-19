@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "UUID+WSI.h"
+# include "UUID+NNT.h"
 
-# if defined(WSI_MACH) || defined(WSI_UNIX)
+# if defined(NNT_MACH) || defined(NNT_UNIX)
 #   define USE_OSSP
 # endif
 
@@ -11,12 +11,12 @@
 # endif
 
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 uuid::uuid()
 : _u(0)
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
 	UUID* uid = (UUID*)malloc(sizeof(UUID));
 	::UuidCreate(uid);
@@ -35,7 +35,7 @@ uuid::uuid()
 
 uuid::~uuid()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
 	::free(_u);
     
@@ -51,7 +51,7 @@ uuid::~uuid()
 
 uuid& uuid::operator = (const wsi::uuid & r)
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
 	*(UUID*)_u = *(UUID*)r._u;
     
@@ -70,7 +70,7 @@ uuid& uuid::operator = (const wsi::uuid & r)
 
 core::string uuid::to_string() const
 {    
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     char buf[36];
 	::UuidToStringA((UUID const*)_u, (RPC_CSTR*)buf);
@@ -91,4 +91,4 @@ core::string uuid::to_string() const
     
 }
 
-WSI_END_CXX
+NNT_END_CXX

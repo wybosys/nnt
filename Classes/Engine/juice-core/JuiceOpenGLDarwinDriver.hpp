@@ -4,7 +4,7 @@
 
 JUICE_BEGIN
 
-# if defined(WSI_OBJC) && defined(WSI_TARGET_MAC)
+# if defined(NNT_OBJC) && defined(NNT_TARGET_MAC)
 
 typedef struct {
     typedef NSView* drawable_type;
@@ -94,7 +94,7 @@ protected:
 
 # define JUICE_OPENGL_DRIVER_IMPL _macgl_Driver<implT, typesT>
 
-# elif defined(WSI_OBJC) && defined(WSI_TARGET_IOS)
+# elif defined(NNT_OBJC) && defined(NNT_TARGET_IOS)
 
 typedef struct {
     typedef id drawable_type;

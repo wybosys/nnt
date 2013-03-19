@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UIKIT_WCALAYER_98B15EB4A4F345F5AE98E0E75C260522_H_INCLUDED
-# define __WSI_UIKIT_WCALAYER_98B15EB4A4F345F5AE98E0E75C260522_H_INCLUDED
+# ifndef __NNT_UIKIT_WCALAYER_98B15EB4A4F345F5AE98E0E75C260522_H_INCLUDED
+# define __NNT_UIKIT_WCALAYER_98B15EB4A4F345F5AE98E0E75C260522_H_INCLUDED
 
 # import <QuartzCore/CALayer.h>
 # import "WCGDefines.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WCALayerTheme);
+NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCALayerTheme);
 
 @interface CALayer (WCA)
 
@@ -30,7 +30,7 @@ WSIDECL_EXTERN_CLASS(WCALayerTheme);
 
 @end
 
-WSIDECL_CATEGORY(CALayer, WCA);
+NNTDECL_CATEGORY(CALayer, WCA);
 
 @interface WCALayer : CALayer {
     
@@ -40,10 +40,10 @@ WSIDECL_CATEGORY(CALayer, WCA);
     //! theme.
     WCALayerTheme *theme;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, retain) WCGFill *backgroundFill;
 @property (nonatomic, retain) WCALayerTheme *theme;
@@ -56,16 +56,16 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "WCAObject.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ca)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ca)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename objcT>
 class Border
@@ -291,7 +291,7 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Layer
 : public tpl::Layer<CALayer>
@@ -313,8 +313,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

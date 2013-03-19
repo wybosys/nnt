@@ -1,18 +1,18 @@
 
-# ifndef __WSIWTL_DEVICE_cc8a97edbee54b2ab1253be376a75a72_H_INCLUDED
-# define __WSIWTL_DEVICE_cc8a97edbee54b2ab1253be376a75a72_H_INCLUDED
+# ifndef __NNTWTL_DEVICE_cc8a97edbee54b2ab1253be376a75a72_H_INCLUDED
+# define __NNTWTL_DEVICE_cc8a97edbee54b2ab1253be376a75a72_H_INCLUDED
 
-# include "Cpu+WSI.h"
+# include "Cpu+NNT.h"
 
-# ifdef WSI_WINDOWS
+# ifdef NNT_WINDOWS
 
-#   include "MSCOM+WSI.h"
+#   include "MSCOM+NNT.h"
 
 # endif
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
-WSI_BEGIN_NS(dev)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(dev)
 
 template <typename ostraits = os_type>
 class Bios
@@ -175,8 +175,8 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

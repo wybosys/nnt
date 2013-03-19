@@ -9,9 +9,9 @@
 # import "JsonObjParser.h"
 # import "../UIKit/UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 //@interface OARenrenHttpRequest : HttpRequest @end
 //
@@ -61,7 +61,7 @@ WSI_USINGCXXNAMESPACE;
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj*)evt {
+- (void)act_authorize_success:(NNTEventObj*)evt {
     NSString *code = [self valueForKey:@"code" ofQuery:evt.result];
 
     self.request.code = code;
@@ -227,7 +227,7 @@ WSI_USINGCXXNAMESPACE;
     
     NSString *ret = [NSString stringWithFormat:@"%@", [dict combineWithKVSep:@"=" andSegSep:@"" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -251,7 +251,7 @@ WSI_USINGCXXNAMESPACE;
     NSString *ret = [NSString stringWithFormat:@"%@?", self.baseUrl];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"=" andSegSep:@"&" keysur:@"" valsur:@""]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -330,4 +330,4 @@ WSI_USINGCXXNAMESPACE;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

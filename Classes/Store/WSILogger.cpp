@@ -1,7 +1,7 @@
 
 # include "Core.h"
-# include "WSILogger.h"
-# include "../Core/Time+WSI.h"
+# include "NNTLogger.h"
+# include "../Core/Time+NNT.h"
 
 # define LOG4CPP_FIX_ERROR_COLLISION
 # include <log4cpp/Category.hh>
@@ -11,10 +11,10 @@
 # include <log4cpp/Priority.hh>
 # include <fstream>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Logger)
+NNTDECL_PRIVATE_BEGIN_CXX(Logger)
 
 void init()
 {
@@ -22,8 +22,8 @@ void init()
     category = &log4cpp::Category::getRoot();    
     
     // set.
-    category->setPriority(WSIDEBUG_EXPRESS(log4cpp::Priority::DEBUG)
-                          WSIRELEASE_EXPRESS(log4cpp::Priority::NOTICE));
+    category->setPriority(NNTDEBUG_EXPRESS(log4cpp::Priority::DEBUG)
+                          NNTRELEASE_EXPRESS(log4cpp::Priority::NOTICE));
 }
 
 void dealloc()
@@ -73,16 +73,16 @@ log4cpp::OstreamAppender* appender;
 log4cpp::Category* category;
 std::ofstream fd;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 Logger::Logger()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Logger);
+    NNTDECL_PRIVATE_CONSTRUCT(Logger);
 }
 
 Logger::~Logger()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool Logger::open(const core::string &file)
@@ -139,5 +139,5 @@ bool DMYLogger::open(core::string const& dir, core::string const& ext, core::str
     return Logger::open(file);
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

@@ -47,7 +47,7 @@ void Failure::process(Client & cli)
     evt.data = this;
     cli.emit(kSignalFailure, evt);
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 	trace_msg("failed at user: " + cli.setting.user + " . ");
 # endif
 }

@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "NSLock+WSI.h"
+# import "NSLock+NNT.h"
 # include <pthread.h>
 
 //# define LOCK_VERBOSE
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSLock
+@implementation NNTNSLock
 
 # ifdef LOCK_VERBOSE
 
@@ -21,7 +21,7 @@ WSI_BEGIN_OBJC
     }
 }
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 - (void)unlock {
     [super unlock];
@@ -42,7 +42,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSConditionLock
+@implementation NNTNSConditionLock
 
 # ifdef LOCK_VERBOSE
 
@@ -56,7 +56,7 @@ WSI_BEGIN_OBJC
     }
 }
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 - (void)unlock {
     [super unlock];
@@ -77,7 +77,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSRecursiveLock
+@implementation NNTNSRecursiveLock
 
 # ifdef LOCK_VERBOSE
 
@@ -91,7 +91,7 @@ WSI_BEGIN_OBJC
     }
 }
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 - (void)unlock {
     [super unlock];
@@ -112,4 +112,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

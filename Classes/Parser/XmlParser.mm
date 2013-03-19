@@ -3,7 +3,7 @@
 # import "XmlParser.h"
 # import <Google/GDataXMLNode.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define ATTR(node)    ((GDataXMLNode*)node)
 # define NODE(node)    ((GDataXMLElement*)node)
@@ -402,4 +402,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

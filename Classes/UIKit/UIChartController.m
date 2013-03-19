@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "UIChartController.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIChartController
 
@@ -101,4 +101,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

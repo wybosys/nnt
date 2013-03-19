@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "UISettingsItems.h"
 # import "UISettingsReader.h"
-# import "UILabel+WSI.h"
+# import "UILabel+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define UISettingsDefaultRect CGRectMake(0, 0, 100, 0)
 # define UISettingsDefaultTextRect CGRectMake(0, 0, 0, 30)
@@ -60,9 +60,9 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalValueChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalValueChanged)
+NNTEVENT_END
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -91,7 +91,7 @@ WSIEVENT_END
     UIToggleTableCell *cell = [[UIToggleTableCell alloc] init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    WSIUILabel *lbl = [[WSIUILabel alloc] initWithFrame:UISettingsDefaultRect];
+    NNTUILabel *lbl = [[NNTUILabel alloc] initWithFrame:UISettingsDefaultRect];
     cell.label = lbl;
     lbl.font = [UIFont boldSystemFontOfSize:16];
     [cell.contentView addSubview:lbl];
@@ -203,7 +203,7 @@ textField=_textField;
 + (id)cell {
     UITextFieldTableCell *cell = [[UITextFieldTableCell alloc] init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    WSIUILabel *lbl = [[WSIUILabel alloc] initWithFrame:UISettingsDefaultRect];
+    NNTUILabel *lbl = [[NNTUILabel alloc] initWithFrame:UISettingsDefaultRect];
     cell.label = lbl;
     [cell.contentView addSubview:lbl]; 
     [lbl release];
@@ -271,4 +271,4 @@ maxImage=_maxImage;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

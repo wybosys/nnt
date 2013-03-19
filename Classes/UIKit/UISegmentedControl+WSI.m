@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "UISegmentedControl+WSI.h"
+# import "UISegmentedControl+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation UISegmentedControl (WSI)
+@implementation UISegmentedControl (NNT)
 
 -(void)setTag:(NSInteger)tag forSegmentAtIndex:(NSUInteger)segment {
     [[[self subviews] objectAtIndex:segment] setTag:tag];
@@ -49,11 +49,11 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(UISegmentedControl, WSI);
+NNTIMPL_CATEGORY(UISegmentedControl, NNT);
 
-@implementation WSIUISegmentedControl
+@implementation NNTUISegmentedControl
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @synthesize defaultColor, selectedColor, shadowColor, defaultTextColor, selectedTextColor, enableReselected;
 
@@ -88,12 +88,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
     zero_release(defaultTextColor);
     zero_release(selectedTextColor);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalSelectChanged);
+    NNTEVENT_SIGNAL(kSignalSelectChanged);
 }
 
 - (void)setDefaultColor:(UIColor *)__defaultColor {
@@ -194,4 +194,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
          
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

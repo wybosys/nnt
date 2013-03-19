@@ -1,25 +1,25 @@
 
-# ifndef __WSI_UIKIT_UITABBARCONTROLLER_843841753F1846E086583B105D53B868_H_INCLUDED
-# define __WSI_UIKIT_UITABBARCONTROLLER_843841753F1846E086583B105D53B868_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABBARCONTROLLER_843841753F1846E086583B105D53B868_H_INCLUDED
+# define __NNT_UIKIT_UITABBARCONTROLLER_843841753F1846E086583B105D53B868_H_INCLUDED
 
-# import "UITabBarView+WSI.h"
-# import "UIViewController+WSI.h"
-# import "UITabBar+WSI.h"
+# import "UITabBarView+NNT.h"
+# import "UIViewController+NNT.h"
+# import "UITabBar+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 extern NSString *kTabBarController;
 extern NSString *kTabBarItem;
 
-@interface UITabBarController (WSI)
+@interface UITabBarController (NNT)
 
 @end
 
-WSIDECL_CATEGORY(UITabBarController, WSI);
-WSIDECL_EXTERN_CLASS(WSIUITabBar);
-WSIDECL_EXTERN_CLASS(WSIUITabBarView);
+NNTDECL_CATEGORY(UITabBarController, NNT);
+NNTDECL_EXTERN_CLASS(NNTUITabBar);
+NNTDECL_EXTERN_CLASS(NNTUITabBarView);
 
-@interface WSIUITabBarController : WSIUIViewController <WSIUITabBarDelegate> {
+@interface NNTUITabBarController : NNTUIViewController <NNTUITabBarDelegate> {
 
     //! controllers.
     NSArray *viewControllers;
@@ -28,10 +28,10 @@ WSIDECL_EXTERN_CLASS(WSIUITabBarView);
 	UIViewController *selectedViewController;
     
     //! tabBar.
-	WSIUITabBar *tabBar;
+	NNTUITabBar *tabBar;
     
     //! tabBarView.
-	WSIUITabBarView *tabBarView;
+	NNTUITabBarView *tabBarView;
     
     //! visible.
 	BOOL visible;
@@ -41,28 +41,28 @@ WSIDECL_EXTERN_CLASS(WSIUITabBarView);
 }
 
 @property (nonatomic, retain) NSArray *viewControllers;
-@property (nonatomic, retain) WSIUITabBar *tabBar;
+@property (nonatomic, retain) NNTUITabBar *tabBar;
 @property (nonatomic, assign) UIViewController *selectedViewController;
-@property (nonatomic, readonly) WSIUITabBarView *tabBarView;
+@property (nonatomic, readonly) NNTUITabBarView *tabBarView;
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
 - (id)init;
 
 @end
 
-WSI_EXTERN real kUITabBarHeight;
+NNT_EXTERN real kUITabBarHeight;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIViewController+WSI.h"
+# include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TabBarController
-: public SimpleController<TabBarController, WSIUITabBarController, WSIUITabBarView>
+: public SimpleController<TabBarController, NNTUITabBarController, NNTUITabBarView>
 {
     
 public:
@@ -109,8 +109,8 @@ protected:
     TabBarView* _view;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -3,16 +3,16 @@
 # import "UICameraView.h"
 # import "AVCamSnapshotManager.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalSnapshot = @"::wsi::snapshot";
 
-WSIDECL_PRIVATE_BEGIN(UICameraView, WSIObject) <AVCamCaptureManagerDelegate>
+NNTDECL_PRIVATE_BEGIN(UICameraView, NNTObject) <AVCamCaptureManagerDelegate>
 
 @property (nonatomic, readonly) AVCamSnapshotManager *captureManager;
 @property (nonatomic, assign) AVCaptureVideoPreviewLayer* layerCapture;
 
-WSIDECL_PRIVATE_IMPL(UICameraView)
+NNTDECL_PRIVATE_IMPL(UICameraView)
 
 @synthesize captureManager;
 @synthesize layerCapture;
@@ -20,7 +20,7 @@ WSIDECL_PRIVATE_IMPL(UICameraView)
 - (id)init {
     self = [super init];
     
-    if (WSI_DEVICE_ISIPAD_SIMULATOR | WSI_DEVICE_ISIPHONE_SIMULATOR)
+    if (NNT_DEVICE_ISIPAD_SIMULATOR | NNT_DEVICE_ISIPHONE_SIMULATOR)
         [Msgbox info:_W(@"Camera run on device only !")];
 
     captureManager = [[AVCamSnapshotManager alloc] init];
@@ -63,13 +63,13 @@ WSIDECL_PRIVATE_IMPL(UICameraView)
     [d_owner emit:kSignalSnapshot result:image];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UICameraView
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT_EX(UICameraView, d_ptr_camera);
+    NNTDECL_PRIVATE_INIT_EX(UICameraView, d_ptr_camera);
     
     self.layer.masksToBounds = YES;
     
@@ -87,13 +87,13 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     [d_ptr_camera.captureManager stopSession];
     
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_camera);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_camera);
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSnapshot)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSnapshot)
+NNTEVENT_END
 
 - (void)layoutSubviews {
     CGRect const bounds = self.bounds;    
@@ -108,4 +108,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UICameraView);
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,12 +1,12 @@
 
-# ifndef __WSIWTL_ASSEMBLY_0e053744c9524861bbbb19c009347c78_H_INCLUDED
-# define __WSIWTL_ASSEMBLY_0e053744c9524861bbbb19c009347c78_H_INCLUDED
+# ifndef __NNTWTL_ASSEMBLY_0e053744c9524861bbbb19c009347c78_H_INCLUDED
+# define __NNTWTL_ASSEMBLY_0e053744c9524861bbbb19c009347c78_H_INCLUDED
 
-# include "Hardware+WSI.h"
+# include "Hardware+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
-WSI_BEGIN_NS(wasm)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wasm)
 
 template <typename cputraits, typename archtraits>
 class Registers
@@ -52,8 +52,8 @@ public:
 
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

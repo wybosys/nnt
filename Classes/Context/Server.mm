@@ -6,9 +6,9 @@
 # import "IRpc.h"
 # import "HttpRequest.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface Model (Server)
 
@@ -233,9 +233,9 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(Server, NSObject)
+NNTDECL_PRIVATE_BEGIN(Server, NSObject)
 
-WSIDECL_PRIVATE_IMPL(Server)
+NNTDECL_PRIVATE_IMPL(Server)
 
 - (id)init {
 	self = [super init];
@@ -246,7 +246,7 @@ WSIDECL_PRIVATE_IMPL(Server)
 	[super dealloc];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation Server
 
@@ -256,7 +256,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
 	self = [super init];
-    WSIDECL_PRIVATE_INIT(Server);
+    NNTDECL_PRIVATE_INIT(Server);
     
     _GlobalCache = YES;
     _classRpc = [HttpRequest class];
@@ -265,7 +265,7 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
 	[super dealloc];
 }
 
@@ -305,7 +305,7 @@ WSIDECL_PRIVATE_END
     
     if (result == nil) {
         
-        WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+        NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
         result = [irpc call:model withUrl:url];
         
         if (result && cacheKey && cache && _GlobalCache) {
@@ -374,7 +374,7 @@ WSIDECL_PRIVATE_END
         NSURL *url = [model get_url];
         
         // alloc rpc.
-        WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+        NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
         
         // get result.
         result = [irpc call:model withUrl:url];
@@ -446,7 +446,7 @@ WSIDECL_PRIVATE_END
     
     if (result == nil) {
         
-        WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+        NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
         result = [irpc call:model withUrl:url];
 
         if (result && cache && cacheKey && _GlobalCache) {
@@ -518,7 +518,7 @@ WSIDECL_PRIVATE_END
 {
 
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"object is nil" userInfo:nil];
 # endif
         return;
@@ -555,7 +555,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"object is nil" userInfo:nil];
 # endif
         return;
@@ -637,7 +637,7 @@ WSIDECL_PRIVATE_END
     
     // check obj is nil.
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"object is nil" userInfo:nil];
 # endif
         return;
@@ -674,7 +674,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (func == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"callback function is nil" userInfo:nil];
 # endif
         return;
@@ -711,7 +711,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (func == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"callback func is nil" userInfo:nil];
 # endif
         return;
@@ -751,7 +751,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (func == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"callback function is nil" userInfo:nil];
 # endif
         return;
@@ -789,7 +789,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (func == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"callback function is nil" userInfo:nil];
 # endif
         return;
@@ -821,7 +821,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"object is nil" userInfo:nil];
 # endif
         return;
@@ -876,7 +876,7 @@ WSIDECL_PRIVATE_END
 {
     
     if (obj == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         @throw [NSException exceptionWithName:@"server" reason:@"object is nil" userInfo:nil];
 # endif
         return;
@@ -978,7 +978,7 @@ WSIDECL_PRIVATE_END
     // get model.
     if (result == nil) {
         
-        WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+        NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
         result = [irpc call:model withUrl:url];
         
         if (result && cache && cacheKey && _GlobalCache) {
@@ -1046,7 +1046,7 @@ WSIDECL_PRIVATE_END
     NSNumber *cachetime = [params objectAtIndex:3];
     
     // get data.
-    WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+    NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
     id result = [irpc call:model withUrl:url];    
     zero_release(irpc);
     
@@ -1167,7 +1167,7 @@ WSIDECL_PRIVATE_END
         
         if (result == nil) {
             
-            WSIObject<IRpc>* irpc = [[cls_rpc alloc] init];
+            NNTObject<IRpc>* irpc = [[cls_rpc alloc] init];
             result = [irpc call:model withUrl:url];
             
             if (result && cache && cacheKey && _GlobalCache) {
@@ -1221,4 +1221,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

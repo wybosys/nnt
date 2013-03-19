@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "NSStyleString.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSStyleString
 
@@ -72,4 +72,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

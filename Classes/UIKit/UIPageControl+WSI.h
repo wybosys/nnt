@@ -1,11 +1,11 @@
 
-# ifndef __WSI_UIKIT_UIPAGECONTROL_E0A583288B5241AFBEF61F61DD81F690_H_INCLUDED
-# define __WSI_UIKIT_UIPAGECONTROL_E0A583288B5241AFBEF61F61DD81F690_H_INCLUDED
+# ifndef __NNT_UIKIT_UIPAGECONTROL_E0A583288B5241AFBEF61F61DD81F690_H_INCLUDED
+# define __NNT_UIKIT_UIPAGECONTROL_E0A583288B5241AFBEF61F61DD81F690_H_INCLUDED
 
 //! thanks to DDPageControl, https://github.com/ddeville/DDPageControl
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 extern signal_t kSignalSelectChanged;
 extern signal_t kSignalViewClicked;
@@ -18,7 +18,7 @@ enum {
 };
 typedef uint UIPageControlType;
 
-@interface WSIUIPageControl : WSIUIView {
+@interface NNTUIPageControl : NNTUIView {
     
     //! page number.
     NSInteger _numberOfPages;
@@ -68,19 +68,19 @@ typedef uint UIPageControlType;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class PageControl
-: public Control<PageControl, WSIUIPageControl>
+: public Control<PageControl, NNTUIPageControl>
 {
-    typedef Control<PageControl, WSIUIPageControl> super;
+    typedef Control<PageControl, NNTUIPageControl> super;
     
 public:
     
@@ -151,8 +151,8 @@ public:
         
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

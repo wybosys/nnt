@@ -6,18 +6,18 @@
 # import "HttpRequest.h"
 # import "OAuthParser.h"
 # import "../UIKit/UIOAToggleView.res"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestQQOS
 
 - (id)init {
     self = [super init];
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     self.urlAuthorize = @"https://graph.qq.com/oauth2.0/authorize";
 # else
     self.urlAuthorize = @"https://graph.z.qq.com/moc2/authorize";
@@ -49,7 +49,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj*)evt {    
+- (void)act_authorize_success:(NNTEventObj*)evt {    
     ns::Array arr([evt.result captureComponentsMatchedByRegex:@"access_token=(\\w+)&expires_in=(\\d+)"]);
     
     self.request.access_token = arr[1U];
@@ -74,7 +74,7 @@ WSI_BEGIN_OBJC
         return nil;
     }
     NSString* json_data = (NSString*)[arr objectAtIndex:1];
-    return [WSIObject json_decode:json_data];
+    return [NNTObject json_decode:json_data];
 }
 
 @end
@@ -208,7 +208,7 @@ WSI_BEGIN_OBJC
     self.classRpc = [HttpRequest_Get class];
     self.site = @"http://libwsi.sf.net";
     
-    self.reference = ns::String(@"http://") + WSIGetProjectURL();
+    self.reference = ns::String(@"http://") + NNTGetProjectURL();
     self.site = self.reference;
     
     return self;
@@ -238,4 +238,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

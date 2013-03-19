@@ -5,7 +5,7 @@
 # import "XmlParser.h"
 # import "PayNullApi.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalByPayClose = @"::wsi::pay::unipay::close";
 
@@ -51,11 +51,11 @@ signal_t kSignalByPayClose = @"::wsi::pay::unipay::close";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPaySuccess)
-WSIEVENT_SIGNAL(kSignalPayFailed)
-WSIEVENT_SIGNAL(kSignalByPayClose)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPaySuccess)
+NNTEVENT_SIGNAL(kSignalPayFailed)
+NNTEVENT_SIGNAL(kSignalByPayClose)
+NNTEVENT_END
 
 - (void)loadView {
     ByPayApiView* view = [[ByPayApiView alloc] init];
@@ -68,7 +68,7 @@ WSIEVENT_END
 }
 
 - (NSData*)generateResult {
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     parser::XmlDocument doc;
     doc.encoding = "utf-8";
@@ -96,9 +96,9 @@ WSIEVENT_END
 }
 
 - (void)processResult:(NSData*)data {
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     ns::String str = core::type_cast<ns::String>(data);
     trace_msg(str.nsobject());
 # endif
@@ -118,4 +118,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

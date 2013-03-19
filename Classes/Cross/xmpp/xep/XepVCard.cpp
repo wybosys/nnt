@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "XepVCard.h"
 # include "../XmppIMClient.h"
-# include "../../../Security/BaseN+WSI.h"
+# include "../../../Security/BaseN+NNT.h"
 
 XMPPXEP_BEGIN
 

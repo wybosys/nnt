@@ -1,14 +1,14 @@
 
-# ifndef __WSI_NULLRPC_69A741CB97D1442BBC49D53BCB33D390_H_INCLUDED
-# define __WSI_NULLRPC_69A741CB97D1442BBC49D53BCB33D390_H_INCLUDED
+# ifndef __NNT_NULLRPC_69A741CB97D1442BBC49D53BCB33D390_H_INCLUDED
+# define __NNT_NULLRPC_69A741CB97D1442BBC49D53BCB33D390_H_INCLUDED
 
 # include "IRpc.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NullRpc : WSIObject<IRpc> {
+@interface NullRpc : NNTObject<IRpc> {
     BOOL _showProgress;
     BOOL _verbose;
 }
@@ -25,11 +25,11 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class NullRpcCallRound
 {
@@ -51,19 +51,19 @@ public:
     
 };
 
-# define WSIRPC_CALLROUND ::wsi::NullRpcCallRound __rpc_callround(self)
+# define NNTRPC_CALLROUND ::wsi::NullRpcCallRound __rpc_callround(self)
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif // objc-cxx
 
 # endif // objc
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
-WSI_BEGIN_NS(rpc)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(rpc)
 
 class NullImplementation
 : public Interface,
@@ -76,9 +76,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

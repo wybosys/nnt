@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "NSIndex+WSI.h"
+# import "NSIndex+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSIndexPath
+@implementation NNTNSIndexPath
 
 @synthesize section = _section, row = _row;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

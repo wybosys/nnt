@@ -3,7 +3,7 @@
 # import "WCAActivityIndicator.h"
 # import "WCGBase.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface WCAActivityIndicator ()
 
@@ -22,7 +22,7 @@ WSI_BEGIN_OBJC
     startAngle = 0;
     endAngle = 0;
     offsetAngle = -M_PI_2;
-    ringWidth = WSI_ISPAD ? 8 : 3;
+    ringWidth = NNT_ISPAD ? 8 : 3;
     
     //self.needsDisplayOnBoundsChange = NO;
     
@@ -97,4 +97,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

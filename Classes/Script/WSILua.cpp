@@ -1,21 +1,21 @@
 
 # include "Core.h"
-# include "WSILua.h"
+# include "NNTLua.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include "../../contrib/lua/lua.h"
 # include "../../contrib/lua/lstate.h"
 # include "../../contrib/lua/lualib.h"
 # include "../../contrib/lua/lauxlib.h"
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 int wluak_version(lua_State* state)
 {
-    char const* str = WSI_VERSION_STR;
+    char const* str = NNT_VERSION_STR;
     lua_pushstring(state, str);
     return 1;
 }
@@ -64,10 +64,10 @@ void wlua_Close(wlua_Processor* obj)
     free(obj);
 }
 
-WSI_END_C
+NNT_END_C
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(script)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(script)
 
 Lua::Lua()
 {
@@ -79,5 +79,5 @@ Lua::~Lua()
     wlua_Close(_proc);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

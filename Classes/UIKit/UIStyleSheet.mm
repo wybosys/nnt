@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIStyleSheet.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString* kStyleBackground = @"background";
 
@@ -30,4 +30,4 @@ NSString* kStyleBackground = @"background";
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

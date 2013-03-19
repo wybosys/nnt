@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CORE_NSDATE_F24B459AC86E4277B114FC0EB6598B84_H_INCLUDED
-# define __WSI_CORE_NSDATE_F24B459AC86E4277B114FC0EB6598B84_H_INCLUDED
+# ifndef __NNT_CORE_NSDATE_F24B459AC86E4277B114FC0EB6598B84_H_INCLUDED
+# define __NNT_CORE_NSDATE_F24B459AC86E4277B114FC0EB6598B84_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSDate (WSI)
+@interface NSDate (NNT)
 
 - (id)initWithYear:(NSUInteger)year
              Month:(NSUInteger)month
@@ -15,7 +15,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface NSDatePeriod : WSIObject {
+@interface NSDatePeriod : NNTObject {
     NSDate *_begin, *_end;
 }
 
@@ -25,18 +25,18 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN NSString *kTimeZoneBeijing, *kTimeZoneShanghai, *kTimeZoneChongqing;
+NNT_EXTERN NSString *kTimeZoneBeijing, *kTimeZoneShanghai, *kTimeZoneChongqing;
 
-WSIDECL_CATEGORY(NSDate, WSI);
+NNTDECL_CATEGORY(NSDate, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "Time+WSI.h"
+# include "Time+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class TimeZone
 : public ns::Object<NSTimeZone>
@@ -260,8 +260,8 @@ public:
     
 };
     
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_VIDEOCONTROLLER_FF00658BB2AC473797DC1E3CC7C1AD0D_H_INCLUDED
-# define __WSI_UIKIT_VIDEOCONTROLLER_FF00658BB2AC473797DC1E3CC7C1AD0D_H_INCLUDED
+# ifndef __NNT_UIKIT_VIDEOCONTROLLER_FF00658BB2AC473797DC1E3CC7C1AD0D_H_INCLUDED
+# define __NNT_UIKIT_VIDEOCONTROLLER_FF00658BB2AC473797DC1E3CC7C1AD0D_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(MPMoviePlayerController);
+NNTDECL_EXTERN_CLASS(MPMoviePlayerController);
 
-@interface UIVideoController : WSIUIViewController {
+@interface UIVideoController : NNTUIViewController {
     @protected
     MPMoviePlayerController* _mpmovie;
 }
@@ -22,16 +22,16 @@ WSIDECL_EXTERN_CLASS(MPMoviePlayerController);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXCONTROLLER_DECL(UIVideoController);
 
-# include "UIViewController+WSI.h"
+# include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class VideoController
 : public SimpleController<VideoController,
@@ -63,8 +63,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

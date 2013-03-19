@@ -4,13 +4,13 @@
 # import <Domob/DMAdView.h>
 # import "App.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define DEFAULT_PUBLISHERID @"56OJzX3IuNaWsF8Apk"
 
-WSI_EXTERN bool WSI_DEVICE_ISIPAD;
+NNT_EXTERN bool NNT_DEVICE_ISIPAD;
 
 @implementation DomobServiceView
 
@@ -90,10 +90,10 @@ WSI_EXTERN bool WSI_DEVICE_ISIPAD;
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(DomobServiceController, NSObject)
+NNTDECL_PRIVATE_BEGIN(DomobServiceController, NSObject)
 <DMAdViewDelegate>
 
-WSIDECL_PRIVATE_IMPL(DomobServiceController)
+NNTDECL_PRIVATE_IMPL(DomobServiceController)
 
 - (void)dmAdViewSuccessToLoadAd:(DMAdView *)adView {
     
@@ -115,7 +115,7 @@ WSIDECL_PRIVATE_IMPL(DomobServiceController)
     
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation DomobServiceController
 
@@ -123,7 +123,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(DomobServiceController);
+    NNTDECL_PRIVATE_INIT(DomobServiceController);
     
     self.appid = DEFAULT_PUBLISHERID;
     
@@ -133,7 +133,7 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_appid);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -149,22 +149,22 @@ WSIDECL_PRIVATE_END
     DomobServiceView* view = (DomobServiceView*)self.view;
     view.appid = _appid;
     view.banner.delegate = d_ptr;
-    view.banner.rootViewController = [WSIApplication shared].rootViewController;
+    view.banner.rootViewController = [NNTApplication shared].rootViewController;
     
     [view loadAd];
 }
 
-- (void)viewController:(WSIUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
+- (void)viewController:(NNTUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
     DomobServiceView* view = (DomobServiceView*)self.view;
     
     if (UIInterfaceOrientationIsLandscape(orientation)) {
-        if (WSI_DEVICE_ISIPAD) {
+        if (NNT_DEVICE_ISIPAD) {
             view.size = DOMOB_AD_SIZE_728x90;
         } else {
             view.size = DOMOB_AD_SIZE_320x50;
         }
     } else {
-        if (WSI_DEVICE_ISIPAD) {
+        if (NNT_DEVICE_ISIPAD) {
             view.size = DOMOB_AD_SIZE_488x80;
         } else {
             view.size = DOMOB_AD_SIZE_320x50;
@@ -179,11 +179,11 @@ WSIDECL_PRIVATE_END
 _CXXVIEW_IMPL(DomobServiceView);
 _CXXCONTROLLER_IMPL(DomobServiceController);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(ad)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(ad)
 
 DomobView::DomobView()
 {
@@ -206,6 +206,6 @@ void DomobController::set_appid(ns::String const& str)
     this->_self.appid = str;
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

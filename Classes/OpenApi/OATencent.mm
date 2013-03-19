@@ -7,7 +7,7 @@
 # import "OADefines.h"
 # import "../UIKit/UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestTencent
 
@@ -119,7 +119,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj*)evt {
+- (void)act_authorize_success:(NNTEventObj*)evt {
     
     NSString *verifier = [self valueForKey:@"v" ofQuery:evt.result];
     wsi::ns::MutableDictionary dict_result;
@@ -312,7 +312,7 @@ WSI_BEGIN_OBJC
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -351,7 +351,7 @@ WSI_BEGIN_OBJC
     NSString *ret = [NSString stringWithFormat:@"%@?", self.baseUrl];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"=" andSegSep:@"&" keysur:@"" valsur:@""]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -468,4 +468,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,9 +1,9 @@
 
 # include "Core.h"
 # include "OrmSqlite.hpp"
-# include "Directory+WSI.h"
+# include "Directory+NNT.h"
 
-WSI_BEGIN_ORM
+NNT_BEGIN_ORM
 
 bool SqliteCube::use(ns::String const& name)
 {    
@@ -13,4 +13,4 @@ bool SqliteCube::use(ns::String const& name)
     return use(core::type_cast<core::string>(url));
 }
 
-WSI_END_ORM
+NNT_END_ORM

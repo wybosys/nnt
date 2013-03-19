@@ -2,17 +2,17 @@
 # import "Core.h"
 # import "UIAnimation.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalAnimationStart = @"::wsi::ui::animation::start";
 signal_t kSignalAnimationStop  = @"::wsi::ui::animation::stop";
 signal_t kSignalAnimationRun = @"::wsi::ui::animation::run";
 
-@implementation WSIUIAnimation
+@implementation NNTUIAnimation
 
 @synthesize name = _name, context = _context, commited = _commited, duration = _duration;
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
 @synthesize run = _run, finish = _finish;
 
@@ -33,7 +33,7 @@ signal_t kSignalAnimationRun = @"::wsi::ui::animation::run";
     
     safe_release(_name);
     
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     
     safe_release(_run);
     safe_release(_finish);
@@ -43,14 +43,14 @@ signal_t kSignalAnimationRun = @"::wsi::ui::animation::run";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAnimationStart)
-WSIEVENT_SIGNAL(kSignalAnimationStop)
-WSIEVENT_SIGNAL(kSignalAnimationRun)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAnimationStart)
+NNTEVENT_SIGNAL(kSignalAnimationStop)
+NNTEVENT_SIGNAL(kSignalAnimationRun)
+NNTEVENT_END
 
 - (BOOL)useBlock {
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     if (_run || _finish)
         return YES;
 # endif
@@ -119,4 +119,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

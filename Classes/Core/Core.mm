@@ -2,20 +2,20 @@
 # import "Core.h"
 # import "AbstractCache.h"
 
-# define WSI_MACH_PRIVATE
-# import "Mach+WSI.h"
+# define NNT_MACH_PRIVATE
+# import "Mach+NNT.h"
 
 # define WATCH_MEMORY 0
 
-# if !defined(WSI_DEBUG) || WATCH_MEMORY == 0
+# if !defined(NNT_DEBUG) || WATCH_MEMORY == 0
 #   undef WATCH_MEMORY
 # endif
 
 # ifdef WATCH_MEMORY
-#   import "NSTimer+WSI.h"
+#   import "NSTimer+NNT.h"
 # endif
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation func_object 
 
@@ -42,23 +42,23 @@ WSI_BEGIN_OBJC
 
 @end
 
-static WSI *__gs_wsi = nil;
+static NNT *__gs_wsi = nil;
 static NSConditionLock *__gs_thread_condition = nil;
 
-WSIDECL_PRIVATE_BEGIN(WSI, NSObject)
+NNTDECL_PRIVATE_BEGIN(NNT, NSObject)
 {
 # ifdef WATCH_MEMORY
-    WSITimer* timer_memory_watcher;
+    NNTTimer* timer_memory_watcher;
 # endif
 }
 
-WSIDECL_PRIVATE_IMPL(WSI)
+NNTDECL_PRIVATE_IMPL(NNT)
 
 - (id)init {
     self = [super init];
     
 # ifdef WATCH_MEMORY
-    timer_memory_watcher = [[WSITimer alloc] initWithTimeInterval:5 repeats:YES];
+    timer_memory_watcher = [[NNTTimer alloc] initWithTimeInterval:5 repeats:YES];
     [timer_memory_watcher connect:kSignalTimerFired sel:@selector(act_memory_timer) obj:self];
     [timer_memory_watcher start];
 # endif
@@ -86,18 +86,18 @@ WSIDECL_PRIVATE_IMPL(WSI)
 
 # endif
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@implementation WSI
+@implementation NNT
 
 static NSArray *__gs_hooks = nil;
 static id<NSObject> __gs_desktop = nil;
 
-+ (WSI*)shared {
++ (NNT*)shared {
     /*
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (__gs_wsi == nil)
-        trace_msg(@"WSI singleton object is nil");
+        trace_msg(@"NNT singleton object is nil");
 # endif
      */
     
@@ -106,25 +106,25 @@ static id<NSObject> __gs_desktop = nil;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSI);
+    NNTDECL_PRIVATE_INIT(NNT);
     return self;
 }
 
 - (void)dealloc {
 	zero_release(__gs_hooks);
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
 	[super dealloc];
 }
 
-WSI_BEGIN_HEADER_C
-WSI_EXTERN void ParserInit(void);
-WSI_END_HEADER_C
+NNT_BEGIN_HEADER_C
+NNT_EXTERN void ParserInit(void);
+NNT_END_HEADER_C
 
 + (void)Init {
-	trace_msg(@"WSI[OBJC] Toolkit");
+	trace_msg(@"NNT[OBJC] Toolkit");
     trace_fmt(@"path: %@.", [[NSBundle mainBundle] bundlePath]);
     
-    __gs_wsi = [[WSI alloc] init];
+    __gs_wsi = [[NNT alloc] init];
     __gs_thread_condition = [[NSConditionLock alloc] initWithCondition:8];
     
     // init memory of mach.
@@ -140,19 +140,19 @@ WSI_END_HEADER_C
                   retain];
 	
     // register
-    [WSI Register:WSIHookTypeInit hookFunc:[func_object withAddr:(void*)&CacheInit]];
-    [WSI Register:WSIHookTypeInit hookFunc:[func_object withAddr:(void*)&ObjectInit]];
-    [WSI Register:WSIHookTypeInit hookFunc:[func_object withAddr:(void*)&ParserInit]];
+    [NNT Register:NNTHookTypeInit hookFunc:[func_object withAddr:(void*)&CacheInit]];
+    [NNT Register:NNTHookTypeInit hookFunc:[func_object withAddr:(void*)&ObjectInit]];
+    [NNT Register:NNTHookTypeInit hookFunc:[func_object withAddr:(void*)&ParserInit]];
     	
 	// invoke
-	[WSI InvokeHook:WSIHookTypeInit]; 
+	[NNT InvokeHook:NNTHookTypeInit]; 
 }
 
 + (void)Fin {
-	trace_msg(@"WSI[OBJC] environment ending");
+	trace_msg(@"NNT[OBJC] environment ending");
 	
 	// invoke
-	[WSI InvokeHook:WSIHookTypeFin];
+	[NNT InvokeHook:NNTHookTypeFin];
     
     // release
     [__gs_desktop release];
@@ -163,18 +163,18 @@ WSI_END_HEADER_C
 }
 
 + (void)Inactive {
-    [WSI InvokeHook:WSIHookTypeInactive];
+    [NNT InvokeHook:NNTHookTypeInactive];
 }
 
 + (void)Active {
-    [WSI InvokeHook:WSIHookTypeActive];
+    [NNT InvokeHook:NNTHookTypeActive];
 }
 
 + (void)Boot {
-    [WSI InvokeHook:WSIHookTypeBoot];
+    [NNT InvokeHook:NNTHookTypeBoot];
 }
 
-+ (void)InvokeHook:(WSIHookType)__type {
++ (void)InvokeHook:(NNTHookType)__type {
 	NSMutableArray* arr = [__gs_hooks objectAtIndex:__type];
 	for (NSInteger i = 0; i < [arr count]; ++i) {
 		func_object* obj = [arr objectAtIndex:i];
@@ -182,7 +182,7 @@ WSI_END_HEADER_C
 	}
 }
 
-+ (void)Register:(WSIHookType)__type hookFunc:(func_object*)__func {
++ (void)Register:(NNTHookType)__type hookFunc:(func_object*)__func {
 	NSMutableArray* arr = [__gs_hooks objectAtIndex:__type];
 	[arr addObject:__func];
 }
@@ -198,8 +198,8 @@ WSI_END_HEADER_C
 @end
 
 void _trace_obj(NSString* __objname, id __obj) {
-# ifdef WSI_DEBUG
-    WSIConsole* console = [WSIConsole shared];
+# ifdef NNT_DEBUG
+    NNTConsole* console = [NNTConsole shared];
         
     if (__obj == nil) {
         [console println:[NSString stringWithFormat:@"%@ is nil", __objname]];
@@ -215,7 +215,7 @@ void _trace_obj(NSString* __objname, id __obj) {
         [console println:[NSString stringWithFormat:@"Array %@ ->", __objname]];
         if ([(NSArray*)__obj count]) {
             for (NSObject *each in (NSArray*)__obj) {
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 #   pragma GCC diagnostic ignored "-Wformat"
 # endif
                 _trace_obj([NSString stringWithFormat:@"child 0x%x", &each], each);
@@ -259,30 +259,30 @@ void _trace_obj(NSString* __objname, id __obj) {
 }
 
 void _trace_int(NSString *__objname, int __val) {
-# ifdef WSI_DEBUG
-    WSIConsole* console = [WSIConsole shared];
+# ifdef NNT_DEBUG
+    NNTConsole* console = [NNTConsole shared];
     [console println:[NSString stringWithFormat:@"%@ dec= %d , hex= 0x%x, oct= 0%o , bin= b%@", __objname, __val, __val, __val, [NSNumber StringValueBinary:__val]]];
 # endif
 }
 
 void _trace_float(NSString *__objname, float __val) {
-# ifdef WSI_DEBUG
-    WSIConsole* console = [WSIConsole shared];
+# ifdef NNT_DEBUG
+    NNTConsole* console = [NNTConsole shared];
     [console println:[NSString stringWithFormat:@"%@ = %f", __objname, __val]];
 # endif
 }
 
 void _trace_msg(NSString* __str) {
-# ifdef WSI_DEBUG
-    WSIConsole* console = [WSIConsole shared];
+# ifdef NNT_DEBUG
+    NNTConsole* console = [NNTConsole shared];
     NSString* str = [__str unescape];
     [console println:str];
 # endif
 }
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 int VersionCmp(version_t const* l, version_t const* r) {
     if (l->major > r->major)
@@ -304,24 +304,24 @@ int VersionCmp(version_t const* l, version_t const* r) {
     return 0;
 }
 
-NSString* WSIGetMajorAuthor()
+NSString* NNTGetMajorAuthor()
 {
-    return WSIMACRO_TOSTR_OBJC(WSI_MAJOR_AUTHOR);
+    return NNTMACRO_TOSTR_OBJC(NNT_MAJOR_AUTHOR);
 }
 
-NSString* WSIGetBaseURL()
+NSString* NNTGetBaseURL()
 {
-    return WSIMACRO_TOSTR_OBJC(WSI_BASE_URL);
+    return NNTMACRO_TOSTR_OBJC(NNT_BASE_URL);
 }
 
-NSString* WSIGetProjectURL()
+NSString* NNTGetProjectURL()
 {
-    return WSIMACRO_TOSTR_OBJC(WSI_PROJECT_URL);
+    return NNTMACRO_TOSTR_OBJC(NNT_PROJECT_URL);
 }
 
-NSString* WSIGetFeedbackEmail()
+NSString* NNTGetFeedbackEmail()
 {
-    return WSIMACRO_TOSTR_OBJC(WSI_FEEDBACK_EMAIL);
+    return NNTMACRO_TOSTR_OBJC(NNT_FEEDBACK_EMAIL);
 }
 
-WSI_END_C
+NNT_END_C

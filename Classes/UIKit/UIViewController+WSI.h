@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_UIVIEWCONTROLLER_FA27AA61423841B1B5E70D2075DD4096_H_INCLUDED
-# define __WSI_UIKIT_UIVIEWCONTROLLER_FA27AA61423841B1B5E70D2075DD4096_H_INCLUDED
+# ifndef __NNT_UIKIT_UIVIEWCONTROLLER_FA27AA61423841B1B5E70D2075DD4096_H_INCLUDED
+# define __NNT_UIKIT_UIVIEWCONTROLLER_FA27AA61423841B1B5E70D2075DD4096_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN NSString *kTabBarController;
-WSI_EXTERN NSString *kTabBarItem;
+NNT_EXTERN NSString *kTabBarController;
+NNT_EXTERN NSString *kTabBarItem;
 
 enum {
     UIOrientationPortraitEnable = UIInterfaceOrientationPortrait,
@@ -21,13 +21,13 @@ enum {
 };
 typedef uint UIOrientationEnable;
 
-WSI_EXTERN BOOL UIOrientationEnableCheck(UIOrientationEnable, UIInterfaceOrientation);
+NNT_EXTERN BOOL UIOrientationEnableCheck(UIOrientationEnable, UIInterfaceOrientation);
 
-WSIDECL_EXTERN_CLASS(WSIUIViewController);
+NNTDECL_EXTERN_CLASS(NNTUIViewController);
 
-@interface UIViewController (WSI)
+@interface UIViewController (NNT)
 
-//! for some view controlelr as WSIUITabBarController to get icon name.
+//! for some view controlelr as NNTUITabBarController to get icon name.
 - (NSString*)icon;
 
 //! add subcontrollers.
@@ -49,25 +49,25 @@ WSIDECL_EXTERN_CLASS(WSIUIViewController);
 @protocol UIViewControllerRotation <NSObject>
 
 //! invoked while orientation changed.
-- (void)viewController:(WSIUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation;
+- (void)viewController:(NNTUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation;
 
 @end
 
-WSIDECL_EXTERN_CLASS(UITheme);
+NNTDECL_EXTERN_CLASS(UITheme);
 
 //! protocol for theme.
 @protocol UIViewControllerTheme < NSObject >
 
 //! invoked while theme changed.
-- (void)viewControllerTheme:(WSIUIViewController*)ctlr changeTheme:(UITheme*)theme;
+- (void)viewControllerTheme:(NNTUIViewController*)ctlr changeTheme:(UITheme*)theme;
 
 @end
 
-WSIDECL_EXTERN_CLASS(WSIUITabBarController);
-WSIDECL_EXTERN_CLASS(WSIUITabBarItem);
+NNTDECL_EXTERN_CLASS(NNTUITabBarController);
+NNTDECL_EXTERN_CLASS(NNTUITabBarItem);
 
-@interface WSIUIViewControllerBase : UIViewController {
-    WSIOBJECT_DECL;
+@interface NNTUIViewControllerBase : UIViewController {
+    NNTOBJECT_DECL;
     
     //! default is NO. Set YES while rotation's notice met.
     BOOL isNeedAdjustForRotation;
@@ -79,7 +79,7 @@ WSIDECL_EXTERN_CLASS(WSIUITabBarItem);
     Class classView;
     
     //! super controller.
-    WSIUIViewController* superController;
+    NNTUIViewController* superController;
     
     //! sub controllers.
     NSArray* subControllers;
@@ -91,7 +91,7 @@ WSIDECL_EXTERN_CLASS(WSIUITabBarItem);
     id _viewobj;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 //! isappeared.
 @property (nonatomic, assign) BOOL isAppeared;
@@ -115,7 +115,7 @@ WSIOBJECT_PROP;
 @property (nonatomic, assign) Class classView;
 
 //! super controller.
-@property (nonatomic, assign, readonly) WSIUIViewController* superController;
+@property (nonatomic, assign, readonly) NNTUIViewController* superController;
 
 //! sub controllers.
 @property (nonatomic, readonly) NSArray* subControllers;
@@ -144,7 +144,7 @@ WSIOBJECT_PROP;
 
 @end
 
-# define WSIDECL_VIEWCONTROLLER \
+# define NNTDECL_VIEWCONTROLLER \
 - (void)viewIsLoading; \
 - (void)viewIsUnloading; \
 - (void)viewIsAppearing:(BOOL)animated; \
@@ -152,12 +152,12 @@ WSIOBJECT_PROP;
 - (void)dismissModalViewController; \
 - (void)dismissModalViewControllerAnimated;
 
-# define WSIIMPL_VIEWCONTROLLER \
+# define NNTIMPL_VIEWCONTROLLER \
 - (void)viewDidLoad { \
-WSI_AUTORELEASEPOOL_BEGIN; \
+NNT_AUTORELEASEPOOL_BEGIN; \
 [super viewDidLoad]; \
 [self viewIsLoading]; \
-WSI_AUTORELEASEPOOL_END; \
+NNT_AUTORELEASEPOOL_END; \
 } \
 - (void)viewDidUnload { \
 [super viewDidUnload]; \
@@ -178,58 +178,58 @@ WSI_AUTORELEASEPOOL_END; \
 [self dismissModalViewControllerAnimated:YES]; \
 }
 
-@interface WSIUIViewControllerIB : WSIUIViewControllerBase {    
+@interface NNTUIViewControllerIB : NNTUIViewControllerBase {    
 
 }
 
 @end
 
-@interface WSIUIViewController : WSIUIViewControllerBase
+@interface NNTUIViewController : NNTUIViewControllerBase
 
-@property (nonatomic, readonly) WSIUIView *wsiview;
+@property (nonatomic, readonly) NNTUIView *wsiview;
 
 @end
 
-WSIDECL_CATEGORY(UIViewController, WSI);
+NNTDECL_CATEGORY(UIViewController, NNT);
 
-WSIDECL_EXTERN_CLASS(WSIUIWebView);
+NNTDECL_EXTERN_CLASS(NNTUIWebView);
 
-@interface WSIUIHtmlController : WSIUIViewController
+@interface NNTUIHtmlController : NNTUIViewController
 
-@property (nonatomic, readonly) WSIUIWebView* htmlView;
+@property (nonatomic, readonly) NNTUIWebView* htmlView;
 
 @end
 
 # pragma mark signals
 
 //! view did appear.
-WSI_EXTERN signal_t kSignalViewAppear;
+NNT_EXTERN signal_t kSignalViewAppear;
 
 //! view will appear.
-WSI_EXTERN signal_t kSignalViewAppearing;
+NNT_EXTERN signal_t kSignalViewAppearing;
 
 //! view did disappear.
-WSI_EXTERN signal_t kSignalViewDisappear;
+NNT_EXTERN signal_t kSignalViewDisappear;
 
 //! view will disappear.
-WSI_EXTERN signal_t kSignalViewDisappearing;
+NNT_EXTERN signal_t kSignalViewDisappearing;
  
 //! orientation changed.
-WSI_EXTERN signal_t kSignalOrientationChanged;
+NNT_EXTERN signal_t kSignalOrientationChanged;
 
 //! title did changed.
-WSI_EXTERN signal_t kSignalTitleChanged;
+NNT_EXTERN signal_t kSignalTitleChanged;
 
 //! dismiss.
-WSI_EXTERN signal_t kSignalDismiss;
+NNT_EXTERN signal_t kSignalDismiss;
 
 //! remote control event.
-WSI_EXTERN signal_t kSignalRemoteControlEvent;
+NNT_EXTERN signal_t kSignalRemoteControlEvent;
 
 //! key for attach modal's parent controller.
-WSI_EXTERN NSString* kViewControllerModalParentController;
+NNT_EXTERN NSString* kViewControllerModalParentController;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # define _CXXCONTROLLER(cls) _objc_cxx_##cls##_wrapper
 
@@ -275,12 +275,12 @@ _CXXCONTROLLER_IMPL_END
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class NavigationController;
 
@@ -309,10 +309,10 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_uicontroller_wrapper < NSObject >
 
@@ -320,7 +320,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface _cxx_uiviewcontroller_wrapper : WSIUIViewController <
+@interface _cxx_uiviewcontroller_wrapper : NNTUIViewController <
 _cxx_uicontroller_wrapper,
 UIViewControllerRotation,
 UIViewControllerTheme
@@ -331,17 +331,17 @@ UIViewControllerTheme
 
 @end
 
-@interface _cxx_simplecontroller_wrapper : WSIUIViewController <_cxx_uicontroller_wrapper> {
+@interface _cxx_simplecontroller_wrapper : NNTUIViewController <_cxx_uicontroller_wrapper> {
     ::wsi::ui::IViewController* _cxxobj;
 }
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT>
 class _Controller
@@ -402,7 +402,7 @@ public interT
 {    
     typedef Object<implT, ctlrT> super;
     typedef SimpleController<implT, ctlrT, viewT, cxxviewT, interT> self_type;
-    WSIDECL_NOCOPY_EX(SimpleController, self_type);
+    NNTDECL_NOCOPY_EX(SimpleController, self_type);
     
 public:
     
@@ -443,9 +443,9 @@ public:
         return (UIViewController*)this->_self;
     }
     
-    operator WSIUIViewController* () const
+    operator NNTUIViewController* () const
     {
-        return (WSIUIViewController*)this->_self;
+        return (NNTUIViewController*)this->_self;
     }
     
     //! init.
@@ -579,7 +579,7 @@ public IViewController
 {    
     typedef Object<implT, ctlrT> super;
     typedef Controller<implT, viewT, ctlrT, interT> self_type;
-    WSIDECL_NOCOPY_EX(Controller, self_type);
+    NNTDECL_NOCOPY_EX(Controller, self_type);
     
 public:    
     
@@ -820,21 +820,21 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 using tpl::SimpleController;
 using tpl::Controller;
 using tpl::Controllerize;
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
-# include "UINavigationController+WSI.h"
+# include "UINavigationController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT, typename viewT, typename ctlrT, typename interT>
 inline_impl Controller<implT, viewT, ctlrT, interT>::~Controller()
@@ -956,7 +956,7 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 using tpl::WrapController;
 
@@ -964,13 +964,13 @@ using tpl::WrapController;
 template <typename implT, typename viewT, typename interT>
 inline_impl void View<implT, viewT, interT>::add_sub(IViewController* ctlr)
 {
-    [(WSIUIView*)this->_self addSubController:ctlr->nsobject()];
+    [(NNTUIView*)this->_self addSubController:ctlr->nsobject()];
 }
 
 class AnyController
-: public SimpleController<AnyController, WSIUIViewController, WSIUIView>
+: public SimpleController<AnyController, NNTUIViewController, NNTUIView>
 {
-    typedef SimpleController<AnyController, WSIUIViewController, WSIUIView> super;
+    typedef SimpleController<AnyController, NNTUIViewController, NNTUIView> super;
     
 public:
     
@@ -1014,8 +1014,8 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

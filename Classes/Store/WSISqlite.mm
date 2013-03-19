@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "WSISqlite.h"
+# import "NNTSqlite.h"
 # include <sqlite3.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(WSISqlite, WSIObject)
+NNTDECL_PRIVATE_BEGIN(NNTSqlite, NNTObject)
 {
     sqlite3 *db;
 }
@@ -16,7 +16,7 @@ WSIDECL_PRIVATE_BEGIN(WSISqlite, WSIObject)
 - (BOOL)testQuery:(uint)code;
 - (id)convertColValueToNS:(sqlite3_stmt*)stmt idx:(uint)idx;
 
-WSIDECL_PRIVATE_IMPL(WSISqlite)
+NNTDECL_PRIVATE_IMPL(NNTSqlite)
 
 @synthesize db;
 
@@ -68,18 +68,18 @@ WSIDECL_PRIVATE_IMPL(WSISqlite)
     return ret;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@implementation WSISqlite
+@implementation NNTSqlite
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSISqlite);
+    NNTDECL_PRIVATE_INIT(NNTSqlite);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -152,20 +152,20 @@ WSIDECL_PRIVATE_END
                                                    reason:@"bad_type: failed to bind unknown parameter."
                                                  userInfo:nil]);
                 } break;
-                case WSIValueTypeInt: case WSIValueTypeUInt:
-                case WSIValueTypeChar: case WSIValueTypeUChar:
-                case WSIValueTypeShort: case WSIValueTypeUShort:
-                case WSIValueTypeLong: case WSIValueTypeULong: {
+                case NNTValueTypeInt: case NNTValueTypeUInt:
+                case NNTValueTypeChar: case NNTValueTypeUChar:
+                case NNTValueTypeShort: case NNTValueTypeUShort:
+                case NNTValueTypeLong: case NNTValueTypeULong: {
                     errid = sqlite3_bind_int(stmt, pos, [(NSNumber*)param.value intValue]);
                 } break;
-                case WSIValueTypeLongLong: case WSIValueTypeULongLong: {
+                case NNTValueTypeLongLong: case NNTValueTypeULongLong: {
                     errid = sqlite3_bind_int64(stmt, pos, [(NSNumber*)param.value longLongValue]);
                 } break;
-                case WSIValueTypeString: {
+                case NNTValueTypeString: {
                     NSData *data = [(NSString*)param.value dataUsingEncoding:NSUTF8StringEncoding];
                     errid = sqlite3_bind_text(stmt, pos, (char const*)[data bytes], (int)[data length], nil);
                 } break;
-                case WSIValueTypeFloat: case WSIValueTypeDouble: {
+                case NNTValueTypeFloat: case NNTValueTypeDouble: {
                     errid = sqlite3_bind_double(stmt, pos, [(NSNumber*)param.value doubleValue]);
                 } break;
             }
@@ -274,4 +274,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

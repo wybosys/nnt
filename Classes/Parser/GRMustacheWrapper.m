@@ -16,7 +16,7 @@
 # import "GRMustacheTokenizer_private.h"
 # import "GRBoolean.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 static void appendRenderingElementsWithContext(NSMutableString *buffer, NSArray *elems, GRMustacheContext *context);
 static NSString* renderContextSection(GRMustacheSection *elem, GRMustacheContext *context);
@@ -172,7 +172,7 @@ static void appendRenderingElementsWithContext(NSMutableString *buffer, NSArray 
             @throw [NSException exceptionWithName:@"GRMustache" reason:@"render a unknown element" userInfo:nil];
         }
         
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         if (0) {
             [buffer appendString:[elem renderContext:context]];
         }
@@ -215,4 +215,4 @@ static void appendRenderingElementsWithContext(NSMutableString *buffer, NSArray 
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

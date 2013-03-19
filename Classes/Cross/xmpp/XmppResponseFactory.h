@@ -7,7 +7,7 @@
 
 XMPP_HEADER_BEGIN
 
-WSICLASS(AbstractResponseFactory);
+NNTCLASS(AbstractResponseFactory);
 
 class AbstractResponseFactory
 : public RefObject
@@ -50,19 +50,19 @@ protected:
 
 };
 
-WSIDECL_PRIVATE_HEAD_CXX(ResponseFactory);
+NNTDECL_PRIVATE_HEAD_CXX(ResponseFactory);
 
 class MessageFactory;
 class PresenceFactory;
 class InfoqueryFactory;
 
-WSICLASS(ResponseFactory);
+NNTCLASS(ResponseFactory);
 
 class ResponseFactory
 : public AbstractResponseFactory
 {
     typedef AbstractResponseFactory super;
-    WSIDECL_PRIVATE_CXX(ResponseFactory);
+    NNTDECL_PRIVATE_CXX(ResponseFactory);
     
 public:
     

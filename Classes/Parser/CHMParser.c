@@ -3,7 +3,7 @@
 # include "CHMParser.h"
 # include "../../3rd/lzx/lzx.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 qword _chm_fetch_bytes(chm_t* chm, byte *buf, uqword os, qword len);
 int _unmarshal_itsf_header(unsigned char **pData, unsigned int *pDataLen, chm_header_itsf* dest);
@@ -1320,4 +1320,4 @@ bool chm_enumerate_dir(chm_t* h, const char *prefix, int what, CHM_ENUMERATOR e,
     return 1;
 }
 
-WSI_END_C
+NNT_END_C

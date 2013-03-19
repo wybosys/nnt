@@ -1,10 +1,10 @@
 
-# ifndef __WSI_NSOBJECT_B11CBCF9F427478DBB592AB9D82FAC1E_H_INCLUDED
-# define __WSI_NSOBJECT_B11CBCF9F427478DBB592AB9D82FAC1E_H_INCLUDED
+# ifndef __NNT_NSOBJECT_B11CBCF9F427478DBB592AB9D82FAC1E_H_INCLUDED
+# define __NNT_NSOBJECT_B11CBCF9F427478DBB592AB9D82FAC1E_H_INCLUDED
 
-# import "WSIEvent.h"
+# import "NNTEvent.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # ifndef _retain
 # if __has_feature(objc_arc)
@@ -24,9 +24,9 @@ WSI_BEGIN_HEADER_OBJC
 # endif
 # endif
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
-WSI_EXTERN BOOL __gs_debug_attachstore_error_enable;
+NNT_EXTERN BOOL __gs_debug_attachstore_error_enable;
 
 # define __gs_debug_attachstore_error_enable_set(val) __gs_debug_attachstore_error_enable = val;
 
@@ -36,28 +36,28 @@ WSI_EXTERN BOOL __gs_debug_attachstore_error_enable;
 
 # endif
 
-WSI_EXTERN dispatch_queue_t kQueueDefault;
-WSI_EXTERN dispatch_queue_t kQueueSignalSlot;
-WSI_EXTERN char const* DISPATCH_QUEUE_PRIORITY_SIGNALSLOT;
+NNT_EXTERN dispatch_queue_t kQueueDefault;
+NNT_EXTERN dispatch_queue_t kQueueSignalSlot;
+NNT_EXTERN char const* DISPATCH_QUEUE_PRIORITY_SIGNALSLOT;
 
-# define WSI_MAINTHREAD_BEGIN \
+# define NNT_MAINTHREAD_BEGIN \
 dispatch_sync(dispatch_get_main_queue(), ^{
-# define WSI_MAINTHREAD_END });
+# define NNT_MAINTHREAD_END });
 
-# define WSI_MAINTHREAD_RUNNING \
+# define NNT_MAINTHREAD_RUNNING \
 (CFRunLoopGetMain() == CFRunLoopGetCurrent())
 
-# define WSI_MAINTHREAD(exp) \
-if (WSI_MAINTHREAD_RUNNING) \
+# define NNT_MAINTHREAD(exp) \
+if (NNT_MAINTHREAD_RUNNING) \
 { exp; } \
 else \
 { \
-WSI_MAINTHREAD_BEGIN \
+NNT_MAINTHREAD_BEGIN \
 exp; \
-WSI_MAINTHREAD_END \
+NNT_MAINTHREAD_END \
 }
 
-@interface NSObject (WSI)
+@interface NSObject (NNT)
 
 //! emit signal.
 - (void)emit:(id)signal result:(id)result data:(void*)data;
@@ -96,21 +96,21 @@ WSI_MAINTHREAD_END \
 
 //! has signal.
 - (BOOL)hasSignal:(id)sig;
-- (WSISignal*)find_signal:(id)signal;
+- (NNTSignal*)find_signal:(id)signal;
 
 //! set block signals/slots.
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (void)register_signal:(id)signal block:(void (^)(WSIEventObj*))block;
-- (void)register_signal:(id)signal block:(void (^)(WSIEventObj*))block delay:(real)delay;
+- (void)register_signal:(id)signal block:(void (^)(NNTEventObj*))block;
+- (void)register_signal:(id)signal block:(void (^)(NNTEventObj*))block delay:(real)delay;
 
-- (slot_t*)connect:(id)signal block:(void (^)(WSIEventObj*))block;
-- (slot_t*)connect:(id)signal block:(void (^)(WSIEventObj*))block delay:(real)delay;
+- (slot_t*)connect:(id)signal block:(void (^)(NNTEventObj*))block;
+- (slot_t*)connect:(id)signal block:(void (^)(NNTEventObj*))block delay:(real)delay;
 
 # endif
 
 //! set cxx signals/slots.
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
 - (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
@@ -123,8 +123,8 @@ WSI_MAINTHREAD_END \
 
 # endif
 
-- (slot_t*)connect:(id)signal func:(void (*)(WSIEventObj*))func;
-- (slot_t*)connect:(id)signal func:(void (*)(WSIEventObj*))func delay:(real)delay;
+- (slot_t*)connect:(id)signal func:(void (*)(NNTEventObj*))func;
+- (slot_t*)connect:(id)signal func:(void (*)(NNTEventObj*))func delay:(real)delay;
 
 //! disconnect signal from slot.
 - (void)disconnect:(id)signal sel:(SEL)sel obj:(id)obj;
@@ -177,12 +177,12 @@ WSI_MAINTHREAD_END \
 - (uint)coreType;
 
 //! get value type.
-- (WSIValueType)valueType;
+- (NNTValueType)valueType;
 
 //! get safe object.
 - (void*)object;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 //! some cxx function.
 - (void)performCxxObjectFunctionWrapper:(id)obj;
@@ -191,12 +191,12 @@ WSI_MAINTHREAD_END \
 
 @end
 
-WSI_EXTERN id class_callMethod(Class cls, SEL sel, ...);
-WSI_EXTERN BOOL class_existMethod(Class cls, SEL sel);
-WSI_EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
-WSI_EXTERN IMP class_getImplementation(Class cls, SEL sel);
-WSI_EXTERN id objc_getPropertyValue(id obj, char const* name);
-WSI_EXTERN bool objc_setPropertyValue(id value, id obj, char const* name);
+NNT_EXTERN id class_callMethod(Class cls, SEL sel, ...);
+NNT_EXTERN BOOL class_existMethod(Class cls, SEL sel);
+NNT_EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
+NNT_EXTERN IMP class_getImplementation(Class cls, SEL sel);
+NNT_EXTERN id objc_getPropertyValue(id obj, char const* name);
+NNT_EXTERN bool objc_setPropertyValue(id value, id obj, char const* name);
 
 typedef struct _objc_swizzle_t
 {
@@ -205,9 +205,9 @@ typedef struct _objc_swizzle_t
     IMP next_impl;
 } objc_swizzle_t;
 
-WSIDECL_CATEGORY(NSObject, WSI);
+NNTDECL_CATEGORY(NSObject, NNT);
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # define reference_retain assign
 
@@ -226,25 +226,25 @@ WSIDECL_CATEGORY(NSObject, WSI);
 # endif
 
 # if __clang_major__ < 3
-//! do not insert 'return' between WSI_AUTORELEASEPOOL_BEGIN and WSI_AUTORELEASEPOOL_END, if will cause memory leak and unknown error.
-#   define WSI_AUTORELEASEPOOL_BEGIN { NSAutoreleasePool *__tmp_autoreleasepool = [[NSAutoreleasePool alloc] init];
-#   define WSI_AUTORELEASEPOOL_END   [__tmp_autoreleasepool drain]; }
+//! do not insert 'return' between NNT_AUTORELEASEPOOL_BEGIN and NNT_AUTORELEASEPOOL_END, if will cause memory leak and unknown error.
+#   define NNT_AUTORELEASEPOOL_BEGIN { NSAutoreleasePool *__tmp_autoreleasepool = [[NSAutoreleasePool alloc] init];
+#   define NNT_AUTORELEASEPOOL_END   [__tmp_autoreleasepool drain]; }
 #   define safe_alloc(cls) (cls*)[cls alloc]
 # else
-#   define WSI_AUTORELEASEPOOL_BEGIN @autoreleasepool {
-#   define WSI_AUTORELEASEPOOL_END   }
+#   define NNT_AUTORELEASEPOOL_BEGIN @autoreleasepool {
+#   define NNT_AUTORELEASEPOOL_END   }
 #   define safe_alloc(cls) [cls alloc]
 # endif
 
-# define WSI_AUTORELEASE(exp) \
-WSI_AUTORELEASEPOOL_BEGIN \
+# define NNT_AUTORELEASE(exp) \
+NNT_AUTORELEASEPOOL_BEGIN \
 exp; \
-WSI_AUTORELEASEPOOL_END
+NNT_AUTORELEASEPOOL_END
 
-# define WSI_SYNCHRONIZED(obj) @synchronized(obj) {
-# define WSI_SYNCHRONIZED_END  }
+# define NNT_SYNCHRONIZED(obj) @synchronized(obj) {
+# define NNT_SYNCHRONIZED_END  }
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 @interface _cxxobject_perform_wrapper : NSObject {
     ::wsi::Object* _object;
@@ -258,45 +258,45 @@ WSI_AUTORELEASEPOOL_END
 
 @end
 
-# define WSI_OBJCXX_WRAPPER(cls) \
+# define NNT_OBJCXX_WRAPPER(cls) \
 _wsi_objcxx_wrapper_##cls
 
-@protocol WSI_OBJCXX_WRAPPER(object)
+@protocol NNT_OBJCXX_WRAPPER(object)
 <NSObject>
 @property (nonatomic, assign) ::wsi::IObject* _cxxobj;
 @end
 
 # else
 
-# define WSIDECL_OBJCXX_WRAPPER(cls) \
-WSIDECL_OBJCXX_WRAPPER_BEGIN(cls) \
-WSIDECL_OBJCXX_WRAPPER_END
+# define NNTDECL_OBJCXX_WRAPPER(cls) \
+NNTDECL_OBJCXX_WRAPPER_BEGIN(cls) \
+NNTDECL_OBJCXX_WRAPPER_END
 
-# define WSIDECL_OBJCXX_WRAPPER_BEGIN(cls)
-# define WSIDECL_OBJCXX_WRAPPER_END
+# define NNTDECL_OBJCXX_WRAPPER_BEGIN(cls)
+# define NNTDECL_OBJCXX_WRAPPER_END
 
-# define WSIIMPL_OBJCXX_WRAPPER(cls) \
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
-WSIIMPL_OBJCXX_WRAPPER_END
+# define NNTIMPL_OBJCXX_WRAPPER(cls) \
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
+NNTIMPL_OBJCXX_WRAPPER_END
 
-# define WSIIMPL_OBJCXX_WRAPPER_BEGIN(cls)
-# define WSIIMPL_OBJCXX_WRAPPER_END
+# define NNTIMPL_OBJCXX_WRAPPER_BEGIN(cls)
+# define NNTIMPL_OBJCXX_WRAPPER_END
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # define objc_cbbegin \
 autocollect; \
-WSI_MAINTHREAD_BEGIN
+NNT_MAINTHREAD_BEGIN
 
 # define objc_cbend \
-WSI_MAINTHREAD_END
+NNT_MAINTHREAD_END
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class auto_id
 {
@@ -397,7 +397,7 @@ protected:
     
 };
 
-# define WSIMACRO_LOCKOBJ(obj) ::wsi::ns::AutoLockObject<__typeof__(*obj)> WSIAUTO_NAME(obj);
+# define NNTMACRO_LOCKOBJ(obj) ::wsi::ns::AutoLockObject<__typeof__(*obj)> NNTAUTO_NAME(obj);
 
 class AutoreleasePool
 {
@@ -417,7 +417,7 @@ public:
     
 };
 
-# define autocollect ::wsi::ns::AutoreleasePool WSIAUTO_NAME;
+# define autocollect ::wsi::ns::AutoreleasePool NNTAUTO_NAME;
 
 class Null
 {
@@ -526,7 +526,7 @@ public:
 
 # define _perform_action(clsfunc) (owner_function_type)&clsfunc
 
-template <typename T = ::WSIObject,
+template <typename T = ::NNTObject,
 typename baseT = ::wsi::Object >
 class Object
 : public baseT
@@ -676,7 +676,7 @@ public:
         wrapper.params = params;
         
         if (ti) {
-            WSI_MAINTHREAD(
+            NNT_MAINTHREAD(
                            [this->_self performSelector:@selector(performCxxObjectFunctionWrapper:) withObject:wrapper afterDelay:ti]
                            );
         } else {
@@ -778,14 +778,14 @@ public:
     }
     
     //! set block signals/slots.
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     
-    void register_signal(id sig, void (^block)(WSIEventObj*), real delay = 0)
+    void register_signal(id sig, void (^block)(NNTEventObj*), real delay = 0)
     {
         [_self register_signal:sig block:block delay:delay];
     }
     
-    ns::Slot connect(id sig, void (^block)(WSIEventObj*), real delay = 0)
+    ns::Slot connect(id sig, void (^block)(NNTEventObj*), real delay = 0)
     {
         slot_t* slot = [_self connect:sig block:block delay:delay];
         slot.sender = this;
@@ -828,7 +828,7 @@ public:
         [_self disconnect_target:tgt signal:sig];
     }
     
-    ns::Slot connect(id sig, void (*act)(WSIEventObj*), real delay = 0)
+    ns::Slot connect(id sig, void (*act)(NNTEventObj*), real delay = 0)
     {
         slot_t* slot = [_self connect:sig func:act delay:delay];
         slot.sender = this;
@@ -963,8 +963,8 @@ protected:
     
 };
 
-typedef Object < ::WSIObject, ::wsi::Object > SimpleObject;
-typedef Object < ::WSIObject, ::wsi::RefObject > RefObject;
+typedef Object < ::NNTObject, ::wsi::Object > SimpleObject;
+typedef Object < ::NNTObject, ::wsi::RefObject > RefObject;
 
 typedef struct {} property_writable;
 typedef struct {} property_readonly;
@@ -1130,56 +1130,56 @@ public:
     
 };
     
-# define WSIDECL_SELECTOR(selr, type) \
+# define NNTDECL_SELECTOR(selr, type) \
 type selr() { return [this->_self selr]; }
     
-# define WSIDECL_PROPERTY(prop, type, scheme) \
+# define NNTDECL_PROPERTY(prop, type, scheme) \
 ::wsi::ns::class_property<type, scheme> prop () const \
 { \
 return ::wsi::ns::class_property<type, scheme>((id)this->_self, #prop); \
 }
     
-# define WSIDECL_PROPERTY_RETAIN(prop, type) \
-WSIDECL_PROPERTY(prop, type, ::wsi::ns::property_retain)
+# define NNTDECL_PROPERTY_RETAIN(prop, type) \
+NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_retain)
     
-# define WSIDECL_PROPERTY_ASSIGN(prop, type) \
-WSIDECL_PROPERTY(prop, type, ::wsi::ns::property_assign)
+# define NNTDECL_PROPERTY_ASSIGN(prop, type) \
+NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_assign)
     
-# define WSIDECL_PROPERTY_READONLY(prop, type) \
-WSIDECL_PROPERTY(prop, type, ::wsi::ns::property_readonly)
+# define NNTDECL_PROPERTY_READONLY(prop, type) \
+NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_readonly)
     
-# define WSIDECL_PROPERTY_COPY(prop, type) \
-WSIDECL_PROPERTY(prop, type, ::wsi::ns::property_copy)
+# define NNTDECL_PROPERTY_COPY(prop, type) \
+NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_copy)
     
-# define WSIDECL_PROPERTY_ACCESS(prop, type) \
+# define NNTDECL_PROPERTY_ACCESS(prop, type) \
 void set_##prop(type val) { this->_self.prop = val; } \
 type prop() const { return this->_self.prop; }
     
-# define WSIDECL_OBJCXX_WRAPPER(cls) \
-WSIDECL_OBJCXX_WRAPPER_BEGIN(cls) \
-WSIDECL_OBJCXX_WRAPPER_END
+# define NNTDECL_OBJCXX_WRAPPER(cls) \
+NNTDECL_OBJCXX_WRAPPER_BEGIN(cls) \
+NNTDECL_OBJCXX_WRAPPER_END
     
-# define WSIDECL_OBJCXX_WRAPPER_BEGIN(cls) \
-@interface WSI_OBJCXX_WRAPPER(cls) : cls <WSI_OBJCXX_WRAPPER(object)>
+# define NNTDECL_OBJCXX_WRAPPER_BEGIN(cls) \
+@interface NNT_OBJCXX_WRAPPER(cls) : cls <NNT_OBJCXX_WRAPPER(object)>
     
-# define WSIDECL_OBJCXX_WRAPPER_END \
+# define NNTDECL_OBJCXX_WRAPPER_END \
 @end
     
-# define WSIIMPL_OBJCXX_WRAPPER(cls) \
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
-WSIIMPL_OBJCXX_WRAPPER_END
+# define NNTIMPL_OBJCXX_WRAPPER(cls) \
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
+NNTIMPL_OBJCXX_WRAPPER_END
     
-# define WSIIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
-@implementation WSI_OBJCXX_WRAPPER(cls) \
+# define NNTIMPL_OBJCXX_WRAPPER_BEGIN(cls) \
+@implementation NNT_OBJCXX_WRAPPER(cls) \
 @synthesize _cxxobj; \
 - (void)dealloc { \
 ::wsi::destroy(self._cxxobj); \
 [super dealloc]; }
     
-# define WSIIMPL_OBJCXX_WRAPPER_END \
+# define NNTIMPL_OBJCXX_WRAPPER_END \
 @end
     
-WSI_BEGIN_NS(cxx)
+NNT_BEGIN_NS(cxx)
     
 class IObject
 : public ::wsi::IObject
@@ -1240,15 +1240,15 @@ protected:
   
 };
     
-WSI_END_NS
+NNT_END_NS
     
-WSI_END_NS
+NNT_END_NS
 
 using ns::thread_main;
 using ns::thread_background;
 using ns::thread_same;
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

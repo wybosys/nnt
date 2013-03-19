@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "Task+WSI.h"
+# import "Task+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSICondition
+@implementation NNTCondition
 
 - (id)init {
     self = [super init];
@@ -31,4 +31,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

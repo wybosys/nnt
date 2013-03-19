@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UIKIT_ACTIVITYINDICATORVIEW_E434FD59E15348F8A9DE512446B14E23_H_INCLUDED
-# define __WSI_UIKIT_ACTIVITYINDICATORVIEW_E434FD59E15348F8A9DE512446B14E23_H_INCLUDED
+# ifndef __NNT_UIKIT_ACTIVITYINDICATORVIEW_E434FD59E15348F8A9DE512446B14E23_H_INCLUDED
+# define __NNT_UIKIT_ACTIVITYINDICATORVIEW_E434FD59E15348F8A9DE512446B14E23_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCAActivityIndicator);
+NNTDECL_EXTERN_CLASS(WCAActivityIndicator);
 
-@interface WSIUIActivityIndicatorView : WSIUIView {
+@interface NNTUIActivityIndicatorView : NNTUIView {
     
     //! show percent ring. default is NO.
     BOOL showProgressRing;
@@ -40,19 +40,19 @@ WSIDECL_EXTERN_CLASS(WCAActivityIndicator);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-_CXXVIEW_DECL(WSIUIActivityIndicatorView);
+_CXXVIEW_DECL(NNTUIActivityIndicatorView);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(activity)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(activity)
 
 class IIndicator
 : public IView
@@ -65,7 +65,7 @@ public:
 };
 
 class Ring
-: public View<Ring, _CXXVIEW(WSIUIActivityIndicatorView), IIndicator>
+: public View<Ring, _CXXVIEW(NNTUIActivityIndicatorView), IIndicator>
 {
 public:
     
@@ -91,9 +91,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

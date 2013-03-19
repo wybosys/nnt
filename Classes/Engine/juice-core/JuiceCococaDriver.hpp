@@ -1,7 +1,7 @@
 
 # ifndef __JUICE_COCOCA_DRIVER_C9DEF0BA8D35433B9970EE337339B551_H_INCLUDED
 # define __JUICE_COCOCA_DRIVER_C9DEF0BA8D35433B9970EE337339B551_H_INCLUDED
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # include "JuiceDriver.hpp"
 # include "JuiceCocoa++.hpp"
@@ -11,11 +11,11 @@ JUICE_BEGIN
 
 typedef struct {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     typedef UIView* drawable_type;
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     typedef NSView* drawable_type;
 # endif
     

@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_PAGESWITCHCONTROLLER_B603CBE906A040FBA88BF03B13168EF4_H_INCLUDED
-# define __WSI_UIKIT_PAGESWITCHCONTROLLER_B603CBE906A040FBA88BF03B13168EF4_H_INCLUDED
+# ifndef __NNT_UIKIT_PAGESWITCHCONTROLLER_B603CBE906A040FBA88BF03B13168EF4_H_INCLUDED
+# define __NNT_UIKIT_PAGESWITCHCONTROLLER_B603CBE906A040FBA88BF03B13168EF4_H_INCLUDED
 
 # import "UISwitchController.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface UIPageSwitchController : UISwitchController {
     
@@ -23,30 +23,30 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalPageCreate;
+NNT_EXTERN signal_t kSignalPageCreate;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIViewController+WSI.h"
+# include "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 _CXXCONTROLLER_DECL(UIPageSwitchController);
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class PageSwitchController
 : public SimpleController<PageSwitchController,
 _CXXCONTROLLER(UIPageSwitchController),
-WSIUIView
+NNTUIView
 >
 {
     typedef SimpleController<PageSwitchController,
     _CXXCONTROLLER(UIPageSwitchController),
-    WSIUIView
+    NNTUIView
     > super;
     
 public:
@@ -98,8 +98,8 @@ public:
     }
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

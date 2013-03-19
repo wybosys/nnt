@@ -1,12 +1,12 @@
 
-# ifndef __WSI_WCG_TEXTSTYLE_2BD7713DBD6A41DB956D48C3AC2988A9_H_INCLUDED
-# define __WSI_WCG_TEXTSTYLE_2BD7713DBD6A41DB956D48C3AC2988A9_H_INCLUDED
+# ifndef __NNT_WCG_TEXTSTYLE_2BD7713DBD6A41DB956D48C3AC2988A9_H_INCLUDED
+# define __NNT_WCG_TEXTSTYLE_2BD7713DBD6A41DB956D48C3AC2988A9_H_INCLUDED
 
 # include "WCGColor.h"
 # include "CGShadow.h"
 # include "WCGDefines.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 enum {
     WCGFontTypeRegular       = 0,
@@ -65,11 +65,11 @@ typedef uint WCGFontType;
 +(id)textStyle;
 ///	@}
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 - (UIFont*)uiFont;
 # endif
 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 - (NSDictionary*)uiFontAttributes;
 # endif
 
@@ -95,12 +95,12 @@ typedef uint WCGFontType;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cg)
 
 template <typename styleT>
 class _TextStyle
@@ -158,14 +158,14 @@ public:
         return this->_self.textShadow;
     }
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIFont* uifont() const
     {
         return [this->_self uiFont];
     }
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     
     NSDictionary* uifont() const
     {
@@ -268,8 +268,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

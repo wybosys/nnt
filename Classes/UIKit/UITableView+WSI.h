@@ -1,15 +1,15 @@
 
-# ifndef __WSI_UIKIT_UITABLEVIEW_9936255BA1494E9FAFFA4EC2EB1D651B_H_INCLUDED
-# define __WSI_UIKIT_UITABLEVIEW_9936255BA1494E9FAFFA4EC2EB1D651B_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABLEVIEW_9936255BA1494E9FAFFA4EC2EB1D651B_H_INCLUDED
+# define __NNT_UIKIT_UITABLEVIEW_9936255BA1494E9FAFFA4EC2EB1D651B_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UIScrollHeaderView.h"
 # import "UIHeaderView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUITableView : UITableView <WSIUITablePullRefreshDelegate, WSIUITablePullMoreDelegate> {    
-    WSIOBJECT_DECL;
+@interface NNTUITableView : UITableView <NNTUITablePullRefreshDelegate, NNTUITablePullMoreDelegate> {    
+    NNTOBJECT_DECL;
     
     //! pull header.
     UIPullRefreshHeaderView *pullRefreshHeader;
@@ -54,31 +54,31 @@ WSI_BEGIN_HEADER_OBJC
 - (void)didFinishedLoadingByPullRefreshHeader;
 - (void)didFinishedLoadingByPullMoreHeader;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalViewClicked;
+NNT_EXTERN signal_t kSignalViewClicked;
 
 # define UITABLEVIEW_IMPL_PULLMOREHEADER \
-- (void)scrollViewDidScroll:(WSIUITableView *)tabview{ \
+- (void)scrollViewDidScroll:(NNTUITableView *)tabview{ \
 [tabview startPullMoreHeader]; \
 } \
-- (void)scrollViewDidEndDragging:(WSIUITableView *)tabview willDecelerate:(BOOL)decelerate{	\
+- (void)scrollViewDidEndDragging:(NNTUITableView *)tabview willDecelerate:(BOOL)decelerate{	\
 [tabview endPullMoreHeader]; \
 }
 
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIScrollView+WSI.h"
+# include "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename viewT>
 class TableView
@@ -131,12 +131,12 @@ public:
             
 };
 
-WSI_END_NS
+NNT_END_NS
 
-typedef tpl::TableView<WSIUITableView> TableView;
+typedef tpl::TableView<NNTUITableView> TableView;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

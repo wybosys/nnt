@@ -4,7 +4,7 @@
 # include "../XmppIMClient.h"
 
 XMPPXEP_BEGIN
-WSI_BEGIN_NS(muc)
+NNT_BEGIN_NS(muc)
 
 UserRole UserRoleFromString(core::string const& str)
 {
@@ -142,5 +142,5 @@ bool Presence::save(core::data &da) const
     return node.save(da);
 }
 
-WSI_END_NS
+NNT_END_NS
 XMPPXEP_END

@@ -1,36 +1,15 @@
 
 # import "Core.h"
-# import "UIPickerView+WSI.h"
+# import "UIPickerView+NNT.h"
 # include "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSUInteger kUIPickerViewHeight = 216;
 
-@implementation WSIUIPickerView
+@implementation NNTUIPickerView
 
-WSIOBJECT_IMPL;
-
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    return self;
-}
-
-- (void)setFrame:(CGRect)frame {
-    frame.size.height = kUIPickerViewHeight;
-    [super setFrame:frame];
-}
-
-- (void)dealloc {
-    WSIOBJECT_DEALLOC;
-    [super dealloc];
-}
-
-@end
-
-@implementation WSIUIDatePicker
-
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -43,13 +22,34 @@ WSIOBJECT_IMPL;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 @end
 
-_CXXCONTROL_IMPL(WSIUIDatePicker);
+@implementation NNTUIDatePicker
+
+NNTOBJECT_IMPL;
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    return self;
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.height = kUIPickerViewHeight;
+    [super setFrame:frame];
+}
+
+- (void)dealloc {
+    NNTOBJECT_DEALLOC;
+    [super dealloc];
+}
+
+@end
+
+_CXXCONTROL_IMPL(NNTUIDatePicker);
 
 @implementation UIDrumPickerView
 
@@ -71,4 +71,4 @@ _CXXCONTROL_IMPL(WSIUIDatePicker);
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

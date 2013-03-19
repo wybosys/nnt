@@ -2,16 +2,16 @@
 # import "Core.h"
 # import "EmojiCodec.h"
 
-# ifdef WSI_TARGET_IOS
-# import "UIDevice+WSI.h"
+# ifdef NNT_TARGET_IOS
+# import "UIDevice+NNT.h"
 # endif
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(sys)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(sys)
 
 EmojiVersion::EmojiVersion()
 {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     VERSION_SOFTBANK = [[UIDevice currentDevice].systemVersion doubleValue] < 5.0;
 # else
     VERSION_SOFTBANK = false;
@@ -56,5 +56,5 @@ bool EmojiConverter::read_emoji(core::string::const_iterator& iter, core::string
     return true;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

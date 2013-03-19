@@ -9,17 +9,17 @@
 # import <netdb.h>
 # import <SystemConfiguration/SystemConfiguration.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSINetworkStatusPrivate : NSObject {
-    WSINetworkStatus *d_owner;
+@interface NNTNetworkStatusPrivate : NSObject {
+    NNTNetworkStatus *d_owner;
 }
 
-@property (nonatomic, assign) WSINetworkStatus *d_owner;
+@property (nonatomic, assign) NNTNetworkStatus *d_owner;
 
 @end
 
-@implementation WSINetworkStatusPrivate
+@implementation NNTNetworkStatusPrivate
 
 @synthesize d_owner;
 
@@ -34,28 +34,28 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINetworkStatus
+@implementation NNTNetworkStatus
 
 @synthesize available, availableWWAN, availableEn;
 @synthesize address;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSINetworkStatus);
+    NNTDECL_PRIVATE_INIT(NNTNetworkStatus);
     return self;
 }
 
 - (void)dealloc {
     zero_release(address);
-    WSIDECL_PRIVATE_DEALLOC();    
+    NNTDECL_PRIVATE_DEALLOC();    
     [super dealloc];
 }
 
-+ (WSINetworkStatus*)getInstance {
-    static WSINetworkStatus* instance = nil;
++ (NNTNetworkStatus*)getInstance {
+    static NNTNetworkStatus* instance = nil;
     @synchronized(self) {
         if (instance == nil) {
-            instance = [WSINetworkStatus new];
+            instance = [NNTNetworkStatus new];
         }		
     }
     return instance;
@@ -82,12 +82,12 @@ WSI_BEGIN_OBJC
     if (!SCNetworkReachabilityGetFlags(ref, &flags))
         return NO;
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     if (MASK_CHECK(kSCNetworkReachabilityFlagsIsWWAN, flags))
         return YES;
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     if (MASK_CHECK(kSCNetworkReachabilityFlagsIsLocalAddress, flags))
         return YES;
 # endif
@@ -139,4 +139,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

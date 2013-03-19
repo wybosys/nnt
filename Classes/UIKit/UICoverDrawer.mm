@@ -3,14 +3,14 @@
 # import "UICoverDrawer.h"
 # import "UICoverDrawerItem.h"
 # import "UICoverDrawerView.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 # import "UIFogView.h"
 # import <QuartzCore/QuartzCore.h>
 # import "WCGTextStyle.h"
 # import "WCGGradient.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UICoverDrawer (hidden)
 
@@ -80,7 +80,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)loadCovers {        
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
     
     uint number = d_owner.numberCovers;
     if ([d_owner.dataSource respondsToSelector:@selector(coverdrawerNumberCovers:)]) {
@@ -105,7 +105,7 @@ WSI_BEGIN_OBJC
     
     [d_owner performSelectorOnMainThread:@selector(setNeedsDisplay) withObject:nil waitUntilDone:YES];
     
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
 }
 
 - (void)thd_insert_item:(UICoverDrawerItem*)item {
@@ -368,7 +368,7 @@ itemZPosition = 0.f;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UICoverDrawer);       
+    NNTDECL_PRIVATE_INIT(UICoverDrawer);       
     _initialize;    
     return self;
 }
@@ -384,7 +384,7 @@ itemZPosition = 0.f;
     self.dataSource = nil;
     self.delegate = nil;
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -403,7 +403,7 @@ itemZPosition = 0.f;
 }
 
 - (UICoverDrawerItem*)insertItem:(UICoverDrawerItem *)item idx:(uint)idx {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     UICoverDrawerItem *pre = nil, *next = nil;
 
@@ -466,7 +466,7 @@ itemZPosition = 0.f;
         [self selectItem:item animated:NO];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return item;
 }
 
@@ -483,7 +483,7 @@ itemZPosition = 0.f;
 }
 
 - (void)clear {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     for (UICoverDrawerItem *item in d_ptr.items) {
         [item removeFromSuperview];
@@ -492,7 +492,7 @@ itemZPosition = 0.f;
     [self set_current:nil];
     d_ptr.rcd_idx_max = 0;
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (uint)indexOfItem:(const UICoverDrawerItem *)item {
@@ -685,4 +685,4 @@ itemZPosition = 0.f;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

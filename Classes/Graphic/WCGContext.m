@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "WCGContext.h"
 # import "WCGUtils.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 void CGContextAddTextAtPoint(CGContextRef context, CGPoint point, NSString *str, WCGTextStyle *style) {
     if ( style.color == nil ) 
@@ -17,12 +17,12 @@ void CGContextAddTextAtPoint(CGContextRef context, CGPoint point, NSString *str,
 	CGContextSetStrokeColorWithColor(context, textColor);	
 	CGContextSetFillColorWithColor(context, textColor);    
              
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 	UIFont *theFont = [style uiFont];
 	[str drawAtPoint:point withFont:theFont];
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     CGContextAddTextAtPoint(context, point, str, style);
 # endif
 	
@@ -101,19 +101,19 @@ void CGContextAddTextInRect(CGContextRef context, CGRect rc, NSString *str, WCGT
         }
     }    
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     CGPoint pt = CGPointAddXY(rc.origin, x, y);
 # else
     NSPoint pt = NSMakePoint(rc.origin.x + x, rc.origin.y + y);
 # endif
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIFont *theFont = [theStyle uiFont];
 # endif
     
     if (style.charRotation == 0) {
         
-# ifdef WSI_TARGET_IOS        
+# ifdef NNT_TARGET_IOS        
         [str drawAtPoint:pt 
                 forWidth:width 
                 withFont:theFont 
@@ -126,7 +126,7 @@ void CGContextAddTextInRect(CGContextRef context, CGRect rc, NSString *str, WCGT
         
     } else {
         // for each char.
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
         CGPoint cur_pt = pt;
 # else
         NSPoint cur_pt = pt;
@@ -136,7 +136,7 @@ void CGContextAddTextInRect(CGContextRef context, CGRect rc, NSString *str, WCGT
             unichar ch = [str characterAtIndex:i];
             NSString *cur_str = [NSString stringWithCharacters:&ch length:1];
             
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
             CGSize cur_sz = [cur_str sizeWithFont:theFont];
 # else
             NSSize cur_sz = [cur_str sizeWithAttributes:[theStyle uiFontAttributes]];
@@ -149,7 +149,7 @@ void CGContextAddTextInRect(CGContextRef context, CGRect rc, NSString *str, WCGT
             CGContextTranslateCTM(context, cur_pt.x + sz_half_w, cur_pt.y + sz_half_h);
             CGContextRotateCTM(context, theStyle.charRotation);    
             
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
             [cur_str drawAtPoint:CGPointMake(-sz_half_w, -sz_half_h) 
                         withFont:theFont];
 # else
@@ -337,7 +337,7 @@ void CGContextFillImageMask(CGContextRef c, CGRect rect, CGImageRef image, CGCol
     MAC_IOS_SELECT(NSImage, UIImage)* tgt = WCGGetImageFromCurrentImageContext();
     WCGEndImageContext();
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     CGContextDrawImage(c, rect, tgt.CGImage);
 # endif
     
@@ -345,23 +345,23 @@ void CGContextFillImageMask(CGContextRef c, CGRect rect, CGImageRef image, CGCol
 }
 
 void WCGBeginImageContext(CGSize size) {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
      UIGraphicsBeginImageContext(size);
 # endif
 }
 
 void WCGEndImageContext() {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIGraphicsEndImageContext();
 # endif
 }
 
 CGContextRef WCGGetCurrentContext() {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     return UIGraphicsGetCurrentContext();
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     return (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
 # endif
     
@@ -369,14 +369,14 @@ CGContextRef WCGGetCurrentContext() {
 }
 
 MAC_IOS_SELECT(NSImage, UIImage)* WCGGetImageFromCurrentImageContext() {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     return UIGraphicsGetImageFromCurrentImageContext();
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 # endif
     
     return 0;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

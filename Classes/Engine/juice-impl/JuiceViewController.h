@@ -3,10 +3,10 @@
 # define __JUICE_VIEWCONTROLLER_6DD0E277F1164031965C5D2528F5DDD3_H_INCLUDED
 
 # import "Juice.hpp"
-# import "../../UIKit/UIView+WSI.h"
-# import "../../UIKit/UIViewController+WSI.h"
+# import "../../UIKit/UIView+NNT.h"
+# import "../../UIKit/UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_CXX JUICE_BEGIN
+NNT_BEGIN_HEADER_CXX JUICE_BEGIN
 
 using namespace ::juice;
 
@@ -309,7 +309,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(spirit)
+NNT_BEGIN_NS(spirit)
 
 class Translate
 : public ::juice::spirit::Translate<Translate, Types>
@@ -323,8 +323,8 @@ class Rotate
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-JUICE_END WSI_END_HEADER_CXX
+JUICE_END NNT_END_HEADER_CXX
 
 # endif

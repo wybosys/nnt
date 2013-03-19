@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "WSIUIObject.h"
+# import "NNTUIObject.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 // touch signal.
 signal_t kSignalTouchesBegin = @"::wsi::ui::touches::begin";
@@ -27,21 +27,21 @@ signal_t kSignalDeviceShaked = @"::wsi::device::shaked";
 // recieve remove control event.
 signal_t kSignalRemoteControlEvent = @"::wsi::ui::remote::control::event";
 
-static WSIUIObject *__gs_uiobject = nil;
+static NNTUIObject *__gs_uiobject = nil;
 
-@implementation WSIUIObject
+@implementation NNTUIObject
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalTouchesBegin)
-WSIEVENT_SIGNAL(kSignalTouchesCancel)
-WSIEVENT_SIGNAL(kSignalTouchesEnd)
-WSIEVENT_SIGNAL(kSignalTouchesMoved)
-WSIEVENT_SIGNAL(kSignalTouchesOffset)
-WSIEVENT_SIGNAL(kSignalOrientationChanged)
-WSIEVENT_SIGNAL(kSignalThemeChanged)
-WSIEVENT_SIGNAL(kSignalDeviceShaked)
-WSIEVENT_SIGNAL(kSignalRemoteControlEvent)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalTouchesBegin)
+NNTEVENT_SIGNAL(kSignalTouchesCancel)
+NNTEVENT_SIGNAL(kSignalTouchesEnd)
+NNTEVENT_SIGNAL(kSignalTouchesMoved)
+NNTEVENT_SIGNAL(kSignalTouchesOffset)
+NNTEVENT_SIGNAL(kSignalOrientationChanged)
+NNTEVENT_SIGNAL(kSignalThemeChanged)
+NNTEVENT_SIGNAL(kSignalDeviceShaked)
+NNTEVENT_SIGNAL(kSignalRemoteControlEvent)
+NNTEVENT_END
 
 @dynamic isGlobalEventProcessing;
 
@@ -55,16 +55,16 @@ WSIEVENT_END
     [super dealloc];
 }
 
-+ (WSIUIObject*)shared {    
-    WSI_SYNCHRONIZED(self)
++ (NNTUIObject*)shared {    
+    NNT_SYNCHRONIZED(self)
     if (__gs_uiobject == nil) {
         __gs_uiobject = [[self alloc] init];
-        WSI *wsiobj = [WSI shared];
+        NNT *wsiobj = [NNT shared];
         if (wsiobj) {
             [wsiobj storeSet:@"wsi::uikit::uiobject::singleton" obj:__gs_uiobject];
         }
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __gs_uiobject;
 }
 
@@ -74,7 +74,7 @@ WSIEVENT_END
 
 @end
 
-@implementation WSIUIObject (event)
+@implementation NNTUIObject (event)
 
 - (void)emit_begin {
     ++__is_global_event_processing;
@@ -92,4 +92,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

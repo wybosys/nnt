@@ -4,7 +4,7 @@
 # include "../../contrib/giflib/gif_lib.h"
 # import "WCGImage.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 struct _gif_data_t
 {
@@ -259,7 +259,7 @@ static int _gif_data(GifFileType* ft, GifByteType* bytes, int len)
     free(pixels_screen);
     free(pixels_screen_buffer);
     
-    [WSIObject refobjSet:&images ref:ret_images];
+    [NNTObject refobjSet:&images ref:ret_images];
     
     [ret_images release];
     
@@ -268,4 +268,4 @@ static int _gif_data(GifFileType* ft, GifByteType* bytes, int len)
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "UISearchBar+WSI.h"
+# import "UISearchBar+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalSearchClicked = @"::wsi::ui::clicked::search";
 signal_t kSignalBookmarkClicked = @"::wsi::ui::clicked::bookmark";
@@ -11,15 +11,15 @@ signal_t kSignalResultsClicked = @"::wsi::ui::clicked::results";
 signal_t kSignalBeginEditing = @"::wsi::ui::editing::begin";
 signal_t kSignalEndEditing = @"::wsi::ui::editing::end";
 
-@interface WSIUISearchBar ()
+@interface NNTUISearchBar ()
 
 - (void)__init;
 
 @end
 
-@implementation WSIUISearchBar
+@implementation NNTUISearchBar
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (void)__init {
     self.delegate = self;
@@ -44,17 +44,17 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalSearchClicked)
-    WSIEVENT_SIGNAL(kSignalBookmarkClicked)
-    WSIEVENT_SIGNAL(kSignalCancelClicked)
-    WSIEVENT_SIGNAL(kSignalResultsClicked)
-    WSIEVENT_SIGNAL(kSignalBeginEditing)
-    WSIEVENT_SIGNAL(kSignalEndEditing)
+    NNTEVENT_SIGNAL(kSignalSearchClicked)
+    NNTEVENT_SIGNAL(kSignalBookmarkClicked)
+    NNTEVENT_SIGNAL(kSignalCancelClicked)
+    NNTEVENT_SIGNAL(kSignalResultsClicked)
+    NNTEVENT_SIGNAL(kSignalBeginEditing)
+    NNTEVENT_SIGNAL(kSignalEndEditing)
 }
 
 - (void)visibleCancelButton {
@@ -125,4 +125,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

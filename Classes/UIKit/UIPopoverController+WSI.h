@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_POPOVERCONTROLLER_F0D647AC9A7840AA8D9D3EB3ACE1D73E_H_INCLUDED
-# define __WSI_UIKIT_POPOVERCONTROLLER_F0D647AC9A7840AA8D9D3EB3ACE1D73E_H_INCLUDED
+# ifndef __NNT_UIKIT_POPOVERCONTROLLER_F0D647AC9A7840AA8D9D3EB3ACE1D73E_H_INCLUDED
+# define __NNT_UIKIT_POPOVERCONTROLLER_F0D647AC9A7840AA8D9D3EB3ACE1D73E_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUIPopoverController : WSIObject <UIPopoverControllerDelegate>
+@interface NNTUIPopoverController : NNTObject <UIPopoverControllerDelegate>
 {
     UIPopoverController* _popover;
     UIPopoverArrowDirection _popoverArrowDirection;
@@ -29,15 +29,15 @@ CXXEXPRESS(@property (nonatomic) ::wsi::RefObject* cxxobj);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename contentT,
-typename objcT = WSIUIPopoverController
+typename objcT = NNTUIPopoverController
 >
 class Popover
 : public Object<Popover<contentT, objcT>, objcT>
@@ -116,8 +116,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,17 +1,17 @@
 
-# ifndef __WSI_IFLYTEKVOICE_8BD019552FFB4581ABDAB06B8C54E578_H_INCLUDED
-# define __WSI_IFLYTEKVOICE_8BD019552FFB4581ABDAB06B8C54E578_H_INCLUDED
+# ifndef __NNT_IFLYTEKVOICE_8BD019552FFB4581ABDAB06B8C54E578_H_INCLUDED
+# define __NNT_IFLYTEKVOICE_8BD019552FFB4581ABDAB06B8C54E578_H_INCLUDED
 
 # include "VoiceObject.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(IFlytekVoiceRecognizer);
+NNTDECL_PRIVATE_HEAD(IFlytekVoiceRecognizer);
 
-@interface IFlytekVoiceRecognizer : WSIObject {
-    WSIDECL_PRIVATE(IFlytekVoiceRecognizer);
+@interface IFlytekVoiceRecognizer : NNTObject {
+    NNTDECL_PRIVATE(IFlytekVoiceRecognizer);
     
     NSString* _appid;
     NSString* _engineurl;
@@ -24,10 +24,10 @@ WSIDECL_PRIVATE_HEAD(IFlytekVoiceRecognizer);
 
 @end
 
-WSIDECL_PRIVATE_HEAD(IFlytekSpeech);
+NNTDECL_PRIVATE_HEAD(IFlytekSpeech);
 
-@interface IFlytekSpeech : WSIObject {
-    WSIDECL_PRIVATE(IFlytekSpeech);
+@interface IFlytekSpeech : NNTObject {
+    NNTDECL_PRIVATE(IFlytekSpeech);
     
     NSString* _appid;
     NSString* _engineurl;
@@ -41,12 +41,12 @@ WSIDECL_PRIVATE_HEAD(IFlytekSpeech);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(iflytek)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(iflytek)
 
 class VoiceRecognizer
 : public ns::Object<IFlytekVoiceRecognizer>
@@ -79,8 +79,8 @@ public:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // end cxx
 

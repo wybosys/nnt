@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "UISwitch+WSI.h"
-# import "CoreGraphic+WSI.h"
+# import "UISwitch+NNT.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalButtonCloseClicked = @"::wsi::ui::image::close";
 
-@implementation WSIUISwitch
+@implementation NNTUISwitch
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -18,12 +18,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalValueChanged);
+    NNTEVENT_SIGNAL(kSignalValueChanged);
 }
 
 - (void)__act_value_changed {
@@ -68,10 +68,10 @@ WSIOBJECT_IMPL_NOSIGNALS;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalValueChanged)
-WSIEVENT_SIGNAL(kSignalButtonCloseClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalValueChanged)
+NNTEVENT_SIGNAL(kSignalButtonCloseClicked)
+NNTEVENT_END
 
 - (void)__act_clicked {
     value = !value;
@@ -163,4 +163,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

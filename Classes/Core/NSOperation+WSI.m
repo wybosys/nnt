@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSOperation+WSI.h"
+# import "NSOperation+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSOperator
+@implementation NNTNSOperator
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

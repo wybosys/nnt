@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIPageSwitchController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalPageCreate = @"::wsi::uikit::page::create";
 
@@ -10,9 +10,9 @@ signal_t kSignalPageCreate = @"::wsi::uikit::page::create";
 
 @synthesize pageClass, numberOfPages;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPageCreate)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPageCreate)
+NNTEVENT_END
 
 - (UISwitchPage*)previous_page:(UISwitchPage *)__page {
     if (0 == [self index_of:__page]) return nil;
@@ -80,4 +80,4 @@ WSIEVENT_END
 
 _CXXCONTROLLER_IMPL(UIPageSwitchController);
 
-WSI_END_OBJC
+NNT_END_OBJC

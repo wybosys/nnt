@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "QzEffect.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSTimeInterval kQzEffectDuration = 0.35f;
 signal_t kSignalEffectComplete = @"::wsi::ui::effect::complete";
@@ -40,9 +40,9 @@ signal_t kSignalEffectComplete = @"::wsi::ui::effect::complete";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalEffectComplete)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalEffectComplete)
+NNTEVENT_END
 
 - (void)active:(CALayer *)layer {
     // set in layer.
@@ -125,7 +125,7 @@ WSIEVENT_END
 
 @end
 
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
 
 - (void)active:(CALayer *)layer {
     [super active:layer];
@@ -172,14 +172,14 @@ WSIIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     }
 }
 
-WSIIMPL_OBJCXX_WRAPPER_END
+NNTIMPL_OBJCXX_WRAPPER_END
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(qz)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(qz)
 
-WSI_BEGIN_NS(effect)
+NNT_BEGIN_NS(effect)
 
 Fadein::Fadein()
 : from(0), to(1)
@@ -393,7 +393,7 @@ void Popin::active()
     _layer().opacity = 1.f;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

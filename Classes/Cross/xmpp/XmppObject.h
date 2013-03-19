@@ -5,27 +5,27 @@
 # include "../../Parser/XmlParser.h"
 
 # define XMPP_HEADER_BEGIN \
-WSI_BEGIN_HEADER_CXX \
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_HEADER_CXX \
+NNT_BEGIN_NS(xmpp)
 
 # define XMPP_HEADER_END \
-WSI_END_NS \
-WSI_END_HEADER_CXX
+NNT_END_NS \
+NNT_END_HEADER_CXX
 
 # define XMPP_BEGIN \
-WSI_BEGIN_CXX \
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_CXX \
+NNT_BEGIN_NS(xmpp)
 
 # define XMPP_END \
-WSI_END_NS \
-WSI_END_CXX
+NNT_END_NS \
+NNT_END_CXX
 
 XMPP_HEADER_BEGIN
 
 typedef parser::XmlNode xmlnode_t;
 typedef parser::XmlAttribute xmlattr_t;
 
-WSICLASS(Object);
+NNTCLASS(Object);
 
 class Object
 : public cxx::Object<>
@@ -50,7 +50,7 @@ public:
     
 };
 
-WSICLASS(StringObject);
+NNTCLASS(StringObject);
 
 class StringObject
 : public Object

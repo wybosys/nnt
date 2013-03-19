@@ -1,12 +1,12 @@
 
 # include "Core.h"
-# include "WSIConfiguration.h"
-# include "WSIBdb.h"
+# include "NNTConfiguration.h"
+# include "NNTBdb.h"
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Configuration)
+NNTDECL_PRIVATE_BEGIN_CXX(Configuration)
 
 void init()
 {
@@ -22,7 +22,7 @@ void dealloc()
 
 store::Bdb* db;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 Configuration& Configuration::getInstance()
 {
@@ -32,24 +32,24 @@ Configuration& Configuration::getInstance()
 
 Configuration::Configuration()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Configuration);
+    NNTDECL_PRIVATE_CONSTRUCT(Configuration);
 }
 
 Configuration::Configuration(core::string const& file)
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Configuration);
+    NNTDECL_PRIVATE_CONSTRUCT(Configuration);
     
     this->open(file);
 }
 
 void Configuration::_init()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Configuration);    
+    NNTDECL_PRIVATE_CONSTRUCT(Configuration);    
 }
 
 Configuration::~Configuration()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool Configuration::open(const core::string & file)
@@ -123,5 +123,5 @@ void Configuration::clear()
     d_ptr->db->clear();
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

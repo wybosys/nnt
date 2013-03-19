@@ -1,22 +1,22 @@
 
 # import "Core.h"
 # import "DTraceLibrary.h"
-# import "Console+WSI.h"
+# import "Console+NNT.h"
 # import "DTraceController.h"
 # include <signal.h>
 # import "AbstractCache.h"
-# import "WSIConfiguration.h"
+# import "NNTConfiguration.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include "../../contrib/lua/lua.h"
 # include "../../contrib/lua/lstate.h"
 # include "../../contrib/lua/lualib.h"
 # include "../../contrib/lua/lauxlib.h"
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 int wluado_echo(lua_State* state)
 {
@@ -28,17 +28,17 @@ int wluado_echo(lua_State* state)
     {
         char const* str = lua_tostring(state, -1);
         NSString* sstr = [NSString stringWithUTF8String:str];
-        [[WSIConsole shared] println:sstr];
+        [[NNTConsole shared] println:sstr];
     }
     else if (lua_isnumber(state, -1))
     {
         lua_Number nm = lua_tonumber(state, -1);
         NSString* sstr = [NSString stringWithFormat:@"%.14g", nm];
-        [[WSIConsole shared] println:sstr];
+        [[NNTConsole shared] println:sstr];
     }
     else
     {
-        [[WSIConsole shared] println:@"echo: Unknown Type."];
+        [[NNTConsole shared] println:@"echo: Unknown Type."];
     }
     
     return 1;
@@ -71,7 +71,7 @@ int wluado_cache_clear(lua_State* state)
 
 int wluado_configuration_clear(lua_State* state)
 {
-    [[WSIConfiguration shared] clear];
+    [[NNTConfiguration shared] clear];
     ::wsi::store::Configuration::shared().clear();
     return 1;
 }
@@ -88,4 +88,4 @@ void wluaopen_dtrace_objc(wlua_Processor* proc)
     lua_register(wluaL(proc), "configuration_clear", wluado_configuration_clear);
 }
 
-WSI_END_C
+NNT_END_C

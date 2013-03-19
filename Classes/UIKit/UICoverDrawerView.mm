@@ -4,7 +4,7 @@
 # import "UICoverDrawer.h"
 # import <QuartzCore/QuartzCore.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UICoverDrawerViewPrivate : NSObject {
     
@@ -49,7 +49,7 @@ WSI_BEGIN_OBJC
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UICoverDrawerView);
+    NNTDECL_PRIVATE_INIT(UICoverDrawerView);
     
     self.backgroundColor = [UIColor clearColor];
     self.scale = 1.f;
@@ -58,7 +58,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -136,4 +136,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

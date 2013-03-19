@@ -3,8 +3,8 @@
 # include "HttpServer.h"
 # include "../../contrib/mongoose/mongoose.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
 bool HttpConfig::is_correct() const
 {
@@ -30,7 +30,7 @@ int HttpConnection::read(core::data& da)
     return mg_read(cnt, da.bytes(), da.length());
 }
 
-WSIDECL_PRIVATE_BEGIN(HttpServer)
+NNTDECL_PRIVATE_BEGIN(HttpServer)
 
 void init()
 {
@@ -142,21 +142,21 @@ static void upload(mg_connection*, char const* file_name)
 mg_callbacks callback;
 mg_context* mgctx;
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 HttpServer::HttpServer()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(HttpServer);
+    NNTDECL_PRIVATE_CONSTRUCT(HttpServer);
 }
 
 HttpServer::~HttpServer()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(HttpServer, super)
-WSI_SIGNAL(kSignalNewConnection)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(HttpServer, super)
+NNT_SIGNAL(kSignalNewConnection)
+NNTDECL_SIGNALS_END
 
 bool HttpServer::start()
 {
@@ -168,5 +168,5 @@ void HttpServer::stop()
     d_ptr->stop();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

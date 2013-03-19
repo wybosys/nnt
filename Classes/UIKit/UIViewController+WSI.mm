@@ -1,20 +1,20 @@
 
 # import "Core.h"
-# import "UIViewController+WSI.h"
-# import "WSIUIObject.h"
-# import "UIScreen+WSI.h"
-# import "UIWebView+WSI.h"
-# import "UIView+WSI.h"
+# import "UIViewController+NNT.h"
+# import "NNTUIObject.h"
+# import "UIScreen+NNT.h"
+# import "UIWebView+NNT.h"
+# import "UIView+NNT.h"
 # import "DTrace.prv.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 // for solve the difference of [UIViewController view(Did|Should)(Appear|Disappear) bewteen SDKS.
-// if is true, WSI will call (appear|disappear) manual.
-WSI_EXTERN bool __need_manual_appear;
+// if is true, NNT will call (appear|disappear) manual.
+NNT_EXTERN bool __need_manual_appear;
 
 // support multi-tasks.
-WSI_EXTERN bool WSI_SUPPORT_MULTITASKS;
+NNT_EXTERN bool NNT_SUPPORT_MULTITASKS;
 
 // some signals.
 signal_t kSignalViewAppear = @"::wsi::ui::view::appear";
@@ -27,30 +27,30 @@ signal_t kSignalDismiss = @"::wsi::ui::dismiss";
 // object.
 NSString* kViewControllerModalParentController = @"::wsi::ui::viewcontroller::modal::controller::parent";
 
-WSIIMPL_CATEGORY(UIViewController, WSI);
+NNTIMPL_CATEGORY(UIViewController, NNT);
 
-@interface WSIUIViewControllerBase ()
+@interface NNTUIViewControllerBase ()
 
-@property (nonatomic, assign) WSIUIViewController* superController;
+@property (nonatomic, assign) NNTUIViewController* superController;
 
 @end
 
-@implementation UIViewController (WSI)
+@implementation UIViewController (NNT)
 
 - (NSString*)icon {
     return @"";
 }
 
 - (void)addSubController:(UIViewController*)ctlr {    
-    WSIUIViewControllerBase* wsictlr = nil;
-    if ([ctlr isKindOfClass:[WSIUIViewControllerBase class]]) {
-        wsictlr = (WSIUIViewControllerBase*)ctlr;
+    NNTUIViewControllerBase* wsictlr = nil;
+    if ([ctlr isKindOfClass:[NNTUIViewControllerBase class]]) {
+        wsictlr = (NNTUIViewControllerBase*)ctlr;
     }
     
     if (wsictlr) {
         if (wsictlr.superController)
             return;
-        wsictlr.superController = (WSIUIViewController*)self;
+        wsictlr.superController = (NNTUIViewController*)self;
         if (wsictlr.isAppeared)
             [ctlr viewWillAppear:NO];
     } else {
@@ -100,13 +100,13 @@ WSIIMPL_CATEGORY(UIViewController, WSI);
 
 @end
 
-@protocol WSIUIViewOrientation <NSObject>
+@protocol NNTUIViewOrientation <NSObject>
 
 - (void)setOrientation:(UIDeviceOrientation)orient;
 
 @end
 
-@implementation WSIUIViewControllerBase
+@implementation NNTUIViewControllerBase
 
 @synthesize isNeedAdjustForRotation;
 @synthesize titleImage;
@@ -117,7 +117,7 @@ WSIIMPL_CATEGORY(UIViewController, WSI);
 @synthesize superController, subControllers;
 @synthesize isAppeared;
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super init];
@@ -126,7 +126,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     isNeedAdjustForRotation = NO;
     
     // bind to global object for signal.
-    WSIUIObject* ui_obj = [WSIUIObject shared];
+    NNTUIObject* ui_obj = [NNTUIObject shared];
     
     if ([self conformsToProtocol:@protocol(UIViewControllerRotation)]) { 
         [ui_obj connect:kSignalOrientationChanged sel:@selector(__act_device_rotated) obj:self];
@@ -149,23 +149,23 @@ WSIOBJECT_IMPL_NOSIGNALS;
     zero_release(titleImage);
     zero_release(subControllers);
     
-    [[WSIUIObject shared] disconnect:self];
+    [[NNTUIObject shared] disconnect:self];
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     
     DTRACE_VIEWCOUNTROLLER_COUNTER_DESC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewAppear);
-    WSIEVENT_SIGNAL(kSignalViewAppearing);
-    WSIEVENT_SIGNAL(kSignalViewDisappear);
-    WSIEVENT_SIGNAL(kSignalViewDisappearing);
-    WSIEVENT_SIGNAL(kSignalOrientationChanged);
-    WSIEVENT_SIGNAL(kSignalTitleChanged);
-    WSIEVENT_SIGNAL(kSignalDeviceShaked);
-    WSIEVENT_SIGNAL(kSignalRemoteControlEvent);
+    NNTEVENT_SIGNAL(kSignalViewAppear);
+    NNTEVENT_SIGNAL(kSignalViewAppearing);
+    NNTEVENT_SIGNAL(kSignalViewDisappear);
+    NNTEVENT_SIGNAL(kSignalViewDisappearing);
+    NNTEVENT_SIGNAL(kSignalOrientationChanged);
+    NNTEVENT_SIGNAL(kSignalTitleChanged);
+    NNTEVENT_SIGNAL(kSignalDeviceShaked);
+    NNTEVENT_SIGNAL(kSignalRemoteControlEvent);
 }
 
 - (void)setTitle:(NSString *)str {
@@ -190,22 +190,22 @@ WSIOBJECT_IMPL_NOSIGNALS;
     if (orient == UIDeviceOrientationUnknown)
         return;
     
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
         
     // announce as step: 1, controller; 2, view;
     if ([obj respondsToSelector:@selector(viewController:orientation:)]) {
-        [obj viewController:(WSIUIViewController*)self orientation:(UIInterfaceOrientation)orient];
+        [obj viewController:(NNTUIViewController*)self orientation:(UIInterfaceOrientation)orient];
     }
     
     if ([_viewobj respondsToSelector:@selector(setOrientation:)]) {
-        id<WSIUIViewOrientation> obj = (id<WSIUIViewOrientation>)self.view;
+        id<NNTUIViewOrientation> obj = (id<NNTUIViewOrientation>)self.view;
         [obj setOrientation:(UIDeviceOrientation)orient];
     }        
     
     NSNumber *ori = [NSNumber numberWithInt:orient];
     [self emit:kSignalOrientationChanged result:ori];
     
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
 }
 
 - (void)__act_device_rotated_pure {
@@ -219,9 +219,9 @@ WSIOBJECT_IMPL_NOSIGNALS;
     [self emit:kSignalOrientationChanged result:ori];
 }
 
-- (void)__act_theme_changed:(WSIEventObj*)evt {
+- (void)__act_theme_changed:(NNTEventObj*)evt {
     id<UIViewControllerTheme> obj = (id<UIViewControllerTheme>)self;    
-    [obj viewControllerTheme:(WSIUIViewController*)self changeTheme:(UITheme*)evt.result];
+    [obj viewControllerTheme:(NNTUIViewController*)self changeTheme:(UITheme*)evt.result];
     
     if ([self.view conformsToProtocol:@protocol(UIViewTheme)]) {
         id<UIViewTheme> obj = (id<UIViewTheme>)self.view;
@@ -235,7 +235,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         navi = navigationController;
     }
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     
     if (navi == nil) {
         //dthrow([NSException exceptionWithName:@"::wsi::null_exception"
@@ -272,7 +272,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 - (void)loadView {
     if (classView == nil) {
-        WSIUIView *view = [[WSIUIView alloc] initWithZero];
+        NNTUIView *view = [[NNTUIView alloc] initWithZero];
         self.view = view;
         [view release];
     }
@@ -284,13 +284,13 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)addSubController:(UIViewController*)ctlr {        
-    if ([ctlr isKindOfClass:[WSIUIViewControllerBase class]]) {
-        if (((WSIUIViewControllerBase*)ctlr).superController)
+    if ([ctlr isKindOfClass:[NNTUIViewControllerBase class]]) {
+        if (((NNTUIViewControllerBase*)ctlr).superController)
             return;
         if (subControllers && 
             [subControllers indexOfObject:ctlr] != NSNotFound)
             return;
-        ((WSIUIViewControllerBase*)ctlr).superController = (WSIUIViewController*)self;
+        ((NNTUIViewControllerBase*)ctlr).superController = (NNTUIViewController*)self;
     }        
     
     if ([ctlr isKindOfClass:[UINavigationController class]]) {
@@ -325,11 +325,11 @@ WSIOBJECT_IMPL_NOSIGNALS;
         [self viewWillDisappear:NO];
     }
     
-    if ([superController isKindOfClass:[WSIUIViewControllerBase class]]) {
+    if ([superController isKindOfClass:[NNTUIViewControllerBase class]]) {
         [self.view removeFromSuperview];
-        [(NSMutableArray*)((WSIUIViewControllerBase*)superController).subControllers removeObject:self];
-    } else if ([self.view.superview isKindOfClass:[WSIUIView class]]) {
-        [(WSIUIView*)self.view.superview removeSubController:self];
+        [(NSMutableArray*)((NNTUIViewControllerBase*)superController).subControllers removeObject:self];
+    } else if ([self.view.superview isKindOfClass:[NNTUIView class]]) {
+        [(NNTUIView*)self.view.superview removeSubController:self];
     } else {
         [self.view removeFromSuperview];
     }
@@ -378,8 +378,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
     
     // subcontroller of view.
     UIView* view = self.view;
-    if ([view isKindOfClass:[WSIUIView class]]) {
-        WSIUIView* wsiview = (WSIUIView*)view;
+    if ([view isKindOfClass:[NNTUIView class]]) {
+        NNTUIView* wsiview = (NNTUIView*)view;
         for (UIViewController* each in wsiview.subControllers)
             [each viewDidAppear:animated];
     }
@@ -391,7 +391,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     [self emit:kSignalViewAppear];
     
     // wait for remote event.
-    if (WSI_SUPPORT_MULTITASKS) {
+    if (NNT_SUPPORT_MULTITASKS) {
         if ([self find_signal:kSignalRemoteControlEvent].count) {
             [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
             [self becomeFirstResponder];
@@ -415,8 +415,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
     
     // subcontroller of view.
     UIView* view = self.view;
-    if ([view isKindOfClass:[WSIUIView class]]) {
-        WSIUIView* wsiview = (WSIUIView*)view;
+    if ([view isKindOfClass:[NNTUIView class]]) {
+        NNTUIView* wsiview = (NNTUIView*)view;
         for (UIViewController* each in wsiview.subControllers)
             [each viewWillDisappear:animated];
     }
@@ -428,7 +428,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     [self emit:kSignalViewDisappearing];
     
     // cancel wait for remote event.
-    if (WSI_SUPPORT_MULTITASKS) {
+    if (NNT_SUPPORT_MULTITASKS) {
         if ([self find_signal:kSignalRemoteControlEvent].count) {
             [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
             [self resignFirstResponder];
@@ -452,8 +452,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
     
     // subcontroller of view.
     UIView* view = self.view;
-    if ([view isKindOfClass:[WSIUIView class]]) {
-        WSIUIView* wsiview = (WSIUIView*)view;
+    if ([view isKindOfClass:[NNTUIView class]]) {
+        NNTUIView* wsiview = (NNTUIView*)view;
         for (UIViewController* each in wsiview.subControllers)
             [each viewDidDisappear:animated];
     }
@@ -470,7 +470,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)viewDidLoad {
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
     
     // set view object for attach view without init a view.
     _viewobj = self.view;
@@ -490,7 +490,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
             [self performSelector:@selector(__act_device_rotated_pure)];
     }
     
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
 }
      
 - (void)viewIsLoading {
@@ -536,7 +536,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake) {
         [self emit:kSignalDeviceShaked];
-        [[WSIUIObject shared] emit:kSignalDeviceShaked result:self];
+        [[NNTUIObject shared] emit:kSignalDeviceShaked result:self];
     }
 }
 
@@ -552,15 +552,15 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     [self emit:kSignalRemoteControlEvent result:event];
-    [[WSIUIObject shared] emit:kSignalRemoteControlEvent result:event];
+    [[NNTUIObject shared] emit:kSignalRemoteControlEvent result:event];
 }
 
 - (BOOL)canBecomeFirstResponder {
-    WSISignal* signal = [self find_signal:kSignalDeviceShaked];
+    NNTSignal* signal = [self find_signal:kSignalDeviceShaked];
     if (signal.count)
         return YES;
     
-    if (WSI_SUPPORT_MULTITASKS) {
+    if (NNT_SUPPORT_MULTITASKS) {
         signal = [self find_signal:kSignalRemoteControlEvent];
         if (signal.count)
             return YES;
@@ -602,32 +602,32 @@ BOOL UIOrientationEnableCheck(UIOrientationEnable orientationEnable, UIInterface
     return ret;
 }
 
-@implementation WSIUIViewControllerIB
+@implementation NNTUIViewControllerIB
 
 @end
 
-@implementation WSIUIViewController
+@implementation NNTUIViewController
 
 @dynamic wsiview;
 
-- (WSIUIView*)wsiview {
+- (NNTUIView*)wsiview {
     UIView *view = self.view;
-# ifdef WSI_VERBOSE_VERBOSE
-    if ([view isKindOfClass:[WSIUIView class]]) {        
-        trace_msg(@"attention: this view is not a WSIUIView!");
+# ifdef NNT_VERBOSE_VERBOSE
+    if ([view isKindOfClass:[NNTUIView class]]) {        
+        trace_msg(@"attention: this view is not a NNTUIView!");
     }
 # endif
-    return (WSIUIView *)view;
+    return (NNTUIView *)view;
 }
 
 @end
 
-@implementation WSIUIHtmlController
+@implementation NNTUIHtmlController
 
 @dynamic htmlView;
 
 - (void)loadView {    
-    WSIUIWebView* web = [[WSIUIWebView alloc] initWithZero];
+    NNTUIWebView* web = [[NNTUIWebView alloc] initWithZero];
     self.view = web;
     [web release];
     
@@ -636,8 +636,8 @@ BOOL UIOrientationEnableCheck(UIOrientationEnable orientationEnable, UIInterface
     web.dataDetectorTypes = UIDataDetectorTypeNone;
 }
 
-- (WSIUIWebView*)htmlView {
-    return (WSIUIWebView*)self.view;
+- (NNTUIWebView*)htmlView {
+    return (NNTUIWebView*)self.view;
 }
 
 @end
@@ -681,11 +681,11 @@ BOOL UIOrientationEnableCheck(UIOrientationEnable orientationEnable, UIInterface
     return _cxxobj->cxxobject();
 }
 
-- (void)viewController:(WSIUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
+- (void)viewController:(NNTUIViewController*)ctlr orientation:(UIInterfaceOrientation)orientation {
     _cxxobj->orientation(orientation);
 }
 
-- (void)viewControllerTheme:(WSIUIViewController *)ctlr changeTheme:(UITheme *)theme {
+- (void)viewControllerTheme:(NNTUIViewController *)ctlr changeTheme:(UITheme *)theme {
     _cxxobj->theme(::wsi::ui::Theme(theme));
 }
 
@@ -707,4 +707,4 @@ BOOL UIOrientationEnableCheck(UIOrientationEnable orientationEnable, UIInterface
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

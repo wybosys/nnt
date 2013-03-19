@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_UIBARBUTTONITEM_04ADC336745941B3A2E60651B7E777BC_H_INCLUDED
-# define __WSI_UIKIT_UIBARBUTTONITEM_04ADC336745941B3A2E60651B7E777BC_H_INCLUDED
+# ifndef __NNT_UIKIT_UIBARBUTTONITEM_04ADC336745941B3A2E60651B7E777BC_H_INCLUDED
+# define __NNT_UIKIT_UIBARBUTTONITEM_04ADC336745941B3A2E60651B7E777BC_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIUILabel);
+NNTDECL_EXTERN_CLASS(NNTUILabel);
 
-@interface WSIUIBarButtonItem : UIBarButtonItem {
-    WSIOBJECT_DECL;
+@interface NNTUIBarButtonItem : UIBarButtonItem {
+    NNTOBJECT_DECL;
     
     UIColor *backgroundColor;
     WCGFill* backgroundFill;
@@ -26,49 +26,49 @@ WSIDECL_EXTERN_CLASS(WSIUILabel);
 //! static.
 + (id)itemWithCustomView:(id)view;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUIBarLabelItem : WSIUIBarButtonItem {
-    WSIUILabel *label;
+@interface NNTUIBarLabelItem : NNTUIBarButtonItem {
+    NNTUILabel *label;
 }
 
 - (id)initWithTitle:(NSString*)title;
 
-@property (nonatomic, readonly) WSIUILabel *label;
+@property (nonatomic, readonly) NNTUILabel *label;
 
 @end
 
-WSI_EXTERN signal_t kSignalButtonClicked;
+NNT_EXTERN signal_t kSignalButtonClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class BarButtonItem
-: public ui::Object<BarButtonItem, WSIUIBarButtonItem>
+: public ui::Object<BarButtonItem, NNTUIBarButtonItem>
 {
-    typedef ui::Object<BarButtonItem, WSIUIBarButtonItem> super;
+    typedef ui::Object<BarButtonItem, NNTUIBarButtonItem> super;
     
 public:
     
     BarButtonItem(ns::String const& title, UIBarButtonItemStyle style)
     {
-        this->_self = [[WSIUIBarButtonItem alloc] initWithTitle:title style:style];
+        this->_self = [[NNTUIBarButtonItem alloc] initWithTitle:title style:style];
     }
     
     BarButtonItem(UIBarButtonSystemItem style)
     {
-        this->_self = [[WSIUIBarButtonItem alloc] initWithBarButtonSystemItem:style];
+        this->_self = [[NNTUIBarButtonItem alloc] initWithBarButtonSystemItem:style];
     }
     
     BarButtonItem(Image const& img, UIBarButtonItemStyle style)
     {
-        this->_self = [[WSIUIBarButtonItem alloc] initWithImage:img style:style];
+        this->_self = [[NNTUIBarButtonItem alloc] initWithImage:img style:style];
     }
     
     BarButtonItem(BarButtonItem const& r)
@@ -80,7 +80,7 @@ public:
     BarButtonItem(UIView* view)
     : super(nil)
     {
-        this->_self = [[WSIUIBarButtonItem alloc] initWithCustomView:view];
+        this->_self = [[NNTUIBarButtonItem alloc] initWithCustomView:view];
     }
     
     void set_width(real width)
@@ -95,8 +95,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

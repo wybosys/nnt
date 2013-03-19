@@ -1,11 +1,11 @@
 
-# ifndef __WSI_UIKIT_UIVALUEPICKER_1FCD93BC28B64DB8B8D05406FDE09566_H_INCLUDED
-# define __WSI_UIKIT_UIVALUEPICKER_1FCD93BC28B64DB8B8D05406FDE09566_H_INCLUDED
+# ifndef __NNT_UIKIT_UIVALUEPICKER_1FCD93BC28B64DB8B8D05406FDE09566_H_INCLUDED
+# define __NNT_UIKIT_UIVALUEPICKER_1FCD93BC28B64DB8B8D05406FDE09566_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIValuePickerView);
-WSIDECL_EXTERN_CLASS(UIValuePicker);
+NNTDECL_EXTERN_CLASS(UIValuePickerView);
+NNTDECL_EXTERN_CLASS(UIValuePicker);
 
 @protocol UIValuePickerDelegate <UIPopoverControllerDelegate>
 @optional
@@ -15,7 +15,7 @@ WSIDECL_EXTERN_CLASS(UIValuePicker);
 
 @end
 
-@interface UIValuePicker : WSIObject <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface UIValuePicker : NNTObject <UIPickerViewDelegate, UIPickerViewDataSource> {
     
     //! popover.
     UIPopoverController* popoverController;
@@ -55,6 +55,6 @@ WSIDECL_EXTERN_CLASS(UIValuePicker);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

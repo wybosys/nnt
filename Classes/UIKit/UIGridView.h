@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
-# define __WSI_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
+# ifndef __NNT_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
+# define __NNT_UIKIT_UIGRIDVIEW_337D008AA0DE423CB0C397021B0EEC88_H_INCLUDED
 
 # import "UIGridViewItem.h"
-# import "UIScrollView+WSI.h"
+# import "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCALayer);
+NNTDECL_EXTERN_CLASS(WCALayer);
 
-WSIDECL_PRIVATE_HEAD(UIGridView);
+NNTDECL_PRIVATE_HEAD(UIGridView);
 
-@interface UIGridView : WSIUIScrollView {
+@interface UIGridView : NNTUIScrollView {
     
     //! rows and cols.
     NSUInteger _rows, _cols;
@@ -58,7 +58,7 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
     //! enable animated, default is YES.
     BOOL _enableAnimated;
     
-    WSIDECL_PRIVATE(UIGridView);
+    NNTDECL_PRIVATE(UIGridView);
 }
 
 @property (nonatomic) NSUInteger rows, cols;
@@ -113,17 +113,17 @@ WSIDECL_PRIVATE_HEAD(UIGridView);
 
 _CXXVIEW_DECL(UIGridView);
 
-WSI_EXTERN signal_t kSignalContentClicked;
-WSI_EXTERN signal_t kSignalItemClicked;
+NNT_EXTERN signal_t kSignalContentClicked;
+NNT_EXTERN signal_t kSignalItemClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIScrollView+WSI.h"
+# include "UIScrollView+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT, 
 typename gridT = _CXXVIEW(UIGridView)
@@ -283,8 +283,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

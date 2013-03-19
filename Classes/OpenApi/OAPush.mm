@@ -6,7 +6,7 @@
 # import "OAManager.h"
 # import "OAuth.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @protocol OAPost <NSObject>
 
@@ -23,7 +23,7 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    self.title = @"WSI";
+    self.title = @"NNT";
     return self;
 }
 
@@ -72,7 +72,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)act_done:(Model*)mdl {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     NSString* clsName = [NSString stringWithUTF8String:object_getClassName(mdl)];
     trace_fmt(@"succeed in send a post to %@ .", clsName);
 # endif
@@ -80,4 +80,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

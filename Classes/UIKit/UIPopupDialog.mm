@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "UIPopupDialog.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "App.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalDialogExecute = @"::wsi::ui::dialog::execute";
 signal_t kSignalDialogClose = @"::wsi::ui::dialog::close";
@@ -53,7 +53,7 @@ signal_t kSignalDialogClose = @"::wsi::ui::dialog::close";
 }
 
 - (void)__init {
-    WSIDECL_PRIVATE_INIT_EX(UIPopupDialog, _d_ptr_popup);
+    NNTDECL_PRIVATE_INIT_EX(UIPopupDialog, _d_ptr_popup);
     
     self.backgroundColor = [UIColor whiteColor];
     self.layer.shadowOpacity = .3f;
@@ -68,16 +68,16 @@ signal_t kSignalDialogClose = @"::wsi::ui::dialog::close";
     safe_release(btnCancel);
     safe_release(buttonClose);
     
-    WSIDECL_PRIVATE_DEALLOC_EX(_d_ptr_popup);
+    NNTDECL_PRIVATE_DEALLOC_EX(_d_ptr_popup);
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalIndexYes)
-WSIEVENT_SIGNAL(kSignalIndexNo)
-WSIEVENT_SIGNAL(kSignalDialogExecute)
-WSIEVENT_SIGNAL(kSignalDialogClose)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalIndexYes)
+NNTEVENT_SIGNAL(kSignalIndexNo)
+NNTEVENT_SIGNAL(kSignalDialogExecute)
+NNTEVENT_SIGNAL(kSignalDialogClose)
+NNTEVENT_END
 
 - (void)setShowClose:(BOOL)enable {
     if (showClose == enable)
@@ -105,7 +105,7 @@ WSIEVENT_END
     [super drawRect:rect];
 }
 
-- (void)setContent:(WSIUIView *)view {
+- (void)setContent:(NNTUIView *)view {
     if (content) {
         [content removeFromSuperview];
     }
@@ -120,13 +120,13 @@ WSIEVENT_END
         return;
     }
     
-    UIView* rootView = [WSIApplication shared].window.rootViewController.view;
+    UIView* rootView = [NNTApplication shared].window.rootViewController.view;
     CGRect rect = CGRectSetRatioPadding(rootView.bounds, self.padding);
         
     self.frame = rect;
     
     if (backgroundView == nil) {
-        backgroundView = [[WSIUIView alloc] initWithFrame:rootView.bounds];
+        backgroundView = [[NNTUIView alloc] initWithFrame:rootView.bounds];
         [rootView addSubview:backgroundView];
         safe_release(backgroundView);
     } else {
@@ -202,4 +202,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

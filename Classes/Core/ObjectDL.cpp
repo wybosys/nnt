@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "ObjectDL.h"
  
-WSI_BEGIN_CXX WSI_BEGIN_NS(lang)
+NNT_BEGIN_CXX NNT_BEGIN_NS(lang)
 
 class DLObject
 {
@@ -153,4 +153,4 @@ INVOKE_STA invokeClass(Object* obj, Class const* objcls, Class const* declcls, v
     return ret;
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

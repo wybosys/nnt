@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "WSILevelDB.h"
+# import "NNTLevelDB.h"
 # import "../../3rd/leveldb/db.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSILevelDBPrivate : NSObject {
+@interface NNTLevelDBPrivate : NSObject {
     leveldb::DB *db;
 }
 
-@property (nonatomic, assign) WSILevelDB *d_owner;
+@property (nonatomic, assign) NNTLevelDB *d_owner;
 @property (nonatomic, assign) leveldb::DB *db;
 
 - (leveldb::DB**)ppdb;
@@ -17,7 +17,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSILevelDBPrivate
+@implementation NNTLevelDBPrivate
 
 @synthesize d_owner;
 @synthesize db;
@@ -43,15 +43,15 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSILevelDB
+@implementation NNTLevelDB
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSILevelDB);
+    NNTDECL_PRIVATE_INIT(NNTLevelDB);
     return self;
 }
 
-- (id)initWith:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWith:(NSString *)path type:(NNTDirectoryType)type {
     self = [self init];
     if (NO == [self openDbWith:path type:type]) {
         [self release];
@@ -61,7 +61,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -158,4 +158,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

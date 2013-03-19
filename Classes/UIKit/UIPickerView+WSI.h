@@ -1,24 +1,24 @@
 
-# ifndef __WSI_UIKIT_UIPICKERVIEW_A6EBDC6A53B34C1AB40C2CE744A73B29_H_INCLUDED
-# define __WSI_UIKIT_UIPICKERVIEW_A6EBDC6A53B34C1AB40C2CE744A73B29_H_INCLUDED
+# ifndef __NNT_UIKIT_UIPICKERVIEW_A6EBDC6A53B34C1AB40C2CE744A73B29_H_INCLUDED
+# define __NNT_UIKIT_UIPICKERVIEW_A6EBDC6A53B34C1AB40C2CE744A73B29_H_INCLUDED
 
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN NSUInteger kUIPickerViewHeight;
+NNT_EXTERN NSUInteger kUIPickerViewHeight;
 
-@interface WSIUIPickerView : UIPickerView {
-    WSIOBJECT_DECL;
+@interface NNTUIPickerView : UIPickerView {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (id)initWithFrame:(CGRect)frame;
 
 @end
 
-WSIDECL_EXTERN_CLASS(UIDrumPickerView);
+NNTDECL_EXTERN_CLASS(UIDrumPickerView);
 
 @protocol UIDrumPickerViewDataSource<NSObject>
 
@@ -42,31 +42,31 @@ WSIDECL_EXTERN_CLASS(UIDrumPickerView);
 
 @end
 
-@interface UIDrumPickerView : WSIUIControl
+@interface UIDrumPickerView : NNTUIControl
 
 @end
 
-@interface WSIUIDatePicker : UIDatePicker {
-    WSIOBJECT_DECL;
+@interface NNTUIDatePicker : UIDatePicker {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (id)initWithFrame:(CGRect)frame;
 
 @end
 
-_CXXCONTROL_DECL(WSIUIDatePicker);
+_CXXCONTROL_DECL(NNTUIDatePicker);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class DatePicker
-: public Control<DatePicker, _CXXCONTROL(WSIUIDatePicker)>
+: public Control<DatePicker, _CXXCONTROL(NNTUIDatePicker)>
 {
 public:
     
@@ -126,8 +126,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

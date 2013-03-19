@@ -1,18 +1,18 @@
 
 # include "Core.h"
-# include "WSISqlite.h"
+# include "NNTSqlite.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <sqlite/sqlite3.h>
 //# include <sqlite/sqlite3ext.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Sqlite)
+NNTDECL_PRIVATE_BEGIN_CXX(Sqlite)
 
 void init()
 {
@@ -51,7 +51,7 @@ void unlock()
 sqlite3 *db;
 sqlite3_mutex *mtx;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string Sqlite::identity = "sqlite";
 
@@ -62,12 +62,12 @@ IDBMS* Sqlite::dbmsInstance()
 
 Sqlite::Sqlite()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Sqlite);
+    NNTDECL_PRIVATE_CONSTRUCT(Sqlite);
 }
 
 Sqlite::~Sqlite()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool Sqlite::connect(connection_info const& info)
@@ -272,5 +272,5 @@ void SLDatabaseSTMT::update()
     } while (sta == SQLITE_ROW);
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

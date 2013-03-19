@@ -2,14 +2,14 @@
 # import "Core.h"
 # import "UIActionPad.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIActionPad
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPadAction)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPadAction)
+NNTEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

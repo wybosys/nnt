@@ -7,25 +7,25 @@
 # include <iflytek/UpLoadController.h>
 # include "App.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define DEFAULT_APPID @"51209fc4"
 //# define DEFAULT_ENGINEURL @"http://dev.voicecloud.cn:1028/index.htm"
 # define DEFAULT_ENGINEURL @"http://dev.voicecloud.cn/index.htm";
 
-WSIDECL_PRIVATE_BEGIN(IFlytekVoiceRecognizer, WSIObject)
+NNTDECL_PRIVATE_BEGIN(IFlytekVoiceRecognizer, NNTObject)
 <IFlyRecognizeControlDelegate>
 {
     IFlyRecognizeControl* _ifly;
-    WSIUIDesktop* _desk;
+    NNTUIDesktop* _desk;
 }
 
 @property (nonatomic, readonly) IFlyRecognizeControl* ifly;
-@property (nonatomic, assign) WSIUIDesktop* desk;
+@property (nonatomic, assign) NNTUIDesktop* desk;
 
-WSIDECL_PRIVATE_IMPL(IFlytekVoiceRecognizer)
+NNTDECL_PRIVATE_IMPL(IFlytekVoiceRecognizer)
 
 @synthesize ifly = _ifly;
 @synthesize desk = _desk;
@@ -85,9 +85,9 @@ WSIDECL_PRIVATE_IMPL(IFlytekVoiceRecognizer)
     [d_owner release];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@interface IFlytekDesktop : WSIUIDesktop {
+@interface IFlytekDesktop : NNTUIDesktop {
     UIView* _ifly;
 }
 
@@ -126,7 +126,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(IFlytekVoiceRecognizer);
+    NNTDECL_PRIVATE_INIT(IFlytekVoiceRecognizer);
     
     self.appid = DEFAULT_APPID;
     self.engineurl = DEFAULT_ENGINEURL;
@@ -138,13 +138,13 @@ WSIDECL_PRIVATE_END
     safe_release(_appid);
     safe_release(_engineurl);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalVoiceRecognizeSuccess)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalVoiceRecognizeSuccess)
+NNTEVENT_END
 
 - (void)execute {
     [self retain];
@@ -169,7 +169,7 @@ WSIEVENT_END
 
 # pragma mark speech
 
-WSIDECL_PRIVATE_BEGIN(IFlytekSpeech, WSIObject)
+NNTDECL_PRIVATE_BEGIN(IFlytekSpeech, NNTObject)
 <IFlySynthesizerControlDelegate>
 {
     IFlySynthesizerControl* _ifly;
@@ -177,7 +177,7 @@ WSIDECL_PRIVATE_BEGIN(IFlytekSpeech, WSIObject)
 
 @property (nonatomic, readonly) IFlySynthesizerControl* ifly;
 
-WSIDECL_PRIVATE_IMPL(IFlytekSpeech)
+NNTDECL_PRIVATE_IMPL(IFlytekSpeech)
 
 @synthesize ifly = _ifly;
 
@@ -209,7 +209,7 @@ WSIDECL_PRIVATE_IMPL(IFlytekSpeech)
     [_ifly setShowLog:NO];
     
     // add to root view.
-    [[WSIApplication shared].currentWindow addSubview:_ifly];
+    [[NNTApplication shared].currentWindow addSubview:_ifly];
 }
 
 # pragma mark delegate
@@ -227,7 +227,7 @@ WSIDECL_PRIVATE_IMPL(IFlytekSpeech)
     PASS;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation IFlytekSpeech
 
@@ -235,7 +235,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(IFlytekSpeech);
+    NNTDECL_PRIVATE_INIT(IFlytekSpeech);
     
     self.appid = DEFAULT_APPID;
     self.engineurl = DEFAULT_ENGINEURL;
@@ -248,13 +248,13 @@ WSIDECL_PRIVATE_END
     safe_release(_engineurl);
     safe_release(_text);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSpeechCompletion)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSpeechCompletion)
+NNTEVENT_END
 
 - (void)speak {
     [self retain];
@@ -268,10 +268,10 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(iflytek)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(iflytek)
 
 VoiceRecognizer::VoiceRecognizer()
 {
@@ -328,5 +328,5 @@ void Speech::speak()
     [this->_self speak];
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

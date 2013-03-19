@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "SocketRequest.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface SocketRequestPrivate : NSObject {
     
@@ -33,19 +33,19 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];    
-    WSIDECL_PRIVATE_INIT(SocketRequest);
+    NNTDECL_PRIVATE_INIT(SocketRequest);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
 - (NSObject*)call:(Model *)model withUrl:(NSURL*)url {
     [super call:model withUrl:url];
     
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
 
     return nil;
 }
@@ -64,4 +64,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

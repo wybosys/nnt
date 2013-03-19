@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "MURLModel.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation MURLHeaderField
 
@@ -54,4 +54,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

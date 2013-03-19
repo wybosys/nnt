@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPTextStyle (WSI)
+@implementation CPTextStyle (NNT)
 
 @end
 
-WSIIMPL_CATEGORY(CPTextStyle, WSI);
+NNTIMPL_CATEGORY(CPTextStyle, NNT);
 
-WSI_END
+NNT_END

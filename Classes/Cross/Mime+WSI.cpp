@@ -1,10 +1,10 @@
 
 # include "Core.h"
-# include "Mime+WSI.h"
+# include "Mime+NNT.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
-WSI_BEGIN_NS(mime)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(mime)
 
 class MimeMap
 {
@@ -123,6 +123,6 @@ core::string MimeToExt(core::string const& str)
     return MimeToExt(mt);
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

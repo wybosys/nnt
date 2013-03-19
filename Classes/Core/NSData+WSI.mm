@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "NSData+WSI.h"
+# import "NSData+NNT.h"
 # import <zlib.h>
 # include <CommonCrypto/CommonDigest.h>
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSData (WSI)
+@implementation NSData (NNT)
 
 - (NSData*)encodeBinaryString {    
     NSUInteger len = [self length];
@@ -94,14 +94,14 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSData, WSI);
+NNTIMPL_CATEGORY(NSData, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 Data null_data;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

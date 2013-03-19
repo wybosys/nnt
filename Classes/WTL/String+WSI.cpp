@@ -1,16 +1,16 @@
 
 # include "Core.h"
-# include "String+WSI.h"
-# include "../Core/WSIChar.h"
+# include "String+NNT.h"
+# include "../Core/NNTChar.h"
 # include <stdarg.h>
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
 # include <boost/algorithm/string.hpp>
 # include <boost/algorithm/string/replace.hpp>
 # include <boost/algorithm/string/split.hpp>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(wtl)
 
 string format(char const* fmt, ...)
 {
@@ -158,7 +158,7 @@ tp ret = 0; \
 try { \
 	ret = ::boost::lexical_cast<tp>(str); \
 } catch (...) { \
-trace_msg("failed to lexical_cast " + str + " to " + WSIMACRO_TOSTR(tp) + " ."); \
+trace_msg("failed to lexical_cast " + str + " to " + NNTMACRO_TOSTR(tp) + " ."); \
 } \
 return ret;
 
@@ -235,5 +235,5 @@ string& replace_of(string& str, string const& from, string const& to)
     return str;
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

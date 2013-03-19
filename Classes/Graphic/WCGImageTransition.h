@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_WCGIMAGETRANSITION_67B9B68CFAFF4E889B2292E2936EFE42_H_INCLUDED
-# define __WSI_UIKIT_WCGIMAGETRANSITION_67B9B68CFAFF4E889B2292E2936EFE42_H_INCLUDED
+# ifndef __NNT_UIKIT_WCGIMAGETRANSITION_67B9B68CFAFF4E889B2292E2936EFE42_H_INCLUDED
+# define __NNT_UIKIT_WCGIMAGETRANSITION_67B9B68CFAFF4E889B2292E2936EFE42_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WCGImageTransition);
+NNTDECL_PRIVATE_HEAD(WCGImageTransition);
 
 typedef void (*WCGImageTransitionLineProc)(void* des, void const* src, int left, int right, uint len);
 
@@ -29,7 +29,7 @@ typedef int (*WCGImageTransitionLineOffset)(WCGImageTransitionLineOffsetParam*);
 
 @end
 
-@interface WCGImageTransition : WSIObject {
+@interface WCGImageTransition : NNTObject {
     
     CGImageRef image_default;
     CGImageRef image;
@@ -43,7 +43,7 @@ typedef int (*WCGImageTransitionLineOffset)(WCGImageTransitionLineOffsetParam*);
     NSInteger frame_interval;
     real velocity;
     
-    WSIDECL_PRIVATE(WCGImageTransition);
+    NNTDECL_PRIVATE(WCGImageTransition);
 }
 
 @property (nonatomic, assign) CGImageRef image_default;
@@ -71,6 +71,6 @@ extern void kARGBLineDoubleInsetProc(argb_t*, argb_t const*, int, int, uint);
 extern const CFTimeInterval kWCGImageTransitionDefaultDuration;
 extern int kOffsetZero(WCGImageTransitionLineOffsetParam*);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

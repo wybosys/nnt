@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "XmppObject.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(xmpp)
 
 Object::Object()
 {
@@ -42,5 +42,5 @@ bool StringObject::load(xmlnode_t const* node)
     return true;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

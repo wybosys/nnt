@@ -3,9 +3,9 @@
 # import "MustacheParser.h"
 # import "GRMustache.h"
 # import "GRMustacheWrapper.h"
-# import "WSIResource.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface MustacheParserPrivate : NSObject {
     
@@ -40,7 +40,7 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(MustacheParser);
+    NNTDECL_PRIVATE_INIT(MustacheParser);
     return self;
 }
 
@@ -55,11 +55,11 @@ WSI_BEGIN_OBJC
 }
 
 + (id)parserNamed:(NSString *)file {
-    return [[[MustacheParser alloc] initWithTemplate:[WSIResource ContentOf:file]] autorelease];
+    return [[[MustacheParser alloc] initWithTemplate:[NNTResource ContentOf:file]] autorelease];
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -90,4 +90,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -3,7 +3,7 @@
 # import "UIHudView.h"
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIHudView
 
@@ -22,7 +22,7 @@ WSI_BEGIN_OBJC
     self.layer.cornerRadius = 5;
     self.layer.masksToBounds = YES;
     
-    _label = [[WSIUILabel alloc] initWithZero];
+    _label = [[NNTUILabel alloc] initWithZero];
     _label.multiLines = YES;
     _label.textColor = [UIColor whiteColor];
     _label.textAlignment = UITextAlignmentCenter;
@@ -108,9 +108,9 @@ WSI_BEGIN_OBJC
     
     [_hud willOpen];
     
-    UIView* mainView = [WSIApplication shared].rootViewController.view;
+    UIView* mainView = [NNTApplication shared].rootViewController.view;
         
-    _desk = [[WSIUIView alloc] initWithFrame:mainView.bounds];
+    _desk = [[NNTUIView alloc] initWithFrame:mainView.bounds];
     CGRect frame = _desk.frame;
     CGPoint cent = CGRectCenterPoint(&frame);
     [_desk addSubview:_hud];
@@ -185,10 +185,10 @@ WSI_BEGIN_OBJC
 _CXXVIEW_IMPL(UIHudView);
 _CXXVIEW_IMPL(UIHudProgressView);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
 
 static HudProgress* __gs_hud_progress = NULL;
 static ulong __gs_hud_progress_counter = 0;
@@ -197,10 +197,10 @@ void HudProgress::Show()
 {
     if (__gs_hud_progress_counter != 0)
     {
-        WSI_ATOMIC_INC(__gs_hud_progress_counter);
+        NNT_ATOMIC_INC(__gs_hud_progress_counter);
         return;
     }
-    WSI_ATOMIC_INC(__gs_hud_progress_counter);
+    NNT_ATOMIC_INC(__gs_hud_progress_counter);
     
     __gs_hud_progress = new HudProgress;
     __gs_hud_progress->open();
@@ -211,7 +211,7 @@ void HudProgress::Hide()
     if (__gs_hud_progress_counter == 0)
         return;
     
-    WSI_ATOMIC_DEC(__gs_hud_progress_counter);
+    NNT_ATOMIC_DEC(__gs_hud_progress_counter);
     
     if (__gs_hud_progress_counter == 0)
     {
@@ -220,5 +220,5 @@ void HudProgress::Hide()
     }
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

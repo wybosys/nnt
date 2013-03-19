@@ -3,9 +3,9 @@
 # import "UIActivityIndicatorWave.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(UIActivityIndicatorWave, WSIObject) {
+NNTDECL_PRIVATE_BEGIN(UIActivityIndicatorWave, NNTObject) {
     @public
     CADisplayLink* dl;
     uint segsize;
@@ -13,7 +13,7 @@ WSIDECL_PRIVATE_BEGIN(UIActivityIndicatorWave, WSIObject) {
     uint delay;
 }
 
-WSIDECL_PRIVATE_IMPL(UIActivityIndicatorWave)
+NNTDECL_PRIVATE_IMPL(UIActivityIndicatorWave)
 
 - (id)init {
     self = [super init];
@@ -47,21 +47,21 @@ WSIDECL_PRIVATE_IMPL(UIActivityIndicatorWave)
     [d_owner setNeedsDisplay];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIActivityIndicatorWave
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    WSIDECL_PRIVATE_INIT(UIActivityIndicatorWave);
+    NNTDECL_PRIVATE_INIT(UIActivityIndicatorWave);
     return self;
 }
 
 - (void)dealloc {
     [self stopAnimating];
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -93,4 +93,4 @@ WSIDECL_PRIVATE_END
 
 _CXXVIEW_IMPL(UIActivityIndicatorWave)
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,12 +1,12 @@
 
-# ifndef __WSI_CORE_MAP_BBB25FAAB28F4E0C83E3FEF8CFB18916_H_INCLUDED
-# define __WSI_CORE_MAP_BBB25FAAB28F4E0C83E3FEF8CFB18916_H_INCLUDED
+# ifndef __NNT_CORE_MAP_BBB25FAAB28F4E0C83E3FEF8CFB18916_H_INCLUDED
+# define __NNT_CORE_MAP_BBB25FAAB28F4E0C83E3FEF8CFB18916_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <map>
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 # ifdef _LIBCPP_VERSION
 # define USE_UNORDEREDMAP 1
 # include <unordered_map>
@@ -17,17 +17,17 @@
 # endif
 # endif
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 # include <hash_map>
 # endif
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
 using ::std::map;
 using ::std::multimap;
 
-# ifdef WSI_GCC
+# ifdef NNT_GCC
 # ifdef USE_UNORDEREDMAP
 using ::std::unordered_map;
 using ::__gnu_cxx::hash_map;
@@ -36,7 +36,7 @@ using ::__gnu_cxx::hash_map;
 # endif
 # endif
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 using ::stdext::hash_map;
 # endif
 
@@ -152,20 +152,20 @@ wtl::twmap<keyT, valT>& operator << (wtl::twmap<keyT, valT>& map, typename wtl::
     return map;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_NS(core)
 
 using wtl::map;
 using wtl::multimap;
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 typedef ::wsi::wtl::map<id, id> _NSMap;
 typedef ::wsi::core::multimap<id, id> _NSMultiMap;
@@ -176,7 +176,7 @@ typedef _NSMap::const_iterator NSMapConstIterator;
 typedef _NSMultiMap::iterator NSMultiMapIterator;
 typedef _NSMultiMap::const_iterator NSMultiMapConstIterator;
 
-@interface NSMap : WSIObject {
+@interface NSMap : NNTObject {
     _NSMap *_map;
 }
 
@@ -187,7 +187,7 @@ typedef _NSMultiMap::const_iterator NSMultiMapConstIterator;
 
 @end
 
-@interface NSMultiMap : WSIObject {
+@interface NSMultiMap : NNTObject {
     _NSMultiMap *_map;
 }
 
@@ -198,7 +198,7 @@ typedef _NSMultiMap::const_iterator NSMultiMapConstIterator;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

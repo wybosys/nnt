@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_TABLETREECONTROLLER_3350A2F3AF9D4AAF9654A0FA8A06F876_H_INCLUDED
-# define __WSI_UIKIT_TABLETREECONTROLLER_3350A2F3AF9D4AAF9654A0FA8A06F876_H_INCLUDED
+# ifndef __NNT_UIKIT_TABLETREECONTROLLER_3350A2F3AF9D4AAF9654A0FA8A06F876_H_INCLUDED
+# define __NNT_UIKIT_TABLETREECONTROLLER_3350A2F3AF9D4AAF9654A0FA8A06F876_H_INCLUDED
 
-# import "UITableViewController+WSI.h"
+# import "UITableViewController+NNT.h"
 # import "UITableTreeView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UITableTreeViewController : WSIUITableViewController < 
+@interface UITableTreeViewController : NNTUITableViewController < 
 UITableTreeViewDataSource, 
 UITableTreeViewDelegate 
 > {
@@ -16,19 +16,19 @@ UITableTreeViewDelegate
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ITableTreeController;
 
-WSI_END_NS
-WSI_END_NS
+NNT_END_NS
+NNT_END_NS
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 _CXXCONTROLLER_DECL_BEGIN(UITableTreeViewController)
 
@@ -36,10 +36,10 @@ _CXXCONTROLLER_DECL_BEGIN(UITableTreeViewController)
 
 _CXXCONTROLLER_DECL_END
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TableTreeSection
 : public tpl::TableSection<TableTreeCellObject>
@@ -156,7 +156,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT,
 typename sectionT = TableTreeSection,
@@ -247,9 +247,9 @@ inline_impl ITableTreeController const* TableGroupCell<implT, subtableT, cellT, 
     return tree;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 class TableTreeController
 : public tpl::TableTreeController<TableTreeController>
@@ -287,12 +287,12 @@ inline_impl TableTreeController::cell_type TableTreeController::makegroupcell(In
     return ui::impl::TableGroupCell::New();   
 }
 
-WSI_END_NS
+NNT_END_NS
 
 using impl::TableTreeController;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

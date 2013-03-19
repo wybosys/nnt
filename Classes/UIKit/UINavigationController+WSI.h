@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_UINAVIGATIONCONTROLLER_90D4370D6E834DB7B57C6CC065D6C8CE_H_INCLUDED
-# define __WSI_UIKIT_UINAVIGATIONCONTROLLER_90D4370D6E834DB7B57C6CC065D6C8CE_H_INCLUDED
+# ifndef __NNT_UIKIT_UINAVIGATIONCONTROLLER_90D4370D6E834DB7B57C6CC065D6C8CE_H_INCLUDED
+# define __NNT_UIKIT_UINAVIGATIONCONTROLLER_90D4370D6E834DB7B57C6CC065D6C8CE_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIUIViewController);
+NNTDECL_EXTERN_CLASS(NNTUIViewController);
 
 extern NSString* kNavigationControllerBarVisible;
 
-@interface UINavigationController (WSI)
+@interface UINavigationController (NNT)
 
 //! get index for controller.
 - (NSUInteger)indexOfViewController:(UIViewController*)ctlr;
@@ -33,9 +33,9 @@ extern NSString* kNavigationControllerBarVisible;
 
 @end
 
-WSIDECL_CATEGORY(UINavigationController, WSI);
+NNTDECL_CATEGORY(UINavigationController, NNT);
 
-@interface WSIUINavigationControllerBase : UINavigationController {
+@interface NNTUINavigationControllerBase : UINavigationController {
     
     //! auto toggle home back. default is NO.
     BOOL _showHomeBack;
@@ -55,16 +55,16 @@ WSIDECL_CATEGORY(UINavigationController, WSI);
     //! tabbar's background fill
     WCGFill* _topbarBackgroundFill;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, assign) BOOL showHomeBack;
 @property (nonatomic, assign, readonly) NSArray *homeBack;
 @property (nonatomic, copy) NSString *titleHomeBack;
 @property (nonatomic, assign) BOOL navigationBarHiddenByController;
-@property (nonatomic, readonly) WSIUIViewController* rootViewController;
+@property (nonatomic, readonly) NNTUIViewController* rootViewController;
 @property (nonatomic, retain) UIImage* titleImage;
 @property (nonatomic, retain) WCGFill* topbarBackgroundFill;
 
@@ -75,43 +75,43 @@ WSIOBJECT_PROP;
 - (void)showHomeBack:(BOOL)vis animated:(BOOL)animated;
 
 //! init.
-- (id)initWithRootViewController:(WSIUIViewController *)rootViewController;
+- (id)initWithRootViewController:(NNTUIViewController *)rootViewController;
 
 //! override.
-- (void)pushViewController:(WSIUIViewController *)viewController animated:(BOOL)animated;
-- (NSArray*)popToViewController:(WSIUIViewController *)viewController animated:(BOOL)animated;
+- (void)pushViewController:(NNTUIViewController *)viewController animated:(BOOL)animated;
+- (NSArray*)popToViewController:(NNTUIViewController *)viewController animated:(BOOL)animated;
 
-WSIDECL_VIEWCONTROLLER;
+NNTDECL_VIEWCONTROLLER;
 
 @end
 
-@interface WSIUINavigationController : WSIUINavigationControllerBase
+@interface NNTUINavigationController : NNTUINavigationControllerBase
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIViewController+WSI.h"
-# include "UINavigationBar+WSI.h"
+# include "UIViewController+NNT.h"
+# include "UINavigationBar+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-_CXXCONTROLLER_DECL(WSIUINavigationController);
+_CXXCONTROLLER_DECL(NNTUINavigationController);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class NavigationController
 : public SimpleController< NavigationController, 
-_CXXCONTROLLER(WSIUINavigationController),
+_CXXCONTROLLER(NNTUINavigationController),
 UIView
 >
 {
     typedef SimpleController<NavigationController, 
-    _CXXCONTROLLER(WSIUINavigationController), 
+    _CXXCONTROLLER(NNTUINavigationController), 
     UIView
     > super;
     
@@ -123,14 +123,14 @@ public:
         PASS;
     };
         
-    explicit NavigationController(WSIUIViewController* root)
+    explicit NavigationController(NNTUIViewController* root)
     : _bar(NULL)
     {
         [this->_self pushViewController:root animated:NO];
     }
     
     explicit NavigationController(UINavigationController* navi)
-    : super((_CXXCONTROLLER(WSIUINavigationController)*)navi),
+    : super((_CXXCONTROLLER(NNTUINavigationController)*)navi),
     _bar(NULL)
     {
         // redurce reference count, for keep navigation controller as assign property.
@@ -233,8 +233,8 @@ protected:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

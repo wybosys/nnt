@@ -3,12 +3,12 @@
 # import "UICHMController.h"
 # import "UICHMView.h"
 # import "../Parser/CHMObjParser.h"
-# import "UITableViewCell+WSI.h"
-# import "UITableViewController+WSI.h"
-# import "UIWebView+WSI.h"
-# import "WSIResource.h"
+# import "UITableViewCell+NNT.h"
+# import "UITableViewController+NNT.h"
+# import "UIWebView+NNT.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalFileLoaded = @"::wsi::file::loaded";
 
@@ -46,7 +46,7 @@ signal_t kSignalFileLoaded = @"::wsi::file::loaded";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[WSIUITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    UITableViewCell *cell = [[NNTUITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     CHMTree *chm = nil;
     if ([tableView attachFind:@"chm"]) {
         chm = [tableView attachFind:@"chm"];
@@ -66,7 +66,7 @@ signal_t kSignalFileLoaded = @"::wsi::file::loaded";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CHMTree *chm = [cell attachFind:@"chm"];
     if (chm.isTree) {
-        WSIUITableViewController *ctlr = [[WSIUITableViewController alloc] init];
+        NNTUITableViewController *ctlr = [[NNTUITableViewController alloc] init];
         [ctlr.tableView attachPush:@"chm" obj:chm];
         ctlr.title = chm.name;
         ctlr.tableView.dataSource = self;
@@ -100,24 +100,24 @@ signal_t kSignalFileLoaded = @"::wsi::file::loaded";
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICHMController);
+    NNTDECL_PRIVATE_INIT(UICHMController);
     return self;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalFileLoaded)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalFileLoaded)
+NNTEVENT_END
 
 - (void)dealloc {
     [navi release];
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
 - (id)initWithNamed:(NSString *)name {
     self = [self init];
     
-    name = [WSIResource PathOf:name];
+    name = [NNTResource PathOf:name];
     [self performSelectorInBackground:@selector(thd_read_file:) withObject:name];
     
     return self;
@@ -132,7 +132,7 @@ WSIEVENT_END
 - (void)viewDidLoad {
     UICHMView *view = (UICHMView*)self.view;
     
-    navi = [[WSIUINavigationController alloc] init];
+    navi = [[NNTUINavigationController alloc] init];
     view.main = navi.view;
     [view addSubview:navi.view];
 }
@@ -144,13 +144,13 @@ WSIEVENT_END
 }
 
 - (void)thd_read_file:(NSString*)name {
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
     //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     [self readFile:name];
     
     //[pool release];
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
 }
 
 - (BOOL)readFile:(NSString *)file {    
@@ -167,14 +167,14 @@ WSIEVENT_END
 }
 
 - (BOOL)readNamed:(NSString*)file {
-    file = [WSIResource PathOf:file];
+    file = [NNTResource PathOf:file];
     return [self readFile:file];
 }
 
 - (void)fileDidLoaded {
     CHMTree *tree = d_ptr.parser.tree;
     
-    WSIUITableViewController *ctlr = [[WSIUITableViewController alloc] init];
+    NNTUITableViewController *ctlr = [[NNTUITableViewController alloc] init];
     ctlr.title = tree.name;
     ctlr.tableView.dataSource = d_ptr;
     ctlr.tableView.delegate = d_ptr;
@@ -188,4 +188,4 @@ WSIEVENT_END
 
 _CXXCONTROLLER_IMPL(UICHMController);
 
-WSI_END_OBJC
+NNT_END_OBJC

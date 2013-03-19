@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "UICacheActivityIndicatorView.h"
-# import "CoreGraphic+WSI.h"
-# import "UIActivityIndicatorView+WSI.h"
+# import "CoreGraphic+NNT.h"
+# import "UIActivityIndicatorView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UICacheActivityIndicatorView
 
@@ -13,7 +13,7 @@ WSI_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    activityIndicator = [[WSIUIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator = [[NNTUIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     activityIndicator.frame = CGRectMakeSz(CGSizeMake(20, 20));
     [self addSubview:activityIndicator];
     
@@ -46,4 +46,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -3,7 +3,7 @@
 # import "WCGColorSpace.h"
 # import "WCGColor.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 
 @implementation WCGColor
@@ -391,4 +391,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

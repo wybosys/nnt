@@ -1,8 +1,8 @@
 
-# ifndef __WSI_UIKIT_UINAVIGATIONBAR_E3CF1B338F7545949EDC4AF7510C8BF6_H_INCLUDED
-# define __WSI_UIKIT_UINAVIGATIONBAR_E3CF1B338F7545949EDC4AF7510C8BF6_H_INCLUDED
+# ifndef __NNT_UIKIT_UINAVIGATIONBAR_E3CF1B338F7545949EDC4AF7510C8BF6_H_INCLUDED
+# define __NNT_UIKIT_UINAVIGATIONBAR_E3CF1B338F7545949EDC4AF7510C8BF6_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 /* 
 @interface UINavigationBar (UIViewRendering)
@@ -12,13 +12,13 @@ WSI_BEGIN_HEADER_OBJC
 @end
  */
 
-@interface UINavigationBar (WSI)
+@interface UINavigationBar (NNT)
 
 - (void)updateTabBar;
 
 @end
 
-WSIDECL_CATEGORY(UINavigationBar, WSI);
+NNTDECL_CATEGORY(UINavigationBar, NNT);
 
 @interface CANavigationBarFillLayer : CALayer
 
@@ -26,30 +26,30 @@ WSIDECL_CATEGORY(UINavigationBar, WSI);
 
 @end
 
-@interface WSIUINavigationItem : UINavigationItem {
-    WSIOBJECT_DECL;
+@interface NNTUINavigationItem : UINavigationItem {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class NavigationController;
 class NavigationBar;
 
 class NavigationItem
-: public Object<NavigationItem, WSIUINavigationItem>
+: public Object<NavigationItem, NNTUINavigationItem>
 {
-    typedef Object<NavigationItem, WSIUINavigationItem> super;
+    typedef Object<NavigationItem, NNTUINavigationItem> super;
     friend class NavigationBar;
     
 public:
@@ -175,13 +175,13 @@ public:
     //! get item.
     NavigationItem& top_item()
     {
-        _top._set((WSIUINavigationItem*)this->_self.topItem);
+        _top._set((NNTUINavigationItem*)this->_self.topItem);
         return _top;
     }
     
     NavigationItem& back_item()
     {
-        _back._set((WSIUINavigationItem*)this->_self.backItem);
+        _back._set((NNTUINavigationItem*)this->_self.backItem);
         return _back;
     }
         
@@ -193,7 +193,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename viewT>
 class NavigationItem
@@ -223,10 +223,10 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

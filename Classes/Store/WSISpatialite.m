@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "WSISpatialite.h"
+# import "NNTSpatialite.h"
 # include <sqlite3.h>
 # import "../3rd/spatialite/spatialite.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSISpatialite
+@implementation NNTSpatialite
 
 + (NSString*)version {
     char const* ver = spatialite_version();
@@ -15,4 +15,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

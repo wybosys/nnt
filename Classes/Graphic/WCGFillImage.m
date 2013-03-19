@@ -3,7 +3,7 @@
 # import "WCGFillImage.h"
 # import "WCGImage.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface WCGFillImage()
 
@@ -81,4 +81,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,12 +1,12 @@
 
 # include "Core.h"
-# include "Regex+WSI.h"
+# include "Regex+NNT.h"
 
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/regex.hpp>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(wtl)
  
 bool regex_match(string const& re, string const& str)
 {
@@ -117,5 +117,5 @@ core::string regex::replace(string const& fmt, string const& str) const
     return ::boost::regex_replace(str, *(::boost::regex*)_re, fmt);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

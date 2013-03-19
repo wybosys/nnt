@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "WSIContact.h"
+# import "NNTContact.h"
 # import <AddressBook/AddressBook.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define REC ((ABRecordRef)record)
 
-@implementation WSIContact
+@implementation NNTContact
 
 - (id)initWithRecord:(void const*)_record {
     self = [super init];
@@ -24,7 +24,7 @@ WSI_BEGIN_OBJC
 }
 
 + (id)contactWithRecord:(const void *)record {
-    return [[[WSIContact alloc] initWithRecord:record] autorelease];
+    return [[[NNTContact alloc] initWithRecord:record] autorelease];
 }
 
 - (NSArray *)findProperty:(ABPropertyID)property {
@@ -55,17 +55,17 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIPerson
+@implementation NNTPerson
 
 + (id)person {
     ABRecordRef person = ABPersonCreate();
-    id ret = [WSIPerson personWithRecord:person];
+    id ret = [NNTPerson personWithRecord:person];
     CFRelease(person);
     return ret;
 }
 
 + (id)personWithRecord:(const void *)record {
-    return [[[WSIPerson alloc] initWithRecord:record] autorelease];
+    return [[[NNTPerson alloc] initWithRecord:record] autorelease];
 }
 
 - (NSString*)fullName {
@@ -139,11 +139,11 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIAddressBook
+@implementation NNTAddressBook
 
 @synthesize contacts;
 
-WSIIMPL_SINGLETON(WSIAddressBook);
+NNTIMPL_SINGLETON(NNTAddressBook);
 
 - (id)init {
     self = [super init];
@@ -167,7 +167,7 @@ WSIIMPL_SINGLETON(WSIAddressBook);
     NSArray *thePeople = (NSArray *)ABAddressBookCopyArrayOfAllPeople(_addressBook);
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:thePeople.count];
     for (id person in thePeople) {
-        [array addObject:[WSIPerson personWithRecord:person]];
+        [array addObject:[NNTPerson personWithRecord:person]];
     }
     [thePeople release];
     self.contacts = array;
@@ -176,4 +176,4 @@ WSIIMPL_SINGLETON(WSIAddressBook);
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

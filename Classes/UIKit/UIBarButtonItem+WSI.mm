@@ -1,18 +1,18 @@
 
 # import "Core.h"
-# import "UIBarButtonItem+WSI.h"
-# import "UIButton+WSI.h"
+# import "UIBarButtonItem+NNT.h"
+# import "UIButton+NNT.h"
 # import <QuartzCore/QuartzCore.h>
-# import "UILabel+WSI.h"
+# import "UILabel+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUIBarButtonItem
+@implementation NNTUIBarButtonItem
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 + (id)itemWithCustomView:(id)view {
-    WSIUIBarButtonItem *item = [[[WSIUIBarButtonItem alloc] initWithCustomView:view] autorelease];
+    NNTUIBarButtonItem *item = [[[NNTUIBarButtonItem alloc] initWithCustomView:view] autorelease];
     return item;
 }
 
@@ -55,7 +55,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)dealloc {
     [self.customView disconnect:kSignalViewClicked obj:self];
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -64,7 +64,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewClicked);
+    NNTEVENT_SIGNAL(kSignalViewClicked);
 }
 
 - (void)setBackgroundColor:(UIColor *)__backgroundColor {
@@ -72,8 +72,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)setBackgroundFill:(WCGFill*)fill {
-    if ([self.customView isKindOfClass:[WSIUIButton class]]) {
-        WSIUIButton *btn = (WSIUIButton*)self.customView;
+    if ([self.customView isKindOfClass:[NNTUIButton class]]) {
+        NNTUIButton *btn = (NNTUIButton*)self.customView;
         btn.backgroundFill = fill;
     }
 }
@@ -83,8 +83,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (WCGFill*)backgroundFill {
-    if ([self.customView isKindOfClass:[WSIUIButton class]]) {
-        WSIUIButton *btn = (WSIUIButton*)self.customView;
+    if ([self.customView isKindOfClass:[NNTUIButton class]]) {
+        NNTUIButton *btn = (NNTUIButton*)self.customView;
         return btn.backgroundFill;
     }
     return nil;
@@ -92,12 +92,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-@implementation WSIUIBarLabelItem
+@implementation NNTUIBarLabelItem
 
 @synthesize label;
 
 - (id)initWithTitle:(NSString *)title {
-    label = [[WSIUILabel alloc] initWithFrame:CGRectZero];
+    label = [[NNTUILabel alloc] initWithFrame:CGRectZero];
 
     self = [super initWithCustomView:label];
     
@@ -116,4 +116,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

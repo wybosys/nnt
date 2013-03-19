@@ -4,7 +4,7 @@
 # import "ImageCodecReader.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalTry = @"::wsi::try";
 signal_t kSignalSuccess = @"::wsi::success";
@@ -117,7 +117,7 @@ signal_t kSignalSuccess = @"::wsi::success";
     _maskView.frame = self.bounds;
 }
 
-- (void)setMaskView:(WSIUIView *)view {
+- (void)setMaskView:(NNTUIView *)view {
     if (view == _maskView)
         return;
     
@@ -151,10 +151,10 @@ signal_t kSignalSuccess = @"::wsi::success";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalTry)
-WSIEVENT_SIGNAL(kSignalSuccess)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalTry)
+NNTEVENT_SIGNAL(kSignalSuccess)
+NNTEVENT_END
 
 - (void)loadView {
     CodecDetectView* view = [[CodecDetectView alloc] initWithZero];
@@ -171,7 +171,7 @@ WSIEVENT_END
     [view.icrcamera connect:kSignalSnapshot sel:@selector(_act_snapshot:) obj:self];
 }
 
-- (void)_act_snapshot:(WSIEventObj*)evt {
+- (void)_act_snapshot:(NNTEventObj*)evt {
     //trace_msg(@"snap a shot.");
     
     if (_processing == YES)
@@ -235,4 +235,4 @@ WSIEVENT_END
 
 _CXXCONTROLLER_IMPL(CodecDetectController);
 
-WSI_END_OBJC
+NNT_END_OBJC

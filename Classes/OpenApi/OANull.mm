@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "OANull.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OANull
 
@@ -32,4 +32,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

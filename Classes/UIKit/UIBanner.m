@@ -3,9 +3,9 @@
 # import "UIBanner.h"
 # import <QuartzCore/QuartzCore.h>
 # import "WCGGradient.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIBanner
 
@@ -133,4 +133,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

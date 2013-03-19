@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "TextObjParser.h"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation TextObjParser
 
@@ -30,10 +30,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(parser)
 
 ns::String TextObject::content_type() const
 {
@@ -50,5 +50,5 @@ ns::Object<> TextObject::to_object(ns::Data const& da)
     return [this->_self to_object:da];
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

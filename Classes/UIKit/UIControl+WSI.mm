@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "UIControl+WSI.h"
+# import "UIControl+NNT.h"
 # import "WCGFill.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUIControl
+@implementation NNTUIControl
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 @synthesize backgroundFill;
 
@@ -22,7 +22,7 @@ WSIOBJECT_IMPL;
 - (void)dealloc {
     zero_release(backgroundFill);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -36,4 +36,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

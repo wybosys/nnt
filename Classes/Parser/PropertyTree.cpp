@@ -2,19 +2,19 @@
 # include "Core.h"
 # include "PropertyTree.h"
 
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/property_tree/ptree.hpp>
 # include <boost/property_tree/xml_parser.hpp>
 # include <boost/property_tree/json_parser.hpp>
 # include <boost/property_tree/ini_parser.hpp>
 # include <boost/property_tree/info_parser.hpp>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(parser)
 
 using ::boost::property_tree::ptree;
 
-WSIDECL_PRIVATE_BEGIN_CXX(PropertyTree)
+NNTDECL_PRIVATE_BEGIN_CXX(PropertyTree)
 
 void init()
 {
@@ -61,16 +61,16 @@ bool load_ini(core::string const& str)
 
 ptree properties;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 PropertyTree::PropertyTree()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(PropertyTree);
+    NNTDECL_PRIVATE_CONSTRUCT(PropertyTree);
 }
 
 PropertyTree::~PropertyTree()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void PropertyTree::clear()
@@ -91,5 +91,5 @@ bool PropertyTree::load(core::string const& str, FormatType fmt)
     return ret;
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

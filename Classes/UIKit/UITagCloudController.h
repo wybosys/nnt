@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_TAGCLOUDCONTROLLER_CF4FF5B457B8481A9D25A5431180A58B_H_INCLUDED
-# define __WSI_UIKIT_TAGCLOUDCONTROLLER_CF4FF5B457B8481A9D25A5431180A58B_H_INCLUDED
+# ifndef __NNT_UIKIT_TAGCLOUDCONTROLLER_CF4FF5B457B8481A9D25A5431180A58B_H_INCLUDED
+# define __NNT_UIKIT_TAGCLOUDCONTROLLER_CF4FF5B457B8481A9D25A5431180A58B_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 # import "UITagCloudView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UITagCloudController);
+NNTDECL_EXTERN_CLASS(UITagCloudController);
 
 @protocol UITagCloudDataSource < NSObject >
 
@@ -16,7 +16,7 @@ WSIDECL_EXTERN_CLASS(UITagCloudController);
 
 @end
 
-@interface UITagCloudController : WSIUIViewController <UITagCloudDataSource> {
+@interface UITagCloudController : NNTUIViewController <UITagCloudDataSource> {
     id<UITagCloudDataSource> _dataSource;
 }
 
@@ -27,21 +27,21 @@ WSIDECL_EXTERN_CLASS(UITagCloudController);
 
 @end
 
-WSI_EXTERN signal_t kSignalContentClicked;
-WSI_EXTERN signal_t kSignalItemClicked;
+NNT_EXTERN signal_t kSignalContentClicked;
+NNT_EXTERN signal_t kSignalItemClicked;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXCONTROLLER_DECL(UITagCloudController);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ITagCloudController
 : public IViewController
@@ -108,8 +108,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

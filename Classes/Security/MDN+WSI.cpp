@@ -1,14 +1,14 @@
 
 # include "Core.h"
-# include "MDN+WSI.h"
+# include "MDN+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/md5.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 core::string md5::digest(const core::data &data)
 {
@@ -38,4 +38,4 @@ core::data md5::hex(core::data const& da)
     return re;
 }
 
-WSI_END_CXX
+NNT_END_CXX

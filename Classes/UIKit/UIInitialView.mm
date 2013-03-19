@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "UIInitialView.h"
-# import "UIDevice+WSI.h"
-# import "WSIResource.h"
-# import "WSIUIObject.h"
+# import "UIDevice+NNT.h"
+# import "NNTResource.h"
+# import "NNTUIObject.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalInitialWillComplete = @"::wsi::ui::initial::complete::will";
 signal_t kSignalInitialComplete = @"::wsi::ui::initial::complete";
@@ -20,7 +20,7 @@ signal_t kSignalInitialComplete = @"::wsi::ui::initial::complete";
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    _image = [[WSIUIImageView alloc] initWithZero];
+    _image = [[NNTUIImageView alloc] initWithZero];
     [self addSubview:_image];
     [_image release];
     
@@ -34,21 +34,21 @@ signal_t kSignalInitialComplete = @"::wsi::ui::initial::complete";
     UIScreenImage* si = [UIInitialView ScreenImage];
     _image.image = [UIImage imageNamed:si.name];
     
-    [[WSIUIObject shared] connect:kSignalOrientationChanged sel:@selector(_act_orientation_changed) obj:self];
+    [[NNTUIObject shared] connect:kSignalOrientationChanged sel:@selector(_act_orientation_changed) obj:self];
     
     return self;
 }
 
 - (void)dealloc {
-    [[WSIUIObject shared] disconnect:self];
+    [[NNTUIObject shared] disconnect:self];
     
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalInitialWillComplete)
-WSIEVENT_SIGNAL(kSignalInitialComplete)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalInitialWillComplete)
+NNTEVENT_SIGNAL(kSignalInitialComplete)
+NNTEVENT_END
 
 - (void)layoutSubviews {
     _image.frame = self.bounds;
@@ -103,7 +103,7 @@ WSIEVENT_END
     };
     
     for (uint i = 0; i < IDX_COUNT; ++i) {
-        exists[i] = [WSIResource IsExist:names[i]];
+        exists[i] = [NNTResource IsExist:names[i]];
     }
     
     UIScreenImage* ret = [[UIScreenImage alloc] init];
@@ -195,11 +195,11 @@ WSIEVENT_END
 }
 
 - (void)show {
-    _win = [[WSIUIWindow alloc] initWithZero];
+    _win = [[NNTUIWindow alloc] initWithZero];
     _win.windowLevel = UIWindowLevelNormal + 1;
     
     // create window.
-    WSIUIViewController* ctlr = [[WSIUIViewController alloc] init];
+    NNTUIViewController* ctlr = [[NNTUIViewController alloc] init];
     ctlr.view = self;
     ctlr.orientationEnable = _orientationEnable;
     _win.rootViewController = ctlr;
@@ -230,14 +230,14 @@ WSIEVENT_END
     if (_delay == 0) {
         [self _do_animated_close];
     } else {
-        WSI_MAINTHREAD(
+        NNT_MAINTHREAD(
                        [self performSelector:@selector(_do_animated_close) withObject:nil afterDelay:_delay];
                        );
     }
 }
 
 - (void)_do_animated_close {
-    WSIUIAnimation* ani = [[WSIUIAnimation alloc] init];
+    NNTUIAnimation* ani = [[NNTUIAnimation alloc] init];
     ani.duration = 1.f;
     
     [ani connect:kSignalAnimationRun sel:@selector(_ani_hiding) obj:self];
@@ -297,4 +297,4 @@ _CXXVIEW_IMPL_BEGIN(UIInitialView)
 
 _CXXVIEW_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

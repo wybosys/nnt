@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "UITableViewCell+WSI.h"
+# import "UITableViewCell+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUITableViewCell
+@implementation NNTUITableViewCell
 
-WSIOBJECT_IMPL_NOSIGNALS
+NNTOBJECT_IMPL_NOSIGNALS
 
 @synthesize isUsed = _isUsed;
 @dynamic backgroundFill;
@@ -32,12 +32,12 @@ WSIOBJECT_IMPL_NOSIGNALS
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalSelected);
-    WSIEVENT_SIGNAL(kSignalDeselected);
+    NNTEVENT_SIGNAL(kSignalSelected);
+    NNTEVENT_SIGNAL(kSignalDeselected);
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -45,25 +45,25 @@ WSIOBJECT_IMPL_NOSIGNALS
     PASS;
 }
 
-+ (WSIUITableViewCell*)cell {
-    return [[[WSIUITableViewCell alloc] init] autorelease];
++ (NNTUITableViewCell*)cell {
+    return [[[NNTUITableViewCell alloc] init] autorelease];
 }
 
 - (void)setBackgroundFill:(WCGFill*)fill {
     if (self.backgroundView == nil) {
-        WSIUIView* view = [[WSIUIView alloc] initWithZero];
+        NNTUIView* view = [[NNTUIView alloc] initWithZero];
         view.backgroundFill = fill;
         self.backgroundView = view;
         [view release];
-    } else if ([self.backgroundView isKindOfClass:[WSIUIView class]]) {
-        WSIUIView* view = (WSIUIView*)self.backgroundView;
+    } else if ([self.backgroundView isKindOfClass:[NNTUIView class]]) {
+        NNTUIView* view = (NNTUIView*)self.backgroundView;
         view.backgroundFill = fill;
     }
 }
 
 - (WCGFill*)backgroundFill {
-    if (self.backgroundView && [self.backgroundView isKindOfClass:[WSIUIView class]]) {
-        WSIUIView* view = (WSIUIView*)self.backgroundView;
+    if (self.backgroundView && [self.backgroundView isKindOfClass:[NNTUIView class]]) {
+        NNTUIView* view = (NNTUIView*)self.backgroundView;
         return view.backgroundFill;
     }
     return nil;
@@ -81,10 +81,10 @@ WSIOBJECT_IMPL_NOSIGNALS
 
 @end
 
-_CXXVIEW_IMPL_BEGIN(WSIUITableViewCell)
+_CXXVIEW_IMPL_BEGIN(NNTUITableViewCell)
 _CXXVIEW_IMPL_END
 
 // _W(@"DELETE");
 // _W(@"INSERT");
 
-WSI_END_OBJC
+NNT_END_OBJC

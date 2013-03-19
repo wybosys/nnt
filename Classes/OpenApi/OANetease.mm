@@ -9,7 +9,7 @@
 
 using namespace ::wsi;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestNetease
 
@@ -112,7 +112,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj *)evt {
+- (void)act_authorize_success:(NNTEventObj *)evt {
     UIOAuthView *authview = (UIOAuthView *)evt.sender;
     
     NSString *str = authview.web.content;
@@ -525,4 +525,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

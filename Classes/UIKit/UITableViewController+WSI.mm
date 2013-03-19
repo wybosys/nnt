@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "UITableViewController+WSI.h"
-# import "UITableView+WSI.h"
-# import "UIViewController+WSI.h"
-# import "UITableViewCell+WSI.h"
+# import "UITableViewController+NNT.h"
+# import "UITableView+NNT.h"
+# import "UIViewController+NNT.h"
+# import "UITableViewCell+NNT.h"
 
 using namespace ::wsi;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalItemRemoving = @"::wsi::ui::item::removing";
 signal_t kSignalItemRemoved = @"::wsi::ui::item::removed";
@@ -16,14 +16,14 @@ signal_t kSignalItemMoved = @"::wsi::ui::item::moved";
 
 NSUInteger kTableCellHeight = 44;
 
-@interface WSIUITableView (hidden)
+@interface NNTUITableView (hidden)
 
 - (void)processHeaders;
 - (void)scrollHeaders;
 
 @end
 
-@implementation WSIUITableViewController
+@implementation NNTUITableViewController
 
 @synthesize rowHeight = _rowHeight;
 @synthesize tableViewStyle = _tableViewStyle;
@@ -58,14 +58,14 @@ NSUInteger kTableCellHeight = 44;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_SIGNAL(kSignalItemRemoving)
-WSIEVENT_SIGNAL(kSignalItemRemoved)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_SIGNAL(kSignalItemRemoving)
+NNTEVENT_SIGNAL(kSignalItemRemoved)
+NNTEVENT_END
 
 - (void)loadView {
-    WSIUITableView *view = [[WSIUITableView alloc] initWithFrame:CGRectZero 
+    NNTUITableView *view = [[NNTUITableView alloc] initWithFrame:CGRectZero 
                                                            style:_tableViewStyle];
     self.view = view;
     [view release];
@@ -76,7 +76,7 @@ WSIEVENT_END
     [super viewDidLoad];
     
     // set.
-    WSIUITableView* table = (WSIUITableView*)self.view;
+    NNTUITableView* table = (NNTUITableView*)self.view;
     if (table.dataSource == nil)
         table.dataSource = self;
     if (table.delegate == nil)
@@ -103,8 +103,8 @@ WSIEVENT_END
     return self.tableView.delegate;
 }
 
-- (WSIUITableView*)tableView {
-    return (WSIUITableView*)self.view;
+- (NNTUITableView*)tableView {
+    return (NNTUITableView*)self.view;
 }
 
 # pragma mark delegate.
@@ -118,7 +118,7 @@ WSIEVENT_END
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WSIUITableViewCell* cell = [WSIUITableViewCell cell];
+    NNTUITableViewCell* cell = [NNTUITableViewCell cell];
     id obj = [_datas objectAtIndex:indexPath.row];
     if ([obj isKindOfClass:[NSString class]]) {
         cell.textLabel.text = (NSString*)obj;
@@ -127,7 +127,7 @@ WSIEVENT_END
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WSIUITableViewCell* cell = (WSIUITableViewCell*)[_tableView cellForRowAtIndexPath:indexPath];
+    NNTUITableViewCell* cell = (NNTUITableViewCell*)[_tableView cellForRowAtIndexPath:indexPath];
     [self emit:kSignalSelectChanged result:cell data:indexPath];
 }
 
@@ -164,7 +164,7 @@ WSIEVENT_END
 - (id)initWithRootTitle:(NSString*)title {
     self = [super initWithRootViewController:nil];
     if (self) {
-        rootTable = [[WSIUITableViewController alloc] init];
+        rootTable = [[NNTUITableViewController alloc] init];
         rootTable.title = title;
         [self pushViewController:rootTable animated:NO];
         [rootTable release];
@@ -174,7 +174,7 @@ WSIEVENT_END
 
 @end
 
-_CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
+_CXXCONTROLLER_IMPL_BEGIN(NNTUITableViewController)
 
 - (id)init {
     self = [super init];
@@ -189,7 +189,7 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     ui::impl::TableController* table = (ui::impl::TableController*)self._cxxobj;
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     NSInteger ret = table->count_sections();
     return ret;
 # else
@@ -238,10 +238,10 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView willDisplayCell:(UITableViewCell *)_cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([_cell isKindOfClass:[_CXXVIEW(WSIUITableViewCell) class]] == NO)
+    if ([_cell isKindOfClass:[_CXXVIEW(NNTUITableViewCell) class]] == NO)
         return;
     
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)_cell;
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)_cell;
     
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
     cxxcell->update();
@@ -255,7 +255,7 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
     if (cxxcell->object().selectable == false)
         return;
@@ -271,7 +271,7 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 }
 
 - (void)tableView:(UITableView *)_tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath];
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath];
     ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
 
     // cell select status changed.
@@ -301,7 +301,7 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     ui::impl::TableController* table = (ui::impl::TableController*)self._cxxobj;
 
-    _CXXVIEW(WSIUITableViewCell)* cell = (_CXXVIEW(WSIUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
+    _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         ui::TableCellObject const& var = table->section_at(indexPath.section).object_at(indexPath.row);
         if (var.removable) {
@@ -339,4 +339,4 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUITableViewController)
 
 _CXXCONTROLLER_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

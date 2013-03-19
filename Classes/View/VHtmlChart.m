@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "VHtmlChart.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @implementation VHtmlChart
 
@@ -21,4 +21,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPXYAxis (WSI)
+@implementation CPXYAxis (NNT)
 
 @end
 
-WSI_END
+NNT_END

@@ -4,9 +4,9 @@
 # import "HttpRequest.h"
 # import "JsonObjParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 @interface AppEngineModel ()
 
@@ -140,7 +140,7 @@ WSI_USINGCXXNAMESPACE;
 
 @end
 
-WSICONVERTOR_MODEL_IMPL_BEGIN(AppEngineModel)
+NNTCONVERTOR_MODEL_IMPL_BEGIN(AppEngineModel)
 
 - (NSMutableArray*)get_params {
     ns::MutableArray arr = [super get_params];
@@ -154,9 +154,9 @@ WSICONVERTOR_MODEL_IMPL_BEGIN(AppEngineModel)
     ae->success(obj);
 }
 
-WSICONVERTOR_MODEL_IMPL_END
+NNTCONVERTOR_MODEL_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC
 
 WAE_MODEL_BEGIN
 

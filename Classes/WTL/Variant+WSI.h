@@ -1,14 +1,14 @@
 
-# ifndef __WSI_VARIANT_467F380F66F5458EAE6DBD03A6F110E1_H_INCLUDED
-# define __WSI_VARIANT_467F380F66F5458EAE6DBD03A6F110E1_H_INCLUDED
+# ifndef __NNT_VARIANT_467F380F66F5458EAE6DBD03A6F110E1_H_INCLUDED
+# define __NNT_VARIANT_467F380F66F5458EAE6DBD03A6F110E1_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # ifdef variant_t
 #   undef variant_t
 # endif
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class variant_t
 {
@@ -32,7 +32,7 @@ public:
         VT_DATA = 12,        
         VT_BOOLEAN = 16,
         
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
         VT_ID = 13,
 # endif
         
@@ -60,7 +60,7 @@ protected:
         double d;
         bool b;
         
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
         id idobj;
 # endif
         
@@ -143,7 +143,7 @@ public:
         _v.d = v;
     }
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     
     explicit variant_t(id v)
     : _rel(false), _sz(sizeof(id)), vt(VT_ID)
@@ -242,7 +242,7 @@ public:
                 _v.refobj->grab();
         }
         
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
        
         if (vt == VT_ID)
         {
@@ -277,7 +277,7 @@ public:
                 _v.refobj->drop();
         }
         
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
         if (vt == VT_ID)
         {
             [_v.idobj release];
@@ -568,7 +568,7 @@ public:
         return *this;
     }
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     
     operator id () const
     {
@@ -802,7 +802,7 @@ static StmT& operator << (StmT& stm, variant_t const& var)
         case variant_t::VT_DOUBLE: stm << (double)var; break;
         case variant_t::VT_PCHAR: stm << core::string((char const*)var, var.size()); break;
         case variant_t::VT_DATA: stm << core::string((char const*)var, var.size()); break;
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
         case variant_t::VT_ID: 
 # endif
         case variant_t::VT_REFOBJ: break;
@@ -820,7 +820,7 @@ inline_impl void variant_t::stringize()
     this->set_str(str.c_str(), core::copy, str.length());
 }
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 static string tostr(variant_t const& var)
 {
@@ -892,7 +892,7 @@ inline_impl variant_t dup_cast<variant_t, data>(data const& str)
     return variant_t((void*)str.bytes(), str.length(), core::copy);
 }
 
-WSI_END_NS
+NNT_END_NS
 
 inline_impl variant_t::operator core::string () const
 {
@@ -914,7 +914,7 @@ inline_impl double variant_t::todouble() const
     return core::todouble(*this);
 }
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "AlphabetFlow.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation AlphabetFlow
 
@@ -55,6 +55,6 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
 # endif

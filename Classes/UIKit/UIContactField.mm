@@ -1,18 +1,18 @@
 
 # import "Core.h"
 # import "UIContactField.h"
-# import "WSIAddressBookStore.h"
+# import "NNTAddressBookStore.h"
 # import "UIKit.res"
 # import "UIAddressBookPickController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define CELL_HEIGHT 50
 
-@interface UIContactLiveTableCell : WSIUITableViewCell
+@interface UIContactLiveTableCell : NNTUITableViewCell
 
-@property (nonatomic, retain) WSIUILabel *labelName;
-@property (nonatomic, retain) WSIUILabel *labelPhone;
+@property (nonatomic, retain) NNTUILabel *labelName;
+@property (nonatomic, retain) NNTUILabel *labelPhone;
 
 + (UIContactLiveTableCell*)cell;
 
@@ -31,8 +31,8 @@ WSI_BEGIN_OBJC
 + (UIContactLiveTableCell *)cell {    
     UIContactLiveTableCell *ret = [[UIContactLiveTableCell alloc] initWithZero];
     
-    WSIUILabel *labelPhone = [[WSIUILabel alloc] initWithZero];
-    WSIUILabel *labelName = [[WSIUILabel alloc] initWithZero];
+    NNTUILabel *labelPhone = [[NNTUILabel alloc] initWithZero];
+    NNTUILabel *labelName = [[NNTUILabel alloc] initWithZero];
     
     labelName.textColor = [UIColor blueColor];
     labelName.font = [UIFont boldSystemFontOfSize:14];
@@ -62,12 +62,12 @@ WSI_BEGIN_OBJC
 @end
 
 @interface UIContactFieldPrivate : NSObject <UITableViewDataSource, UITableViewDelegate> {
-    WSIAddressBookStore* addressBook;
+    NNTAddressBookStore* addressBook;
     NSArray *store_all, *store_phones, *store_names;
 }
 
 @property (nonatomic, assign) UIContactField* d_owner;
-@property (nonatomic, readonly, assign) WSIAddressBookStore* addressBook;
+@property (nonatomic, readonly, assign) NNTAddressBookStore* addressBook;
 @property (nonatomic, retain) NSArray *store_all, *store_phones, *store_names;
 
 - (CGRect)rectForLiveTable:(uint)cnt;
@@ -79,7 +79,7 @@ WSI_BEGIN_OBJC
 
 @interface UIContactField ()
 
-@property (nonatomic, retain) WSIUITableView* tableLiveMatching;
+@property (nonatomic, retain) NNTUITableView* tableLiveMatching;
 
 @end
 
@@ -93,7 +93,7 @@ WSI_BEGIN_OBJC
     self = [super init];
     
     // addressbook.
-    addressBook = [WSIAddressBookStore getInstance];
+    addressBook = [NNTAddressBookStore getInstance];
     
     // other.
     d_owner.pickerPopover = YES;
@@ -103,7 +103,7 @@ WSI_BEGIN_OBJC
     [d_owner connect:kSignalEndEditing sel:@selector(hideLive) obj:self];
     
     // add button.
-    WSIUIImageView* contact = [[WSIUIImageView alloc] initWithData:[NSData dataWithBytesNoCopy:(void*)png_address_add length:sizeof(png_address_add) freeWhenDone:NO]];
+    NNTUIImageView* contact = [[NNTUIImageView alloc] initWithData:[NSData dataWithBytesNoCopy:(void*)png_address_add length:sizeof(png_address_add) freeWhenDone:NO]];
     contact.userInteractionEnabled = YES;
     [contact connect:kSignalButtonClicked sel:@selector(act_picker_clicked:) obj:self];
     d_owner.buttonPicker = contact;
@@ -111,7 +111,7 @@ WSI_BEGIN_OBJC
     [contact release];
     
     // add listtable.
-    WSIUITableView *listTable = [[WSIUITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    NNTUITableView *listTable = [[NNTUITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     listTable.dataSource = self;
     listTable.delegate = self;
     listTable.layer.borderWidth = 1;
@@ -171,7 +171,7 @@ WSI_BEGIN_OBJC
 
 # pragma mark actions.
 
-- (void)act_value_changed:(WSIEventObj*)evt {
+- (void)act_value_changed:(NNTEventObj*)evt {
     NSString *text = (NSString *)evt.result;
     if ([text notEmpty]) {
         self.store_all = [addressBook search:text];
@@ -206,7 +206,7 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (void)act_picker_clicked:(WSIEventObj*)evt {
+- (void)act_picker_clicked:(NNTEventObj*)evt {
     [self hideLive];
     UIAddressBookPickController* ctlr = [[UIAddressBookPickController alloc] initWithParentController];
     [ctlr connect:kSignalSelectChanged sel:@selector(act_picker_changed:) obj:self];
@@ -224,7 +224,7 @@ WSI_BEGIN_OBJC
     [ctlr release];
 }
 
-- (void)act_picker_changed:(WSIEventObj*)evt {
+- (void)act_picker_changed:(NNTEventObj*)evt {
     NSString* phone = (NSString*)((NSPair*)evt.result).first;
     [d_owner enable_signal:kSignalValueChanged val:NO];
     [self setPhone:phone];
@@ -233,23 +233,23 @@ WSI_BEGIN_OBJC
 
 # pragma mark delegate.
 
-- (NSInteger)tableView:(WSIUITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(NNTUITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.store_names count];
 }
 
-- (UITableViewCell *)tableView:(WSIUITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(NNTUITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UIContactLiveTableCell *cell = [UIContactLiveTableCell cell];
     cell.labelPhone.text = [self.store_phones objectAtIndex:indexPath.row];
     cell.labelName.text = [self.store_names objectAtIndex:indexPath.row];
     return cell;
 }
 
-- (void)tableView:(WSIUITableView *)tableView willDisplayCell:(UIContactLiveTableCell *)__cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(NNTUITableView *)tableView willDisplayCell:(UIContactLiveTableCell *)__cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [__cell updateLayout:__cell.bounds];
 }
 
 
-- (CGFloat)tableView:(WSIUITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(NNTUITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return CELL_HEIGHT;
 }
 
@@ -270,26 +270,26 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
+    NNTDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    WSIDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
+    NNTDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
     return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
+    NNTDECL_PRIVATE_INIT_EX(UIContactField, d_ptr_contact);
     return self;
 }
 
 - (void)dealloc {
     [buttonPicker release];
     [tableLiveMatching release];
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_contact);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_contact);
     [super dealloc];
 }
 
@@ -306,4 +306,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

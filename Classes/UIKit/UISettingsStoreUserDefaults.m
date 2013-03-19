@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UISettingsStoreUserDefaults.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UISettingsStoreUserDefaults
 
@@ -52,4 +52,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

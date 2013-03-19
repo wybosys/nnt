@@ -1,19 +1,19 @@
 
-# ifndef __WSI_WTL_REGEX_3AB3DDFE16D64DDD8120FE38B3FB9ACE_H_INCLUDED
-# define __WSI_WTL_REGEX_3AB3DDFE16D64DDD8120FE38B3FB9ACE_H_INCLUDED
+# ifndef __NNT_WTL_REGEX_3AB3DDFE16D64DDD8120FE38B3FB9ACE_H_INCLUDED
+# define __NNT_WTL_REGEX_3AB3DDFE16D64DDD8120FE38B3FB9ACE_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
 typedef vector<string> regex_matched_t;
 typedef vector< regex_matched_t > regex_captured_t;
 
-WSIAPI(bool) regex_match(string const& regex, string const& str);
-WSIAPI(bool) regex_grep(string const& regex, string const& str, regex_matched_t& result);
-WSIAPI(bool) regex_capture(string const& regex, string const& str, regex_captured_t& result);
-WSIAPI(core::string) regex_replace(string const& regex, string const& replace, string const& str);
+NNTAPI(bool) regex_match(string const& regex, string const& str);
+NNTAPI(bool) regex_grep(string const& regex, string const& str, regex_matched_t& result);
+NNTAPI(bool) regex_capture(string const& regex, string const& str, regex_captured_t& result);
+NNTAPI(core::string) regex_replace(string const& regex, string const& replace, string const& str);
 
 class regex
 {
@@ -38,8 +38,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

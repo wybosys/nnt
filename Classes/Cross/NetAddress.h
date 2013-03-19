@@ -1,11 +1,11 @@
 
-# ifndef __WSI_CROSS_NETADDRESS_C2B223FD39654F86874B8FE9765F8666_H_INCLUDED
-# define __WSI_CROSS_NETADDRESS_C2B223FD39654F86874B8FE9765F8666_H_INCLUDED
+# ifndef __NNT_CROSS_NETADDRESS_C2B223FD39654F86874B8FE9765F8666_H_INCLUDED
+# define __NNT_CROSS_NETADDRESS_C2B223FD39654F86874B8FE9765F8666_H_INCLUDED
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
 
-WSICLASS(NetAddress);
+NNTCLASS(NetAddress);
 
 class NetAddress
 {
@@ -41,10 +41,10 @@ public:
     
 public:
     
-    WSI_STATIC bool is_ipv4(core::string const& url);
-    WSI_STATIC bool is_ipv6(core::string const& url);
-    WSI_STATIC bool is_host(core::string const& url);
-    WSI_STATIC bool is_any(core::string const& url);
+    NNT_STATIC bool is_ipv4(core::string const& url);
+    NNT_STATIC bool is_ipv6(core::string const& url);
+    NNT_STATIC bool is_host(core::string const& url);
+    NNT_STATIC bool is_any(core::string const& url);
         
 public:
     
@@ -54,7 +54,7 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

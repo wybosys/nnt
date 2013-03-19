@@ -2,14 +2,14 @@
 # import "Core.h"
 # import "UINavigationDial.h"
 # import "UINavigationDialLayers.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 # import "WCABadgeIndicator.h"
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "CGShadow.h"
 # import <QuartzCore/QuartzCore.h>
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString *kSignalDialClicked = @"wsi::uikit::dial::clicked";
 
@@ -138,7 +138,7 @@ NSString *kSignalDialClicked = @"wsi::uikit::dial::clicked";
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UINavigationDial);
+    NNTDECL_PRIVATE_INIT(UINavigationDial);
     
     self.radiusOuter = 100;
     self.radiusInner = 40;
@@ -181,13 +181,13 @@ NSString *kSignalDialClicked = @"wsi::uikit::dial::clicked";
     zero_release(itemEdgeShadow);
     zero_release(itemFill);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalDialClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalDialClicked)
+NNTEVENT_END
 
 - (void)setRadiusOuter:(real)val {
     radiusOuter = val;
@@ -490,11 +490,11 @@ WSIEVENT_END
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalValueChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalValueChanged)
+NNTEVENT_END
 
-- (void)setViewController:(WSIUIViewController *)ctlr {
+- (void)setViewController:(NNTUIViewController *)ctlr {
     [NSObject refobjSet:&viewController obj:&ctlr];
     
     layerItem.image = ctlr.titleImage.CGImage;
@@ -544,4 +544,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

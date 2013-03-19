@@ -1,18 +1,18 @@
 
 # import "Core.h"
-# import "UITextField+WSI.h"
+# import "UITextField+NNT.h"
 # import "App.h"
-# import "UIScreen+WSI.h"
-# import "WSIBdb.h"
+# import "UIScreen+NNT.h"
+# import "NNTBdb.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalValueChanged = @"::wsi::value::changed";
 signal_t kSignalValidChanged = @"::wsi::valid::changed";
 signal_t kSignalEditingClear = @"::wsi::ui::editing::clear";
 signal_t kSignalEditingReturn = @"::wsi::ui::editing::return";
 
-@implementation UITextField (WSI)
+@implementation UITextField (NNT)
 
 - (void)applyTextStyle:(WCGTextStyle*)ts {
     UITextAlignment align;
@@ -29,9 +29,9 @@ signal_t kSignalEditingReturn = @"::wsi::ui::editing::return";
 
 @end
 
-WSIIMPL_CATEGORY(UITextField, WSI);
+NNTIMPL_CATEGORY(UITextField, NNT);
 
-WSIDECL_PRIVATE_BEGIN(WSIUITextField, NSObject)
+NNTDECL_PRIVATE_BEGIN(NNTUITextField, NSObject)
 <UITextFieldDelegate>
 
 @property (nonatomic, retain) UIColor *old_background_color, *old_font_color;
@@ -39,7 +39,7 @@ WSIDECL_PRIVATE_BEGIN(WSIUITextField, NSObject)
 
 - (void)updateByString:(NSString*)str;
 
-WSIDECL_PRIVATE_IMPL(WSIUITextField)
+NNTDECL_PRIVATE_IMPL(NNTUITextField)
 
 @synthesize old_background_color, old_font_color;
 @synthesize b_str_valid;
@@ -81,7 +81,7 @@ WSIDECL_PRIVATE_IMPL(WSIUITextField)
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:[[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     
-    [[WSIApplication shared].window offsetX:0 Y:offset];
+    [[NNTApplication shared].window offsetX:0 Y:offset];
     
     [UIView commitAnimations];
     
@@ -94,14 +94,14 @@ WSIDECL_PRIVATE_IMPL(WSIUITextField)
 
 - (void)act_keyboard_hiding:(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
-    CGRect crFrm = [WSIApplication shared].window.bounds;
+    CGRect crFrm = [NNTApplication shared].window.bounds;
     crFrm.origin = CGPointZero;
     
     // begin animated.
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:[[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     
-    [WSIApplication shared].window.frame = crFrm;
+    [NNTApplication shared].window.frame = crFrm;
     
     [UIView commitAnimations];
     
@@ -228,14 +228,14 @@ WSIDECL_PRIVATE_IMPL(WSIUITextField)
     [d_owner emit:kSignalEndEditing];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@interface WSIUITextField ()
+@interface NNTUITextField ()
 @end
 
-@implementation WSIUITextField
+@implementation NNTUITextField
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @synthesize inputRestrict = _inputRestrict, validRestrict = _validRestrict;
 @synthesize invalidFontColor = _invalidFontColor, invalidBackgroundColor = _invalidBackgroundColor;
@@ -245,13 +245,13 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    WSIDECL_PRIVATE_INIT(WSIUITextField);
+    NNTDECL_PRIVATE_INIT(NNTUITextField);
     return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(WSIUITextField);
+    NNTDECL_PRIVATE_INIT(NNTUITextField);
     return self;
 }
 
@@ -261,8 +261,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
     zero_release(_invalidFontColor);
     zero_release(_invalidBackgroundColor);
     
-    WSIOBJECT_DEALLOC;
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTOBJECT_DEALLOC;
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -313,12 +313,12 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalValueChanged);
-    WSIEVENT_SIGNAL(kSignalBeginEditing);
-    WSIEVENT_SIGNAL(kSignalEndEditing);
-    WSIEVENT_SIGNAL(kSignalValidChanged);
-    WSIEVENT_SIGNAL(kSignalEditingReturn);
-    WSIEVENT_SIGNAL(kSignalEditingClear);
+    NNTEVENT_SIGNAL(kSignalValueChanged);
+    NNTEVENT_SIGNAL(kSignalBeginEditing);
+    NNTEVENT_SIGNAL(kSignalEndEditing);
+    NNTEVENT_SIGNAL(kSignalValidChanged);
+    NNTEVENT_SIGNAL(kSignalEditingReturn);
+    NNTEVENT_SIGNAL(kSignalEditingClear);
 }
 
 - (void)setText:(NSString *)text {
@@ -440,7 +440,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     rc.origin = CGRectLeftBottom(&rc_self);
     
     // instance table.
-    _items = [[WSIUITableViewController alloc] init];
+    _items = [[NNTUITableViewController alloc] init];
     
     _items.view.frame = rc;
     _items.view.backgroundColor = [UIColor whiteColor];
@@ -481,8 +481,8 @@ WSIOBJECT_IMPL_NOSIGNALS;
     [self doCloseSuggest];
 }
 
-- (void)act_suggest_selected:(WSIEventObj*)evt {
-    WSIUITableViewCell* cell = (WSIUITableViewCell*)evt.result;
+- (void)act_suggest_selected:(NNTEventObj*)evt {
+    NNTUITableViewCell* cell = (NNTUITableViewCell*)evt.result;
     self.text = cell.textLabel.text;
     
     [self doCloseSuggest];
@@ -513,7 +513,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 # define DB_NAME @".wsi.ui.history.textfield"
 
 - (BOOL)serialOut:(id)obj identity:(NSString*)idr data:(NSData*)data {
-    WSIBdb* db = [[WSIBdb alloc] initWith:DB_NAME type:NSAppVarDirectory];
+    NNTBdb* db = [[NNTBdb alloc] initWith:DB_NAME type:NSAppVarDirectory];
     if (db == nil)
         return NO;
     
@@ -524,7 +524,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (NSData*)serialIn:(id)obj identity:(NSString*)idr {
-    WSIBdb* db = [[WSIBdb alloc] initWith:DB_NAME type:NSAppVarDirectory];
+    NNTBdb* db = [[NNTBdb alloc] initWith:DB_NAME type:NSAppVarDirectory];
     if (db == nil)
         return nil;
     
@@ -547,7 +547,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         NSData* da = [_serialDelegate serialIn:self identity:self.identity];
         if (da) {
             NSString* str = [[NSString alloc] initWithData:da encoding:NSUTF8StringEncoding];
-            NSArray* items = (NSArray*)[WSIObject json_decode:str];
+            NSArray* items = (NSArray*)[NNTObject json_decode:str];
             safe_release(str);
             
             self.datas = items;
@@ -568,7 +568,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
             NSData* da = [_serialDelegate serialIn:self identity:self.identity];
             if (da) {
                 NSString* str = [[NSString alloc] initWithData:da encoding:NSUTF8StringEncoding];
-                NSArray* items = (NSArray*)[WSIObject json_decode:str];
+                NSArray* items = (NSArray*)[NNTObject json_decode:str];
                 
                 NSMutableArray* saves = [[NSMutableArray alloc] init];
                 [saves addObjectsFromArray:items];
@@ -586,7 +586,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
                 }
                 
                 // save.
-                NSString* str_json = [WSIObject json_encode:result];
+                NSString* str_json = [NNTObject json_encode:result];
                 [_serialDelegate serialOut:self identity:self.identity data:[str_json dataUsingEncoding:NSUTF8StringEncoding]];
                 
                 safe_release(saves);
@@ -594,7 +594,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
             } else {
                 
                 NSArray* saves = [NSArray arrayWithObject:input];
-                NSString* str_json = [WSIObject json_encode:saves];
+                NSString* str_json = [NNTObject json_encode:saves];
                 [_serialDelegate serialOut:self identity:self.identity data:[str_json dataUsingEncoding:NSUTF8StringEncoding]];
                 
             }
@@ -609,4 +609,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

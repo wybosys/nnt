@@ -14,7 +14,7 @@
 # import "../../Graphic/CGShadow.h"
 
 JUICE_BEGIN 
-WSI_BEGIN_NS(cocoa)
+NNT_BEGIN_NS(cocoa)
 
 # ifdef RGB
 # undef RGB
@@ -35,7 +35,7 @@ using ::wsi::cg::Size;
 using ::wsi::cg::Point;
 using ::wsi::cg::Angle;
 
-WSIDECL_BOOLOBJECT(cw, ccw);
+NNTDECL_BOOLOBJECT(cw, ccw);
 
 enum
 {
@@ -1310,7 +1310,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_NS(ui)
 
 class Graphics
 {
@@ -1328,7 +1328,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 inline_impl void Color::fill(Graphics& gra) const
 {
@@ -1511,7 +1511,7 @@ inline_impl void Shape::draw(Graphics& gra) const
     gra.pop_state();
 }
 
-WSI_END_NS 
+NNT_END_NS 
 
 template <typename matrixT>
 class Orthogonal;

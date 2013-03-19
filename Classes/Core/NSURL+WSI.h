@@ -1,15 +1,15 @@
 
-# ifndef __WSI_CORE_NSURL_87B52856AD554A799F9FD6622EE8975E_H_INCLUDED
-# define __WSI_CORE_NSURL_87B52856AD554A799F9FD6622EE8975E_H_INCLUDED
+# ifndef __NNT_CORE_NSURL_87B52856AD554A799F9FD6622EE8975E_H_INCLUDED
+# define __NNT_CORE_NSURL_87B52856AD554A799F9FD6622EE8975E_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSURL (WSI)
+@interface NSURL (NNT)
 
 //! from utf8 string.
 + (NSURL*)URLWithUTF8String:(NSString*)str;
 
-# ifndef WSI_iOS_4
+# ifndef NNT_iOS_4
 
 //! path extension.
 - (NSString *)pathExtension;
@@ -27,14 +27,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(NSURL, WSI);
+NNTDECL_CATEGORY(NSURL, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class URL
 : public ::wsi::ns::Object<NSURL>
@@ -179,7 +179,7 @@ public:
     
 };
 
-WSI_EXTERN URL const null_url;
+NNT_EXTERN URL const null_url;
 
 class URLRequest
 : public ns::Object<NSMutableURLRequest>
@@ -226,9 +226,9 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
     
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
     
 template <>
 inline_impl ns::String type_cast<ns::String, ns::URL>(ns::URL const& url)
@@ -242,9 +242,9 @@ inline_impl string type_cast<string, ns::URL>(ns::URL const& url)
     return type_cast<string>(url.std());
 }
     
-WSI_END_NS
+NNT_END_NS
     
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

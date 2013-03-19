@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "UIAlertView+WSI.h"
+# include "UIAlertView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalIndex0 = @"::wsi::signal::index::0";
 signal_t kSignalIndex1 = @"::wsi::signal::index::1";
@@ -17,15 +17,15 @@ signal_t kSignalIndex9 = @"::wsi::signal::index::9";
 signal_t kSignalIndexYes = @"::wsi::signal::index::1";
 signal_t kSignalIndexNo = @"::wsi::signal::index::0";
 
-@interface WSIUIAlertView ()
+@interface NNTUIAlertView ()
 
 + (NSString*)lineStringByCount:(NSUInteger)cnt;
 
 @end
 
-@implementation WSIUIAlertView
+@implementation NNTUIAlertView
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 //@synthesize showlock;
 @synthesize lastSignal;
@@ -45,7 +45,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (id)initWithTitle:(NSString *)title lineCount:(NSUInteger)lineCount {
-    self = [self initWithTitle:title message:[WSIUIAlertView lineStringByCount:lineCount]];
+    self = [self initWithTitle:title message:[NNTUIAlertView lineStringByCount:lineCount]];
     return self;
 }
 
@@ -55,7 +55,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (id)initWithTitle:(NSString *)title lineCount:(NSUInteger)lineCount cancelButtonTitle:(NSString*)cancelButtonTitle okButtonTitle:(NSString*)okButtonTitle {
-    self = [self initWithTitle:title message:[WSIUIAlertView lineStringByCount:lineCount] cancelButtonTitle:cancelButtonTitle okButtonTitle:okButtonTitle];
+    self = [self initWithTitle:title message:[NNTUIAlertView lineStringByCount:lineCount] cancelButtonTitle:cancelButtonTitle okButtonTitle:okButtonTitle];
     return self;
 }
 
@@ -65,7 +65,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (id)initWithTitle:(NSString*)title lineCount:(NSUInteger)lineCount okButtonTitle:(NSString*)okButtonTitle {
-    self = [self initWithTitle:title message:[WSIUIAlertView lineStringByCount:lineCount] okButtonTitle:okButtonTitle];
+    self = [self initWithTitle:title message:[NNTUIAlertView lineStringByCount:lineCount] okButtonTitle:okButtonTitle];
     return self;
 }
 
@@ -73,7 +73,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     self.delegate = nil;
     //zero_release(showlock);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -83,24 +83,24 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalIndex0)
-    WSIEVENT_SIGNAL(kSignalIndex1)
-    WSIEVENT_SIGNAL(kSignalIndex2)
-    WSIEVENT_SIGNAL(kSignalIndex3)
-    WSIEVENT_SIGNAL(kSignalIndex4)
-    WSIEVENT_SIGNAL(kSignalIndex5)
-    WSIEVENT_SIGNAL(kSignalIndex6)
-    WSIEVENT_SIGNAL(kSignalIndex7)
-    WSIEVENT_SIGNAL(kSignalIndex8)
-    WSIEVENT_SIGNAL(kSignalIndex9)
+    NNTEVENT_SIGNAL(kSignalIndex0)
+    NNTEVENT_SIGNAL(kSignalIndex1)
+    NNTEVENT_SIGNAL(kSignalIndex2)
+    NNTEVENT_SIGNAL(kSignalIndex3)
+    NNTEVENT_SIGNAL(kSignalIndex4)
+    NNTEVENT_SIGNAL(kSignalIndex5)
+    NNTEVENT_SIGNAL(kSignalIndex6)
+    NNTEVENT_SIGNAL(kSignalIndex7)
+    NNTEVENT_SIGNAL(kSignalIndex8)
+    NNTEVENT_SIGNAL(kSignalIndex9)
 }
 
 /*
 - (NSLock*)showlock {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (showlock == nil)
         showlock = [[NSLock alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return showlock;
 }
  */
@@ -115,20 +115,20 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 + (CGRect)rectOfLine:(NSUInteger)idx {
-    CGRect rc = [WSIUIAlertView lineRect];
+    CGRect rc = [NNTUIAlertView lineRect];
     rc.origin.y += idx * rc.size.height;
     return rc;
 }
 
 - (void)appendSubview:(UIView*)view {
-    CGRect rc = [WSIUIAlertView rectOfLine:_index++];
+    CGRect rc = [NNTUIAlertView rectOfLine:_index++];
     view.frame = rc;
     [self addSubview:view];
 }
 
 # pragma mark delegate.
 
-- (void)alertView:(WSIUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(NNTUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     signal_t sig = nil;
     
     switch (buttonIndex) {
@@ -163,10 +163,10 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
 
 void AlertView::show(bool background)
 {
@@ -182,5 +182,5 @@ void AlertView::show(bool background)
     }
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

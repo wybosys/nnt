@@ -1,18 +1,18 @@
 
-# ifndef __WSI_QUICKLOOKER_A09E72C5AAD54471AA161D43CF0B5CCD_H_INCLUDED
-# define __WSI_QUICKLOOKER_A09E72C5AAD54471AA161D43CF0B5CCD_H_INCLUDED
+# ifndef __NNT_QUICKLOOKER_A09E72C5AAD54471AA161D43CF0B5CCD_H_INCLUDED
+# define __NNT_QUICKLOOKER_A09E72C5AAD54471AA161D43CF0B5CCD_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(QuickLookerController);
+NNTDECL_PRIVATE_HEAD(QuickLookerController);
 
-@interface QuickLookerController : WSIUIViewController {
+@interface QuickLookerController : NNTUIViewController {
     
     NSArray* _documents;
     
-    WSIDECL_PRIVATE(QuickLookerController);
+    NNTDECL_PRIVATE(QuickLookerController);
 }
 
 @property (nonatomic, retain) NSArray* documents;
@@ -22,18 +22,18 @@ WSIDECL_PRIVATE_HEAD(QuickLookerController);
 
 @end
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 _CXXCONTROLLER_DECL(QuickLookerController);
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(sys)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(sys)
 
 class QuickLooker
 : public ui::SimpleController<QuickLooker,
@@ -80,8 +80,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -2,11 +2,11 @@
 # ifndef __DBMS_NOSQLABSTRACT_D5C2453B06C94621B1B5D7828F7F0165_H_INCLUDED
 # define __DBMS_NOSQLABSTRACT_D5C2453B06C94621B1B5D7828F7F0165_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # import "./DBMS.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol DBMSNoSqlAbstract <IDBMS>
 
@@ -61,20 +61,20 @@ typedef bool (*DBMSNoSqlWalkFunc)(void* key, uint klen, void* data, uint dlen);
     
 }
 
-- (id)initWith:(NSString*)path type:(WSIDirectoryType)type;
+- (id)initWith:(NSString*)path type:(NNTDirectoryType)type;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "./DBMS.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
 class DBMSNoSqlAbstract
 : public IDBMS
@@ -125,8 +125,8 @@ inline_impl core::string DBMSNoSqlAbstract::urlize(connection_info const& info) 
     return info.url;
 }
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

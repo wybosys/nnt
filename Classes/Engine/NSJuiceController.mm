@@ -1,7 +1,7 @@
 
 # import "Core.h"
-# import "NSView+WSI.h"
-# import "NSViewController+WSI.h"
+# import "NSView+NNT.h"
+# import "NSViewController+NNT.h"
 # import "NSJuiceController.h"
 # import <OpenGL/OpenGL.h>
 # import "JuiceImpl.h"
@@ -26,9 +26,9 @@ void ScreenManager::next_frame()
 
 JUICEIMPL_END
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface NSJuiceView : WSINSView {        
+@interface NSJuiceView : NNTNSView {        
     //! manager.
     ::juice::impl::ScreenManager* scrMgr;
 }
@@ -88,4 +88,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

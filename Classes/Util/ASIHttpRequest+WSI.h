@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UTIL_ASIHTTPREQUEST_1FD323001D424AA49A0631F8E897AA7C_H_INCLUDED
-# define __WSI_UTIL_ASIHTTPREQUEST_1FD323001D424AA49A0631F8E897AA7C_H_INCLUDED
+# ifndef __NNT_UTIL_ASIHTTPREQUEST_1FD323001D424AA49A0631F8E897AA7C_H_INCLUDED
+# define __NNT_UTIL_ASIHTTPREQUEST_1FD323001D424AA49A0631F8E897AA7C_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(ASIHTTPRequest);
+NNTDECL_EXTERN_CLASS(ASIHTTPRequest);
 
-@interface WSIASIHttpRequest : WSIObject {
+@interface NNTASIHttpRequest : NNTObject {
     
     //! delegate.
     id delegate;
@@ -34,16 +34,16 @@ WSIDECL_EXTERN_CLASS(ASIHTTPRequest);
 
 @end
 
-WSI_EXTERN signal_t kSignalURLConnectionSendRequest;
-WSI_EXTERN signal_t kSignalURLConnectionReceiveResponse;
-WSI_EXTERN signal_t kSignalURLConnectionReceiveData;
-WSI_EXTERN signal_t kSignalURLConnectionDataChanged;
-WSI_EXTERN signal_t kSignalURLConnectionFinish;
-WSI_EXTERN signal_t kSignalURLConnectionError;
-WSI_EXTERN signal_t kSignalURLConnectionExit;
-WSI_EXTERN signal_t kSignalURLConnectionWillRedirect;
-WSI_EXTERN signal_t kSignalURLConnectionRedirected;
+NNT_EXTERN signal_t kSignalURLConnectionSendRequest;
+NNT_EXTERN signal_t kSignalURLConnectionReceiveResponse;
+NNT_EXTERN signal_t kSignalURLConnectionReceiveData;
+NNT_EXTERN signal_t kSignalURLConnectionDataChanged;
+NNT_EXTERN signal_t kSignalURLConnectionFinish;
+NNT_EXTERN signal_t kSignalURLConnectionError;
+NNT_EXTERN signal_t kSignalURLConnectionExit;
+NNT_EXTERN signal_t kSignalURLConnectionWillRedirect;
+NNT_EXTERN signal_t kSignalURLConnectionRedirected;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

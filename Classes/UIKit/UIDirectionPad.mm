@@ -1,18 +1,18 @@
 
 # import "Core.h"
 # import "UIDirectionPad.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIDirectionPad
 
 @synthesize position, location;
 @synthesize color;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPadMoved)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPadMoved)
+NNTEVENT_END
 
 + (id)pad {
     CGSize sz = [UIDirectionPad sizeForPad];
@@ -20,7 +20,7 @@ WSIEVENT_END
 }
 
 + (CGSize)sizeForPad {
-    CGSize sz = [WSIApplication shared].window.bounds.size;
+    CGSize sz = [NNTApplication shared].window.bounds.size;
     real length = MIN(sz.width, sz.height);
     sz.width = sz.height = length * .33f;
     return sz;
@@ -89,4 +89,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

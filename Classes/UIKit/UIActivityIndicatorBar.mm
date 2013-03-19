@@ -3,9 +3,9 @@
 # import "UIActivityIndicatorBar.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(UIActivityIndicatorBar, WSIObject) {
+NNTDECL_PRIVATE_BEGIN(UIActivityIndicatorBar, NNTObject) {
     @public
     real value;
     CADisplayLink* dl;
@@ -13,7 +13,7 @@ WSIDECL_PRIVATE_BEGIN(UIActivityIndicatorBar, WSIObject) {
     real step;
 }
 
-WSIDECL_PRIVATE_IMPL(UIActivityIndicatorBar)
+NNTDECL_PRIVATE_IMPL(UIActivityIndicatorBar)
 
 - (id)init {
     self = [super init];
@@ -44,20 +44,20 @@ WSIDECL_PRIVATE_IMPL(UIActivityIndicatorBar)
     [d_owner setNeedsDisplay];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIActivityIndicatorBar
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UIActivityIndicatorBar);
+    NNTDECL_PRIVATE_INIT(UIActivityIndicatorBar);
     return self;
 }
 
 - (void)dealloc {
     [self stopAnimating];
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -105,4 +105,4 @@ WSIDECL_PRIVATE_END
 
 _CXXVIEW_IMPL(UIActivityIndicatorBar);
 
-WSI_END_OBJC
+NNT_END_OBJC

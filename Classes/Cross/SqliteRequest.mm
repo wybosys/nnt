@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "SqliteRequest.h"
-# import "WSISqlite.h"
+# import "NNTSqlite.h"
 # import "Model.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 ::wsi::ns::MutableDictionary __gs_databases;
 
@@ -15,7 +15,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    _directoryType = WSIDirectoryTypeBundle;
+    _directoryType = NNTDirectoryTypeBundle;
     
     return self;
 }
@@ -23,14 +23,14 @@ WSI_BEGIN_OBJC
 - (NSObject*)call:(Model *)model withUrl:(NSURL*)url {
     [super call:model withUrl:url];
     
-    WSIRPC_CALLROUND;
+    NNTRPC_CALLROUND;
     
     // open database.
-    WSISqlite* sqlite = nil;
-    WSI_SYNCHRONIZED(self)
+    NNTSqlite* sqlite = nil;
+    NNT_SYNCHRONIZED(self)
     sqlite = __gs_databases[url];
     if (sqlite == nil) {
-        sqlite = [[WSISqlite alloc] init];
+        sqlite = [[NNTSqlite alloc] init];
         if (NO == [sqlite openDbWith:[url relativePath] type:_directoryType]) {
             zero_release(sqlite);
         }
@@ -38,7 +38,7 @@ WSI_BEGIN_OBJC
             __gs_databases[url] = sqlite;
         }
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     // end.
     if (sqlite == nil)
@@ -67,7 +67,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    self.directoryType = WSIDirectoryTypeAbsolute;
+    self.directoryType = NNTDirectoryTypeAbsolute;
     
     return self;
 }
@@ -79,11 +79,11 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    self.directoryType = WSIDirectoryTypeBundleWritable;
+    self.directoryType = NNTDirectoryTypeBundleWritable;
     
     return self;
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

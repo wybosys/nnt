@@ -1,9 +1,9 @@
 
 # include "Core.h"
-# include "String+WSI.h"
+# include "String+NNT.h"
 # include <CommonCrypto/CommonDigest.h>
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 uchar crd(char c) {
     for (int i = 0; i < 10; ++i) {
@@ -31,11 +31,11 @@ int str_indexof_char(char const* __str, char c, int len, int offset) {
     return -1;
 }
 
-WSI_END_C
+NNT_END_C
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIString
+@implementation NNTString
 
 - (NSString*)uniqueIdentify {
     return [[NSNumber numberWithUnsignedInteger:[self hash]] stringValue];
@@ -65,10 +65,10 @@ CFStringEncoding CFStringEncodingFromWindowsLocaleCode(udword lang) {
     return ret;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(wtl)
 
 core::string tostr(NSString* str) {
     char const* pstr = [str UTF8String];
@@ -123,5 +123,5 @@ real toreal(NSString* str) {
 # endif
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

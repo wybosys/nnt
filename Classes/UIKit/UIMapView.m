@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIMapView.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UIMapViewPrivate : NSObject <MKMapViewDelegate>
 
@@ -24,10 +24,10 @@ WSI_BEGIN_OBJC
 
 @implementation UIMapView
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)__init {
-    WSIDECL_PRIVATE_INIT_EX(UIMapView, d_ptr_map);
+    NNTDECL_PRIVATE_INIT_EX(UIMapView, d_ptr_map);
     
     self.delegate = d_ptr_map;
 }
@@ -47,11 +47,11 @@ WSIOBJECT_IMPL;
 - (void)dealloc {
     self.delegate = nil;
     
-    WSIOBJECT_DEALLOC;
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_map);
+    NNTOBJECT_DEALLOC;
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_map);
     [super dealloc];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "UIValuePickerView.h"
 # import "Layout.h"
-# import "UIPickerView+WSI.h"
-# import "UIButton+WSI.h"
+# import "UIPickerView+NNT.h"
+# import "UIButton+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIValuePickerView
 
@@ -15,7 +15,7 @@ WSI_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    picker = [[WSIUIPickerView alloc] initWithZero];
+    picker = [[NNTUIPickerView alloc] initWithZero];
     [self addSubview:picker];
     
     btnInc = [[UIBevelButton alloc] initWithZero];
@@ -52,4 +52,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

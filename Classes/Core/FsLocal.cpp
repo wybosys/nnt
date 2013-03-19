@@ -3,8 +3,8 @@
 # include "FsLocal.h"
 # include <iostream>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(fs)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(fs)
 
 Local::Local()
 {
@@ -53,5 +53,5 @@ bool save(core::data const& data, core::string const& name)
     return true;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

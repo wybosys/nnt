@@ -1,16 +1,16 @@
 
 # import "Core.h"
-# import "WSIAddressBookStore.h"
-# import "WSISqlite.h"
+# import "NNTAddressBookStore.h"
+# import "NNTSqlite.h"
 # import "ChineseString.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-@implementation WSIAddressBookStore
+@implementation NNTAddressBookStore
 
-WSIIMPL_SINGLETON(WSIAddressBookStore);
+NNTIMPL_SINGLETON(NNTAddressBookStore);
 
 - (id)init {
     self = [super init];
@@ -18,12 +18,12 @@ WSIIMPL_SINGLETON(WSIAddressBookStore);
 }
 
 - (void)instanceInit {
-    db = [[WSISqlite alloc] initWith:@"addressbook.db" type:NSAppVarDirectory];
+    db = [[NNTSqlite alloc] initWith:@"addressbook.db" type:NSAppVarDirectory];
     if ([db exist_table:"contacts"] == NO) {
         [self refresh];
     }
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     [self refresh];
 # endif
 }
@@ -40,11 +40,11 @@ WSIIMPL_SINGLETON(WSIAddressBookStore);
     [db create_table:"contacts" cols:"\"id\" integer NOT NULL, \"data\" text, \"simple\" text, PRIMARY KEY(\"id\")"];
     
     // add data.
-    WSIAddressBook* addressBook = [[WSIAddressBook alloc] init];
+    NNTAddressBook* addressBook = [[NNTAddressBook alloc] init];
     [addressBook refresh];
     
     int idx = 0;
-    for (WSIPerson* person in addressBook.contacts) {
+    for (NNTPerson* person in addressBook.contacts) {
         ns::MutableDictionary dict;
         dict[@"firstname"] = (ignore_null)person.firstName;
         dict[@"lastname"] = (ignore_null)person.lastName;
@@ -52,15 +52,15 @@ WSIIMPL_SINGLETON(WSIAddressBookStore);
         dict[@"fullname::pinyin"] = (ignore_null)[ChineseString CharacterToPinYin:dict[@"fullname"]];
         dict[@"phones"] = (ignore_null)person.phones;
         dict[@"emails"] = (ignore_null)person.emails;
-        NSString* data = [WSIObject json_encode:dict];
+        NSString* data = [NNTObject json_encode:dict];
         
         ns::MutableArray dict_simple;
         dict_simple << (ignore_null)(id)dict[@"firstname"] << (ignore_null)(id)dict[@"lastname"] << (ignore_null)(id)dict[@"fullname"] << (ignore_null)(id)dict[@"fullname::pinyin"] << (ignore_null)person.phonesSimple << (ignore_null)(id)dict[@"emails"];
         
-        NSString* simple = [WSIObject json_encode:dict_simple];
+        NSString* simple = [NNTObject json_encode:dict_simple];
         ns::String sql = @"insert into contacts (id, data, simple) values (?1, ?2, ?3)";
         ns::MutableArray params;
-        params << [DBMSqlParam paramWith:number(idx++) type:WSIValueTypeInt pos:0] << [DBMSqlParam paramWith:data type:WSIValueTypeString pos:1] << [DBMSqlParam paramWith:simple type:WSIValueTypeString pos:2];
+        params << [DBMSqlParam paramWith:number(idx++) type:NNTValueTypeInt pos:0] << [DBMSqlParam paramWith:data type:NNTValueTypeString pos:1] << [DBMSqlParam paramWith:simple type:NNTValueTypeString pos:2];
         [db exec:sql params:params];
     }
     
@@ -75,11 +75,11 @@ WSIIMPL_SINGLETON(WSIAddressBookStore);
     ns::MutableArray arr;
     for (NSArray* row in dt.rows) {
         NSString* str = (NSString*)[row objectAtIndex:0];
-        arr << [WSIObject json_decode:str];
+        arr << [NNTObject json_decode:str];
     }
     return arr.consign();
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

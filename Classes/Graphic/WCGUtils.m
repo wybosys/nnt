@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "WCGUtils.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /**
  *	@brief Extracts the color information from a CGColorRef and returns it as a WCGRGBAColor.
@@ -37,15 +37,15 @@ WCGRGBAColor WCGRGBAColorFromCGColor(CGColorRef color)
 }
 
 void WCGPushCGContext(CGContextRef context) {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIGraphicsPushContext(context);
 # endif
 }
 
 void WCGPopCGContext() {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIGraphicsPopContext();
 # endif
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

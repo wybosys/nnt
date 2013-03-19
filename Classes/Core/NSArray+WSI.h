@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CORE_NSARRAY_FC3BCC61EFC14B4F810D3AE1081D4ECA_H_INCLUDED
-# define __WSI_CORE_NSARRAY_FC3BCC61EFC14B4F810D3AE1081D4ECA_H_INCLUDED
+# ifndef __NNT_CORE_NSARRAY_FC3BCC61EFC14B4F810D3AE1081D4ECA_H_INCLUDED
+# define __NNT_CORE_NSARRAY_FC3BCC61EFC14B4F810D3AE1081D4ECA_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSArray (WSI)
+@interface NSArray (NNT)
 
 - (id)first;
 - (id)second;
@@ -56,9 +56,9 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(NSArray, WSI);
+NNTDECL_CATEGORY(NSArray, NNT);
 
-@interface NSMutableArray (WSI)
+@interface NSMutableArray (NNT)
 
 //! safe array.
 + (NSMutableArray*)safeArray:(id)obj;
@@ -88,30 +88,30 @@ WSIDECL_CATEGORY(NSArray, WSI);
 
 @end
 
-WSIDECL_CATEGORY(NSMutableArray, WSI);
+NNTDECL_CATEGORY(NSMutableArray, NNT);
 
-@interface WSINSArray : NSArray
-
-@property (nonatomic, readonly) id first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
-
-@end
-
-@interface WSINSMutableArray : NSMutableArray
+@interface NNTNSArray : NSArray
 
 @property (nonatomic, readonly) id first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
 
 @end
 
-WSI_EXTERN uint kNSMutableArrayInitCapacity;
+@interface NNTNSMutableArray : NSMutableArray
 
-WSI_END_HEADER_OBJC
+@property (nonatomic, readonly) id first, second, v0, v1, v2, v3, v4, v5, v6, v7, v8;
 
-# ifdef WSI_CXX
+@end
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_EXTERN uint kNSMutableArrayInitCapacity;
 
-WSI_BEGIN_NS(tpl)
+NNT_END_HEADER_OBJC
+
+# ifdef NNT_CXX
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
+
+NNT_BEGIN_NS(tpl)
 
 template <typename TArr>
 class CommonArray
@@ -457,17 +457,17 @@ public:
     
 };
     
-WSI_END_NS
+NNT_END_NS
     
 typedef tpl::Array<NSArray> Array;
 typedef tpl::Array<NSMutableArray> MutableArray;
     
-WSI_EXTERN Array const null_array;
-WSI_EXTERN MutableArray const null_mutablearray;
+NNT_EXTERN Array const null_array;
+NNT_EXTERN MutableArray const null_mutablearray;
 
-WSI_END_NS
+NNT_END_NS
     
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <typename valT>
 struct sequence<valT, SEQUENCE_OBJC_MUTARRAY>
@@ -500,9 +500,9 @@ static objcarrT type_cast(containerT const& con, typename objcarrT::array_type* 
     return (objcarrT)ret;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

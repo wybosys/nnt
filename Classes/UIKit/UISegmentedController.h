@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_UISEGMENTEDCONTROLLER_7911E00418724A6B9E50DEDC0DFE3FB7_H_INCLUDED
-# define __WSI_UIKIT_UISEGMENTEDCONTROLLER_7911E00418724A6B9E50DEDC0DFE3FB7_H_INCLUDED
+# ifndef __NNT_UIKIT_UISEGMENTEDCONTROLLER_7911E00418724A6B9E50DEDC0DFE3FB7_H_INCLUDED
+# define __NNT_UIKIT_UISEGMENTEDCONTROLLER_7911E00418724A6B9E50DEDC0DFE3FB7_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIUISegmentedControl);
+NNTDECL_EXTERN_CLASS(NNTUISegmentedControl);
 
 enum {
     UISegmentedControlPositionTop,
@@ -14,10 +14,10 @@ enum {
 };
 typedef uint UISegmentedControlPosition;
 
-@interface UISegmentedController : WSIUIViewController {
+@interface UISegmentedController : NNTUIViewController {
     
     //! attach to segmented control.
-    WSIUISegmentedControl *segmentedControl;
+    NNTUISegmentedControl *segmentedControl;
     
     //! items, accept UIViewController.
     NSArray *itemsViewController;
@@ -32,7 +32,7 @@ typedef uint UISegmentedControlPosition;
     CGRect segmentedFrame;
 }
 
-@property (nonatomic, readonly) WSIUISegmentedControl *segmentedControl;
+@property (nonatomic, readonly) NNTUISegmentedControl *segmentedControl;
 @property (nonatomic, readonly) NSArray *itemsViewController;
 @property (nonatomic, assign)   UISegmentedControlPosition segmentedPosition;
 @property (nonatomic, assign)   CGPadding segmentedPadding;
@@ -43,6 +43,6 @@ typedef uint UISegmentedControlPosition;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

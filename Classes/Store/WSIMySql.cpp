@@ -1,21 +1,21 @@
 
 # include "Core.h"
-# include "WSIMySql.h"
+# include "NNTMySql.h"
 # include "../Cross/NetAddress.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 # include <mysql/mysql.h>
 # include <mysql/errmsg.h>
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 # pragma comment (lib, "libmysql.lib")
 # endif
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(MySql)
+NNTDECL_PRIVATE_BEGIN_CXX(MySql)
 
 void init()
 {
@@ -30,7 +30,7 @@ void dealloc()
 
 MYSQL* hdl;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string MySql::identity = "mysql";
 
@@ -41,12 +41,12 @@ IDBMS* MySql::dbmsInstance()
 
 MySql::MySql()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(MySql);
+    NNTDECL_PRIVATE_CONSTRUCT(MySql);
 }
 
 MySql::~MySql()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool MySql::connect(connection_info const& info)
@@ -317,5 +317,5 @@ LBL_RETURN:
     ::free(bind_cols);
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

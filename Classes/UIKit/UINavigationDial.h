@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_UIDIALNAVIGATION_52636679239241AEBC49667F5FA85F75_H_INCLUDED
-# define __WSI_UIKIT_UIDIALNAVIGATION_52636679239241AEBC49667F5FA85F75_H_INCLUDED
+# ifndef __NNT_UIKIT_UIDIALNAVIGATION_52636679239241AEBC49667F5FA85F75_H_INCLUDED
+# define __NNT_UIKIT_UIDIALNAVIGATION_52636679239241AEBC49667F5FA85F75_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WCGTextStyle);
-WSIDECL_EXTERN_CLASS(WSIUIViewController);
-WSIDECL_EXTERN_CLASS(CGShadow);
+NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGTextStyle);
+NNTDECL_EXTERN_CLASS(NNTUIViewController);
+NNTDECL_EXTERN_CLASS(CGShadow);
 
-WSIDECL_PRIVATE_HEAD(UINavigationDial);
+NNTDECL_PRIVATE_HEAD(UINavigationDial);
 
 @protocol UINavigationDialDataSource <NSObject>
 
@@ -21,12 +21,12 @@ WSIDECL_PRIVATE_HEAD(UINavigationDial);
 
 @end
 
-WSIDECL_EXTERN_CLASS(WCALayerDialRingItem);
-WSIDECL_EXTERN_CLASS(WCALayerDialLabelRingItem);
-WSIDECL_EXTERN_CLASS(WCALayerDialRingCenter);
-WSIDECL_EXTERN_CLASS(WCABadgeIndicator);
+NNTDECL_EXTERN_CLASS(WCALayerDialRingItem);
+NNTDECL_EXTERN_CLASS(WCALayerDialLabelRingItem);
+NNTDECL_EXTERN_CLASS(WCALayerDialRingCenter);
+NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
 
-@interface UINavigationDialItem : WSIObject {
+@interface UINavigationDialItem : NNTObject {
     //! layer.
     WCALayerDialRingItem *layerItem;
     WCALayerDialLabelRingItem *layerLabel;
@@ -40,7 +40,7 @@ WSIDECL_EXTERN_CLASS(WCABadgeIndicator);
     WCGTextStyle *labelTextStyle;
     
     //! view controller.
-    WSIUIViewController *viewController;
+    NNTUIViewController *viewController;
     
     //! badge value.
     NSString *badgeValue;
@@ -50,7 +50,7 @@ WSIDECL_EXTERN_CLASS(WCABadgeIndicator);
 @property (nonatomic, retain) WCALayerDialLabelRingItem *layerLabel;
 @property (nonatomic, retain) WCABadgeIndicator         *layerBadge;
 @property (nonatomic, retain) UIColor                   *imageMaskColor;
-@property (nonatomic, retain) WSIUIViewController       *viewController;
+@property (nonatomic, retain) NNTUIViewController       *viewController;
 @property (nonatomic, retain) WCGFill                   *labelFill;
 @property (nonatomic, retain) WCGTextStyle              *labelTextStyle;
 @property (nonatomic, copy)   NSString                  *badgeValue;
@@ -60,7 +60,7 @@ WSIDECL_EXTERN_CLASS(WCABadgeIndicator);
 
 @end
 
-@interface UINavigationDial : WSIUIView {
+@interface UINavigationDial : NNTUIView {
     
     //! delegate & data-source.
     id <UINavigationDialDataSource> dataSource;
@@ -97,7 +97,7 @@ WSIDECL_EXTERN_CLASS(WCABadgeIndicator);
     //! expanded. default is NO.
     BOOL isExpanded;
     
-    WSIDECL_PRIVATE(UINavigationDial);
+    NNTDECL_PRIVATE(UINavigationDial);
 }
 
 @property (nonatomic, assign) id <UINavigationDialDataSource> dataSource;
@@ -137,6 +137,6 @@ extern NSString *kSignalValueChanged;
 
 extern NSString *kSignalDialClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

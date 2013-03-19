@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "FsLocal.h"
-# import "Directory+WSI.h"
+# import "Directory+NNT.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 bool Local::copy(ns::URL const& to, ns::URL const& from)
 {
@@ -22,5 +22,5 @@ bool Local::copy(ns::URL const& to, ns::URL const& from)
     return suc;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

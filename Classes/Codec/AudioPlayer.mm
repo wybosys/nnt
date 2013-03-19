@@ -4,7 +4,7 @@
 # import <AVFoundation/AVAudioPlayer.h>
 # import <AVFoundation/AVAudioSession.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalPlayCompleted = @"::wsi::play::completed";
 
@@ -26,7 +26,7 @@ static void unpackPlayback()
     [[AVAudioSession sharedInstance] setCategory:nil error:nil];
 }
 
-WSIDECL_PRIVATE_BEGIN(AudioPlayer, WSIObject)
+NNTDECL_PRIVATE_BEGIN(AudioPlayer, NNTObject)
 <AVAudioPlayerDelegate>
 {
     AVAudioPlayer* _player;
@@ -34,7 +34,7 @@ WSIDECL_PRIVATE_BEGIN(AudioPlayer, WSIObject)
 
 @property (nonatomic, retain) AVAudioPlayer* player;
 
-WSIDECL_PRIVATE_IMPL(AudioPlayer)
+NNTDECL_PRIVATE_IMPL(AudioPlayer)
 
 @synthesize player;
 
@@ -49,7 +49,7 @@ WSIDECL_PRIVATE_IMPL(AudioPlayer)
 }
 
 - (void)setPlayer:(AVAudioPlayer *)pyr {
-    [WSIObject refobjSet:&_player ref:pyr];
+    [NNTObject refobjSet:&_player ref:pyr];
     
     if (_player == nil)
         return;
@@ -84,7 +84,7 @@ WSIDECL_PRIVATE_IMPL(AudioPlayer)
     }
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation AudioPlayer
 
@@ -93,7 +93,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(AudioPlayer);
+    NNTDECL_PRIVATE_INIT(AudioPlayer);
     
     return self;
 }
@@ -101,13 +101,13 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_target);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPlayCompleted)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPlayCompleted)
+NNTEVENT_END
 
 - (BOOL)play {
     NSError* err = nil;
@@ -136,10 +136,10 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(player)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(player)
 
 Audio::Audio()
 {
@@ -184,5 +184,5 @@ void Audio::set_background(bool b)
     this->_self.background = b;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "MDN+WSI.h"
+# import "MDN+NNT.h"
 # include <CommonCrypto/CommonDigest.h>
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation MD5
 
@@ -19,4 +19,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

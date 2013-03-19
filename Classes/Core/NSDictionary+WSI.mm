@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSDictionary+WSI.h"
+# import "NSDictionary+NNT.h"
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSDictionary (WSI)
+@implementation NSDictionary (NNT)
 
 + (id)dictionaryWithKey:(id)key forObj:(id)obj {
     return [NSDictionary dictionaryWithObject:obj forKey:key];
@@ -109,10 +109,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSDictionary, WSI);
-WSIIMPL_CATEGORY(NSMutableDictionary, WSI);
+NNTIMPL_CATEGORY(NSDictionary, NNT);
+NNTIMPL_CATEGORY(NSMutableDictionary, NNT);
 
-@implementation NSMutableDictionary (WSI)
+@implementation NSMutableDictionary (NNT)
 
 - (void)setKey:(id)key forObj:(id)obj {
     [self setObject:obj forKey:key];
@@ -126,12 +126,12 @@ WSIIMPL_CATEGORY(NSMutableDictionary, WSI);
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 Dictionary null_dictionary;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX

@@ -1,20 +1,20 @@
 
-# ifndef __WSI_OA_MANAGER_57126B4D029E4032995DE800D6874454_H_INCLUDED
-# define __WSI_OA_MANAGER_57126B4D029E4032995DE800D6874454_H_INCLUDED
+# ifndef __NNT_OA_MANAGER_57126B4D029E4032995DE800D6874454_H_INCLUDED
+# define __NNT_OA_MANAGER_57126B4D029E4032995DE800D6874454_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(OAManager);
+NNTDECL_PRIVATE_HEAD(OAManager);
 
 typedef struct {
     Class clsPost;
 } oaclass_seg;
 
-@interface OAManager : WSIObject {
-    WSIDECL_PRIVATE(OAManager);
+@interface OAManager : NNTObject {
+    NNTDECL_PRIVATE(OAManager);
 }
 
-WSIDECL_SINGLETON(OAManager);
+NNTDECL_SINGLETON(OAManager);
 
 //! register a api class.
 + (BOOL)registerApi:(Class)cls;
@@ -29,7 +29,7 @@ WSIDECL_SINGLETON(OAManager);
 - (Class)classAtIndex:(uint)idx;
 
 //! iterator
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 typedef ::wsi::core::map<Class, oaclass_seg>::iterator oamanager_iterator;
 
@@ -50,6 +50,6 @@ typedef ::wsi::core::map<Class, oaclass_seg>::iterator oamanager_iterator;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

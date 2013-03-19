@@ -1,21 +1,21 @@
 
 # import "Core.h"
-# import "UIButton+WSI.h"
-# import "UIColor+WSI.h"
+# import "UIButton+NNT.h"
+# import "UIColor+NNT.h"
 # import "WCGGradient.h"
 # import "WCGColor.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "UIKit.res"
 # import "WCGImage.h"
 # import "UIStyleSheet.h"
 # import "../Graphic/shapes/CGRoundedLeftArrowShape.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation UIButton (WSI)
+@implementation UIButton (NNT)
 
-WSIUIVIEW_NOTINHERIT_MUST_IMPL;
+NNTUIVIEW_NOTINHERIT_MUST_IMPL;
 
 + (UIButton*)buttonCloseRedRound {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,17 +37,17 @@ WSIUIVIEW_NOTINHERIT_MUST_IMPL;
 
 @end
 
-WSIIMPL_CATEGORY(UIButton, WSI);
+NNTIMPL_CATEGORY(UIButton, NNT);
 
-@interface WSIUIButton ()
+@interface NNTUIButton ()
 
 - (id)initWithoutTouch;
 
 @end
 
-@implementation WSIUIButton
+@implementation NNTUIButton
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @synthesize backgroundGradient = _backgroundGradient;
 @synthesize isTouched = _isTouched;
@@ -86,7 +86,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     safe_release(_styleSheet);
     safe_release(_touchedStyleSheet);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -103,7 +103,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewClicked);
+    NNTEVENT_SIGNAL(kSignalViewClicked);
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -217,7 +217,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (CGSize)textSize {    
     CGSize sz;
     
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     NSString* tmpstr = [NSString stringWithFormat:@" %@ ", self.titleLabel.text];
     //sz = [tmpstr sizeWithFont:self.titleLabel.font];
@@ -226,7 +226,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
                 lineBreakMode:UILineBreakModeClip];
 
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return sz;
 }
@@ -400,7 +400,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     uint valueColor = [color valueRGBA];
     real alpha_offset = AS_C32P(ceil(RGBA_ALPHA(valueColor) * innerShadowBlur));
     
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
     
     for (uint i = 0; i < innerShadowLength; ++i) {
         
@@ -418,7 +418,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         CGContextStrokePath(ctx);
     }
     
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
 }
 
 - (void)drawButton:(CGContextRef)ctx rect:(CGRect)rect {
@@ -448,7 +448,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         uint valueColor = [color valueRGBA];
         real alpha_offset = AS_C32P(ceil(RGBA_ALPHA(valueColor) * innerShadowBlur));
         
-        WSI_AUTORELEASEPOOL_BEGIN;
+        NNT_AUTORELEASEPOOL_BEGIN;
         
         for (uint i = 0; i < innerShadowLength; ++i) {
             
@@ -466,7 +466,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
             CGContextStrokePath(ctx);
         }
         
-        WSI_AUTORELEASEPOOL_END;
+        NNT_AUTORELEASEPOOL_END;
     }
     
     // draw inner edge.
@@ -608,7 +608,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     _sel = nil;
 }
 
-- (void)act_btnclick:(WSIEventObj*)evt {
+- (void)act_btnclick:(NNTEventObj*)evt {
     if (_sel && [_sel conformsToProtocol:@protocol(UIStateButton)]) {
         id<UIStateButton> obj = (id<UIStateButton>)_sel;
         obj.state = UIButtonStateUnchecked;
@@ -636,4 +636,4 @@ _CXXVIEW_IMPL(UISystemButton);
 _CXXVIEW_IMPL(UIBevelButton);
 _CXXVIEW_IMPL(UIStateButton);
 
-WSI_END_OBJC
+NNT_END_OBJC

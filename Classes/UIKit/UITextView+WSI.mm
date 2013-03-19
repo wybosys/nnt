@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "UITextView+WSI.h"
+# import "UITextView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 
-@implementation WSIUITextView
+@implementation NNTUITextView
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -23,7 +23,7 @@ WSIOBJECT_IMPL;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -82,8 +82,8 @@ WSIOBJECT_IMPL;
     NSDictionary* info = [aNotification userInfo];
     
     CGSize sz_keyboard = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    CGRect frm_window = [WSIApplication shared].window.boundsOnScreen;
-    CGRect frm_txt = [[WSIApplication shared].window locationIn:self];
+    CGRect frm_window = [NNTApplication shared].window.boundsOnScreen;
+    CGRect frm_txt = [[NNTApplication shared].window locationIn:self];
     sz_keyboard = [UIScreen convertCurrentSize:sz_keyboard];
     
     int offset = frm_window.size.height - sz_keyboard.height - frm_txt.origin.y - frm_txt.size.height;
@@ -91,7 +91,7 @@ WSIOBJECT_IMPL;
         return;
     
     // begin animated.
-    [[WSIApplication shared].window offsetX:0 Y:offset];
+    [[NNTApplication shared].window offsetX:0 Y:offset];
     
     // for hiding.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -102,14 +102,14 @@ WSIOBJECT_IMPL;
 
 - (void)act_keyboard_hiding:(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
-    CGRect crFrm = [WSIApplication shared].window.bounds;
+    CGRect crFrm = [NNTApplication shared].window.bounds;
     crFrm.origin = CGPointZero;
     
     // begin animated.
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:[[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     
-    [WSIApplication shared].window.frame = crFrm;
+    [NNTApplication shared].window.frame = crFrm;
     
     [UIView commitAnimations];
     
@@ -122,4 +122,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

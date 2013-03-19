@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "UITouch+WSI.h"
+# import "UITouch+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation UITouch (WSI)
+@implementation UITouch (NNT)
 
 - (CGPoint)offset {
     CGPoint cur = [self locationInView:self.view];
@@ -14,6 +14,6 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(UITouch, WSI);
+NNTIMPL_CATEGORY(UITouch, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC

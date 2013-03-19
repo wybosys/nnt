@@ -7,11 +7,11 @@
 # import "../UIKit/UIOAToggleView.res"
 # import "URLCodec.h"
 # import "HttpRequest.h"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 
 using namespace ::wsi;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
                                   
 # define WEIBO_STATUS_LIMIT 140
 
@@ -48,7 +48,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj*)evt {
+- (void)act_authorize_success:(NNTEventObj*)evt {
     ns::URLDecode urldecode(evt.result);
     
     self.request.code = urldecode.value(@"code");
@@ -513,4 +513,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

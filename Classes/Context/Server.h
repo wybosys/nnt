@@ -1,22 +1,22 @@
 
-# ifndef __WSI_CTX_SERVER_E13B4C59324848F3932AE8D1057ED359_H_INCLUDED
-# define __WSI_CTX_SERVER_E13B4C59324848F3932AE8D1057ED359_H_INCLUDED
+# ifndef __NNT_CTX_SERVER_E13B4C59324848F3932AE8D1057ED359_H_INCLUDED
+# define __NNT_CTX_SERVER_E13B4C59324848F3932AE8D1057ED359_H_INCLUDED
 
 # include "../Model/Model.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(Context);
-WSIDECL_EXTERN_CLASS(Model);
-WSIDECL_PRIVATE_HEAD(Server);
+NNTDECL_EXTERN_CLASS(Context);
+NNTDECL_EXTERN_CLASS(Model);
+NNTDECL_PRIVATE_HEAD(Server);
 
 typedef void (*func_server_callback)(id);
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 typedef void (Object::*func_server_objcallback)(id);
 typedef void (Object::*func_server_modelcallback)(::wsi::ns::IModel*);
@@ -26,7 +26,7 @@ typedef void (Object::*func_server_modelscallback)(::wsi::core::vector< ::wsi::n
 # define _mdlaction(func) (::wsi::func_server_modelcallback)&func
 # define _mdlsaction(func) (::wsi::func_server_modelscallback)&func
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 
@@ -52,7 +52,7 @@ typedef uint ServerCallbackType;
     id _objc_target;
     func_server_callback _sta_func;
     
-# ifdef WSI_CXX
+# ifdef NNT_CXX
     
     ::wsi::func_server_modelcallback _cxxmdl_func;
     ::wsi::func_server_modelscallback _cxxmdls_func;
@@ -69,7 +69,7 @@ typedef uint ServerCallbackType;
 @property (nonatomic, retain) id objc_target;
 @property (nonatomic, assign) func_server_callback sta_func;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 @property (nonatomic, assign) ::wsi::func_server_modelcallback cxxmdl_func;
 @property (nonatomic, assign) ::wsi::func_server_modelscallback cxxmdls_func;
@@ -83,7 +83,7 @@ typedef uint ServerCallbackType;
 - (id)initWithAction:(SEL)act target:(id)target;
 - (id)initWithFunction:(func_server_callback)func;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (id)initWithCxxAction:(::wsi::func_server_objcallback)action target:(::wsi::Object*)target;
 - (id)initWithCxxMdlAction:(::wsi::func_server_modelcallback)action target:(::wsi::Object*)target;
@@ -98,7 +98,7 @@ typedef uint ServerCallbackType;
 
 @end
 
-@interface Server : WSIObject {
+@interface Server : NNTObject {
 	
     //! refercence point to context.
 	Context *_ctx;
@@ -109,7 +109,7 @@ typedef uint ServerCallbackType;
     //! default rpc class for model get. default is HttpRequest.
     Class _classRpc;
 	
-	WSIDECL_PRIVATE(Server);
+	NNTDECL_PRIVATE(Server);
 }
 
 @property (nonatomic, assign) Context *ctx;
@@ -152,7 +152,7 @@ typedef uint ServerCallbackType;
 - (void)retrieve_model_async:(Model*)model func:(func_server_callback)func failed:(func_server_callback)failed;
 - (void)retrieve_model_async:(Model*)model func:(func_server_callback)func failed:(func_server_callback)failed callbackType:(ServerCallbackType)callbackType;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 //! retrieve model sync.
 - (BOOL)retrieve_cxxmodel:(::wsi::ns::IModel*)model;
@@ -178,7 +178,7 @@ typedef uint ServerCallbackType;
 - (void)retrieve_models_async:(NSArray *)models selector:(SEL)sel object:(NSObject *)obj;
 - (void)retrieve_models_async:(NSArray *)models selector:(SEL)sel object:(NSObject *)obj callbackType:(ServerCallbackType)callbackType;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 //! @function retrieve cxx model.
 - (void)retrieve_cxxmodels_async:(::wsi::core::vector< ::wsi::ns::IModel*> const&)model action:(::wsi::func_server_modelscallback)func target:(::wsi::Object*)target;
@@ -189,19 +189,19 @@ typedef uint ServerCallbackType;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Context;
 
 class Server
 : public ns::Object< ::Server >
 {
-    WSIDECL_NOCOPY(Server);
+    NNTDECL_NOCOPY(Server);
     typedef ns::Object< ::Server > super;
     
 public:
@@ -259,8 +259,8 @@ protected:
     friend class Context;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx
@@ -268,10 +268,10 @@ WSI_END_HEADER_CXX
 # endif
 // end objc
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(context)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(context)
 
 class Server
 	: public cxx::Object<>
@@ -279,8 +279,8 @@ class Server
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

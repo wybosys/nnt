@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
-# define __WSI_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
+# ifndef __NNT_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
+# define __NNT_CA_LAYERFILTERS_F060F8544EE1433888F7FFD13A7D4FF7_H_INCLUDED
 
 # import "WCALayer.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol WCALayerFilters <NSObject>
 
@@ -12,7 +12,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WCALayerFilters : WSIObject < WCALayerFilters >
+@interface WCALayerFilters : NNTObject < WCALayerFilters >
 
 @end
 
@@ -22,21 +22,21 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(CALayer, WCALayerFilters);
+NNTDECL_CATEGORY(CALayer, WCALayerFilters);
 
-WSIDECL_OBJCXX_WRAPPER(WCALayerFilters);
+NNTDECL_OBJCXX_WRAPPER(WCALayerFilters);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "WCGPath.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ca)
-WSI_BEGIN_NS(filter)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ca)
+NNT_BEGIN_NS(filter)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 class IFilter
 : public ns::cxx::IObject
@@ -48,7 +48,7 @@ public:
 };
 
 template <typename implT,
-typename filterT = WSI_OBJCXX_WRAPPER(WCALayerFilters),
+typename filterT = NNT_OBJCXX_WRAPPER(WCALayerFilters),
 typename interT = IFilter
 >
 class Filter
@@ -73,7 +73,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Shadow
 : public tpl::Filter<Shadow>
@@ -103,9 +103,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

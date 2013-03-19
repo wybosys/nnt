@@ -2,13 +2,13 @@
 # import "Core.h"
 # import "CGShadow.h"
 
-# ifdef WSI_TARGET_IOS
-# import "UIColor+WSI.h"
+# ifdef NNT_TARGET_IOS
+# import "UIColor+NNT.h"
 # endif
 
 # import <QuartzCore/QuartzCore.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation CGShadow
 
@@ -59,7 +59,7 @@ alpha = _alpha;
     if ([shadowColor alphaComponent] != 1.f)
         _alpha = 1;
     
-    [WSIObject refobjSet:&_shadowColor ref:shadowColor];
+    [NNTObject refobjSet:&_shadowColor ref:shadowColor];
 }
 
 - (void)setInContext:(CGContextRef)ctx {
@@ -143,7 +143,7 @@ alpha = _alpha;
     real seg_offset = _radius / segments;
     WCGColor* tgt_color = [self alphaColor];
     
-    WSI_AUTORELEASEPOOL_BEGIN;
+    NNT_AUTORELEASEPOOL_BEGIN;
     for (uint i = 0; i <= segments;) {
         WCGColor* color = [tgt_color colorByMulti:1 g:1 b:1 a:(1 - i * seg_op)];
         CGContextSetStrokeColorWithColor(ctx, color.cgColor);
@@ -177,7 +177,7 @@ alpha = _alpha;
             }
         }
     }
-    WSI_AUTORELEASEPOOL_END;
+    NNT_AUTORELEASEPOOL_END;
     
     CGPathRelease(path);
     
@@ -186,4 +186,4 @@ alpha = _alpha;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

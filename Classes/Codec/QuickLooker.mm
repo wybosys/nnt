@@ -2,18 +2,18 @@
 # import "Core.h"
 # import "QuickLooker.h"
 # import <QuickLook/QuickLook.h>
-# import "WSIResource.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(QuickLookerController, WSIObject) <QLPreviewControllerDataSource, QLPreviewControllerDelegate>
+NNTDECL_PRIVATE_BEGIN(QuickLookerController, NNTObject) <QLPreviewControllerDataSource, QLPreviewControllerDelegate>
 {
     QLPreviewController* _previewer;
 }
 
 @property (nonatomic, retain) QLPreviewController* previewer;
 
-WSIDECL_PRIVATE_IMPL(QuickLookerController)
+NNTDECL_PRIVATE_IMPL(QuickLookerController)
 
 @synthesize previewer = _previewer;
 
@@ -61,7 +61,7 @@ WSIDECL_PRIVATE_IMPL(QuickLookerController)
 }
 */
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @interface QuickLookerView : UIView
 
@@ -95,14 +95,14 @@ WSIDECL_PRIVATE_END
     
     currentPreviewItemIndex = 0;
     
-    WSIDECL_PRIVATE_INIT(QuickLookerController);
+    NNTDECL_PRIVATE_INIT(QuickLookerController);
     return self;
 }
 
 - (void)dealloc {
     zero_release(_documents);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -147,4 +147,4 @@ WSIDECL_PRIVATE_END
 
 _CXXCONTROLLER_IMPL(QuickLookerController);
 
-WSI_END_OBJC
+NNT_END_OBJC

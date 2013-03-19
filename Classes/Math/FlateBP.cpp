@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "FlateBP.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 template <typename T>
 T tpl_inflate(T __val) {
@@ -68,4 +68,4 @@ double bp_deflate_double(double __val) {
     return tpl_deflate(__val);
 }
 
-WSI_END_CXX
+NNT_END_CXX

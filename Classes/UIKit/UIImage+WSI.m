@@ -1,19 +1,19 @@
 
 # import "Core.h"
-# import "UIImage+WSI.h"
+# import "UIImage+NNT.h"
 # import "AbstractCache.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 # import "WCGFillImage.h"
 # import "WCGImage.h"
-# import "WSIResource.h"
-# import "Directory+WSI.h"
-# import "UIScreen+WSI.h"
+# import "NNTResource.h"
+# import "Directory+NNT.h"
+# import "UIScreen+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 WCGImage* WCGMaskImage(CGImageRef dst, CGImageRef src);
 
-@implementation UIImage (WSI)
+@implementation UIImage (NNT)
 
 + (UIImage *)retinaImageNamed:(NSString*)str {
     if ([UIScreen isRetina] == NO)
@@ -654,19 +654,19 @@ UIImage *UIMaskImage(UIImage *dst, UIImage *src) {
     return retImage;
 }
 
-@implementation WSIUIImage
+@implementation NNTUIImage
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
-+ (WSIUIImage *)imageNamed:(NSString *)name {
-    NSString* path = [WSIResource PathOf:name];
-    WSIUIImage* ret = [[WSIUIImage alloc] initWithContentsOfFile:path];
-# ifdef WSI_DEBUG
++ (NNTUIImage *)imageNamed:(NSString *)name {
+    NSString* path = [NNTResource PathOf:name];
+    NNTUIImage* ret = [[NNTUIImage alloc] initWithContentsOfFile:path];
+# ifdef NNT_DEBUG
     if (ret == nil)
         trace_fmt(@"UIImage: can not find the image: %@ .", name);
 # endif
@@ -675,6 +675,6 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSIIMPL_CATEGORY(UIImage, WSI);
+NNTIMPL_CATEGORY(UIImage, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC

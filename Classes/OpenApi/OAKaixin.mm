@@ -7,7 +7,7 @@
 # import "OADefines.h"
 # import "../UIKit/UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestKaixin
 
@@ -120,7 +120,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_authorize_success:(WSIEventObj *)evt {
+- (void)act_authorize_success:(NNTEventObj *)evt {
     UIOAuthView *authview = (UIOAuthView *)evt.sender;
     NSString *str = authview.web.content;
     NSArray *arr = [str captureComponentsMatchedByRegex:@"你获取到的授权码是：<b>(\\w+)<"];
@@ -307,7 +307,7 @@ WSI_BEGIN_OBJC
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -345,7 +345,7 @@ WSI_BEGIN_OBJC
     NSString *ret = [NSString stringWithFormat:@"%@?", self.baseUrl];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"=" andSegSep:@"&" keysur:@"" valsur:@""]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -423,4 +423,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

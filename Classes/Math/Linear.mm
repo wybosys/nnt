@@ -1,9 +1,9 @@
 
 # include "Core.h"
 # include "Linear.h"
-# include "CoreGraphic+WSI.h"
+# include "CoreGraphic+NNT.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 BOOL CGLineIsHov(CGLine const* line) {
     return line->start.y == line->end.y;
@@ -209,4 +209,4 @@ CGPoint CGLineCenter(CGLine const* line) {
     return ret;
 }
 
-WSI_END_C
+NNT_END_C

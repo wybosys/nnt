@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "NSDate+WSI.h"
+# import "NSDate+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSDate (WSI)
+@implementation NSDate (NNT)
 
 - (id)initWithYear:(NSUInteger)year
              Month:(NSUInteger)month
@@ -13,7 +13,7 @@ WSI_BEGIN_OBJC
             Minute:(NSUInteger)minute
             Second:(NSUInteger)second
 {
-    WSI_AUTORELEASEPOOL_BEGIN
+    NNT_AUTORELEASEPOOL_BEGIN
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -29,7 +29,7 @@ WSI_BEGIN_OBJC
     
     self = [date retain];
     
-    WSI_AUTORELEASEPOOL_END
+    NNT_AUTORELEASEPOOL_END
     
     return self;
 }
@@ -82,7 +82,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSDate, WSI);
+NNTIMPL_CATEGORY(NSDate, NNT);
 
 NSString
 *kTimeZoneBeijing = @"Asia/Beijing",
@@ -90,4 +90,4 @@ NSString
 *kTimeZoneChongqing = @"Asia/Chongqing"
 ;
 
-WSI_END_OBJC
+NNT_END_OBJC

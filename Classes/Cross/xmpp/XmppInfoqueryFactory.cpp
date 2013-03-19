@@ -11,8 +11,8 @@
 # include "xep/XepVCard.h"
 # include "xep/XepServiceDiscovery.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(xmpp)
 
 InfoqueryFactory::InfoqueryFactory()
 {
@@ -82,5 +82,5 @@ bool InfoqueryFactory::process(xmlnode_t const* node)
     return super::process(node);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

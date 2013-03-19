@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "UINavigationBar+WSI.h"
-# import "UINavigationController+WSI.h"
+# import "UINavigationBar+NNT.h"
+# import "UINavigationController+NNT.h"
 # import "WCGFill.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 // objc swizzle.
 
@@ -28,9 +28,9 @@ public:
 
 static Swizzle_UINavigationBar __gs_swizzle_UINavigationBar;
 
-WSI_END_CXX
+NNT_END_CXX
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /*
  not entering.
@@ -64,7 +64,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation UINavigationBar (WSI)
+@implementation UINavigationBar (NNT)
 
 /*
 - (void)setFrame:(CGRect)frame {
@@ -111,28 +111,28 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSIUINavigationItem
+@implementation NNTUINavigationItem
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 @end
 
-WSIIMPL_CATEGORY(UINavigationBar, WSI);
+NNTIMPL_CATEGORY(UINavigationBar, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ui)
 
 void NavigationBar::set_background(cg::Fill const& fill)
 {
     (**_ctlr).topbarBackgroundFill = fill;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -1,10 +1,10 @@
 
 # include "Core.h"
-# include "VCard+WSI.h"
+# include "VCard+NNT.h"
 # include "../Parser/XmlParser.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
 using namespace ::wsi::parser;
 
@@ -270,5 +270,5 @@ vcard::Contact* VCard::contact_bytype(core::string const& tp)
     return NULL;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

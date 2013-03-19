@@ -1,16 +1,16 @@
 
-# ifndef __WSI_CORE_NSURLCONNECTION_AB34ECD484E744FC8225151EC0CB9261_H_INCLUDED
-# define __WSI_CORE_NSURLCONNECTION_AB34ECD484E744FC8225151EC0CB9261_H_INCLUDED
+# ifndef __NNT_CORE_NSURLCONNECTION_AB34ECD484E744FC8225151EC0CB9261_H_INCLUDED
+# define __NNT_CORE_NSURLCONNECTION_AB34ECD484E744FC8225151EC0CB9261_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSURLConnection (WSI)
+@interface NSURLConnection (NNT)
 
 @end
 
-WSIDECL_CATEGORY(NSURLConnection, WSI);
+NNTDECL_CATEGORY(NSURLConnection, NNT);
 
-@interface WSINSURLConnection : WSIObject {
+@interface NNTNSURLConnection : NNTObject {
     
     //! connection.
     NSURLConnection* _connection;
@@ -31,8 +31,8 @@ WSIDECL_CATEGORY(NSURLConnection, WSI);
 @property (nonatomic, readonly, retain) NSURLRequest* urlRequest;
 @property (nonatomic, assign) BOOL inThread;
 
-+ (WSINSURLConnection *)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate;
-+ (WSINSURLConnection *)connectionWithRequest:(NSURLRequest *)request;
++ (NNTNSURLConnection *)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate;
++ (NNTNSURLConnection *)connectionWithRequest:(NSURLRequest *)request;
 
 - (id)initWithURLRequest:(NSURLRequest*)request delegate:(id)delegate;
 - (id)initWithURLRequest:(NSURLRequest*)request;
@@ -52,17 +52,17 @@ WSIDECL_CATEGORY(NSURLConnection, WSI);
 
 @end
 
-WSI_EXTERN signal_t kSignalURLConnectionSendRequest;
-WSI_EXTERN signal_t kSignalURLConnectionReceiveResponse;
-WSI_EXTERN signal_t kSignalURLConnectionReceiveData;
-WSI_EXTERN signal_t kSignalURLConnectionDataChanged;
-WSI_EXTERN signal_t kSignalURLConnectionFinish;
-WSI_EXTERN signal_t kSignalURLConnectionError;
-WSI_EXTERN signal_t kSignalURLConnectionExit;
+NNT_EXTERN signal_t kSignalURLConnectionSendRequest;
+NNT_EXTERN signal_t kSignalURLConnectionReceiveResponse;
+NNT_EXTERN signal_t kSignalURLConnectionReceiveData;
+NNT_EXTERN signal_t kSignalURLConnectionDataChanged;
+NNT_EXTERN signal_t kSignalURLConnectionFinish;
+NNT_EXTERN signal_t kSignalURLConnectionError;
+NNT_EXTERN signal_t kSignalURLConnectionExit;
 
-WSI_EXTERN signal_t kSignalURLConnectionWillRedirect;
-WSI_EXTERN signal_t kSignalURLConnectionRedirected;
+NNT_EXTERN signal_t kSignalURLConnectionWillRedirect;
+NNT_EXTERN signal_t kSignalURLConnectionRedirected;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

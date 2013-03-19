@@ -7,11 +7,11 @@
 # import "WCGFill.h"
 # import "WCGTextStyle.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UICoverDrawerItemPrivate : WSIObject {
+@interface UICoverDrawerItemPrivate : NNTObject {
     UICoverDrawerItem *d_owner;
     NSTimer *timer_drag;
     BOOL is_dragging;
@@ -107,7 +107,7 @@ WSI_BEGIN_OBJC
 @dynamic next, previous;
 
 - (void)__init {
-    WSIDECL_PRIVATE_INIT(UICoverDrawerItem);
+    NNTDECL_PRIVATE_INIT(UICoverDrawerItem);
     
     self.backgroundColor = [UIColor clearColor];
     self.contentSize = CGSizeZero;
@@ -126,7 +126,7 @@ WSI_BEGIN_OBJC
     zero_release(image);
     zero_release(title);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -341,4 +341,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

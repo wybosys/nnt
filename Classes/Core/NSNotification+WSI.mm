@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "NSNotification+WSI.h"
+# import "NSNotification+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSILocalNotification
+@implementation NNTLocalNotification
 
 - (id)init {
     self = [super init];
@@ -22,4 +22,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

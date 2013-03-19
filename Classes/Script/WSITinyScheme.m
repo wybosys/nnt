@@ -1,23 +1,23 @@
 
 # import "Core.h"
-# import "WSITinyScheme.h"
+# import "NNTTinyScheme.h"
 # import "scheme.h"
 # import "tinyscheme.prv.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSITinySchemePrivate : WSIObject {
+@interface NNTTinySchemePrivate : NNTObject {
     scheme* env;
 }
 
-@property (nonatomic, assign) WSITinyScheme* d_owner;
+@property (nonatomic, assign) NNTTinyScheme* d_owner;
 @property (nonatomic, readonly) scheme* env;
 
 - (void)close;
 
 @end
 
-@implementation WSITinySchemePrivate
+@implementation NNTTinySchemePrivate
 
 @synthesize d_owner;
 @synthesize env;
@@ -47,16 +47,16 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSITinyScheme
+@implementation NNTTinyScheme
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSITinyScheme);
+    NNTDECL_PRIVATE_INIT(NNTTinyScheme);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -77,4 +77,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

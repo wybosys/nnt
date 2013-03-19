@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "WSIBdb.h"
+# include "NNTBdb.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # ifdef DB_UNKNOWN
 #   undef DB_UNKNOWN
@@ -10,12 +10,12 @@ WSI_BEGIN_HEADER_C
 
 # include <bdb/db.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Bdb)
+NNTDECL_PRIVATE_BEGIN_CXX(Bdb)
 
 //! db handle.
 DB* db;
@@ -29,7 +29,7 @@ void init()
     d_owner->readonly = false;
     d_owner->dup = false;
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 	if (DB_VERSION_MAJOR < 5)
 		trace_msg("bdb is too older.");
@@ -131,7 +131,7 @@ bool open(char const* url)
     return true;   
 }
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string Bdb::identity = "bdb";
 
@@ -142,12 +142,12 @@ IDBMS* Bdb::dbmsInstance()
 
 Bdb::Bdb()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Bdb);
+    NNTDECL_PRIVATE_CONSTRUCT(Bdb);
 }
 
 Bdb::~Bdb()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool Bdb::connect(connection_info const& info)
@@ -349,12 +349,12 @@ void Bdb::_walk(BDBWalkFunc func)
 typedef struct {
     DBC *cursor;
     DBT key, data;
-} WSIBdbIterator;
+} NNTBdbIterator;
 
 void* Bdb::iterator_begin()
 {
-    WSIBdbIterator *iter = (WSIBdbIterator*)malloc(sizeof(WSIBdbIterator));
-    memset(iter, 0, sizeof(WSIBdbIterator));
+    NNTBdbIterator *iter = (NNTBdbIterator*)malloc(sizeof(NNTBdbIterator));
+    memset(iter, 0, sizeof(NNTBdbIterator));
     if (d_ptr->db->cursor(d_ptr->db, NULL, &iter->cursor, 0))
     {
         free(iter);
@@ -371,8 +371,8 @@ void* Bdb::iterator_begin()
 
 void* Bdb::range_begin(void* key, uint klen)
 {
-    WSIBdbIterator *iter = (WSIBdbIterator*)malloc(sizeof(WSIBdbIterator));
-    memset(iter, 0, sizeof(WSIBdbIterator));
+    NNTBdbIterator *iter = (NNTBdbIterator*)malloc(sizeof(NNTBdbIterator));
+    memset(iter, 0, sizeof(NNTBdbIterator));
     
     iter->key.data = key;
     iter->key.size = klen;
@@ -393,7 +393,7 @@ void* Bdb::range_begin(void* key, uint klen)
 
 void* Bdb::iterator_next(void* _iter)
 {
-    WSIBdbIterator *iter = (WSIBdbIterator*)_iter;
+    NNTBdbIterator *iter = (NNTBdbIterator*)_iter;
     if (0 == (iter->cursor->get(iter->cursor, &iter->key, &iter->data, DB_NEXT))) {
         return iter;
     }
@@ -402,7 +402,7 @@ void* Bdb::iterator_next(void* _iter)
 
 void* Bdb::range_next(void* _iter)
 {
-    WSIBdbIterator *iter = (WSIBdbIterator*)_iter;
+    NNTBdbIterator *iter = (NNTBdbIterator*)_iter;
     if (0 == (iter->cursor->get(iter->cursor, &iter->key, &iter->data, DB_NEXT_DUP))) {
         return iter;
     }
@@ -416,7 +416,7 @@ void Bdb::iterator_end(void* iter)
 
 void Bdb::iterator_retrive(void* _iter, void** key, uint* klen, void** data, uint* dlen)
 {
-    WSIBdbIterator* iter = (WSIBdbIterator*)_iter;
+    NNTBdbIterator* iter = (NNTBdbIterator*)_iter;
     if (key && klen)
     {
         *key = iter->key.data;
@@ -445,7 +445,7 @@ bool Bdb::delete_db()
     return d_ptr->delete_db();
 }
 
-WSI_BEGIN_NS(test)
+NNT_BEGIN_NS(test)
 
 bool Bdb::prepare()
 {
@@ -477,16 +477,16 @@ bool Bdb::run()
     return true;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 ::wsi::store::test::Bdb* UTBdb()
 {
     return new ::wsi::store::test::Bdb;
 }
 
-WSI_END_C
+NNT_END_C

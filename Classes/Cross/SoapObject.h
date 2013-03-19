@@ -1,6 +1,6 @@
 
-# ifndef __WSI_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
-# define __WSI_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
+# ifndef __NNT_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
+# define __NNT_SOAPOBJECT_8C66FD46EE3841BD872C2C5A110B0F90_H_INCLUDED
 
 # include "../Core/ObjectDL.h"
 
@@ -53,11 +53,11 @@ SOAPDECL_METHOD_BEGIN_EX(func, func)
 
 # define SOAPIMPL_METHOD(nm, cls) int cls::nm (::wsi::lang::Method::params_type const& params, ::wsi::lang::Method::returns_type& returns, void* data)
 
-WSI_BEGIN_HEADER_CXX 
+NNT_BEGIN_HEADER_CXX 
 
-WSIDECL_EXTERN_CLASS_NS(parser, SoapDocument);
+NNTDECL_EXTERN_CLASS_NS(parser, SoapDocument);
 
-WSI_BEGIN_NS(soap)
+NNT_BEGIN_NS(soap)
 
 class Fault
 {
@@ -74,7 +74,7 @@ public:
     core::string actor;
 };
 
-WSICLASS(Object);
+NNTCLASS(Object);
 class Object
 : public ::wsi::lang::Object
 {
@@ -123,9 +123,9 @@ public:
     
 };
 
-WSIAPI(lang::Namespace*) getNamespace();
+NNTAPI(lang::Namespace*) getNamespace();
 
-WSICLASS(Invoker);
+NNTCLASS(Invoker);
 class Invoker
 {
 public:
@@ -156,7 +156,7 @@ protected:
     parser::SoapDocument* _doc;
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif

@@ -3,11 +3,11 @@
 # include "XmppIMClientor.h"
 # include "im/XimRoster.h"
 # include "im/XimUser.h"
-# include "../../Core/Directory+WSI.h"
+# include "../../Core/Directory+NNT.h"
 
 XMPP_BEGIN
 
-WSIDECL_PRIVATE_BEGIN_CXX(IMClientor)
+NNTDECL_PRIVATE_BEGIN_CXX(IMClientor)
 
 void init()
 {
@@ -66,23 +66,23 @@ void mdl_roster(eventobj_t& evt)
     safe_drop(root);
 }
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 IMClientor::IMClientor()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(IMClientor);
+    NNTDECL_PRIVATE_CONSTRUCT(IMClientor);
 }
 
 IMClientor::IMClientor(IMClient& cli)
 {
-    WSIDECL_PRIVATE_CONSTRUCT(IMClientor);
+    NNTDECL_PRIVATE_CONSTRUCT(IMClientor);
     
     set(cli);
 }
 
 IMClientor::~IMClientor()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void IMClientor::set(IMClient& cli)

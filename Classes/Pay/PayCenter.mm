@@ -16,7 +16,7 @@
 # import "UnipayApi.h"
 # endif
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 static PayCenter *__gs_paycenter = nil;
 
@@ -47,7 +47,7 @@ static PayCenter *__gs_paycenter = nil;
 }
 
 + (PayCenter*)getInstance {
-    WSI *wsiobj = [WSI shared];
+    NNT *wsiobj = [NNT shared];
     @synchronized(wsiobj) {
         if (__gs_paycenter == nil) {
             __gs_paycenter = [[PayCenter alloc] init];
@@ -87,4 +87,4 @@ static PayCenter *__gs_paycenter = nil;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

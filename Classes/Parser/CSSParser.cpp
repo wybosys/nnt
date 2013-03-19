@@ -1,13 +1,13 @@
 
 # include "Core.h"
 # include "CSSParser.h"
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 
 # include <boost/spirit/include/classic.hpp>
 # include <boost/spirit/include/phoenix.hpp>
 # include <boost/spirit/include/qi.hpp>
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 using ::boost::spirit::qi::grammar;
 using ::boost::spirit::qi::rule;
@@ -172,7 +172,7 @@ void _do_addattr::operator() (css_grammar* gmr) const
 	gmr->attr_value.clear();
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(CSSParser)
+NNTDECL_PRIVATE_BEGIN_CXX(CSSParser)
 
 void init()
 {
@@ -187,16 +187,16 @@ void dealloc()
 // parser.
 css_grammar *grammar;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 CSSParser::CSSParser()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(CSSParser);
+    NNTDECL_PRIVATE_CONSTRUCT(CSSParser);
 }
 
 CSSParser::~CSSParser()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool CSSParser::parse(const core::string & str)
@@ -220,4 +220,4 @@ css::attributes_type const& CSSParser::attributes() const
 	return d_ptr->grammar->attrs;
 }
 
-WSI_END_CXX
+NNT_END_CXX

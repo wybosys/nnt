@@ -6,12 +6,12 @@
 # import "App.h"
 # import "OADefines.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(WeChat, WSIObject)
+NNTDECL_PRIVATE_BEGIN(WeChat, NNTObject)
 <WXApiDelegate>
 
-WSIDECL_PRIVATE_IMPL(WeChat)
+NNTDECL_PRIVATE_IMPL(WeChat)
 
 - (id)init {
     self = [super init];            
@@ -19,7 +19,7 @@ WSIDECL_PRIVATE_IMPL(WeChat)
 }
 
 - (void)dealloc {
-    [[WSIApplication shared] disconnect:self];
+    [[NNTApplication shared] disconnect:self];
     [super dealloc];
 }
 
@@ -29,7 +29,7 @@ WSIDECL_PRIVATE_IMPL(WeChat)
         return;
     }
 
-    [[WSIApplication shared] connect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:self];
+    [[NNTApplication shared] connect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:self];
 }
 
 - (void)setCallback:(NSString*)callback {
@@ -40,7 +40,7 @@ WSIDECL_PRIVATE_IMPL(WeChat)
     safe_release(auth);
 }
 
-- (void)act_openurl:(WSIEventObj*)evt {
+- (void)act_openurl:(NNTEventObj*)evt {
     OpenURLObject* ouo = evt.result;
     [WXApi handleOpenURL:ouo.url delegate:self];
 }
@@ -65,7 +65,7 @@ WSIDECL_PRIVATE_IMPL(WeChat)
     safe_release(req);
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation WeChat
 
@@ -73,7 +73,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WeChat);
+    NNTDECL_PRIVATE_INIT(WeChat);
     
     self.appid = OA_WECHAT_PARTENER;
     
@@ -84,7 +84,7 @@ WSIDECL_PRIVATE_END
     safe_release(_appid);
     safe_release(_callback);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -92,7 +92,7 @@ WSIDECL_PRIVATE_END
     if ([_appid isEqualToString:appid])
         return;
     
-    [WSIObject refobjCopy:&_appid ref:appid];
+    [NNTObject refobjCopy:&_appid ref:appid];
     
     [d_ptr setAppid:appid];
 }
@@ -101,7 +101,7 @@ WSIDECL_PRIVATE_END
     if ([_callback isEqualToString:callback])
         return;
     
-    [WSIObject refobjCopy:&_callback ref:callback];
+    [NNTObject refobjCopy:&_callback ref:callback];
     
     [d_ptr setCallback:callback];
 }
@@ -129,11 +129,11 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(tencent)
-WSI_BEGIN_NS(wechat)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(tencent)
+NNT_BEGIN_NS(wechat)
 
 Provider::Provider()
 {
@@ -145,6 +145,6 @@ Provider::~Provider()
     
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

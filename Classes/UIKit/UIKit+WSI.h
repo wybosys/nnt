@@ -1,25 +1,25 @@
 
-# ifndef __WSI_UIKIT_B6DC89247D3547C2ACC8865508C5F22D_H_INCLUDED
-# define __WSI_UIKIT_B6DC89247D3547C2ACC8865508C5F22D_H_INCLUDED
+# ifndef __NNT_UIKIT_B6DC89247D3547C2ACC8865508C5F22D_H_INCLUDED
+# define __NNT_UIKIT_B6DC89247D3547C2ACC8865508C5F22D_H_INCLUDED
 
-# ifndef LIBWSI
-#   define LIBWSI
-#   define NO_LIBWSI
+# ifndef LIBNNT
+#   define LIBNNT
+#   define NO_LIBNNT
 # endif
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 # import <UIKit/UIKit.h>
 # endif
 
 // add base frameworks.
 # import <QuartzCore/QuartzCore.h>
-# import "../Graphic/CoreGraphic+WSI.h"
+# import "../Graphic/CoreGraphic+NNT.h"
 
 // add layout support.
 # import "../Core/Layout.h"
 
 // ui base object.
-# import "WSIUIObject.h"
+# import "NNTUIObject.h"
 
 // quartz + wsi.
 # import "QzAnimation.h"
@@ -27,56 +27,56 @@
 # import "QzDisplayLink.h"
 
 // for ios.
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
-# import "UIScreen+WSI.h"
-# import "UIDevice+WSI.h"
-# import "UIColor+WSI.h"
-# import "UIFont+WSI.h"
-# import "UIView+WSI.h"
-# import "UIControl+WSI.h"
+# import "UIScreen+NNT.h"
+# import "UIDevice+NNT.h"
+# import "UIColor+NNT.h"
+# import "UIFont+NNT.h"
+# import "UIView+NNT.h"
+# import "UIControl+NNT.h"
 # import "UIAnimation.h"
-# import "UIViewController+WSI.h"
-# import "UILabel+WSI.h"
-# import "UITextField+WSI.h"
-# import "UITextView+WSI.h"
-# import "UIAlertView+WSI.h"
-# import "UIActivityIndicatorView+WSI.h"
-# import "UIWindow+WSI.h"
-# import "UIImageView+WSI.h"
-# import "UIWebView+WSI.h"
+# import "UIViewController+NNT.h"
+# import "UILabel+NNT.h"
+# import "UITextField+NNT.h"
+# import "UITextView+NNT.h"
+# import "UIAlertView+NNT.h"
+# import "UIActivityIndicatorView+NNT.h"
+# import "UIWindow+NNT.h"
+# import "UIImageView+NNT.h"
+# import "UIWebView+NNT.h"
 # import "UIWebController.h"
-# import "UIImage+WSI.h"
+# import "UIImage+NNT.h"
 # import "UIDesktop.h"
-# import "UIButton+WSI.h"
-# import "UIScrollView+WSI.h"
+# import "UIButton+NNT.h"
+# import "UIScrollView+NNT.h"
 # import "UIConcaveButton.h"
 # import "UIBadgeIndicator.h"
-# import "UITabBar+WSI.h"
-# import "UITabBarController+WSI.h"
-# import "UITableViewController+WSI.h"
+# import "UITabBar+NNT.h"
+# import "UITabBarController+NNT.h"
+# import "UITableViewController+NNT.h"
 # import "UITableTreeViewController.h"
-# import "UISegmentedControl+WSI.h"
-# import "UIPickerView+WSI.h"
-# import "UIBarButtonItem+WSI.h"
-# import "UINavigationBar+WSI.h"
-# import "UINavigationController+WSI.h"
-# import "UIToolbar+WSI.h"
-# import "UISwitch+WSI.h"
-# import "UISlider+WSI.h"
-# import "UIPageControl+WSI.h"
-# import "UISearchBar+WSI.h"
+# import "UISegmentedControl+NNT.h"
+# import "UIPickerView+NNT.h"
+# import "UIBarButtonItem+NNT.h"
+# import "UINavigationBar+NNT.h"
+# import "UINavigationController+NNT.h"
+# import "UIToolbar+NNT.h"
+# import "UISwitch+NNT.h"
+# import "UISlider+NNT.h"
+# import "UIPageControl+NNT.h"
+# import "UISearchBar+NNT.h"
 # import "UICameraView.h"
-# import "UIImagePickerController+WSI.h"
+# import "UIImagePickerController+NNT.h"
 # import "UIMapView.h"
 # import "UILineSeparator.h"
 # import "UIPickerControl.h"
 # import "UIContactField.h"
 # import "UIVideoController.h"
-# import "UITouch+WSI.h"
-# import "UIActionSheet+WSI.h"
-# import "UISearchDisplayController+WSI.h"
-# import "UIPopoverController+WSI.h"
+# import "UITouch+NNT.h"
+# import "UIActionSheet+NNT.h"
+# import "UISearchDisplayController+NNT.h"
+# import "UIPopoverController+NNT.h"
 
 # import "UIDialog.h"
 # import "UIWaiting.h"
@@ -127,26 +127,26 @@
 # import "UIPageRoller.h"
 # import "UIAnnualRingView.h"
 
-# import "../Core/NSNotification+WSI.h"
+# import "../Core/NSNotification+NNT.h"
 
 # endif
 
 // for mac.
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 
-# import "NSImage+WSI.h"
-# import "NSWindow+WSI.h"
-# import "NSWindowController+WSI.h"
-# import "NSView+WSI.h"
-# import "NSViewController+WSI.h"
-# import "NSControl+WSI.h"
-# import "NSButton+WSI.h"
-# import "NSTextField+WSI.h"
-# import "NSTextView+WSI.h"
-# import "NSTableView+WSI.h"
-# import "NSListView+WSI.h"
-# import "NSTabView+WSI.h"
-# import "NSImageView+WSI.h"
+# import "NSImage+NNT.h"
+# import "NSWindow+NNT.h"
+# import "NSWindowController+NNT.h"
+# import "NSView+NNT.h"
+# import "NSViewController+NNT.h"
+# import "NSControl+NNT.h"
+# import "NSButton+NNT.h"
+# import "NSTextField+NNT.h"
+# import "NSTextView+NNT.h"
+# import "NSTableView+NNT.h"
+# import "NSListView+NNT.h"
+# import "NSTabView+NNT.h"
+# import "NSImageView+NNT.h"
 
 # import "NSMessageBox.h"
 
@@ -156,9 +156,9 @@
 # import "../Core/App.h"
 # import "UITheme.h"
 
-# ifdef NO_LIBWSI
-#   undef NO_LIBWSI
-#   undef LIBWSI
+# ifdef NO_LIBNNT
+#   undef NO_LIBNNT
+#   undef LIBNNT
 # endif
 
 # endif

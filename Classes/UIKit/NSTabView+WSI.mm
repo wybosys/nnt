@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "NSTabView+WSI.h"
-# import "NSViewController+WSI.h"
+# import "NSTabView+NNT.h"
+# import "NSViewController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSINSTabView ()
+@interface NNTNSTabView ()
 
-@property (nonatomic, assign) WSINSViewController* selectedViewController;
+@property (nonatomic, assign) NNTNSViewController* selectedViewController;
 
 @end
 
-@implementation WSINSTabView
+@implementation NNTNSTabView
 
 @synthesize viewControllers;
 @synthesize selectedViewController;
@@ -22,15 +22,15 @@ WSI_BEGIN_OBJC
 }
 
 - (void)setViewControllers:(NSArray *)arr {
-    for (WSINSViewController* ctlr in viewControllers) {
+    for (NNTNSViewController* ctlr in viewControllers) {
         if (ctlr.view.superview)
             [ctlr.view removeFromSuperview];
     }
     
-    [WSIObject refobjSet:&viewControllers ref:arr];
+    [NNTObject refobjSet:&viewControllers ref:arr];
     
     [self clear];
-    for (WSINSViewController* ctlr in viewControllers) {
+    for (NNTNSViewController* ctlr in viewControllers) {
         NSTabViewItem* item = [[NSTabViewItem alloc] initWithIdentifier:ctlr.identity];
         [item setLabel:ctlr.title];
         [item setView:ctlr.view];
@@ -46,16 +46,16 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (WSINSViewController*)findControllerByItem:(NSTabViewItem*)item {
-    for (WSINSViewController* ctlr in viewControllers) {
+- (NNTNSViewController*)findControllerByItem:(NSTabViewItem*)item {
+    for (NNTNSViewController* ctlr in viewControllers) {
         if (item.view == ctlr.view)
             return ctlr;
     }
     return nil;
 }
 
-- (WSINSViewController*)findControllerByIdentity:(NSString*)identity {
-    for (WSINSViewController* ctlr in viewControllers) {
+- (NNTNSViewController*)findControllerByIdentity:(NSString*)identity {
+    for (NNTNSViewController* ctlr in viewControllers) {
         if ([identity isEqualToString:ctlr.identity])
             return ctlr;
     }
@@ -66,20 +66,20 @@ WSI_BEGIN_OBJC
 
 @implementation nstabview_delegate
 
-- (BOOL)tabView:(WSINSTabView *)tabView shouldSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+- (BOOL)tabView:(NNTNSTabView *)tabView shouldSelectTabViewItem:(NSTabViewItem *)tabViewItem {
     return YES;
 }
 
-- (void)tabView:(WSINSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+- (void)tabView:(NNTNSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
     _prev_ctlr = [tabView findControllerByItem:tabView.selectedTabViewItem];
-    WSINSViewController* next = [tabView findControllerByItem:tabViewItem];
+    NNTNSViewController* next = [tabView findControllerByItem:tabViewItem];
     [_prev_ctlr viewWillDisappear];
     [next viewWillAppear];
 }
 
-- (void)tabView:(WSINSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+- (void)tabView:(NNTNSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
     [_prev_ctlr viewDidDisappear];
-    WSINSViewController* next = [tabView findControllerByItem:tabViewItem];
+    NNTNSViewController* next = [tabView findControllerByItem:tabViewItem];
     [next viewDidAppear];
     tabView.selectedViewController = next;
     
@@ -92,4 +92,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

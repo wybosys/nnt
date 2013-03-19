@@ -3,9 +3,9 @@
 # import "UIDrawerView.h"
 # import "WCGBase.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 @implementation UIDrawerView
 
@@ -164,4 +164,4 @@ WSI_USINGCXXNAMESPACE;
 
 _CXXVIEW_IMPL(UIDrawerView);
 
-WSI_END_OBJC
+NNT_END_OBJC

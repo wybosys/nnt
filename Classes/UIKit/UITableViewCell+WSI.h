@@ -1,45 +1,45 @@
 
-# ifndef __WSI_UIKIT_UITABLEVIEWCELL_E2C08A8EBCC54DB3B6A33B02725C65B3_H_INCLUDED
-# define __WSI_UIKIT_UITABLEVIEWCELL_E2C08A8EBCC54DB3B6A33B02725C65B3_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABLEVIEWCELL_E2C08A8EBCC54DB3B6A33B02725C65B3_H_INCLUDED
+# define __NNT_UIKIT_UITABLEVIEWCELL_E2C08A8EBCC54DB3B6A33B02725C65B3_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUITableViewCell : UITableViewCell {
+@interface NNTUITableViewCell : UITableViewCell {
     
     //! if is used.
     BOOL _isUsed;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
 @property (nonatomic, assign) BOOL isUsed;
 @property (nonatomic, retain) WCGFill* backgroundFill;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 //! update layout.
 - (void)updateLayout:(CGRect)rect;
 
 //! cell.
-+ (WSIUITableViewCell*)cell;
++ (NNTUITableViewCell*)cell;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-_CXXVIEW_DECL(WSIUITableViewCell);
+_CXXVIEW_DECL(NNTUITableViewCell);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# include "UILabel+WSI.h"
+# include "UILabel+NNT.h"
 # include "UISectionItems.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TableCellObject
 : public SectionItem
@@ -94,10 +94,10 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT,
-typename cellT = _CXXVIEW(WSIUITableViewCell),
+typename cellT = _CXXVIEW(NNTUITableViewCell),
 typename cellI = ITableCell
 >
 class TableCell
@@ -153,14 +153,14 @@ public:
     ui::Label& text()
     {
         if (_text == NULL)
-            _text = new ui::Label((WSIUILabel*)this->_self.textLabel);
+            _text = new ui::Label((NNTUILabel*)this->_self.textLabel);
         return *_text;
     }
     
     ui::Label& detail()
     {
         if (_detail == NULL)
-            _detail = new ui::Label((WSIUILabel*)this->_self.detailTextLabel);
+            _detail = new ui::Label((NNTUILabel*)this->_self.detailTextLabel);
         return *_detail;
     }
     
@@ -280,11 +280,11 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 using tpl::TableCell;
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 class TableCell
 : public tpl::TableCell<TableCell>
@@ -292,10 +292,10 @@ class TableCell
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

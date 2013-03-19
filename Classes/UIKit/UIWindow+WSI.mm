@@ -1,14 +1,14 @@
 
 # import "Core.h"
-# import "UIWindow+WSI.h"
-# import "UIScreen+WSI.h"
+# import "UIWindow+NNT.h"
+# import "UIScreen+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalBecomeKey = @"::wsi::window::key::become";
 signal_t kSignalResignKey = @"::wsi::window::key::resign";
 
-@implementation UIWindow (WSI)
+@implementation UIWindow (NNT)
 
 - (CGRect)boundsOnScreen {
     CGRect rc = self.bounds;
@@ -62,9 +62,9 @@ signal_t kSignalResignKey = @"::wsi::window::key::resign";
 
 @end
 
-@implementation WSIUIWindow
+@implementation NNTUIWindow
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -75,13 +75,13 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalBecomeKey);
-    WSIEVENT_SIGNAL(kSignalResignKey);
+    NNTEVENT_SIGNAL(kSignalBecomeKey);
+    NNTEVENT_SIGNAL(kSignalResignKey);
 }
 
 - (void)becomeKeyWindow {
@@ -94,6 +94,6 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSIIMPL_CATEGORY(UIWindow, WSI);
+NNTIMPL_CATEGORY(UIWindow, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC

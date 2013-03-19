@@ -1,30 +1,30 @@
 
 # import "Core.h"
-# import "WSILua.h"
+# import "NNTLua.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include "../../contrib/lua/lua.h"
 # include "../../contrib/lua/lstate.h"
 # include "../../contrib/lua/lualib.h"
 # include "../../contrib/lua/lauxlib.h"
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSILuaPrivate : NSObject {
+@interface NNTLuaPrivate : NSObject {
 
     wlua_Processor* lua;
     
 }
 
-@property (nonatomic, assign) WSILua *d_owner;
+@property (nonatomic, assign) NNTLua *d_owner;
 @property (nonatomic, readonly) wlua_Processor *lua;
 
 @end
 
-@implementation WSILuaPrivate
+@implementation NNTLuaPrivate
 
 @synthesize d_owner;
 @synthesize lua;
@@ -51,18 +51,18 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSILua
+@implementation NNTLua
 
 @dynamic processor;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSILua);
+    NNTDECL_PRIVATE_INIT(NNTLua);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -88,4 +88,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

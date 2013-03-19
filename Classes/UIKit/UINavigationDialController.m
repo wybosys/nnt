@@ -5,17 +5,17 @@
 # import "UINavigationDialView.h"
 # import "UIDesktop.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
 
 @interface UINavigationDialControllerPrivate : NSObject {
     UINavigationDialController *d_owner;
-    WSIUIDesktop *desktop;
+    NNTUIDesktop *desktop;
 }
 
 @property (nonatomic, assign) UINavigationDialController *d_owner;
-@property (nonatomic, retain) WSIUIDesktop *desktop;
+@property (nonatomic, retain) NNTUIDesktop *desktop;
 
 @end
 
@@ -27,7 +27,7 @@ NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
 - (id)init {
     self = [super init];
     
-    desktop = [[WSIUIDesktop desktop] retain];
+    desktop = [[NNTUIDesktop desktop] retain];
     
     return self;
 }
@@ -41,13 +41,13 @@ NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
 
 @interface UINavigationDialController (hidden)
 
-- (UINavigationDialItem*)_find_item_of_controller:(WSIUIViewController*)ctlr;
+- (UINavigationDialItem*)_find_item_of_controller:(NNTUIViewController*)ctlr;
 
 @end
 
 @implementation UINavigationDialController (hidden)
 
-- (UINavigationDialItem*)_find_item_of_controller:(WSIUIViewController *)ctlr {
+- (UINavigationDialItem*)_find_item_of_controller:(NNTUIViewController *)ctlr {
     for (UINavigationDialItem *item in self.dialView.dial.items) {
         if (item.viewController == ctlr)
             return item;
@@ -64,7 +64,7 @@ NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(UINavigationDialController, d_ptr_dial);
+    NNTDECL_PRIVATE_INIT_EX(UINavigationDialController, d_ptr_dial);
 
     return self;
 }
@@ -72,13 +72,13 @@ NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
 - (void)dealloc {
     zero_release(itemControllers);
     
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_dial);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_dial);
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_END
 
 - (void)loadView {
     UINavigationDialView *view = [[UINavigationDialView alloc] initWithZero];
@@ -95,11 +95,11 @@ WSIEVENT_END
     [view.dial moveTo:CGPointMake(0, 0)];
 }
 
-- (void)act_dial_item_clicked:(WSIEventObj*)obj {
+- (void)act_dial_item_clicked:(NNTEventObj*)obj {
     UINavigationDialItem *item = obj.result;
     if (item == nil)
         return;
-    WSIUIViewController *ctlr = item.viewController;
+    NNTUIViewController *ctlr = item.viewController;
     self.selectedController = ctlr;
 }
 
@@ -116,11 +116,11 @@ WSIEVENT_END
     UINavigationDialView *view = (UINavigationDialView*)self.view;
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (WSIUIViewController *each in itemControllers) {
-# ifdef WSI_DEBUG
-        if ([each isKindOfClass:[WSIUIViewController class]] == NO) {
+    for (NNTUIViewController *each in itemControllers) {
+# ifdef NNT_DEBUG
+        if ([each isKindOfClass:[NNTUIViewController class]] == NO) {
             [arr release];
-            @throw [NSException exceptionWithName:@"type error" reason:@"must be WSIUIViewController" userInfo:nil];
+            @throw [NSException exceptionWithName:@"type error" reason:@"must be NNTUIViewController" userInfo:nil];
         }
 # endif
         
@@ -148,7 +148,7 @@ WSIEVENT_END
     itemControllers = nil;
 }
 
-- (void)selectController:(WSIUIViewController *)ctlr animated:(BOOL)animated {
+- (void)selectController:(NNTUIViewController *)ctlr animated:(BOOL)animated {
     if (ctlr == selectedController)
         return;
     
@@ -174,10 +174,10 @@ WSIEVENT_END
     [self emit:kSignalSelectChanged];
 }
 
-- (void)setSelectedController:(WSIUIViewController *)__selectedController {
+- (void)setSelectedController:(NNTUIViewController *)__selectedController {
     [self selectController:__selectedController animated:NO];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

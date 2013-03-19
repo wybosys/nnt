@@ -1,18 +1,18 @@
 
-# ifndef __WSI_UIKIT_HUD_132C3285829A4DF0B958EAE8F7DAD310_H_INCLUDED
-# define __WSI_UIKIT_HUD_132C3285829A4DF0B958EAE8F7DAD310_H_INCLUDED
+# ifndef __NNT_UIKIT_HUD_132C3285829A4DF0B958EAE8F7DAD310_H_INCLUDED
+# define __NNT_UIKIT_HUD_132C3285829A4DF0B958EAE8F7DAD310_H_INCLUDED
 
-# import "UILabel+WSI.h"
-# import "UIView+WSI.h"
+# import "UILabel+NNT.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UIHudView : WSIUIView {
-    WSIUILabel* _label;
+@interface UIHudView : NNTUIView {
+    NNTUILabel* _label;
     CGMargin _margin;
 }
 
-@property (nonatomic, retain) WSIUILabel* label;
+@property (nonatomic, retain) NNTUILabel* label;
 @property (nonatomic, copy) NSString* content;
 @property (nonatomic, assign) CGMargin margin;
 
@@ -24,13 +24,13 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UIHud : WSIObject {
+@interface UIHud : NNTObject {
     UIHudView* _hud;
-    WSIUIView* _desk;
+    NNTUIView* _desk;
 }
 
 @property (nonatomic, retain) UIHudView* hud;
-@property (nonatomic, retain, readonly) WSIUIView* desk;
+@property (nonatomic, retain, readonly) NNTUIView* desk;
 
 - (void)open;
 - (void)openone:(NSTimeInterval)val;
@@ -46,21 +46,21 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 _CXXVIEW_DECL(UIHudView);
 _CXXVIEW_DECL(UIHudProgressView);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename hudT = _CXXVIEW(UIHudView)>
 class HudView
@@ -128,7 +128,7 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 static const NSTimeInterval kHudShow = 1.5f;
 
@@ -156,8 +156,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

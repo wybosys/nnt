@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "UINavigationDialLayers.h"
-# import "Math+WSI.h"
-# import "CoreGraphic+WSI.h"
-# import "UIColor+WSI.h"
+# import "Math+NNT.h"
+# import "CoreGraphic+NNT.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 //# define DRAW_ITEM_CENTER
 
@@ -513,4 +513,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

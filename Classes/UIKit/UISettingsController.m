@@ -8,10 +8,10 @@
 # import "UISettingsStoreUserDefaults.h"
 # import "UISettingsSpecifierValuesController.h"
 # import "UISettingsItems.h"
-# import "UITableView+WSI.h"
-# import "CoreGraphic+WSI.h"
+# import "UITableView+NNT.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -78,7 +78,7 @@ static NSString *kIASKCredits = @"Powered by InAppSettingsKit";
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UISettingsController);   
+    NNTDECL_PRIVATE_INIT(UISettingsController);   
     
     _targetController = self;
     
@@ -99,7 +99,7 @@ static NSString *kIASKCredits = @"Powered by InAppSettingsKit";
 	
 	_delegate = nil;
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -168,7 +168,7 @@ static NSString *kIASKCredits = @"Powered by InAppSettingsKit";
     
     // add table view.
     if (_tableView == nil) {
-        _tableView = [[WSIUITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[NNTUITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [self.view addSubview:_tableView];
@@ -907,4 +907,4 @@ static NSString *kIASKCredits = @"Powered by InAppSettingsKit";
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

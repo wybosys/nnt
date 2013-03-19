@@ -1,10 +1,10 @@
 
-# ifndef __WSI_NSNUMBER_FD5B7122D88D49CBBC72C830A0BF95AE_H_INCLUDED
-# define __WSI_NSNUMBER_FD5B7122D88D49CBBC72C830A0BF95AE_H_INCLUDED
+# ifndef __NNT_NSNUMBER_FD5B7122D88D49CBBC72C830A0BF95AE_H_INCLUDED
+# define __NNT_NSNUMBER_FD5B7122D88D49CBBC72C830A0BF95AE_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSNumber (WSI)
+@interface NSNumber (NNT)
 
 //! convert to string in binary.
 - (NSString*) stringValueBinary;
@@ -17,45 +17,45 @@ WSI_BEGIN_HEADER_OBJC
 + (NSNumber*)numberWithReal:(real)val;
 
 //! value type.
-- (WSIValueType)valueType;
+- (NNTValueType)valueType;
 
 @end
 
-WSIDECL_CATEGORY(NSNumber, WSI);
+NNTDECL_CATEGORY(NSNumber, NNT);
 
-WSI_EXTERN NSNumber* NSNumberN1;
-WSI_EXTERN NSNumber* NSNumber0;
-WSI_EXTERN NSNumber* NSNumber1;
-WSI_EXTERN NSNumber* NSNumber2;
-WSI_EXTERN NSNumber* NSNumber3;
-WSI_EXTERN NSNumber* NSNumber4;
-WSI_EXTERN NSNumber* NSNumber5;
-WSI_EXTERN NSNumber* NSNumber6;
-WSI_EXTERN NSNumber* NSNumber7;
-WSI_EXTERN NSNumber* NSNumber8;
-WSI_EXTERN NSNumber* NSNumber9;
-WSI_EXTERN NSNumber* NSNumberYes;
-WSI_EXTERN NSNumber* NSNumberNo;
+NNT_EXTERN NSNumber* NSNumberN1;
+NNT_EXTERN NSNumber* NSNumber0;
+NNT_EXTERN NSNumber* NSNumber1;
+NNT_EXTERN NSNumber* NSNumber2;
+NNT_EXTERN NSNumber* NSNumber3;
+NNT_EXTERN NSNumber* NSNumber4;
+NNT_EXTERN NSNumber* NSNumber5;
+NNT_EXTERN NSNumber* NSNumber6;
+NNT_EXTERN NSNumber* NSNumber7;
+NNT_EXTERN NSNumber* NSNumber8;
+NNT_EXTERN NSNumber* NSNumber9;
+NNT_EXTERN NSNumber* NSNumberYes;
+NNT_EXTERN NSNumber* NSNumberNo;
 
 # define BoolObject(bval) ((bval) ? NSNumberYes : NSNumberNo)
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-WSI_EXTERN NSNumber* number(int val);
-WSI_EXTERN NSNumber* number(uint val);
-WSI_EXTERN NSNumber* number(long val);
-WSI_EXTERN NSNumber* number(ulong val);
-WSI_EXTERN NSNumber* number(longlong val);
-WSI_EXTERN NSNumber* number(ulonglong val);
-WSI_EXTERN NSNumber* number(float val);
-WSI_EXTERN NSNumber* number(double val);
-WSI_EXTERN NSNumber* number(char val);
-WSI_EXTERN NSNumber* number(bool val);
-WSI_EXTERN NSNumber* boolnum(int val);
+NNT_EXTERN NSNumber* number(int val);
+NNT_EXTERN NSNumber* number(uint val);
+NNT_EXTERN NSNumber* number(long val);
+NNT_EXTERN NSNumber* number(ulong val);
+NNT_EXTERN NSNumber* number(longlong val);
+NNT_EXTERN NSNumber* number(ulonglong val);
+NNT_EXTERN NSNumber* number(float val);
+NNT_EXTERN NSNumber* number(double val);
+NNT_EXTERN NSNumber* number(char val);
+NNT_EXTERN NSNumber* number(bool val);
+NNT_EXTERN NSNumber* boolnum(int val);
 
 template <>
 inline_impl id to_object<int> (int const& val) {
@@ -107,9 +107,9 @@ inline_impl id to_object<bool> (bool const& val) {
     return number(val);
 }
 
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_NS(ns)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename numberT>
 class Number
@@ -146,7 +146,7 @@ public:
         return *this == NSNumberYes;
     }
     
-# define WSINSNUMBER_OPERATORS(type, value) \
+# define NNTNSNUMBER_OPERATORS(type, value) \
 bool operator == (type val) const { \
 return [_number value] == val; \
 } \
@@ -166,10 +166,10 @@ bool operator <= (type val) const { \
 return [_number value] <= val; \
 }
     
-    WSINSNUMBER_OPERATORS(int, intValue);
-    WSINSNUMBER_OPERATORS(float, floatValue);
-    WSINSNUMBER_OPERATORS(double, doubleValue);
-    WSINSNUMBER_OPERATORS(long, longValue);
+    NNTNSNUMBER_OPERATORS(int, intValue);
+    NNTNSNUMBER_OPERATORS(float, floatValue);
+    NNTNSNUMBER_OPERATORS(double, doubleValue);
+    NNTNSNUMBER_OPERATORS(long, longValue);
     
     operator BOOL() const
     {
@@ -270,7 +270,7 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Number
 : public tpl::Number< NSNumber >
@@ -383,8 +383,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

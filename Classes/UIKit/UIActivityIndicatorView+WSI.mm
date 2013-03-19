@@ -1,20 +1,20 @@
 
 # import "Core.h"
-# import "UIActivityIndicatorView+WSI.h"
+# import "UIActivityIndicatorView+NNT.h"
 # import "WCAActivityIndicator.h"
-# import "Math+WSI.h"
-# import "CoreGraphic+WSI.h"
+# import "Math+NNT.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSIUIActivityIndicatorView ()
+@interface NNTUIActivityIndicatorView ()
 
 - (real)progressAngle;
 - (void)setRingColorWithStyle:(UIActivityIndicatorViewStyle)style;
 
 @end
 
-@implementation WSIUIActivityIndicatorView
+@implementation NNTUIActivityIndicatorView
 
 @synthesize indicatorActivity, progressValue, progressMax, showProgressRing, activityView;
 
@@ -158,6 +158,6 @@ WSI_BEGIN_OBJC
 
 @end
 
-_CXXVIEW_IMPL(WSIUIActivityIndicatorView);
+_CXXVIEW_IMPL(NNTUIActivityIndicatorView);
 
-WSI_END_OBJC
+NNT_END_OBJC

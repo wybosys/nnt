@@ -3,7 +3,7 @@
 # import "UIScrollHeaderView.h"
 # import "UIKit.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalPullHeaderReload = @"::wsi::ui::tableview::pull::reload";
 signal_t kSignalPullHeaderMore = @"::wsi::ui::tableview::pull::moreload";
@@ -22,9 +22,9 @@ signal_t kSignalPullHeaderMore = @"::wsi::ui::tableview::pull::moreload";
 
 @synthesize delegate = _delegate;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPullHeaderReload)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPullHeaderReload)
+NNTEVENT_END
 
 - (id)initWithFrame:(CGRect)frame  {
     self = [super initWithFrame:frame];
@@ -95,7 +95,7 @@ WSIEVENT_END
 		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         
 		_lastUpdatedLabel.text = [NSString stringWithFormat:_W(@"Last Updated: %@"), [dateFormatter stringFromDate:date]];
-		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"WSIUIRefreshTableView_LastRefresh"];
+		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"NNTUIRefreshTableView_LastRefresh"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 		
 	} else {
@@ -226,9 +226,9 @@ WSIEVENT_END
 @synthesize delegate = _delegate;
 @synthesize pageno, model;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPullHeaderMore)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPullHeaderMore)
+NNTEVENT_END
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -357,4 +357,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,8 +1,8 @@
 
-# ifndef __WSI_WCG_BASE_C09F5A94FAE54904BBFD82D1926D1F7B_H_INCLUDED
-# define __WSI_WCG_BASE_C09F5A94FAE54904BBFD82D1926D1F7B_H_INCLUDED
+# ifndef __NNT_WCG_BASE_C09F5A94FAE54904BBFD82D1926D1F7B_H_INCLUDED
+# define __NNT_WCG_BASE_C09F5A94FAE54904BBFD82D1926D1F7B_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 typedef struct {
     CGRect rect;
@@ -47,7 +47,7 @@ extern CGMargin CGMarginMake(real t, real b, real l, real r);
 extern real CGPaddingGetWidth(CGPadding const*);
 extern real CGPaddingGetHeight(CGPadding const*);
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 inline_impl bool CGPaddingEqualToPadding(CGPadding const& l, CGPadding const& r)
 {
@@ -133,23 +133,23 @@ BOOL CGPointEqualWithPrecise(CGPoint l, CGPoint r, int precise);
 # define CGPointMakeY(y)              CGPointMake(0, y)
 
 //! deflate in pixel.
-WSI_EXTERN CGRect CGRectDeflateCenter(CGRect src, CGFloat x, CGFloat y);
+NNT_EXTERN CGRect CGRectDeflateCenter(CGRect src, CGFloat x, CGFloat y);
 
 //! deflate in ratio.
-WSI_EXTERN CGRect CGRectDeflateCenterR(CGRect src, CGFloat rx, CGFloat ry);
-WSI_EXTERN CGRect CGRectDeflateR(CGRect src, CGFloat l, CGFloat r, CGFloat t, CGFloat b);
+NNT_EXTERN CGRect CGRectDeflateCenterR(CGRect src, CGFloat rx, CGFloat ry);
+NNT_EXTERN CGRect CGRectDeflateR(CGRect src, CGFloat l, CGFloat r, CGFloat t, CGFloat b);
 
 //! move rect to center.
-WSI_EXTERN CGRect CGRectMoveCenter(CGRect src, CGPoint pt);
+NNT_EXTERN CGRect CGRectMoveCenter(CGRect src, CGPoint pt);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "Math+WSI.h"
+# include "Math+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cg)
 
 class Angle
 : public core::uml::composition<Angle, real>
@@ -1326,8 +1326,8 @@ inline_impl cg::Rect rand(cg::Rect rc)
     return rc;
 }
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

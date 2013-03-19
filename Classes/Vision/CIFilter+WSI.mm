@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CIFilter+WSI.h"
+# import "CIFilter+NNT.h"
 # import <CoreImage/CoreImage.h>
 # include "../Core/Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UICFFilterForNSNumber
 
@@ -91,9 +91,9 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(vision) WSI_BEGIN_NS(ci)
+NNT_BEGIN_CXX NNT_BEGIN_NS(vision) NNT_BEGIN_NS(ci)
 
 static ::NSString* const _system_categories[] = {
     kCICategoryDistortionEffect,
@@ -124,7 +124,7 @@ static ::NSString* const _system_categories[] = {
     kCICategoryApplePrivate,
     kCICategoryBuiltIn,
     
-# if defined(__MAC_10_5) && !defined(WSI_TARGET_IOS)
+# if defined(__MAC_10_5) && !defined(NNT_TARGET_IOS)
     kCICategoryFilterGenerator,
 # endif
     
@@ -230,4 +230,4 @@ WCGImage* Filter::process(CGImageRef _img) const
     return ret;
 }
 
-WSI_END_NS WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_NS NNT_END_CXX

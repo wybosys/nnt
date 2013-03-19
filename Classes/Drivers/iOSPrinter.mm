@@ -9,14 +9,14 @@
 # import <UIKit/UIPrintPageRenderer.h>
 # import <UIKit/UIPrintPaper.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(InteractionPrinter, NSObject)
+NNTDECL_PRIVATE_BEGIN(InteractionPrinter, NSObject)
 <UIPrintInteractionControllerDelegate>
 
 @property (nonatomic, retain) UIPrintInteractionController* ctlr_print;
 
-WSIDECL_PRIVATE_IMPL(InteractionPrinter)
+NNTDECL_PRIVATE_IMPL(InteractionPrinter)
 
 @synthesize ctlr_print;
 
@@ -49,7 +49,7 @@ WSIDECL_PRIVATE_IMPL(InteractionPrinter)
     [super dealloc];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation InteractionPrinter
 
@@ -57,12 +57,12 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(InteractionPrinter);
+    NNTDECL_PRIVATE_INIT(InteractionPrinter);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -114,7 +114,7 @@ WSIDECL_PRIVATE_END
     
     BOOL suc;
     
-    if (WSI_ISPAD) {
+    if (NNT_ISPAD) {
         suc = [d_ptr.ctlr_print presentFromRect:rect inView:view animated:animated completionHandler:completionHandler];
     } else {
         suc = [d_ptr.ctlr_print presentAnimated:animated completionHandler:completionHandler];
@@ -131,7 +131,7 @@ WSIDECL_PRIVATE_END
 
 @end
 
-@implementation UIPrintFormatter (WSI)
+@implementation UIPrintFormatter (NNT)
 
 - (NSInteger)defaultPageCount {
     return [self pageCount];
@@ -139,9 +139,9 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSIIMPL_OBJCXX_WRAPPER(UIPrintPageRenderer);
+NNTIMPL_OBJCXX_WRAPPER(UIPrintPageRenderer);
 
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(UISimpleTextPrintFormatter)
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(UISimpleTextPrintFormatter)
 
 - (NSInteger)defaultPageCount {
     return [super pageCount];
@@ -155,13 +155,13 @@ WSIIMPL_OBJCXX_WRAPPER_BEGIN(UISimpleTextPrintFormatter)
     return [self defaultPageCount];
 }
 
-WSIIMPL_OBJCXX_WRAPPER_END
+NNTIMPL_OBJCXX_WRAPPER_END
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "NSPreference+WSI.h"
+# import "NSPreference+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 using namespace wsi;
 
@@ -16,10 +16,10 @@ using namespace wsi;
 
 + (id)shared {
     id ret = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     static NSPreference* __gs_preference = [[self alloc] init];
     ret = __gs_preference;
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
@@ -71,10 +71,10 @@ using namespace wsi;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(core)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(core)
 
 ns::String Preference::find(ns::String const& key) const
 {
@@ -86,5 +86,5 @@ ns::String Preference::find(ns::String const& key) const
     return ns::String::Null();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

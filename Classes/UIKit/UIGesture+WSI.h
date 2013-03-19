@@ -1,68 +1,68 @@
 
-# ifndef __WSI_UIKIT_GESTURE_73FC5FF59BC44842A00F9DB0EA535DB6_H_INCLUDED
-# define __WSI_UIKIT_GESTURE_73FC5FF59BC44842A00F9DB0EA535DB6_H_INCLUDED
+# ifndef __NNT_UIKIT_GESTURE_73FC5FF59BC44842A00F9DB0EA535DB6_H_INCLUDED
+# define __NNT_UIKIT_GESTURE_73FC5FF59BC44842A00F9DB0EA535DB6_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUISwipeGestureRecognizer : UISwipeGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUISwipeGestureRecognizer : UISwipeGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUITapGestureRecognizer : UITapGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUITapGestureRecognizer : UITapGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUIPinchGestureRecognizer : UIPinchGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUIPinchGestureRecognizer : UIPinchGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUIRotationGestureRecognizer : UIRotationGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUIRotationGestureRecognizer : UIRotationGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUIPanGestureRecognizer : UIPanGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUIPanGestureRecognizer : UIPanGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface WSIUILongPressGestureRecognizer : UILongPressGestureRecognizer {
-    WSIOBJECT_DECL;
+@interface NNTUILongPressGestureRecognizer : UILongPressGestureRecognizer {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalGestureActive;
+NNT_EXTERN signal_t kSignalGestureActive;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
-WSI_BEGIN_NS(gesture)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(gesture)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT, typename gesT>
 class Gesture
@@ -77,10 +77,10 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Swipe
-: public tpl::Gesture<Swipe, WSIUISwipeGestureRecognizer>
+: public tpl::Gesture<Swipe, NNTUISwipeGestureRecognizer>
 {
 public:
     
@@ -102,7 +102,7 @@ public:
 };
 
 class Tap
-: public tpl::Gesture<Tap, WSIUITapGestureRecognizer>
+: public tpl::Gesture<Tap, NNTUITapGestureRecognizer>
 {
 public:
     
@@ -114,7 +114,7 @@ public:
 };
 
 class Pinch
-: public tpl::Gesture<Pinch, WSIUIPinchGestureRecognizer>
+: public tpl::Gesture<Pinch, NNTUIPinchGestureRecognizer>
 {
 public:
     
@@ -126,7 +126,7 @@ public:
 };
 
 class Pan
-: public tpl::Gesture<Pan, WSIUIPanGestureRecognizer>
+: public tpl::Gesture<Pan, NNTUIPanGestureRecognizer>
 {
 public:
     
@@ -138,7 +138,7 @@ public:
 };
 
 class Rotation
-: public tpl::Gesture<Rotation, WSIUIRotationGestureRecognizer>
+: public tpl::Gesture<Rotation, NNTUIRotationGestureRecognizer>
 {
 public:
     
@@ -150,7 +150,7 @@ public:
 };
 
 class LongPress
-: public tpl::Gesture<LongPress, WSIUILongPressGestureRecognizer>
+: public tpl::Gesture<LongPress, NNTUILongPressGestureRecognizer>
 {
 public:
     
@@ -161,9 +161,9 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

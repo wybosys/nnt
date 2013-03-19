@@ -2,12 +2,12 @@
 # import "Core.h"
 # import "Msgbox.h"
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 #   import <UIKit/UIKit.h>
-#   import "../UIKit/UIAlertView+WSI.h"
+#   import "../UIKit/UIAlertView+NNT.h"
 # endif
 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 #   import <AppKit/AppKit.h>
 # endif
 
@@ -59,7 +59,7 @@
 
 @interface MsgboxDelegate : NSObject
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 <UIAlertViewDelegate>
 # endif
 
@@ -92,7 +92,7 @@
     [super dealloc];
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
@@ -169,9 +169,9 @@
 		} break;
 	};
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-	WSIUIAlertView *alert = [[WSIUIAlertView alloc] initWithTitle:__title
+	NNTUIAlertView *alert = [[NNTUIAlertView alloc] initWithTitle:__title
                                                           message:message
                                                          delegate:delegate
                                                 cancelButtonTitle:_W(@"ok")
@@ -228,9 +228,9 @@
     delegate.cancel = cancel;
     delegate.loop = CFRunLoopGetCurrent();
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-	WSIUIAlertView *alert = [[WSIUIAlertView alloc] initWithTitle:__title
+	NNTUIAlertView *alert = [[NNTUIAlertView alloc] initWithTitle:__title
                                                           message:message
                                                          delegate:delegate
                                                 cancelButtonTitle:_W(@"ok")
@@ -273,9 +273,9 @@
     delegate.cancel = actright;
     delegate.ctx = ctx;
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-    WSIUIAlertView *alert = [[WSIUIAlertView alloc] initWithTitle:__title
+    NNTUIAlertView *alert = [[NNTUIAlertView alloc] initWithTitle:__title
                                                           message:message
                                                          delegate:delegate
                                                 cancelButtonTitle:left
@@ -315,9 +315,9 @@
     delegate.ctx = ctx;
     delegate.loop = CFRunLoopGetCurrent();
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
-    WSIUIAlertView *alert = [[WSIUIAlertView alloc] initWithTitle:__title
+    NNTUIAlertView *alert = [[NNTUIAlertView alloc] initWithTitle:__title
                                                           message:message
                                                          delegate:delegate
                                                 cancelButtonTitle:left
@@ -417,10 +417,10 @@
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(core)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(core)
 
 void Msgbox::info(ns::String const& msg)
 {
@@ -477,5 +477,5 @@ bool Confirm::yesno(const ns::String &msg, const ns::String &left, const ns::Str
     return [::Confirm yesno:msg left:left right:right];
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

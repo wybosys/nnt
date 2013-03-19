@@ -6,10 +6,10 @@
 # include <smtp/auth-client.h>
 # include <smtp/libesmtp.h>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
-WSIDECL_PRIVATE_BEGIN_CXX(SmtpClient)
+NNTDECL_PRIVATE_BEGIN_CXX(SmtpClient)
 
 static int authinteract (auth_client_request_t request, char **result, int fields,
                          void *arg)
@@ -151,16 +151,16 @@ smtp_session_t session;
 smtp_message_t message;
 auth_context_t authctx;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 SmtpClient::SmtpClient()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SmtpClient);
+    NNTDECL_PRIVATE_CONSTRUCT(SmtpClient);
 }
 
 SmtpClient::~SmtpClient()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 core::data SmtpClient::get_user() const
@@ -192,7 +192,7 @@ bool SmtpClient::post()
     {
         trace_msg("failed to start smtp session.");
         
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         char buf[128];
         
         fprintf (stderr, "SMTP server problem: %s\n",
@@ -206,5 +206,5 @@ bool SmtpClient::post()
     return true;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

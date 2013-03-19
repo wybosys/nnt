@@ -1,12 +1,12 @@
 
-# ifndef __WSI_CORE_NSTIMER_8AD6EDDCC6434BB3B8FB7BC248998B17_H_INCLUDED
-# define __WSI_CORE_NSTIMER_8AD6EDDCC6434BB3B8FB7BC248998B17_H_INCLUDED
+# ifndef __NNT_CORE_NSTIMER_8AD6EDDCC6434BB3B8FB7BC248998B17_H_INCLUDED
+# define __NNT_CORE_NSTIMER_8AD6EDDCC6434BB3B8FB7BC248998B17_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSTimer : WSIObject {        
+@interface NNTNSTimer : NNTObject {        
     @private
     NSTimer *_timer;
     int _suspend;
@@ -35,18 +35,18 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalTimerStart;
-WSI_EXTERN signal_t kSignalTimerStop;
-WSI_EXTERN signal_t kSignalTimerFired;
-WSI_EXTERN signal_t kSignalTimerSuspended;
-WSI_EXTERN signal_t kSignalTimerResume;
+NNT_EXTERN signal_t kSignalTimerStart;
+NNT_EXTERN signal_t kSignalTimerStop;
+NNT_EXTERN signal_t kSignalTimerFired;
+NNT_EXTERN signal_t kSignalTimerSuspended;
+NNT_EXTERN signal_t kSignalTimerResume;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class TimeInterval
 {
@@ -95,9 +95,9 @@ protected:
 };
 
 class Timer
-: public ns::Object<WSINSTimer>
+: public ns::Object<NNTNSTimer>
 {
-    typedef ns::Object<WSINSTimer> super;
+    typedef ns::Object<NNTNSTimer> super;
     
 public:
     
@@ -109,7 +109,7 @@ public:
     Timer(NSTimeInterval interval, bool repeat = true)
     : super(nil)
     {
-        this->_self = [[WSINSTimer alloc] initWithTimeInterval:interval repeats:repeat];
+        this->_self = [[NNTNSTimer alloc] initWithTimeInterval:interval repeats:repeat];
     }
     
     void set(NSTimeInterval interval, bool repeat = true)
@@ -144,33 +144,33 @@ public:
         
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 # ifdef second
 #  undef second
 # endif
 
-WSIAPI(ulonglong) get_tick_count();
-WSIAPI(ulonglong) nanosec_tick_count(ulonglong);
-WSIAPI(ulonglong) micsec_tick_count(ulonglong);
-WSIAPI(double)    millisec_tick_count(ulonglong);
+NNTAPI(ulonglong) get_tick_count();
+NNTAPI(ulonglong) nanosec_tick_count(ulonglong);
+NNTAPI(ulonglong) micsec_tick_count(ulonglong);
+NNTAPI(double)    millisec_tick_count(ulonglong);
 
-WSI_STATIC_CONST cxx::signal_t kSignalTimerFired = "::wsi::core::timer::fired";
+NNT_STATIC_CONST cxx::signal_t kSignalTimerFired = "::wsi::core::timer::fired";
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
-WSI_BEGIN_NS(msvc)
+NNT_BEGIN_NS(msvc)
 
-WSICLASS(Timer);
+NNTCLASS(Timer);
 
 class Timer
 	: public cxx::Object<>
@@ -194,7 +194,7 @@ public:
 	//! is repeat.
 	bool need_repeat() const;
 
-	WSIDECL_SIGNALS_SLOTS;
+	NNTDECL_SIGNALS_SLOTS;
 
 protected:
 
@@ -204,13 +204,13 @@ protected:
 
 };
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_NS(core)
 
-WSICLASS(Time);
+NNTCLASS(Time);
 
 class Time
 {
@@ -353,15 +353,15 @@ protected:
     
 };
 
-# if defined(WSI_MSVC)
+# if defined(NNT_MSVC)
 typedef msvc::Timer Timer;
-# elif defined(WSI_OBJC)
+# elif defined(NNT_OBJC)
 typedef ns::Timer Timer;
 # endif
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

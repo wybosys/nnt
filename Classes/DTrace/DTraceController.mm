@@ -1,20 +1,20 @@
 
 # import "Core.h"
 # import "DTraceController.h"
-# import "WSILua.h"
+# import "NNTLua.h"
 # import "Layout.h"
 # import "App.h"
 # import "DTraceLibrary.h"
-# import "Console+WSI.h"
+# import "Console+NNT.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface DTraceView : WSIUIView
+@interface DTraceView : NNTUIView
 
-@property (nonatomic, readonly) WSIUITextField* input;
-@property (nonatomic, readonly) WSIUITextView* output;
+@property (nonatomic, readonly) NNTUITextField* input;
+@property (nonatomic, readonly) NNTUITextView* output;
 @property (nonatomic, readonly) UIBevelButton *run, *close;
 
 @end
@@ -28,8 +28,8 @@ WSI_BEGIN_OBJC
     
     self.backgroundColor = [UIColor whiteColor];
     
-    input = [[WSIUITextField alloc] initWithZero];
-    output = [[WSIUITextView alloc] initWithZero];
+    input = [[NNTUITextField alloc] initWithZero];
+    output = [[NNTUITextView alloc] initWithZero];
     run = [[UIBevelButton alloc] initWithZero];
     close = [[UIBevelButton alloc] initWithZero];
     
@@ -77,7 +77,7 @@ WSI_BEGIN_OBJC
 
 @interface DTraceController ()
 
-@property (nonatomic, retain) WSILua* lua;
+@property (nonatomic, retain) NNTLua* lua;
 
 @end
 
@@ -90,7 +90,7 @@ WSI_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    lua = [[WSILua alloc] init];
+    lua = [[NNTLua alloc] init];
     showLogo = YES;
     
     // register library.
@@ -104,7 +104,7 @@ WSI_BEGIN_OBJC
     zero_release(lua);
     
     // break.
-    [[WSIConsole shared] disconnect:self];
+    [[NNTConsole shared] disconnect:self];
     
     [super dealloc];
 }
@@ -124,10 +124,10 @@ WSI_BEGIN_OBJC
     [view.input connect:kSignalEditingReturn sel:@selector(act_return) obj:self];
     
     // for echo.
-    [[WSIConsole shared] connect:kSignalPrint sel:@selector(act_echo:) obj:self];
+    [[NNTConsole shared] connect:kSignalPrint sel:@selector(act_echo:) obj:self];
 }
 
-- (void)act_echo:(WSIEventObj*)evt {
+- (void)act_echo:(NNTEventObj*)evt {
     NSString* str = evt.result;
     [self performSelectorOnMainThread:@selector(do_echo:) withObject:str waitUntilDone:NO];
 }
@@ -147,7 +147,7 @@ WSI_BEGIN_OBJC
     self.viewForSwitch.hidden = YES;
     
     // root.
-    UIView* root = [WSIApplication shared].window.rootViewController.view;
+    UIView* root = [NNTApplication shared].window.rootViewController.view;
     
     // show self.
     CGRect rc = root.bounds;
@@ -188,10 +188,10 @@ WSI_BEGIN_OBJC
 
 + (DTraceController*)shared {
     static DTraceController* __gs_ctlr = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (__gs_ctlr == nil)
         __gs_ctlr = [[DTraceController alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __gs_ctlr;
 }
 
@@ -202,4 +202,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

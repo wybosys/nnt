@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "NSTextView+WSI.h"
+# import "NSTextView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSTextView
+@implementation NNTNSTextView
 
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

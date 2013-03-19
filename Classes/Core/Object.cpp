@@ -1,37 +1,37 @@
 
 # include "Core.h"
 # include "Object.h"
-# include "Task+WSI.h"
+# include "Task+NNT.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 // global object counter.
 long ::wsi::Object::__global_object_counter = 0;
 
 ::wsi::Object::Object()
 {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
-	WSI_ATOMIC_INC(__global_object_counter);
+	NNT_ATOMIC_INC(__global_object_counter);
 
 # endif
 }
 
 ::wsi::Object::~Object()
 {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
-	WSI_ATOMIC_DEC(__global_object_counter);
+	NNT_ATOMIC_DEC(__global_object_counter);
 
 # endif
 }
 
-WSI_BEGIN_NS(cxx)
+NNT_BEGIN_NS(cxx)
 
 // empty event object.
 eventobj_t null_eventobj;
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 class BackgroundTask
 	: public core::Task
@@ -76,13 +76,13 @@ void TaskBackground::start()
 	task->drop();
 }
 
-WSI_END_NS // impl
+NNT_END_NS // impl
 
-WSI_END_NS // cxx
+NNT_END_NS // cxx
 
-WSI_END_CXX // wsi
+NNT_END_CXX // wsi
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 bool Drop(::wsi::RefObject* obj)
 {
@@ -97,4 +97,4 @@ void Grab(::wsi::RefObject* obj)
         obj->grab();
 }
 
-WSI_END_C
+NNT_END_C

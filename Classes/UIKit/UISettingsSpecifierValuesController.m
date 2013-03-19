@@ -4,9 +4,9 @@
 # import "UISettingsSpecifier.h"
 # import "UISettingsReader.h"
 # import "UISettingsStoreUserDefaults.h"
-# import "UITableView+WSI.h"
+# import "UITableView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define kCellValue      @"kCellValue"
 
@@ -182,4 +182,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

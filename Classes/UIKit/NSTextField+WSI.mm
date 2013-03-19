@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSTextField+WSI.h"
+# import "NSTextField+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSTextField
+@implementation NNTNSTextField
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

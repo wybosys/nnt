@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "ColorPalette.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
-uint ColorWheel [][WSI_COLORWHEEL_COMPSIZE] = {
+uint ColorWheel [][NNT_COLORWHEEL_COMPSIZE] = {
     {0xe60314, 0xe92938, 0xee5663, 0xf3888e, 0xf7b0b6, 0xfbd9ba, 0xfdefef},
     {0xb61477, 0xc13389, 0xcb589d, 0xd884b6, 0xe4a6cb, 0xeec8e1, 0xf8e4ef},
     {0x631b89, 0x743796, 0x8f5aa8, 0xaa84bf, 0xc2a7d0, 0xd7c7e2, 0xeae2ef},
@@ -23,8 +23,8 @@ colorpicker_t ColorWheelPicker() {
     colorpicker_t ret;
     ret.colorwheel = (const uint*)ColorWheel;
     ret.current = ret.current_comp = 0;
-    ret.size = sizeof(ColorWheel) / sizeof(rgb_t[WSI_COLORWHEEL_COMPSIZE]);
-    ret.size_comp = WSI_COLORWHEEL_COMPSIZE;
+    ret.size = sizeof(ColorWheel) / sizeof(rgb_t[NNT_COLORWHEEL_COMPSIZE]);
+    ret.size_comp = NNT_COLORWHEEL_COMPSIZE;
     return ret;
 }
 
@@ -50,4 +50,4 @@ uint ColorPickerAtIndex(colorpicker_t* __obj, uint __idx) {
     return ret;
 }
 
-WSI_END_C
+NNT_END_C

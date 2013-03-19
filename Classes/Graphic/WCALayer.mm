@@ -2,12 +2,12 @@
 # import "Core.h"
 # import "WCALayer.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+WSI.h"
+# import "CoreGraphic+NNT.h"
 # import "WCALayerTheme.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIIMPL_CATEGORY(CALayer, WCA);
+NNTIMPL_CATEGORY(CALayer, WCA);
 
 @implementation CALayer (WCA)
 
@@ -62,7 +62,7 @@ WSIIMPL_CATEGORY(CALayer, WCA);
 
 @implementation WCALayer
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 @synthesize backgroundFill;
 @synthesize theme;
@@ -85,7 +85,7 @@ WSIOBJECT_IMPL;
     zero_release(backgroundFill);
     zero_release(theme);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -108,4 +108,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,8 +1,8 @@
 
-# ifndef __WSI_MATH_99CB3BD0A23F45378EC765DA4E2F242C_H_INCLUDED
-# define __WSI_MATH_99CB3BD0A23F45378EC765DA4E2F242C_H_INCLUDED
+# ifndef __NNT_MATH_99CB3BD0A23F45378EC765DA4E2F242C_H_INCLUDED
+# define __NNT_MATH_99CB3BD0A23F45378EC765DA4E2F242C_H_INCLUDED
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # ifdef REAL_IS_DOUBLE
 #   define roundr     round
@@ -78,7 +78,7 @@ WSI_BEGIN_HEADER_C
 # define real_equal(val, right, precise) (((val + precise) > right) && ((val - precise) < right))
 
 // calc distance.
-WSI_EXTERN real distance_points2d(real x0, real y0, real x1, real y1);
+NNT_EXTERN real distance_points2d(real x0, real y0, real x1, real y1);
 
 // value in region (-2PI, 2PI).
 # define M_2PI_RESTRICT(val) ((val) - ((int)((val) * M_1_2PI) * M_2PI))
@@ -94,13 +94,13 @@ inline_impl real M_2PI_RESTRICT_P(real ang)
 }
 
 // ret in region [0, region].
-WSI_EXTERN real restrict_value(real val, real region, real precise);
+NNT_EXTERN real restrict_value(real val, real region, real precise);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 template <typename valueT>
 inline_impl valueT closure_region_value(valueT val, valueT reg)
@@ -112,7 +112,7 @@ inline_impl valueT closure_region_value(valueT val, valueT reg)
     return val;
 }
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -6,7 +6,7 @@
 
 JUICEIMPL_BEGIN 
 
-WSI_BEGIN_NS(ad3dmax)
+NNT_BEGIN_NS(ad3dmax)
 
 enum {
     MAINCHUNK = 0x4D4D,
@@ -18,7 +18,7 @@ enum {
     TEXMAP_DATA = 0x4140
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Archive3dmax
 {

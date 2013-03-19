@@ -1,27 +1,27 @@
 
-# ifndef __WSI_CORE_CONSOLE_E8C0848EFFA14ED394F3FEBE2A7B72FC_H_INCLUDED
-# define __WSI_CORE_CONSOLE_E8C0848EFFA14ED394F3FEBE2A7B72FC_H_INCLUDED
+# ifndef __NNT_CORE_CONSOLE_E8C0848EFFA14ED394F3FEBE2A7B72FC_H_INCLUDED
+# define __NNT_CORE_CONSOLE_E8C0848EFFA14ED394F3FEBE2A7B72FC_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIConsole : WSIObject {
+@interface NNTConsole : NNTObject {
     void* h_console;
 }
 
 - (void)print:(NSString*)str;
 - (void)println:(NSString*)str;
 
-+ (WSIConsole*)shared;
++ (NNTConsole*)shared;
 
 @end
 
-WSI_EXTERN signal_t kSignalPrint;
+NNT_EXTERN signal_t kSignalPrint;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 class Console
 : public ns::Object<>
@@ -52,7 +52,7 @@ private:
     static void* watcher_input(void*);
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "UIScreen+WSI.h"
+# import "UIScreen+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIIMPL_CATEGORY(UIScreen, WSI);
+NNTIMPL_CATEGORY(UIScreen, NNT);
 
 # define M_1_72 0.01388888888889
 # define M_1_96 0.01041666666667
 
-@implementation UIScreen (WSI)
+@implementation UIScreen (NNT)
 
 - (CGSize)currentViewSize {
     uint orientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -119,4 +119,4 @@ static const real __ppi_normal = PPI_NORMAL_DEVICE * M_1_96;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

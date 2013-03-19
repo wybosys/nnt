@@ -1,26 +1,26 @@
 
 # import "Core.h"
-# import "NSWindowController+WSI.h"
-# import "NSWindow+WSI.h"
-# import "NSViewController+WSI.h"
-# import "NSView+WSI.h"
+# import "NSWindowController+NNT.h"
+# import "NSWindow+NNT.h"
+# import "NSViewController+NNT.h"
+# import "NSView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSWindowControllerBase
+@implementation NNTNSWindowControllerBase
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 @synthesize contentViewController;
 
 - (void)dealloc {
     [contentViewController release];
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
-- (void)setContentViewController:(WSINSViewController *)ctlr {
+- (void)setContentViewController:(NNTNSViewController *)ctlr {
     if (contentViewController == ctlr)
         return;    
     [NSObject refobjSet:&contentViewController ref:ctlr];
@@ -51,7 +51,7 @@ WSIOBJECT_IMPL;
 }
 
 - (void)loadWindow {
-    WSINSWindow* window = [[WSINSWindow alloc] initWithContentRect:NSZeroRect
+    NNTNSWindow* window = [[NNTNSWindow alloc] initWithContentRect:NSZeroRect
                                                          styleMask:0 
                                                            backing:NSBackingStoreBuffered 
                                                              defer:NO];
@@ -73,8 +73,8 @@ WSIOBJECT_IMPL;
 
 @end
 
-@implementation WSINSWindowController
+@implementation NNTNSWindowController
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

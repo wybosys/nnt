@@ -1,10 +1,10 @@
 
-# ifndef __WSI_NSDATA_859AA390F3184E689D5A01C24E7B0783_H_INCLUDED
-# define __WSI_NSDATA_859AA390F3184E689D5A01C24E7B0783_H_INCLUDED
+# ifndef __NNT_NSDATA_859AA390F3184E689D5A01C24E7B0783_H_INCLUDED
+# define __NNT_NSDATA_859AA390F3184E689D5A01C24E7B0783_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSData (WSI)
+@interface NSData (NNT)
 
 //! encode binary.
 - (NSData*)encodeBinaryString;
@@ -27,19 +27,19 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(NSData, WSI);
+NNTDECL_CATEGORY(NSData, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "NSString+WSI.h"
-# include "NSURL+WSI.h"
+# include "NSString+NNT.h"
+# include "NSURL+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT, typename objcT>
 class Data
@@ -97,7 +97,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Data
 : public tpl::Data<Data, NSData>
@@ -201,7 +201,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename strT>
 inline_impl String<strT>::String(ns::Data const& data, NSStringEncoding encoding)
@@ -210,13 +210,13 @@ inline_impl String<strT>::String(ns::Data const& data, NSStringEncoding encoding
     this->_self = [[NSString alloc] initWithData:data encoding:encoding];
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_EXTERN Data null_data;
+NNT_EXTERN Data null_data;
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <>
 inline_impl data type_cast<data, ns::Data>(ns::Data const& da)
@@ -272,9 +272,9 @@ inline_impl ns::String type_cast<ns::String, data>(data const& da)
     return ns::String(core::type_cast<ns::Data>(da));
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

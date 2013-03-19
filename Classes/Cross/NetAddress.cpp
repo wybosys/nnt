@@ -1,12 +1,12 @@
 
 # include "Core.h"
 # include "NetAddress.h"
-# include "../Core/Boost+WSI.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/regex.hpp>
 # include <boost/lexical_cast.hpp>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
 NetAddress::NetAddress()
 : port(0)
@@ -134,29 +134,29 @@ core::string NetAddress::to_string() const
     return re;
 }
 
-WSI_STATIC_IMPL bool NetAddress::is_ipv4(const core::string &url)
+NNT_STATIC_IMPL bool NetAddress::is_ipv4(const core::string &url)
 {
     static ::boost::regex re_ipv4_match("(?:[0-9]{1,3}\\.){3}[0-9]{1,3}(?::[0-9]{1,5})");
     return ::boost::regex_match(url.begin(), url.end(), re_ipv4_match);
 }
 
-WSI_STATIC_IMPL bool NetAddress::is_ipv6(const core::string &url)
+NNT_STATIC_IMPL bool NetAddress::is_ipv6(const core::string &url)
 {
     static ::boost::regex re_ipv6_match("\\[(?<![:.\\w])(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}(?![:.\\w])\\]:[0-9]{1,5}");
     return ::boost::regex_match(url.begin(), url.end(), re_ipv6_match);
 }
 
-WSI_STATIC_IMPL bool NetAddress::is_host(const core::string &url)
+NNT_STATIC_IMPL bool NetAddress::is_host(const core::string &url)
 {
     static ::boost::regex re_host_match("([a-z0-9\\-._~%]+|\\[[a-z0-9\\-._~%!$&'()*+,;=:]+\\])(?::([0-9]{1,5}))?");  
     return ::boost::regex_match(url.begin(), url.end(), re_host_match);
 }
 
-WSI_STATIC_IMPL bool NetAddress::is_any(const core::string &url)
+NNT_STATIC_IMPL bool NetAddress::is_any(const core::string &url)
 {
     static ::boost::regex re_host_match("(\\*)(?::([0-9]{1,5}))?");  
     return ::boost::regex_match(url.begin(), url.end(), re_host_match);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

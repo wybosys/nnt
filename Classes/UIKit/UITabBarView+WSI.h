@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_UITABBARVIEW_C8BC0A5B30EF46BEA8B7E5F70561D85B_H_INCLUDED
-# define __WSI_UIKIT_UITABBARVIEW_C8BC0A5B30EF46BEA8B7E5F70561D85B_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABBARVIEW_C8BC0A5B30EF46BEA8B7E5F70561D85B_H_INCLUDED
+# define __NNT_UIKIT_UITABBARVIEW_C8BC0A5B30EF46BEA8B7E5F70561D85B_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 enum {
     UITabBarPositionBottom,
@@ -14,15 +14,15 @@ enum {
 };
 typedef uint UITabBarPosition;
 
-WSIDECL_EXTERN_CLASS(WSIUITabBar);
+NNTDECL_EXTERN_CLASS(NNTUITabBar);
 
-@interface WSIUITabBarView : WSIUIView {
+@interface NNTUITabBarView : NNTUIView {
     
     //! content view.
     UIView *contentView;
     
     //! tab bar.
-	WSIUITabBar *tabBar;
+	NNTUITabBar *tabBar;
     
     //! position of tab bar, default is UITabBarPositionBottom.
     UITabBarPosition tabBarPosition;
@@ -32,27 +32,27 @@ WSIDECL_EXTERN_CLASS(WSIUITabBar);
 }
 
 @property (nonatomic, assign) UIView *contentView;
-@property (nonatomic, assign) WSIUITabBar *tabBar;
+@property (nonatomic, assign) NNTUITabBar *tabBar;
 @property (nonatomic, assign) UITabBarPosition tabBarPosition;
 @property (nonatomic, assign) real tabBarHeight;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TabBarView
-: public View<TabBarView, WSIUITabBarView>
+: public View<TabBarView, NNTUITabBarView>
 {
-    typedef View<TabBarView, WSIUITabBarView> super;
+    typedef View<TabBarView, NNTUITabBarView> super;
     
 public:
     
-    TabBarView(WSIUITabBarView* view)
+    TabBarView(NNTUITabBarView* view)
     : super(view)
     {
         PASS;
@@ -70,8 +70,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

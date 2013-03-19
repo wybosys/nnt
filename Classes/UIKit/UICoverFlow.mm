@@ -3,11 +3,11 @@
 # import "UICoverFlow.h"
 # import "UICoverFlowItem.h"
 # import <QuartzCore/QuartzCore.h>
-# import "CoreGraphic+WSI.h"
-# import "UIImageView+WSI.h"
-# import "UIImage+WSI.h"
+# import "CoreGraphic+NNT.h"
+# import "UIImageView+NNT.h"
+# import "UIImage+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UICoverFlow (hidden)
 
@@ -31,7 +31,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(UICoverFlow, NSObject)
+NNTDECL_PRIVATE_BEGIN(UICoverFlow, NSObject)
 
 @property (nonatomic, retain) NSMutableDictionary *onscreen_covers, *offscreen_covers;
 @property (nonatomic, retain) UIScrollView *scrollView;
@@ -44,7 +44,7 @@ WSIDECL_PRIVATE_BEGIN(UICoverFlow, NSObject)
 @property (nonatomic, assign) CGPoint centerPoint;
 @property (nonatomic, assign) int halfMaxCoversOnScreen;
 
-WSIDECL_PRIVATE_IMPL(UICoverFlow)
+NNTDECL_PRIVATE_IMPL(UICoverFlow)
 
 @synthesize offscreen_covers, onscreen_covers;
 @synthesize scrollView;
@@ -85,7 +85,7 @@ WSIDECL_PRIVATE_IMPL(UICoverFlow)
     [d_owner emit:kSignalSelectChanged result:selectedItem];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UICoverFlow
 
@@ -106,7 +106,7 @@ WSIDECL_PRIVATE_END
     if (self == nil)
         return nil;
     
-    WSIDECL_PRIVATE_INIT(UICoverFlow);
+    NNTDECL_PRIVATE_INIT(UICoverFlow);
 
     _coverSpacing = 40.f;
     _centerCoverOffset = 70.f;
@@ -137,22 +137,22 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_items);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalActiveScale)
-WSIEVENT_SIGNAL(kSignalItemClicked)
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalActiveScale)
+NNTEVENT_SIGNAL(kSignalItemClicked)
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_END
 
 - (BOOL)isCoverDragging {
     return d_ptr.isDraggingACover;
 }
 
-- (void)_act_view_clicked:(WSIEventObj*)evt {
+- (void)_act_view_clicked:(NNTEventObj*)evt {
     NSSet *touches = (NSSet*)evt.result;
     CGPoint pt = [[touches anyObject] locationInView:d_ptr.scrollView];
     CGRect rc = d_ptr.selectedItem.frame;
@@ -264,7 +264,7 @@ WSIEVENT_END
     d_ptr.halfMaxCoversOnScreen = ceil(val * .5f);
 }
 
-- (void)_act_touches_begin:(WSIEventObj*)evt {
+- (void)_act_touches_begin:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     
 	CGPoint startPoint = [[touches anyObject] locationInView:self];
@@ -286,7 +286,7 @@ WSIEVENT_END
 	d_ptr.isSingleTap = ([touches count] == 1);
 }
 
-- (void)_act_touches_moved:(WSIEventObj*)evt {
+- (void)_act_touches_moved:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     
 	d_ptr.isSingleTap = NO;
@@ -311,7 +311,7 @@ WSIEVENT_END
 	}
 }
 
-- (void)_act_touches_end:(WSIEventObj*)evt {
+- (void)_act_touches_end:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     
 	if (d_ptr.isSingleTap) {
@@ -483,19 +483,19 @@ WSIEVENT_END
 
 - (NSArray*)subviews {
     NSArray* arr;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     arr = [super subviews];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return arr;
 }
 
 - (void)setUpInitialState {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     // remove all items.
     [self removeAllSubviews];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
         
 	NSMutableDictionary *offscreenCovers = [[NSMutableDictionary alloc] init];
     d_ptr.offscreen_covers = offscreenCovers;
@@ -505,7 +505,7 @@ WSIEVENT_END
     d_ptr.onscreen_covers = onscreenCovers;
     [onscreenCovers release];
 	
-	WSIUIScrollView *scrollView = [[WSIUIScrollView alloc] initWithFrame:self.bounds];
+	NNTUIScrollView *scrollView = [[NNTUIScrollView alloc] initWithFrame:self.bounds];
     d_ptr.scrollView = scrollView;
     [scrollView release];
     
@@ -688,4 +688,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UICoverFlow);
 
-WSI_END_OBJC
+NNT_END_OBJC

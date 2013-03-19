@@ -1,32 +1,32 @@
 
 # include "Core.h"
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 #  include <direct.h>
-#  include "../msvc/classes/MSVC+WSI.h"
+#  include "../msvc/classes/MSVC+NNT.h"
 
 # endif
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
-static WSI __gs_wsiobject;
-bool WSI::IsRunning = false;
+static NNT __gs_wsiobject;
+bool NNT::IsRunning = false;
 
-void WSI::Init()
+void NNT::Init()
 {
-    if (WSI::IsRunning == true)
+    if (NNT::IsRunning == true)
         return;
 
-	trace_msg("WSI[CXX] Toolkit.");
+	trace_msg("NNT[CXX] Toolkit.");
     
-    WSI::IsRunning = true;
+    NNT::IsRunning = true;
     
     char* path = (char*)malloc(1024);
 	trace_msg(::getcwd(path, 1024));
     free(path);
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
     msvc::Init();
 
@@ -34,23 +34,23 @@ void WSI::Init()
 
 }
 
-void WSI::Fini()
+void NNT::Fini()
 {
-    WSI::IsRunning = false;
+    NNT::IsRunning = false;
     
-	trace_msg("WSI[CXX] Toolkit End.");
+	trace_msg("NNT[CXX] Toolkit End.");
 }
 
-WSI_END_CXX
+NNT_END_CXX
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 ulong timestamp()
 {
     return (ulong)time(NULL);
 }
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 void sleep_second(ulonglong d)
 {
@@ -101,9 +101,9 @@ void sleep_nanosecond(ulonglong d)
 
 # endif
 
-char const* WSIVersion()
+char const* NNTVersion()
 {
-    return WSI_VERSION_STR;
+    return NNT_VERSION_STR;
 }
 
-WSI_END_C
+NNT_END_C

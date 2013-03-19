@@ -1,10 +1,10 @@
 
-# ifndef __WSI_VISION_CIFILTER_7C9861510B7A4C428404267D62B57E26_H_INCLUDED
-# define __WSI_VISION_CIFILTER_7C9861510B7A4C428404267D62B57E26_H_INCLUDED
+# ifndef __NNT_VISION_CIFILTER_7C9861510B7A4C428404267D62B57E26_H_INCLUDED
+# define __NNT_VISION_CIFILTER_7C9861510B7A4C428404267D62B57E26_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UICFFilterForNSNumber : WSIUIView {    
+@interface UICFFilterForNSNumber : NNTUIView {    
     CIFilter* filter;
     NSString* name;    
     UISliderTitleValue* slider;
@@ -16,7 +16,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UICFFilterForCIVector : WSIUIView {    
+@interface UICFFilterForCIVector : NNTUIView {    
     CIFilter* filter;
     NSString* name;    
     UISliderTitleValue *slider_x, *slider_y, *slider_z, *slider_w;
@@ -28,11 +28,11 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX WSI_BEGIN_NS(vision) WSI_BEGIN_NS(ci)
+NNT_BEGIN_HEADER_CXX NNT_BEGIN_NS(vision) NNT_BEGIN_NS(ci)
 
 class Filter
 {
@@ -70,7 +70,7 @@ protected:
     
 };
 
-WSI_END_NS WSI_END_NS WSI_END_HEADER_CXX
+NNT_END_NS NNT_END_NS NNT_END_HEADER_CXX
 
 # endif
 

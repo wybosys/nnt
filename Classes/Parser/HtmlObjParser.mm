@@ -3,9 +3,9 @@
 # import "HtmlObjParser.h"
 # import "HtmlParser.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation HtmlObjParser
 
@@ -67,10 +67,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(parser)
 
 ns::String HtmlObject::content_type() const
 {
@@ -87,5 +87,5 @@ ns::Object<> HtmlObject::to_object(ns::Data const& da)
     return [this->_self to_object:da];
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

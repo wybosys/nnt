@@ -1,25 +1,25 @@
 
-# ifndef __WSI_TRAIL_LOCATION_88FC6224DD91459FB98E16C3B61E1427_H_INCLUDED
-# define __WSI_TRAIL_LOCATION_88FC6224DD91459FB98E16C3B61E1427_H_INCLUDED
+# ifndef __NNT_TRAIL_LOCATION_88FC6224DD91459FB98E16C3B61E1427_H_INCLUDED
+# define __NNT_TRAIL_LOCATION_88FC6224DD91459FB98E16C3B61E1427_H_INCLUDED
 
 # import <CoreLocation/CLLocation.h>
 # import <CoreLocation/CLHeading.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(CLLocationManager);
-WSIDECL_PRIVATE_HEAD(WSILocation);
+NNTDECL_EXTERN_CLASS(CLLocationManager);
+NNTDECL_PRIVATE_HEAD(NNTLocation);
 
-WSI_EXTERN signal_t kSignalLocationChanged;
-WSI_EXTERN signal_t kSignalHeadingChanged;
-WSI_EXTERN signal_t kSignalRegionEnter;
-WSI_EXTERN signal_t kSignalRegionExit;
+NNT_EXTERN signal_t kSignalLocationChanged;
+NNT_EXTERN signal_t kSignalHeadingChanged;
+NNT_EXTERN signal_t kSignalRegionEnter;
+NNT_EXTERN signal_t kSignalRegionExit;
 
-@interface WSILocation : WSIObject {
+@interface NNTLocation : NNTObject {
     
     CLLocationManager *locationManager;
     
-    WSIDECL_PRIVATE(WSILocation);
+    NNTDECL_PRIVATE(NNTLocation);
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
@@ -59,20 +59,20 @@ WSI_EXTERN signal_t kSignalRegionExit;
 
 @end
 
-@interface WSILocation (location)
+@interface NNTLocation (location)
 
 @property(readonly, nonatomic) CLLocation *location;
 
 @end
 
-@interface WSILocation (heading)
+@interface NNTLocation (heading)
 
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 @property(readonly, nonatomic) CLHeading *heading;
 # endif
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

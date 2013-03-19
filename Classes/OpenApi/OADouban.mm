@@ -9,7 +9,7 @@
 # import "OADefines.h"
 # import "../UIKit/UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestDouban
 
@@ -93,7 +93,7 @@ WSI_BEGIN_OBJC
     return authview;
 }
 
-- (void)act_success:(WSIEventObj*)evt {
+- (void)act_success:(NNTEventObj*)evt {
     [self success];
 }
 
@@ -256,7 +256,7 @@ WSI_BEGIN_OBJC
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -347,4 +347,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

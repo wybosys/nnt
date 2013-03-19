@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "Map+WSI.h"
+# include "Map+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSMap
 
@@ -68,4 +68,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

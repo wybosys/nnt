@@ -1,22 +1,22 @@
 
 # import "Core.h"
-# import "WSIConfiguration.h"
-# import "WSIBdb.h"
+# import "NNTConfiguration.h"
+# import "NNTBdb.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 # define kConfFileName @".wsi.config"
 
-WSIDECL_PRIVATE_BEGIN(WSIConfiguration, NSObject)
+NNTDECL_PRIVATE_BEGIN(NNTConfiguration, NSObject)
 {
-    WSIBdb *_db;
+    NNTBdb *_db;
 }
 
-@property (nonatomic, retain) WSIBdb *db;
+@property (nonatomic, retain) NNTBdb *db;
 
 - (BOOL)open:(NSString*)file;
 
-WSIDECL_PRIVATE_IMPL(WSIConfiguration)
+NNTDECL_PRIVATE_IMPL(NNTConfiguration)
 
 @synthesize db = _db;
 
@@ -37,10 +37,10 @@ WSIDECL_PRIVATE_IMPL(WSIConfiguration)
 - (BOOL)open:(NSString *)file {
     zero_release(_db);
     
-    _db = [[WSIBdb alloc] init];
+    _db = [[NNTBdb alloc] init];
     _db.readonly = d_owner.readonly;
     _db.dup = false;
-    if (NO == [_db openDbWith:file type:(NSVariableDirectory | WSIDirectoryTypeSystem)]) {
+    if (NO == [_db openDbWith:file type:(NSVariableDirectory | NNTDirectoryTypeSystem)]) {
         zero_release(_db);
     }
     
@@ -48,21 +48,21 @@ WSIDECL_PRIVATE_IMPL(WSIConfiguration)
     return _db != nil;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@implementation WSIConfiguration
+@implementation NNTConfiguration
 
 @synthesize readonly = _readonly;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIConfiguration);
+    NNTDECL_PRIVATE_INIT(NNTConfiguration);
     return self;
 }
 
 - (id)initWithFile:(NSString *)file {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIConfiguration);
+    NNTDECL_PRIVATE_INIT(NNTConfiguration);
     
     if (NO == [d_ptr open:file]) {
         [self release];
@@ -73,16 +73,16 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-static WSIConfiguration *__gs_confcenter = nil;
+static NNTConfiguration *__gs_confcenter = nil;
 
-+ (WSIConfiguration*)shared {   
-    WSI_SYNCHRONIZED(self)
++ (NNTConfiguration*)shared {   
+    NNT_SYNCHRONIZED(self)
     if (__gs_confcenter == nil) {
-        WSI *wsiobj = [WSI shared];
+        NNT *wsiobj = [NNT shared];
         __gs_confcenter = [[self alloc] init];
         if (NO == [__gs_confcenter open:kConfFileName]) {
             trace_msg(@"failed to open config data.");
@@ -92,7 +92,7 @@ static WSIConfiguration *__gs_confcenter = nil;
             [wsiobj storeSet:@"::wsi::gs::confcenter" obj:__gs_confcenter];
         }
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return __gs_confcenter;
 }
 
@@ -125,7 +125,7 @@ static WSIConfiguration *__gs_confcenter = nil;
 - (void)set:(NSString*)key obj:(id)obj {
     NSString* val = @"";
     if (obj)
-        val = [WSIObject json_encode:obj];
+        val = [NNTObject json_encode:obj];
     [self set:key val:val];
 }
 
@@ -185,7 +185,7 @@ static WSIConfiguration *__gs_confcenter = nil;
     NSString* str = [self get:key];
     if (str == nil)
         return nil;
-    return [WSIObject json_decode:str];
+    return [NNTObject json_decode:str];
 }
 
 - (id)getAsObject:(NSString *)key null:(id)obj {
@@ -207,8 +207,8 @@ static WSIConfiguration *__gs_confcenter = nil;
     return [d_ptr open:file];
 }
 
-+ (WSIConfiguration*)configuration:(NSString*)file {
-    return [[[WSIConfiguration alloc] initWithFile:file] autorelease];
++ (NNTConfiguration*)configuration:(NSString*)file {
+    return [[[NNTConfiguration alloc] initWithFile:file] autorelease];
 }
 
 - (void)set:(NSString*)key boolValue:(bool)val {
@@ -322,10 +322,10 @@ static WSIConfiguration *__gs_confcenter = nil;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(store)
 
 Configuration::Configuration(ns::String const& file)
 {
@@ -342,7 +342,7 @@ Configuration& Configuration::shared()
 
 bool Configuration::open(ns::String const& file)
 {
-    NSURL *url = WSIDirectoryCreateWithType(@"", (NSVariableDirectory | WSIDirectoryTypeSystem));
+    NSURL *url = NNTDirectoryCreateWithType(@"", (NSVariableDirectory | NNTDirectoryTypeSystem));
     if (url == nil)
         return NO;
     url = [url URLByAppendingPathComponent:file];
@@ -361,7 +361,7 @@ bool Configuration::set_obj(ns::String const& key, id obj)
         return true;
     NSString* val = @"";
     if (obj)
-        val = [::WSIObject json_encode:obj];
+        val = [::NNTObject json_encode:obj];
     return this->set(ns::String(key), ns::String(val));
 }
 
@@ -370,7 +370,7 @@ id Configuration::get_obj(ns::String const& key, id null) const
     ns::String str = this->get(key, ns::null_string);
     if (str == ns::null_string)
         return null;
-    id obj = [::WSIObject json_decode:str];
+    id obj = [::NNTObject json_decode:str];
     return obj;
 }
 
@@ -380,5 +380,5 @@ bool Configuration::remove(ns::String const& key)
     return this->remove(da);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

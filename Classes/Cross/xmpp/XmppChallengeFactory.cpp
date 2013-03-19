@@ -3,8 +3,8 @@
 # include "XmppChallengeFactory.h"
 # include "core/XmppChallenge.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(xmpp)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(xmpp)
 
 ChallengeFactory::ChallengeFactory()
 {
@@ -24,5 +24,5 @@ bool ChallengeFactory::process(const xmlnode_t * node)
     return super::process(node);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

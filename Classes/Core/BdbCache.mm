@@ -2,11 +2,11 @@
 # import "Core.h"
 # import "BdbCache.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 # include <bdb/db.h>
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface BdbCachePrivate : NSObject {
     BdbCache *d_owner;
@@ -54,13 +54,13 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(BdbCache, d_ptr_bdb);
+    NNTDECL_PRIVATE_INIT_EX(BdbCache, d_ptr_bdb);
     return self;
 }
 
-- (id)initWithPath:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWithPath:(NSString *)path type:(NNTDirectoryType)type {
     self = [super initWithPath:path type:type];
-    WSIDECL_PRIVATE_INIT_EX(BdbCache, d_ptr_bdb);
+    NNTDECL_PRIVATE_INIT_EX(BdbCache, d_ptr_bdb);
     
     if (self.url) {
         NSString *path = [[self.url URLByAppendingPathComponent:@"cache.db"] path];
@@ -93,7 +93,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_bdb);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_bdb);
     [super dealloc];
 }
 
@@ -169,7 +169,7 @@ WSI_BEGIN_OBJC
 }
 
 - (BOOL)load {
-    WSIMACRO_LOCKOBJ(self);
+    NNTMACRO_LOCKOBJ(self);
     
     [self begin_load];
     
@@ -242,4 +242,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

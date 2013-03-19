@@ -2,13 +2,13 @@
 # import "Core.h"
 # import "WCGTextStyle.h"
 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 # import "NSFont+WCG.h"
 # endif
 
 # import "WCGDefines.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /**	@cond */
 @interface WCGTextStyle ()
@@ -178,7 +178,7 @@ WSI_BEGIN_OBJC
 	return newCopy;
 }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 
 - (UIFont*)uiFont {
     NSString *theFontName = self.fontName;
@@ -195,7 +195,7 @@ WSI_BEGIN_OBJC
 
 # endif
 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
 
 - (NSDictionary*)uiFontAttributes {
     NSString *theFontName = self.fontName;
@@ -214,12 +214,12 @@ WSI_BEGIN_OBJC
 
 - (CGSize)sizeOfString:(NSString *)string {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 	UIFont *theFont = [UIFont fontWithName:self.fontName size:self.fontSize];
 	CGSize textSize = [string sizeWithFont:theFont];	
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     NSFont* theFont = [NSFont fontWithName:self.fontName size:self.fontSize];
     NSDictionary* attrs = [theFont getAttributes];
     NSSize textSize = [string sizeWithAttributes:attrs];
@@ -269,4 +269,4 @@ WSI_BEGIN_OBJC
 @end
 
 
-WSI_END_OBJC
+NNT_END_OBJC

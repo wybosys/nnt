@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "ICloudService.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation ICloudService
 
@@ -23,10 +23,10 @@ WSI_BEGIN_OBJC
 
 + (id)shared {
     static ICloudService* ret = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (ret == nil)
         ret = [[[self class] alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
@@ -39,10 +39,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cloud)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cloud)
 
 iCloud::iCloud()
 {
@@ -61,5 +61,5 @@ iCloud& iCloud::getInstance()
     return obj;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

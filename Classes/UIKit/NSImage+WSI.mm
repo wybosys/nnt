@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "NSImage+WSI.h"
+# import "NSImage+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSImage (WSI)
+@implementation NSImage (NNT)
 
 - (void)saveAsPNG:(NSURL*)url {
     if (url.isFileURL == NO) {
@@ -28,4 +28,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

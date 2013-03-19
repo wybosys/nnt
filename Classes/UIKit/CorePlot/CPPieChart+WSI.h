@@ -1,16 +1,16 @@
 
-# ifndef __WSI_UIKIT_COREPLOT_CPPIEPLOT_75E371869C494858BD3DCD14A7F52174_H_INCLUDED
-# define __WSI_UIKIT_COREPLOT_CPPIEPLOT_75E371869C494858BD3DCD14A7F52174_H_INCLUDED
+# ifndef __NNT_UIKIT_COREPLOT_CPPIEPLOT_75E371869C494858BD3DCD14A7F52174_H_INCLUDED
+# define __NNT_UIKIT_COREPLOT_CPPIEPLOT_75E371869C494858BD3DCD14A7F52174_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface CPPieChart (WSI)
+@interface CPPieChart (NNT)
 
 - (CGPoint)centerPoint:(CGContextRef)context;
 
 @end
 
-WSIDECL_PRIVATE_HEAD(UICPPieChart);
+NNTDECL_PRIVATE_HEAD(UICPPieChart);
 
 @interface UICPPieChart : CPPieChart {
     UICPLineStyle *outLine;
@@ -19,7 +19,7 @@ WSIDECL_PRIVATE_HEAD(UICPPieChart);
     CGFloat totalRadius; //! ratio of radius, 0 - 1.0
     BOOL allowInteractiveRotate; //! allow rotate by user's figure
     
-    WSIDECL_PRIVATE(UICPPieChart);
+    NNTDECL_PRIVATE(UICPPieChart);
 }
 
 @property (nonatomic, retain) UICPLineStyle *outLine;
@@ -50,6 +50,6 @@ WSIDECL_PRIVATE_HEAD(UICPPieChart);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

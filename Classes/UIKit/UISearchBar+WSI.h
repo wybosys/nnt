@@ -1,41 +1,41 @@
 
-# ifndef __WSI_UISEARCHBAR_3693D4CD2DE94F74921B6D6EF326CE87_H_INCLUDED
-# define __WSI_UISEARCHBAR_3693D4CD2DE94F74921B6D6EF326CE87_H_INCLUDED
+# ifndef __NNT_UISEARCHBAR_3693D4CD2DE94F74921B6D6EF326CE87_H_INCLUDED
+# define __NNT_UISEARCHBAR_3693D4CD2DE94F74921B6D6EF326CE87_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN signal_t kSignalSearchClicked;
-WSI_EXTERN signal_t kSignalBookmarkClicked;
-WSI_EXTERN signal_t kSignalCancelClicked;
-WSI_EXTERN signal_t kSignalResultsClicked;
-WSI_EXTERN signal_t kSignalBeginEditing;
-WSI_EXTERN signal_t kSignalEndEditing;
+NNT_EXTERN signal_t kSignalSearchClicked;
+NNT_EXTERN signal_t kSignalBookmarkClicked;
+NNT_EXTERN signal_t kSignalCancelClicked;
+NNT_EXTERN signal_t kSignalResultsClicked;
+NNT_EXTERN signal_t kSignalBeginEditing;
+NNT_EXTERN signal_t kSignalEndEditing;
 
-@interface WSIUISearchBar : UISearchBar <UISearchBarDelegate> {
+@interface NNTUISearchBar : UISearchBar <UISearchBarDelegate> {
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (void)visibleCancelButton;
 - (void)invisibleCancelButton;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SearchBar
-: public Control<SearchBar, WSIUISearchBar>
+: public Control<SearchBar, NNTUISearchBar>
 {
-    typedef Control<SearchBar, WSIUISearchBar> super;
+    typedef Control<SearchBar, NNTUISearchBar> super;
     
 public:
     
@@ -106,8 +106,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

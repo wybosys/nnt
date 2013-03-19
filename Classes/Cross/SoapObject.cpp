@@ -4,7 +4,7 @@
 # include "SoapObject.h"
 # include "../Parser/SOAPParser.h"
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(soap)
+NNT_BEGIN_CXX NNT_BEGIN_NS(soap)
 
 Invoker::Invoker(parser::SoapDocument& doc)
 : _doc(&doc)
@@ -232,4 +232,4 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
     this->free(cls);
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

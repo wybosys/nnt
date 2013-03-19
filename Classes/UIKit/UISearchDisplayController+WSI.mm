@@ -1,12 +1,12 @@
 
 # import "Core.h"
-# import "UISearchDisplayController+WSI.h"
+# import "UISearchDisplayController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUISearchDisplayController
+@implementation NNTUISearchDisplayController
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 @synthesize accordingView = _accordingView;
 
@@ -19,7 +19,7 @@ WSIOBJECT_IMPL;
 }
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -92,7 +92,7 @@ WSIOBJECT_IMPL;
 
 using namespace ::wsi;
 
-_CXXCONTROLLER_IMPL_BEGIN(WSIUISearchDisplayController)
+_CXXCONTROLLER_IMPL_BEGIN(NNTUISearchDisplayController)
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     ui::tpl::ISearchDisplayController* ctlr = dynamic_cast<ui::tpl::ISearchDisplayController*>(self._cxxobj);
@@ -106,4 +106,4 @@ _CXXCONTROLLER_IMPL_BEGIN(WSIUISearchDisplayController)
 
 _CXXCONTROLLER_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

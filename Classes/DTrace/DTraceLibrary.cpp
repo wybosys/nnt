@@ -3,16 +3,16 @@
 # include "DTraceLibrary.h"
 # include <signal.h>
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include "../../contrib/lua/lua.h"
 # include "../../contrib/lua/lstate.h"
 # include "../../contrib/lua/lualib.h"
 # include "../../contrib/lua/lauxlib.h"
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 int wluad_object_counter(lua_State* state)
 {
@@ -32,4 +32,4 @@ void wluaopen_dtrace(wlua_Processor* proc)
     lua_register(wluaL(proc), "debug", wluad_debug);
 }
 
-WSI_END_C
+NNT_END_C

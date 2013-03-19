@@ -1,6 +1,6 @@
 
-# ifndef __WSI_BOOST_E946138AFCE74F1B99B00D5A38672EC2_H_INCLUDED
-# define __WSI_BOOST_E946138AFCE74F1B99B00D5A38672EC2_H_INCLUDED
+# ifndef __NNT_BOOST_E946138AFCE74F1B99B00D5A38672EC2_H_INCLUDED
+# define __NNT_BOOST_E946138AFCE74F1B99B00D5A38672EC2_H_INCLUDED
 
 # ifdef none
 #   undef none
@@ -46,7 +46,7 @@
 #   define BOOST_EXCEPTION_DISABLE 1
 # endif
 
-# if defined(WSI_CC_GCC) || defined(WSI_CC_CLANG) || defined(WSI_CC_LLVM)
+# if defined(NNT_CC_GCC) || defined(NNT_CC_CLANG) || defined(NNT_CC_LLVM)
 #   pragma GCC diagnostic ignored "-Wconversion"
 #   pragma GCC diagnostic ignored "-Wparentheses"
 # endif

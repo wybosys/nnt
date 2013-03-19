@@ -1,15 +1,15 @@
 
-# ifndef __WSI_CROSS_HTTPREQUEST_B95B43A3840E428D80A9CC72723877B3_H_INCLUDED
-# define __WSI_CROSS_HTTPREQUEST_B95B43A3840E428D80A9CC72723877B3_H_INCLUDED
+# ifndef __NNT_CROSS_HTTPREQUEST_B95B43A3840E428D80A9CC72723877B3_H_INCLUDED
+# define __NNT_CROSS_HTTPREQUEST_B95B43A3840E428D80A9CC72723877B3_H_INCLUDED
 
 # include "NullRpc.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_PROTOCOL(IObjParser);
-WSIDECL_PRIVATE_HEAD(HttpRequest);
+NNTDECL_EXTERN_PROTOCOL(IObjParser);
+NNTDECL_PRIVATE_HEAD(HttpRequest);
 
 @interface HttpRequest : NullRpc {
     
@@ -19,7 +19,7 @@ WSIDECL_PRIVATE_HEAD(HttpRequest);
     //! cookies urls. it will be clean before each call.
     NSArray* cookieURLs;
     
-    WSIDECL_PRIVATE(HttpRequest);
+    NNTDECL_PRIVATE(HttpRequest);
 }
 
 @property (nonatomic, copy)   NSString *method;
@@ -44,14 +44,14 @@ WSIDECL_PRIVATE_HEAD(HttpRequest);
 
 @end
 
-WSI_EXTERN NSString* HttpRequestGetMethod(Class cls);
+NNT_EXTERN NSString* HttpRequestGetMethod(Class cls);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
 
 class HttpRequest
 : public ns::Object< ::HttpRequest>
@@ -71,18 +71,18 @@ class HttpPostRequest
 public:
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // objc-cxx
 
 # endif // objc
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
-WSI_BEGIN_NS(rpc)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(rpc)
 
 class HttpRequest
 : public NullImplementation
@@ -94,9 +94,9 @@ public:
 
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_NS
+NNT_END_NS
+NNT_END_NS
+NNT_END_NS
 
 # endif // cxx
 

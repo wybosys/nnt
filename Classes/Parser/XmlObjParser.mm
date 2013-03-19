@@ -1,17 +1,17 @@
 
 # import "Core.h"
 # import "XmlObjParser.h"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 # import "XmlParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(XmlObjParser, NSObject)
+NNTDECL_PRIVATE_BEGIN(XmlObjParser, NSObject)
 
 - (NSString*)xml_header;
 - (NSString*)xml_object:(NSObject*)__obj needClosure:(BOOL)__closure;
 
-WSIDECL_PRIVATE_IMPL(XmlObjParser)
+NNTDECL_PRIVATE_IMPL(XmlObjParser)
 
 - (id)init {
     self = [super init];
@@ -62,7 +62,7 @@ LABEL_RETURN:
     return str;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation XmlObjParser
 
@@ -71,7 +71,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(XmlObjParser);
+    NNTDECL_PRIVATE_INIT(XmlObjParser);
     
     self.encoding = @"utf-8";
     self.version = @"1.0";
@@ -88,7 +88,7 @@ WSIDECL_PRIVATE_END
     safe_release(_version);
     safe_release(_root);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -103,7 +103,7 @@ WSIDECL_PRIVATE_END
 
 void xml_load_node(XmlNode* node, ::wsi::ns::MutableDictionary& dict)
 {
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     if (node.children.count == 0) {
         if (node.value == nil)
@@ -134,7 +134,7 @@ void xml_load_node(XmlNode* node, ::wsi::ns::MutableDictionary& dict)
 }
 
 - (id)to_object:(id)data {
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     XmlParser* xml = [[XmlParser alloc] initWithData:data];
     if (xml == nil)
@@ -155,10 +155,10 @@ void xml_load_node(XmlNode* node, ::wsi::ns::MutableDictionary& dict)
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(parser)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(parser)
 
 ns::Data XmlObject::parse_todata(ns::Object<> const& obj)
 {
@@ -170,5 +170,5 @@ ns::Object<> XmlObject::to_object(ns::Data const& da)
     return [this->_self to_object:da];
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

@@ -1,12 +1,12 @@
 
 # import "Core.h"
 # import "CGRoundedLeftArrowShape.h"
-# import "Math+WSI.h"
+# import "Math+NNT.h"
 
 const CGFloat kArrowPointWidth  = 2.8;
 const CGFloat kArrowRadius      = 2;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation CGRoundedLeftArrowShape
 
@@ -120,4 +120,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

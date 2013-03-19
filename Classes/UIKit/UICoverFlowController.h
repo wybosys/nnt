@@ -1,13 +1,13 @@
 
-# ifndef __WSI_UIKIT_UICOVERFLOWCONTROLLER_3E3B4983FDE14884AB612E412B3BEE86_H_INCLUDED
-# define __WSI_UIKIT_UICOVERFLOWCONTROLLER_3E3B4983FDE14884AB612E412B3BEE86_H_INCLUDED
+# ifndef __NNT_UIKIT_UICOVERFLOWCONTROLLER_3E3B4983FDE14884AB612E412B3BEE86_H_INCLUDED
+# define __NNT_UIKIT_UICOVERFLOWCONTROLLER_3E3B4983FDE14884AB612E412B3BEE86_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 # import "UICoverFlow.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UICoverFlowData : WSIObject {
+@interface UICoverFlowData : NNTObject {
     
     //! image handle.
     UIImage* _image;
@@ -21,7 +21,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UICoverFlowController : WSIUIViewController <UICoverFlowDelegate, UIItemsDatasource> {
+@interface UICoverFlowController : NNTUIViewController <UICoverFlowDelegate, UIItemsDatasource> {
     
     //! datas.
     NSMutableArray* _datas;
@@ -38,6 +38,6 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

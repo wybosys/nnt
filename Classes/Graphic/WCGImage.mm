@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "WCGImage.h"
-# import "WSIResource.h"
-# import "Directory+WSI.h"
+# import "NNTResource.h"
+# import "Directory+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /**	@brief Wrapper around CGImageRef.
  *
@@ -107,7 +107,7 @@ WSI_BEGIN_OBJC
 }
 
 - (id)initWithNamed:(NSString *)path {
-    path = [WSIResource PathOf:path];
+    path = [NNTResource PathOf:path];
     CGDataProviderRef dataProvider = CGDataProviderCreateWithFilename([path cStringUsingEncoding:NSUTF8StringEncoding]);
     CGImageRef cgImage = nil;
     if ([path hasSuffix:@".png"]) {
@@ -277,7 +277,7 @@ WSI_BEGIN_OBJC
 
 - (void)drawInRect:(CGRect)rect {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     UIImage *img = [UIImage imageWithCGImage:self.image];
     [img drawInRect:rect];
 # endif
@@ -291,7 +291,7 @@ WSI_BEGIN_OBJC
 }
 
 - (NSData*)dataAsPNG {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     NSData* data = nil;
     
     UIImage* uiimg = [[UIImage alloc] initWithCGImage:self.image];
@@ -301,7 +301,7 @@ WSI_BEGIN_OBJC
     return data;
 # endif
     
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
     NSMutableData* data = [NSMutableData data];
     CGImageDestinationRef ref_des = CGImageDestinationCreateWithData((CFMutableDataRef)data, kUTTypePNG, 1, NULL);
     CGImageDestinationAddImage(ref_des, self.image, nil);
@@ -406,4 +406,4 @@ CGImageRef WCGLoadPixelsImage(rgba_t* pixels, uint width, uint height)
     return ref_img;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

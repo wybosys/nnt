@@ -1,24 +1,24 @@
 
 # import "Core.h"
-# import "UITableView+WSI.h"
-# import "UIView+WSI.h"
-# import "WSIUIObject.h"
-# import "CoreGraphic+WSI.h"
+# import "UITableView+NNT.h"
+# import "UIView+NNT.h"
+# import "NNTUIObject.h"
+# import "CoreGraphic+NNT.h"
 # import "UIScrollHeaderView.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 static CGPoint __gs_view_touchpoint = (CGPoint){-999999, -999999};
 static BOOL __gs_view_waitingtouch = NO;
 
-@interface WSIUITableView (hidden)
+@interface NNTUITableView (hidden)
 
 - (void)processHeaders;
 - (void)scrollHeaders;
 
 @end
 
-@implementation WSIUITableView (hidden)
+@implementation NNTUITableView (hidden)
 
 - (void)processHeaders {
     CGPoint offset = self.contentOffset;
@@ -117,7 +117,7 @@ static BOOL __gs_view_waitingtouch = NO;
 
 @end
 
-@implementation WSIUITableView
+@implementation NNTUITableView
 
 @synthesize pullRefreshHeader, pullMoreHeader;
 @synthesize isPullRefreshHeaderReloading, isPullMoreHeaderloading;
@@ -222,16 +222,16 @@ static BOOL __gs_view_waitingtouch = NO;
     }
 }
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalPullHeaderReload)
-    WSIEVENT_SIGNAL(kSignalPullHeaderMore)
-    WSIEVENT_SIGNAL(kSignalViewClicked);
-    WSIEVENT_SIGNAL(kSignalTouchesBegin);
-    WSIEVENT_SIGNAL(kSignalTouchesEnd);
-    WSIEVENT_SIGNAL(kSignalTouchesCancel);
-    WSIEVENT_SIGNAL(kSignalTouchesMoved);
+    NNTEVENT_SIGNAL(kSignalPullHeaderReload)
+    NNTEVENT_SIGNAL(kSignalPullHeaderMore)
+    NNTEVENT_SIGNAL(kSignalViewClicked);
+    NNTEVENT_SIGNAL(kSignalTouchesBegin);
+    NNTEVENT_SIGNAL(kSignalTouchesEnd);
+    NNTEVENT_SIGNAL(kSignalTouchesCancel);
+    NNTEVENT_SIGNAL(kSignalTouchesMoved);
 }
 
 - (void)startPullRefreshHeader {    
@@ -360,4 +360,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

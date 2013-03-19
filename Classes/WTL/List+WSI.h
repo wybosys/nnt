@@ -1,13 +1,13 @@
 
-# ifndef __WSI_CORE_LIST_03F2316AB5314A23AFA54CDB13D9A0B7_H_INCLUDED
-# define __WSI_CORE_LIST_03F2316AB5314A23AFA54CDB13D9A0B7_H_INCLUDED
+# ifndef __NNT_CORE_LIST_03F2316AB5314A23AFA54CDB13D9A0B7_H_INCLUDED
+# define __NNT_CORE_LIST_03F2316AB5314A23AFA54CDB13D9A0B7_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <list>
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
 template <typename valT>
 class _list
@@ -331,18 +331,18 @@ inline_impl list<ValueT>& operator << (list<ValueT>& left, ValueT right)
     return left;
 }
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 typedef ::wsi::core::list<id> _NSList;
 typedef _NSList::iterator NSListIterator;
 typedef _NSList::const_iterator NSListConstIterator;
 
-@interface NSList : WSIObject {
+@interface NSList : NNTObject {
     _NSList *_list;
 }
 
@@ -353,7 +353,7 @@ typedef _NSList::const_iterator NSListConstIterator;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

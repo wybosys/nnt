@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
-# import "CPScatterPlot+WSI.h"
+# import "CorePlot+NNT.h"
+# import "CPScatterPlot+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation CPScatterPlot (WSI)
+@implementation CPScatterPlot (NNT)
 
 
 @end
@@ -29,12 +29,12 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICPScatterPlot);    
+    NNTDECL_PRIVATE_INIT(UICPScatterPlot);    
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -44,4 +44,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

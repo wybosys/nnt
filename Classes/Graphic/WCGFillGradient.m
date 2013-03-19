@@ -3,7 +3,7 @@
 # import "WCGFillGradient.h"
 # import "WCGGradient.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 /**	@cond */
 @interface WCGFillGradient()
@@ -103,4 +103,4 @@ WSI_BEGIN_OBJC
 @end
 
 
-WSI_END_OBJC
+NNT_END_OBJC

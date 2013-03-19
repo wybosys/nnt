@@ -1,24 +1,24 @@
 
-# ifndef __WSI_UIKIT_UISCROLLVIEW_C0F51BEB4A1545EBA2A36FAB2A22CFCF_H_INCLUDED
-# define __WSI_UIKIT_UISCROLLVIEW_C0F51BEB4A1545EBA2A36FAB2A22CFCF_H_INCLUDED
+# ifndef __NNT_UIKIT_UISCROLLVIEW_C0F51BEB4A1545EBA2A36FAB2A22CFCF_H_INCLUDED
+# define __NNT_UIKIT_UISCROLLVIEW_C0F51BEB4A1545EBA2A36FAB2A22CFCF_H_INCLUDED
 
 # import "UIHeaderView.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGFill);
 
-@interface UIScrollView (WSI)
+@interface UIScrollView (NNT)
 
 - (CGRect)rectForLayout;
 - (CGRect)visibleFrame;
 
 @end
 
-WSIDECL_CATEGORY(UIScrollView, WSI);
+NNTDECL_CATEGORY(UIScrollView, NNT);
 
-@interface WSIUIScrollView : UIScrollView <UIScrollViewDelegate> {
-    WSIOBJECT_DECL;
+@interface NNTUIScrollView : UIScrollView <UIScrollViewDelegate> {
+    NNTOBJECT_DECL;
     
     //! background fill.
     WCGFill *_backgroundFill;
@@ -38,7 +38,7 @@ WSIDECL_CATEGORY(UIScrollView, WSI);
     
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, assign) BOOL sendGlobalEvent;
 @property (nonatomic, readonly) CGRect contentFrame;
@@ -48,22 +48,22 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalBeginScroll;
-WSI_EXTERN signal_t kSignalEndScroll;
+NNT_EXTERN signal_t kSignalBeginScroll;
+NNT_EXTERN signal_t kSignalEndScroll;
 
-_CXXVIEW_DECL(WSIUIScrollView);
+_CXXVIEW_DECL(NNTUIScrollView);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT,
-typename scrollT = _CXXVIEW(WSIUIScrollView)
+typename scrollT = _CXXVIEW(NNTUIScrollView)
 >
 class ScrollView
 : public View<implT, scrollT>
@@ -301,8 +301,8 @@ protected:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

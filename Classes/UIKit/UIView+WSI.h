@@ -1,19 +1,19 @@
 
-# ifndef __WSI_OBJC_UIVIEW_778B906B1AE14545A1D541B07D61324D_H_INCLUDED
-# define __WSI_OBJC_UIVIEW_778B906B1AE14545A1D541B07D61324D_H_INCLUDED
+# ifndef __NNT_OBJC_UIVIEW_778B906B1AE14545A1D541B07D61324D_H_INCLUDED
+# define __NNT_OBJC_UIVIEW_778B906B1AE14545A1D541B07D61324D_H_INCLUDED
 
 # import <QuartzCore/QuartzCore.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIImage);
-WSIDECL_EXTERN_CLASS(UITearView);
-WSIDECL_EXTERN_CLASS(WSIUIView);
-WSIDECL_EXTERN_CLASS(WCGFill);
-WSIDECL_EXTERN_CLASS(WSIUIViewController);
-WSIDECL_EXTERN_CLASS(UIDrawerView);
+NNTDECL_EXTERN_CLASS(UIImage);
+NNTDECL_EXTERN_CLASS(UITearView);
+NNTDECL_EXTERN_CLASS(NNTUIView);
+NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NNTUIViewController);
+NNTDECL_EXTERN_CLASS(UIDrawerView);
 
-@protocol WSIUIViewLock <NSObject>
+@protocol NNTUIViewLock <NSObject>
 
 //! lock position.
 - (void)lockPosition;
@@ -23,14 +23,14 @@ WSIDECL_EXTERN_CLASS(UIDrawerView);
 
 @end
 
-@protocol WSIUIViewInSight <NSObject>
+@protocol NNTUIViewInSight <NSObject>
 
 - (void)viewInSight;
 - (void)viewOutSight;
 
 @end
 
-WSIDECL_EXTERN_CLASS(UITheme);
+NNTDECL_EXTERN_CLASS(UITheme);
 
 //! protocol for theme.
 @protocol UIViewTheme < NSObject >
@@ -40,7 +40,7 @@ WSIDECL_EXTERN_CLASS(UITheme);
 
 @end
 
-@interface UIView (WSI)
+@interface UIView (NNT)
 
 - (id)initWithZero;
 
@@ -118,14 +118,14 @@ void UIViewEmitGlobalEvent(NSString* signal, UIView* view, NSSet* touches, UIEve
 
 @interface UIViewGlobalEvent : NSObject
 
-+ (WSIUIView*)getViewFrom:(WSIEventObj*)event;
-+ (NSSet*)getTouchesFrom:(WSIEventObj*)event;
-+ (UIEvent*)getEventFrom:(WSIEventObj*)event;
++ (NNTUIView*)getViewFrom:(NNTEventObj*)event;
++ (NSSet*)getTouchesFrom:(NNTEventObj*)event;
++ (UIEvent*)getEventFrom:(NNTEventObj*)event;
 
 @end
 
-@interface WSIUIView : UIView <WSIUIViewLock> {
-    WSIOBJECT_DECL;
+@interface NNTUIView : UIView <NNTUIViewLock> {
+    NNTOBJECT_DECL;
     
     //! background image.
     WCGFill *_backgroundFill;
@@ -160,7 +160,7 @@ void UIViewEmitGlobalEvent(NSString* signal, UIView* view, NSSet* touches, UIEve
 @property (readonly) NSArray* subControllers;
 @property (nonatomic, readonly) BOOL isPainting;
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 //! if need assistant view. default is NO.
 @property (nonatomic, assign) BOOL needAssistantView;
@@ -172,11 +172,11 @@ WSIOBJECT_PROP;
 @property (nonatomic, retain) id identity;
 
 //! func for assitant view.
-@property (nonatomic, assign) id (*funcAssistantView)(WSIUIView*);
+@property (nonatomic, assign) id (*funcAssistantView)(NNTUIView*);
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-@property (nonatomic, assign) id (^blockAssistantView)(WSIUIView*);
+@property (nonatomic, assign) id (^blockAssistantView)(NNTUIView*);
 
 # endif
 
@@ -221,48 +221,48 @@ WSIOBJECT_PROP;
 
 @end
 
-# define WSIUIVIEW_NOTINHERIT_MUST_DECL \
+# define NNTUIVIEW_NOTINHERIT_MUST_DECL \
 - (CGRect)extent; \
 - (void)setExtent:(CGRect)rc;
 
-# define WSIUIVIEW_NOTINHERIT_MUST_IMPL \
+# define NNTUIVIEW_NOTINHERIT_MUST_IMPL \
 - (CGRect)extent { return self.frame; } \
 - (void)setExtent:(CGRect)rc { self.frame = rc; }
 
 //! delay for touch signal.
-WSI_EXTERN real kUITouchDelay;
+NNT_EXTERN real kUITouchDelay;
 
 //! drag time.
-WSI_EXTERN real kUIDragDelay;
+NNT_EXTERN real kUIDragDelay;
 
 //! radius.
-WSI_EXTERN int kUITouchRadius;
+NNT_EXTERN int kUITouchRadius;
 
 //! empty.
-WSI_EXTERN CGPoint kUITouchSky;
+NNT_EXTERN CGPoint kUITouchSky;
 
-WSIDECL_CATEGORY(UIView, WSI);
+NNTDECL_CATEGORY(UIView, NNT);
 
 //! emit when user touch and release the view.
-WSI_EXTERN signal_t kSignalViewClicked;
+NNT_EXTERN signal_t kSignalViewClicked;
 
 //! emit when select changed.
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
 //! emit when frame has changed.
-WSI_EXTERN signal_t kSignalFrameChanged;
+NNT_EXTERN signal_t kSignalFrameChanged;
 
 //! emit when bounds has changed.
-WSI_EXTERN signal_t kSignalBoundsChanged;
+NNT_EXTERN signal_t kSignalBoundsChanged;
 
 //! selected
-WSI_EXTERN signal_t kSignalSelected;
-WSI_EXTERN signal_t kSignalDeselected;
+NNT_EXTERN signal_t kSignalSelected;
+NNT_EXTERN signal_t kSignalDeselected;
 
 //! draw.
-WSI_EXTERN signal_t kSignalPainting;
+NNT_EXTERN signal_t kSignalPainting;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # define _CXXVIEW(cls) _objc_cxx_##cls##_wrapper
 
@@ -310,15 +310,15 @@ _CXXVIEW_IMPL_END
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "../Graphic/WCALayer.h"
 # include "UITheme.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IViewController;
 
@@ -345,10 +345,10 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_uiview_wrapper < NSObject >
 
@@ -356,14 +356,14 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface _cxx_uiview_wrapper : WSIUIView <_cxx_uiview_wrapper, UIViewTheme>
+@interface _cxx_uiview_wrapper : NNTUIView <_cxx_uiview_wrapper, UIViewTheme>
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class HovTearView;
 class VecTearView;
@@ -379,7 +379,7 @@ public interT // for wrapper.
 {
     typedef View<implT, viewT, interT> self_type;
     typedef Object<implT, viewT> super;
-    WSIDECL_NOCOPY_EX(View, self_type);
+    NNTDECL_NOCOPY_EX(View, self_type);
     
 public:
     
@@ -963,13 +963,13 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # include "UITearView.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 template <typename implT, typename viewT, typename interT>
 HovTearView View<implT, viewT, interT>::tear_hov(int pos, uint spacing)
@@ -1003,7 +1003,7 @@ public:
     byte count;
 };
 
-WSI_BEGIN_NS(finger)
+NNT_BEGIN_NS(finger)
 
 static const Fingers _1(1);
 static const Fingers _2(2);
@@ -1011,10 +1011,10 @@ static const Fingers _3(3);
 static const Fingers _4(4);
 static const Fingers _5(5);
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -4,7 +4,7 @@
 # import <gmp/gmp.h>
 # import <gmp/gmpxx.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSString (Precise)
 
@@ -25,6 +25,6 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(NSString, Precise);
+NNTIMPL_CATEGORY(NSString, Precise);
 
-WSI_END_OBJC
+NNT_END_OBJC

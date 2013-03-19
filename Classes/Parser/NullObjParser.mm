@@ -1,15 +1,15 @@
 
 # import "Core.h"
 
-# define WSI_LIBONLY
+# define NNT_LIBONLY
 # import "NullObjParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalParserError = @"::wsi::parser::parse::error";
 
 void ParserInit() {
-    [WSI Register:WSIHookTypeFin hookFunc:[func_object withAddr:(void*)&ParserFin]];
+    [NNT Register:NNTHookTypeFin hookFunc:[func_object withAddr:(void*)&ParserFin]];
 }
 
 void ParserFin() {
@@ -39,9 +39,9 @@ NSStringEncoding kParserDataEncoding = NSUTF8StringEncoding;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalParserError)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalParserError)
+NNTEVENT_END
 
 - (NSData*)parse_todata:(NSObject *)obj {
     return nil;
@@ -70,4 +70,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

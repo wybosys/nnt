@@ -6,17 +6,17 @@
 # include "../../Core/App.h"
 # include "UcWindow.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cross)
 
-WSI_EXTERN Application* __gs_application;
+NNT_EXTERN Application* __gs_application;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX
 
 UC_BEGIN
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 void* View::Create()
 {
@@ -42,6 +42,6 @@ void View::Show(void* obj)
     q->show();
 }
 
-WSI_END_NS
+NNT_END_NS
 
 UC_END

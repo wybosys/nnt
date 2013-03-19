@@ -1,12 +1,12 @@
 
-# ifndef __WSI_TASK_45878518D409441CAFE47BAC3E7DAC82_H_INCLUDED
-# define __WSI_TASK_45878518D409441CAFE47BAC3E7DAC82_H_INCLUDED
+# ifndef __NNT_TASK_45878518D409441CAFE47BAC3E7DAC82_H_INCLUDED
+# define __NNT_TASK_45878518D409441CAFE47BAC3E7DAC82_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSICondition : NSObject {
+@interface NNTCondition : NSObject {
     void* _obj;
 }
 
@@ -15,25 +15,25 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# ifdef WSI_UNIX
+# ifdef NNT_UNIX
 #   include <semaphore.h>
 # endif
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(core)
 
-WSICLASS(Mutex);
-WSICLASS(Task);
-WSICLASS(Condition);
-WSICLASS(Semaphore);
+NNTCLASS(Mutex);
+NNTCLASS(Task);
+NNTCLASS(Condition);
+NNTCLASS(Semaphore);
 
-WSIDECL_PRIVATE_HEAD_CXX(Task);
+NNTDECL_PRIVATE_HEAD_CXX(Task);
 
 class Mutex
 {
@@ -48,7 +48,7 @@ public:
     
 protected:
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     HANDLE
 # else
     pthread_mutex_t
@@ -98,7 +98,7 @@ public:
     
 protected:
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     HANDLE
 # else
     pthread_mutex_t _mtx;
@@ -121,9 +121,9 @@ public:
     
 protected:
 
-# if defined(WSI_MSVC)    
+# if defined(NNT_MSVC)    
     HANDLE
-# elif defined(WSI_MACH)   
+# elif defined(NNT_MACH)   
     sem_t*
 # else    
     sem_t*
@@ -132,7 +132,7 @@ protected:
 
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <uint N>
 class Semaphore
@@ -148,13 +148,13 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class Task
 : public cxx::Object<>
 {
-    WSIDECL_PRIVATE_CXX(Task);
-    WSIDECL_NOCOPY(Task);
+    NNTDECL_PRIVATE_CXX(Task);
+    NNTDECL_NOCOPY(Task);
     
 public:       
     
@@ -200,8 +200,8 @@ protected:
 
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // cxx
 

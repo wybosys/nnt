@@ -1,12 +1,12 @@
 
-# ifndef __WSI_MIME_273008C7893E4BA59C0BB8533F0E5643_H_INCLUDED
-# define __WSI_MIME_273008C7893E4BA59C0BB8533F0E5643_H_INCLUDED
+# ifndef __NNT_MIME_273008C7893E4BA59C0BB8533F0E5643_H_INCLUDED
+# define __NNT_MIME_273008C7893E4BA59C0BB8533F0E5643_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
-WSI_BEGIN_NS(mime)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(mime)
 
 typedef enum
 {
@@ -26,30 +26,30 @@ typedef enum
 }
 MimeType;
 
-WSIAPI(MimeType) MimeFromString(core::string const&);
-WSIAPI(core::string) MimeToString(MimeType);
-WSIAPI(core::string) MimeNameMake(core::string const& name, MimeType);
-WSIAPI(core::string) MimeToExt(MimeType);
-WSIAPI(MimeType) MimeFromExt(core::string const&);
-WSIAPI(core::string) MimeToExt(core::string const&);
+NNTAPI(MimeType) MimeFromString(core::string const&);
+NNTAPI(core::string) MimeToString(MimeType);
+NNTAPI(core::string) MimeNameMake(core::string const& name, MimeType);
+NNTAPI(core::string) MimeToExt(MimeType);
+NNTAPI(MimeType) MimeFromExt(core::string const&);
+NNTAPI(core::string) MimeToExt(core::string const&);
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSI_EXTERN NSString* kMimeTypeFormUrlEncoded;
-WSI_EXTERN NSString* kMimeTypeTextPlain;
-WSI_EXTERN NSString* kMimeTypeTextHtml;
-WSI_EXTERN NSString* kMimeTypeTextJson;
-WSI_EXTERN NSString* kMimeTypeTextXml;
+NNT_EXTERN NSString* kMimeTypeFormUrlEncoded;
+NNT_EXTERN NSString* kMimeTypeTextPlain;
+NNT_EXTERN NSString* kMimeTypeTextHtml;
+NNT_EXTERN NSString* kMimeTypeTextJson;
+NNT_EXTERN NSString* kMimeTypeTextXml;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

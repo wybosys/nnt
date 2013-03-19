@@ -1,12 +1,12 @@
 
-# ifndef __WSI_UIKIT_TABLETREECELL_48E2F3C353EE4CA28553EC07FFB20DF0_H_INCLUDED
-# define __WSI_UIKIT_TABLETREECELL_48E2F3C353EE4CA28553EC07FFB20DF0_H_INCLUDED
+# ifndef __NNT_UIKIT_TABLETREECELL_48E2F3C353EE4CA28553EC07FFB20DF0_H_INCLUDED
+# define __NNT_UIKIT_TABLETREECELL_48E2F3C353EE4CA28553EC07FFB20DF0_H_INCLUDED
 
-# import "UITableViewCell+WSI.h"
+# import "UITableViewCell+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UITableViewGroupCell : WSIUITableViewCell {
+@interface UITableViewGroupCell : NNTUITableViewCell {
     
     //! if the cell is expanded.
     BOOL isExpanded;
@@ -20,19 +20,19 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 _CXXVIEW_DECL_BEGIN(UITableViewGroupCell)
 _CXXVIEW_DECL_END
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TableTreeSection;
 
@@ -78,7 +78,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename implT,
 typename subtableT,
@@ -253,7 +253,7 @@ protected:
     
 };
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 template <typename subtableT, typename cellT, typename cellI>
 class TableGroupCell
@@ -273,7 +273,7 @@ public:
     
 };
 
-WSI_END_NS // impl
+NNT_END_NS // impl
 
 template <typename implT, typename subtableT, typename cellT, typename cellI>
 inline_impl ::wsi::Object* TableGroupCell<implT, subtableT, cellT, cellI>::makesimple() const
@@ -282,12 +282,12 @@ inline_impl ::wsi::Object* TableGroupCell<implT, subtableT, cellT, cellI>::makes
     return new simple_type;
 }
 
-WSI_END_NS // tpl
+NNT_END_NS // tpl
 
 using tpl::TableGroupCell;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

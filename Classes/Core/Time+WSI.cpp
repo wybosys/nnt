@@ -1,17 +1,17 @@
 
 # include "Core.h"
-# include "Time+WSI.h"
+# include "Time+NNT.h"
 
 # include <time.h>
 # include <math.h>
 
-# ifdef WSI_MACH
+# ifdef NNT_MACH
 #   include <mach/mach_time.h>
 # endif
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
-# ifdef WSI_MACH
+# ifdef NNT_MACH
 
 class _timebase_init
 {
@@ -53,7 +53,7 @@ double millisec_tick_count(ulonglong tck)
 
 # endif
 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_NS(core)
 
 Time::Time()
 {
@@ -299,11 +299,11 @@ Time Time::operator + (ulong tm) const
     return ret += tm;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
-WSI_BEGIN_NS(msvc)
+NNT_BEGIN_NS(msvc)
 
 Timer::Timer()
 : _hdl(NULL), _mseconds(0), _repeat(true)
@@ -316,9 +316,9 @@ Timer::~Timer()
 	stop();
 }
 
-WSIDECL_SIGNALS_BEGIN(Timer, super)
-WSI_SIGNAL(kSignalTimerFired)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(Timer, super)
+NNT_SIGNAL(kSignalTimerFired)
+NNTDECL_SIGNALS_END
 
 void Timer::stop()
 {
@@ -366,8 +366,8 @@ void Timer::start()
 		trace_msg("Failed to create new timer.");
 }
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_END_CXX
+NNT_END_CXX

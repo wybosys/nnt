@@ -4,11 +4,11 @@
 # import <StoreKit/StoreKit.h>
 # import "App.h"
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSISKProduct : SKProduct {
+@interface NNTSKProduct : SKProduct {
     NSString* _identifier;
 }
 
@@ -16,7 +16,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSISKProduct
+@implementation NNTSKProduct
 
 @synthesize identifier = _identifier;
 
@@ -55,8 +55,8 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_END
 
 - (BOOL)downloadable {
     if ([_product respondsToSelector:@selector(downloadable)])
@@ -78,12 +78,12 @@ WSIEVENT_END
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(InAppPurchaseService, WSIObject)
+NNTDECL_PRIVATE_BEGIN(InAppPurchaseService, NNTObject)
 <SKPaymentTransactionObserver>
 {
 }
 
-WSIDECL_PRIVATE_IMPL(InAppPurchaseService)
+NNTDECL_PRIVATE_IMPL(InAppPurchaseService)
 
 - (id)init {
     self = [super init];
@@ -99,7 +99,7 @@ WSIDECL_PRIVATE_IMPL(InAppPurchaseService)
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
     for (SKPaymentTransaction* each in transactions) {
         SKPayment* obj = each.payment;
-        WSISKProduct* produ = [[WSISKProduct alloc] init];
+        NNTSKProduct* produ = [[NNTSKProduct alloc] init];
         produ.identifier = obj.productIdentifier;
         InAppPurchaseItem* item = [[InAppPurchaseItem alloc] init];
         item.product = produ;
@@ -145,13 +145,13 @@ WSIDECL_PRIVATE_IMPL(InAppPurchaseService)
     
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation InAppPurchaseService
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(InAppPurchaseService);
+    NNTDECL_PRIVATE_INIT(InAppPurchaseService);
     
     _queue = [SKPaymentQueue defaultQueue];
     [_queue addTransactionObserver:d_ptr];
@@ -160,16 +160,16 @@ WSIDECL_PRIVATE_END
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPaying)
-WSIEVENT_SIGNAL(kSignalPayFailed)
-WSIEVENT_SIGNAL(kSignalPaySuccess)
-WSIEVENT_SIGNAL(kSignalPayRestore)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPaying)
+NNTEVENT_SIGNAL(kSignalPayFailed)
+NNTEVENT_SIGNAL(kSignalPaySuccess)
+NNTEVENT_SIGNAL(kSignalPayRestore)
+NNTEVENT_END
 
 + (BOOL)Payable {
     return [SKPaymentQueue canMakePayments];
@@ -177,10 +177,10 @@ WSIEVENT_END
 
 + (InAppPurchaseService*)shared {
     static InAppPurchaseService* ret = nil;
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (ret == nil)
         ret = [[[self class] alloc] init];
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return ret;
 }
 
@@ -192,7 +192,7 @@ WSIEVENT_END
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(InAppPurchaseItems, WSIObject)
+NNTDECL_PRIVATE_BEGIN(InAppPurchaseItems, NNTObject)
 <SKProductsRequestDelegate>
 
 {
@@ -200,7 +200,7 @@ WSIDECL_PRIVATE_BEGIN(InAppPurchaseItems, WSIObject)
     bool _is_block;
 }
 
-WSIDECL_PRIVATE_IMPL(InAppPurchaseItems)
+NNTDECL_PRIVATE_IMPL(InAppPurchaseItems)
 
 - (id)init {
     self = [super init];
@@ -243,7 +243,7 @@ WSIDECL_PRIVATE_IMPL(InAppPurchaseItems)
     [d_owner release];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation InAppPurchaseItems
 
@@ -252,7 +252,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(InAppPurchaseItems);    
+    NNTDECL_PRIVATE_INIT(InAppPurchaseItems);    
     return self;
 }
 
@@ -260,14 +260,14 @@ WSIDECL_PRIVATE_END
     safe_release(_identifiers);
     safe_release(_products);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalFailed)
-WSIEVENT_SIGNAL(kSignalSuccess)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalFailed)
+NNTEVENT_SIGNAL(kSignalSuccess)
+NNTEVENT_END
 
 - (void)update {
     // retain for async update.
@@ -288,11 +288,11 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(purchase)
-WSI_BEGIN_NS(inapp)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(purchase)
+NNT_BEGIN_NS(inapp)
 
 Item::Item()
 {
@@ -432,6 +432,6 @@ void Service::add(Item& item)
     [this->_self addItem:item];
 }
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_CXX

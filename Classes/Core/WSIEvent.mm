@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "WSIEvent.h"
-# import "NSDate+WSI.h"
+# import "NNTEvent.h"
+# import "NSDate+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSISlot
+@implementation NNTSlot
 
 @synthesize 
 sel = _sel,
@@ -18,11 +18,11 @@ signal = _signal,
 veto = _veto,
 redirect = _redirect,
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 block = _block,
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 cxx_target = _cxx_target,
 cxx_action = _cxx_action,
 # endif
@@ -62,7 +62,7 @@ period = _period
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    WSISlot* slot = [[[self class] allocWithZone:zone] init];
+    NNTSlot* slot = [[[self class] allocWithZone:zone] init];
     slot.sel = _sel;
     slot.handler = _handler;
     slot.sender = _sender;
@@ -70,7 +70,7 @@ period = _period
     slot.shotcount = _shotcount;
     slot.signal = _signal;
     slot.veto = _veto;
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     slot.block = _block;
 # endif
     slot.function = _function;
@@ -122,13 +122,13 @@ period = _period
 
 @end
 
-@interface WSISlot (WSISignal)
+@interface NNTSlot (NNTSignal)
 
 - (void)startFrequencyLimit;
 
 @end
 
-@implementation WSISlot (WSISignal)
+@implementation NNTSlot (NNTSignal)
 
 - (void)startFrequencyLimit {
     _waitFrequency = YES;
@@ -141,7 +141,7 @@ period = _period
 
 @end
 
-@implementation WSISignal
+@implementation NNTSignal
 
 @synthesize name = _name;
 @synthesize slots = _slots;
@@ -165,8 +165,8 @@ period = _period
     [super dealloc];
 }
 
-- (WSISlot*)register_slot:(SEL)sel obj:(NSObject *)obj delay:(real)delay {
-    WSISlot *slot = [[WSISlot alloc] init];
+- (NNTSlot*)register_slot:(SEL)sel obj:(NSObject *)obj delay:(real)delay {
+    NNTSlot *slot = [[NNTSlot alloc] init];
     slot.sel = sel;
     slot.handler = obj;
     slot.delay = delay;
@@ -175,8 +175,8 @@ period = _period
     return slot;
 }
 
-- (WSISlot*)find_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay {
-    for (WSISlot* each in _slots) {
+- (NNTSlot*)find_slot:(SEL)sel obj:(NSObject*)obj delay:(real)delay {
+    for (NNTSlot* each in _slots) {
         if (each.sel == sel && each.handler == obj && each.delay == delay) {
             return each;
         }
@@ -184,10 +184,10 @@ period = _period
     return nil;
 }
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (WSISlot*)register_block:(slot_block_callback)block delay:(real)delay {
-    WSISlot *slot = [[WSISlot alloc] init];    
+- (NNTSlot*)register_block:(slot_block_callback)block delay:(real)delay {
+    NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.block = block;    
     slot.delay = delay;
     [_slots addObject:slot];
@@ -197,8 +197,8 @@ period = _period
 
 # endif
 
-- (WSISlot*)register_function:(slot_function_callback)function delay:(real)delay {
-    WSISlot *slot = [[WSISlot alloc] init];    
+- (NNTSlot*)register_function:(slot_function_callback)function delay:(real)delay {
+    NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.function = function;    
     slot.delay = delay;
     [_slots addObject:slot];
@@ -206,8 +206,8 @@ period = _period
     return slot;
 }
 
-- (WSISlot*)register_redirect:(signal_t)sig obj:(NSObject*)obj delay:(real)delay {
-    WSISlot *slot = [[WSISlot alloc] init];    
+- (NNTSlot*)register_redirect:(signal_t)sig obj:(NSObject*)obj delay:(real)delay {
+    NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.redirect = sig;
     slot.handler = obj;
     slot.delay = delay;
@@ -216,10 +216,10 @@ period = _period
     return slot;
 }
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-- (WSISlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
-    WSISlot *slot = [[WSISlot alloc] init];    
+- (NNTSlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+    NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.cxx_target = target;
     slot.cxx_action = action;
     slot.delay = delay;
@@ -230,7 +230,7 @@ period = _period
 
 # endif
 
-- (NSUInteger)indexOfSlot:(WSISlot*)slot {
+- (NSUInteger)indexOfSlot:(NNTSlot*)slot {
     return [_slots indexOfObject:slot];
 }
 
@@ -238,7 +238,7 @@ period = _period
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (WSISlot *slot in _slots) {
+    for (NNTSlot *slot in _slots) {
         if (slot.handler == obj) {
             [arr addObject:slot];
         }
@@ -253,7 +253,7 @@ period = _period
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (WSISlot *slot in _slots) {
+    for (NNTSlot *slot in _slots) {
         if ((slot.handler == obj) && (slot.sel == sel)) {
             [arr addObject:slot];
         }
@@ -272,13 +272,13 @@ period = _period
     [_lock unlock];
 }
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)remove_action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (WSISlot *slot in _slots) {
+    for (NNTSlot *slot in _slots) {
         if ((slot.cxx_target == target) && (slot.cxx_action == action)) {
             [arr addObject:slot];
         }
@@ -293,7 +293,7 @@ period = _period
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (WSISlot *slot in _slots) {
+    for (NNTSlot *slot in _slots) {
         if (slot.cxx_target == target) {
             [arr addObject:slot];
         }
@@ -333,7 +333,7 @@ period = _period
     NSArray* slots = [NSArray arrayWithArray:_slots];
     [_lock unlock];
     
-    for (WSISlot *each in slots) {
+    for (NNTSlot *each in slots) {
         BOOL could_call = YES;
         
         if (each.shotcount != -1) {
@@ -363,7 +363,7 @@ period = _period
         if (could_call == NO)
             continue;
         
-        WSIEventObj* evtobj = [[WSIEventObj alloc] initWithSlot:each];
+        NNTEventObj* evtobj = [[NNTEventObj alloc] initWithSlot:each];
         
         evtobj.slot.result = result;
         evtobj.slot.data = data;
@@ -376,7 +376,7 @@ period = _period
             if (0) {}
             
             // block slot.
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
             else if (each.block) {
                 (each.block)(evtobj);
             }
@@ -397,7 +397,7 @@ period = _period
             }
             
             // c++ object target.
-# ifdef WSI_CXX
+# ifdef NNT_CXX
             
             else if (each.cxx_target) {
                 if (each.inMainThread) {
@@ -415,7 +415,7 @@ period = _period
             
             // print debug message.
             else {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
                 
                 if ([each.handler respondsToSelector:each.sel]) {
                     if (each.inMainThread) {
@@ -448,7 +448,7 @@ period = _period
             if (0) {}
             
             // block.
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
             
             else if (each.block) {
                 [self performSelector:@selector(func_invoke_block:) withObject:evtobj afterDelay:each.delay];
@@ -462,7 +462,7 @@ period = _period
             }
             
             // c++
-# ifdef WSI_CXX
+# ifdef NNT_CXX
             
             else if (each.cxx_target) {
                 [self performSelector:@selector(func_invoke_objevent:) withObject:evtobj afterDelay:each.delay];
@@ -506,27 +506,27 @@ period = _period
     [self release];
 }
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (void)func_invoke_block:(WSIEventObj*)obj {
+- (void)func_invoke_block:(NNTEventObj*)obj {
     (obj.slot.block)(obj);
 }
 
 # endif
 
-- (void)func_invoke_function:(WSIEventObj*)obj {
+- (void)func_invoke_function:(NNTEventObj*)obj {
     (*obj.slot.function)(obj);
 }
 
-- (void)func_invoke_redirect:(WSIEventObj*)obj {
+- (void)func_invoke_redirect:(NNTEventObj*)obj {
     [obj.handler emit:obj.redirect
                result:obj.result
                  data:obj.data];
 }
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-- (void)func_invoke_objevent:(WSIEventObj*)obj {
+- (void)func_invoke_objevent:(NNTEventObj*)obj {
     ::wsi::objevent_func func = obj.slot.cxx_action;
     ::wsi::EventObj evt(obj);
     (obj.slot.cxx_target->*func)(evt);
@@ -540,7 +540,7 @@ period = _period
 
 @end
 
-@implementation WSIEvent
+@implementation NNTEvent
 
 @synthesize signals = _signals;
 @synthesize enable = _enable, forceEnable = _forceEnable;
@@ -563,18 +563,18 @@ period = _period
     [super dealloc];
 }
 
-- (WSISignal*)_register_signal:(signal_t)name {
-    WSISignal *signal = [_signals objectForKey:name];
+- (NNTSignal*)_register_signal:(signal_t)name {
+    NNTSignal *signal = [_signals objectForKey:name];
     if (signal)
         return signal;
-    signal = [[WSISignal alloc] init];
+    signal = [[NNTSignal alloc] init];
     signal.name = name;
     [_signals setObject:signal forKey:name];
     [signal release];
     return signal;
 }
 
-- (WSISignal*)_find_signal:(signal_t)name {
+- (NNTSignal*)_find_signal:(signal_t)name {
     return [_signals objectForKey:name];
 }
 
@@ -585,23 +585,23 @@ period = _period
 static int __gs_signal_enable = 1;
 
 + (void)EnableEverywhere {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     ++__gs_signal_enable;
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 + (void)DisableEverywhere {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     --__gs_signal_enable;
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_emit:(signal_t)name sender:(void *)sender result:(id)result data:(void*)data {
-    //WSI_SYNCHRONIZED(self)
+    //NNT_SYNCHRONIZED(self)
     
     if (!_forceEnable) {
         if ((_enable == NO) &&
@@ -610,9 +610,9 @@ static int __gs_signal_enable = 1;
         }
     }
     
-    WSISignal *signal = [_signals valueForKey:name];
+    NNTSignal *signal = [_signals valueForKey:name];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", name];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -626,11 +626,11 @@ static int __gs_signal_enable = 1;
     [signal emit:sender result:result data:data];
     
     // emit redirect.
-    for (WSIEvent *each in _redirects) {
+    for (NNTEvent *each in _redirects) {
         [each _emit:name sender:each result:result data:data];
     }
     
-    //WSI_SYNCHRONIZED_END
+    //NNT_SYNCHRONIZED_END
 }
 
 - (void)_emit:(signal_t)sig sender:(void*)sender result:(id)result {
@@ -646,9 +646,9 @@ static int __gs_signal_enable = 1;
 }
 
 - (void)_enable:(signal_t)sig tog:(BOOL)tog {
-    WSISignal *signal = [_signals valueForKey:sig];
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", sig];
@@ -661,14 +661,14 @@ static int __gs_signal_enable = 1;
     signal.enable = tog;
 }
 
-- (WSISlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject *)obj {
+- (NNTSlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject *)obj {
     return [self _connect:sig sel:sel obj:obj delay:0];
 }
 
-- (WSISlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject *)obj delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject *)obj delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -680,14 +680,14 @@ static int __gs_signal_enable = 1;
     return [signal register_slot:sel obj:obj delay:delay];
 }
 
-- (WSISlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj {
+- (NNTSlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj {
     return [self _connect:sig sig:sig2 obj:obj delay:0];
 }
 
-- (WSISlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_connect:(signal_t)sig sig:(signal_t)sig2 obj:(NSObject*)obj delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -699,16 +699,16 @@ static int __gs_signal_enable = 1;
     return [signal register_redirect:sig2 obj:obj delay:delay];
 }
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
-- (WSISlot*)_connect:(signal_t)sig block:(slot_block_callback)block {
+- (NNTSlot*)_connect:(signal_t)sig block:(slot_block_callback)block {
     return [self _connect:sig block:block delay:0];
 }
 
-- (WSISlot*)_connect:(signal_t)sig block:(slot_block_callback)block delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_connect:(signal_t)sig block:(slot_block_callback)block delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -722,16 +722,16 @@ static int __gs_signal_enable = 1;
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-- (WSISlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
+- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
     return [self _connect:sig action:action target:target delay:0];
 }
 
-- (WSISlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -745,14 +745,14 @@ static int __gs_signal_enable = 1;
 
 # endif
 
-- (WSISlot*)_connect:(signal_t)sig func:(slot_function_callback)func {
+- (NNTSlot*)_connect:(signal_t)sig func:(slot_function_callback)func {
     return [self _connect:sig func:func delay:0];
 }
 
-- (WSISlot*)_connect:(signal_t)sig func:(slot_function_callback)func delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_connect:(signal_t)sig func:(slot_function_callback)func delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         NSString *msg = [NSString stringWithFormat:@"signal [%@] is not found, current signals list:", sig];
         for (NSString *name in _signals) {
             msg = [msg stringByAppendingFormat:@" %@ ", name];
@@ -764,12 +764,12 @@ static int __gs_signal_enable = 1;
     return [signal register_function:func delay:delay];
 }
 
-- (WSISlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj {
+- (NNTSlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj {
     return [self _find_connect:sig sel:sel obj:obj delay:0];
 }
 
-- (WSISlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay {
-    WSISignal *signal = [_signals valueForKey:sig];
+- (NNTSlot*)_find_connect:(signal_t)sig sel:(SEL)sel obj:(NSObject*)obj delay:(real)delay {
+    NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
         return nil;
     }
@@ -777,115 +777,115 @@ static int __gs_signal_enable = 1;
 }
 
 - (void)_disconnect:(signal_t)name obj:(NSObject *)obj {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    WSISignal *signal = [_signals valueForKey:name];
+    NNTSignal *signal = [_signals valueForKey:name];
     if (signal == nil)
         return;
     [signal remove_slot:obj];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect:(signal_t)name sel:(SEL)sel obj:(NSObject *)obj {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
 
-    WSISignal *signal = [_signals valueForKey:name];
+    NNTSignal *signal = [_signals valueForKey:name];
     if (signal == nil)
         return;
     [signal remove_slot:sel obj:obj];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect:(NSObject *)obj {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
 
-    for (WSISignal *signal in [_signals allValues]) {
+    for (NNTSignal *signal in [_signals allValues]) {
         [signal remove_slot:obj];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect_signal:(id)name {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    WSISignal *signal = [_signals valueForKey:name];
+    NNTSignal *signal = [_signals valueForKey:name];
     if (signal == nil)
         return;
 
     [signal remove_slots];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect_all {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    for (WSISignal* sig in [_signals allValues])
+    for (NNTSignal* sig in [_signals allValues])
         [sig remove_slots];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 - (void)_disconnect:(id)name target:(::wsi::Object*)target action:(::wsi::objevent_func)action {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    WSISignal* signal = [_signals valueForKey:name];
+    NNTSignal* signal = [_signals valueForKey:name];
     if (signal == nil)
         return;
     [signal remove_action:action target:target];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect_target:(::wsi::Object*)target {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    for (WSISignal *signal in [_signals allValues]) {
+    for (NNTSignal *signal in [_signals allValues]) {
         [signal remove_target:target];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)_disconnect_target:(::wsi::Object*)target signal:(id)name {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
-    WSISignal* signal = [_signals valueForKey:name];
+    NNTSignal* signal = [_signals valueForKey:name];
     if (signal == nil)
         return;
     [signal remove_target:target];
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 # endif
 
-- (void)_redirect:(WSIEvent*)evt {
+- (void)_redirect:(NNTEvent*)evt {
     if (_redirects == nil) {
         _redirects = [[NSMutableArray alloc] init];
     }
     [_redirects addObject:evt];
 }
 
-- (void)_disredirect:(WSIEvent*)evt {
+- (void)_disredirect:(NNTEvent*)evt {
     if ([_redirects containsObject:evt])
         return;
     [_redirects addObject:evt];
 }
 
 - (BOOL)_hasSignal:(signal_t)sig {
-    WSISignal *signal = [_signals valueForKey:sig null:nil];
+    NNTSignal *signal = [_signals valueForKey:sig null:nil];
     return signal != nil;
 }
 
 @end
 
-@implementation WSIEventObj
+@implementation NNTEventObj
 
 @synthesize slot = _slot;
 
@@ -903,7 +903,7 @@ waitFrequency,
 period
 ;
 
-- (id)initWithSlot:(WSISlot *)slot {
+- (id)initWithSlot:(NNTSlot *)slot {
     self = [super init];
     
     _origin = [slot retain];
@@ -942,7 +942,7 @@ period
     return _slot.shotcount;
 }
 
-- (WSISignal*)signal {
+- (NNTSignal*)signal {
     return _slot.signal;
 }
 
@@ -968,10 +968,10 @@ period
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 EventObj null_eventobj(nil);
 
-WSI_END_CXX
+NNT_END_CXX

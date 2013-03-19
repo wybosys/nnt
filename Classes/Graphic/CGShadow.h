@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_CGSHADOW_AD5EABBDE6A14A9EA676B22F0469784D_H_INCLUDED
-# define __WSI_UIKIT_CGSHADOW_AD5EABBDE6A14A9EA676B22F0469784D_H_INCLUDED
+# ifndef __NNT_UIKIT_CGSHADOW_AD5EABBDE6A14A9EA676B22F0469784D_H_INCLUDED
+# define __NNT_UIKIT_CGSHADOW_AD5EABBDE6A14A9EA676B22F0469784D_H_INCLUDED
 
 # import "WCGColor.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # define kCGShadowLineWidth           1.5f
 
@@ -63,12 +63,12 @@ typedef enum {
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cg)
 
 class Shadow
 : public ns::Object<CGShadow>
@@ -184,7 +184,7 @@ public:
         [this->_self setInLayer:layer];
     }
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     
     void apply(UIView* view)
     {
@@ -195,8 +195,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

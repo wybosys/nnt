@@ -1,17 +1,17 @@
 
 # include "Core.h"
 # include "App.h"
-# include "Directory+WSI.h"
+# include "Directory+NNT.h"
 # include "../Parser/CmdArguments.h"
-# include "Task+WSI.h"
+# include "Task+NNT.h"
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 #   include <lmcons.h>
 #   include <direct.h>
 #   include "../msvc/classes/ExceptionProcess.h"
 # endif
 
-# ifdef WSI_UNIX
+# ifdef NNT_UNIX
 //#   include <sys/syslimits.h>
 # endif
 
@@ -23,7 +23,7 @@
 #   define PATH_MAX PATHLEN
 # endif
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 Environment::Environment()
 {
@@ -61,7 +61,7 @@ void Environment::replaceWorkingDirectory(const core::string & str)
     __preferred_workingdirectory = str;
 }
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
 class Arguments
 : public IArguments
@@ -107,13 +107,13 @@ void Console::load()
 
 void Console::_doload()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     __try {
 # endif
 
     this->load();
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     }
     __except (msvc::ExceptionProcess::HandleUnknownException(GetExceptionInformation()))
     {
@@ -152,6 +152,6 @@ IArguments* Console::arguments()
     return (IArguments*)_cmd;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_CXX
+NNT_END_CXX

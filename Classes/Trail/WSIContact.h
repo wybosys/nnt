@@ -1,10 +1,10 @@
 
-# ifndef __WSI_TRAIL_CONTACT_B217F065C5EF4455BA1D558A6C12CF59_H_INCLUDED
-# define __WSI_TRAIL_CONTACT_B217F065C5EF4455BA1D558A6C12CF59_H_INCLUDED
+# ifndef __NNT_TRAIL_CONTACT_B217F065C5EF4455BA1D558A6C12CF59_H_INCLUDED
+# define __NNT_TRAIL_CONTACT_B217F065C5EF4455BA1D558A6C12CF59_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIContact : WSIObject {
+@interface NNTContact : NNTObject {
     void const* record;
 }
 
@@ -25,7 +25,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WSIPerson : WSIContact
+@interface NNTPerson : NNTContact
 
 + (id)person;
 + (id)personWithRecord:(void const*)record;
@@ -46,7 +46,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WSIAddressBook : WSIObject {
+@interface NNTAddressBook : NNTObject {
     
     //! all contacts.
     NSArray* contacts;
@@ -59,13 +59,13 @@ WSI_BEGIN_HEADER_OBJC
 
 @property (nonatomic, retain) NSArray* contacts;
 
-WSIDECL_SINGLETON(WSIAddressBook);
+NNTDECL_SINGLETON(NNTAddressBook);
 
 //! refresh all contacts.
 - (void)refresh;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

@@ -1,29 +1,29 @@
 
 # import "Core.h"
-# import "Directory+WSI.h"
+# import "Directory+NNT.h"
 # import "App.h"
-# import "WSIResource.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_EXTERN NSURL *WSIDirectoryTouchWithType(NSString* path, WSIDirectoryType type) {
+NNT_EXTERN NSURL *NNTDirectoryTouchWithType(NSString* path, NNTDirectoryType type) {
     NSFileManager *fs_mgr = [NSFileManager defaultManager];    
     NSString *str_tgt = @"";
-    switch (WSIDirectoryTypeMajor(type)) {
+    switch (NNTDirectoryTypeMajor(type)) {
         default: {
             dthrow([NSException exceptionWithName:@"type unknown" reason:@"unknown directory type." userInfo:nil]);
         } break;
             
-        case WSIDirectoryTypeNone: {
+        case NNTDirectoryTypeNone: {
             str_tgt = path;
             if ([str_tgt isEqualToString:@""]) {
                 return [NSURL URLWithString:@"/"];
             }
         } break;
             
-        case WSIDirectoryTypeSystem: {
-            uint min_type = WSIDirectoryTypeMinor(type);
-            uint wsi_type = WSIDirectoryTypeWsiMinor(type);
+        case NNTDirectoryTypeSystem: {
+            uint min_type = NNTDirectoryTypeMinor(type);
+            uint wsi_type = NNTDirectoryTypeWsiMinor(type);
             
             /*
             if (wsi_type && !min_type) {
@@ -44,9 +44,9 @@ WSI_EXTERN NSURL *WSIDirectoryTouchWithType(NSString* path, WSIDirectoryType typ
             
             if (wsi_type) {
                 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
                 str_tgt = [str_tgt stringByAppendingPathComponent:@"wsi"];
-                str_tgt = [str_tgt stringByAppendingPathComponent:[WSIApplication shared].applicationIdentity];
+                str_tgt = [str_tgt stringByAppendingPathComponent:[NNTApplication shared].applicationIdentity];
 # endif
                 str_tgt = [str_tgt stringByAppendingPathComponent:@"var"];
                 
@@ -65,16 +65,16 @@ WSI_EXTERN NSURL *WSIDirectoryTouchWithType(NSString* path, WSIDirectoryType typ
             
         } break;
             
-        case WSIDirectoryTypeBundle:
-        case WSIDirectoryTypeBundleWritable:
-# ifdef WSI_JAILBREAK
-        case WSIDirectoryTypeTemplate:
+        case NNTDirectoryTypeBundle:
+        case NNTDirectoryTypeBundleWritable:
+# ifdef NNT_JAILBREAK
+        case NNTDirectoryTypeTemplate:
 # endif
         {
             NSString *str = [[NSBundle mainBundle] bundlePath];
             
-# ifdef WSI_JAILBREAK
-            if (WSIDirectoryTypeMajor(type) == WSIDirectoryTypeTemplate) {
+# ifdef NNT_JAILBREAK
+            if (NNTDirectoryTypeMajor(type) == NNTDirectoryTypeTemplate) {
                 str = [str stringByAppendingPathComponent:@"var"];
                 str = [str stringByAppendingPathComponent:@"tmp"];
             }
@@ -99,24 +99,24 @@ WSI_EXTERN NSURL *WSIDirectoryTouchWithType(NSString* path, WSIDirectoryType typ
     return ret;
 }
 
-NSURL *WSIDirectoryCreateWithType(NSString *path, WSIDirectoryType type) {
+NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type) {
     NSFileManager *fs_mgr = [NSFileManager defaultManager];
     NSString *str_tgt = @"";
-    switch (WSIDirectoryTypeMajor(type)) {
+    switch (NNTDirectoryTypeMajor(type)) {
         default: {
             dthrow([NSException exceptionWithName:@"type unknown" reason:@"unknown directory type." userInfo:nil]);
         } break;
             
-        case WSIDirectoryTypeNone: {
+        case NNTDirectoryTypeNone: {
             str_tgt = path;
             if ([str_tgt isEqualToString:@""]) {
                 return [NSURL URLWithString:@"/"];
             }
         } break;
 
-        case WSIDirectoryTypeSystem: {
-            uint min_type = WSIDirectoryTypeMinor(type);
-            uint wsi_type = WSIDirectoryTypeWsiMinor(type);
+        case NNTDirectoryTypeSystem: {
+            uint min_type = NNTDirectoryTypeMinor(type);
+            uint wsi_type = NNTDirectoryTypeWsiMinor(type);
             
             /*
             if (wsi_type && !min_type) {
@@ -137,10 +137,10 @@ NSURL *WSIDirectoryCreateWithType(NSString *path, WSIDirectoryType type) {
             
             if (wsi_type) {
                 
-# ifdef WSI_TARGET_MAC
+# ifdef NNT_TARGET_MAC
                 
                 str_tgt = [str_tgt stringByAppendingPathComponent:@"wsi"];
-                str_tgt = [str_tgt stringByAppendingPathComponent:[WSIApplication shared].applicationIdentity];
+                str_tgt = [str_tgt stringByAppendingPathComponent:[NNTApplication shared].applicationIdentity];
                 
 # endif         
                 
@@ -163,16 +163,16 @@ NSURL *WSIDirectoryCreateWithType(NSString *path, WSIDirectoryType type) {
             
         } break;
             
-        case WSIDirectoryTypeBundle:
-        case WSIDirectoryTypeBundleWritable:
-# ifdef WSI_JAILBREAK
-        case WSIDirectoryTypeTemplate: 
+        case NNTDirectoryTypeBundle:
+        case NNTDirectoryTypeBundleWritable:
+# ifdef NNT_JAILBREAK
+        case NNTDirectoryTypeTemplate: 
 # endif
         {
             NSString *str = [[NSBundle mainBundle] bundlePath];
             
-# ifdef WSI_JAILBREAK
-            if (WSIDirectoryTypeMajor(type) == WSIDirectoryTypeTemplate) {
+# ifdef NNT_JAILBREAK
+            if (NNTDirectoryTypeMajor(type) == NNTDirectoryTypeTemplate) {
                 str = [str stringByAppendingPathComponent:@"var"];
                 str = [str stringByAppendingPathComponent:@"tmp"];
             }
@@ -199,20 +199,20 @@ NSURL *WSIDirectoryCreateWithType(NSString *path, WSIDirectoryType type) {
     return ret;
 }
 
-NSURL *WSIFileTouchWithType(NSString* path, WSIDirectoryType type)
+NSURL *NNTFileTouchWithType(NSString* path, NNTDirectoryType type)
 {
     NSURL* url = NULL;
-    if (type == WSIDirectoryTypeAbsolute)
+    if (type == NNTDirectoryTypeAbsolute)
     {
         url = [NSURL fileURLWithPath:path];
     }
     else
     {
-        url = WSIDirectoryCreateWithType(@"", type);
-        if (type == WSIDirectoryTypeBundleWritable)
+        url = NNTDirectoryCreateWithType(@"", type);
+        if (type == NNTDirectoryTypeBundleWritable)
         {
             NSFileManager *fs_mgr = [NSFileManager defaultManager];
-            NSURL* tgt = WSIDirectoryCreateWithType(@"", (NSVariableDirectory | WSIDirectoryTypeSystem));
+            NSURL* tgt = NNTDirectoryCreateWithType(@"", (NSVariableDirectory | NNTDirectoryTypeSystem));
             tgt = [tgt URLByAppendingPathComponent:path];
             if ([fs_mgr fileExistsAtPath:tgt.relativePath])
                 return tgt;
@@ -236,9 +236,9 @@ NSURL *WSIFileTouchWithType(NSString* path, WSIDirectoryType type)
     return url;
 }
 
-BOOL WSIDirectoryRemoveWithType(NSString* path, WSIDirectoryType type)
+BOOL NNTDirectoryRemoveWithType(NSString* path, NNTDirectoryType type)
 {
-    NSURL* url = WSIDirectoryTouchWithType(path, type);
+    NSURL* url = NNTDirectoryTouchWithType(path, type);
     if (url == nil)
         return NO;
     
@@ -319,7 +319,7 @@ BOOL WSIDirectoryRemoveWithType(NSString* path, WSIDirectoryType type)
 
 + (NSString*)retinaImageNamed:(NSString*)file {
     NSString* retina = [file stringByReplacingOccurrencesOfRegex:@"(.)(png|jpg|gif|bmp|tiff)" withString:@"@2x.$2"];
-    NSString* path = [WSIResource PathOf:retina];
+    NSString* path = [NNTResource PathOf:retina];
     if ([NSDirectory fileReadable:path])
         return retina;
     return file;
@@ -327,4 +327,4 @@ BOOL WSIDirectoryRemoveWithType(NSString* path, WSIDirectoryType type)
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

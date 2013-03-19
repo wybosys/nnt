@@ -1,17 +1,17 @@
 
 # import "Core.h"
-# import "UIScrollView+WSI.h"
-# import "UIView+WSI.h"
-# import "WSIUIObject.h"
-# import "CoreGraphic+WSI.h"
+# import "UIScrollView+NNT.h"
+# import "UIView+NNT.h"
+# import "NNTUIObject.h"
+# import "CoreGraphic+NNT.h"
 # include <cmath>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalBeginScroll = @"::wsi::ui::scroll:begin";
 signal_t kSignalEndScroll = @"::wsi::ui::scroll::end";
 
-@implementation UIScrollView (WSI)
+@implementation UIScrollView (NNT)
 
 - (CGRect)rectForLayout {
     CGSize sz = self.contentSize;
@@ -41,16 +41,16 @@ signal_t kSignalEndScroll = @"::wsi::ui::scroll::end";
 
 @end
 
-WSIIMPL_CATEGORY(UIScrollView, WSI);
+NNTIMPL_CATEGORY(UIScrollView, NNT);
 
-@interface WSIUIScrollView ()
+@interface NNTUIScrollView ()
 
 - (void)processHeaders;
 - (void)scrollHeaders;
 
 @end
 
-@implementation WSIUIScrollView
+@implementation NNTUIScrollView
 
 @dynamic contentFrame;
 @synthesize backgroundFill = _backgroundFill;
@@ -58,7 +58,7 @@ WSIIMPL_CATEGORY(UIScrollView, WSI);
 @synthesize topHeaderView = _topHeaderView, bottomHeaderView = _bottomHeaderView;
 @synthesize contentView = _contentView2;
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -73,19 +73,19 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)dealloc {
     zero_release(_backgroundFill);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewClicked);
-    WSIEVENT_SIGNAL(kSignalTouchesBegin);
-    WSIEVENT_SIGNAL(kSignalTouchesEnd);
-    WSIEVENT_SIGNAL(kSignalTouchesMoved);
-    WSIEVENT_SIGNAL(kSignalTouchesCancel);
-    WSIEVENT_SIGNAL(kSignalBeginScroll);
-    WSIEVENT_SIGNAL(kSignalEndScroll);
-    WSIEVENT_SIGNAL(kSignalFrameChanged);
+    NNTEVENT_SIGNAL(kSignalViewClicked);
+    NNTEVENT_SIGNAL(kSignalTouchesBegin);
+    NNTEVENT_SIGNAL(kSignalTouchesEnd);
+    NNTEVENT_SIGNAL(kSignalTouchesMoved);
+    NNTEVENT_SIGNAL(kSignalTouchesCancel);
+    NNTEVENT_SIGNAL(kSignalBeginScroll);
+    NNTEVENT_SIGNAL(kSignalEndScroll);
+    NNTEVENT_SIGNAL(kSignalFrameChanged);
 }
 
 - (void)setTopHeaderView:(UIHeaderView*)view {
@@ -387,6 +387,6 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-_CXXVIEW_IMPL(WSIUIScrollView);
+_CXXVIEW_IMPL(NNTUIScrollView);
 
-WSI_END_OBJC
+NNT_END_OBJC

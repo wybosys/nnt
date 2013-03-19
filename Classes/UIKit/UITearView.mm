@@ -2,15 +2,15 @@
 # import "Core.h"
 # import "UITearView.h"
 # import "UIDesktop.h"
-# import "CoreGraphic+WSI.h"
-# import "UIColor+WSI.h"
+# import "CoreGraphic+NNT.h"
+# import "UIColor+NNT.h"
 # import <QuartzCore/QuartzCore.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalViewClose = @"::wsi::view::close";
 
-@interface UITearMaskDesk : WSIUIDesktop {
+@interface UITearMaskDesk : NNTUIDesktop {
     UITearView *_tear;
     BOOL _closing;
 }
@@ -31,7 +31,7 @@ signal_t kSignalViewClose = @"::wsi::view::close";
     return self;
 }
 
-- (void)_act_close_tear:(WSIEventObj*)evt {
+- (void)_act_close_tear:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     if (_tear.autoClose && !_closing) {
         _closing = YES;
@@ -104,7 +104,7 @@ typedef wsi::core::vector<_element_info> _element_infos;
 - (void)add_info:(_element_info*)info;
 
 //! get desktop.
-- (WSIUIDesktop*)desktop;
+- (NNTUIDesktop*)desktop;
 
 //! show source view.
 - (void)showSourceView;
@@ -130,7 +130,7 @@ typedef wsi::core::vector<_element_info> _element_infos;
 
 - (id)initWith:(NSInteger)__pos spacing:(NSUInteger)__spacing {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UITearView);
+    NNTDECL_PRIVATE_INIT(UITearView);
     
     location = __pos;
     spacing = __spacing;
@@ -166,13 +166,13 @@ typedef wsi::core::vector<_element_info> _element_infos;
     zero_release(edgeColor);
     zero_release(darkColor);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalViewClose)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalViewClose)
+NNTEVENT_END
 
 - (void)setDarkColor:(UIColor *)__darkColor {
     [darkColor release];
@@ -292,7 +292,7 @@ WSIEVENT_END
     return NULL;
 }
 
-- (WSIUIDesktop*)desktop {
+- (NNTUIDesktop*)desktop {
     return d_ptr.desktop;
 }
 
@@ -350,13 +350,13 @@ WSIEVENT_END
 
 - (void)lockSourceView {
     if ([sourceView respondsToSelector:@selector(lockPosition)]) {
-        [(id<WSIUIViewLock>)sourceView lockPosition];
+        [(id<NNTUIViewLock>)sourceView lockPosition];
     }
 }
 
 - (void)unlockSouceView {
     if ([sourceView respondsToSelector:@selector(unlockPosition)]) {
-        [(id<WSIUIViewLock>)sourceView unlockPosition];
+        [(id<NNTUIViewLock>)sourceView unlockPosition];
     }
 }
 
@@ -527,4 +527,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

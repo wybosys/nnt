@@ -1,23 +1,23 @@
 
 # import "Core.h"
-# import "WSIMotion.h"
+# import "NNTMotion.h"
 # import <CoreMotion/CoreMotion.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalAccelerometerUpdate = @"::wsi::trail::motion::accelerometer";
 signal_t kSignalGyroUpdate = @"::wsi::trail::motion::gyro";
 signal_t kSignalDeviceMotionUpdate = @"::wsi::trail::motion::device";
 
-@interface WSIMotionPrivate : WSIObject {
+@interface NNTMotionPrivate : NNTObject {
     
 }
 
-@property (nonatomic, assign) WSIMotion *d_owner;
+@property (nonatomic, assign) NNTMotion *d_owner;
 
 @end
 
-@implementation WSIMotionPrivate
+@implementation NNTMotionPrivate
 
 @synthesize d_owner;
 
@@ -30,9 +30,9 @@ signal_t kSignalDeviceMotionUpdate = @"::wsi::trail::motion::device";
 
 static CMMotionManager *__gs_motion_manager = nil;
 
-@implementation WSIMotion
+@implementation NNTMotion
 
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
 
 @synthesize motionManager;
 
@@ -40,21 +40,21 @@ static CMMotionManager *__gs_motion_manager = nil;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIMotion);
+    NNTDECL_PRIVATE_INIT(NNTMotion);
     
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
         
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     if (__gs_motion_manager == nil) {
         __gs_motion_manager = [[CMMotionManager alloc] init];
-        WSI *wsiobj = [WSI shared];
+        NNT *wsiobj = [NNT shared];
         if (wsiobj) {
             [wsiobj storeSet:@"::wsi::trail::motion::singleton" obj:__gs_motion_manager];
             [__gs_motion_manager release];
         }
         motionManager = __gs_motion_manager;
     }
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     motionManager.accelerometerUpdateInterval = 1.f;
     motionManager.gyroUpdateInterval = 1.f;
@@ -66,18 +66,18 @@ static CMMotionManager *__gs_motion_manager = nil;
 }
 
 - (void)dealloc {    
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAccelerometerUpdate)
-WSIEVENT_SIGNAL(kSignalGyroUpdate)
-WSIEVENT_SIGNAL(kSignalDeviceMotionUpdate)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAccelerometerUpdate)
+NNTEVENT_SIGNAL(kSignalGyroUpdate)
+NNTEVENT_SIGNAL(kSignalDeviceMotionUpdate)
+NNTEVENT_END
 
 - (void)start {
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
     
     CMAccelerometerHandler hdl_accel = ^(CMAccelerometerData *accelerometerData, NSError *error) {
         [self emit:kSignalAccelerometerUpdate result:accelerometerData];
@@ -99,7 +99,7 @@ WSIEVENT_END
 }
 
 - (void)stop {
-# ifdef WSI_iOS_4
+# ifdef NNT_iOS_4
     
     [motionManager stopAccelerometerUpdates];
     [motionManager stopGyroUpdates];
@@ -110,4 +110,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,19 +1,19 @@
 
 # import "Core.h"
-# import "UINavigationController+WSI.h"
-# import "UIView+WSI.h"
-# import "CoreGraphic+WSI.h"
-# import "UIViewController+WSI.h"
-# import "UIButton+WSI.h"
-# import "UIBarButtonItem+WSI.h"
-# import "UITabBarController+WSI.h"
-# import "UITabBar+WSI.h"
+# import "UINavigationController+NNT.h"
+# import "UIView+NNT.h"
+# import "CoreGraphic+NNT.h"
+# import "UIViewController+NNT.h"
+# import "UIButton+NNT.h"
+# import "UIBarButtonItem+NNT.h"
+# import "UITabBarController+NNT.h"
+# import "UITabBar+NNT.h"
 # import "App.h"
-# import "UIGesture+WSI.h"
+# import "UIGesture+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation UINavigationController (WSI)
+@implementation UINavigationController (NNT)
 
 - (NSUInteger)indexOfViewController:(UIViewController *)ctlr {
     return [self.viewControllers indexOfObject:ctlr];
@@ -53,7 +53,7 @@ WSI_BEGIN_OBJC
         return;
     }        
     
-    WSIUIView* viewitem = [[WSIUIView alloc] initWithZero];
+    NNTUIView* viewitem = [[NNTUIView alloc] initWithZero];
     uint height = self.navigationBar.bounds.size.height * .7f;
     CGPoint pt = CGPointZero;
     for (UIBarButtonItem* each in items) {
@@ -113,7 +113,7 @@ WSI_BEGIN_OBJC
         return;
     }
     
-    WSIUIView* viewitem = [[WSIUIView alloc] initWithZero];
+    NNTUIView* viewitem = [[NNTUIView alloc] initWithZero];
     uint height = 36;
     CGPoint pt = CGPointZero;
     for (UIBarButtonItem* each in items) {
@@ -153,9 +153,9 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIIMPL_CATEGORY(UINavigationController, WSI);
+NNTIMPL_CATEGORY(UINavigationController, NNT);
 
-@interface WSIUINavigationControllerBase ()
+@interface NNTUINavigationControllerBase ()
 
 - (void)syncOtherControler;
 
@@ -179,16 +179,16 @@ WSIIMPL_CATEGORY(UINavigationController, WSI);
 
 @end
 
-@implementation WSIUINavigationControllerBase
+@implementation NNTUINavigationControllerBase
 
 @synthesize showHomeBack = _showHomeBack, homeBack = _homeBack, titleHomeBack = _titleHomeBack, navigationBarHiddenByController = _navigationBarHiddenByController;
 @dynamic rootViewController;
 @synthesize titleImage = _titleImage, orientationEnable = _orientationEnable;
 @synthesize topbarBackgroundFill = _topbarBackgroundFill;
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
-- (id)initWithRootViewController:(WSIUIViewController *)__rootViewController {
+- (id)initWithRootViewController:(NNTUIViewController *)__rootViewController {
     self = [super initWithRootViewController:__rootViewController];
     
     self.navigationBarHiddenByController = NO;
@@ -220,11 +220,11 @@ WSIOBJECT_IMPL;
     [super dealloc];
 }
 
-- (WSIUIViewController*)rootViewController {
+- (NNTUIViewController*)rootViewController {
     return self.viewControllers.first;
 }
 
-WSIIMPL_VIEWCONTROLLER;
+NNTIMPL_VIEWCONTROLLER;
 
 - (void)viewIsLoading {
     PASS;
@@ -254,13 +254,13 @@ WSIIMPL_VIEWCONTROLLER;
     return UIOrientationEnableCheck(_orientationEnable, interfaceOrientation);
 }
 
-- (void)pushViewController:(WSIUIViewController *)viewController animated:(BOOL)animated {
+- (void)pushViewController:(NNTUIViewController *)viewController animated:(BOOL)animated {
     // is is equal to current.
     if (viewController == self.visibleViewController)
         return;
     
     // if is wsi controller, assign navigation controller.
-    if ([viewController isKindOfClass:[WSIUIViewController class]])
+    if ([viewController isKindOfClass:[NNTUIViewController class]])
         viewController.navigationController = self;
     
     // if not auto appearing. create view.
@@ -308,7 +308,7 @@ WSIIMPL_VIEWCONTROLLER;
     }
 }
 
-- (void)__act_ctlrtitle_changed:(WSIEventObj*)evt {
+- (void)__act_ctlrtitle_changed:(NNTEventObj*)evt {
     NSString* title = (NSString*)evt.result;
     self.navigationBar.topItem.title = title;
 }
@@ -352,7 +352,7 @@ WSIIMPL_VIEWCONTROLLER;
     return ret;
 }
 
-- (NSArray*)popToViewController:(WSIUIViewController *)viewController animated:(BOOL)animated {
+- (NSArray*)popToViewController:(NNTUIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self.visibleViewController)
         return nil;
     
@@ -418,7 +418,7 @@ WSIIMPL_VIEWCONTROLLER;
     zero_release(old_select);
     
     if (_showHomeBack) {
-        for (WSIUIButton *button in self.homeBack) {
+        for (NNTUIButton *button in self.homeBack) {
             [button removeFromSuperview];
         }
         safe_release(_homeBack);
@@ -445,18 +445,18 @@ WSIIMPL_VIEWCONTROLLER;
         
         // invisible last.
         if ([btns count]) {
-            WSIUIButton *button = [btns objectAtIndex:[btns count] - 1];
+            NNTUIButton *button = [btns objectAtIndex:[btns count] - 1];
             button.hidden = YES;
         }
         
         if (_titleHomeBack == nil)
             _titleHomeBack = @"home";
                         
-        WSIUIBarButtonItem *btn = [[WSIUIBarButtonItem alloc] initWithTitle:_titleHomeBack
+        NNTUIBarButtonItem *btn = [[NNTUIBarButtonItem alloc] initWithTitle:_titleHomeBack
                                                                       style:UIBarButtonItemStylePlain 
                                                                      target:self 
                                                                      action:@selector(act_backhome:)];
-        WSIUIButton *button = (WSIUIButton*)btn.customView;
+        NNTUIButton *button = (NNTUIButton*)btn.customView;
         [btns addObject:button];
         
         button.layer.opacity = 0.f;
@@ -491,14 +491,14 @@ WSIIMPL_VIEWCONTROLLER;
         NSMutableArray *btns = (NSMutableArray*)_homeBack;
         
         if (btns && [btns count]) {            
-            WSIUIButton *button = [btns objectAtIndex:[btns count] - 1];
+            NNTUIButton *button = [btns objectAtIndex:[btns count] - 1];
             [button removeFromSuperview];
             [btns removeObjectAtIndex:[_homeBack count] - 1];
         }
         
         // visible pre
         if ([btns count]) {
-            WSIUIButton *button = [btns objectAtIndex:[btns count] - 1];        
+            NNTUIButton *button = [btns objectAtIndex:[btns count] - 1];        
             button.hidden = NO;
         }
                 
@@ -526,7 +526,7 @@ NSString* kNavigationControllerBarVisible = @"::wsi::ui::navigationcontroller::c
         self.navigationBarHidden = !show;        
     }
     
-    WSIUITabBarController *tabBar = [self attachFind:kTabBarController];
+    NNTUITabBarController *tabBar = [self attachFind:kTabBarController];
     if (tabBar) {                
         CGRect rc = tabBar.tabBar.frame;
         if (selected.hidesBottomBarWhenPushed) { 
@@ -559,7 +559,7 @@ NSString* kNavigationControllerBarVisible = @"::wsi::ui::navigationcontroller::c
 
 - (void)act_hide_tabbar:(id)obj {
     UIViewController *selected = self.visibleViewController;
-    WSIUITabBarController *tabBar = [self attachFind:kTabBarController];
+    NNTUITabBarController *tabBar = [self attachFind:kTabBarController];
     
     if (selected.hidesBottomBarWhenPushed) {
         tabBar.tabBar.hidden = YES;        
@@ -605,7 +605,7 @@ NSString* kNavigationControllerBarVisible = @"::wsi::ui::navigationcontroller::c
 
 @end
 
-@implementation WSIUINavigationController
+@implementation NNTUINavigationController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -641,7 +641,7 @@ NSString* kNavigationControllerBarVisible = @"::wsi::ui::navigationcontroller::c
     UIView* view = self.view;
     
     // install gesture.
-    WSIUISwipeGestureRecognizer* recognizer = [[WSIUISwipeGestureRecognizer alloc] init];
+    NNTUISwipeGestureRecognizer* recognizer = [[NNTUISwipeGestureRecognizer alloc] init];
     recognizer.numberOfTouchesRequired = 1;
     recognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [recognizer connect:kSignalGestureActive sel:@selector(_act_gesture_swipe_left) obj:self];
@@ -656,6 +656,6 @@ NSString* kNavigationControllerBarVisible = @"::wsi::ui::navigationcontroller::c
 
 @end
 
-_CXXCONTROLLER_IMPL(WSIUINavigationController);
+_CXXCONTROLLER_IMPL(NNTUINavigationController);
 
-WSI_END_OBJC
+NNT_END_OBJC

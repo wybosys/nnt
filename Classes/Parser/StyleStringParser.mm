@@ -4,7 +4,7 @@
 # import "NSStyleString.h"
 # import "XmlParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface StyleStringParser ()
 
@@ -79,4 +79,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

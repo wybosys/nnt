@@ -4,7 +4,7 @@
 # import "WCAArrowIndicator.h"
 # import "UILineSeparator.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UIGridView ()
 
@@ -13,7 +13,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@interface UIGridContent : WSIUIView {
+@interface UIGridContent : NNTUIView {
     @public
     UIGridView* _grid;
     BOOL _animated;
@@ -118,8 +118,8 @@ WSI_BEGIN_OBJC
             child.frame = CGRectIntegral(rc_child);
             
             // if child is support delay loading, then if child is in visible region, begin its loading.
-            if ([child.content conformsToProtocol:@protocol(WSIUIViewInSight)]) {
-                [(id<WSIUIViewInSight>)child.content viewInSight];                
+            if ([child.content conformsToProtocol:@protocol(NNTUIViewInSight)]) {
+                [(id<NNTUIViewInSight>)child.content viewInSight];                
             }
             
             if (animated) {
@@ -161,7 +161,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(UIGridView, NSObject) {
+NNTDECL_PRIVATE_BEGIN(UIGridView, NSObject) {
     UIGridContent* _content;
     NSMutableArray *_rowlines, *_collines;
 }
@@ -169,7 +169,7 @@ WSIDECL_PRIVATE_BEGIN(UIGridView, NSObject) {
 @property (nonatomic, readonly) UIGridContent* content;
 @property (nonatomic, readonly) NSMutableArray *rowlines, *collines;
 
-WSIDECL_PRIVATE_IMPL(UIGridView)
+NNTDECL_PRIVATE_IMPL(UIGridView)
 
 @synthesize content = _content;
 @synthesize rowlines = _rowlines, collines = _collines;
@@ -194,7 +194,7 @@ WSIDECL_PRIVATE_IMPL(UIGridView)
     [super dealloc];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIGridView
 
@@ -214,7 +214,7 @@ WSIDECL_PRIVATE_END
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UIGridView);
+    NNTDECL_PRIVATE_INIT(UIGridView);
     
     self.contentView = d_ptr.content;
     
@@ -245,14 +245,14 @@ WSIDECL_PRIVATE_END
     safe_release(_rowLineStyle);
     safe_release(_colLineStyle);
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalItemClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalItemClicked)
+NNTEVENT_END
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -334,7 +334,7 @@ WSIEVENT_END
 }
 
 - (UIGridViewItem*)addChildView:(UIView *)child {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if ([child isKindOfClass:[UIGridViewItem class]])
         dthrow_msg(@"Type Error", @"Add a item but use the add child method of GridView.");
 # endif
@@ -394,7 +394,7 @@ WSIEVENT_END
     return child;
 }
 
-- (void)_act_itemcontent_clicked:(WSIEventObj*)evt {
+- (void)_act_itemcontent_clicked:(NNTEventObj*)evt {
     // content.
     [self emit:kSignalContentClicked result:evt.result];
     
@@ -459,4 +459,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UIGridView);
 
-WSI_END_OBJC
+NNT_END_OBJC

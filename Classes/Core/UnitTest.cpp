@@ -2,8 +2,8 @@
 # include "Core.h"
 # include "UnitTest.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ut)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ut)
 
 Case::Case(core::string const& nm)
 : name(nm),
@@ -140,10 +140,10 @@ void Suite::case_success(Case* obj)
     ::std::cout << "========= END " << obj->name << " ========= " << ::std::endl;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 ::wsi::ut::Suite* UTSuiteDefault()
 {
@@ -165,4 +165,4 @@ void UTSuiteRun(::wsi::ut::Suite* su)
     su->run();
 }
 
-WSI_END_C
+NNT_END_C

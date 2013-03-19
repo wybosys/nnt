@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "NSView+WSI.h"
-# import "CoreGraphic+WSI.h"
+# import "NSView+NNT.h"
+# import "CoreGraphic+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation NSView (WSI)
+@implementation NSView (NNT)
 
 - (id)initWithZero {
     self = [self initWithFrame:NSZeroRect];
@@ -27,16 +27,16 @@ WSI_BEGIN_OBJC
 
 @end
 
-@implementation WSINSView
+@implementation NNTNSView
 
 @synthesize backgroundFill;
 
-WSIOBJECT_IMPL;
+NNTOBJECT_IMPL;
 
 - (void)dealloc {
     [backgroundFill release];
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -89,4 +89,4 @@ WSIOBJECT_IMPL;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

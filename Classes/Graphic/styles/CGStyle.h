@@ -1,14 +1,14 @@
 
-# ifndef __WSICG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
-# define __WSICG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
+# ifndef __NNTCG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
+# define __NNTCG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
 
 # import "WCGFill.h"
 # import "../shapes/CGShape.h"
 # import "CGStyleContext.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WCGStyle : WSIObject {
+@interface WCGStyle : NNTObject {
     
     //! link.
     WCGStyle* _previous;
@@ -45,7 +45,7 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WCGStyleSheet : WSIObject {
+@interface WCGStyleSheet : NNTObject {
     
     //! array for store all styles.
     NSMutableDictionary* _styles;
@@ -73,6 +73,6 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

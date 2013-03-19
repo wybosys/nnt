@@ -1,12 +1,12 @@
 
-# ifndef __WSI_CORE_NSFILECONNECTION_97B6128B9F8041E1BD46EF6E1E4A2302_H_INCLUDED
-# define __WSI_CORE_NSFILECONNECTION_97B6128B9F8041E1BD46EF6E1E4A2302_H_INCLUDED
+# ifndef __NNT_CORE_NSFILECONNECTION_97B6128B9F8041E1BD46EF6E1E4A2302_H_INCLUDED
+# define __NNT_CORE_NSFILECONNECTION_97B6128B9F8041E1BD46EF6E1E4A2302_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSFileConnection : WSIObject {
+@interface NSFileConnection : NNTObject {
     
     //! the file url.
     NSURL* url;
@@ -35,15 +35,15 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN usize kFileConnectionDefaultCacheSize;
+NNT_EXTERN usize kFileConnectionDefaultCacheSize;
 
-WSI_EXTERN signal_t kSignalFileConnectionOpened;
-WSI_EXTERN signal_t kSignalFileConnectionReceiveData;
-WSI_EXTERN signal_t kSignalFileConnectionDataChanged;
-WSI_EXTERN signal_t kSignalFileConnectionFinish;
-WSI_EXTERN signal_t kSignalFileConnectionError;
+NNT_EXTERN signal_t kSignalFileConnectionOpened;
+NNT_EXTERN signal_t kSignalFileConnectionReceiveData;
+NNT_EXTERN signal_t kSignalFileConnectionDataChanged;
+NNT_EXTERN signal_t kSignalFileConnectionFinish;
+NNT_EXTERN signal_t kSignalFileConnectionError;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

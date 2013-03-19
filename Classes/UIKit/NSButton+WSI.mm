@@ -1,27 +1,27 @@
 
 # import "Core.h"
-# import "NSButton+WSI.h"
+# import "NSButton+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSINSButton
+@implementation NNTNSButton
 
 - (id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
     return self;
 }
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (void)dealloc {
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalAction);
+    NNTEVENT_SIGNAL(kSignalAction);
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

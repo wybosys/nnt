@@ -1,11 +1,11 @@
 
 # import "Core.h"
-# import "UITabBarView+WSI.h"
-# import "UITabBar+WSI.h"
+# import "UITabBarView+NNT.h"
+# import "UITabBar+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@implementation WSIUITabBarView
+@implementation NNTUITabBarView
 
 @synthesize tabBar, contentView, tabBarPosition;
 @dynamic tabBarHeight;
@@ -20,7 +20,7 @@ WSI_BEGIN_OBJC
     return self;
 }
 
-- (void)setTabBar:(WSIUITabBar *)aTabBar {
+- (void)setTabBar:(NNTUITabBar *)aTabBar {
 	[tabBar removeFromSuperview];
 	[tabBar release];
 	tabBar = aTabBar;
@@ -90,4 +90,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

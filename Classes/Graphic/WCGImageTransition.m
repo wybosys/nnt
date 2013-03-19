@@ -3,14 +3,14 @@
 # import "WCGImageTransition.h"
 # import <QuartzCore/QuartzCore.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 @interface WCGImageTransitionPrivate : NSObject {
     WCGImageTransition *d_owner;
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     CADisplayLink *dl;
 # endif
     
@@ -20,7 +20,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 @property (nonatomic, assign) WCGImageTransition *d_owner;
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 @property (nonatomic, retain) CADisplayLink *dl;
 # endif
 
@@ -35,7 +35,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 @synthesize d_owner;
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 @synthesize dl;
 # endif
 
@@ -44,7 +44,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 - (id)init {
     self = [super init];
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     dl = [[CADisplayLink displayLinkWithTarget:self selector:@selector(act_process)] retain];    
 # endif
     
@@ -53,7 +53,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 - (void)dealloc {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     [dl release];
 # endif
     
@@ -73,7 +73,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
     if ([delegate respondsToSelector:@selector(imageTransitionBegin:)])
         [delegate imageTransitionBegin:d_owner];
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     [dl addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 # endif
 }
@@ -84,7 +84,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
     timestamp = 0;
     d_owner.counter = 0;        
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     [dl removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 # endif
     
@@ -95,7 +95,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 - (void)act_process {
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     if (timestamp == 0)
         timestamp = dl.timestamp;
     if ((dl.timestamp - timestamp) > d_owner.duration) {
@@ -142,7 +142,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
     param.counter = counter;
     param.ctx = offset_context;
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     param.time = dl.timestamp - timestamp;
 # endif
     
@@ -194,7 +194,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WCGImageTransition);
+    NNTDECL_PRIVATE_INIT(WCGImageTransition);
     
     proc_line = (WCGImageTransitionLineProc)kARGBLineDoubleInsetProc;
     duration = kWCGImageTransitionDefaultDuration;
@@ -211,7 +211,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 
 - (void)dealloc {
     [self clear];
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -241,7 +241,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 }
 
 - (CFTimeInterval)frame_duration {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     return d_ptr.dl.duration;
 # endif
     
@@ -249,7 +249,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 }
 
 - (real)fps {
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     return 1 / d_ptr.dl.duration;
 # endif
     
@@ -259,7 +259,7 @@ const CFTimeInterval kWCGImageTransitionDefaultDuration = 1.f;
 - (void)setFrame_interval:(NSInteger)__frame_interval {
     frame_interval = __frame_interval;
     
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     d_ptr.dl.frameInterval = __frame_interval;
 # endif
 }
@@ -280,4 +280,4 @@ int kOffsetZero(WCGImageTransitionLineOffsetParam* param) {
     return 0;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

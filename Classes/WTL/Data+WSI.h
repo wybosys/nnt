@@ -1,11 +1,11 @@
 
-# ifndef __WSI_WTL_DATA_1CE93526D82B4B69A7106EF4E31C96F8_H_INCLUDED
-# define __WSI_WTL_DATA_1CE93526D82B4B69A7106EF4E31C96F8_H_INCLUDED
+# ifndef __NNT_WTL_DATA_1CE93526D82B4B69A7106EF4E31C96F8_H_INCLUDED
+# define __NNT_WTL_DATA_1CE93526D82B4B69A7106EF4E31C96F8_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(wtl)
 
 template <typename _Tp>
 class _base_data
@@ -451,7 +451,7 @@ protected:
 
 typedef _base_data<byte> data;
 
-WSI_EXTERN const data null_data;
+NNT_EXTERN const data null_data;
 
 class data_le
 : public data
@@ -648,8 +648,8 @@ protected:
 
 typedef _base_framedata<byte> framedata;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

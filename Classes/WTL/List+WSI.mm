@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "List+WSI.h"
+# include "List+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation NSList
 
@@ -36,4 +36,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

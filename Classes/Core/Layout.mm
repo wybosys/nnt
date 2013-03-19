@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "Layout.h"
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 CGRectLayout::CGRectLayout()
 {
@@ -819,4 +819,4 @@ void CGRectLayoutGrid::set_flex_row(uint row, _flex_t flex)
     seg.value.flex = flex;
 }
 
-WSI_END_CXX
+NNT_END_CXX

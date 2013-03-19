@@ -1,15 +1,15 @@
 
 # import "Core.h"
-# import "UIPageControl+WSI.h"
-# import "UIView+WSI.h"
-# import "WSIUIObject.h"
+# import "UIPageControl+NNT.h"
+# import "UIView+NNT.h"
+# import "NNTUIObject.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 #define kDotDiameter	4.0f
 #define kDotSpace		12.0f
 
-@implementation WSIUIPageControl
+@implementation NNTUIPageControl
 
 @synthesize selectedColor = _selectedColor, normalColor = _normalColor;
 @synthesize numberOfPages = _numberOfPages, currentPage = _currentPage;
@@ -45,9 +45,9 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged);
+NNTEVENT_END
 
 # pragma mark overdraw
 
@@ -285,7 +285,7 @@ WSIEVENT_END
 #pragma mark -
 #pragma mark Touches handlers
 
-- (void)_act_touches:(WSIEventObj*)evt {
+- (void)_act_touches:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     
 	// get the touch location
@@ -301,4 +301,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,14 +1,14 @@
 
-# ifndef __WSI_NETWORK_51608FBA71BB4E95B47DB8BAFF63D71A_H_INCLUDED
-# define __WSI_NETWORK_51608FBA71BB4E95B47DB8BAFF63D71A_H_INCLUDED
+# ifndef __NNT_NETWORK_51608FBA71BB4E95B47DB8BAFF63D71A_H_INCLUDED
+# define __NNT_NETWORK_51608FBA71BB4E95B47DB8BAFF63D71A_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(WSINetworkStatus);
+NNTDECL_PRIVATE_HEAD(NNTNetworkStatus);
 
-@interface WSINetworkStatus : WSIObject {
+@interface NNTNetworkStatus : NNTObject {
     
     //! available status.
     BOOL availableWWAN;
@@ -18,18 +18,18 @@ WSIDECL_PRIVATE_HEAD(WSINetworkStatus);
     //! address.
     NSString *address;
     
-    WSIDECL_PRIVATE(WSINetworkStatus);
+    NNTDECL_PRIVATE(NNTNetworkStatus);
 }
 
 @property (nonatomic, readonly) BOOL availableWWAN, available, availableEn;
 @property (nonatomic, readonly) NSString *address;
 
 //! get instance.
-+ (WSINetworkStatus*)getInstance;
++ (NNTNetworkStatus*)getInstance;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 

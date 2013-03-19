@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "UITagCloudController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 @implementation UITagCloudController
 
@@ -18,10 +18,10 @@ WSI_USINGCXXNAMESPACE;
     return self;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalItemClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalItemClicked)
+NNTEVENT_END
 
 - (void)loadView {
     UITagCloudView* view = [[UITagCloudView alloc] initWithZero];
@@ -53,7 +53,7 @@ WSIEVENT_END
     [view relayout:YES];
 }
 
-- (void)_act_item_clicked:(WSIEventObj*)evt {
+- (void)_act_item_clicked:(NNTEventObj*)evt {
     UIItemView* item = (UIItemView*)evt.sender;
     [self emit:kSignalContentClicked result:item.contentView];
     [self emit:kSignalItemClicked result:item];
@@ -85,4 +85,4 @@ _CXXCONTROLLER_IMPL_BEGIN(UITagCloudController)
 
 _CXXCONTROL_IMPL_END
 
-WSI_END_OBJC
+NNT_END_OBJC

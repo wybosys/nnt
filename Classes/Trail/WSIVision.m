@@ -1,36 +1,36 @@
 
 # import "Core.h"
-# import "WSIVision.h"
+# import "NNTVision.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSIVisionPrivate : WSIObject {
+@interface NNTVisionPrivate : NNTObject {
     
 }
 
-@property (nonatomic, assign) WSIVision *d_owner;
+@property (nonatomic, assign) NNTVision *d_owner;
 
 @end
 
-@implementation WSIVisionPrivate
+@implementation NNTVisionPrivate
 
 @synthesize d_owner;
 
 @end
 
-@implementation WSIVision
+@implementation NNTVision
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIVision);
+    NNTDECL_PRIVATE_INIT(NNTVision);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

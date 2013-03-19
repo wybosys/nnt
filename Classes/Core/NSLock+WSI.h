@@ -1,35 +1,35 @@
 
-# ifndef __WSI_CORE_NSLOCKER_626EACFBDA054D4394461A6335235C9F_H_INCLUDED
-# define __WSI_CORE_NSLOCKER_626EACFBDA054D4394461A6335235C9F_H_INCLUDED
+# ifndef __NNT_CORE_NSLOCKER_626EACFBDA054D4394461A6335235C9F_H_INCLUDED
+# define __NNT_CORE_NSLOCKER_626EACFBDA054D4394461A6335235C9F_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSINSLock : NSLock
-
-//- (void)lock;
-//- (BOOL)tryLock;
-
-@end
-
-@interface WSINSConditionLock : NSConditionLock
+@interface NNTNSLock : NSLock
 
 //- (void)lock;
 //- (BOOL)tryLock;
 
 @end
 
-@interface WSINSRecursiveLock : NSRecursiveLock
+@interface NNTNSConditionLock : NSConditionLock
 
 //- (void)lock;
 //- (BOOL)tryLock;
 
 @end
 
-WSI_END_HEADER_OBJC
+@interface NNTNSRecursiveLock : NSRecursiveLock
 
-# ifdef WSI_CXX
+//- (void)lock;
+//- (BOOL)tryLock;
 
-WSI_BEGIN_HEADER_CXX
+@end
+
+NNT_END_HEADER_OBJC
+
+# ifdef NNT_CXX
+
+NNT_BEGIN_HEADER_CXX
 
 template <typename TObjc>
 class AutoReleaseObj
@@ -39,7 +39,7 @@ public:
     AutoReleaseObj()
     : ptr (0)
     {
-        lock = [[WSINSLock alloc] init];
+        lock = [[NNTNSLock alloc] init];
     }
     
     ~AutoReleaseObj()
@@ -62,12 +62,12 @@ public:
         return ptr;
     }
     
-    WSINSLock *lock;
+    NNTNSLock *lock;
     TObjc* ptr;
     
 };
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

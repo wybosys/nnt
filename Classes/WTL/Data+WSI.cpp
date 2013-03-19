@@ -1,11 +1,11 @@
 
 # include "Core.h"
-# include "Data+WSI.h"
+# include "Data+NNT.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(wtl)
 
 const data null_data;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

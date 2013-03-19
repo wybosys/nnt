@@ -3,7 +3,7 @@
 # import "OAuthParser.h"
 # import "OAuth.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OAJsonParser
 
@@ -13,4 +13,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

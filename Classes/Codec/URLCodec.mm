@@ -2,8 +2,8 @@
 # import "Core.h"
 # import "URLCodec.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 ns::String URLEncode::encode(ns::String const& str)
 {
@@ -109,5 +109,5 @@ Array URLDecode::array(String const& key) const
     return Array((id)_data[key]);
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

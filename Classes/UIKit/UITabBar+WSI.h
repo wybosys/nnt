@@ -1,20 +1,20 @@
 
-# ifndef __WSI_UIKIT_UITABBAR_20F4DDFC59334B37B6A470437F755140_H_INCLUDED
-# define __WSI_UIKIT_UITABBAR_20F4DDFC59334B37B6A470437F755140_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABBAR_20F4DDFC59334B37B6A470437F755140_H_INCLUDED
+# define __NNT_UIKIT_UITABBAR_20F4DDFC59334B37B6A470437F755140_H_INCLUDED
 
-# import "UIButton+WSI.h"
+# import "UIButton+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIBadgeIndicator);
-WSIDECL_EXTERN_CLASS(WCGMutableTextStyle);
-WSIDECL_EXTERN_CLASS(WCGLineStyle);
-WSIDECL_EXTERN_CLASS(CGShadow);
+NNTDECL_EXTERN_CLASS(UIBadgeIndicator);
+NNTDECL_EXTERN_CLASS(WCGMutableTextStyle);
+NNTDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(CGShadow);
 
 enum {
-    WSIUITabBarItemStyleDefault, //! image is upon the title.
+    NNTUITabBarItemStyleDefault, //! image is upon the title.
 };
-typedef uint WSIUITabBarItemStyle;
+typedef uint NNTUITabBarItemStyle;
 
 enum {
     //! arrow at bottom edge.
@@ -31,7 +31,7 @@ enum {
 };
 typedef uint UITabBarArrowPosition;
 
-@interface WSIUITabBarItem : UIBevelButton {
+@interface NNTUITabBarItem : UIBevelButton {
     
     //! background image.
     UIImage *titleImage;
@@ -40,7 +40,7 @@ typedef uint UITabBarArrowPosition;
 	UIImage *rightBorder;
     
     //! item style.
-    WSIUITabBarItemStyle itemStyle; //! style, default is default.
+    NNTUITabBarItemStyle itemStyle; //! style, default is default.
     
     //! item title.
     NSString *title;
@@ -84,7 +84,7 @@ typedef uint UITabBarArrowPosition;
 
 @property (nonatomic, retain) UIImage *titleImage;
 @property (nonatomic, retain) UIImage *rightBorder;
-@property (nonatomic, assign) WSIUITabBarItemStyle itemStyle;
+@property (nonatomic, assign) NNTUITabBarItemStyle itemStyle;
 @property (nonatomic, copy)   NSString *title;
 @property (nonatomic, retain) WCGMutableTextStyle *normalTitleStyle, *selectedTitleStyle;
 @property (nonatomic, retain) UIColor *maskHighlightColor, *maskNormalColor;
@@ -106,7 +106,7 @@ typedef uint UITabBarArrowPosition;
 
 @end
 
-@interface WSIUITabBarItemArrow : UIView {
+@interface NNTUITabBarItemArrow : UIView {
  
     UIColor *color;
     
@@ -116,14 +116,14 @@ typedef uint UITabBarArrowPosition;
 
 @end
 
-WSIDECL_EXTERN_CLASS(WSIUITabBar);
-//WSIDECL_EXTERN_CLASS(WSIUITabBarView);
+NNTDECL_EXTERN_CLASS(NNTUITabBar);
+//NNTDECL_EXTERN_CLASS(NNTUITabBarView);
 
-@protocol WSIUITabBarDelegate
-- (void)tabBar:(WSIUITabBar *)tabbar didSelectTabAtIndex:(NSInteger)index;
+@protocol NNTUITabBarDelegate
+- (void)tabBar:(NNTUITabBar *)tabbar didSelectTabAtIndex:(NSInteger)index;
 @end
 
-@interface WSIUITabBar : WSIUIView {
+@interface NNTUITabBar : NNTUIView {
     
     //! padding.
     CGPadding padding;
@@ -132,13 +132,13 @@ WSIDECL_EXTERN_CLASS(WSIUITabBar);
     NSArray *tabs;
     
     //! current selected tab.
-	WSIUITabBarItem *selectedTab;
+	NNTUITabBarItem *selectedTab;
     
     //! arrow view.
 	UIView *arrow;
     
     //! delegate.
-	id <WSIUITabBarDelegate> delegate;
+	id <NNTUITabBarDelegate> delegate;
     
     //! text style for normal state.
     WCGMutableTextStyle *normalTitleStyle;
@@ -184,12 +184,12 @@ WSIDECL_EXTERN_CLASS(WSIUITabBar);
 - (id)initWithFrame:(CGRect)aFrame;
 
 //! set selected tab.
-- (void)setSelectedTab:(WSIUITabBarItem *)aTab animated:(BOOL)animated;
+- (void)setSelectedTab:(NNTUITabBarItem *)aTab animated:(BOOL)animated;
 
 @property (nonatomic, assign) CGPadding padding;
 @property (nonatomic, retain) NSArray *tabs;
-@property (nonatomic, assign) WSIUITabBarItem *selectedTab;
-@property (nonatomic, assign) id <WSIUITabBarDelegate> delegate;
+@property (nonatomic, assign) NNTUITabBarItem *selectedTab;
+@property (nonatomic, assign) id <NNTUITabBarDelegate> delegate;
 @property (nonatomic, retain) UIView *arrow;
 @property (nonatomic, retain) WCGMutableTextStyle *normalTitleStyle, *selectedTitleStyle;
 @property (nonatomic, retain) UIColor *maskHighlightColor, *maskNormalColor;
@@ -207,25 +207,25 @@ WSIDECL_EXTERN_CLASS(WSIUITabBar);
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
-WSI_EXTERN signal_t kSignalArrowMoving;
-WSI_EXTERN signal_t kSignalArrowMoved;
+NNT_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalArrowMoving;
+NNT_EXTERN signal_t kSignalArrowMoved;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class TabBar
-: public View<TabBar, WSIUITabBar>
+: public View<TabBar, NNTUITabBar>
 {
-    typedef View<TabBar, WSIUITabBar> super;
+    typedef View<TabBar, NNTUITabBar> super;
     
 public:
     
-    TabBar(WSIUITabBar* bar)
+    TabBar(NNTUITabBar* bar)
     : super(bar)
     {
         PASS;
@@ -261,8 +261,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,13 +1,13 @@
 
 # include "Core.h"
-# include "Task+WSI.h"
+# include "Task+NNT.h"
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(core)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(core)
   
 Mutex::Mutex()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     _hdl = ::CreateMutex(NULL, FALSE, NULL);
     
@@ -20,7 +20,7 @@ Mutex::Mutex()
 
 Mutex::~Mutex()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     ::CloseHandle(_hdl);
     
@@ -33,13 +33,13 @@ Mutex::~Mutex()
 
 void Mutex::lock()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     ::WaitForSingleObject(_hdl, INFINITE);
     
 # else
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
     int sta = pthread_mutex_lock(&_hdl);
     if (sta != 0)
@@ -56,13 +56,13 @@ void Mutex::lock()
 
 void Mutex::unlock()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     ::ReleaseMutex(_hdl);
     
 # else
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
 	int sta = pthread_mutex_unlock(&_hdl);
 	if (sta != 0)
@@ -79,7 +79,7 @@ void Mutex::unlock()
 
 bool Mutex::try_lock()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     DWORD ret = ::WaitForSingleObject(_hdl, 0);
     return WAIT_OBJECT_0 == ret;
@@ -94,7 +94,7 @@ bool Mutex::try_lock()
 
 Condition::Condition()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 	_hdl = ::CreateEvent(NULL, FALSE, FALSE, NULL);
 
@@ -108,7 +108,7 @@ Condition::Condition()
 
 Condition::~Condition()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 	::CloseHandle(_hdl);
 
@@ -122,7 +122,7 @@ Condition::~Condition()
 
 void Condition::wait()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 	::WaitForSingleObject(_hdl, INFINITE);
 
@@ -137,7 +137,7 @@ void Condition::wait()
 
 void Condition::signal()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 	::SetEvent(_hdl);
 
@@ -150,9 +150,9 @@ void Condition::signal()
 
 Semaphore::Semaphore(uint cnt)
 {
-# if defined(WSI_MSVC)
+# if defined(NNT_MSVC)
     
-# elif defined(WSI_MACH)
+# elif defined(NNT_MACH)
     
     static int _gs_sem_id = 0;
     char buf[64];
@@ -168,8 +168,8 @@ Semaphore::Semaphore(uint cnt)
 
 Semaphore::~Semaphore()
 {
-# if defined(WSI_MSVC)
-# elif defined(WSI_MACH)
+# if defined(NNT_MSVC)
+# elif defined(NNT_MACH)
     
     sem_close(_hdl);
     sem_destroy(_hdl);
@@ -179,8 +179,8 @@ Semaphore::~Semaphore()
 
 void Semaphore::lock()
 {
-# if defined(WSI_MSVC)
-# elif defined(WSI_MACH)
+# if defined(NNT_MSVC)
+# elif defined(NNT_MACH)
     
     int sta = sem_wait(_hdl);
     if (sta != 0)
@@ -193,8 +193,8 @@ void Semaphore::lock()
 
 void Semaphore::unlock()
 {
-# if defined(WSI_MSVC)
-# elif defined(WSI_MACH)
+# if defined(NNT_MSVC)
+# elif defined(NNT_MACH)
     
     int sta = sem_post(_hdl);
     if (sta != 0)
@@ -205,7 +205,7 @@ void Semaphore::unlock()
 # endif
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(Task)
+NNTDECL_PRIVATE_BEGIN_CXX(Task)
 
 void init()
 {
@@ -249,7 +249,7 @@ int run_once()
     return ret;
 }
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 HANDLE hdl_thd;
 
@@ -261,7 +261,7 @@ pthread_t hdl_thd;
 
 Mutex mtx_ctl, mtx_run;
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 friend DWORD WINAPI wrapper_thd(LPVOID);
 static DWORD WINAPI wrapper_thd(LPVOID data)
 # else
@@ -311,7 +311,7 @@ bool start()
     d_owner->grab();
     complete = false;
     
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
     
     hdl_thd = ::CreateThread(NULL, 0, wrapper_thd, d_owner, 0, NULL);
     return hdl_thd != NULL;
@@ -326,22 +326,22 @@ bool start()
 
 void wait()
 {
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 # else
     pthread_join(hdl_thd, NULL);
 # endif
 }
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 Task::Task()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Task);
+    NNTDECL_PRIVATE_CONSTRUCT(Task);
 }
 
 Task::~Task()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void Task::wait()
@@ -389,5 +389,5 @@ void Task::resume()
     d_ptr->mtx_ctl.unlock();
 }
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

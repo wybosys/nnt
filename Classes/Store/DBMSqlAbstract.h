@@ -2,11 +2,11 @@
 # ifndef __DBMS_SQLABSTRACT_E940EFDEB1154BB595084C5FF8C3BC2C_H_INCLUDED
 # define __DBMS_SQLABSTRACT_E940EFDEB1154BB595084C5FF8C3BC2C_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 # import "./DBMS.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @interface DBMSqlParam : NSObject {
     
@@ -17,7 +17,7 @@ WSI_BEGIN_HEADER_OBJC
     id value;
     
     //! value type.
-    WSIValueType type;
+    NNTValueType type;
     
     //! index name.
     NSString* name;
@@ -25,11 +25,11 @@ WSI_BEGIN_HEADER_OBJC
 }
 
 @property (nonatomic, assign) NSUInteger pos;
-@property (nonatomic, assign) WSIValueType type;
+@property (nonatomic, assign) NNTValueType type;
 @property (nonatomic, retain) id value;
 @property (nonatomic, copy) NSString* name;
 
-+ (id)paramWith:(id)value type:(WSIValueType)type pos:(uint)pos;
++ (id)paramWith:(id)value type:(NNTValueType)type pos:(uint)pos;
 
 @end
 
@@ -72,24 +72,24 @@ WSI_BEGIN_HEADER_OBJC
 
 @interface DBMSqlUrlAbstract : DBMSqlAbstract <IDBMSUrl>
 
-- (id)initWith:(NSString*)path type:(WSIDirectoryType)type;
+- (id)initWith:(NSString*)path type:(NNTDirectoryType)type;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include "./DBMS.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_EXTERN_CLASS_CXX(DBMSqlDatatable);
+NNTDECL_EXTERN_CLASS_CXX(DBMSqlDatatable);
 
-WSICLASS(DBMSqlAbstract);
+NNTCLASS(DBMSqlAbstract);
 
 class DBMSqlAbstract
 : public IDBMS
@@ -114,7 +114,7 @@ inline_impl core::string DBMSqlAbstract::urlize(connection_info const& info) con
     return info.url;
 }
 
-WSICLASS(DBMSqlDatatable);
+NNTCLASS(DBMSqlDatatable);
 
 class DBMSqlDatatable
 : public cxx::Object<>
@@ -163,7 +163,7 @@ protected:
     
 };
 
-# ifdef LIBWSI
+# ifdef LIBNNT
 
 class DBMSqlDatatableAttach
 {
@@ -176,7 +176,7 @@ public:
 
 typedef DBMSqlDatatable datatable_t;
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <typename nameT>
 struct field
@@ -264,21 +264,21 @@ struct sqlexpress
     sqlT result;
 };
 
-WSI_END_NS
+NNT_END_NS
 
 typedef store::wtl::field<core::string> field_t;
 typedef store::wtl::table<field_t, ::wsi::wtl::SEQUENCE_VECTOR> table_t;
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 
-# if defined(WSI_CXX) && defined(WSI_OBJC)
+# if defined(NNT_CXX) && defined(NNT_OBJC)
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(store) 
-WSI_BEGIN_NS(objc)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(store) 
+NNT_BEGIN_NS(objc)
 
 typedef store::wtl::field< ::NSString* > field_t;
 typedef store::wtl::table<field_t, ::wsi::wtl::SEQUENCE_OBJC_MUTARRAY> table_t;
@@ -300,9 +300,9 @@ struct objc_table
 
 static const objc_table table_p = objc_table();
 
-WSI_END_NS 
-WSI_END_NS 
-WSI_END_HEADER_OBJC
+NNT_END_NS 
+NNT_END_NS 
+NNT_END_HEADER_OBJC
 
 # endif
 

@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "OrmSlice.hpp"
 
-WSI_BEGIN_ORM
+NNT_BEGIN_ORM
 
 RSlice::RSlice()
 {
@@ -15,4 +15,4 @@ RSlice::~RSlice()
     
 }
 
-WSI_END_ORM
+NNT_END_ORM

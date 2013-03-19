@@ -1,10 +1,10 @@
 
-# ifndef __WSI_CORE_ABSTRACTCACHE_C8D4723BFDFE403183F9FC61D7A1C785_H_INCLUDED
-# define __WSI_CORE_ABSTRACTCACHE_C8D4723BFDFE403183F9FC61D7A1C785_H_INCLUDED
+# ifndef __NNT_CORE_ABSTRACTCACHE_C8D4723BFDFE403183F9FC61D7A1C785_H_INCLUDED
+# define __NNT_CORE_ABSTRACTCACHE_C8D4723BFDFE403183F9FC61D7A1C785_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @class CacheItem;
 
@@ -33,10 +33,10 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_PRIVATE_HEAD(AbstractCache);
+NNTDECL_PRIVATE_HEAD(AbstractCache);
 
 //! @brief general cache implementation base for the special cache implementation.
-@interface AbstractCache : WSIObject <ICache> {
+@interface AbstractCache : NNTObject <ICache> {
     
     //! timestamp for cache.
     time_t _timestamp;
@@ -65,7 +65,7 @@ WSIDECL_PRIVATE_HEAD(AbstractCache);
     //! if cache loaded.
     BOOL _isloaded;
      
-    WSIDECL_PRIVATE_EX(AbstractCache, d_ptr_cache);       
+    NNTDECL_PRIVATE_EX(AbstractCache, d_ptr_cache);       
 }
 
 @property (nonatomic, assign) time_t timestamp;
@@ -127,7 +127,7 @@ WSIDECL_PRIVATE_HEAD(AbstractCache);
 static const NSUInteger kCacheOverDateInfinate = -1;
 
 //! @brief base cache item.
-@interface CacheItem : WSIObject <ICacheItem> {
+@interface CacheItem : NNTObject <ICacheItem> {
     
     //! timestamp when object create.
     time_t _timestamp;
@@ -220,18 +220,18 @@ static const NSUInteger kCacheOverDateInfinate = -1;
 @interface CacheItemData : CacheItem 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 void CacheInit(void);
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(core)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(core)
 
 class CacheItem
 : public ns::Object< ::CacheItem>
@@ -359,8 +359,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx

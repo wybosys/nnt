@@ -1,14 +1,14 @@
 
 # import "Core.h"
-# import "WSIBdb.h"
+# import "NNTBdb.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 # include <bdb/db.h>
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIDECL_PRIVATE_BEGIN(WSIBdb, NSObject)
+NNTDECL_PRIVATE_BEGIN(NNTBdb, NSObject)
 {
     DB* _db;
 }
@@ -19,7 +19,7 @@ WSIDECL_PRIVATE_BEGIN(WSIBdb, NSObject)
 - (void)close;
 - (BOOL)open:(char const*)url;
 
-WSIDECL_PRIVATE_IMPL(WSIBdb)
+NNTDECL_PRIVATE_IMPL(NNTBdb)
 
 @synthesize db = _db;
 
@@ -84,9 +84,9 @@ WSIDECL_PRIVATE_IMPL(WSIBdb)
     _db->sync(_db, 0);
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
-@implementation WSIBdb
+@implementation NNTBdb
 
 @synthesize readonly = _readonly;
 @synthesize name = _name;
@@ -94,7 +94,7 @@ WSIDECL_PRIVATE_END
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(WSIBdb);
+    NNTDECL_PRIVATE_INIT(NNTBdb);
         
     _readonly = NO;
     _dup = NO;
@@ -102,7 +102,7 @@ WSIDECL_PRIVATE_END
     return self;
 }
 
-- (id)initWith:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWith:(NSString *)path type:(NNTDirectoryType)type {
     self = [self init];
     if (NO == [self openDbWith:path type:type]) {
         [self release];
@@ -114,7 +114,7 @@ WSIDECL_PRIVATE_END
 - (void)dealloc {
     safe_release(_name);
 
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -363,11 +363,11 @@ static bool remove_cursor(DBT* key, DBT* data, DBC* cursor)
 typedef struct {
     DBC *cursor;
     DBT key, data;
-} WSIBdbIterator;
+} NNTBdbIterator;
 
 - (void*)iterator_begin {
-    WSIBdbIterator *iter = (WSIBdbIterator*)malloc(sizeof(WSIBdbIterator));
-    memset(iter, 0, sizeof(WSIBdbIterator));
+    NNTBdbIterator *iter = (NNTBdbIterator*)malloc(sizeof(NNTBdbIterator));
+    memset(iter, 0, sizeof(NNTBdbIterator));
     if (d_ptr.db->cursor(d_ptr.db, NULL, &iter->cursor, 0)) {
         free(iter);
         return 0;
@@ -381,7 +381,7 @@ typedef struct {
 }
 
 - (void*)iterator_next:(void *)_iter {
-    WSIBdbIterator *iter = (WSIBdbIterator*)_iter;
+    NNTBdbIterator *iter = (NNTBdbIterator*)_iter;
     if (0 == (iter->cursor->get(iter->cursor, &iter->key, &iter->data, DB_NEXT))) {
         return iter;
     }
@@ -393,7 +393,7 @@ typedef struct {
 }
 
 - (void)iterator_retrive:(void*)_iter key:(void**)key klen:(uint*)klen data:(void**)data dlen:(uint*)dlen {
-    WSIBdbIterator* iter = (WSIBdbIterator*)_iter;
+    NNTBdbIterator* iter = (NNTBdbIterator*)_iter;
     *key = iter->key.data;
     *klen = iter->key.size;
     *data = iter->data.data;
@@ -410,4 +410,4 @@ typedef struct {
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

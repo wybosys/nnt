@@ -1,20 +1,20 @@
 
-# ifndef __WSI_UIKIT_UISWITCH_BBE43FBCCAC0429CA27ED80D2D429FA5_H_INCLUDED
-# define __WSI_UIKIT_UISWITCH_BBE43FBCCAC0429CA27ED80D2D429FA5_H_INCLUDED
+# ifndef __NNT_UIKIT_UISWITCH_BBE43FBCCAC0429CA27ED80D2D429FA5_H_INCLUDED
+# define __NNT_UIKIT_UISWITCH_BBE43FBCCAC0429CA27ED80D2D429FA5_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUISwitch : UISwitch {
-    WSIOBJECT_DECL;
+@interface NNTUISwitch : UISwitch {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @end
 
-@interface UIImageSwitch : WSIUIView {
+@interface UIImageSwitch : NNTUIView {
     
     //! image for false.
     UIImage *imageFalse;
@@ -32,31 +32,31 @@ WSIOBJECT_PROP;
     BOOL showClose;
     
     //! close button.
-    WSIUIButton* buttonClose;
+    NNTUIButton* buttonClose;
 }
 
 @property (nonatomic, retain) UIImage *imageFalse, *image;
 @property (nonatomic, retain) UIColor *colorFalse;
 @property (nonatomic, assign) int value;
 @property (nonatomic, assign) BOOL showClose;
-@property (nonatomic, retain) WSIUIButton *buttonClose;
+@property (nonatomic, retain) NNTUIButton *buttonClose;
 
 - (void)close;
 
 @end
 
-WSI_EXTERN signal_t kSignalValueChanged;
-WSI_EXTERN signal_t kSignalButtonCloseClicked;
+NNT_EXTERN signal_t kSignalValueChanged;
+NNT_EXTERN signal_t kSignalButtonCloseClicked;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SwitchButton
-: public ui::Control<SwitchButton, WSIUISwitch>
+: public ui::Control<SwitchButton, NNTUISwitch>
 {
 public:
     
@@ -77,8 +77,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,13 +1,13 @@
 
 # import "Core.h"
-# import "NSSet+WSI.h"
+# import "NSSet+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@implementation NSSet (WSI)
+@implementation NSSet (NNT)
 
 @end
 
-WSIIMPL_CATEGORY(NSSet, WSI);
+NNTIMPL_CATEGORY(NSSet, NNT);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC

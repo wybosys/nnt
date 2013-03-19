@@ -1,25 +1,25 @@
 
-# ifndef __WSI_DTRACE_CONTROLLER_9D9B3030860A46D793A7052250C913E3_H_INCLUDED
-# define __WSI_DTRACE_CONTROLLER_9D9B3030860A46D793A7052250C913E3_H_INCLUDED
+# ifndef __NNT_DTRACE_CONTROLLER_9D9B3030860A46D793A7052250C913E3_H_INCLUDED
+# define __NNT_DTRACE_CONTROLLER_9D9B3030860A46D793A7052250C913E3_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSILua);
+NNTDECL_EXTERN_CLASS(NNTLua);
 
-@interface DTraceController : WSIUIViewController {
+@interface DTraceController : NNTUIViewController {
     
     //! view for switch.
     UIView* viewForSwitch;
     
     //! lua object.
-    WSILua* lua;
+    NNTLua* lua;
 
     //! show logo, default is YES.
     BOOL showLogo;
 }
 
 @property (nonatomic, assign) UIView* viewForSwitch;
-@property (nonatomic, retain, readonly) WSILua* lua;
+@property (nonatomic, retain, readonly) NNTLua* lua;
 @property (nonatomic, assign) BOOL showLogo;
 
 //! show.
@@ -36,6 +36,6 @@ WSIDECL_EXTERN_CLASS(WSILua);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

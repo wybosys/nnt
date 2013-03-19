@@ -3,19 +3,19 @@
 # include "FsSamba.h"
 # include <smb/libsmbclient.h>
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 char const* res_9_dn_expand(char const*, char const*, char const*, char const*, int);
 char const* res_9_query();
 char const* res_9_dn_expand(char const*, char const*, char const*, char const*, int) { return NULL; }
 char const* res_9_query() { return NULL; }
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(filesystem)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(filesystem)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Samba)
+NNTDECL_PRIVATE_BEGIN_CXX(Samba)
 
 void init()
 {
@@ -39,16 +39,16 @@ void close()
 SMBCCTX* ctx;
 core::string url;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 Samba::Samba()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Samba);
+    NNTDECL_PRIVATE_CONSTRUCT(Samba);
 }
 
 Samba::~Samba()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 static core::string _gs_acc, _gs_passwd, _gs_workgroup;
@@ -151,5 +151,5 @@ int Samba::fwrite(file_io fd, core::data const& da) const
     return sta;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

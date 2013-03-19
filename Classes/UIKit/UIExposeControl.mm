@@ -3,7 +3,7 @@
 # import "UIExposeControl.h"
 # import "UIGridView.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface ExposeItem : UIGridViewItem {
     CGPadding _itemPadding;
@@ -28,7 +28,7 @@ WSI_BEGIN_OBJC
 
 @end
 
-@interface UIExposeView : WSIUIView
+@interface UIExposeView : NNTUIView
 
 @property (nonatomic, assign) UIExposeControl* expose;
 
@@ -75,9 +75,9 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_END
 
 - (id)addItem:(UIView*)view {
     return [self addItem:view updateLayout:NO];
@@ -539,4 +539,4 @@ WSIEVENT_END
 _CXXCONTROL_IMPL(UIExposeHorControl);
 _CXXCONTROL_IMPL(UIExposeVecControl);
 
-WSI_END_OBJC
+NNT_END_OBJC

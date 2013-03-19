@@ -1,9 +1,9 @@
 
 # import "Core.h"
-# import "Nodejs+WSI.h"
+# import "Nodejs+NNT.h"
 # import "../../contrib/nodejs/src/node.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation Nodejs
 
@@ -18,4 +18,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

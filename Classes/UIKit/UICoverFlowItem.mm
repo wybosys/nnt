@@ -3,10 +3,10 @@
 # import "UICoverFlow.h"
 # import "UICoverFlowItem.h"
 # import "UIImageDesktop.h"
-# import "UIImageView+WSI.h"
+# import "UIImageView+NNT.h"
 # import "Layout.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 real kCoverFlowItemFractionReflection = 0.61f;
 
@@ -26,8 +26,8 @@ real kCoverFlowItemFractionReflection = 0.61f;
     _fractionReflection = kCoverFlowItemFractionReflection;
     
     // Image View
-    _imageView = [[WSIUIImageView alloc] initWithFrame:self.bounds];
-    _reflectionImageView = [[WSIUIImageView alloc] initWithZero];
+    _imageView = [[NNTUIImageView alloc] initWithFrame:self.bounds];
+    _reflectionImageView = [[NNTUIImageView alloc] initWithZero];
     
     _imageView.userInteractionEnabled = NO;
     _reflectionImageView.userInteractionEnabled = NO;
@@ -54,11 +54,11 @@ real kCoverFlowItemFractionReflection = 0.61f;
 	[super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalActiveScale)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalActiveScale)
+NNTEVENT_END
 
-- (void)act_image_changed:(WSIEventObj*)evt {
+- (void)act_image_changed:(NNTEventObj*)evt {
     UIImage* image = (UIImage*)evt.result;
     
     if (image == nil)
@@ -90,7 +90,7 @@ WSIEVENT_END
 }
 
 - (void)layoutSubviews {
-    WSI_USINGCXXNAMESPACE;
+    NNT_USINGCXXNAMESPACE;
     
     layout::vbox lyt(self.bounds);
     layout::linear lnr(lyt);
@@ -133,4 +133,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UICoverFlowItem);
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,16 +1,16 @@
 
-# ifndef __WSI_PAY_UNIPAY_642BD99A319A459FAA967116FE8D91BC_H_INCLUDED
-# define __WSI_PAY_UNIPAY_642BD99A319A459FAA967116FE8D91BC_H_INCLUDED
+# ifndef __NNT_PAY_UNIPAY_642BD99A319A459FAA967116FE8D91BC_H_INCLUDED
+# define __NNT_PAY_UNIPAY_642BD99A319A459FAA967116FE8D91BC_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface ByPayApiView : WSIUIView
+@interface ByPayApiView : NNTUIView
 
 @property (nonatomic, assign) UIView* pay;
 
 @end
 
-@interface ByPayApiController : WSIUIViewController
+@interface ByPayApiController : NNTUIViewController
 
 @property (nonatomic, copy) NSString *application, *merchantId, *merchantOrderId, *merchantOrderTime, *signResult;
 @property (nonatomic, retain) NSData *result;
@@ -22,8 +22,8 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalByPayClose;
+NNT_EXTERN signal_t kSignalByPayClose;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

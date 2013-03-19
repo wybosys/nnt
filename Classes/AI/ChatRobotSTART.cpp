@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "ChatRobotSTART.h"
 
-WSI_CHATROBOT_BEGIN
+NNT_CHATROBOT_BEGIN
 
 
-WSI_CHATROBOT_END
+NNT_CHATROBOT_END

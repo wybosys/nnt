@@ -3,7 +3,7 @@
 # import "UIMapAbcView.h"
 # import <mapabc/MTMapView.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIMapAbcView
 
@@ -43,4 +43,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

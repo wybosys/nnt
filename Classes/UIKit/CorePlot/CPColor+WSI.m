@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPColor (WSI)
+@implementation CPColor (NNT)
 
 + (CPColor*)colorWithARGB:(int)__value {
     return [CPColor colorWithComponentRed:AS_C32P(ARGB_RED(__value)) green:AS_C32P(ARGB_GREEN(__value)) blue:AS_C32P(ARGB_BLUE(__value)) alpha:AS_C32P(ARGB_ALPHA(__value))];
@@ -54,6 +54,6 @@ WSI_BEGIN
 
 @end
 
-WSIIMPL_CATEGORY(CPColor, WSI);
+NNTIMPL_CATEGORY(CPColor, NNT);
 
-WSI_END
+NNT_END

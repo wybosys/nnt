@@ -1,21 +1,21 @@
 
-# ifndef __WSI_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
-# define __WSI_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
+# ifndef __NNT_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
+# define __NNT_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
 
 # include "NetAddress.h"
-# include "../Core/Time+WSI.h"
+# include "../Core/Time+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
 //! while stream receive bytes.
-WSI_EXTERN cxx::signal_t kSignalBytesAvailable;
+NNT_EXTERN cxx::signal_t kSignalBytesAvailable;
 
 //! while stream close.
-WSI_EXTERN cxx::signal_t kSignalClosed;
+NNT_EXTERN cxx::signal_t kSignalClosed;
 
-WSI_BEGIN_NS(cross)
+NNT_BEGIN_NS(cross)
 
-WSICLASS(SocketStream);
+NNTCLASS(SocketStream);
 
 class SocketStream
 : public cxx::Object<>
@@ -65,7 +65,7 @@ public:
     
 };
 
-WSI_EXTERN SocketStream null_stream;
+NNT_EXTERN SocketStream null_stream;
 
 inline_impl SocketStream& operator << (SocketStream& stm, char const* str)
 {
@@ -79,7 +79,7 @@ inline_impl SocketStream& operator >> (SocketStream& stm, core::data& da)
     return stm;
 }
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

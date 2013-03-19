@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "Mach+WSI.h"
+# import "Mach+NNT.h"
 # include <mach/mach.h>
 # include <mach/mach_host.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 void mem_init(void);
 
@@ -109,4 +109,4 @@ float cpu_usage() {
     return tot_cpu;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

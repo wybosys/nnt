@@ -1,8 +1,8 @@
 
-# include <wsi/WSIFoundation.h>
+# include <wsi/NNTFoundation.h>
 # include "DrvSafenetUsbKey.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 char const* sfnt_tostring(sfnt_t* s) {
     return (char const*)s->buf;
@@ -55,9 +55,9 @@ void sfnt_counterdecrement(dword f, dword v, sfnt_t* s) {
     s->errid = SFNTCounterDecrement(s->handle, f, v);
 }
 
-WSI_END_C
+NNT_END_C
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(sfnt)
+NNT_BEGIN_CXX NNT_BEGIN_NS(sfnt)
 
 Standalone::Standalone()
     : _key(NULL), _cfg(NULL)
@@ -153,4 +153,4 @@ int Standalone::read_integer(dword fid) const
     return result_int();
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

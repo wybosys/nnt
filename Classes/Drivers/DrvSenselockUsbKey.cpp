@@ -1,8 +1,8 @@
 
-# include <wsi/WSIFoundation.h>
+# include <wsi/NNTFoundation.h>
 # include "DrvSenselockUsbKey.h"
 
-WSI_BEGIN_CXX WSI_BEGIN_NS(senselock)
+NNT_BEGIN_CXX NNT_BEGIN_NS(senselock)
 
 KeyItem::KeyItem(SENSE4_CONTEXT* ctx)
 : _ctx(ctx)
@@ -138,4 +138,4 @@ KeyItem const& Standalone::at(uindex idx) const
 	return *_items.at(idx);
 }
 
-WSI_END_NS WSI_END_CXX
+NNT_END_NS NNT_END_CXX

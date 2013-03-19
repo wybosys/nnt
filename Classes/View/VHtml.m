@@ -2,16 +2,16 @@
 # import "Core.h"
 # import "VHtml.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-WSIDECL_PRIVATE_BEGIN(VHtml, WSIObject)
+NNTDECL_PRIVATE_BEGIN(VHtml, NNTObject)
 {
 	NSMutableDictionary *dict;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *dict;
 
-WSIDECL_PRIVATE_IMPL(VHtml)
+NNTDECL_PRIVATE_IMPL(VHtml)
 
 @synthesize dict;
 
@@ -26,18 +26,18 @@ WSIDECL_PRIVATE_IMPL(VHtml)
     [super fini];
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation VHtml 
 
 - (id)init {
 	self = [super init];
-	WSIDECL_PRIVATE_INIT(VHtml);
+	NNTDECL_PRIVATE_INIT(VHtml);
 	return self;
 }
 
 - (void)dealloc {
-	WSIDECL_PRIVATE_DEALLOC();
+	NNTDECL_PRIVATE_DEALLOC();
 	[super dealloc];
 }
 
@@ -59,4 +59,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END
+NNT_END

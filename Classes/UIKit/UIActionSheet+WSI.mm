@@ -1,22 +1,22 @@
 
 # import "Core.h"
-# import "UIActionSheet+WSI.h"
+# import "UIActionSheet+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalCancelButtonClicked = @"::wsi::ui::button::cancel::clicked";
 signal_t kSignalDestructButtonClicked = @"::wsi::ui::button::destruct::clicked";
 
-@interface WSIUIActionSheet ()
+@interface NNTUIActionSheet ()
 
 - (id)_addItem:(uint)idx;
 - (id)_findItem:(uint)idx;
 
 @end
 
-@implementation WSIUIActionSheet
+@implementation NNTUIActionSheet
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 - (id)init {
     self = [super init];
@@ -47,13 +47,13 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)dealloc {
     zero_release(_items);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewAppear);
-    WSIEVENT_SIGNAL(kSignalViewDisappear);
+    NNTEVENT_SIGNAL(kSignalViewAppear);
+    NNTEVENT_SIGNAL(kSignalViewDisappear);
 }
 
 - (id)addItem:(NSString*)title {
@@ -68,7 +68,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         return [self _addItem:idx];
     }
     
-    WSIObject* obj = [self _findItem:self.cancelButtonIndex];
+    NNTObject* obj = [self _findItem:self.cancelButtonIndex];
     obj = [obj retain];
     [_items removeObjectForKey:[NSNumber numberWithUnsignedInteger:self.cancelButtonIndex]];
     uint idx = [self addButtonWithTitle:title];
@@ -78,7 +78,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 - (id)_addItem:(uint)idx {
-    WSIObject* obj = [[WSIObject alloc] init];
+    NNTObject* obj = [[NNTObject alloc] init];
     [obj register_signal:kSignalButtonClicked];
     [_items setObject:obj
                forKey:[NSNumber numberWithUnsignedInteger:idx]];
@@ -94,7 +94,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 // delegate.
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    WSIObject* obj = [_items objectForKey:[NSNumber numberWithUnsignedInteger:buttonIndex]];
+    NNTObject* obj = [_items objectForKey:[NSNumber numberWithUnsignedInteger:buttonIndex]];
     [obj emit:kSignalButtonClicked];
 }
 
@@ -113,7 +113,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (self.cancelButtonIndex != -1) {
         if (self.cancelButtonIndex == buttonIndex) {
-            WSIObject* obj = [self _findItem:buttonIndex];
+            NNTObject* obj = [self _findItem:buttonIndex];
             [obj emit:kSignalButtonClicked];
         }
     }
@@ -123,4 +123,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

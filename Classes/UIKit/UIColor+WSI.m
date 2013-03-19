@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "UIColor+WSI.h"
+# import "UIColor+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation UIColor (WSI)
+@implementation UIColor (NNT)
 
 - (id)initWithRGBA:(int)__value {
     self = [self initWithRed:AS_C32P(RGBA_RED(__value)) green:AS_C32P(RGBA_GREEN(__value)) blue:AS_C32P(RGBA_BLUE(__value)) alpha:AS_C32P(RGBA_ALPHA(__value))];
@@ -94,6 +94,6 @@ WSI_BEGIN
 
 @end
 
-WSIIMPL_CATEGORY(UIColor, WSI);
+NNTIMPL_CATEGORY(UIColor, NNT);
 
-WSI_END
+NNT_END

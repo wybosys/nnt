@@ -1,14 +1,14 @@
 
 # import "Core.h"
 # import "UIPickerControl.h"
-# import "UIPickerView+WSI.h"
+# import "UIPickerView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 CGFloat kUIPickerControlHeight = 44;
 CGFloat kUIPickerControlItemFontSize = 22;
 
-@interface DefaultPickerLabel : WSIUILabel
+@interface DefaultPickerLabel : NNTUILabel
 
 @end
 
@@ -47,7 +47,7 @@ CGFloat kUIPickerControlItemFontSize = 22;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
 
-    _pickerView = [[WSIUIPickerView alloc] initWithZero];
+    _pickerView = [[NNTUIPickerView alloc] initWithZero];
     [self addSubview:_pickerView];
     [_pickerView release];
     
@@ -82,9 +82,9 @@ CGFloat kUIPickerControlItemFontSize = 22;
     _pickerView.frame = self.bounds;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_END
 
 # pragma mark datasource.
 
@@ -118,7 +118,7 @@ WSIEVENT_END
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    WSINSIndexPath* ip = [[WSINSIndexPath alloc] init];
+    NNTNSIndexPath* ip = [[NNTNSIndexPath alloc] init];
     ip.row = row;
     ip.section = component;
     [self emit:kSignalSelectChanged result:ip];
@@ -197,7 +197,7 @@ _CXXCONTROL_IMPL_BEGIN(UIPickerControl)
     item->selected();
     
     // emit.
-    WSINSIndexPath* ip = [[WSINSIndexPath alloc] init];
+    NNTNSIndexPath* ip = [[NNTNSIndexPath alloc] init];
     ip.row = row;
     ip.section = component;
     [self emit:kSignalSelectChanged result:ip data:&io];
@@ -222,8 +222,8 @@ _CXXCONTROL_IMPL_END
 
 @end
 
-static void __gsf_pickerdesktop_ok(WSIEventObj* evt) {
-    WSIUIDesktop* desk = (WSIUIDesktop*)[(id)evt.sender attachFind:@"desk"];
+static void __gsf_pickerdesktop_ok(NNTEventObj* evt) {
+    NNTUIDesktop* desk = (NNTUIDesktop*)[(id)evt.sender attachFind:@"desk"];
     SEL act = ((NSObjectSel*)[(id)evt.sender storeFind:@"action"]).selector;
     id target = [(id)evt.sender attachFind:@"target"];
     UIPickerControl* picker = (UIPickerControl*)[(id)evt.sender attachFind:@"picker"];
@@ -233,8 +233,8 @@ static void __gsf_pickerdesktop_ok(WSIEventObj* evt) {
     [desk close];
 }
 
-static void __gsf_pickerdesktop_cancel(WSIEventObj* evt) {
-    WSIUIDesktop* desk = (WSIUIDesktop*)[(id)evt.sender attachFind:@"desk"];
+static void __gsf_pickerdesktop_cancel(NNTEventObj* evt) {
+    NNTUIDesktop* desk = (NNTUIDesktop*)[(id)evt.sender attachFind:@"desk"];
     SEL act = ((NSObjectSel*)[(id)evt.sender storeFind:@"action"]).selector;
     id target = [(id)evt.sender attachFind:@"target"];
     UIPickerControl* picker = (UIPickerControl*)[(id)evt.sender attachFind:@"picker"];
@@ -244,8 +244,8 @@ static void __gsf_pickerdesktop_cancel(WSIEventObj* evt) {
     [desk close];
 }
 
-UIPickerControl* WSIOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id target) {    
-    WSIUIDesktop *desk = [WSIUIDesktop desktop];
+UIPickerControl* NNTOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id target) {    
+    NNTUIDesktop *desk = [NNTUIDesktop desktop];
     
     wsi::CGRectLayoutVBox lyt(desk.bounds);
     wsi::CGRectLayoutLinear lnr(lyt);
@@ -270,7 +270,7 @@ UIPickerControl* WSIOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id tar
     navi.view.backgroundColor = [UIColor blackColor];   
     [desk addSubview:navi.view];
     
-    WSIUIBarButtonItem *btn_ok = [[WSIUIBarButtonItem alloc] 
+    NNTUIBarButtonItem *btn_ok = [[NNTUIBarButtonItem alloc] 
                                   initWithTitle:_W(@"ok") 
                                   style:(UIBarButtonItemStyle)UIBarButtonSystemItemDone];
     picker.navigationItem.rightBarButtonItem = btn_ok;
@@ -281,7 +281,7 @@ UIPickerControl* WSIOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id tar
     [btn_ok attachSet:@"picker" obj:ctl_pick];
     [btn_ok release];        
     
-    WSIUIBarButtonItem *btn_cancel = [[WSIUIBarButtonItem alloc] 
+    NNTUIBarButtonItem *btn_cancel = [[NNTUIBarButtonItem alloc] 
                                       initWithTitle:_W(@"cancel") 
                                       style:(UIBarButtonItemStyle)UIBarButtonItemStyleDone];
     picker.navigationItem.leftBarButtonItem = btn_cancel;
@@ -298,4 +298,4 @@ UIPickerControl* WSIOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id tar
 
 _CXXCONTROL_IMPL(UIDrumPickerControl);
 
-WSI_END_OBJC
+NNT_END_OBJC

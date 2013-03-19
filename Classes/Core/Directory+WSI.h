@@ -1,25 +1,25 @@
 
-# ifndef __WSI_CORE_DIRECTORY_6F36C0B7105A44298C01CA30B9C4FBCB_H_INCLUDED
-# define __WSI_CORE_DIRECTORY_6F36C0B7105A44298C01CA30B9C4FBCB_H_INCLUDED
+# ifndef __NNT_CORE_DIRECTORY_6F36C0B7105A44298C01CA30B9C4FBCB_H_INCLUDED
+# define __NNT_CORE_DIRECTORY_6F36C0B7105A44298C01CA30B9C4FBCB_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-enum _WSIDirectoryType {
+enum _NNTDirectoryType {
     
     //! absolute directory.
-    WSIDirectoryTypeNone = 0x10000000, 
-    WSIDirectoryTypeAbsolute = WSIDirectoryTypeNone,
-    WSIDirectoryTypeBundle = 0x20000000, 
+    NNTDirectoryTypeNone = 0x10000000, 
+    NNTDirectoryTypeAbsolute = NNTDirectoryTypeNone,
+    NNTDirectoryTypeBundle = 0x20000000, 
     
     //! bundle directory of app.
-    WSIDirectoryTypeBundleWritable = 0x30000000,
+    NNTDirectoryTypeBundleWritable = 0x30000000,
     
-# ifdef WSI_JAILBREAK        
+# ifdef NNT_JAILBREAK        
     
     //! template directory of system in wsi.
-    WSIDirectoryTypeTemplate = 0x40000000, 
+    NNTDirectoryTypeTemplate = 0x40000000, 
     
 # endif
     
@@ -33,37 +33,37 @@ enum _WSIDirectoryType {
     NSLogDirectory = 0x3000000,
     
     //! all directories provide by apple of user, the marker will force use NSSearchPathDirectory fuction to get full path of target directory.
-    WSIDirectoryTypeSystem = 0x40000000, 
+    NNTDirectoryTypeSystem = 0x40000000, 
     
     // other.
-    NSAppTempDirectory = NSTemplateDirectory | WSIDirectoryTypeSystem,
-    NSAppVarDirectory = NSVariableDirectory | WSIDirectoryTypeSystem,
-    NSAppLogDirectory = NSLogDirectory | WSIDirectoryTypeSystem,
+    NSAppTempDirectory = NSTemplateDirectory | NNTDirectoryTypeSystem,
+    NSAppVarDirectory = NSVariableDirectory | NNTDirectoryTypeSystem,
+    NSAppLogDirectory = NSLogDirectory | NNTDirectoryTypeSystem,
     
 };
 
-typedef uint WSIDirectoryType;
+typedef uint NNTDirectoryType;
 
-# define WSIDirectoryTypeMajor(type) \
+# define NNTDirectoryTypeMajor(type) \
     ((type) & 0xf0000000)
 
-# define WSIDirectoryTypeWsiMinor(type) \
+# define NNTDirectoryTypeWsiMinor(type) \
     ((type) & 0xf000000)
 
-# define WSIDirectoryTypeMinor(type) \
+# define NNTDirectoryTypeMinor(type) \
     ((type) & 0xffff)
 
 //! create a directory safely.
-WSI_EXTERN NSURL *WSIDirectoryCreateWithType(NSString *path, WSIDirectoryType type);
+NNT_EXTERN NSURL *NNTDirectoryCreateWithType(NSString *path, NNTDirectoryType type);
 
 //! remove a directory.
-WSI_EXTERN BOOL WSIDirectoryRemoveWithType(NSString* path, WSIDirectoryType type);
+NNT_EXTERN BOOL NNTDirectoryRemoveWithType(NSString* path, NNTDirectoryType type);
 
 //! touch directory.
-WSI_EXTERN NSURL *WSIDirectoryTouchWithType(NSString*, WSIDirectoryType);
+NNT_EXTERN NSURL *NNTDirectoryTouchWithType(NSString*, NNTDirectoryType);
 
 //! touch a file safely.
-WSI_EXTERN NSURL *WSIFileTouchWithType(NSString* path, WSIDirectoryType type);
+NNT_EXTERN NSURL *NNTFileTouchWithType(NSString* path, NNTDirectoryType type);
 
 //! enum a directory.
 
@@ -74,7 +74,7 @@ enum {
 };
 typedef uint NSDirectoryEnum;
 
-@interface NSDirectory : WSIObject {
+@interface NSDirectory : NNTObject {
     NSString* url;
     
 @private
@@ -105,44 +105,44 @@ typedef uint NSDirectoryEnum;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(core)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(core)
 
-WSIAPI(core::string) dot(core::string const&);
-WSIAPI(core::string) dotdot(core::string const&);
-WSIAPI(bool) mkdir(core::string const&);
-WSIAPI(bool) mkdirs(core::string const&);
+NNTAPI(core::string) dot(core::string const&);
+NNTAPI(core::string) dotdot(core::string const&);
+NNTAPI(bool) mkdir(core::string const&);
+NNTAPI(bool) mkdirs(core::string const&);
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-inline_impl ns::URL mkdir(ns::String const& path, WSIDirectoryType type)
+inline_impl ns::URL mkdir(ns::String const& path, NNTDirectoryType type)
 {
-    return WSIDirectoryCreateWithType(path, type);
+    return NNTDirectoryCreateWithType(path, type);
 }
 
-inline_impl bool rmdir(ns::String const& path, WSIDirectoryType type)
+inline_impl bool rmdir(ns::String const& path, NNTDirectoryType type)
 {
-    return WSIDirectoryRemoveWithType(path, type);
+    return NNTDirectoryRemoveWithType(path, type);
 }
 
-inline_impl ns::URL touch(ns::String const& path, WSIDirectoryType type)
+inline_impl ns::URL touch(ns::String const& path, NNTDirectoryType type)
 {
-    return WSIFileTouchWithType(path, type);
+    return NNTFileTouchWithType(path, type);
 }
 
 # endif
 
-WSI_END_NS
+NNT_END_NS
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_NS(ns)
 
 class Directory
 {
@@ -150,7 +150,7 @@ public:
     
     static ns::URL Variable(ns::String const& str)
     {
-        return WSIDirectoryTouchWithType(str, NSAppVarDirectory);
+        return NNTDirectoryTouchWithType(str, NSAppVarDirectory);
     }
     
     static bool isFile(ns::String const& str)
@@ -179,11 +179,11 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 # endif
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 

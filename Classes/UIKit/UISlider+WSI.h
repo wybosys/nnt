@@ -1,41 +1,41 @@
 
-# ifndef __WSI_UIKIT_UISLIDER_35A5B2878B22402D90CACDBE2359FA9D_H_INCLUDED
-# define __WSI_UIKIT_UISLIDER_35A5B2878B22402D90CACDBE2359FA9D_H_INCLUDED
+# ifndef __NNT_UIKIT_UISLIDER_35A5B2878B22402D90CACDBE2359FA9D_H_INCLUDED
+# define __NNT_UIKIT_UISLIDER_35A5B2878B22402D90CACDBE2359FA9D_H_INCLUDED
 
-# import "UILabel+WSI.h"
-# import "UIButton+WSI.h"
+# import "UILabel+NNT.h"
+# import "UIButton+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUISlider : UISlider {
-    WSIOBJECT_DECL;
+@interface NNTUISlider : UISlider {
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 - (void)changeValue:(float)value;
 
 @end
 
-WSI_EXTERN signal_t kSignalValueChanged;
+NNT_EXTERN signal_t kSignalValueChanged;
 
-@interface UISliderTitleValue : WSIUIView {
+@interface UISliderTitleValue : NNTUIView {
         
     //! title.
-    WSIUILabel* title;
+    NNTUILabel* title;
     
     //! slider.
-    WSIUISlider* slider;
+    NNTUISlider* slider;
     
     //! value.
-    WSIUILabel* value;
+    NNTUILabel* value;
     
     float maximumValue, minimumValue, currentValue;
 }
 
-@property (nonatomic, retain) WSIUILabel* title;
-@property (nonatomic, retain) WSIUISlider* slider;
-@property (nonatomic, retain) WSIUILabel* value;
+@property (nonatomic, retain) NNTUILabel* title;
+@property (nonatomic, retain) NNTUISlider* slider;
+@property (nonatomic, retain) NNTUILabel* value;
 
 @property (nonatomic, assign) float maximumValue, minimumValue, currentValue;
 
@@ -46,27 +46,27 @@ WSI_EXTERN signal_t kSignalValueChanged;
 
 @interface UISliderTitleValueReset : UISliderTitleValue {
     //! reset button.
-    WSIUIButton* reset;
+    NNTUIButton* reset;
     
     //! default value.
     float defaultValue;
 }
 
-@property (nonatomic, retain) WSIUIButton* reset;
+@property (nonatomic, retain) NNTUIButton* reset;
 @property (nonatomic, assign) float defaultValue;
 
 + (id)sliderWith:(NSString*)title max:(float)max min:(float)min cur:(float)cur;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
-template <typename sliderT = WSIUISlider>
+template <typename sliderT = NNTUISlider>
 class SliderControl
 : public Control< SliderControl<sliderT>, sliderT>
 {
@@ -109,10 +109,10 @@ public:
     
 };
 
-typedef SliderControl<WSIUISlider> Slider;
+typedef SliderControl<NNTUISlider> Slider;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

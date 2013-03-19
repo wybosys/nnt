@@ -1,15 +1,15 @@
 
 # include "Core.h"
-# include "AES+WSI.h"
+# include "AES+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/aes.h>
 # include <openssl/evp.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 static const unsigned int _gs_salt[] = { 13579, 86420 };
 
@@ -90,4 +90,4 @@ void aes::decrypt(core::data const& key, core::data const& in, core::vector<byte
     out.resize(p_len + f_len);
 }
 
-WSI_END_CXX
+NNT_END_CXX

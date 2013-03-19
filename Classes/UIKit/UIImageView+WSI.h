@@ -1,24 +1,24 @@
 
-# ifndef __WSI_UIKIT_UIIMAGEVIEW_93B7862E02B74F9AA825582AC10AF5CA_H_INCLUDED
-# define __WSI_UIKIT_UIIMAGEVIEW_93B7862E02B74F9AA825582AC10AF5CA_H_INCLUDED
+# ifndef __NNT_UIKIT_UIIMAGEVIEW_93B7862E02B74F9AA825582AC10AF5CA_H_INCLUDED
+# define __NNT_UIKIT_UIIMAGEVIEW_93B7862E02B74F9AA825582AC10AF5CA_H_INCLUDED
 
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(WSIUIActivityIndicatorView);
-WSIDECL_EXTERN_CLASS(UIImageDesktop);
+NNTDECL_EXTERN_CLASS(NNTUIActivityIndicatorView);
+NNTDECL_EXTERN_CLASS(UIImageDesktop);
 
-@interface UIImageView (WSI)
+@interface UIImageView (NNT)
 
 @end
 
-@interface WSIUIImageView : WSIUIView {    
+@interface NNTUIImageView : NNTUIView {    
     //! enable waiting show.
     BOOL _enableWaiting;
     
     //! waiting view.
-    WSIUIActivityIndicatorView *_waitingView;
+    NNTUIActivityIndicatorView *_waitingView;
     
     //! waiting style.
     UIActivityIndicatorViewStyle _waitingStyle;
@@ -49,7 +49,7 @@ WSIDECL_EXTERN_CLASS(UIImageDesktop);
 }
 
 @property (nonatomic) BOOL enableWaiting;
-@property (nonatomic, retain) WSIUIActivityIndicatorView *waitingView;
+@property (nonatomic, retain) NNTUIActivityIndicatorView *waitingView;
 @property (nonatomic) UIActivityIndicatorViewStyle waitingStyle;
 @property (nonatomic, retain) UIImage *failedImg;
 @property (nonatomic, retain) UIImage *imageForScale;
@@ -83,10 +83,10 @@ WSIDECL_EXTERN_CLASS(UIImageDesktop);
 
 @end
 
-@interface WSIUIImageViewActiveScale : WSIUIImageView
+@interface NNTUIImageViewActiveScale : NNTUIImageView
 @end
 
-@interface UISightImageView : WSIUIImageView <WSIUIViewInSight> {
+@interface UISightImageView : NNTUIImageView <NNTUIViewInSight> {
     NSURL* imageURL;
     
     @private
@@ -99,46 +99,46 @@ WSIDECL_EXTERN_CLASS(UIImageDesktop);
 @end
 
 //! clicked.
-WSI_EXTERN signal_t kSignalViewClicked;
+NNT_EXTERN signal_t kSignalViewClicked;
 
 //! image changed.
-WSI_EXTERN signal_t kSignalImageChanged;
+NNT_EXTERN signal_t kSignalImageChanged;
 
 //! active scale.
-WSI_EXTERN signal_t kSignalActiveScale;
+NNT_EXTERN signal_t kSignalActiveScale;
 
 //! image fetched.
-WSI_EXTERN signal_t kSignalImageFetched;
+NNT_EXTERN signal_t kSignalImageFetched;
 
 //! failed to fetch image.
-WSI_EXTERN signal_t kSignalImageFetchedError;
+NNT_EXTERN signal_t kSignalImageFetchedError;
 
 //! image cache loaded.
-WSI_EXTERN signal_t kSignalImageCahceLoaded;
+NNT_EXTERN signal_t kSignalImageCahceLoaded;
 
-WSIDECL_CATEGORY(UIImageView, WSI);
+NNTDECL_CATEGORY(UIImageView, NNT);
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIView+WSI.h"
+# include "UIView+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-_CXXVIEW_DECL(WSIUIImageView);
+_CXXVIEW_DECL(NNTUIImageView);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class ImageView
 : public View<ImageView, 
-_CXXVIEW(WSIUIImageView)
+_CXXVIEW(NNTUIImageView)
 >
 {        
     
     typedef View<ImageView, 
-    _CXXVIEW(WSIUIImageView)
+    _CXXVIEW(NNTUIImageView)
     > super;
     
 public:
@@ -169,7 +169,7 @@ public:
         this->_updateself();
     }
     
-    ImageView(WSIUIImageView* r)
+    ImageView(NNTUIImageView* r)
     : super((objc_type*)r)
     {
         PASS;
@@ -229,11 +229,11 @@ public:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

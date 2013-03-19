@@ -1,19 +1,19 @@
 
 # import "Core.h"
-# import "NSURL+WSI.h"
-# import "WSIResource.h"
+# import "NSURL+NNT.h"
+# import "NNTResource.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIIMPL_CATEGORY(NSURL, WSI);
+NNTIMPL_CATEGORY(NSURL, NNT);
 
-@implementation NSURL (WSI)
+@implementation NSURL (NNT)
 
 + (NSURL*)URLWithUTF8String:(NSString*)str {
     return [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
-# ifndef WSI_iOS_4
+# ifndef NNT_iOS_4
 
 - (NSString *)pathExtension {
     return @"/";
@@ -22,7 +22,7 @@ WSIIMPL_CATEGORY(NSURL, WSI);
 - (NSURL *)URLByAppendingPathComponent:(NSString *)pathComponent {
     NSString* abs = [self absoluteString];
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
     abs = [abs stringByAppendFormat:@"%@%@", [self pathExtension], pathComponent];
 # else
     abs = [abs stringByAppendingFormat:@"%@%@", [self pathExtension], pathComponent];
@@ -68,10 +68,10 @@ WSIIMPL_CATEGORY(NSURL, WSI);
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 URL const null_url = URL(@"");
 
@@ -79,12 +79,12 @@ URL URL::Bundle(ns::String const& path)
 {
     if (path.is_null())
         return null_url;
-    ns::String str = [WSIResource PathOf:path];
+    ns::String str = [NNTResource PathOf:path];
     NSURL* url = [[NSURL alloc] initFileURLWithPath:str];
     URL ret(url);
     [url release];
     return ret;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

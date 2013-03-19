@@ -1,15 +1,15 @@
 
-# ifndef __WSI_CONTEXT_USER_8E9468CD486C42F5A5CE711BAE1811DE_H_INCLUDED
-# define __WSI_CONTEXT_USER_8E9468CD486C42F5A5CE711BAE1811DE_H_INCLUDED
+# ifndef __NNT_CONTEXT_USER_8E9468CD486C42F5A5CE711BAE1811DE_H_INCLUDED
+# define __NNT_CONTEXT_USER_8E9468CD486C42F5A5CE711BAE1811DE_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(Context);
-WSIDECL_EXTERN_CLASS(WSIConfiguration);
+NNTDECL_EXTERN_CLASS(Context);
+NNTDECL_EXTERN_CLASS(NNTConfiguration);
 
-@interface User : WSIObject {
+@interface User : NNTObject {
 
     //! name.
     NSString *_nickname;
@@ -27,7 +27,7 @@ WSIDECL_EXTERN_CLASS(WSIConfiguration);
     BOOL _logined;
     
     //! configuration.
-    WSIConfiguration* _configuration;
+    NNTConfiguration* _configuration;
     
     //! reference to context.
     Context *_ctx;
@@ -38,7 +38,7 @@ WSIDECL_EXTERN_CLASS(WSIConfiguration);
 @property (nonatomic, readonly, copy) NSString *identity;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, readonly) BOOL logined;
-@property (nonatomic, retain, readonly) WSIConfiguration* configuration;
+@property (nonatomic, retain, readonly) NNTConfiguration* configuration;
 @property (nonatomic, assign) Context *ctx;
 
 //! login & logout.
@@ -46,23 +46,23 @@ WSIDECL_EXTERN_CLASS(WSIConfiguration);
 - (void)logout;
 
 //! get configuration.
-+ (WSIConfiguration*)configurationOfIdentity:(NSString*)identity;
++ (NNTConfiguration*)configurationOfIdentity:(NSString*)identity;
 + (NSString*)configurationNameOfIdentity:(NSString*)identity;
 
 @end
 
-WSI_EXTERN signal_t kSignalUserLogin;
-WSI_EXTERN signal_t kSignalUserLogout;
-WSI_EXTERN signal_t kSignalUserLoginStatusChanged;
+NNT_EXTERN signal_t kSignalUserLogin;
+NNT_EXTERN signal_t kSignalUserLogout;
+NNT_EXTERN signal_t kSignalUserLoginStatusChanged;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "WSIConfiguration.h"
+# include "NNTConfiguration.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Context;
 
@@ -148,7 +148,7 @@ public:
     
     static configuration_type Configuration(ns::String const& idr)
     {
-        WSIConfiguration* conf = [::User configurationOfIdentity:idr];
+        NNTConfiguration* conf = [::User configurationOfIdentity:idr];
         return configuration_type(conf);
     }
     
@@ -164,8 +164,8 @@ protected:
     friend class Context;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx

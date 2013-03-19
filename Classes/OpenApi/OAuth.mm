@@ -6,11 +6,11 @@
 # import "Server.h"
 # import "Context.h"
 # import "UIOAuthView.h"
-# import "Mime+WSI.h"
+# import "Mime+NNT.h"
 
 using namespace ::wsi;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalAuthorizeSuccess = @"::wsi::authorize::success";
 signal_t kSignalAuthorizeFailed = @"::wsi::authorize::failed";
@@ -232,11 +232,11 @@ NSString* kOAuthCallbackCancel = @"::oauth::cancel";
 
 @synthesize urlCallback = _urlCallback, request = _request;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAuthorizeSuccess)
-WSIEVENT_SIGNAL(kSignalAuthorizeFailed)
-WSIEVENT_SIGNAL(kSignalAuthorizeExit)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAuthorizeSuccess)
+NNTEVENT_SIGNAL(kSignalAuthorizeFailed)
+NNTEVENT_SIGNAL(kSignalAuthorizeExit)
+NNTEVENT_END
 
 - (id)initWithRequest:(OARequest_1_0 *)req {
     self = [super init];
@@ -258,7 +258,7 @@ WSIEVENT_END
     if (_urlCallback == nil)
         return NO;
         
-    WSI_AUTORELEASEPOOL_BEGIN
+    NNT_AUTORELEASEPOOL_BEGIN
     
     NSString* go_url = [self url];
         
@@ -273,7 +273,7 @@ WSIEVENT_END
         }
     }
     
-    WSI_AUTORELEASEPOOL_END
+    NNT_AUTORELEASEPOOL_END
     
     return YES;
 }
@@ -317,7 +317,7 @@ WSIEVENT_END
     [self emit:kSignalAuthorizeExit];
 }
 
-- (void)act_callback:(WSIEventObj*)evt {
+- (void)act_callback:(NNTEventObj*)evt {
     NSString* callback = (NSString*)evt.result;        
     
     NSArray* arr_callback = [callback componentsSeparatedByString:@"?"];
@@ -395,7 +395,7 @@ WSIEVENT_END
     
     NSString *ret = [NSString stringWithFormat:@"%@&%@&", HttpRequestGetMethod(self.classRpc), [self.request.urlAccess OAEncode]];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     return ret;
@@ -413,7 +413,7 @@ WSIEVENT_END
     dict[@"oauth_token"] = self.request.token;
     
     NSString *header = [NSString stringWithFormat:@"OAuth %@", [dict combineWithKVSep:@"=" andSegSep:@", " keysur:@"" valsur:@"\""]];
-# ifdef WSI_DEBUG   
+# ifdef NNT_DEBUG   
     trace_msg(header);
 # endif
     return header;
@@ -512,7 +512,7 @@ WSIEVENT_END
     NSString *ret = [NSString stringWithFormat:@"%@&%@&", HttpRequestGetMethod(self.classRpc), [self.baseUrl OAEncode]];
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     return ret;
@@ -529,7 +529,7 @@ WSIEVENT_END
     dict[@"oauth_token"] = self.request.access_token;    
     
     NSString *header = [NSString stringWithFormat:@"OAuth %@", [dict combineWithKVSep:@"=" andSegSep:@", " keysur:@"" valsur:@"\""]];
-# ifdef WSI_DEBUG    
+# ifdef NNT_DEBUG    
     trace_msg(header);
 # endif
     return header;
@@ -664,10 +664,10 @@ WSIEVENT_END
     return nil;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAuthorizeSuccess)
-WSIEVENT_SIGNAL(kSignalAuthorizeFailed)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAuthorizeSuccess)
+NNTEVENT_SIGNAL(kSignalAuthorizeFailed)
+NNTEVENT_END
 
 - (NSString*)callback {
     return _authorize.urlCallback;
@@ -703,7 +703,7 @@ WSIEVENT_END
     safe_release(self);
 }
 
-- (void)__act_authorize_suc:(WSIEventObj*)evt {
+- (void)__act_authorize_suc:(NNTEventObj*)evt {
     if (NO == [SERV() retrieve_model:_access]) {
         _isValid = NO;
         [self emit:kSignalAuthorizeFailed result:_request];
@@ -714,7 +714,7 @@ WSIEVENT_END
     [self emit:kSignalAuthorizeSuccess result:_request];
 }
 
-- (void)__act_authorize_failed:(WSIEventObj*)evt {
+- (void)__act_authorize_failed:(NNTEventObj*)evt {
     [self emit:kSignalAuthorizeFailed result:_request];
 }
 
@@ -812,12 +812,12 @@ WSIEVENT_END
 }
 
 - (NSMutableArray*)scopes {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     if (_scopes == nil)
         _scopes = [[NSMutableArray alloc] initWithCapacity:4];
 
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     
     return _scopes;
 }
@@ -851,11 +851,11 @@ WSIEVENT_END
 @synthesize request = _request;
 @synthesize expire = _expire;
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAuthorizeSuccess)
-WSIEVENT_SIGNAL(kSignalAuthorizeFailed)
-WSIEVENT_SIGNAL(kSignalAuthorizeExit)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAuthorizeSuccess)
+NNTEVENT_SIGNAL(kSignalAuthorizeFailed)
+NNTEVENT_SIGNAL(kSignalAuthorizeExit)
+NNTEVENT_END
 
 - (id)initWithRequest:(OARequest_2_0 *)req {
     self = [super init];
@@ -874,7 +874,7 @@ WSIEVENT_END
         return NO;
     }
     
-    WSI_AUTORELEASEPOOL_BEGIN
+    NNT_AUTORELEASEPOOL_BEGIN
     
     NSString* go_url = [self url];
     safe_release(_authView);
@@ -889,7 +889,7 @@ WSIEVENT_END
         }
     }
     
-    WSI_AUTORELEASEPOOL_END
+    NNT_AUTORELEASEPOOL_END
     
     return YES;
 }
@@ -948,7 +948,7 @@ WSIEVENT_END
     [self closeAuthView];
 }
 
-- (void)act_callback:(WSIEventObj*)evt {
+- (void)act_callback:(NNTEventObj*)evt {
     NSString* callback = (NSString*)evt.result;        
     
     NSArray* arr_callback = [callback componentsSeparatedByString:@"?"];
@@ -962,7 +962,7 @@ WSIEVENT_END
             [self failed];                        
             return;
         }
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         trace_fmt(@"skip callback: %@", callback);
 # endif
         return;
@@ -1075,10 +1075,10 @@ WSIEVENT_END
     return nil;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalAuthorizeSuccess)
-WSIEVENT_SIGNAL(kSignalAuthorizeFailed)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalAuthorizeSuccess)
+NNTEVENT_SIGNAL(kSignalAuthorizeFailed)
+NNTEVENT_END
 
 //! retrieve from server.
 - (void)retrieve {    
@@ -1103,7 +1103,7 @@ WSIEVENT_END
     safe_release(self);
 }
 
-- (void)__act_authorize_suc:(WSIEventObj*)evt {
+- (void)__act_authorize_suc:(NNTEventObj*)evt {
     // check if access needed.
     if (self.request.urlAccess) {
         if (NO == [SERV() retrieve_model:_access]) {
@@ -1117,7 +1117,7 @@ WSIEVENT_END
     [self emit:kSignalAuthorizeSuccess result:_request];
 }
 
-- (void)__act_authorize_failed:(WSIEventObj*)evt {
+- (void)__act_authorize_failed:(NNTEventObj*)evt {
     [self emit:kSignalAuthorizeFailed result:_request];
 }
 
@@ -1220,4 +1220,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

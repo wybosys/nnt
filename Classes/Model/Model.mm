@@ -5,7 +5,7 @@
 # import "Preferences.h"
 # import "NullObjParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation Model
 
@@ -23,7 +23,7 @@ WSI_BEGIN_OBJC
 	_params = [[NSMutableArray alloc] init];
     _extend_datas = [[NSMutableArray alloc] init];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     _cacheTime = DT_5MIN;
 # else
     _cacheTime = DT_15MIN;
@@ -35,7 +35,7 @@ WSI_BEGIN_OBJC
     _verbose = NO;
     _verboseSuc = NO;
     _verboseWait = NO;
-    _verboseData = WSIDEBUG_EXPRESS(YES) WSIRELEASE_EXPRESS(NO);
+    _verboseData = NNTDEBUG_EXPRESS(YES) NNTRELEASE_EXPRESS(NO);
     
     _classRpc = nil;
     _demo = NO;
@@ -110,7 +110,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)setObjparser:(id<NullObjParser>)objparser {
-    [WSIObject refobjSet:&_objparser ref:objparser];
+    [NNTObject refobjSet:&_objparser ref:objparser];
 
     if ([_objparser isKindOfClass:[NullObjParser class]]) {
         ((NullObjParser*)_objparser).owner = self;
@@ -143,7 +143,7 @@ WSI_BEGIN_OBJC
 
 - (NSString*)uniqueIdentifier {
     NSArray *arr = [self collect];
-    NSString* str_arr = [WSIObject json_encode:arr];
+    NSString* str_arr = [NNTObject json_encode:arr];
     NSString* ret = [NSString stringWithFormat:@":%@:%@:%@", str_arr, self.url, _cacheAppendr];
     return ret;
 }
@@ -200,10 +200,10 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
 
 void Model::active_verbose() const
 {
@@ -302,5 +302,5 @@ void Model::tog_cache(bool able)
     this->_self.cacheable = able;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

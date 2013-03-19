@@ -1,20 +1,20 @@
 
 # import "Core.h"
-# import "UIImageView+WSI.h"
+# import "UIImageView+NNT.h"
 # import "AbstractCache.h"
 # import "UIImageDesktop.h"
-# import "CoreGraphic+WSI.h"
-# import "UIColor+WSI.h"
-# import "UIView+WSI.h"
-# import "WSIUIObject.h"
+# import "CoreGraphic+NNT.h"
+# import "UIColor+NNT.h"
+# import "UIView+NNT.h"
+# import "NNTUIObject.h"
 # import "Model.h"
-# import "UIActivityIndicatorView+WSI.h"
+# import "UIActivityIndicatorView+NNT.h"
 # import "UIKit.res"
 # import "NSFileConnection.h"
 # include <sys/stat.h>
 # import "GifParser.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalImageChanged = @"::wsi::ui::image::changed";
 signal_t kSignalImageFetched  = @"::wsi::ui::image::fetched";
@@ -24,11 +24,11 @@ signal_t kSignalImageFetchedError = @"::wsi::ui::image::fetch::error";
 
 real kUIImageViewActivityDefalteRate = .5f;
 
-@implementation UIImageView (WSI)
+@implementation UIImageView (NNT)
 
 @end
 
-@interface WSIUIImageView (hidden)
+@interface NNTUIImageView (hidden)
 
 // get acitvity frame.
 - (CGRect)_activityFrame;
@@ -38,7 +38,7 @@ real kUIImageViewActivityDefalteRate = .5f;
 
 @end
 
-@implementation WSIUIImageView
+@implementation NNTUIImageView
 
 @synthesize enableWaiting = _enableWaiting, waitingView = _waitingView, waitingStyle = _waitingStyle, failedImg = _failedImg, imageForScale = _imageForScale, urlForScale = _urlForScale;
 @synthesize activeBackgroundColor = _activeBackgroundColor;
@@ -54,7 +54,7 @@ real kUIImageViewActivityDefalteRate = .5f;
     _waitingStyle = UIActivityIndicatorViewStyleGray;
     _autoResizeImage = NO;
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     self.cacheTime = DT_15MIN;
 # else
     self.cacheTime = DT_1HOUR;
@@ -107,7 +107,7 @@ real kUIImageViewActivityDefalteRate = .5f;
     zero_release(_activeBackgroundColor);
     zero_release(_defaultFailedImage);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
@@ -251,13 +251,13 @@ real kUIImageViewActivityDefalteRate = .5f;
     }
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalViewClicked)
-WSIEVENT_SIGNAL(kSignalImageChanged)
-WSIEVENT_SIGNAL(kSignalImageFetched)
-WSIEVENT_SIGNAL(kSignalActiveScale)
-WSIEVENT_SIGNAL(kSignalImageFetchedError)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalViewClicked)
+NNTEVENT_SIGNAL(kSignalImageChanged)
+NNTEVENT_SIGNAL(kSignalImageFetched)
+NNTEVENT_SIGNAL(kSignalActiveScale)
+NNTEVENT_SIGNAL(kSignalImageFetchedError)
+NNTEVENT_END
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
@@ -265,7 +265,7 @@ WSIEVENT_END
  
 - (void)show_waiting {
     if (!self.waitingView) {        
-        _waitingView = [[WSIUIActivityIndicatorView alloc] initWithActivityIndicatorStyle:_waitingStyle];
+        _waitingView = [[NNTUIActivityIndicatorView alloc] initWithActivityIndicatorStyle:_waitingStyle];
         _waitingView.frame = [self _activityFrame];
         [self addSubview:_waitingView];
         [_waitingView startAnimating];
@@ -353,14 +353,14 @@ WSIEVENT_END
 }
 
 - (UIImage*)defaultFailedImage {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     
     if (_defaultFailedImage == nil) {
         WCGImage* img_failed = WCGImageLoadPngData(png_failed_image, sizeof(png_failed_image));
         _defaultFailedImage = [[UIImage imageWithCGImage:img_failed.image] retain];
     }
     
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
     return _defaultFailedImage;
 }
 
@@ -382,8 +382,8 @@ WSIEVENT_END
 
 # pragma mark act
 
-- (void)cnt_respond:(WSIEventObj*)evt {
-    if ([(id)evt.sender isKindOfClass:[WSINSURLConnection class]]) {
+- (void)cnt_respond:(NNTEventObj*)evt {
+    if ([(id)evt.sender isKindOfClass:[NNTNSURLConnection class]]) {
         NSURLResponse* respone = (NSURLResponse*)evt.result;
         _waitingView.progressMax = respone.expectedContentLength;
     } else if ([(id)evt.sender isKindOfClass:[NSFileConnection class]]) {
@@ -394,17 +394,17 @@ WSIEVENT_END
     _waitingView.progressValue = 0;
 }
 
-- (void)cnt_receive:(WSIEventObj*)evt {
+- (void)cnt_receive:(NNTEventObj*)evt {
     NSData* data = (NSData*)evt.result;
     _waitingView.progressValue = [data length];
 }
 
-- (void)cnt_finish:(WSIEventObj*)evt {    
+- (void)cnt_finish:(NNTEventObj*)evt {    
     NSData* data = (NSData*)evt.result;
     NSURL* url = nil;
     
-    if ([(id)evt.sender isKindOfClass:[WSINSURLConnection class]]) {
-        url = ((WSINSURLConnection*)evt.sender).urlRequest.URL;
+    if ([(id)evt.sender isKindOfClass:[NNTNSURLConnection class]]) {
+        url = ((NNTNSURLConnection*)evt.sender).urlRequest.URL;
     } else if ([(id)evt.sender isKindOfClass:[NSFileConnection class]]) {
         url = ((NSFileConnection*)evt.sender).url;
     }
@@ -505,9 +505,9 @@ WSIEVENT_END
         
     } else {
         
-        _connection = [[WSINSURLConnection alloc] initWithURLRequest:[NSURLRequest requestWithURL:url] start:NO];
+        _connection = [[NNTNSURLConnection alloc] initWithURLRequest:[NSURLRequest requestWithURL:url] start:NO];
         
-        WSINSURLConnection* cnt = (WSINSURLConnection*)_connection;
+        NNTNSURLConnection* cnt = (NNTNSURLConnection*)_connection;
         cnt.inThread = YES;
         
         // connect signal.
@@ -562,7 +562,7 @@ WSIEVENT_END
 
 @end
 
-@implementation WSIUIImageViewActiveScale
+@implementation NNTUIImageViewActiveScale
 
 - (id)init {
     self = [super init];
@@ -572,7 +572,7 @@ WSIEVENT_END
 
 @end
 
-WSIIMPL_CATEGORY(UIImageView, WSI);
+NNTIMPL_CATEGORY(UIImageView, NNT);
 
 @interface UISightImageView ()
 
@@ -613,6 +613,6 @@ WSIIMPL_CATEGORY(UIImageView, WSI);
 
 @end
 
-_CXXVIEW_IMPL(WSIUIImageView);
+_CXXVIEW_IMPL(NNTUIImageView);
 
-WSI_END_OBJC
+NNT_END_OBJC

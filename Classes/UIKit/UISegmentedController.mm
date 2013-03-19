@@ -2,12 +2,12 @@
 # import "Core.h"
 # import "Layout.h"
 # import "UISegmentedController.h"
-# import "UIView+WSI.h"
-# import "UISegmentedControl+WSI.h"
+# import "UIView+NNT.h"
+# import "UISegmentedControl+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface UISegmentedView : WSIUIView
+@interface UISegmentedView : NNTUIView
 
 @property (nonatomic, assign) UIView* seg;
 @property (nonatomic, assign) UIView* content;
@@ -113,7 +113,7 @@ WSI_BEGIN_OBJC
     for (UIViewController *each in items) {
         [titles addObject:each.title];
     }
-    segmentedControl = [[WSIUISegmentedControl alloc] initWithItems:titles custom:YES];    
+    segmentedControl = [[NNTUISegmentedControl alloc] initWithItems:titles custom:YES];    
     [segmentedControl connect:kSignalSelectChanged sel:@selector(act_selected_changed) obj:self];
     [titles release];
     
@@ -195,4 +195,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "DBMSqlAbstract.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation DBMSqlParam
 
@@ -23,7 +23,7 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-+ (id)paramWith:(id)value type:(WSIValueType)type pos:(uint)pos {
++ (id)paramWith:(id)value type:(NNTValueType)type pos:(uint)pos {
     DBMSqlParam* ret = [[DBMSqlParam alloc] init];
     ret.pos = pos;
     ret.value = value;
@@ -87,9 +87,9 @@ WSI_BEGIN_OBJC
 
 @implementation DBMSqlUrlAbstract
 
-- (BOOL)openDbWith:(NSString *)path type:(WSIDirectoryType)type {
-    //NSURL *url = WSIDirectoryCreateWithType(@"", type);
-    NSURL* url = WSIFileTouchWithType(path, type);
+- (BOOL)openDbWith:(NSString *)path type:(NNTDirectoryType)type {
+    //NSURL *url = NNTDirectoryCreateWithType(@"", type);
+    NSURL* url = NNTFileTouchWithType(path, type);
     
     if (url == nil) {
         trace_msg(@"failed to open db at nil url");
@@ -112,7 +112,7 @@ WSI_BEGIN_OBJC
     return NO;
 }
 
-- (id)initWith:(NSString *)path type:(WSIDirectoryType)type {
+- (id)initWith:(NSString *)path type:(NNTDirectoryType)type {
     self = [self init];
     
     if (![self openDbWith:path type:type]) {
@@ -125,4 +125,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

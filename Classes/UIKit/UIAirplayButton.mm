@@ -3,9 +3,9 @@
 # import "UIAirplayButton.h"
 # import <MediaPlayer/MPVolumeView.h>
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIAirplayButton
 
@@ -50,4 +50,4 @@ WSI_BEGIN_OBJC
 
 _CXXCONTROL_IMPL(UIAirplayButton);
 
-WSI_END_OBJC
+NNT_END_OBJC

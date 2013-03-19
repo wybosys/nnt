@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "NSURLConnection+WSI.h"
+# import "NSURLConnection+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalURLConnectionSendRequest = @"::wsi::core::connection::sendrequest";
 signal_t kSignalURLConnectionReceiveResponse = @"::wsi::core::connection::receive::respone";
@@ -15,7 +15,7 @@ signal_t kSignalURLConnectionExit = @"::wsi::core::connection::exit";
 signal_t kSignalURLConnectionWillRedirect = @"::wsi::core::connection::willredirect";
 signal_t kSignalURLConnectionRedirected = @"::wsi::core::connection::redirected";
 
-@interface NSSyncURLConnection : WSIObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+@interface NSSyncURLConnection : NNTObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
     NSURLConnection* _req;
     NSMutableData* _data;
     NSError* _err;
@@ -99,13 +99,13 @@ signal_t kSignalURLConnectionRedirected = @"::wsi::core::connection::redirected"
 
 @end
 
-@implementation NSURLConnection (WSI)
+@implementation NSURLConnection (NNT)
 
 @end
 
-WSIIMPL_CATEGORY(NSURLConnection, WSI);
+NNTIMPL_CATEGORY(NSURLConnection, NNT);
 
-@interface WSINSURLConnection ()
+@interface NNTNSURLConnection ()
 
 @property (nonatomic, retain) NSURLRequest* urlRequest;
 
@@ -113,18 +113,18 @@ WSIIMPL_CATEGORY(NSURLConnection, WSI);
 
 @end
 
-@implementation WSINSURLConnection
+@implementation NNTNSURLConnection
 
 @synthesize connection = _connection;
 @synthesize urlRequest = _urlRequest;
 @synthesize inThread = _inThread;
 
-+ (WSINSURLConnection*)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate {
-    return [[[WSINSURLConnection alloc] initWithURLRequest:request delegate:delegate start:NO] autorelease];
++ (NNTNSURLConnection*)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate {
+    return [[[NNTNSURLConnection alloc] initWithURLRequest:request delegate:delegate start:NO] autorelease];
 }
 
-+ (WSINSURLConnection *)connectionWithRequest:(NSURLRequest *)request {
-    return [[[WSINSURLConnection alloc] initWithURLRequest:request start:NO] autorelease];
++ (NNTNSURLConnection *)connectionWithRequest:(NSURLRequest *)request {
+    return [[[NNTNSURLConnection alloc] initWithURLRequest:request start:NO] autorelease];
 }
 
 - (id)initWithURLRequest:(NSURLRequest*)request delegate:(id)delegate {
@@ -160,18 +160,18 @@ WSIIMPL_CATEGORY(NSURLConnection, WSI);
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalURLConnectionSendRequest)
-WSIEVENT_SIGNAL(kSignalURLConnectionReceiveResponse)
-WSIEVENT_SIGNAL(kSignalURLConnectionReceiveData)
-WSIEVENT_SIGNAL(kSignalURLConnectionDataChanged)
-WSIEVENT_SIGNAL(kSignalURLConnectionFinish)
-WSIEVENT_SIGNAL(kSignalURLConnectionError)
-WSIEVENT_SIGNAL(kSignalURLConnectionExit)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalURLConnectionSendRequest)
+NNTEVENT_SIGNAL(kSignalURLConnectionReceiveResponse)
+NNTEVENT_SIGNAL(kSignalURLConnectionReceiveData)
+NNTEVENT_SIGNAL(kSignalURLConnectionDataChanged)
+NNTEVENT_SIGNAL(kSignalURLConnectionFinish)
+NNTEVENT_SIGNAL(kSignalURLConnectionError)
+NNTEVENT_SIGNAL(kSignalURLConnectionExit)
+NNTEVENT_END
 
 - (void)start {
-    [WSIApplication shared].networkActivityIndicatorVisible = YES;
+    [NNTApplication shared].networkActivityIndicatorVisible = YES;
 
     // wait complete.
     [self retain];
@@ -185,7 +185,7 @@ WSIEVENT_END
 
     // complete.
     [self release];
-    [WSIApplication shared].networkActivityIndicatorVisible = NO;
+    [NNTApplication shared].networkActivityIndicatorVisible = NO;
 }
 
 - (void)startAsync {
@@ -197,7 +197,7 @@ WSIEVENT_END
 }
 
 - (void)doStartAsync {
-    [WSIApplication shared].networkActivityIndicatorVisible = YES;
+    [NNTApplication shared].networkActivityIndicatorVisible = YES;
     
     // connection start.
     [_connection start];
@@ -208,7 +208,7 @@ WSIEVENT_END
     
     // complete.
     [self release];
-    [WSIApplication shared].networkActivityIndicatorVisible = NO;
+    [NNTApplication shared].networkActivityIndicatorVisible = NO;
 }
 
 - (void)cancel {
@@ -260,7 +260,7 @@ WSIEVENT_END
     _data = [[NSMutableData alloc] init];
 }
 
-- (void)connection:(WSINSURLConnection *)connection didReceiveData:(NSData *)__data {
+- (void)connection:(NNTNSURLConnection *)connection didReceiveData:(NSData *)__data {
     // signal.
     [self emit:kSignalURLConnectionReceiveData result:__data];
     
@@ -271,7 +271,7 @@ WSIEVENT_END
     [self emit:kSignalURLConnectionDataChanged result:_data];
 }
 
-- (void)connectionDidFinishLoading:(WSINSURLConnection *)connection {
+- (void)connectionDidFinishLoading:(NNTNSURLConnection *)connection {
     _run = NO;
     
     // signal.
@@ -281,7 +281,7 @@ WSIEVENT_END
     [self _exit];
 }
 
-- (void)connection:(WSINSURLConnection *)connection didFailWithError:(NSError *)error {
+- (void)connection:(NNTNSURLConnection *)connection didFailWithError:(NSError *)error {
     _run = NO;
     
     // signal.
@@ -312,4 +312,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

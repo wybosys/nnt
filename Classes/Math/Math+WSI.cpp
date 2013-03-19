@@ -1,8 +1,8 @@
 
 # include "Core.h"
-# include "Math+WSI.h"
+# include "Math+NNT.h"
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 real distance_points2d(real x0, real y0, real x1, real y1) {
     real v0 = x0 - x1;
@@ -17,4 +17,4 @@ real restrict_value(real val, real region, real precise) {
     return val - right;
 }
 
-WSI_END_C
+NNT_END_C

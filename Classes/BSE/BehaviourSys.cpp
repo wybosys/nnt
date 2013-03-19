@@ -2,10 +2,10 @@
 # include "Core.h"
 # include "BehaviourSys.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(bse)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(bse)
 
 
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

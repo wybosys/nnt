@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
-# define __WSI_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
+# ifndef __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
+# define __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
 
-# import "WSIUIObject.h"
+# import "NNTUIObject.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSView (WSI)
+@interface NSView (NNT)
 
 - (id)initWithZero;
 
@@ -17,17 +17,17 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(WCGFill);
 
-@interface WSINSView : NSView {
+@interface NNTNSView : NSView {
     
     //! background fill.
     WCGFill* backgroundFill;
     
-    WSIOBJECT_DECL;
+    NNTOBJECT_DECL;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, retain) WCGFill* backgroundFill;
 
@@ -35,19 +35,19 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IView;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_nsview_wrapper <NSObject>
 
@@ -55,20 +55,20 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface _cxx_nsview_wrapper : WSINSView <_cxx_nsview_wrapper>
+@interface _cxx_nsview_wrapper : NNTNSView <_cxx_nsview_wrapper>
 {
     ::wsi::ui::IView* _cxxobj;    
 }
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# include "WSIUIObject.h"
+# include "NNTUIObject.h"
 # include "../Graphic/WCGFill.h"
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ui)
 
 class IView
 : public IObject
@@ -228,8 +228,8 @@ private:
     
 };
 
-WSI_END_NS 
-WSI_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

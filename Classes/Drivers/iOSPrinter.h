@@ -1,6 +1,6 @@
 
-# ifndef __WSI_IOS_PRINTER_FA3F015118EE4DB29304135F4AD9E850_H_INCLUDED
-# define __WSI_IOS_PRINTER_FA3F015118EE4DB29304135F4AD9E850_H_INCLUDED
+# ifndef __NNT_IOS_PRINTER_FA3F015118EE4DB29304135F4AD9E850_H_INCLUDED
+# define __NNT_IOS_PRINTER_FA3F015118EE4DB29304135F4AD9E850_H_INCLUDED
 
 # import <UIKit/UIPrintError.h>
 # import <UIKit/UIPrintFormatter.h>
@@ -9,12 +9,12 @@
 # import <UIKit/UIPrintPageRenderer.h>
 # import <UIKit/UIPrintPaper.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(InteractionPrinter);
+NNTDECL_PRIVATE_HEAD(InteractionPrinter);
 
-@interface InteractionPrinter : WSIObject {
-    WSIDECL_PRIVATE(InteractionPrinter);
+@interface InteractionPrinter : NNTObject {
+    NNTDECL_PRIVATE(InteractionPrinter);
 }
 
 @property (nonatomic,retain) UIPrintPageRenderer *printPageRenderer;
@@ -31,25 +31,25 @@ WSIDECL_PRIVATE_HEAD(InteractionPrinter);
 
 @end
 
-@interface UIPrintFormatter (WSI)
+@interface UIPrintFormatter (NNT)
 
 - (NSInteger)defaultPageCount;
 
 @end
 
-WSIDECL_OBJCXX_WRAPPER(UIPrintPageRenderer);
-WSIDECL_OBJCXX_WRAPPER(UISimpleTextPrintFormatter);
+NNTDECL_OBJCXX_WRAPPER(UIPrintPageRenderer);
+NNTDECL_OBJCXX_WRAPPER(UISimpleTextPrintFormatter);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(driver)
-WSI_BEGIN_NS(print)
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(driver)
+NNT_BEGIN_NS(print)
+NNT_BEGIN_NS(ns)
 
-WSI_BEGIN_NS(formatter)
+NNT_BEGIN_NS(formatter)
 
 class IFormatter
 : public ::wsi::ns::cxx::IObject
@@ -60,7 +60,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename fmtT,
 typename fmtI = IFormatter
@@ -125,12 +125,12 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class SimpleText
-: public tpl::Formatter< WSI_OBJCXX_WRAPPER(UISimpleTextPrintFormatter) >
+: public tpl::Formatter< NNT_OBJCXX_WRAPPER(UISimpleTextPrintFormatter) >
 {
-    typedef tpl::Formatter< WSI_OBJCXX_WRAPPER(UISimpleTextPrintFormatter) > super;
+    typedef tpl::Formatter< NNT_OBJCXX_WRAPPER(UISimpleTextPrintFormatter) > super;
     
 public:
     
@@ -167,10 +167,10 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class PageRender
-: public ::wsi::ns::cxx::Object< WSI_OBJCXX_WRAPPER(UIPrintPageRenderer) >
+: public ::wsi::ns::cxx::Object< NNT_OBJCXX_WRAPPER(UIPrintPageRenderer) >
 {
 public:
     
@@ -215,10 +215,10 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_NS
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

@@ -1,17 +1,17 @@
 
-# ifndef __WSI_UIKIT_UISETTINGSCONTROLLER_AF9A951DADDA4942923F7418F482DB80_H_INCLUDED
-# define __WSI_UIKIT_UISETTINGSCONTROLLER_AF9A951DADDA4942923F7418F482DB80_H_INCLUDED
+# ifndef __NNT_UIKIT_UISETTINGSCONTROLLER_AF9A951DADDA4942923F7418F482DB80_H_INCLUDED
+# define __NNT_UIKIT_UISETTINGSCONTROLLER_AF9A951DADDA4942923F7418F482DB80_H_INCLUDED
 
-# import "UIViewController+WSI.h"
+# import "UIViewController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(UISettingsController);
-WSIDECL_EXTERN_CLASS(UISettingsSpecifier);
-WSIDECL_EXTERN_CLASS(UISettingsReader);
-WSIDECL_EXTERN_CLASS(UISettingsStore);
-WSIDECL_EXTERN_PROTOCOL(UISettingsStore);
-WSIDECL_EXTERN_PROTOCOL(MFMailComposeViewControllerDelegate);
+NNTDECL_PRIVATE_HEAD(UISettingsController);
+NNTDECL_EXTERN_CLASS(UISettingsSpecifier);
+NNTDECL_EXTERN_CLASS(UISettingsReader);
+NNTDECL_EXTERN_CLASS(UISettingsStore);
+NNTDECL_EXTERN_PROTOCOL(UISettingsStore);
+NNTDECL_EXTERN_PROTOCOL(MFMailComposeViewControllerDelegate);
 
 @protocol UISettingsDelegate <NSObject>
 
@@ -40,7 +40,7 @@ WSIDECL_EXTERN_PROTOCOL(MFMailComposeViewControllerDelegate);
 /*!
  *! UISettingsController
  */
-@interface UISettingsController : WSIUIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface UISettingsController : NNTUIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
     
     //! delegate.
     id<UISettingsDelegate>  _delegate;
@@ -78,7 +78,7 @@ WSIDECL_EXTERN_PROTOCOL(MFMailComposeViewControllerDelegate);
     //! target controller.
     UIViewController       *_targetController;
     
-    WSIDECL_PRIVATE(UISettingsController);
+    NNTDECL_PRIVATE(UISettingsController);
 }
 
 @property (nonatomic, assign) IBOutlet id delegate;
@@ -115,6 +115,6 @@ WSIDECL_EXTERN_PROTOCOL(MFMailComposeViewControllerDelegate);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # endif

@@ -3,7 +3,7 @@
 # import "UISettingsReader.h"
 # import "UISettingsSpecifier.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UISettingsReader (private)
 - (void)_reinterpretBundle:(NSDictionary*)settingsBundle;
@@ -236,4 +236,4 @@ exitFromNestedLoop:
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

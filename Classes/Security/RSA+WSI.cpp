@@ -1,15 +1,15 @@
 
 # include "Core.h"
-# include "RSA+WSI.h"
+# include "RSA+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/rsa.h>
 # include <openssl/pem.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 rsa::rsa()
 :_env(NULL)
@@ -168,4 +168,4 @@ bool rsa::decrypt(core::data const& in, core::vector<byte>& out) const
     return sta != -1;
 }
 
-WSI_END_CXX
+NNT_END_CXX

@@ -1,19 +1,19 @@
 
 # import "Core.h"
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 # import "UITearView.h"
-# import "../Store/WSIConfiguration.h"
-# import "CoreGraphic+WSI.h"
+# import "../Store/NNTConfiguration.h"
+# import "CoreGraphic+NNT.h"
 # import <QuartzCore/QuartzCore.h>
-# import "WSIUIObject.h"
-# import "Math+WSI.h"
+# import "NNTUIObject.h"
+# import "Math+NNT.h"
 # import "WCGFillImage.h"
 # import "UIDesktop.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSIIMPL_CATEGORY(UIView, WSI);
+NNTIMPL_CATEGORY(UIView, NNT);
 
 signal_t kSignalViewClicked = @"::wsi::ui::view::clicked";
 signal_t kSignalButtonClicked = @"::wsi::ui::view::clicked"; // must same as kSignalViewClicked.
@@ -24,7 +24,7 @@ signal_t kSignalSelected = @"::wsi::ui::selected";
 signal_t kSignalDeselected = @"::wsi::ui::selected";
 signal_t kSignalPainting = @"::wsi::ui::draw";
 
-WSI_EXTERN bool __need_manual_appear;
+NNT_EXTERN bool __need_manual_appear;
 
 real kUITouchDelay = 1.f / 200;
 real kUIDragDelay = .5f;
@@ -34,7 +34,7 @@ CGPoint kUITouchSky = (CGPoint){-999999, -999999};
 static CGPoint __gs_view_touchpoint = kUITouchSky;
 static BOOL __gs_view_waitingtouch = NO;
 
-@implementation UIView (WSI)
+@implementation UIView (NNT)
 
 - (id)initWithZero {
     return [self initWithFrame:CGRectZero];
@@ -258,7 +258,7 @@ void UIViewEmitGlobalEvent(signal_t signal, UIView* view, NSSet* touches, UIEven
     }
      */
     
-    WSIUIObject *obj = [WSIUIObject shared];
+    NNTUIObject *obj = [NNTUIObject shared];
 
     [obj emit_begin];
     
@@ -272,26 +272,26 @@ void UIViewEmitGlobalEvent(signal_t signal, UIView* view, NSSet* touches, UIEven
 
 @implementation UIViewGlobalEvent
 
-+ (WSIUIView*)getViewFrom:(WSIEventObj*)event {
++ (NNTUIView*)getViewFrom:(NNTEventObj*)event {
     NSTuple3 *tuple = (NSTuple3*)event.result;
     return tuple.v0;
 }
 
-+ (NSSet*)getTouchesFrom:(WSIEventObj*)event {
++ (NSSet*)getTouchesFrom:(NNTEventObj*)event {
     NSTuple3 *tuple = (NSTuple3*)event.result;
     return tuple.v1;
 }
 
-+ (UIEvent*)getEventFrom:(WSIEventObj*)event {
++ (UIEvent*)getEventFrom:(NNTEventObj*)event {
     NSTuple3 *tuple = (NSTuple3*)event.result;
     return tuple.v2;
 }
 
 @end
 
-@implementation WSIUIView 
+@implementation NNTUIView 
 
-WSIOBJECT_IMPL_NOSIGNALS;
+NNTOBJECT_IMPL_NOSIGNALS;
 
 @synthesize sendGlobalEvent = _sendGlobalEvent;
 @synthesize backgroundFill = _backgroundFill;
@@ -318,7 +318,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 }
 
 + (id)view:(CGRect)frame {
-    return [[[WSIUIView alloc] initWithFrame:frame] autorelease];
+    return [[[NNTUIView alloc] initWithFrame:frame] autorelease];
 }
 
 - (void)dealloc {
@@ -327,32 +327,32 @@ WSIOBJECT_IMPL_NOSIGNALS;
     zero_release(_lock);
     zero_release(_subControllers);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
 - (void)initSignals {
-    WSIEVENT_SIGNAL(kSignalViewClicked)
-    WSIEVENT_SIGNAL(kSignalFrameChanged)
-    WSIEVENT_SIGNAL(kSignalBoundsChanged)
-    WSIEVENT_SIGNAL(kSignalTouchesBegin)
-    WSIEVENT_SIGNAL(kSignalTouchesCancel)
-    WSIEVENT_SIGNAL(kSignalTouchesEnd)
-    WSIEVENT_SIGNAL(kSignalTouchesMoved)
-    WSIEVENT_SIGNAL(kSignalTouchesOffset)
-    WSIEVENT_SIGNAL(kSignalPainting)
+    NNTEVENT_SIGNAL(kSignalViewClicked)
+    NNTEVENT_SIGNAL(kSignalFrameChanged)
+    NNTEVENT_SIGNAL(kSignalBoundsChanged)
+    NNTEVENT_SIGNAL(kSignalTouchesBegin)
+    NNTEVENT_SIGNAL(kSignalTouchesCancel)
+    NNTEVENT_SIGNAL(kSignalTouchesEnd)
+    NNTEVENT_SIGNAL(kSignalTouchesMoved)
+    NNTEVENT_SIGNAL(kSignalTouchesOffset)
+    NNTEVENT_SIGNAL(kSignalPainting)
 }
 
 - (void)lockPosition {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     ++__lockposition;
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)unlockPosition {
-    WSI_SYNCHRONIZED(self)
+    NNT_SYNCHRONIZED(self)
     --__lockposition;
-    WSI_SYNCHRONIZED_END
+    NNT_SYNCHRONIZED_END
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -447,7 +447,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 - (void)lock {
     if (_lock == nil) {
-        _lock = [[WSINSLock alloc] init];
+        _lock = [[NNTNSLock alloc] init];
     }
     [_lock lock];
 }
@@ -461,7 +461,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 - (BOOL)tryLock {
     if (_lock == nil) {
-        _lock = [[WSINSLock alloc] init];
+        _lock = [[NNTNSLock alloc] init];
     }
     return [_lock tryLock];
 }
@@ -471,7 +471,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
         
         if (__assistant_view == nil)
             __assistant_view = [[self assistantView] retain];
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
         if (__assistant_view == nil && blockAssistantView)
             __assistant_view = [blockAssistantView(self) retain];
 # endif
@@ -497,7 +497,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
     }
 }
 
-- (void)act_assistant_clicked:(WSIEventObj*)obj {    
+- (void)act_assistant_clicked:(NNTEventObj*)obj {    
     UIView *view = (UIView*)obj.sender;           
     
     // show next view.
@@ -591,7 +591,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (void)setShouldAssistantView:(BOOL)val {
     if (_identity == nil)
         return;
-    WSIConfiguration *conf = [WSIConfiguration shared];
+    NNTConfiguration *conf = [NNTConfiguration shared];
     NSString *key = [_identity stringByAppendingString:@"::assist::enable"];
     if (val) {
         [conf set:key val:@"1"];
@@ -603,7 +603,7 @@ WSIOBJECT_IMPL_NOSIGNALS;
 - (BOOL)shouldAssistantView {
     if (_identity == nil)
         return NO;
-    WSIConfiguration *conf = [WSIConfiguration shared];
+    NNTConfiguration *conf = [NNTConfiguration shared];
     NSString *key = [_identity stringByAppendingString:@"::assist::enable"];
     NSString *str = [conf get:key];
     if (str == nil)
@@ -702,4 +702,4 @@ WSIOBJECT_IMPL_NOSIGNALS;
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

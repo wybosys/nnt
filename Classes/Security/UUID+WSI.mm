@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "UUID+WSI.h"
+# import "UUID+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString* uuid_string()
 {
@@ -23,4 +23,4 @@ NSString* uuid_string()
     return uuidStr;
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

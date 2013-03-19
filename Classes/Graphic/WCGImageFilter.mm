@@ -3,9 +3,9 @@
 # import "WCGImageFilter.h"
 # import "JuiceCocoa++.hpp"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 @implementation WCGImageFilter
 
@@ -32,7 +32,7 @@ WSI_USINGCXXNAMESPACE;
 
 @end
 
-WSIIMPL_OBJCXX_WRAPPER_BEGIN(WCGImageFilter)
+NNTIMPL_OBJCXX_WRAPPER_BEGIN(WCGImageFilter)
 
 - (WCGImage*)apply:(WCGImage *)image {
     cg::IImageFilter* filter = (cg::IImageFilter*)self._cxxobj;
@@ -40,14 +40,14 @@ WSIIMPL_OBJCXX_WRAPPER_BEGIN(WCGImageFilter)
     return ret.consign();
 }
 
-WSIIMPL_OBJCXX_WRAPPER_END
+NNTIMPL_OBJCXX_WRAPPER_END
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(cg)
 
-WSI_BEGIN_NS(filter)
+NNT_BEGIN_NS(filter)
 
 cg::Image SetColor::apply(cg::Image const& img) const
 {
@@ -77,7 +77,7 @@ cg::Image OverColor::apply(cg::Image const& img) const
     return gra.to_image();
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

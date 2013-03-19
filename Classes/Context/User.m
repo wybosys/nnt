@@ -1,9 +1,9 @@
 
 # import "Core.h"
 # import "User.h"
-# import "WSIConfiguration.h"
+# import "NNTConfiguration.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalUserLogin = @"::wsi::context::user::login";
 signal_t kSignalUserLogout = @"::wsi::context::user::logout";
@@ -13,7 +13,7 @@ signal_t kSignalUserLoginStatusChanged = @"::wsi::context::user::login::changed"
 
 @property (nonatomic, copy) NSString *identity;
 @property (nonatomic) BOOL logined;
-@property (nonatomic, retain) WSIConfiguration* configuration;
+@property (nonatomic, retain) NNTConfiguration* configuration;
 
 @end
 
@@ -37,11 +37,11 @@ signal_t kSignalUserLoginStatusChanged = @"::wsi::context::user::login::changed"
     return self;
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalUserLogin)
-WSIEVENT_SIGNAL(kSignalUserLogout)
-WSIEVENT_SIGNAL(kSignalUserLoginStatusChanged);
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalUserLogin)
+NNTEVENT_SIGNAL(kSignalUserLogout)
+NNTEVENT_SIGNAL(kSignalUserLoginStatusChanged);
+NNTEVENT_END
 
 - (void)dealloc {
     
@@ -67,8 +67,8 @@ WSIEVENT_END
     self.logined = YES;
 }
 
-+ (WSIConfiguration*)configurationOfIdentity:(NSString*)identity {
-    return [WSIConfiguration configuration:[User configurationNameOfIdentity:identity]];
++ (NNTConfiguration*)configurationOfIdentity:(NSString*)identity {
+    return [NNTConfiguration configuration:[User configurationNameOfIdentity:identity]];
 }
 
 + (NSString*)configurationNameOfIdentity:(NSString*)identity {
@@ -103,4 +103,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -1,10 +1,10 @@
 
 # include "Core.h"
-# include "WSISqlServer.h"
-# include "../Core/Boost+WSI.h"
+# include "NNTSqlServer.h"
+# include "../Core/Boost+NNT.h"
 # include <boost/regex.hpp>
 
-# ifdef WSI_UNIX
+# ifdef NNT_UNIX
 #   define _FREETDS
 # else
 #   define _MSSQL
@@ -56,8 +56,8 @@
 # define ADO_DLL SYSDEV ## \\Program Files\\Common Files\\System\\ado\\msado15.dll
 # endif
 
-# pragma message ("auto link with " WSIMACRO_TOSTR(ADO_DLL) " for ado access.")
-# import WSIMACRO_TOSTR(ADO_DLL) no_namespace rename("EOF", "adoEOF")
+# pragma message ("auto link with " NNTMACRO_TOSTR(ADO_DLL) " for ado access.")
+# import NNTMACRO_TOSTR(ADO_DLL) no_namespace rename("EOF", "adoEOF")
 
 # ifdef variant_t
 #  undef variant_t
@@ -65,24 +65,24 @@
 
 # endif
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(SqlServer)
+NNTDECL_PRIVATE_BEGIN_CXX(SqlServer)
 
 # ifdef _FREETDS
 
 static int tds_error(DBPROCESS * dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr)
 {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (dberr) {							
 		fprintf(stderr, "%s: Msg %d, Level %d\n", 
-				"WSI", dberr, severity);
+				"NNT", dberr, severity);
 		fprintf(stderr, "%s\n\n", dberrstr);
 	}
     
 	else {
-		fprintf(stderr, "%s: DB-LIBRARY error:\n\t", "WSI");
+		fprintf(stderr, "%s: DB-LIBRARY error:\n\t", "NNT");
 		fprintf(stderr, "%s\n", dberrstr);
 	}
 # endif
@@ -92,7 +92,7 @@ static int tds_error(DBPROCESS * dbproc, int severity, int dberr, int oserr, cha
 static int tds_msg(DBPROCESS * dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname,
                    char *proc, int line)
 {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     enum {changed_database = 5701, changed_language = 5703 };	
 	
 	if (msgno == changed_database || msgno == changed_language) 
@@ -113,7 +113,7 @@ static int tds_msg(DBPROCESS * dbproc, DBINT msgno, int msgstate, int severity, 
 	
 	if (severity > 10) {						
 		fprintf(stderr, "%s: error: severity %d > 10, exiting\n", 
-				"WSI", severity);
+				"NNT", severity);
 	}
 # endif
 	return 0;
@@ -164,7 +164,7 @@ _ConnectionPtr conn;
 
 # endif
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string SqlServer::identity = "mssql";
 
@@ -175,12 +175,12 @@ IDBMS* SqlServer::dbmsInstance()
 
 SqlServer::SqlServer()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(SqlServer);
+    NNTDECL_PRIVATE_CONSTRUCT(SqlServer);
 }
 
 SqlServer::~SqlServer()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool SqlServer::connect(connection_info const& info)
@@ -231,7 +231,7 @@ bool SqlServer::connect(connection_info const& info)
 	{
 		sta = conn->Open(str_conn.c_str(), "", "", adModeUnknown);
 	}
-	catch (_com_error& WSIDEBUG_EXPRESS(er))
+	catch (_com_error& NNTDEBUG_EXPRESS(er))
 	{
 		trace_msg((char const*)er.ErrorMessage());
 		return false;
@@ -580,14 +580,14 @@ void MSSqlDatatable::update()
 	// read cols.
 	for (uint idx = 0; idx < ncols; ++idx)
 	{
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 		try {
 # endif
 
 		_bstr_t name = rcdset->Fields->GetItem((long)idx)->GetName();
 		cols[idx] = new variant_t((char const*)name, core::copy);
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 		} catch (_com_error& err) 	{
 			_bstr_t msg = err.ErrorMessage();
 			trace_msg((char const*)msg);
@@ -603,14 +603,14 @@ void MSSqlDatatable::update()
 
 		for (uindex idx = 0; idx < ncols; ++idx)
 		{
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 			try {
 # endif
 
 			_bstr_t val = rcdset->GetCollect((long)idx);
 			(*row)[idx] = new variant_t((char const*)val, core::copy);
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 			} catch (_com_error& err) 	{
 				_bstr_t msg = err.ErrorMessage();
 				trace_msg((char const*)msg);
@@ -659,7 +659,7 @@ core::string SqlServer::urlize(connection_info const& info) const
     return ret;
 }
 
-WSI_BEGIN_NS(test)
+NNT_BEGIN_NS(test)
 
 bool Mssql::prepare()
 {
@@ -710,16 +710,16 @@ bool Mssql::run()
 	return true;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX
 
-WSI_BEGIN_C
+NNT_BEGIN_C
 
 ::wsi::store::test::Mssql* UTMssql()
 {
 	return new ::wsi::store::test::Mssql;
 }
 
-WSI_END_C
+NNT_END_C

@@ -1,25 +1,25 @@
 
-# ifndef __WSI_CTX_CONTEXT_F05CA46B11ED47B491A1761A0C5A509A_H_INCLUDED
-# define __WSI_CTX_CONTEXT_F05CA46B11ED47B491A1761A0C5A509A_H_INCLUDED
+# ifndef __NNT_CTX_CONTEXT_F05CA46B11ED47B491A1761A0C5A509A_H_INCLUDED
+# define __NNT_CTX_CONTEXT_F05CA46B11ED47B491A1761A0C5A509A_H_INCLUDED
 
 # include "Preferences.h"
 # include "Server.h"
 # include "User.h"
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(Context);
+NNTDECL_PRIVATE_HEAD(Context);
 
 //! @class Context of app use singleton design pattern
-@interface Context : WSIObject {
+@interface Context : NNTObject {
     
     Class _classPrefs;
     Class _classServ;
     Class _classUser;
     
-	WSIDECL_PRIVATE(Context);
+	NNTDECL_PRIVATE(Context);
 }
 
 @property (nonatomic, assign) Class classPrefs, classServ, classUser;
@@ -50,7 +50,7 @@ void ContextFin();
 
 extern Context *__gs_context;
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 # define CTX()   [::Context getInstance]
 # else
 # define CTX()   [Context getInstance]
@@ -60,16 +60,16 @@ extern Context *__gs_context;
 # define USER()  [CTX() getUser]
 # define PREFS() [CTX() getPrefs]
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Context
 {
-    WSIDECL_NOCOPY(Context);
+    NNTDECL_NOCOPY(Context);
     
 public:
     
@@ -125,9 +125,9 @@ protected:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(context)
+NNT_BEGIN_NS(context)
 
 inline_impl ns::Server& Serv()
 {
@@ -144,9 +144,9 @@ inline_impl ns::Preferences& Prefs()
     return ns::Context::getInstance().prefs();
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx

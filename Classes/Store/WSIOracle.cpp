@@ -1,13 +1,13 @@
 
 # include "Core.h"
-# include "WSIOracle.h"
+# include "NNTOracle.h"
 
 # include <oci/oci.h>
 
-WSI_BEGIN_CXX 
-WSI_BEGIN_NS(store)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(store)
 
-WSIDECL_PRIVATE_BEGIN_CXX(Oracle)
+NNTDECL_PRIVATE_BEGIN_CXX(Oracle)
 
 void init()
 {
@@ -23,7 +23,7 @@ void dealloc()
 
 OCIEnv* env;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 core::string Oracle::identity = "oracle";
 
@@ -34,12 +34,12 @@ IDBMS* Oracle::dbmsInstance()
 
 Oracle::Oracle()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(Oracle);
+    NNTDECL_PRIVATE_CONSTRUCT(Oracle);
 }
 
 Oracle::~Oracle()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 bool Oracle::connect(const wsi::store::connection_info &)
@@ -62,7 +62,7 @@ DBMSqlDatatable* Oracle::exec(const core::string &sql, const params_type &params
     return NULL;
 }
 
-WSI_BEGIN_NS(test)
+NNT_BEGIN_NS(test)
 
 bool Oracle::prepare()
 {
@@ -80,7 +80,7 @@ bool Oracle::run()
     return true;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS 
-WSI_END_CXX
+NNT_END_NS 
+NNT_END_CXX

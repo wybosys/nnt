@@ -1,47 +1,47 @@
 
-# ifndef __WSI_FOUNDATION_39D46F10E5F5418D9885D956E3331BDD_H_INCLUDED
-# define __WSI_FOUNDATION_39D46F10E5F5418D9885D956E3331BDD_H_INCLUDED
+# ifndef __NNT_FOUNDATION_39D46F10E5F5418D9885D956E3331BDD_H_INCLUDED
+# define __NNT_FOUNDATION_39D46F10E5F5418D9885D956E3331BDD_H_INCLUDED
 
 # include "Core/Core.h"
 
-# ifndef WSI_NOLIB
+# ifndef NNT_NOLIB
 
-# ifdef WSI_OBJC
-#   import "UIKit/UIKit+WSI.h"
+# ifdef NNT_OBJC
+#   import "UIKit/UIKit+NNT.h"
 # endif
 
-# ifdef WSI_CROSS_PLATFORM
+# ifdef NNT_CROSS_PLATFORM
 #   include "UIKit/UIKit+Cross.h"
 # endif
 
 # endif
 
-# if !defined(LIBWSI)
+# if !defined(LIBNNT)
 
-#   ifdef WSI_CXX
-#     define WSIAPP_BEGIN namespace wsiapp {
-#     define WSIAPP_END   }
-#     define WSICAPP_BEGIN extern "C" {
-#     define WSICAPP_END }
+#   ifdef NNT_CXX
+#     define NNTAPP_BEGIN namespace wsiapp {
+#     define NNTAPP_END   }
+#     define NNTCAPP_BEGIN extern "C" {
+#     define NNTCAPP_END }
 #   else
-#     define WSIAPP_BEGIN
-#     define WSIAPP_END
-#     define WSICAPP_BEGIN
-#     define WSICAPP_END
+#     define NNTAPP_BEGIN
+#     define NNTAPP_END
+#     define NNTCAPP_BEGIN
+#     define NNTCAPP_END
 #   endif
 
-# ifdef WSI_OBJC
-#   define WSIAPP_BEGIN_OBJC
-#   define WSIAPP_END_OBJC
+# ifdef NNT_OBJC
+#   define NNTAPP_BEGIN_OBJC
+#   define NNTAPP_END_OBJC
 # endif
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
-WSIAPP_END
+NNTAPP_END
 
 # endif
 

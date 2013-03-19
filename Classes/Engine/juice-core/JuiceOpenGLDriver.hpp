@@ -4,15 +4,15 @@
 
 # include "JuiceDriver.hpp"
 
-# ifdef WSI_TARGET_IOS
+# ifdef NNT_TARGET_IOS
 #   define OPENGLES 1
 #   define OPENGLES_1 1
 //#   define OPENGLES_2 1
 # endif
 
-# ifdef WSI_MACH
-#   ifdef WSI_TARGET_IOS
-#     ifdef WSI_OBJC
+# ifdef NNT_MACH
+#   ifdef NNT_TARGET_IOS
+#     ifdef NNT_OBJC
 #       include <OpenGLES/EAGL.h>
 #       include <OpenGLES/EAGLDrawable.h>
 #     endif
@@ -53,7 +53,7 @@ template <> struct _glvaluetype<uint> { enum { GL_VALUETYPE = GL_UNSIGNED_INT };
 template <> struct _glvaluetype<ubyte> { enum { GL_VALUETYPE = GL_UNSIGNED_BYTE }; };
 # endif
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 #   define OGLERRCHECK this->_error_check();
 # else
 #   define OGLERRCHECK
@@ -125,7 +125,7 @@ public:
         glViewport(vp.origin.x, vp.origin.y, vp.size.w, vp.size.h);
     }
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     void _error_check()
     {
         int err = glGetError();
@@ -151,8 +151,8 @@ protected:
 
 JUICE_END
 
-# ifdef WSI_MACH
-#   ifdef WSI_TARGET_IOS
+# ifdef NNT_MACH
+#   ifdef NNT_TARGET_IOS
 #     ifdef OPENGLES_1
 #       include "JuiceOpenGLES1.hpp"
 #     endif

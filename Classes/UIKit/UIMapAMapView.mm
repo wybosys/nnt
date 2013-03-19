@@ -5,7 +5,7 @@
 # import <amap/MAMapKit.h>
 # import <amap/MAUserLocation.h>
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 MACoordinateRegion convert(CGRect const& r)
 {
@@ -25,7 +25,7 @@ CLLocationCoordinate2D convert(CGPoint const& r)
     return ret;
 }
 
-WSIDECL_PRIVATE_BEGIN(UIMaMapView, WSIObject) <MAMapViewDelegate>
+NNTDECL_PRIVATE_BEGIN(UIMaMapView, NNTObject) <MAMapViewDelegate>
 {
     MAMapView* mamap;
     CGRect region;
@@ -36,11 +36,11 @@ WSIDECL_PRIVATE_BEGIN(UIMaMapView, WSIObject) <MAMapViewDelegate>
 @property (nonatomic, assign) CGRect region;
 @property (nonatomic, assign) CGPoint coordcenter;
 
-WSIDECL_PRIVATE_IMPL(UIMaMapView)
+NNTDECL_PRIVATE_IMPL(UIMaMapView)
 
 @synthesize mamap, region, coordcenter;
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation UIMaMapView
 
@@ -48,12 +48,12 @@ WSIDECL_PRIVATE_END
 
 - (id)initWithFrame:(CGRect)aFrame {
     self = [super initWithFrame:aFrame];
-    WSIDECL_PRIVATE_INIT(UIMaMapView);
+    NNTDECL_PRIVATE_INIT(UIMaMapView);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -93,4 +93,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

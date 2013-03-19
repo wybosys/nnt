@@ -1,10 +1,10 @@
 
-# ifndef __WSI_UIKIT_UISEGMENTEDCONTROL_B0C4964EE76341B483DFE51C1D187503_H_INCLUDED
-# define __WSI_UIKIT_UISEGMENTEDCONTROL_B0C4964EE76341B483DFE51C1D187503_H_INCLUDED
+# ifndef __NNT_UIKIT_UISEGMENTEDCONTROL_B0C4964EE76341B483DFE51C1D187503_H_INCLUDED
+# define __NNT_UIKIT_UISEGMENTEDCONTROL_B0C4964EE76341B483DFE51C1D187503_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface UISegmentedControl (WSI)
+@interface UISegmentedControl (NNT)
 
 -(void)setTag:(NSInteger)tag forSegmentAtIndex:(NSUInteger)segment;
 -(void)setTintColor:(UIColor*)color forTag:(NSInteger)aTag;
@@ -13,10 +13,10 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSIDECL_CATEGORY(UISegmentedControl, WSI);
+NNTDECL_CATEGORY(UISegmentedControl, NNT);
 
-@interface WSIUISegmentedControl : UISegmentedControl {
-    WSIOBJECT_DECL;
+@interface NNTUISegmentedControl : UISegmentedControl {
+    NNTOBJECT_DECL;
     
     //! default color of item.
     UIColor *defaultColor;
@@ -41,7 +41,7 @@ WSIDECL_CATEGORY(UISegmentedControl, WSI);
     NSUInteger __lst_selected;
 }
 
-WSIOBJECT_PROP;
+NNTOBJECT_PROP;
 
 @property (nonatomic, retain) UIColor *defaultColor, *selectedColor, *shadowColor, *defaultTextColor, *selectedTextColor;
 @property (nonatomic, assign) BOOL enableReselected;
@@ -51,21 +51,21 @@ WSIOBJECT_PROP;
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalSelectChanged;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UIControl+WSI.h"
+# include "UIControl+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class SegmentedControl
-: public Control<SegmentedControl, WSIUISegmentedControl>
+: public Control<SegmentedControl, NNTUISegmentedControl>
 {
-    typedef Control<SegmentedControl, WSIUISegmentedControl> super;
+    typedef Control<SegmentedControl, NNTUISegmentedControl> super;
     
 public:
     
@@ -77,7 +77,7 @@ public:
     SegmentedControl(ns::Array const& arr)
     : super(nil)
     {
-        this->_self = [[WSIUISegmentedControl alloc] initWithItems:arr custom:YES];
+        this->_self = [[NNTUISegmentedControl alloc] initWithItems:arr custom:YES];
     }
     
     void set_items(ns::Array const& arr)
@@ -90,7 +90,7 @@ public:
             [this->_self release];
         }
         
-        this->_self = [[WSIUISegmentedControl alloc] initWithItems:arr custom:YES];
+        this->_self = [[NNTUISegmentedControl alloc] initWithItems:arr custom:YES];
         if (super_view)
             [super_view addSubview:this->_self];
         
@@ -139,8 +139,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

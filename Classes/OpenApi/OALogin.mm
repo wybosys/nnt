@@ -5,7 +5,7 @@
 # import "Context.h"
 # import "Server.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalSuccess = @"::wsi::success";
 signal_t kSignalFailed = @"::wsi::failed";
@@ -33,4 +33,4 @@ signal_t kSignalFailed = @"::wsi::failed";
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

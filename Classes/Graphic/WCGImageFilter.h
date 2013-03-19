@@ -1,10 +1,10 @@
 
-# ifndef __WSI_WCG_IMAGEFILTER_21BF8A8D521B42F6A7D2059248ADAC69_H_INCLUDED
-# define __WSI_WCG_IMAGEFILTER_21BF8A8D521B42F6A7D2059248ADAC69_H_INCLUDED
+# ifndef __NNT_WCG_IMAGEFILTER_21BF8A8D521B42F6A7D2059248ADAC69_H_INCLUDED
+# define __NNT_WCG_IMAGEFILTER_21BF8A8D521B42F6A7D2059248ADAC69_H_INCLUDED
 
 # import "WCGImage.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 @protocol WCGImageFilter <NSObject>
 
@@ -12,18 +12,18 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface WCGImageFilter : WSIObject < WCGImageFilter >
+@interface WCGImageFilter : NNTObject < WCGImageFilter >
 
 @end
 
-WSIDECL_OBJCXX_WRAPPER(WCGImageFilter);
+NNTDECL_OBJCXX_WRAPPER(WCGImageFilter);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cg)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cg)
 
 class IImageFilter
 : public ns::cxx::IObject
@@ -35,7 +35,7 @@ public:
 };
 
 class ImageFilter
-: public ns::cxx::Object<WSI_OBJCXX_WRAPPER(WCGImageFilter), IImageFilter>
+: public ns::cxx::Object<NNT_OBJCXX_WRAPPER(WCGImageFilter), IImageFilter>
 {
 public:
     
@@ -51,7 +51,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(filter)
+NNT_BEGIN_NS(filter)
 
 class SetColor
 : public ImageFilter
@@ -75,10 +75,10 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

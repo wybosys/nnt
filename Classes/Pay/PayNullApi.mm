@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "PayNullApi.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalPayReceive = @"::wsi::pay::receive";
 signal_t kSignalPaySuccess = @"::wsi::pay::success";
@@ -19,11 +19,11 @@ signal_t kSignalPayRestore = @"::wsi::pay::restore";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalPayReceive)
-WSIEVENT_SIGNAL(kSignalPaySuccess)
-WSIEVENT_SIGNAL(kSignalPayFailed)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalPayReceive)
+NNTEVENT_SIGNAL(kSignalPaySuccess)
+NNTEVENT_SIGNAL(kSignalPayFailed)
+NNTEVENT_END
 
 + (NSString*)identity {
     return nil;
@@ -36,4 +36,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

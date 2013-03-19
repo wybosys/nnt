@@ -7,7 +7,7 @@
 # import "OADefines.h"
 # import "../UIKit/UIOAToggleView.res"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation OARequestSohu
 
@@ -53,7 +53,7 @@ WSI_BEGIN_OBJC
     NSString *ret = [NSString stringWithFormat:@"%@&%@&", HttpRequestGetMethod(self.classRpc), [self.urlRequest OAEncode]];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-#ifdef WSI_DEBUG
+#ifdef NNT_DEBUG
     trace_obj(ret);
 #endif
     
@@ -84,7 +84,7 @@ WSI_BEGIN_OBJC
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"=" andSegSep:@"&" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-#ifdef WSI_DEBUG
+#ifdef NNT_DEBUG
     trace_obj(ret);
 #endif
     
@@ -281,7 +281,7 @@ WSI_BEGIN_OBJC
     
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"%3D" andSegSep:@"%26" keysur:@"" valsur:@"" sort:@selector(compare:)]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -320,7 +320,7 @@ WSI_BEGIN_OBJC
     NSString *ret = [NSString stringWithFormat:@"%@?", self.baseUrl];
     ret = [NSString stringWithFormat:@"%@%@", ret, [dict combineWithKVSep:@"=" andSegSep:@"&" keysur:@"" valsur:@""]];
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     trace_msg(ret);
 # endif
     
@@ -459,4 +459,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

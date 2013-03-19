@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "HTMLNode+WSI.h"
+# import "HTMLNode+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSString * getAttributeNamedEnc(xmlNode * node, const char * nameStr, NSStringEncoding enc);
 NSString * getAttributeNamedEnc(xmlNode * node, const char * nameStr, NSStringEncoding enc) {
@@ -20,7 +20,7 @@ NSString * getAttributeNamedEnc(xmlNode * node, const char * nameStr, NSStringEn
 	return NULL;
 }
 
-@implementation HTMLNode (WSI)
+@implementation HTMLNode (NNT)
 
 - (HTMLNode*)findChildByName:(NSString *)name {
     xmlNode *child = _node->children;
@@ -49,6 +49,6 @@ NSString * getAttributeNamedEnc(xmlNode * node, const char * nameStr, NSStringEn
 
 @end
 
-WSIIMPL_CATEGORY(HTMLNode, WSI);
+NNTIMPL_CATEGORY(HTMLNode, NNT);
 
-WSI_END_OBJC
+NNT_END_OBJC

@@ -2,8 +2,8 @@
 # ifndef __JUICE_SCREENMANAGER_A806F4C93DFF4324B3A2A526E5B263D3_H_INCLUDED
 # define __JUICE_SCREENMANAGER_A806F4C93DFF4324B3A2A526E5B263D3_H_INCLUDED
 
-# include "../../Core/Time+WSI.h"
-# include "../../Core/Task+WSI.h"
+# include "../../Core/Time+NNT.h"
+# include "../../Core/Task+NNT.h"
 
 JUICE_BEGIN
 
@@ -331,7 +331,7 @@ public:
 template <typename scrmgrT>
 inline_impl int _screenManagerTask<scrmgrT>::main()
 {
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     autocollect;
 # endif
         
@@ -343,7 +343,7 @@ inline_impl int _screenManagerTask<scrmgrT>::main()
     {                          
         _loop.lock();
         
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
         autocollect;
 # endif
         
@@ -354,7 +354,7 @@ inline_impl int _screenManagerTask<scrmgrT>::main()
         if (scrmgr->_painter()->valid())
             scrmgr->render_frame(true);
         
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         // print fps.
         //printf("fps: %.0f\n", scrmgr->fps_real);
 # endif

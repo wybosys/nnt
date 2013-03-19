@@ -1,12 +1,12 @@
 
-# ifndef __WSI_CROSS_VCARD_C4D94BE517294DE79D0973654DC2A84C_H_INCLUDED
-# define __WSI_CROSS_VCARD_C4D94BE517294DE79D0973654DC2A84C_H_INCLUDED
+# ifndef __NNT_CROSS_VCARD_C4D94BE517294DE79D0973654DC2A84C_H_INCLUDED
+# define __NNT_CROSS_VCARD_C4D94BE517294DE79D0973654DC2A84C_H_INCLUDED
 
-# include "Mime+WSI.h"
+# include "Mime+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(cross)
-WSI_BEGIN_NS(vcard)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(vcard)
 
 class Name
 {
@@ -169,9 +169,9 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSICLASS(VCard);
+NNTCLASS(VCard);
 
 class VCard
 : public RefObject
@@ -209,12 +209,12 @@ public:
     
 };
 
-WSIAPI(bool) tostr(VCard const&, core::string&);
-WSIAPI(bool) tocard(core::string const&, VCard&);
+NNTAPI(bool) tostr(VCard const&, core::string&);
+NNTAPI(bool) tocard(core::string const&, VCard&);
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <>
 inline_impl core::string type_cast<core::string, cross::VCard>(cross::VCard const& cd)
@@ -232,8 +232,8 @@ inline_impl cross::VCard type_cast<cross::VCard, core::string>(core::string cons
     return cd;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif

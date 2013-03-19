@@ -1,20 +1,20 @@
 
-# ifndef __WSI_UIANIMATION_35CB22361B2A40B3896936580C639798_H_INCLUDED
-# define __WSI_UIANIMATION_35CB22361B2A40B3896936580C639798_H_INCLUDED
+# ifndef __NNT_UIANIMATION_35CB22361B2A40B3896936580C639798_H_INCLUDED
+# define __NNT_UIANIMATION_35CB22361B2A40B3896936580C639798_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "WSIUIObject.h"
+# include "NNTUIObject.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUIAnimation : WSIObject {
+@interface NNTUIAnimation : NNTObject {
     NSString* _name;
     void* _context;
     BOOL _commited;
     real _duration;
     
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
     void (^_run)();
     void (^_finish)();
 # endif
@@ -26,7 +26,7 @@ WSI_BEGIN_HEADER_OBJC
 @property (nonatomic, readonly) BOOL commited;
 @property (nonatomic, assign) real duration;
 
-# ifdef WSI_BLOCKS
+# ifdef NNT_BLOCKS
 
 @property (nonatomic, copy) void (^run)();
 @property (nonatomic, copy) void (^finish)();
@@ -38,19 +38,19 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-WSI_EXTERN signal_t kSignalAnimationStart;
-WSI_EXTERN signal_t kSignalAnimationRun;
-WSI_EXTERN signal_t kSignalAnimationStop;
+NNT_EXTERN signal_t kSignalAnimationStart;
+NNT_EXTERN signal_t kSignalAnimationRun;
+NNT_EXTERN signal_t kSignalAnimationStop;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class Animation
-: public ns::Object<WSIUIAnimation>
+: public ns::Object<NNTUIAnimation>
 {
-    typedef ns::Object<WSIUIAnimation> super;
+    typedef ns::Object<NNTUIAnimation> super;
     
 public:
         
@@ -84,8 +84,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

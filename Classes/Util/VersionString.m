@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "VersionString.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_EXTERN NSComparisonResult versionStringCompare(NSString* str, NSString *other) {
+NNT_EXTERN NSComparisonResult versionStringCompare(NSString* str, NSString *other) {
     NSArray *oneComponents = [str componentsSeparatedByString:@"a"];
     NSArray *twoComponents = [other componentsSeparatedByString:@"a"];
     
@@ -38,4 +38,4 @@ WSI_EXTERN NSComparisonResult versionStringCompare(NSString* str, NSString *othe
     return [oneAlpha compare:twoAlpha];
 }
 
-WSI_END_OBJC
+NNT_END_OBJC

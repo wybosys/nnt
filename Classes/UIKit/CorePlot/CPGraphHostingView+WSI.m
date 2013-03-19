@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "CorePlot+WSI.h"
+# import "CorePlot+NNT.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
-@implementation CPGraphHostingView (WSI)
+@implementation CPGraphHostingView (NNT)
 
 @end
 
@@ -67,7 +67,7 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICPGraphHostingView);
+    NNTDECL_PRIVATE_INIT(UICPGraphHostingView);
     
     self.allowTap = NO;
     self.backgroundColor = [UIColor clearColor];
@@ -76,7 +76,7 @@ WSI_BEGIN
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     
     [backgroundImage release];
     
@@ -110,4 +110,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

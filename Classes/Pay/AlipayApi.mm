@@ -7,16 +7,16 @@
 # import "../../contrib/Alipay/include/AlixPayOrder.h"
 # import "../../contrib/Alipay/include/AlixPayResult.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # import "../../contrib/Alipay/Utilities/DataSigner.h"
 # import "../../contrib/Alipay/Utilities/DataVerifier.h"
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation AlipayApi
 
@@ -81,7 +81,7 @@ return NO; \
     
     NSString *app_scheme = [dict valueForKey:@"app_scheme" null:nil];
     if (app_scheme == nil)
-        app_scheme = [WSIApplication shared].applicationURLScheme;
+        app_scheme = [NNTApplication shared].applicationURLScheme;
     
     // post.
     AlixPayOrder *order = [[AlixPayOrder alloc] init];
@@ -122,7 +122,7 @@ return NO; \
     [order release];
     
     // connect.
-    [[WSIApplication shared] connect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:[self retain]];
+    [[NNTApplication shared] connect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:[self retain]];
     
     errcode = AlipayApiSuc;
     return YES;
@@ -135,7 +135,7 @@ return NO; \
 	}
 }
 
-- (void)act_openurl:(WSIEventObj*)obj {
+- (void)act_openurl:(NNTEventObj*)obj {
     // receive from Alipay App.
     OpenURLObject *ouobj = (OpenURLObject*)obj.result;
     AlixPay *alixpay = [AlixPay shared];
@@ -172,7 +172,7 @@ return NO; \
 	}                                         
 
     // disconnect.
-    [[WSIApplication shared] disconnect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:self];
+    [[NNTApplication shared] disconnect:kSignalAppOpenUrl sel:@selector(act_openurl:) obj:self];
 
     // free.
     [self release];
@@ -180,4 +180,4 @@ return NO; \
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

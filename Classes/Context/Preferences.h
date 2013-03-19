@@ -1,19 +1,19 @@
 
-# ifndef __WSI_CTX_PREFERENCES_6C8BCCAE82204D4A83F171A1B87BE6D4_H_INCLUDED
-# define __WSI_CTX_PREFERENCES_6C8BCCAE82204D4A83F171A1B87BE6D4_H_INCLUDED
+# ifndef __NNT_CTX_PREFERENCES_6C8BCCAE82204D4A83F171A1B87BE6D4_H_INCLUDED
+# define __NNT_CTX_PREFERENCES_6C8BCCAE82204D4A83F171A1B87BE6D4_H_INCLUDED
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(Context);
-WSIDECL_PRIVATE_HEAD(Preferences);
+NNTDECL_EXTERN_CLASS(Context);
+NNTDECL_PRIVATE_HEAD(Preferences);
 
 //! @class preferences
-@interface Preferences : WSIObject {	
+@interface Preferences : NNTObject {	
     
 	Context *ctx; //! context	
-	WSIDECL_PRIVATE(Preferences);
+	NNTDECL_PRIVATE(Preferences);
 }
 
 @property (nonatomic, assign) Context *ctx;
@@ -22,14 +22,14 @@ WSIDECL_PRIVATE_HEAD(Preferences);
 
 @end
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "../Core/NSPreference+WSI.h"
+# include "../Core/NSPreference+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ns)
 
 class Context;
 
@@ -51,8 +51,8 @@ public:
     friend class Context;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 // end cxx

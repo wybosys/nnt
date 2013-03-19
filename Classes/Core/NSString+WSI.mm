@@ -1,22 +1,22 @@
 
 # import "Core.h"
-# import "NSString+WSI.h"
-# import "NSData+WSI.h"
+# import "NSString+NNT.h"
+# import "NSData+NNT.h"
 # import <CommonCrypto/CommonHMAC.h>
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 # import "RegexKitLite.h"
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_USE_BASE64
+# ifdef NNT_USE_BASE64
 #   import <Google/GTMBase64.h>
 # endif
 
 # import "coretypes.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 NSStringEncoding NSGB18030Encoding = 0x80000632;
 NSStringEncoding NSGB2312Encoding = 0x80000630;
@@ -40,7 +40,7 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
     return @"utf-8";
 }
 
-@implementation NSString (WSI)
+@implementation NSString (NNT)
 
 - (NSString*)encodeBinaryString:(NSStringEncoding)encoding {
     NSMutableData* data = [NSMutableData alloc];
@@ -128,7 +128,7 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
     NSData *clearTextData = [self dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char result[20];
 	CCHmac(kCCHmacAlgSHA1, [secretData bytes], [secretData length], [clearTextData bytes], [clearTextData length], result);    
-    NSData* code = [WSIObject base64_encode:[NSData dataWithBytes:result length:20]];
+    NSData* code = [NNTObject base64_encode:[NSData dataWithBytes:result length:20]];
     NSString* ret_str = [[NSString alloc] initWithData:code encoding:NSUTF8StringEncoding];
     return [ret_str autorelease];
 }
@@ -166,7 +166,7 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
 }
 
 - (id)json_decode {
-    return [WSIObject json_decode:self];
+    return [NNTObject json_decode:self];
 }
 
 - (NSArray*)getCharactersArray {
@@ -201,8 +201,8 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
     return CoreTypeString;
 }
 
-- (WSIValueType)valueType {
-    return WSIValueTypeString;
+- (NNTValueType)valueType {
+    return NNTValueTypeString;
 }
 
 - (NSString*)urlencode {
@@ -226,8 +226,8 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
 
 @end
 
-WSIIMPL_CATEGORY(NSString, WSI);
-WSIIMPL_CATEGORY(NSString, Regex);
+NNTIMPL_CATEGORY(NSString, NNT);
+NNTIMPL_CATEGORY(NSString, Regex);
 
 // thanks to RegexKitLite.
 
@@ -248,11 +248,11 @@ typedef NSUInteger RKLRegexOp;
 #define NSNotFoundRange       ((NSRange){.location=(NSUInteger)NSNotFound, .length=              0UL})
 #define NSMaxiumRange         ((NSRange){.location=                   0UL, .length=    NSUIntegerMax})
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
 extern id rkl_performRegexOp(id self, SEL _cmd, RKLRegexOp regexOp, NSString *regexString, RKLRegexOptions options, NSInteger capture, id matchString, NSRange *matchRange, NSString *replacementString, NSError **error, void *result, NSUInteger captureKeysCount, id captureKeys[captureKeysCount], const int captureKeyIndexes[captureKeysCount]);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
 @implementation NSString (Regex)
 
@@ -366,9 +366,9 @@ id kNSStringNonceSimple() {
 
 NSString *kNSStringYES = @"YES", *kNSStringNO = @"NO";
 
-WSI_END_OBJC
+NNT_END_OBJC
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 NSString* tostr(NSURL* url)
 {
@@ -428,10 +428,10 @@ NSString* tostr(::NSData* val) {
     return [[[NSString alloc] initWithData:val encoding:NSUTF8StringEncoding] autorelease];
 }
 
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_NS(ns)
 
 String null_string = @"";
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_CXX
+NNT_END_CXX

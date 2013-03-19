@@ -1,14 +1,14 @@
 
 # include "Core.h"
-# include "SHA+WSI.h"
+# include "SHA+NNT.h"
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 # include <openssl/sha.h>
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
-WSI_BEGIN_CXX
+NNT_BEGIN_CXX
 
 core::data sha1::digest(core::data const& da)
 {
@@ -104,4 +104,4 @@ core::data sha2::digest384(core::data const& da)
     return ret;
 }
 
-WSI_END_CXX
+NNT_END_CXX

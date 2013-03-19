@@ -1,12 +1,12 @@
 
 # include "Core.h"
-# include "CorePlot+WSI.h"
-# include "Math+WSI.h"
+# include "CorePlot+NNT.h"
+# include "Math+NNT.h"
 # import "CPBarLayer.h"
 # import "CGShadow.h"
 # import "CGAnimation.h"
 
-WSI_BEGIN
+NNT_BEGIN
 
 @interface CPBarPlot ()
 
@@ -18,7 +18,7 @@ WSI_BEGIN
 
 @end
 
-@implementation CPBarPlot (WSI)
+@implementation CPBarPlot (NNT)
 
 @end
 
@@ -37,7 +37,7 @@ WSI_BEGIN
 
 @end
 
-@interface UICPBarPlot (WSI)
+@interface UICPBarPlot (NNT)
 
 - (void)drawIndicatorsInContext:(CGContextRef)context;
 - (void)drawIndicatorInContext:(CGContextRef)context indicator:(UICPIndicatorLayer*)indicator;
@@ -71,7 +71,7 @@ WSI_BEGIN
 
 @end
 
-@implementation UICPBarPlot (WSI)
+@implementation UICPBarPlot (NNT)
 
 - (void)drawIndicatorsInContext:(CGContextRef)context {
     if ([d_ptr.indicators count] == 0)
@@ -122,7 +122,7 @@ WSI_BEGIN
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(UICPBarPlot);
+    NNTDECL_PRIVATE_INIT(UICPBarPlot);
     
     indicatorLiveLineOffset = 10.f;
     
@@ -135,7 +135,7 @@ WSI_BEGIN
     [barAnimation release];
     [indicatorLiveLineStyle release];
     
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -350,4 +350,4 @@ WSI_BEGIN
 
 @end
 
-WSI_END
+NNT_END

@@ -1,10 +1,10 @@
 
 # import "Core.h"
 # import "ApnsObject.h"
-# import "WSIConfiguration.h"
+# import "NNTConfiguration.h"
 # import "App.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation APNSObject
 
@@ -25,7 +25,7 @@ WSI_BEGIN_OBJC
 
 - (void)unregisterFromSystem {    
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-    [[WSIConfiguration shared] del:kConfigDeviceToken];
+    [[NNTConfiguration shared] del:kConfigDeviceToken];
 }
 
 + (BOOL)isRegistered {
@@ -34,9 +34,9 @@ WSI_BEGIN_OBJC
 }
 
 + (NSData*)deviceToken {
-    return [[WSIConfiguration shared] getAsData:kConfigDeviceToken];
+    return [[NNTConfiguration shared] getAsData:kConfigDeviceToken];
 }
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

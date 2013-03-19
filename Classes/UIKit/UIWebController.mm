@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIWebController.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation UIWebController
 
@@ -14,7 +14,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)loadView {
-    WSIUIWebView* view = [[WSIUIWebView alloc] initWithZero];
+    NNTUIWebView* view = [[NNTUIWebView alloc] initWithZero];
     self.view = view;
     safe_release(view);
 }
@@ -28,22 +28,22 @@ WSI_BEGIN_OBJC
     }
 }
 
-- (WSIUIWebView*)webView {
-    return (WSIUIWebView*)self.view;
+- (NNTUIWebView*)webView {
+    return (NNTUIWebView*)self.view;
 }
 
 @end
 
 @interface UINaviWebController ()
 
-@property (nonatomic, retain) WSIUINavigationController* webNavigation;
+@property (nonatomic, retain) NNTUINavigationController* webNavigation;
 @property (nonatomic, retain) UIWebController* webController;
 
 @end
 
-@interface UINaviWebView : WSIUIView
+@interface UINaviWebView : NNTUIView
 
-@property (nonatomic, assign) WSIUINavigationController* navi;
+@property (nonatomic, assign) NNTUINavigationController* navi;
 
 @end
 
@@ -65,7 +65,7 @@ WSI_BEGIN_OBJC
     self = [super init];
     
     webController = [[UIWebController alloc] init];
-    webNavigation = [[WSIUINavigationController alloc] initWithRootViewController:webController];
+    webNavigation = [[NNTUINavigationController alloc] initWithRootViewController:webController];
     
     return self;
 }
@@ -95,7 +95,7 @@ WSI_BEGIN_OBJC
     [webController.webView connect:kSignalLinkClicked sel:@selector(__act_click_link:) obj:self];
 }
 
-- (void)__act_click_link:(WSIEventObj*)evt {
+- (void)__act_click_link:(NNTEventObj*)evt {
     NSURL* url = (NSURL*)evt.result;
     
     UIWebController* ctlr = [[UIWebController alloc] init];
@@ -107,4 +107,4 @@ WSI_BEGIN_OBJC
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

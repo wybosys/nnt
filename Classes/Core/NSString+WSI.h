@@ -1,10 +1,10 @@
 
-# ifndef __WSI_NSSTRING_8B02981BC619423FADBA6410572E7EF1_H_INCLUDED
-# define __WSI_NSSTRING_8B02981BC619423FADBA6410572E7EF1_H_INCLUDED
+# ifndef __NNT_NSSTRING_8B02981BC619423FADBA6410572E7EF1_H_INCLUDED
+# define __NNT_NSSTRING_8B02981BC619423FADBA6410572E7EF1_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface NSString (WSI)
+@interface NSString (NNT)
 
 //! to binary string.
 - (NSString*)encodeBinaryString:(NSStringEncoding)encoding;
@@ -51,7 +51,7 @@ WSI_BEGIN_HEADER_OBJC
 - (BOOL)notEmpty;
 
 //! value type.
-- (WSIValueType)valueType;
+- (NNTValueType)valueType;
 
 //! url.
 - (NSString*)urlencode;
@@ -59,7 +59,7 @@ WSI_BEGIN_HEADER_OBJC
  
 @end
 
-WSIDECL_CATEGORY(NSString, WSI);
+NNTDECL_CATEGORY(NSString, NNT);
 
 typedef enum {
     StringRegexOptionsNoOptions             = 0,
@@ -100,42 +100,42 @@ typedef enum {
 
 @end
 
-WSIDECL_CATEGORY(NSString, Regex);
+NNTDECL_CATEGORY(NSString, Regex);
 
-WSI_EXTERN NSString *kNSStringYES, *kNSStringNO;
+NNT_EXTERN NSString *kNSStringYES, *kNSStringNO;
 
-WSI_EXTERN id kNSStringUUID();
-WSI_EXTERN id kNSStringTimestamp();
-WSI_EXTERN id kNSStringNonce();
-WSI_EXTERN id kNSStringNonceSimple();
+NNT_EXTERN id kNSStringUUID();
+NNT_EXTERN id kNSStringTimestamp();
+NNT_EXTERN id kNSStringNonce();
+NNT_EXTERN id kNSStringNonceSimple();
 
-WSI_EXTERN NSStringEncoding NSGB18030Encoding;
-WSI_EXTERN NSStringEncoding NSGB2312Encoding;
-WSI_EXTERN NSStringEncoding NSGBKEncoding;
-WSI_EXTERN NSStringEncoding NSGig5Encoding;
+NNT_EXTERN NSStringEncoding NSGB18030Encoding;
+NNT_EXTERN NSStringEncoding NSGB2312Encoding;
+NNT_EXTERN NSStringEncoding NSGBKEncoding;
+NNT_EXTERN NSStringEncoding NSGig5Encoding;
 
-WSIAPI(NSString*) GetStringEncodingName(NSStringEncoding encoding);
+NNTAPI(NSString*) GetStringEncodingName(NSStringEncoding encoding);
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-WSI_BEGIN_HEADER_CXX
+NNT_BEGIN_HEADER_CXX
 
-WSI_EXTERN NSString* tostr(int val);
-WSI_EXTERN NSString* tostr(uint val);
-WSI_EXTERN NSString* tostr(float val);
-WSI_EXTERN NSString* tostr(double val);
-WSI_EXTERN NSString* tostr(long val);
-WSI_EXTERN NSString* tostr(ulong val);
-WSI_EXTERN NSString* tostr(longlong val);
-WSI_EXTERN NSString* tostr(ulonglong val);
-WSI_EXTERN NSString* tostr(NSString* val);
-WSI_EXTERN NSString* tostr(NSData* val);
-WSI_EXTERN NSString* tostr(char const* val);
-WSI_EXTERN NSString* tostr(core::string const& val);
-WSI_EXTERN NSString* tostr(bool val);
-WSI_EXTERN NSString* tostr(NSURL* url);
+NNT_EXTERN NSString* tostr(int val);
+NNT_EXTERN NSString* tostr(uint val);
+NNT_EXTERN NSString* tostr(float val);
+NNT_EXTERN NSString* tostr(double val);
+NNT_EXTERN NSString* tostr(long val);
+NNT_EXTERN NSString* tostr(ulong val);
+NNT_EXTERN NSString* tostr(longlong val);
+NNT_EXTERN NSString* tostr(ulonglong val);
+NNT_EXTERN NSString* tostr(NSString* val);
+NNT_EXTERN NSString* tostr(NSData* val);
+NNT_EXTERN NSString* tostr(char const* val);
+NNT_EXTERN NSString* tostr(core::string const& val);
+NNT_EXTERN NSString* tostr(bool val);
+NNT_EXTERN NSString* tostr(NSURL* url);
 
 template <typename valT>
 inline_impl NSString* tostr(valT val, NSString* fmt)
@@ -143,11 +143,11 @@ inline_impl NSString* tostr(valT val, NSString* fmt)
     return [NSString stringWithFormat:fmt, val, nil];
 }
 
-WSI_BEGIN_NS(ns)
+NNT_BEGIN_NS(ns)
 
 class Data;
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename strT>
 class String
@@ -252,7 +252,7 @@ public:
         
     self_type operator + (string_type* r) const
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         if (r == nil)
             trace_msg(@"exception: append a nil string.");
 # endif
@@ -262,7 +262,7 @@ public:
     
     self_type& operator += (string_type* r)
     {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
         if (r == nil)
             trace_msg(@"exception: append a nil string.");
 # endif
@@ -339,7 +339,7 @@ public:
     
 };
     
-WSI_END_NS
+NNT_END_NS
     
 class StringEncode
 {
@@ -369,7 +369,7 @@ public:
 
 typedef tpl::String<NSString> String;
 
-WSI_EXTERN String null_string;
+NNT_EXTERN String null_string;
 
 inline_impl String uuid_string()
 {
@@ -431,9 +431,9 @@ protected:
     String _regex;
 };
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_NS(wtl)
 
 template <>
 struct value_type< ::NSString* >
@@ -497,7 +497,7 @@ inline_impl string type_cast<string, NSString>(NSString* str)
     return string((char const*)[data bytes], [data length]);
 }
     
-WSI_END_NS
+NNT_END_NS
 
 template <>
 inline_impl id to_object<core::string>(core::string const& str)
@@ -505,13 +505,13 @@ inline_impl id to_object<core::string>(core::string const& str)
     return wtl::type_cast<ns::String>(str);
 }
     
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
-WSI_BEGIN_HEADER_C
+NNT_BEGIN_HEADER_C
 
 using ::wsi::tostr;
 
-WSI_END_HEADER_C
+NNT_END_HEADER_C
 
 # endif
 

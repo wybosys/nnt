@@ -21,7 +21,7 @@
 
 XMPP_BEGIN
 
-WSIDECL_PRIVATE_BEGIN_CXX(IMClient)
+NNTDECL_PRIVATE_BEGIN_CXX(IMClient)
 
 void init()
 {
@@ -36,11 +36,11 @@ void dealloc()
 //! counter,
 ulong cnt_roster;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 IMClient::IMClient()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(IMClient);
+    NNTDECL_PRIVATE_CONSTRUCT(IMClient);
     
     // register handle.
     // register presence.
@@ -65,21 +65,21 @@ IMClient::IMClient()
 
 IMClient::~IMClient()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-WSIDECL_SIGNALS_BEGIN(IMClient, super)
-WSI_SIGNAL(kSignalGotPresence)
-WSI_SIGNAL(kSignalRosterComplete)
-WSI_SIGNAL(kSignalNewMessage)
-WSI_SIGNAL(kSignalHtmlMessage)
-WSI_SIGNAL(kSignalShowChanged)
-WSI_SIGNAL(kSignalGotVCard)
-WSI_SIGNAL(kSignalXPhoto)
-WSI_SIGNAL(kSignalGotField)
-WSI_SIGNAL(kSignalMUCSubject)
-WSI_SIGNAL(kSignalMUCPresence)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(IMClient, super)
+NNT_SIGNAL(kSignalGotPresence)
+NNT_SIGNAL(kSignalRosterComplete)
+NNT_SIGNAL(kSignalNewMessage)
+NNT_SIGNAL(kSignalHtmlMessage)
+NNT_SIGNAL(kSignalShowChanged)
+NNT_SIGNAL(kSignalGotVCard)
+NNT_SIGNAL(kSignalXPhoto)
+NNT_SIGNAL(kSignalGotField)
+NNT_SIGNAL(kSignalMUCSubject)
+NNT_SIGNAL(kSignalMUCPresence)
+NNTDECL_SIGNALS_END
 
 ulong IMClient::roster_counter() const
 {

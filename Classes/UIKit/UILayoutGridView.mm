@@ -1,13 +1,13 @@
 
 # import "Core.h"
 # import "UILayoutGridView.h"
-# import "Vector+WSI.h"
+# import "Vector+NNT.h"
 # import "Layout.h"
 # include <map>
-# import "CoreGraphic+WSI.h"
-# import "UILabel+WSI.h"
+# import "CoreGraphic+NNT.h"
+# import "UILabel+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UILayoutGridViewPrivate : NSObject {
     UILayoutGridView *d_owner;
@@ -54,7 +54,7 @@ WSI_BEGIN_OBJC
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    WSIDECL_PRIVATE_INIT(UILayoutGridView)
+    NNTDECL_PRIVATE_INIT(UILayoutGridView)
     
     _rowlines = [NSMutableArray new];
     _collines = [NSMutableArray new];
@@ -79,7 +79,7 @@ WSI_BEGIN_OBJC
     zero_release(_rowlines);
     zero_release(_collines);
     zero_release(_reuseLabel);
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -152,7 +152,7 @@ WSI_BEGIN_OBJC
 }
 
 - (void)updateLayout {
-    WSIDECL_D(UILayoutGridView);
+    NNTDECL_D(UILayoutGridView);
     
     CGRect f_bounds = self.bounds;
     CGRect bounds = self.bounds;
@@ -220,8 +220,8 @@ WSI_BEGIN_OBJC
     return [_rowlines objectAtIndex:row];
 }
 
-- (WSIUILabel*)addLabel:(NSString *)label row:(NSUInteger)row col:(NSUInteger)col {
-    WSIUILabel *ctl = [[WSIUILabel alloc] initWithZero];
+- (NNTUILabel*)addLabel:(NSString *)label row:(NSUInteger)row col:(NSUInteger)col {
+    NNTUILabel *ctl = [[NNTUILabel alloc] initWithZero];
     if (_reuseLabel)
         [ctl copyStyle:_reuseLabel];
     ctl.text = label;
@@ -230,8 +230,8 @@ WSI_BEGIN_OBJC
     return ctl;
 }
 
-- (WSIUILabel*)addLabel:(NSString *)label {
-    WSIUILabel *ctl = [[WSIUILabel alloc] initWithZero];
+- (NNTUILabel*)addLabel:(NSString *)label {
+    NNTUILabel *ctl = [[NNTUILabel alloc] initWithZero];
     if (_reuseLabel)
         [ctl copyStyle:_reuseLabel];
     ctl.text = label;
@@ -242,7 +242,7 @@ WSI_BEGIN_OBJC
 
 - (void)addSubview:(UIView *)view row:(NSUInteger)row col:(NSUInteger)col {
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
         throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
@@ -257,7 +257,7 @@ WSI_BEGIN_OBJC
 
 - (void)setSubview:(UIView *)view row:(NSUInteger)row col:(NSUInteger)col {
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
         throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
@@ -268,7 +268,7 @@ WSI_BEGIN_OBJC
 
 - (UIView*)viewAt:(NSUInteger)row col:(NSUInteger)col {
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
         throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
@@ -349,4 +349,4 @@ WSI_BEGIN_OBJC
 
 _CXXVIEW_IMPL(UILayoutGridView);
 
-WSI_END_OBJC
+NNT_END_OBJC

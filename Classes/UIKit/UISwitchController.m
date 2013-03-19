@@ -3,9 +3,9 @@
 # import "UISwitchView.h"
 # import "UISwitchController.h"
 # import "../Math/Linear.h"
-# import "UIView+WSI.h"
+# import "UIView+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @interface UISwitchController (curl)
 
@@ -97,7 +97,7 @@ WSI_BEGIN_OBJC
     return [d_owner previous_page:cur_page];
 }
 
-- (void)setCur_page:(WSIUIViewController *)page {
+- (void)setCur_page:(NNTUIViewController *)page {
     if (cur_page == page)
         return;
     id old_page = cur_page;
@@ -245,7 +245,7 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT_EX(UISwitchController, d_ptr_ctr);    
+    NNTDECL_PRIVATE_INIT_EX(UISwitchController, d_ptr_ctr);    
     [self __init];
     return self;
 }
@@ -262,13 +262,13 @@ WSI_BEGIN_OBJC
 - (void)dealloc {
     UISwitchView *view = (UISwitchView*)self.view;
     view.switcher = nil;
-    WSIDECL_PRIVATE_DEALLOC_EX(d_ptr_ctr);
+    NNTDECL_PRIVATE_DEALLOC_EX(d_ptr_ctr);
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalSelectChanged)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalSelectChanged)
+NNTEVENT_END
 
 - (void)loadView {
     UISwitchView *view = [[UISwitchView alloc] initWithZero];
@@ -460,4 +460,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

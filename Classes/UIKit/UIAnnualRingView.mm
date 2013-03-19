@@ -2,12 +2,12 @@
 # import "Core.h"
 # import "UIAnnualRingView.h"
 # include "JuiceCocoa++.hpp"
-# include "Math+WSI.h"
+# include "Math+NNT.h"
 # include "Linear.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-WSI_USINGCXXNAMESPACE;
+NNT_USINGCXXNAMESPACE;
 
 signal_t kSignalRingRotated = @"::wsi::ui::ring::rotated";
 signal_t kSignalItemLayoutted = @"::wsi::ui::item::layoutted";
@@ -50,11 +50,11 @@ signal_t kSignalItemsLayoutted = @"::wsi::ui::items::layoutted";
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalRingRotated)
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalItemsLayoutted)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalRingRotated)
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalItemsLayoutted)
+NNTEVENT_END
 
 - (void)setRadius:(real)radius {
     if (_radius == radius)
@@ -214,12 +214,12 @@ WSIEVENT_END
     [self emit:kSignalItemsLayoutted];
 }
 
-- (void)_act_touchesbegin:(WSIEventObj*)evt {
+- (void)_act_touchesbegin:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     _point = [[touches anyObject] locationInView:self];
 }
 
-- (void)_act_touches:(WSIEventObj*)evt {
+- (void)_act_touches:(NNTEventObj*)evt {
     NSSet* touches = (NSSet*)evt.result;
     CGPoint pt = [[touches anyObject] locationInView:self];
     CGPoint center = cg::Rect(self.bounds).center();
@@ -269,12 +269,12 @@ _CXXVIEW_IMPL_END
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalContentClicked)
-WSIEVENT_SIGNAL(kSignalItemsLayoutted)
-WSIEVENT_SIGNAL(kSignalItemInserted)
-WSIEVENT_SIGNAL(kSignalItemRemoving)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalContentClicked)
+NNTEVENT_SIGNAL(kSignalItemsLayoutted)
+NNTEVENT_SIGNAL(kSignalItemInserted)
+NNTEVENT_SIGNAL(kSignalItemRemoving)
+NNTEVENT_END
 
 - (UIAnnualRingSingle*)addRingWithLength:(real)length radius:(real)radius {
     UIAnnualRingSingle* ring = [[UIAnnualRingSingle alloc] initWithZero];
@@ -350,4 +350,4 @@ WSIEVENT_END
 
 _CXXVIEW_IMPL(UIAnnualRingControl);
 
-WSI_END_OBJC
+NNT_END_OBJC

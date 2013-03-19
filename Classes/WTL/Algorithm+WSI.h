@@ -1,13 +1,13 @@
 
-# ifndef __WSI_CORE_ALGORITHM_45BD957B7E6D4B57BD205CC1B465CAA3_H_INCLUDED
-# define __WSI_CORE_ALGORITHM_45BD957B7E6D4B57BD205CC1B465CAA3_H_INCLUDED
+# ifndef __NNT_CORE_ALGORITHM_45BD957B7E6D4B57BD205CC1B465CAA3_H_INCLUDED
+# define __NNT_CORE_ALGORITHM_45BD957B7E6D4B57BD205CC1B465CAA3_H_INCLUDED
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
 # include <memory>
 
-WSI_BEGIN_HEADER_CXX 
-WSI_BEGIN_NS(wtl)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(wtl)
 
 using ::std::auto_ptr;
 
@@ -172,7 +172,7 @@ inline_impl wtl::string type_cast<wtl::string, wtl::data_be>(wtl::data_be const&
     return _type_cast_data_lebe(da);
 }
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <>
 inline_impl NSString* type_cast< NSString*, wtl::string>(wtl::string const& str)
@@ -343,7 +343,7 @@ public:
         return *val;
     }
     
-# ifdef WSI_GCC
+# ifdef NNT_GCC
     
     typename ValT::reference const operator * () const
     {
@@ -447,7 +447,7 @@ enum
     SEQUENCE_VECTOR = 0,
     SEQUENCE_LIST = 1,
     
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
     SEQUENCE_OBJC_MUTARRAY = 0x1000000,
 # endif
 };
@@ -476,7 +476,7 @@ template <typename valT>
 struct value_type<valT const*>
 { typedef valT type; };
 
-# ifdef WSI_OBJC
+# ifdef NNT_OBJC
 
 template <bool val, typename t0, typename t1>
 struct ternary
@@ -583,7 +583,7 @@ public:
 template <typename TL, typename TV>
 const add<TL, TV> add<TL, TV>::const_p = add<TL, TV>();
 
-WSI_BEGIN_NS(initializer)
+NNT_BEGIN_NS(initializer)
         
 template <typename T,
 typename ActionT>
@@ -679,7 +679,7 @@ public:
     
 };
         
-# define WSIWTL_INITIALIZER_IMPL(cls) \
+# define NNTWTL_INITIALIZER_IMPL(cls) \
 typedef typename super::value_type value_type; \
 cls(value_type const& _0) : super(_0) {} \
 cls(value_type const& _0, value_type const& _1) : super(_0, _1) {} \
@@ -706,10 +706,10 @@ class add
     
 public:
     
-    WSIWTL_INITIALIZER_IMPL(add);
+    NNTWTL_INITIALIZER_IMPL(add);
 };
         
-WSI_END_NS
+NNT_END_NS
         
 template <typename T>
 class used
@@ -837,9 +837,9 @@ static conT values(mapT const& map)
     return ret;
 }
 
-WSI_END_NS
+NNT_END_NS
 
-WSI_END_HEADER_CXX
+NNT_END_HEADER_CXX
 
 # endif // cxx
 

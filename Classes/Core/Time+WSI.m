@@ -1,8 +1,8 @@
 
 # import "Core.h"
-# import "Time+WSI.h"
+# import "Time+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 signal_t kSignalTimerStart = @"::wsi::core::timer::start";
 signal_t kSignalTimerStop  = @"::wsi::core::timer::stop";
@@ -10,7 +10,7 @@ signal_t kSignalTimerFired = @"::wsi::core::timer::fired";
 signal_t kSignalTimerSuspended = @"::wsi::core::timer::suspended";
 signal_t kSignalTimerResume = @"::wsi::core::timer::resume";
 
-@implementation WSINSTimer
+@implementation NNTNSTimer
 
 @synthesize interval = _seconds;
 @synthesize repeat = _repeats;
@@ -39,17 +39,17 @@ signal_t kSignalTimerResume = @"::wsi::core::timer::resume";
         [self stop];
     zero_release(_timer);
     
-    WSIOBJECT_DEALLOC;
+    NNTOBJECT_DEALLOC;
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalTimerStart)
-WSIEVENT_SIGNAL(kSignalTimerStop)
-WSIEVENT_SIGNAL(kSignalTimerFired)
-WSIEVENT_SIGNAL(kSignalTimerSuspended)
-WSIEVENT_SIGNAL(kSignalTimerResume)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalTimerStart)
+NNTEVENT_SIGNAL(kSignalTimerStop)
+NNTEVENT_SIGNAL(kSignalTimerFired)
+NNTEVENT_SIGNAL(kSignalTimerSuspended)
+NNTEVENT_SIGNAL(kSignalTimerResume)
+NNTEVENT_END
 
 - (void)_act_timer_fired:(id)obj {
     if (_suspend != 0)
@@ -107,4 +107,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

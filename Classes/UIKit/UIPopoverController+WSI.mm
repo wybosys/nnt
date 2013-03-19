@@ -1,16 +1,16 @@
 
 # import "Core.h"
-# import "UIPopoverController+WSI.h"
+# import "UIPopoverController+NNT.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
-@interface WSIUIPopoverController ()
+@interface NNTUIPopoverController ()
 
 - (void)reset;
 
 @end
 
-@implementation WSIUIPopoverController
+@implementation NNTUIPopoverController
 
 @dynamic contentViewController;
 @synthesize popoverArrowDirection = _popoverArrowDirection;
@@ -31,9 +31,9 @@ WSI_BEGIN_OBJC
     [super dealloc];
 }
 
-WSIEVENT_BEGIN
-WSIEVENT_SIGNAL(kSignalDismiss)
-WSIEVENT_END
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalDismiss)
+NNTEVENT_END
 
 - (void)setContentViewController:(UIViewController *)contentViewController {
     [self reset];
@@ -114,4 +114,4 @@ WSIEVENT_END
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC

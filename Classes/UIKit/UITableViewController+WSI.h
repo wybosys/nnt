@@ -1,14 +1,14 @@
 
-# ifndef __WSI_UIKIT_UITABLEVIEWCONTROLLER_E656BAE2FB4D4EF18D1C311369954EE0_H_INCLUDED
-# define __WSI_UIKIT_UITABLEVIEWCONTROLLER_E656BAE2FB4D4EF18D1C311369954EE0_H_INCLUDED
+# ifndef __NNT_UIKIT_UITABLEVIEWCONTROLLER_E656BAE2FB4D4EF18D1C311369954EE0_H_INCLUDED
+# define __NNT_UIKIT_UITABLEVIEWCONTROLLER_E656BAE2FB4D4EF18D1C311369954EE0_H_INCLUDED
 
-# import "UITableView+WSI.h"
-# import "UIViewController+WSI.h"
-# import "UINavigationController+WSI.h"
+# import "UITableView+NNT.h"
+# import "UIViewController+NNT.h"
+# import "UINavigationController+NNT.h"
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-@interface WSIUITableViewController : WSIUIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface NNTUITableViewController : NNTUIViewController <UITableViewDataSource, UITableViewDelegate> {
     
     //! style.
     UITableViewStyle _tableViewStyle;
@@ -24,7 +24,7 @@ WSI_BEGIN_HEADER_OBJC
 @property (nonatomic, assign) real rowHeight;
 @property (nonatomic, assign) id<UITableViewDataSource> dataSource;
 @property (nonatomic, assign) id<UITableViewDelegate> delegate;
-@property (nonatomic, readonly) WSIUITableView *tableView;
+@property (nonatomic, readonly) NNTUITableView *tableView;
 @property (nonatomic, retain) id datas;
 
 //! init.
@@ -36,47 +36,47 @@ WSI_BEGIN_HEADER_OBJC
 
 @end
 
-@interface UINavigationTableViewController : WSIUINavigationController {
-    WSIUITableViewController* rootTable;
+@interface UINavigationTableViewController : NNTUINavigationController {
+    NNTUITableViewController* rootTable;
 }
 
-@property (nonatomic, readonly) WSIUITableViewController* rootTable;
+@property (nonatomic, readonly) NNTUITableViewController* rootTable;
 
 - (id)init;
 - (id)initWithRootTitle:(NSString*)title;
 
 @end
 
-WSI_EXTERN signal_t kSignalSelectChanged;
-WSI_EXTERN signal_t kSignalItemRemoving;
-WSI_EXTERN signal_t kSignalItemRemoved;
-WSI_EXTERN signal_t kSignalItemInserted;
-WSI_EXTERN signal_t kSignalItemMoved;
+NNT_EXTERN signal_t kSignalSelectChanged;
+NNT_EXTERN signal_t kSignalItemRemoving;
+NNT_EXTERN signal_t kSignalItemRemoved;
+NNT_EXTERN signal_t kSignalItemInserted;
+NNT_EXTERN signal_t kSignalItemMoved;
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-# ifdef WSI_CXX
+# ifdef NNT_CXX
 
-# include "UITableViewCell+WSI.h"
-# include "../WTL/Variant+WSI.h"
+# include "UITableViewCell+NNT.h"
+# include "../WTL/Variant+NNT.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 class ITableViewController;
 
-WSI_END_NS
-WSI_END_NS
+NNT_END_NS
+NNT_END_NS
 
-WSI_BEGIN_HEADER_OBJC
+NNT_BEGIN_HEADER_OBJC
 
-_CXXCONTROLLER_DECL_BEGIN(WSIUITableViewController)
+_CXXCONTROLLER_DECL_BEGIN(NNTUITableViewController)
 _CXXCONTROLLER_DECL_END
 
-WSI_END_HEADER_OBJC
+NNT_END_HEADER_OBJC
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ui)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ui)
 
 # include "UISectionItems.h"
 
@@ -113,7 +113,7 @@ public:
     
 };
 
-WSI_BEGIN_NS(tpl)
+NNT_BEGIN_NS(tpl)
 
 template <typename itemT = TableCellObject>
 class TableSection
@@ -134,8 +134,8 @@ public:
 template <
 typename tableT,
 typename sectionT = TableSection<>,
-typename controllerT = _CXXCONTROLLER(WSIUITableViewController),
-typename viewT = WSIUITableView,
+typename controllerT = _CXXCONTROLLER(NNTUITableViewController),
+typename viewT = NNTUITableView,
 typename cxxviewT = ui::TableView,
 typename ctlrI = ITableViewController
 >
@@ -236,11 +236,11 @@ inline_impl core::vector<typename TableView<viewT>::cell_pointer> TableView<view
     return ret;
 }
 
-WSI_END_NS
+NNT_END_NS
 
 typedef tpl::TableSection<> TableSection;
 
-WSI_BEGIN_NS(impl)
+NNT_BEGIN_NS(impl)
 
 class TableController
 : public tpl::TableViewController<TableController>
@@ -259,7 +259,7 @@ public:
     
 };
 
-WSI_END_NS
+NNT_END_NS
 
 class PlainTableController
 : public tpl::TableViewController<PlainTableController>
@@ -308,8 +308,8 @@ public:
     
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
 

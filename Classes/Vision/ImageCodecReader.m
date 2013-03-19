@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "ImageCodecReader.h"
 # import "../../contrib/libpng/png.h"
-# import "WSIResource.h"
+# import "NNTResource.h"
 # import "../../contrib/zbar/include/zbar.h"
 
-WSI_BEGIN_OBJC
+NNT_BEGIN_OBJC
 
 @implementation ImageCodecReader
 
@@ -13,7 +13,7 @@ bool _png_getdata (NSString *name,
                    int *width, int *height,
                    byte **raw)
 {
-    name = [WSIResource PathOf:name];
+    name = [NNTResource PathOf:name];
     FILE *file = fopen(name.UTF8String, "rb");
     if(!file)
         return false;
@@ -56,7 +56,7 @@ bool _png_getdata (NSString *name,
 }
 
 - (NSData*)readRaw:(byte *)raw dlen:(uint)dlen width:(uint)width height:(uint)height {
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
 
     if (dlen != (width * height))
         trace_msg(@"length of grayscaled data is not equal to image's size.");
@@ -122,4 +122,4 @@ bool _png_getdata (NSString *name,
 
 @end
 
-WSI_END_OBJC
+NNT_END_OBJC
