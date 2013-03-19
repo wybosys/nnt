@@ -1,9 +1,9 @@
 #!/bin/sh
 
-TARGET='wsi'.$1.'xcodeproj'
+TARGET='nnt'.$1.'xcodeproj'
 mkdir $TARGET
 cd $TARGET
-ln ../wsi.xcodeproj/project.pbxproj
+ln ../nnt.xcodeproj/project.pbxproj
 mkdir project.xcworkspace
 cd project.xcworkspace
-ln ../../wsi.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ln ../../nnt.xcodeproj/project.xcworkspace/contents.xcworkspacedata
