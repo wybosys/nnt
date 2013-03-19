@@ -2,7 +2,7 @@
 # ifndef __IMAGE_CTLR_30B3B110B38A4CA1BB4B41814190BF5F_H_INCLUDED
 # define __IMAGE_CTLR_30B3B110B38A4CA1BB4B41814190BF5F_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class ImageView
 : public ui::View<ImageView>
@@ -24,6 +24,6 @@ public:
     void act_load();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

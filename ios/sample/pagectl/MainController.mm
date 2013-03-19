@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 BackView::BackView()
 {
@@ -53,4 +53,4 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

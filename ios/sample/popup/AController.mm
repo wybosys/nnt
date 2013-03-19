@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 AView::AView()
 {
@@ -50,4 +50,4 @@ void AController::act_appear()
     navigation().topbar().set_visible(false);
 }
 
-WSIAPP_END
+NNTAPP_END

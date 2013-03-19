@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "HtmlController.h"
 # include "HtmlParser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 HtmlView::HtmlView()
 {
@@ -79,4 +79,4 @@ void HtmlController::view_loaded()
     view().htmled.load(stred);
 }
 
-WSIAPP_END
+NNTAPP_END

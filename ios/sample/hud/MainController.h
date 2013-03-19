@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_9A2CD28DFD4B4D0889C9F5CE3D51F000_H_INCLUDED
 # define __MAIN_CTLR_9A2CD28DFD4B4D0889C9F5CE3D51F000_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -28,6 +28,6 @@ protected:
     void act_progress_end();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,12 +1,12 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
 # import "WSIBdb.h"
 # import "WSISqlite.h"
 # import "WSILevelDB.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation MainController
 
@@ -167,4 +167,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "CxxMainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -24,4 +24,4 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

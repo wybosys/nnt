@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "TextFormatter.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 
-WSIAPP_END
+NNTAPP_END

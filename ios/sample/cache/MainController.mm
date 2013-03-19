@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "AbstractCache.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -53,4 +53,4 @@ void MainController::act_load()
     core::Confirm::info(core::Cache::Default().find(@"TEST"));
 }
 
-WSIAPP_END
+NNTAPP_END

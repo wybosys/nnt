@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "UIEmailController.h"
 # include "UISMSController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -59,4 +59,4 @@ void MainController::act_email()
     email.execute();
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "SvgController.h"
 # include "SVGParser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 SvgView::SvgView()
 {
@@ -37,4 +37,4 @@ void SvgController::test_svg()
     path.parse(str, svg_callback, NULL);
 }
 
-WSIAPP_END
+NNTAPP_END

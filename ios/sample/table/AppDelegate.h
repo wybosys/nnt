@@ -1,14 +1,14 @@
 
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
 : public ::wsi::Application
 {
 public:
     void load();
-    ::wsiapp::MainController ctlr;
+    ::nntapp::MainController ctlr;
 };
 
-WSIAPP_END
+NNTAPP_END

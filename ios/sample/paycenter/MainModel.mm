@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainModel.h"
 # include "HttpRequest.h"
 # include "TextObjParser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 ByPayModel::ByPayModel()
 {
@@ -20,4 +20,4 @@ bool ByPayModel::process(id ret)
     return true;
 }
 
-WSIAPP_END
+NNTAPP_END

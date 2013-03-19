@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppDelegate.h"
 
 @interface MainView : WSIUIView

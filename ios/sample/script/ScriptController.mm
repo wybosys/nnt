@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "ScriptController.h"
 # import "WSIPython.h"
 # import "WSILua.h"
@@ -118,12 +118,12 @@ WSI_BEGIN_OBJC
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(ScriptController);
+    NNTDECL_PRIVATE_INIT(ScriptController);
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 

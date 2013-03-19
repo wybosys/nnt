@@ -4,7 +4,7 @@
 
 # include "iOSPrinter.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class TextFormatter
 : public driver::print::ns::formatter::SimpleText
@@ -12,6 +12,6 @@ class TextFormatter
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

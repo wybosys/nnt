@@ -4,7 +4,7 @@
 
 # include "XimUser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -54,6 +54,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

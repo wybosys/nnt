@@ -2,7 +2,7 @@
 # ifndef MAIN_CTLR
 # define MAIN_CTLR
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -16,12 +16,12 @@ public:
     
 };
 
-WSIDECL_PRIVATE_HEAD_CXX(MainController);
+NNTDECL_PRIVATE_HEAD_CXX(MainController);
 
 class MainController
 : public ui::Controller<MainController, MainView>
 {
-    WSIDECL_PRIVATE_CXX(MainController);
+    NNTDECL_PRIVATE_CXX(MainController);
     
 public:
     
@@ -32,6 +32,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -43,4 +43,4 @@ void MainController::act_view()
     core::Confirm::info(tostr(view().scale_factor()));
 }
 
-WSIAPP_END
+NNTAPP_END

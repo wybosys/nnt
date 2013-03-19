@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "CController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 CView::CView()
 {
@@ -25,4 +25,4 @@ void CController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

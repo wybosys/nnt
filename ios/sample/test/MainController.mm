@@ -1,5 +1,5 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
 @interface CA : NSObject
@@ -16,14 +16,14 @@
 
 @end
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class CB
 : public ns::Object<CA>
 {
 public:
     
-    WSIDECL_PROPERTY_RETAIN(str, NSString*);
+    NNTDECL_PROPERTY_RETAIN(str, NSString*);
     
 };
 
@@ -75,4 +75,4 @@ void MainController::act_btn()
     core::Confirm::info(@"Hello, WSI !");
 }
 
-WSIAPP_END
+NNTAPP_END

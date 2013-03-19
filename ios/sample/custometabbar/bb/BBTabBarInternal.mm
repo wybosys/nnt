@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "BBTabBarInternal.h"
 # import "BBTabBar.h"
 # import "BBTab.h"

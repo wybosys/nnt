@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "ImageController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 ImageView::ImageView()
 {
@@ -41,4 +41,4 @@ void ImageController::act_load()
     view().view_img.load(ns::URL::String(view().txt_url.text()));
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -4,7 +4,7 @@
 
 # include "XmppIMClientor.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class Client
 : public xmpp::IMClientor
@@ -27,6 +27,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

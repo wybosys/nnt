@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 # import "AlphabetFlow.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @interface MainView : WSIUIView
 
@@ -53,12 +53,12 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIDECL_PRIVATE_BEGIN(MainController, NSObject) <UISpreadSheetDataSource, UISpreadSheetDelegate>
+NNTDECL_PRIVATE_BEGIN(MainController, NSObject) <UISpreadSheetDataSource, UISpreadSheetDelegate>
 {
     ::wsi::AlphabetFlow af;
 }
 
-WSIDECL_PRIVATE_IMPL(MainController)
+NNTDECL_PRIVATE_IMPL(MainController)
 
 - (NSUInteger)sheetRowsNumber:(UISpreadSheet*)sheet {
     return 100;
@@ -86,19 +86,19 @@ WSIDECL_PRIVATE_IMPL(MainController)
     return ret;
 }
 
-WSIDECL_PRIVATE_END
+NNTDECL_PRIVATE_END
 
 @implementation MainController
 
 - (id)init {
     self = [super init];
-    WSIDECL_PRIVATE_INIT(MainController);
+    NNTDECL_PRIVATE_INIT(MainController);
     self.title = @"SpreadSheet";
     return self;
 }
 
 - (void)dealloc {
-    WSIDECL_PRIVATE_DEALLOC();
+    NNTDECL_PRIVATE_DEALLOC();
     [super dealloc];
 }
 
@@ -135,4 +135,4 @@ WSIDECL_PRIVATE_END
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

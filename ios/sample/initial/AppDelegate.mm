@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppDelegate.h"
 # include "UIInitialView.h"
 # include "UIActivityIndicatorBar.h"
 # include "UIActivityIndicatorWave.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class Initial
 : public ui::InitialView
@@ -65,4 +65,4 @@ void App::load()
     set_root(ctlr);
 }
 
-WSIAPP_END
+NNTAPP_END

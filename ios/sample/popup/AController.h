@@ -2,7 +2,7 @@
 # ifndef __A_CTLR_98D28B107CFC4642BB6A527202A2D7C3_H_INCLUDED
 # define __A_CTLR_98D28B107CFC4642BB6A527202A2D7C3_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -28,6 +28,6 @@ protected:
     void act_appear();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

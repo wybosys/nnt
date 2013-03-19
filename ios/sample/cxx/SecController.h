@@ -2,7 +2,7 @@
 # ifndef __SEC_CTLR_D7627BEFA7B74F4CB6F4BEB38C5D5164_H_INCLUDED
 # define __SEC_CTLR_D7627BEFA7B74F4CB6F4BEB38C5D5164_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class SecView
 : public ui::View<SecView>
@@ -21,6 +21,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

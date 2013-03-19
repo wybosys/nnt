@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 
 @interface AppDelegate : WSIApplication
 

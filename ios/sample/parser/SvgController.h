@@ -2,7 +2,7 @@
 # ifndef __SVC_CTLR_B5AEF4C58F6349D99D7B5E6A8CFDAC7C_H_INCLUDED
 # define __SVC_CTLR_B5AEF4C58F6349D99D7B5E6A8CFDAC7C_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class SvgView
 : public ui::View<SvgView>
@@ -21,6 +21,6 @@ public:
     void test_svg();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

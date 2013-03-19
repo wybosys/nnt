@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppDelegate.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -16,4 +16,4 @@ void App::act_memory()
     
 }
 
-WSIAPP_END
+NNTAPP_END

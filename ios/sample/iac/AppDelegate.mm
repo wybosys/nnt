@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppDelegate.h"
 # include "WSIClipboard.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -27,4 +27,4 @@ void App::background()
     }
 }
 
-WSIAPP_END
+NNTAPP_END

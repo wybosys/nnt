@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "ThdController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 ThdView::ThdView()
 {
@@ -34,4 +34,4 @@ void ThdController::view_loaded()
     set_title(@"THIRD");
 }
 
-WSIAPP_END
+NNTAPP_END

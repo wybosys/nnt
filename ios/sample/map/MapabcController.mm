@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MapabcController.h"
 # import "UIMapAbcView.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation MapabcController
 
@@ -27,4 +27,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

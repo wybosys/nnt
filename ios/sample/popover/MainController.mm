@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "UIPopoverController+WSI.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -54,4 +54,4 @@ void MainController::act_dismiss()
     trace_msg(@"DISMISSED.");
 }
 
-WSIAPP_END
+NNTAPP_END

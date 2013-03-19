@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_2E9230C776544809BFC415FE7CD4BB16_H_INCLUDED
 # define __MAIN_CTLR_2E9230C776544809BFC415FE7CD4BB16_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class SubView
 :  public ui::View<SubView>
@@ -50,6 +50,6 @@ public:
     void act_view();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

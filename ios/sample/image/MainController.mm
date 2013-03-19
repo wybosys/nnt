@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 # import "CIFilter+WSI.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 : table(NULL)
@@ -112,6 +112,6 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

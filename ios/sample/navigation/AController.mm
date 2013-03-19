@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AController.h"
 # import "BController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 AView::AView()
 {
@@ -60,4 +60,4 @@ void AController::act_top()
     trace_msg(@"click top item.");
 }
 
-WSIAPP_END
+NNTAPP_END

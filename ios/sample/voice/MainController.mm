@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -60,4 +60,4 @@ void MainController::act_speak_next()
     _sph.speak();
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainController::MainController()
 {
@@ -50,4 +50,4 @@ void MainController::act_click()
     trace_msg(@"clicked");
 }
 
-WSIAPP_END
+NNTAPP_END

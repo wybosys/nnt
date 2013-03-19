@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -21,4 +21,4 @@ MainController::MainController()
     update();    
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -45,4 +45,4 @@ void MainController::view_loaded()
     view().hor.relayout_items();
 }
 
-WSIAPP_END
+NNTAPP_END

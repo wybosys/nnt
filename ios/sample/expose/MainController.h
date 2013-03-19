@@ -4,7 +4,7 @@
 
 # include "UIExposeControl.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -24,6 +24,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

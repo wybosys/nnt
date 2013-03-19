@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -62,4 +62,4 @@ void MainController::theme(ui::Theme const& theme)
     navigation().topbar().set_tint(theme.instance("navi.background.color"));
 }
 
-WSIAPP_END
+NNTAPP_END

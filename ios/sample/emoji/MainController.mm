@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "EmojiConverter.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -39,4 +39,4 @@ void MainController::act_click(EventObj& evt)
     trace_obj(lbl.text);
 }
 
-WSIAPP_END
+NNTAPP_END

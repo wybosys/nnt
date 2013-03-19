@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "Linear.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {    
@@ -147,4 +147,4 @@ void MainController::hide_child()
     view().btn_child2.remove_fromsuper();
 }
 
-WSIAPP_END
+NNTAPP_END

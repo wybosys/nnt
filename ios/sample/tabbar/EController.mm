@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "EController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 EView::EView()
 {
@@ -30,4 +30,4 @@ void EController::act_disappear()
     trace_msg(@"E disappear");
 }
 
-WSIAPP_END
+NNTAPP_END

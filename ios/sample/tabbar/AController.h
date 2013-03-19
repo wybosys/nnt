@@ -4,7 +4,7 @@
 
 # include "EController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class AView
 : public wsi::ui::View<AView>
@@ -27,6 +27,6 @@ protected:
     void act_disappear();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

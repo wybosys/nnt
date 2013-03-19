@@ -2,7 +2,7 @@
 # ifndef MAIN_CTLR
 # define MAIN_CTLR
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class BackView
 : public ui::View<BackView>
@@ -31,6 +31,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -4,7 +4,7 @@
 
 # include "AController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainController
 : public wsi::ui::NavigationController
@@ -19,6 +19,6 @@ public:
     AController ctlr;
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppDelegate.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -20,4 +20,4 @@ void App::load()
     
 }
 
-WSIAPP_END
+NNTAPP_END

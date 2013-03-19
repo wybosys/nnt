@@ -1,5 +1,5 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # import "AppDelegate.h"
 # import "MainController.h"
 
@@ -31,7 +31,7 @@
 
 @end
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 App::App()
 {
@@ -58,4 +58,4 @@ void App::load()
     set_root(ctlr);
 }
 
-WSIAPP_END
+NNTAPP_END

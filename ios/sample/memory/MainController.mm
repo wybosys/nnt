@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 SubView::SubView()
 {
@@ -77,4 +77,4 @@ void MainController::act_view()
     view().relayout();
 }
 
-WSIAPP_END
+NNTAPP_END

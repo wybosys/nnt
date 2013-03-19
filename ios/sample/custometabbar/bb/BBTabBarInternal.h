@@ -8,7 +8,7 @@ WSI_BEGIN_HEADER_OBJC
 extern       CGFloat   mTabMargin;
 extern const NSInteger kMaxBadgeNumber;
 
-WSIDECL_EXTERN_CLASS(BBTabBar);
+NNTDECL_EXTERN_CLASS(BBTabBar);
 
 @interface BBTabBar (BBInternal)
 

@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # define WSI_USE_PRECISE
 # import "WSIExecution.h"
 # import "AppDelegate.h"

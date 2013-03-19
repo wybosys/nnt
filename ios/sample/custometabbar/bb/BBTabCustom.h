@@ -6,7 +6,7 @@
 
 WSI_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(BBTabBar);
+NNTDECL_EXTERN_CLASS(BBTabBar);
 
 @interface BBTabGrid : BBTabBar {
 

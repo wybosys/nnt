@@ -4,7 +4,7 @@
 
 # include "XmppIMClient.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -62,12 +62,12 @@ public:
     ui::BevelButton logout;
 };
 
-WSIDECL_PRIVATE_HEADER_CXX(MainController);
+NNTDECL_PRIVATE_HEADER_CXX(MainController);
 
 class MainController
 : public ui::Controller<MainController, MainView>
 {
-    WSIDECL_PRIVATE_CXX(MainController);
+    NNTDECL_PRIVATE_CXX(MainController);
     
 public:
     
@@ -97,6 +97,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

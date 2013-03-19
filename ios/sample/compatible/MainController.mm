@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 # import "SecController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation MainController
 
@@ -38,4 +38,4 @@ SecController* ctlr = nil;
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

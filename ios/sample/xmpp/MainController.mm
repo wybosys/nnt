@@ -1,5 +1,5 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "ContactsCenter.h"
 # include "ImplClient.h"
@@ -13,7 +13,7 @@
 # include "XepVCard.h"
 # include "XepAvatar.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 xmpp::im::User const* __gs_user = NULL;
 xmpp::IMClient* __gs_client = NULL;
@@ -113,7 +113,7 @@ void MainView::layout_subviews()
     }
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(MainController)
+NNTDECL_PRIVATE_BEGIN_CXX(MainController)
 
 void init()
 {
@@ -129,16 +129,16 @@ void dealloc()
 ContactsCenter contacts;
 Client clientor;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 MainController::MainController()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(MainController);
+    NNTDECL_PRIVATE_CONSTRUCT(MainController);
 }
 
 MainController::~MainController()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void MainController::view_loaded()
@@ -295,4 +295,4 @@ void MainController::act_logout()
     _client.execute(obj);
 }
 
-WSIAPP_END
+NNTAPP_END

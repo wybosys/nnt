@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "EmojiConverter.h"
 # include "EmojiCodec.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 EmojiConverter::EmojiConverter()
 {
@@ -154,4 +154,4 @@ ns::MutableArray EmojiConverter::emojis() const
     return emojis;
 }
 
-WSIAPP_END
+NNTAPP_END

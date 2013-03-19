@@ -1,5 +1,5 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # import "AppDelegate.h"
 # include "MainController.h"
 
@@ -7,7 +7,7 @@
 
 - (void)load {    
     
-    ::wsiapp::MainController* ctlr = ::wsiapp::MainController::New();
+    ::nntapp::MainController* ctlr = ::nntapp::MainController::New();
     self.rootViewController = *ctlr;
     ctlr->Release();
 

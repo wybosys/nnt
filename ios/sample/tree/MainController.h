@@ -4,7 +4,7 @@
 
 # include "UITableTreeViewController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class Cell
 : public ui::TableCell<Cell>
@@ -58,6 +58,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

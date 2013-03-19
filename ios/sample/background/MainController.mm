@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -45,4 +45,4 @@ void MainController::act_audio_end()
     trace_msg(@"Completed play audio.");
 }
 
-WSIAPP_END
+NNTAPP_END

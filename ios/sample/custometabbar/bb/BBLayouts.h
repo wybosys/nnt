@@ -6,7 +6,7 @@
 
 WSI_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(BBLayout);
+NNTDECL_EXTERN_CLASS(BBLayout);
 
 @interface BBGridLayout : BBLayout {
 

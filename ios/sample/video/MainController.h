@@ -4,7 +4,7 @@
 
 # include "UIVideoController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainController
 : public ui::VideoController
@@ -14,6 +14,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

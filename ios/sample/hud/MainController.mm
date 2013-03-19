@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "UIHudView.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -69,4 +69,4 @@ void MainController::act_progress_end()
     delete hudpro;
 }
 
-WSIAPP_END
+NNTAPP_END

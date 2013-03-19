@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppController.h"
 
 WSI_BEGIN_OBJC

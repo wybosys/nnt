@@ -4,7 +4,7 @@
 
 # include "iOSPrinter.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class TextRender
 : public driver::print::ns::PageRender
@@ -12,6 +12,6 @@ class TextRender
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

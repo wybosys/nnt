@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 AView::AView()
 {
@@ -40,4 +40,4 @@ void AController::act_disappear()
     trace_msg(@"A disappear");
 }
 
-WSIAPP_END
+NNTAPP_END

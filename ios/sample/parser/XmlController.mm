@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "XmlController.h"
 # include "XmlParser.h"
 # include "XmlObjParser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class SaxImpl
 : public parser::XmlSaxDocument
@@ -134,4 +134,4 @@ void XmlController::act_obj()
     trace_obj(dict);
 }
 
-WSIAPP_END
+NNTAPP_END

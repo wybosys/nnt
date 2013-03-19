@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
-# include "WSIExecution.h"
+# include "Foundation+NNT.h"
+# include "Execution+NNT.h"
 # include "AppDelegate.h"
 
 int main(int argc, char *argv[])
 {
-    ::wsiapp::App app;
+    ::nntapp::App app;
     return app.execute(argc, argv);
 }

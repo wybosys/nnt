@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppDelegate.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -32,4 +32,4 @@ void App::test_local()
     [localNotif release];
 }
 
-WSIAPP_END
+NNTAPP_END

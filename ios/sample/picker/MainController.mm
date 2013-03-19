@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 CustomPickerItem::CustomPickerItem()
 {
@@ -93,4 +93,4 @@ void MainController::act_picker_selectchanged(EventObj& evt)
     trace_msg(msg);
 }
 
-WSIAPP_END
+NNTAPP_END

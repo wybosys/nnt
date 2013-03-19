@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainController::MainController()
 {
@@ -19,4 +19,4 @@ void MainController::view_loaded()
     play();
 }
 
-WSIAPP_END
+NNTAPP_END

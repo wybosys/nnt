@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "QzEffect.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class ShakeItem
 : public ui::GridItem<>
@@ -73,4 +73,4 @@ void MainController::view_loaded()
     view().relayout_items();
 }
 
-WSIAPP_END
+NNTAPP_END

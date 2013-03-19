@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "SecController.h"
 # import "ThdController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void SecView::layout_subviews()
 {
@@ -34,4 +34,4 @@ void SecController::view_loaded()
 
 }
 
-WSIAPP_END
+NNTAPP_END

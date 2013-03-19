@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
 // zlib.
 # include <zlib.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -83,4 +83,4 @@ void MainController::act_uncomp()
     }
 }
 
-WSIAPP_END
+NNTAPP_END

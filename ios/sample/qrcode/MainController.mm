@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -61,4 +61,4 @@ void MainController::act_success(EventObj& evt)
     view().txt_result.scrollto_end();
 }
 
-WSIAPP_END
+NNTAPP_END

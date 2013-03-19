@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_A5915098C6D24758AAEF9EC12D513F4D_H_INCLUDED
 # define __MAIN_CTLR_A5915098C6D24758AAEF9EC12D513F4D_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class LogoHeaderView
 : public ui::ActivityHeaderView
@@ -42,6 +42,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

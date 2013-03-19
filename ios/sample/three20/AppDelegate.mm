@@ -1,12 +1,12 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppDelegate.h"
 # import "MainController.h"
 
 @implementation AppDelegate
 
 - (void)load {
-    static wsiapp::MainController ctlr_main;
+    static nntapp::MainController ctlr_main;
     self.rootViewController = ctlr_main;
 }
 

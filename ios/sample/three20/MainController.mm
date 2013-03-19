@@ -1,10 +1,10 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
 using namespace wsi;
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {    
@@ -32,4 +32,4 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

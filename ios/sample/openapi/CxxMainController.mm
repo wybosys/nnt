@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "CxxMainController.h"
 # include "WSIConfiguration.h"
 # include "UIActionSheet+WSI.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -394,4 +394,4 @@ void MainController::act_post_wechat()
     _wechat.execute(api);
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -1,9 +1,9 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 # import "SocketClient.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -106,4 +106,4 @@ void MainController::act_bytes(cxx::eventobj_t& evt)
     WSI_MAINTHREAD_END
 }
 
-WSIAPP_END
+NNTAPP_END

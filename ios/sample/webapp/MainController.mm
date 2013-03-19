@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "HttpServer.h"
 # include "HttpParser.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -16,7 +16,7 @@ void MainView::layout_subviews()
     web.view().set_frame(bounds());
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(MainController)
+NNTDECL_PRIVATE_BEGIN_CXX(MainController)
 
 void init()
 {
@@ -40,16 +40,16 @@ void act_web(cxx::eventobj_t& evt)
 
 cross::HttpServer web;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 MainController::MainController()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(MainController);
+    NNTDECL_PRIVATE_CONSTRUCT(MainController);
 }
 
 MainController::~MainController()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void MainController::view_loaded()
@@ -57,4 +57,4 @@ void MainController::view_loaded()
     view().web.view().load(ns::URLRequest(@"http://localhost:18888"));
 }
 
-WSIAPP_END
+NNTAPP_END

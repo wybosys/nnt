@@ -6,7 +6,7 @@
 # include "Server.h"
 # include "Context.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class ByPayModel
 : public ns::Model
@@ -21,6 +21,6 @@ public:
     ns::String result;
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "SecController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation SecController
 
@@ -16,4 +16,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

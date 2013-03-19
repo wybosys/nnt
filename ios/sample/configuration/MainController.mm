@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "WSIConfiguration.h"
 # include "Context.h"
 # include "User.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -62,4 +62,4 @@ void MainController::act_siget()
     view().si_value.set_text(context::User().configuration().string(view().si_key.text()));
 }
 
-WSIAPP_END
+NNTAPP_END

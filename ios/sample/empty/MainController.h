@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_B52C39E5470E417A9EFE07074375E0F8_H_INCLUDED
 # define __MAIN_CTLR_B52C39E5470E417A9EFE07074375E0F8_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -22,6 +22,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

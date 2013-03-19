@@ -4,7 +4,7 @@
 
 # include "SocketClient.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -45,6 +45,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

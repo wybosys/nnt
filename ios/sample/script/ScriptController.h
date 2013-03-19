@@ -4,10 +4,10 @@
 
 WSI_BEGIN_HEADER_OBJC
 
-WSIDECL_PRIVATE_HEAD(ScriptController);
+NNTDECL_PRIVATE_HEAD(ScriptController);
 
 @interface ScriptController : WSIUIViewController {
-    WSIDECL_PRIVATE(ScriptController);
+    NNTDECL_PRIVATE(ScriptController);
 }
 
 @end

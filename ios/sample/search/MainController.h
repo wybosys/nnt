@@ -4,7 +4,7 @@
 
 # include "UISearchDisplayController+WSI.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class SearchCell
 : public ui::TableCell<SearchCell>
@@ -50,6 +50,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -4,7 +4,7 @@
 
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
 : public Application
@@ -16,6 +16,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

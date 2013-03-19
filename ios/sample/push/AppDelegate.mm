@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppDelegate.h"
 # include "AppModel.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -28,4 +28,4 @@ void App::act_remotenoti(EventObj& evt)
     core::Msgbox::info(str);
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -1,13 +1,13 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppDelegate.h"
 # import "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
     set_root(ctlr);
 }
 
-WSIAPP_END
+NNTAPP_END

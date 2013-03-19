@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "FsSamba.h"
 # include "Directory+WSI.h"
 # include "FsLocal.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -69,4 +69,4 @@ void MainController::act_bundle()
         ns::Local::copy(des, target);
 }
 
-WSIAPP_END
+NNTAPP_END

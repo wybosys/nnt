@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "GameCenterService.h"
 # include "AppInformation.h"
 # include "ICloudService.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -165,4 +165,4 @@ void MainController::act_cloud_load()
     view().txt_cloud_input.set_text(str);
 }
 
-WSIAPP_END
+NNTAPP_END

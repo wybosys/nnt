@@ -4,7 +4,7 @@
 
 # include "CodecDetectController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -34,6 +34,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

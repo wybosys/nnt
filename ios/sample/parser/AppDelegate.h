@@ -2,7 +2,7 @@
 # include "HtmlController.h"
 # include "XmlController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
 : public Application
@@ -15,4 +15,4 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END

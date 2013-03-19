@@ -1,5 +1,5 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "ImplClient.h"
 # include "WSISqlite.h"
 # include "Directory+WSI.h"
@@ -7,7 +7,7 @@
 # include "XimXPhoto.h"
 # include "XepVCard.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void Client::set(xmpp::IMClient& cli)
 {
@@ -174,4 +174,4 @@ void Client::mdl_xphoto(cxx::eventobj_t &evt)
     client().execute(obj);
 }
 
-WSIAPP_END
+NNTAPP_END

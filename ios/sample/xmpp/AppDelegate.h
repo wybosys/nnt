@@ -1,5 +1,5 @@
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
 : public Application
@@ -8,4 +8,4 @@ public:
     void load();
 };
 
-WSIAPP_END
+NNTAPP_END

@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "DController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 DView::DView()
 {
@@ -25,4 +25,4 @@ void DController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

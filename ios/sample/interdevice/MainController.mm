@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -30,4 +30,4 @@ void MainController::act_shaked()
     core::Msgbox::info(@"SHAKED");
 }
 
-WSIAPP_END
+NNTAPP_END

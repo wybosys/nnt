@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "AlphabetFlow.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -124,4 +124,4 @@ void MainController::act_bottom(wsi::EventObj &)
     view().tab.reload();
 }
 
-WSIAPP_END
+NNTAPP_END

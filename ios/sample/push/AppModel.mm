@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "AppModel.h"
 # include "HttpRequest.h"
 # include "TextObjParser.h"
 # include "BaseN+WSI.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MAddDeviceToken::MAddDeviceToken()
 {
@@ -21,4 +21,4 @@ ns::URL MAddDeviceToken::url() const
     return ns::URL::UTF8(_url() + @"dt=" + da);
 }
 
-WSIAPP_END
+NNTAPP_END

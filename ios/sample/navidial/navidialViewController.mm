@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "navidialViewController.h"
 # import "UINavigationDialController.h"
 # import "UINavigationDialLayers.h"

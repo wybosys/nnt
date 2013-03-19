@@ -1,11 +1,11 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "iOSPrinter.h"
 # include "TextRender.h"
 # include "TextFormatter.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -58,4 +58,4 @@ void MainController::act_print()
     printer.execute(view().print.frame(), view());
 }
 
-WSIAPP_END
+NNTAPP_END

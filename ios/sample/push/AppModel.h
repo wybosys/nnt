@@ -6,7 +6,7 @@
 # include "Context.h"
 # include "Server.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MAddDeviceToken
 : public ns::Model
@@ -20,6 +20,6 @@ public:
     ns::Data dt;
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

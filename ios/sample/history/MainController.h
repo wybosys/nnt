@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_7C263FA01D15431BB18C1320116CEF95_H_INCLUDED
 # define __MAIN_CTLR_7C263FA01D15431BB18C1320116CEF95_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 using namespace ::wsi;
 
@@ -25,6 +25,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

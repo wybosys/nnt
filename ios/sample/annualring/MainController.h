@@ -4,7 +4,7 @@
 
 # include "UIAnnualRingView.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -26,6 +26,6 @@ public:
     void act_click();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

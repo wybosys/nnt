@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "SecController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -43,4 +43,4 @@ void MainController::act_sec(EventObj&)
     ctlr->Release();
 }
 
-WSIAPP_END
+NNTAPP_END

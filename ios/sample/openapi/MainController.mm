@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
 # import "Context.h"
@@ -16,7 +16,7 @@
 # import "OATencentOS.h"
 # import "OADouban.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 static OASina *sina = nil;
 static OATencent *tencent = nil;
@@ -490,4 +490,4 @@ static OADouban *douban = nil;
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

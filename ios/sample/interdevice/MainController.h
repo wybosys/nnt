@@ -2,7 +2,7 @@
 # ifndef MAIN_CTLR
 # define MAIN_CTLR
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -28,6 +28,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

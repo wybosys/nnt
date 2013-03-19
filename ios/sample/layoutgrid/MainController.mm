@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "ColorPalette.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -73,4 +73,4 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

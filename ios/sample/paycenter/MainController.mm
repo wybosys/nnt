@@ -1,12 +1,12 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "PayCenter.h"
 # include "UnipayApi.h"
 # include "MainModel.h"
 # include "PayUtils.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -89,4 +89,4 @@ void MainController::cb_bypay_suc()
     core::Confirm::info(@"ByPay Success.");
 }
 
-WSIAPP_END
+NNTAPP_END

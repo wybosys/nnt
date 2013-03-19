@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 Drawer::Drawer()
 {
@@ -102,4 +102,4 @@ void MainController::act_bottom()
     view().drawer.open(view());
 }
 
-WSIAPP_END
+NNTAPP_END

@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_A2AB77F2EFE14526B8C6C253F9F060E6_H_INCLUDED
 # define __MAIN_CTLR_A2AB77F2EFE14526B8C6C253F9F060E6_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class Cell
 : public wsi::ui::TableCell<Cell>
@@ -55,6 +55,6 @@ protected:
     void act_bottom(wsi::EventObj&);
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

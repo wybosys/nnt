@@ -1,8 +1,8 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -35,4 +35,4 @@ void MainController::act_webaction(EventObj& evt)
         core::Msgbox::info(@"INFO");
 }
 
-WSIAPP_END
+NNTAPP_END

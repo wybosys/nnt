@@ -7,7 +7,7 @@
 # import "CController.h"
 # import "DController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainController
 : public wsi::ui::TabBarController
@@ -18,12 +18,12 @@ public:
 
 protected:
     
-    wsiapp::AController ctlr_a;
-    wsiapp::BController ctlr_b;
-    wsiapp::CController ctlr_c;
-    wsiapp::DController ctlr_d;
+    nntapp::AController ctlr_a;
+    nntapp::BController ctlr_b;
+    nntapp::CController ctlr_c;
+    nntapp::DController ctlr_d;
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "Bar2D.h"
 
 WSI_BEGIN_OBJC

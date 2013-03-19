@@ -2,7 +2,7 @@
 # ifndef __C_CTLR_D67224EABCBE467697FA3CC6AF1351BF_H_INCLUDED
 # define __C_CTLR_D67224EABCBE467697FA3CC6AF1351BF_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class CView
 : public wsi::ui::View<CView>
@@ -20,6 +20,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_2943070062A14C00B0EFE2EE058AF669_H_INCLUDED
 # define __MAIN_CTLR_2943070062A14C00B0EFE2EE058AF669_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -26,6 +26,6 @@ protected:
     void act_bundle();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

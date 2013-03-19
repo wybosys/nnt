@@ -2,7 +2,7 @@
 # ifndef __E_CTRL_F5C797E9BED6403CADA47076DA2FDB29_H_INCLUDED
 # define __E_CTRL_F5C797E9BED6403CADA47076DA2FDB29_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class EView
 : public wsi::ui::View<EView>
@@ -23,6 +23,6 @@ protected:
     void act_disappear();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "AlphabetFlow.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 Cell::Cell()
 {    
@@ -121,4 +121,4 @@ void MainController::view_loaded()
     }
 }
 
-WSIAPP_END
+NNTAPP_END

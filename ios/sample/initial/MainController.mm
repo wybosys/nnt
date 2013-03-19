@@ -1,8 +1,8 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void MainView::layout_subviews()
 {
@@ -30,4 +30,4 @@ void MainController::act_disappear()
     trace_msg(@"view disappear.");
 }
 
-WSIAPP_END
+NNTAPP_END

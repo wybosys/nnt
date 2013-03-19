@@ -1,5 +1,5 @@
 
-# import "WSIFoundation.h"
+# import "Foundation+NNT.h"
 # import "AppDelegate.h"
 # import "WSIResource.h"
 # import "GifParser.h"

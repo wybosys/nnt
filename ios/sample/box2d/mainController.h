@@ -4,7 +4,7 @@
 
 WSI_BEGIN_HEADER_OBJC
 
-WSIDECL_EXTERN_CLASS(UIJuiceEngineController);
+NNTDECL_EXTERN_CLASS(UIJuiceEngineController);
 
 @interface MainController : WSIUIViewController {
     UIJuiceEngineController* ctlr_engine;

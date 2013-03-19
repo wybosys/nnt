@@ -1,9 +1,9 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "JuiceCocoa++.hpp"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 MainView::MainView()
 {
@@ -66,4 +66,4 @@ void MainController::view_loaded()
     
 }
 
-WSIAPP_END
+NNTAPP_END

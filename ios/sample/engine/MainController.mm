@@ -1,10 +1,10 @@
 
-# include "WSIFoundation.h"
+# include "Foundation+NNT.h"
 # include "MainController.h"
 # include "JuiceImpl.h"
 # include "WSIResource.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MaterialImpl
 : public ::juice::Material<MaterialImpl, ::juice::Types3d>
@@ -135,7 +135,7 @@ public:
     
     TreeImpl()
     {
-        ::wsiapp::TriangleMeshImpl* mesh = ::wsiapp::TriangleMeshImpl::New();
+        ::nntapp::TriangleMeshImpl* mesh = ::nntapp::TriangleMeshImpl::New();
         this->add_entity((::juice::RenderEntity<TriangleMeshImpl, TypesImpl>*)mesh);
         mesh->drop();
     }
@@ -207,7 +207,7 @@ public:
 
 MainView::MainView()
 {
-    scrMgr = new wsiapp::ScreenManagerImpl;
+    scrMgr = new nntapp::ScreenManagerImpl;
     set_background(ui::Color::Orange());
 }
 
@@ -219,7 +219,7 @@ MainView::~MainView()
 void MainView::layout_subviews()
 {
     cg::Rect rc = bounds();
-    ::wsiapp::TypesImpl::viewport_type vp;
+    ::nntapp::TypesImpl::viewport_type vp;
     vp.origin.x = vp.origin.y = 0;
     vp.size.w = rc.width();
     vp.size.h = rc.height();
@@ -249,7 +249,7 @@ void MainController::act_clicked(EventObj& evt)
     ns::Set touches(evt.result());
     cg::Point pt = ui::Touch(touches.any()).location(view());
     pt = view().scrMgr->camera->location_in(pt);
-    ::wsiapp::CameraImpl::line_type line = view().scrMgr->camera->nfline(pt);
+    ::nntapp::CameraImpl::line_type line = view().scrMgr->camera->nfline(pt);
     if (view().scrMgr->tree->collision(&line))
     {
         trace_msg(@"success.");
@@ -259,4 +259,4 @@ void MainController::act_clicked(EventObj& evt)
     }
 }
 
-WSIAPP_END
+NNTAPP_END
