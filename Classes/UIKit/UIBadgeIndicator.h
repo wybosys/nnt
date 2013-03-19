@@ -6,8 +6,8 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGMutableTextStyle);
-NNTDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(NgMutableTextStyle);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
 
 @interface UIBadgeIndicator : NNTUIView {
     
@@ -15,20 +15,20 @@ NNTDECL_EXTERN_CLASS(WCGLineStyle);
     NSString *_value;
     
     //! style.
-    WCGMutableTextStyle *_badgeStyle;
+    NgMutableTextStyle *_badgeStyle;
     
     //! badge color.
     UIColor *_badgeColor, *_badgeOverlayColor;
     
     //! line style of badge.
-    WCGMutableLineStyle *_badgeLineStyle;
+    NgMutableLineStyle *_badgeLineStyle;
     
 }
 
 @property (nonatomic, copy) NSString *value;
-@property (nonatomic, retain) WCGTextStyle *badgeStyle;
+@property (nonatomic, retain) NgTextStyle *badgeStyle;
 @property (nonatomic, retain) UIColor *badgeColor, *badgeOverlayColor;
-@property (nonatomic, retain) WCGLineStyle *badgeLineStyle;
+@property (nonatomic, retain) NgLineStyle *badgeLineStyle;
 
 @end
 

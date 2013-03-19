@@ -10,7 +10,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalSheetTouchs = @"::wsi::ui::sheet::touches";
+signal_t kSignalSheetTouchs = @"::nnt::ui::sheet::touches";
 
 @interface UISpreadSheetPrivate : NSObject <UIScrollViewDelegate> {
     UISpreadSheet *d_owner;
@@ -219,7 +219,7 @@ signal_t kSignalSheetTouchs = @"::wsi::ui::sheet::touches";
     rowLineStyle = [[WCGMutableLineStyle alloc] init];
     
     textStyle = [[WCGMutableTextStyle alloc] init];
-    ((WCGMutableTextStyle*)textStyle).alignment = WCGAlignmentCenter;
+    ((NgMutableTextStyle*)textStyle).alignment = NgAlignmentCenter;
     
     self.selHighlightColor = [UIColor colorWithARGB:0x33000000];
     
@@ -439,15 +439,15 @@ NNTEVENT_END
     return ret;
 }
 
-- (WCGLineStyle*)rowLineStyle:(NSUInteger)row {
-    WCGLineStyle *ret = self.rowLineStyle;
+- (NgLineStyle*)rowLineStyle:(NSUInteger)row {
+    NgLineStyle *ret = self.rowLineStyle;
     if ([delegate respondsToSelector:@selector(sheetRowLineStyle:row:)])
         ret = [delegate sheetRowLineStyle:self row:row];
     return ret;
 }
 
-- (WCGLineStyle*)colLineStyle:(NSUInteger)col {
-    WCGLineStyle *ret = self.colLineStyle;
+- (NgLineStyle*)colLineStyle:(NSUInteger)col {
+    NgLineStyle *ret = self.colLineStyle;
     if ([delegate respondsToSelector:@selector(sheetColLineStyle:col:)])
         ret = [delegate sheetColLineStyle:self col:col];
     return ret;
@@ -460,15 +460,15 @@ NNTEVENT_END
     return ret;
 }
 
-- (WCGTextStyle*)cellTextStyle:(NSUInteger)row col:(NSUInteger)col {
-    WCGTextStyle *ret = self.textStyle;
+- (NgTextStyle*)cellTextStyle:(NSUInteger)row col:(NSUInteger)col {
+    NgTextStyle *ret = self.textStyle;
     if ([delegate respondsToSelector:@selector(sheetTextStyle:row:col:)])
         ret = [delegate sheetTextStyle:self row:row col:col];
     return ret;
 }
 
-- (WCGFill*)cellFill:(NSUInteger)row col:(NSUInteger)col {
-    WCGFill *ret = self.cellFill;
+- (NgFill*)cellFill:(NSUInteger)row col:(NSUInteger)col {
+    NgFill *ret = self.cellFill;
     if ([delegate respondsToSelector:@selector(sheetFill:row:col:)])
         ret = [delegate sheetFill:self row:row col:col];
     return ret;
@@ -922,14 +922,14 @@ NNTEVENT_END
 
 @implementation _cxx_spreadsheet
 
-- (NSUInteger)sheetHeadersNumber:(UISpreadSheet*)sheet dir:(WCGDirection)dir {
+- (NSUInteger)sheetHeadersNumber:(UISpreadSheet*)sheet dir:(NgDirection)dir {
     NSUInteger ret = 0;
     switch (dir)
     {
-        case WCGDirectionLeft: ret = _sheet->fixheader_left; break;
-        case WCGDirectionRight: ret = _sheet->fixheader_right; break;
-        case WCGDirectionTop: ret = _sheet->fixheader_top; break;
-        case WCGDirectionBottom: ret = _sheet->fixheader_bottom; break;
+        case NgDirectionLeft: ret = _sheet->fixheader_left; break;
+        case NgDirectionRight: ret = _sheet->fixheader_right; break;
+        case NgDirectionTop: ret = _sheet->fixheader_top; break;
+        case NgDirectionBottom: ret = _sheet->fixheader_bottom; break;
     }
     return ret;
 }
@@ -963,11 +963,11 @@ NNTEVENT_END
     _sheet->_clear();
 }
 
-- (WCGLineStyle*)sheetRowLineStyle:(UISpreadSheet*)sheet row:(NSUInteger)row {
+- (NgLineStyle*)sheetRowLineStyle:(UISpreadSheet*)sheet row:(NSUInteger)row {
     return _sheet->linestyle_row;
 }
 
-- (WCGLineStyle*)sheetColLineStyle:(UISpreadSheet*)sheet col:(NSUInteger)col {
+- (NgLineStyle*)sheetColLineStyle:(UISpreadSheet*)sheet col:(NSUInteger)col {
     return _sheet->linestyle_col;
 }
 

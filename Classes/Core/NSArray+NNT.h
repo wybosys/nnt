@@ -472,7 +472,7 @@ NNT_BEGIN_NS(ntl)
 template <typename valT>
 struct sequence<valT, SEQUENCE_OBJC_MUTARRAY>
 { 
-    typedef ::wsi::ns::MutableArray type; 
+    typedef ::nnt::ns::MutableArray type; 
 };
     
 template <typename containerT, typename objcarrT>

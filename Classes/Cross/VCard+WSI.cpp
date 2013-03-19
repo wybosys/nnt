@@ -6,7 +6,7 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
 
-using namespace ::wsi::parser;
+using namespace ::nnt::parser;
 
 VCard::VCard()
 : photo(NULL)

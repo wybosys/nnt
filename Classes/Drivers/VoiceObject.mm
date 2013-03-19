@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalVoiceRecognizeSuccess = @"::wsi::voice::recognize::success";
-signal_t kSignalSpeechCompletion = @"::wsi::speech::completion";
+signal_t kSignalVoiceRecognizeSuccess = @"::nnt::voice::recognize::success";
+signal_t kSignalSpeechCompletion = @"::nnt::speech::completion";
 
 NNT_END_OBJC

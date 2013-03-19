@@ -73,7 +73,7 @@ public:
     material_type material;
     
     //! name.
-    ::wsi::core::string name;
+    ::nnt::core::string name;
     
     //! bbx.
     bounding_type bounding;

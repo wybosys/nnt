@@ -9,7 +9,7 @@
 
 JUICE_BEGIN NNT_BEGIN_NS(glsl)
 
-typedef ::wsi::core::string GLSL_TYPE;
+typedef ::nnt::core::string GLSL_TYPE;
 
 # define GLSL_CODE(name) \
 static GLSL_TYPE name =

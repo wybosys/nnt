@@ -39,7 +39,7 @@ NNT_BEGIN_HEADER_OBJC
 @interface OApiSinaWeiboUpload : OApiSina
 
 @property (nonatomic, copy) NSString* content;
-@property (nonatomic, retain) WCGImage* image;
+@property (nonatomic, retain) NgImage* image;
 @property (nonatomic, retain) NSData* imageData;
 
 @end

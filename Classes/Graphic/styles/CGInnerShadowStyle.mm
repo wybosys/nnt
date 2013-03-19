@@ -5,9 +5,9 @@
 
 NNT_BEGIN_OBJC
 
-@implementation WCGInnerShadowStyle
+@implementation NgInnerShadowStyle
 
-- (void)drawInContext:(WCGStyleContext*)context {
+- (void)drawInContext:(NgStyleContext*)context {
     CGContextRef ctx = context.context;
     
     CGContextSaveGState(ctx);

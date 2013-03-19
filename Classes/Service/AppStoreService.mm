@@ -11,8 +11,8 @@ NNT_USINGCXXNAMESPACE;
 
 NNT_BEGIN_OBJC
 
-NSString* kRateAppReminderAllowRemind = @"::wsi::app::service::rateapp::reminder::allow";
-NSString* kRateAppReminderAllowRemindDelay = @"::wsi::app::service::rateapp::reminder::allow::delay";
+NSString* kRateAppReminderAllowRemind = @"::nnt::app::service::rateapp::reminder::allow";
+NSString* kRateAppReminderAllowRemindDelay = @"::nnt::app::service::rateapp::reminder::allow::delay";
 
 # define CHECK_INTERVAL 60
 # define CHECK_CPUSAGE 20

@@ -46,7 +46,7 @@ NNT_BEGIN_OBJC
 
 - (NSString*)baseString {
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"oauth_callback"] = [urlCallback OAEncode];
     [self generateParameters:dict];
     
@@ -63,7 +63,7 @@ NNT_BEGIN_OBJC
 
 - (void)generateParameters:(NSMutableDictionary *)__dict {
     
-    wsi::ns::MutableDictionary dict(__dict);
+    ::nnt::ns::MutableDictionary dict(__dict);
     dict[@"oauth_consumer_key"] = [self.appKey OAEncode];
     dict[@"oauth_nonce"] = [self.nonce OAEncode];
     dict[@"oauth_signature_method"] = [self.signature.method_name() OAEncode];
@@ -84,7 +84,7 @@ NNT_BEGIN_OBJC
     NSString* str_secret = [NSString stringWithFormat:@"%@&", self.appSecret];
     NSString* str_signed = [self signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"oauth_callback"] = [urlCallback OAEncode];
     dict[@"oauth_signature"] = [str_signed OAEncode]; 
     
@@ -122,7 +122,7 @@ NNT_BEGIN_OBJC
 - (void)act_authorize_success:(NNTEventObj*)evt {
     
     NSString *verifier = [self valueForKey:@"v" ofQuery:evt.result];
-    wsi::ns::MutableDictionary dict_result;
+    ::nnt::ns::MutableDictionary dict_result;
     dict_result[@"oauth_verifier"] = verifier;
     
     self.request.verifier = dict_result[@"oauth_verifier"];
@@ -149,7 +149,7 @@ NNT_BEGIN_OBJC
 
 - (NSString*)baseString {
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_verifier"] = self.request.verifier;
     dict[@"oauth_token"] = self.request.token;
@@ -177,7 +177,7 @@ NNT_BEGIN_OBJC
     NSString* str_secret = [NSString stringWithFormat:@"%@&%@", self.request.appSecret, self.request.token_secret];
     NSString* str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     dict[@"oauth_verifier"] = self.request.verifier;
@@ -195,7 +195,7 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)process:(NSObject *)__result {
-    wsi::ns::MutableDictionary dict((NSMutableDictionary*)__result);
+    ::nnt::ns::MutableDictionary dict((NSMutableDictionary*)__result);
     self.request.access_token = dict[@"oauth_token"];
     self.request.access_token_secret = dict[@"oauth_token_secret"];
     return YES;
@@ -221,7 +221,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)saveTo:(NSMutableDictionary*)__dict {
-    wsi::ns::MutableDictionary dict(__dict);
+    ::nnt::ns::MutableDictionary dict(__dict);
     dict[@"::oauth::access_token"] = _request.access_token;
     dict[@"::oauth::access_token_secret"] = _request.access_token_secret;
     dict[@"::oauth::token"] = _request.token;
@@ -250,7 +250,7 @@ NNT_BEGIN_OBJC
 }
 
 + (UIImage*)LogoImage {    
-    WCGImage* imgRes = WCGImageLoadPngData(tencent_mblog, sizeof(tencent_mblog));
+    NgImage* imgRes = NgImageLoadPngData(tencent_mblog, sizeof(tencent_mblog));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 
@@ -297,7 +297,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSString*)baseString {
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     
     // base params.
     [self.request generateParameters:dict];
@@ -337,7 +337,7 @@ NNT_BEGIN_OBJC
     NSString* str_secret = [NSString stringWithFormat:@"%@&%@", self.request.appSecret, self.request.access_token_secret];
     NSString* str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     
@@ -363,7 +363,7 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)process:(NSObject *)__result {
-    wsi::ns::Dictionary dict((NSDictionary*)__result);
+    ::nnt::ns::Dictionary dict((NSDictionary*)__result);
     NSNumber* code = dict[@"ret"];
     self.error_msg = dict[@"msg"];
     if ([code intValue] != 0) {
@@ -374,14 +374,14 @@ NNT_BEGIN_OBJC
 }
 
 - (NSMutableArray*)get_tencent_params {
-    wsi::ns::MutableArray arr;
+    ::nnt::ns::MutableArray arr;
     arr << pair(@"format", str_apiType);
     return arr.consign();
 }
 
 - (NSMutableArray*)get_params {
     
-    wsi::ns::MutableArray arr([self dup_params]);
+    ::nnt::ns::MutableArray arr([self dup_params]);
     
     for (NSPair *each in self.tencent_params) {
         arr << pair(each.first, [each.second OAEncode]);
@@ -427,7 +427,7 @@ NNT_BEGIN_OBJC
 
 - (NSMutableArray*)get_tencent_params {
     
-    wsi::ns::MutableArray arr([super get_tencent_params]);
+    ::nnt::ns::MutableArray arr([super get_tencent_params]);
     arr << pair(@"content", content);
     
     if (clientip != nil) 
@@ -461,7 +461,7 @@ NNT_BEGIN_OBJC
 
 - (NSMutableArray*)get_tencent_params {
     
-    wsi::ns::MutableArray arr([super get_tencent_params]);
+    ::nnt::ns::MutableArray arr([super get_tencent_params]);
     arr << pair(@"id", id);
     return arr;
 }

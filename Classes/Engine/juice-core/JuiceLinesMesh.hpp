@@ -33,7 +33,7 @@ public:
         typedef typename mesh_type::vertex_type vertex_type;
         typedef typename mesh_type::color_type color_type;
         
-        usize const cnt_indexies = ::wsi::core::length(mesh->indexies);
+        usize const cnt_indexies = ::nnt::core::length(mesh->indexies);
         if (cnt_indexies == 0)
             return;        
         
@@ -42,15 +42,15 @@ public:
                 
         drv->set_material(&mesh->material);
         
-        drv->add_vertices((typename vertex_type::value_type const*)::wsi::core::pointer(mesh->vertices),
+        drv->add_vertices((typename vertex_type::value_type const*)::nnt::core::pointer(mesh->vertices),
                           cnt_vertices);            
         
-        drv->add_indexies(::wsi::core::pointer(mesh->indexies), 
+        drv->add_indexies(::nnt::core::pointer(mesh->indexies), 
                           cnt_indexies);   
         
         if (cnt_colors)
         {
-            drv->add_colors((typename color_type::value_type const*)::wsi::core::pointer(mesh->colors),
+            drv->add_colors((typename color_type::value_type const*)::nnt::core::pointer(mesh->colors),
                             cnt_colors);
         }
         
@@ -84,7 +84,7 @@ public:
         typedef typename mesh_type::vertex_type vertex_type;
         typedef typename mesh_type::color_type color_type;
         
-        usize const cnt_indexies = ::wsi::core::length(mesh->indexies);
+        usize const cnt_indexies = ::nnt::core::length(mesh->indexies);
         if (cnt_indexies == 0)
             return;        
         
@@ -93,15 +93,15 @@ public:
         
         drv->set_material(&material);
         
-        drv->add_vertices((typename vertex_type::value_type const*)::wsi::core::pointer(mesh->vertices),
+        drv->add_vertices((typename vertex_type::value_type const*)::nnt::core::pointer(mesh->vertices),
                           cnt_vertices);            
         
-        drv->add_indexies(::wsi::core::pointer(mesh->indexies), 
+        drv->add_indexies(::nnt::core::pointer(mesh->indexies), 
                           cnt_indexies);   
         
         if (cnt_colors)
         {
-            drv->add_colors((typename color_type::value_type const*)::wsi::core::pointer(mesh->colors),
+            drv->add_colors((typename color_type::value_type const*)::nnt::core::pointer(mesh->colors),
                             cnt_colors);
         }
         

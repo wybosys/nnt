@@ -5,7 +5,7 @@
 NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_EXTERN_CLASS(UIBanner);
-NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 typedef enum {
     UIBannerPositionTop,
@@ -42,7 +42,7 @@ typedef enum {
     UILabel *textLabel;
     
     //! backgroud fill
-    WCGFill *backgroundFill;
+    NgFill *backgroundFill;
     
     //! height
     NSUInteger height;
@@ -54,7 +54,7 @@ typedef enum {
 @property (nonatomic) BOOL indicatorEnable;
 @property (nonatomic) int indicatorPosition;
 @property (nonatomic, readonly) UILabel *textLabel;
-@property (nonatomic, retain) WCGFill *backgroundFill;
+@property (nonatomic, retain) NgFill *backgroundFill;
 @property (nonatomic) NSUInteger height;
 
 //! init

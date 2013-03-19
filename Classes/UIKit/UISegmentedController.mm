@@ -30,8 +30,8 @@ NNT_BEGIN_OBJC
 }
  
 - (void)updateLayout {
-    wsi::CGRectLayoutVBox lyt(self.bounds);
-    wsi::CGRectLayoutLinear lnr(self.bounds.size.height);
+    ::nnt::CGRectLayoutVBox lyt(self.bounds);
+    ::nnt::CGRectLayoutLinear lnr(self.bounds.size.height);
     
     CGRect const rc_seg = segmentedFrame;
     real off_t = rc_seg.size.height * segmentedPadding.top;

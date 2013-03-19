@@ -10,7 +10,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalFileLoaded = @"::wsi::file::loaded";
+signal_t kSignalFileLoaded = @"::nnt::file::loaded";
 
 @interface UICHMControllerPrivate : NSObject <UITableViewDelegate, UITableViewDataSource> {
     UICHMController *d_owner;

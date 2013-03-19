@@ -235,7 +235,7 @@ NNT_BEGIN_OBJC
     CGContextSetBlendMode(ctx, kCGBlendModeNormal);
     CGContextAddArc(ctx, pt_center.x, pt_center.y, radiusOutter, 0, M_2PI, 1);
     for (uint i = 0; i < ringShadowOuter.radius; ++i) {
-        WCGColor *color = [ringShadowOuter.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)ringShadowOuter.radius)];
+        NgColor *color = [ringShadowOuter.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)ringShadowOuter.radius)];
         
         
         CGContextSetStrokeColorWithColor(ctx, color.cgColor);
@@ -245,7 +245,7 @@ NNT_BEGIN_OBJC
     // inner.
     CGContextAddArc(ctx, pt_center.x, pt_center.y, radiusInner, 0, M_2PI, 1);
     for (uint i = 0; i < ringShadowInner.radius; ++i) {
-        WCGColor *color = [ringShadowInner.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)ringShadowInner.radius)];
+        NgColor *color = [ringShadowInner.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)ringShadowInner.radius)];
         CGContextSetStrokeColorWithColor(ctx, color.cgColor);        
         CGContextAddArc(ctx, pt_center.x, pt_center.y, radiusInner - i, 0, M_2PI, 1);
         CGContextStrokePath(ctx);
@@ -329,7 +329,7 @@ NNT_BEGIN_OBJC
     // draw shadow.
     CGContextSetLineWidth(ctx, kCGShadowLineWidth);
     for (uint i = 0; i < offset_edge; ++i) {
-        WCGColor *color = [edgeShadow.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)offset_edge)];
+        NgColor *color = [edgeShadow.shadowColor colorByMulti:1 g:1 b:1 a:(1 - i / (real)offset_edge)];
         CGContextSetStrokeColorWithColor(ctx, color.cgColor);
         CGContextAddArc(ctx, pt_center.x, pt_center.y, radius - i, 0, M_2PI, 1);
         CGContextStrokePath(ctx);

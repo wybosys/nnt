@@ -185,12 +185,12 @@ struct field
 };
 
 template <typename fieldT, 
-int seqT = ::wsi::ntl::SEQUENCE_VECTOR>
+int seqT = ::nnt::ntl::SEQUENCE_VECTOR>
 struct table
 {
     typedef typename fieldT::type field_value;
-    typedef typename ::wsi::ntl::sequence<field_value, seqT>::type fields_type;
-    typedef typename ::wsi::ntl::value_type<field_value>::type name_type;
+    typedef typename ::nnt::ntl::sequence<field_value, seqT>::type fields_type;
+    typedef typename ::nnt::ntl::value_type<field_value>::type name_type;
     typedef table<fieldT, seqT> self_type;
     
     self_type& operator [] (field_value& val)
@@ -267,7 +267,7 @@ struct sqlexpress
 NNT_END_NS
 
 typedef store::ntl::field<core::string> field_t;
-typedef store::ntl::table<field_t, ::wsi::ntl::SEQUENCE_VECTOR> table_t;
+typedef store::ntl::table<field_t, ::nnt::ntl::SEQUENCE_VECTOR> table_t;
 
 NNT_END_NS 
 NNT_END_HEADER_CXX
@@ -281,7 +281,7 @@ NNT_BEGIN_NS(store)
 NNT_BEGIN_NS(objc)
 
 typedef store::ntl::field< ::NSString* > field_t;
-typedef store::ntl::table<field_t, ::wsi::ntl::SEQUENCE_OBJC_MUTARRAY> table_t;
+typedef store::ntl::table<field_t, ::nnt::ntl::SEQUENCE_OBJC_MUTARRAY> table_t;
 
 struct objc_table
 {    

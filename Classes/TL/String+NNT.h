@@ -112,7 +112,7 @@ NNT_END_NS
 
 NNT_BEGIN_NS(core)
 
-using namespace wtl;
+using namespace ntl;
 
 NNT_END_NS
 

@@ -52,7 +52,7 @@ NNT_BEGIN_NS(ns)
 NNT_BEGIN_NS(formatter)
 
 class IFormatter
-: public ::wsi::ns::cxx::IObject
+: public ::nnt::ns::cxx::IObject
 {
 public:
     
@@ -66,10 +66,10 @@ template <typename fmtT,
 typename fmtI = IFormatter
 >
 class Formatter
-: public ::wsi::ns::cxx::Object<fmtT, fmtI>
+: public ::nnt::ns::cxx::Object<fmtT, fmtI>
 {
     
-    typedef ::wsi::ns::cxx::Object<fmtT, fmtI> super;
+    typedef ::nnt::ns::cxx::Object<fmtT, fmtI> super;
     
 protected:
     
@@ -140,12 +140,12 @@ public:
         this->_set([[objc_type alloc] initWithText:@""]);
     }
     
-    void set_text(::wsi::ns::String const& str)
+    void set_text(::nnt::ns::String const& str)
     {
         this->_self.text = str;
     }
     
-    ::wsi::ns::String text() const
+    ::nnt::ns::String text() const
     {
         return this->_self.text;
     }
@@ -170,7 +170,7 @@ public:
 NNT_END_NS
 
 class PageRender
-: public ::wsi::ns::cxx::Object< NNT_OBJCXX_WRAPPER(UIPrintPageRenderer) >
+: public ::nnt::ns::cxx::Object< NNT_OBJCXX_WRAPPER(UIPrintPageRenderer) >
 {
 public:
     
@@ -184,7 +184,7 @@ public:
 };
 
 class Printer
-: public ::wsi::ns::Object<InteractionPrinter>
+: public ::nnt::ns::Object<InteractionPrinter>
 {
 public:
     

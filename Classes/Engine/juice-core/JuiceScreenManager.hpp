@@ -11,9 +11,9 @@ JUICE_EXCEPTION(thread_failed);
 
 template <typename scrmgrT>
 class _screenManagerTask
-: public ::wsi::core::Task
+: public ::nnt::core::Task
 {
-    typedef ::wsi::core::Task task_type;
+    typedef ::nnt::core::Task task_type;
     
 public:    
     
@@ -68,7 +68,7 @@ public:
 protected:
     
     //! mutex for control render loop.
-    ::wsi::core::Mutex _loop;
+    ::nnt::core::Mutex _loop;
     
     //! suspended.
     bool _suspended;
@@ -129,7 +129,7 @@ public:
         implT* scrmgr = (implT*)this;             
         
         // begin time.        
-        scrmgr->_renderinfo.frame_begin = ::wsi::get_tick_count();
+        scrmgr->_renderinfo.frame_begin = ::nnt::get_tick_count();
         
         // lock painter.
         scrmgr->_lock_painter();
@@ -159,9 +159,9 @@ public:
         scrmgr->_unlock_painter();
         
         // end time.
-        scrmgr->_renderinfo.frame_end = ::wsi::get_tick_count();        
+        scrmgr->_renderinfo.frame_end = ::nnt::get_tick_count();        
         scrmgr->_renderinfo.frame_cost = scrmgr->_renderinfo.frame_end - scrmgr->_renderinfo.frame_begin;        
-        scrmgr->_renderinfo.frame_time = ::wsi::millisec_tick_count(scrmgr->_renderinfo.frame_cost);  
+        scrmgr->_renderinfo.frame_time = ::nnt::millisec_tick_count(scrmgr->_renderinfo.frame_cost);  
         
         // limit fps.
         if (fps && scrmgr->fps_limit)
@@ -320,7 +320,7 @@ protected:
     
 private:
     
-    ::wsi::core::Mutex _task_mtx;
+    ::nnt::core::Mutex _task_mtx;
 
 public:
     

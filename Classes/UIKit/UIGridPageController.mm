@@ -67,8 +67,8 @@ NNT_BEGIN_OBJC
 }
 
 - (void)layoutSubviews {
-    wsi::CGRectLayoutVBox lyt(self.bounds);
-    wsi::CGRectLayoutLinear lnr(lyt);
+    ::nnt::CGRectLayoutVBox lyt(self.bounds);
+    ::nnt::CGRectLayoutLinear lnr(lyt);
     lnr.add_flex(1);
     lnr.add_pixel(20);
     

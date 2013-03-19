@@ -717,9 +717,9 @@ NNT_END_CXX
 
 NNT_BEGIN_C
 
-::wsi::store::test::Mssql* UTMssql()
+::nnt::store::test::Mssql* UTMssql()
 {
-	return new ::wsi::store::test::Mssql;
+	return new ::nnt::store::test::Mssql;
 }
 
 NNT_END_C

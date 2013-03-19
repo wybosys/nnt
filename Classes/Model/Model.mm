@@ -164,38 +164,38 @@ NNT_BEGIN_OBJC
 }
 
 - (NSURL*)get_url {
-    return ((::wsi::ns::Model*)model)->url().consign();
+    return ((::nnt::ns::Model*)model)->url().consign();
 }
 
 - (NSString*)get_method {
-    return ((::wsi::ns::Model*)model)->method().consign();
+    return ((::nnt::ns::Model*)model)->method().consign();
 }
 
 - (NSString*)get_service {
-    return ((::wsi::ns::Model*)model)->service().consign();
+    return ((::nnt::ns::Model*)model)->service().consign();
 }
 
 - (NSArray*)get_params {
-    return ((::wsi::ns::Model*)model)->params().consign();
+    return ((::nnt::ns::Model*)model)->params().consign();
 }
 
 - (BOOL)process:(NSDictionary *)result {
     id obj = result;
     if ([result isKindOfClass:[NSPointer class]])
         obj = (id)((NSPointer*)result).addr;
-	return ((::wsi::ns::Model*)model)->process(obj);
+	return ((::nnt::ns::Model*)model)->process(obj);
 }
 
 - (void)activeVerbose {
-    ((::wsi::ns::Model*)model)->active_verbose();
+    ((::nnt::ns::Model*)model)->active_verbose();
 }
 
 - (void)beginWaiting {
-    ((::wsi::ns::Model*)model)->begin_waiting();
+    ((::nnt::ns::Model*)model)->begin_waiting();
 }
 
 - (void)endWaiting {
-    ((::wsi::ns::Model*)model)->end_waiting();
+    ((::nnt::ns::Model*)model)->end_waiting();
 }
 
 @end

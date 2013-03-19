@@ -1,11 +1,11 @@
 
 # import "Core.h"
 # import "CGShape.h"
-# import "WCGContext.h"
+# import "NGContext.h"
 
 NNT_BEGIN_OBJC
 
-@implementation WCGShape
+@implementation NgShape
 
 @synthesize context = _ctx;
 

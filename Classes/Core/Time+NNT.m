@@ -4,11 +4,11 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalTimerStart = @"::wsi::core::timer::start";
-signal_t kSignalTimerStop  = @"::wsi::core::timer::stop";
-signal_t kSignalTimerFired = @"::wsi::core::timer::fired";
-signal_t kSignalTimerSuspended = @"::wsi::core::timer::suspended";
-signal_t kSignalTimerResume = @"::wsi::core::timer::resume";
+signal_t kSignalTimerStart = @"::nnt::core::timer::start";
+signal_t kSignalTimerStop  = @"::nnt::core::timer::stop";
+signal_t kSignalTimerFired = @"::nnt::core::timer::fired";
+signal_t kSignalTimerSuspended = @"::nnt::core::timer::suspended";
+signal_t kSignalTimerResume = @"::nnt::core::timer::resume";
 
 @implementation NNTNSTimer
 

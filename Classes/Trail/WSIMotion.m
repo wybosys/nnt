@@ -5,9 +5,9 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalAccelerometerUpdate = @"::wsi::trail::motion::accelerometer";
-signal_t kSignalGyroUpdate = @"::wsi::trail::motion::gyro";
-signal_t kSignalDeviceMotionUpdate = @"::wsi::trail::motion::device";
+signal_t kSignalAccelerometerUpdate = @"::nnt::trail::motion::accelerometer";
+signal_t kSignalGyroUpdate = @"::nnt::trail::motion::gyro";
+signal_t kSignalDeviceMotionUpdate = @"::nnt::trail::motion::device";
 
 @interface NNTMotionPrivate : NNTObject {
     
@@ -49,7 +49,7 @@ static CMMotionManager *__gs_motion_manager = nil;
         __gs_motion_manager = [[CMMotionManager alloc] init];
         NNT *wsiobj = [NNT shared];
         if (wsiobj) {
-            [wsiobj storeSet:@"::wsi::trail::motion::singleton" obj:__gs_motion_manager];
+            [wsiobj storeSet:@"::nnt::trail::motion::singleton" obj:__gs_motion_manager];
             [__gs_motion_manager release];
         }
         motionManager = __gs_motion_manager;

@@ -27,12 +27,12 @@ NNTDECL_EXTERN_CLASS(UIHeaderView);
     BOOL _autoScale;
     
     //! direction.
-    WCGDirection _direction;
+    NgDirection _direction;
 }
 
 @property (nonatomic, assign) real height;
 @property (nonatomic, assign) BOOL autoScale;
-@property (nonatomic, assign) WCGDirection direction;
+@property (nonatomic, assign) NgDirection direction;
 
 @end
 

@@ -127,7 +127,7 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-NNTAPI(::wsi::store::test::Bdb*) UTBdb();
+NNTAPI(::nnt::store::test::Bdb*) UTBdb();
 
 NNT_END_HEADER_C
 

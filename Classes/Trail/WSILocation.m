@@ -5,10 +5,10 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalLocationChanged = @"::wsi::trail::locaion::changed";
-signal_t kSignalHeadingChanged = @"::wsi::trail::heading::changed";
-signal_t kSignalRegionEnter = @"::wsi::trail::region::enter";
-signal_t kSignalRegionExit = @"::wsi::trail::region::exit";
+signal_t kSignalLocationChanged = @"::nnt::trail::locaion::changed";
+signal_t kSignalHeadingChanged = @"::nnt::trail::heading::changed";
+signal_t kSignalRegionEnter = @"::nnt::trail::region::enter";
+signal_t kSignalRegionExit = @"::nnt::trail::region::exit";
 
 @interface NNTLocationPrivate : NNTObject <CLLocationManagerDelegate> {
     

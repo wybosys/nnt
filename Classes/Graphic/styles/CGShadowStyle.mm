@@ -5,7 +5,7 @@
 
 NNT_BEGIN_OBJC
 
-@implementation WCGShadowStyle
+@implementation NgShadowStyle
 
 @synthesize blur = _bluc, color = _color, offset = _offset;
 
@@ -14,7 +14,7 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
-- (void)drawInContext:(WCGStyleContext*)context {
+- (void)drawInContext:(NgStyleContext*)context {
     CGFloat blurSize = round(_blur / 2);
     UIEdgeInsets inset = UIEdgeInsetsMake(blurSize, blurSize, blurSize, blurSize);
     if (_offset.width < 0) {

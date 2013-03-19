@@ -218,7 +218,7 @@ period = _period
 
 # ifdef NNT_CXX
 
-- (NNTSlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+- (NNTSlot*)register_action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay {
     NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.cxx_target = target;
     slot.cxx_action = action;
@@ -274,7 +274,7 @@ period = _period
 
 # ifdef NNT_CXX
 
-- (void)remove_action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
+- (void)remove_action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
@@ -289,7 +289,7 @@ period = _period
     [_lock unlock];
 }
 
-- (void)remove_target:(::wsi::Object*)target {
+- (void)remove_target:(::nnt::Object*)target {
     [_lock lock];
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
@@ -405,8 +405,8 @@ period = _period
                 } else if (each.inBackgroundThread) {
                     [self performSelectorInBackground:@selector(func_invoke_objevent:) withObject:evtobj];
                 } else {
-                    ::wsi::objevent_func func = each.cxx_action;
-                    ::wsi::EventObj evt(evtobj);
+                    ::nnt::objevent_func func = each.cxx_action;
+                    ::nnt::EventObj evt(evtobj);
                     (each.cxx_target->*func)(evt);
                 }
             }
@@ -527,8 +527,8 @@ period = _period
 # ifdef NNT_CXX
 
 - (void)func_invoke_objevent:(NNTEventObj*)obj {
-    ::wsi::objevent_func func = obj.slot.cxx_action;
-    ::wsi::EventObj evt(obj);
+    ::nnt::objevent_func func = obj.slot.cxx_action;
+    ::nnt::EventObj evt(obj);
     (obj.slot.cxx_target->*func)(evt);
 }
 
@@ -724,11 +724,11 @@ static int __gs_signal_enable = 1;
 
 # ifdef NNT_CXX
 
-- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
+- (NNTSlot*)_connect:(signal_t)sig action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     return [self _connect:sig action:action target:target delay:0];
 }
 
-- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+- (NNTSlot*)_connect:(signal_t)sig action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay {
     NNTSignal *signal = [_signals valueForKey:sig];
     if (signal == nil) {
 # ifdef NNT_DEBUG
@@ -831,7 +831,7 @@ static int __gs_signal_enable = 1;
 
 # ifdef NNT_CXX
 
-- (void)_disconnect:(id)name target:(::wsi::Object*)target action:(::wsi::objevent_func)action {
+- (void)_disconnect:(id)name target:(::nnt::Object*)target action:(::nnt::objevent_func)action {
     NNT_SYNCHRONIZED(self)
     
     NNTSignal* signal = [_signals valueForKey:name];
@@ -842,7 +842,7 @@ static int __gs_signal_enable = 1;
     NNT_SYNCHRONIZED_END
 }
 
-- (void)_disconnect_target:(::wsi::Object*)target {
+- (void)_disconnect_target:(::nnt::Object*)target {
     NNT_SYNCHRONIZED(self)
     
     for (NNTSignal *signal in [_signals allValues]) {
@@ -852,7 +852,7 @@ static int __gs_signal_enable = 1;
     NNT_SYNCHRONIZED_END
 }
 
-- (void)_disconnect_target:(::wsi::Object*)target signal:(id)name {
+- (void)_disconnect_target:(::nnt::Object*)target signal:(id)name {
     NNT_SYNCHRONIZED(self)
     
     NNTSignal* signal = [_signals valueForKey:name];

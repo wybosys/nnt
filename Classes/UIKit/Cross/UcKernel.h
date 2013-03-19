@@ -27,9 +27,9 @@ NNT_END_CXX
 UC_BEGIN_HEADER
 
 typedef int Value;
-typedef ::wsi::Point<Value, 2> Point;
-typedef ::wsi::Size<Value, 2> Size;
-typedef ::wsi::Rect<Value, 2, Point, Size> Rect;
+typedef ::nnt::Point<Value, 2> Point;
+typedef ::nnt::Size<Value, 2> Size;
+typedef ::nnt::Rect<Value, 2, Point, Size> Rect;
 
 # define UC_OBJECT \
 void create(); \

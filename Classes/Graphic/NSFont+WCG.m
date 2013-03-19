@@ -1,10 +1,10 @@
 
 # import "Core.h"
-# import "NSFont+WCG.h"
+# import "NSFont+Ng.h"
 
 NNT_BEGIN_OBJC
 
-@implementation NSFont (WCG)
+@implementation NSFont (Ng)
 
 - (NSMutableDictionary*)getAttributes {
     NSMutableDictionary * fontAttributes = [[NSMutableDictionary alloc] init];

@@ -132,7 +132,7 @@ NNT_BEGIN_OBJC
 }
 
 + (UIImage*)LogoImage {
-    WCGImage* imgRes = WCGImageLoadPngData(tencent_openspace, sizeof(tencent_openspace));
+    NgImage* imgRes = NgImageLoadPngData(tencent_openspace, sizeof(tencent_openspace));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 

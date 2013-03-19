@@ -80,10 +80,10 @@ NNT_BEGIN_OBJC
 @implementation NullRpc (async)
 
 - (void)connection:(NNTNSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSMutableData *tgt_data = [connection storeFind:@"::wsi::core::connection::data"];
+    NSMutableData *tgt_data = [connection storeFind:@"::nnt::core::connection::data"];
     if (tgt_data == nil) {
         tgt_data = [[NSMutableData alloc] initWithData:data];
-        [connection storeSet:@"::wsi::core::connection::data" obj:tgt_data];
+        [connection storeSet:@"::nnt::core::connection::data" obj:tgt_data];
         [tgt_data release];
     } else {
         [tgt_data appendData:data];
@@ -93,7 +93,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)connectionDidFinishLoading:(NNTNSURLConnection *)connection {
-    NSMutableData *tgt_data = [connection storeFind:@"::wsi::core::connection::data"];
+    NSMutableData *tgt_data = [connection storeFind:@"::nnt::core::connection::data"];
     [connection emit:kSignalURLConnectionFinish result:tgt_data];
 }
 

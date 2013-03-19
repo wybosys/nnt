@@ -6,7 +6,7 @@
 
 NNT_BEGIN_OBJC
 
-::wsi::ns::MutableDictionary __gs_databases;
+::nnt::ns::MutableDictionary __gs_databases;
 
 @implementation SqliteRequest
 

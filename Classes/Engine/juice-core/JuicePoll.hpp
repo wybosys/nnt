@@ -32,8 +32,8 @@ public:
     
     typedef entry entry_type;
     typedef pollentry item_type;
-    typedef ::wsi::core::vector<item_type> items_type;
-    typedef ::wsi::core::stack<item_type*> unuseditems_type;
+    typedef ::nnt::core::vector<item_type> items_type;
+    typedef ::nnt::core::stack<item_type*> unuseditems_type;
     
     Poll()
     {

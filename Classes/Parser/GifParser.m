@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "GifParser.h"
 # include "../../contrib/giflib/gif_lib.h"
-# import "WCGImage.h"
+# import "NGImage.h"
 
 NNT_BEGIN_OBJC
 
@@ -189,7 +189,7 @@ static int _gif_data(GifFileType* ft, GifByteType* bytes, int len)
                 // save buffer to screen.
                 memcpy(pixels_screen, pixels_screen_buffer, cnt_pixels_screen * sizeof(GifPixelType));
                 
-                CGImageRef img = WCGLoadPixelsImage(rgba_buf, ft->SWidth, ft->SHeight); 
+                CGImageRef img = NgLoadPixelsImage(rgba_buf, ft->SWidth, ft->SHeight); 
                 
                 GifImage* gif_img = [[GifImage alloc] init];
                 gif_img.image = img;

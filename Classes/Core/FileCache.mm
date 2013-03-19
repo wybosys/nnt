@@ -174,7 +174,7 @@ NNT_BEGIN_OBJC
     
     // add version.
     //GDataXMLElement* nversion = [[GDataXMLElement alloc] initWithXMLString:@"<version />" error:&error];
-    //[nversion setStringValue:wsi::tostr(self.version)];
+    //[nversion setStringValue:::nnt::tostr(self.version)];
     //[root addChild:nversion];
     //[nversion release];
     root->add_node("version", core::tostr(self.version));
@@ -184,7 +184,7 @@ NNT_BEGIN_OBJC
     
     // add count.
     //GDataXMLElement* count = [[GDataXMLElement alloc] initWithXMLString:@"<count />" error:&error];
-    //[count setStringValue:wsi::tostr([items count])];
+    //[count setStringValue:::nnt::tostr([items count])];
     //[root addChild:count];
     //[count release];
     root->add_node("count", core::tostr(items.count));
@@ -200,8 +200,8 @@ NNT_BEGIN_OBJC
         
         //[nurl setStringValue:each.code];
         //[ntype setStringValue:NSStringFromClass([each class])];
-        //[ntimestamp setStringValue:wsi::tostr(each.timestamp)];
-        //[noverdate setStringValue:wsi::tostr(each.overdate)];
+        //[ntimestamp setStringValue:::nnt::tostr(each.timestamp)];
+        //[noverdate setStringValue:::nnt::tostr(each.overdate)];
         node->add_node("url", core::tostr(each.code));
         node->add_node("type", core::tostr(NSStringFromClass([each class])));
         node->add_node("timestamp", core::tostr(each.timestamp));

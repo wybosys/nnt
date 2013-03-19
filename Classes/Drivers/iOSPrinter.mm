@@ -36,7 +36,7 @@ NNTDECL_PRIVATE_IMPL(InteractionPrinter)
     info.orientation = UIPrintInfoOrientationPortrait;
     info.outputType = UIPrintInfoOutputGeneral;
     info.duplex = UIPrintInfoDuplexLongEdge;
-    info.jobName = @"::wsi::print::job";
+    info.jobName = @"::nnt::print::job";
     
     ctlr_print.printInfo = info;
     ctlr_print.showsPageRange = YES;
@@ -148,7 +148,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(UISimpleTextPrintFormatter)
 }
 
 - (NSInteger)pageCount {
-    ::wsi::driver::print::ns::formatter::IFormatter* format = (::wsi::driver::print::ns::formatter::IFormatter*)self._cxxobj;
+    ::nnt::driver::print::ns::formatter::IFormatter* format = (::nnt::driver::print::ns::formatter::IFormatter*)self._cxxobj;
     if (format) {
         return format->page_count();
     }

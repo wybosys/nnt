@@ -8,9 +8,9 @@ NNT_BEGIN_HEADER_OBJC
 
 NNT_EXTERN NSString* kStyleBackground;
 
-@interface UIStyleSheet : WCGStyleSheet
+@interface UIStyleSheet : NgStyleSheet
 
-@property (nonatomic, retain) WCGFill* backgroundFill;
+@property (nonatomic, retain) NgFill* backgroundFill;
 
 @end
 

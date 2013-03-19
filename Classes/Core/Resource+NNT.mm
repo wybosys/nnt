@@ -72,7 +72,7 @@ core::string Resource::PathOf(::NSString *tgt)
 
 core::string Resource::PathOf(const core::string &tgt)
 {
-    ::NSString* str = ::wsi::tostr(tgt);
+    ::NSString* str = ::nnt::tostr(tgt);
     return Resource::PathOf(str);
 }
 

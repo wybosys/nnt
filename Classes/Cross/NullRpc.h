@@ -51,7 +51,7 @@ public:
     
 };
 
-# define NNTRPC_CALLROUND ::wsi::NullRpcCallRound __rpc_callround(self)
+# define NNTRPC_CALLROUND ::nnt::NullRpcCallRound __rpc_callround(self)
 
 NNT_END_HEADER_CXX
 

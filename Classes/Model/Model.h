@@ -140,10 +140,10 @@ NNT_END_HEADER_CXX
 
 @interface __cxxmodel_wrapper : Model {
     @protected
-    ::wsi::ns::IModel* model;
+    ::nnt::ns::IModel* model;
 }
 
-@property (nonatomic, assign) ::wsi::ns::IModel* model;
+@property (nonatomic, assign) ::nnt::ns::IModel* model;
 
 - (NSURL*)get_url;
 
@@ -159,9 +159,9 @@ __cxxmodel_convertor_##mdl
 # define NNTCONVERTOR_MODEL_DECL(mdl) \
 @interface NNTCONVERTOR_MODEL(mdl) : mdl { \
 @protected \
-::wsi::ns::IModel* model; \
+::nnt::ns::IModel* model; \
 } \
-@property (nonatomic, assign) ::wsi::ns::IModel* model; \
+@property (nonatomic, assign) ::nnt::ns::IModel* model; \
 @end
 
 # define NNTCONVERTOR_MODEL_IMPL(mdl) \
@@ -194,7 +194,7 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ns)
 
 class IModel
-: public ::wsi::RefObject
+: public ::nnt::RefObject
 {
 public:
     

@@ -43,10 +43,10 @@ typedef struct {
     typedef uint index_type;
 # endif
     
-    typedef ::wsi::core::vector<vertex_type> vertices_type;
-    typedef ::wsi::core::vector<index_type> indexies_type;
-    typedef ::wsi::core::vector<color_type> colors_type;
-    typedef ::wsi::core::vector<renderentity_wrapper> entities_type;
+    typedef ::nnt::core::vector<vertex_type> vertices_type;
+    typedef ::nnt::core::vector<index_type> indexies_type;
+    typedef ::nnt::core::vector<color_type> colors_type;
+    typedef ::nnt::core::vector<renderentity_wrapper> entities_type;
     typedef Rect<Vertex2d<value_type>, Size2d<value_type> > viewport_type;
     
 } Types3d;

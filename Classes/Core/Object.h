@@ -6,7 +6,7 @@
 
 # include <stack>
 # include <map>
-# include "../WTL/Exception+NNT.h"
+# include "../TL/Exception+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 
@@ -832,7 +832,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX_OBJC
 
-# define NNTIMPL_SINGLETON(cls) ::wsi::AutoReleaseObj<cls> __gs_singleton_##cls; \
+# define NNTIMPL_SINGLETON(cls) ::nnt::AutoReleaseObj<cls> __gs_singleton_##cls; \
 + (cls*)getInstance { return __gs_singleton_##cls.getInstance(); }
 
 # define NNTSINGLETON_INIT() - (void) instanceInit
@@ -851,7 +851,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include "../WTL/String+NNT.h"
+# include "../TL/String+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(cxx)
@@ -869,10 +869,10 @@ public:
 };
 
 # define NNTDECL_BOOLOBJECT(t, f) \
-const ::wsi::cxx::bool_object<true> t = ::wsi::cxx::bool_object<true>(); \
-const ::wsi::cxx::bool_object<false> f = ::wsi::cxx::bool_object<false>();
+const ::nnt::cxx::bool_object<true> t = ::nnt::cxx::bool_object<true>(); \
+const ::nnt::cxx::bool_object<false> f = ::nnt::cxx::bool_object<false>();
 
-# define extend_(cls) ::wsi::cxx::Class< cls >
+# define extend_(cls) ::nnt::cxx::Class< cls >
 
 template <typename SelfT>
 class Class
@@ -891,15 +891,15 @@ protected:
 # define NNTMPL_SIGNALS_BEGIN(supercls) void init_signals() { supercls::init_signals();
 # define NNTMPL_SIGNALS_END }
 
-typedef Event< ::wsi::RefObject > event_type;
+typedef Event< ::nnt::RefObject > event_type;
 typedef event_type::event_func event_func;
 typedef event_type::event_pure event_pure;
 typedef event_type::eventobj_t eventobj_t;
 
 NNT_EXTERN eventobj_t null_eventobj;
 
-# define _cxxaction(func) (::wsi::cxx::event_func)&func
-# define _cbaction(func) (::wsi::event_pure)func
+# define _cxxaction(func) (::nnt::cxx::event_func)&func
+# define _cbaction(func) (::nnt::event_pure)func
 
 # ifdef NNT_PURE_CXX
 
@@ -909,13 +909,13 @@ NNT_EXTERN eventobj_t null_eventobj;
 
 # ifdef NNT_OBJC
 
-#   define _cxxobjc_action(func) (::wsi::cxx::event_func)&func##_cxxobjc_mainthread
+#   define _cxxobjc_action(func) (::nnt::cxx::event_func)&func##_cxxobjc_mainthread
 #   define cxxobjc_action(func) \
-void func(::wsi::cxx::eventobj_t&); \
-void func##_cxxobjc_mainthread(::wsi::cxx::eventobj_t& evt) { \
+void func(::nnt::cxx::eventobj_t&); \
+void func##_cxxobjc_mainthread(::nnt::cxx::eventobj_t& evt) { \
 NNT_MAINTHREAD( \
 autocollect; \
-::wsi::core::down_const(this)->func(::wsi::core::down_const(evt)); \
+::nnt::core::down_const(this)->func(::nnt::core::down_const(evt)); \
 ); \
 }
 
@@ -926,7 +926,7 @@ autocollect; \
 # define OBJECT_TPL_DECL template <class BaseT>
 # define OBJECT_TPL_IMPL BaseT
 
-template <class BaseT = ::wsi::RefObject >
+template <class BaseT = ::nnt::RefObject >
 class Object
 : public Class<BaseT>
 {
@@ -1050,7 +1050,7 @@ protected:
 
 };
 
-# define NNTMACRO_AUTOLOCK(obj) ::wsi::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
+# define NNTMACRO_AUTOLOCK(obj) ::nnt::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
 
 # else
 
@@ -1357,7 +1357,7 @@ template_impl core::string Object<OBJECT_TPL_IMPL>::to_string() const
     return core::null_string;
 }
 
-template <class BaseT = ::wsi::RefObject >
+template <class BaseT = ::nnt::RefObject >
 class AutoFreeObject
 : public Object<BaseT>
 {
@@ -1614,7 +1614,7 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
 		}        
         else if (slot->redirect_signal.size())
         {
-            typedef ::wsi::cxx::Object<object_t> origin_object;
+            typedef ::nnt::cxx::Object<object_t> origin_object;
             origin_object* obj = dynamic_cast<origin_object*>(slot->target);
             obj->emit(slot->redirect_signal, evt, sender);
         }
@@ -1772,8 +1772,8 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-NNTAPI(bool) Drop(::wsi::RefObject* obj);
-NNTAPI(void) Grab(::wsi::RefObject* obj);
+NNTAPI(bool) Drop(::nnt::RefObject* obj);
+NNTAPI(void) Grab(::nnt::RefObject* obj);
 
 NNT_END_HEADER_C
 

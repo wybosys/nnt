@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "NSTableView+NNT.h"
 
-signal_t kSignalSelectChanged = @"::wsi::ui::select::changed";
+signal_t kSignalSelectChanged = @"::nnt::ui::select::changed";
 
 NNT_BEGIN_OBJC
 

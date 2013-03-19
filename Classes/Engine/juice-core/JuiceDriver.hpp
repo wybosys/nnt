@@ -133,7 +133,7 @@ protected:
 protected:
     
     //! mutex for draw.
-    ::wsi::core::Mutex _mtx_draw;
+    ::nnt::core::Mutex _mtx_draw;
             
 };
 

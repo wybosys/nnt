@@ -100,7 +100,7 @@ NNT_USINGCXXNAMESPACE;
 
 - (NSString*)url {
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"response_type"] = [self.request.responseType OAEncode];
     dict[@"grant_type"] = [self.request.grantType OAEncode];
     dict[@"code"] = [self.request.code OAEncode];
@@ -116,7 +116,7 @@ NNT_USINGCXXNAMESPACE;
 
 - (BOOL)process:(id)__result {
     
-    wsi::ns::MutableDictionary dict((NSMutableDictionary*)__result);
+    ::nnt::ns::MutableDictionary dict((NSMutableDictionary*)__result);
     self.request.access_token = dict[@"access_token"];
     return YES;
 }
@@ -150,18 +150,18 @@ NNT_USINGCXXNAMESPACE;
 }
 
 + (UIImage*)LogoImage {    
-    WCGImage* imgRes = WCGImageLoadPngData(renren_mblog, sizeof(renren_mblog));
+    NgImage* imgRes = NgImageLoadPngData(renren_mblog, sizeof(renren_mblog));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 
 - (void)saveTo:(NSMutableDictionary*)__dict {
-    wsi::ns::MutableDictionary dict(__dict);
+    ::nnt::ns::MutableDictionary dict(__dict);
     dict[@"::oauth::access_token"] = _request.access_token;
     dict[@"::oauth::client_secret"] = _request.clientSecret;
 }
 
 - (BOOL)loadFrom:(NSDictionary*)__dict {
-    wsi::ns::Dictionary dict(__dict);
+    ::nnt::ns::Dictionary dict(__dict);
     _request.access_token = dict[@"::oauth::access_token"];
     _request.clientSecret = dict[@"::oauth::client_secret"];
     return YES;
@@ -204,7 +204,7 @@ NNT_USINGCXXNAMESPACE;
 }
 
 - (NSMutableArray*)dup_params {
-    wsi::ns::MutableArray arr([super dup_params]);
+    ::nnt::ns::MutableArray arr([super dup_params]);
     arr << pair(@"access_token", self.request.access_token);
     arr << pair(@"format", str_apiType);
     arr << pair(@"v", [NSString stringWithUTF8String:self.version.ver]);
@@ -213,12 +213,12 @@ NNT_USINGCXXNAMESPACE;
 }
 
 - (NSMutableArray*)get_params {
-    wsi::ns::MutableArray arr([self dup_params]);
+    ::nnt::ns::MutableArray arr([self dup_params]);
     return arr;
 }
 
 - (NSString*)baseString {
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
 
     // params.
     for (NSPair *each in self.params) {
@@ -240,7 +240,7 @@ NNT_USINGCXXNAMESPACE;
     NSString* str_secret = [NSString stringWithFormat:@"%@%@", str_base, self.request.clientSecret];
     NSString* str_signed = [str_secret md5];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"sig"] = str_signed;
     
     // params.
@@ -260,7 +260,7 @@ NNT_USINGCXXNAMESPACE;
 
 - (BOOL)process:(NSObject *)__result {
     
-    wsi::ns::Dictionary dict;
+    ::nnt::ns::Dictionary dict;
     
     if ([__result isKindOfClass:[NSArray class]]) {
         NSArray *__tmp_result = (NSArray*)__result;
@@ -320,7 +320,7 @@ NNT_USINGCXXNAMESPACE;
 }
 
 - (NSMutableArray*)get_params {
-    wsi::ns::MutableArray arr([self dup_params]);
+    ::nnt::ns::MutableArray arr([self dup_params]);
     uint length = 60;
     if ([content length] > length)
         content = [content substringToIndex:length];

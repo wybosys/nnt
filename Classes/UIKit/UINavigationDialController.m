@@ -7,7 +7,7 @@
 
 NNT_BEGIN_OBJC
 
-NSString *kIdentifyDialItem = @"::wsi::ui::dial::item";
+NSString *kIdentifyDialItem = @"::nnt::ui::dial::item";
 
 @interface UINavigationDialControllerPrivate : NSObject {
     UINavigationDialController *d_owner;

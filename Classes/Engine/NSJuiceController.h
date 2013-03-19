@@ -22,10 +22,10 @@ struct _Types
     typedef ::juice::cocoa::Matrix matrix_type;
     typedef ::juice::Rect<vertex_type, ::juice::Size2d<float> > viewport_type;
     typedef ::juice::BoundingBox<vertex_type> bounding_type;
-    typedef ::wsi::core::vector< ::juice::renderentity_wrapper> entities_type;
-    typedef ::wsi::core::vector<vertex_type> vertices_type;
-    typedef ::wsi::core::vector<index_type> indexies_type;
-    typedef ::wsi::core::vector<color_type> colors_type;
+    typedef ::nnt::core::vector< ::juice::renderentity_wrapper> entities_type;
+    typedef ::nnt::core::vector<vertex_type> vertices_type;
+    typedef ::nnt::core::vector<index_type> indexies_type;
+    typedef ::nnt::core::vector<color_type> colors_type;
 };
 
 class Material

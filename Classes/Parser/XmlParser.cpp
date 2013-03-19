@@ -13,7 +13,7 @@
 
 NNT_BEGIN_CXX 
 
-signal_t kSignalLoaded = "::wsi::loaded";
+signal_t kSignalLoaded = "::nnt::loaded";
 
 NNT_BEGIN_NS(parser)
 
@@ -109,7 +109,7 @@ core::list<XmlNode*> XmlNode::nodes(core::string const& name)
 	return ret;
 }
 
-XmlNode* XmlNode::add(wsi::parser::XmlNode *node)
+XmlNode* XmlNode::add(::nnt::parser::XmlNode *node)
 {
     children.insert(core::make_pair(node->name, node));
     node->grab();
@@ -130,7 +130,7 @@ XmlNode* XmlNode::add(wsi::parser::XmlNode *node)
     return node;
 }
 
-XmlAttribute* XmlNode::add(wsi::parser::XmlAttribute *attr)
+XmlAttribute* XmlNode::add(::nnt::parser::XmlAttribute *attr)
 {
     attributes.insert(core::make_pair(attr->name, attr));
     attr->grab();

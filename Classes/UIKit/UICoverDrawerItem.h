@@ -8,7 +8,7 @@ NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_PRIVATE_HEAD(UICoverDrawerItem);
 NNTDECL_EXTERN_CLASS(UICoverDrawer);
-NNTDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
 
 @interface UICoverDrawerItem : NNTUIView {
     

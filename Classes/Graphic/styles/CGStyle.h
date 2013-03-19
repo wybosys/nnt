@@ -2,17 +2,17 @@
 # ifndef __NNTCG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
 # define __NNTCG_STYLE_5ABD45C0C2EB407E91EE9D10BA0BC9D2_H_INCLUDED
 
-# import "WCGFill.h"
+# import "NGFill.h"
 # import "../shapes/CGShape.h"
 # import "CGStyleContext.h"
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCGStyle : NNTObject {
+@interface NgStyle : NNTObject {
     
     //! link.
-    WCGStyle* _previous;
-    WCGStyle* _next;
+    NgStyle* _previous;
+    NgStyle* _next;
     
     //! fillable. default is YES.
     BOOL fillable;
@@ -21,43 +21,43 @@ NNT_BEGIN_HEADER_OBJC
     BOOL strokable;
 }
 
-@property (nonatomic, assign) WCGStyle *previous, *next;
+@property (nonatomic, assign) NgStyle *previous, *next;
 @property (nonatomic, assign) BOOL fillable, strokable;
 
-- (void)drawInContext:(WCGStyleContext*)ctx;
+- (void)drawInContext:(NgStyleContext*)ctx;
 - (void)break_previous_next;
 
 @end
 
-@interface WCGShapeStyle : WCGStyle {
-    WCGShape* _shape;
+@interface NgShapeStyle : NgStyle {
+    NgShape* _shape;
 }
 
-@property (nonatomic, retain) WCGShape* shape;
+@property (nonatomic, retain) NgShape* shape;
 
 @end
 
-@interface WCGFillStyle : WCGStyle {
-    WCGFill* _fill;
+@interface NgFillStyle : NgStyle {
+    NgFill* _fill;
 }
 
-@property (nonatomic, retain) WCGFill* fill;
+@property (nonatomic, retain) NgFill* fill;
 
 @end
 
-@interface WCGStyleSheet : NNTObject {
+@interface NgStyleSheet : NNTObject {
     
     //! array for store all styles.
     NSMutableDictionary* _styles;
     
 @protected
-    WCGStyle *_root, *_last;
+    NgStyle *_root, *_last;
 }
 
 @property (nonatomic, retain, readonly) NSDictionary* styles;
 
 //! add style.
-- (void)addStyle:(WCGStyle*)style forKey:(NSString*)key;
+- (void)addStyle:(NgStyle*)style forKey:(NSString*)key;
 
 //! find.
 - (id)styleForKey:(NSString*)key;

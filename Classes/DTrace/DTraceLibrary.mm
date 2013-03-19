@@ -72,7 +72,7 @@ int wluado_cache_clear(lua_State* state)
 int wluado_configuration_clear(lua_State* state)
 {
     [[NNTConfiguration shared] clear];
-    ::wsi::store::Configuration::shared().clear();
+    ::nnt::store::Configuration::shared().clear();
     return 1;
 }
 

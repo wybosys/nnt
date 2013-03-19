@@ -37,9 +37,9 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ns)
 
 class URL
-: public ::wsi::ns::Object<NSURL>
+: public ::nnt::ns::Object<NSURL>
 {
-    typedef ::wsi::ns::Object<NSURL> super;
+    typedef ::nnt::ns::Object<NSURL> super;
     
 public:
     

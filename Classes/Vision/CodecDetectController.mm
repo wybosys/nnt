@@ -6,16 +6,16 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalTry = @"::wsi::try";
-signal_t kSignalSuccess = @"::wsi::success";
+signal_t kSignalTry = @"::nnt::try";
+signal_t kSignalSuccess = @"::nnt::success";
 
 @implementation CodecDetectMaskView
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    ::wsi::cg::Rect rc(rect);
-    ::wsi::cg::Rect irc = rc.deflate(::wsi::cg::ratio(0.27f), 0.27f, 0.21f);
+    ::nnt::cg::Rect rc(rect);
+    ::nnt::cg::Rect irc = rc.deflate(::nnt::cg::ratio(0.27f), 0.27f, 0.21f);
     irc.set_height(irc.width());
     
     ::juice::cocoa::Graphics gra = ::juice::cocoa::Graphics::Current();
@@ -34,7 +34,7 @@ signal_t kSignalSuccess = @"::wsi::success";
         
         // fill grid.
         {
-            ::juice::cocoa::GridPointBrush br(::juice::cocoa::Color::RGBA(0x46464672), ::wsi::cg::Size(10, 10), 2);
+            ::juice::cocoa::GridPointBrush br(::juice::cocoa::Color::RGBA(0x46464672), ::nnt::cg::Size(10, 10), 2);
             ph.fill(gra, br);
         }
         
@@ -44,7 +44,7 @@ signal_t kSignalSuccess = @"::wsi::success";
             uint count = rand01() * 10 + 5;
             for (uint i = 0; i < count; ++i)
             {
-                ::wsi::cg::Rect wrc;
+                ::nnt::cg::Rect wrc;
                 wrc.set_x(rand01() * rc.width() + rc.x());
                 wrc.set_y(rand01() * rc.height() + rc.y());
                 wrc.set_width(rand01() * rc.width() * 0.1f);
@@ -53,10 +53,10 @@ signal_t kSignalSuccess = @"::wsi::success";
                     continue;
                 
                 ::juice::cocoa::Path ph;
-                ph.move_to(::wsi::cg::Line(wrc.lt(), wrc.rt()).center());
-                ph.line_to(::wsi::cg::Line(wrc.lb(), wrc.rb()).center());
-                ph.move_to(::wsi::cg::Line(wrc.lt(), wrc.lb()).center());
-                ph.line_to(::wsi::cg::Line(wrc.rt(), wrc.rb()).center());
+                ph.move_to(::nnt::cg::Line(wrc.lt(), wrc.rt()).center());
+                ph.line_to(::nnt::cg::Line(wrc.lb(), wrc.rb()).center());
+                ph.move_to(::nnt::cg::Line(wrc.lt(), wrc.lb()).center());
+                ph.line_to(::nnt::cg::Line(wrc.rt(), wrc.rb()).center());
                 pen.set_width(rand01() * wrc.width() * .5f);
                 ph.stroke(gra, pen);
             }
@@ -68,7 +68,7 @@ signal_t kSignalSuccess = @"::wsi::success";
             uint count = rand01() * 20 + 10;
             for (uint i = 0; i < count; ++i)
             {
-                ::wsi::cg::Rect wrc;
+                ::nnt::cg::Rect wrc;
                 wrc.set_x(rand01() * rc.width() + rc.x());
                 wrc.set_y(rand01() * rc.height() + rc.y());
                 wrc.set_width(rand01() * rc.width() * 0.1f);

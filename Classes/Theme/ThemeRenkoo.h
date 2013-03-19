@@ -6,10 +6,10 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @interface ThemeRenkoo : WCALayerTheme <WCALayerTheme> {
-    WCGFill *img_indicator, *img_background;
+    NgFill *img_indicator, *img_background;
 }
 
 @property (nonatomic, assign) CGColorRef borderColor;

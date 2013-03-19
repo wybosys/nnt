@@ -27,12 +27,12 @@ NNT_BEGIN_CXX
 
 Environment::Environment()
 {
-    wsi::Init();
+    ::nnt::Init();
 }
 
 Environment::~Environment()
 {
-    wsi::Fini();
+    ::nnt::Fini();
 }
 
 static Environment __gs_app;

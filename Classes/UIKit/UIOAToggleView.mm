@@ -51,13 +51,13 @@ NNT_BEGIN_OBJC
         UIImageSwitch *imageSwitch = [[UIImageSwitch alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
         imageSwitch.image = imageRes;
         imageSwitch.value = 0;
-        [imageSwitch storeSet:@"index" obj:wsi::number(i)];
+        [imageSwitch storeSet:@"index" obj:::nnt::number(i)];
         [imageSwitch storeSet:@"name" obj:name];
         
         [imageSwitch connect:kSignalValueChanged sel:@selector(act_toggle:) obj:self];
         [imageSwitch connect:kSignalButtonCloseClicked sel:@selector(act_toggle_close:) obj:self];
         
-        wsi::ns::Number enable([data valueForKey:@"enable"]);
+        ::nnt::ns::Number enable([data valueForKey:@"enable"]);
         if (enable == YES) {
             imageSwitch.value = 1;
         }
@@ -81,10 +81,10 @@ NNT_BEGIN_OBJC
 - (void)toggle_begin:(id)__id {
     
     UIImageSwitch* imageSwitch = (UIImageSwitch*)__id;
-    wsi::ns::MutableDictionary data = wsi::ns::MutableDictionary([imageSwitch storeFind:@"token::data"]);
+    ::nnt::ns::MutableDictionary data = ::nnt::ns::MutableDictionary([imageSwitch storeFind:@"token::data"]);
     uindex idx = [[imageSwitch storeFind:@"index"] unsignedIntValue];
     
-    wsi::ns::Number enable(data[@"enable"]);
+    ::nnt::ns::Number enable(data[@"enable"]);
     
     if (enable == YES) {
         data[@"enable"] = NSNumberNo;

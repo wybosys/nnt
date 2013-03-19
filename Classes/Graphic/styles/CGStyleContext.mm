@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-@implementation WCGStyleContext
+@implementation NgStyleContext
 
 @synthesize context = _ctx;
 @synthesize bounds;

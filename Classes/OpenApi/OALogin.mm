@@ -7,8 +7,8 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalSuccess = @"::wsi::success";
-signal_t kSignalFailed = @"::wsi::failed";
+signal_t kSignalSuccess = @"::nnt::success";
+signal_t kSignalFailed = @"::nnt::failed";
 
 @implementation OALoginParameter
 
@@ -24,9 +24,9 @@ signal_t kSignalFailed = @"::wsi::failed";
     
     //[oauth connect:kSignalAuthorizeSuccess func:__oalogin_authorize_suc];
     
-    [oauth storeSet:@"::wsi::oauth::parameter" obj:param];
-    [oauth storeSet:@"::wsi::oauth::action" obj:[NSObjectSel objectWithSel:sel]];
-    [oauth storeSet:@"::wsi::oauth::target" obj:obj];
+    [oauth storeSet:@"::nnt::oauth::parameter" obj:param];
+    [oauth storeSet:@"::nnt::oauth::action" obj:[NSObjectSel objectWithSel:sel]];
+    [oauth storeSet:@"::nnt::oauth::target" obj:obj];
     
     [oauth release];
 }

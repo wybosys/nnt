@@ -7,7 +7,7 @@
 JUICE_BEGIN NNT_BEGIN_NS(svg)
 
 template <typename pathT>
-void __callback_load(::wsi::svg::PathParser::Action const* _act, void* ctx)
+void __callback_load(::nnt::svg::PathParser::Action const* _act, void* ctx)
 {
     pathT* path = (pathT*)ctx;
     switch (_act->type)    
@@ -16,27 +16,27 @@ void __callback_load(::wsi::svg::PathParser::Action const* _act, void* ctx)
         {
             trace_msg(@"svg:: unknown action");
         } break;
-        case ::wsi::svg::PathParser::PA_MOVETO:
+        case ::nnt::svg::PathParser::PA_MOVETO:
         {
-            ::wsi::svg::PathParser::Moveto* act = (::wsi::svg::PathParser::Moveto*)_act;
+            ::nnt::svg::PathParser::Moveto* act = (::nnt::svg::PathParser::Moveto*)_act;
             path->move_to(act->pt);
         } break;
-        case ::wsi::svg::PathParser::PA_LINETO:
+        case ::nnt::svg::PathParser::PA_LINETO:
         {
-            ::wsi::svg::PathParser::Lineto* act = (::wsi::svg::PathParser::Lineto*)_act;
+            ::nnt::svg::PathParser::Lineto* act = (::nnt::svg::PathParser::Lineto*)_act;
             path->line_to(act->pt);
         } break;
-        case ::wsi::svg::PathParser::PA_CURVETO:
+        case ::nnt::svg::PathParser::PA_CURVETO:
         {
-            ::wsi::svg::PathParser::Curveto* act = (::wsi::svg::PathParser::Curveto*)_act;
+            ::nnt::svg::PathParser::Curveto* act = (::nnt::svg::PathParser::Curveto*)_act;
             path->add_curve(act->c1, act->c2, act->pt);
         } break;
-        case ::wsi::svg::PathParser::PA_QUADCURVETO:
+        case ::nnt::svg::PathParser::PA_QUADCURVETO:
         {
-            ::wsi::svg::PathParser::QuadCurveto* act = (::wsi::svg::PathParser::QuadCurveto*)_act;
+            ::nnt::svg::PathParser::QuadCurveto* act = (::nnt::svg::PathParser::QuadCurveto*)_act;
             path->add_quadcurve(act->c, act->pt);
         } break;
-        case ::wsi::svg::PathParser::PA_CLOSE:
+        case ::nnt::svg::PathParser::PA_CLOSE:
         {
             path->close();
         } break;            
@@ -44,9 +44,9 @@ void __callback_load(::wsi::svg::PathParser::Action const* _act, void* ctx)
 }
 
 template <typename pathT>
-static bool load(pathT& path, ::wsi::core::string const& str)
+static bool load(pathT& path, ::nnt::core::string const& str)
 {
-    ::wsi::svg::PathParser svg;
+    ::nnt::svg::PathParser svg;
     if (!svg.parse(str, __callback_load<pathT>, &path))
         return false;
     return true;

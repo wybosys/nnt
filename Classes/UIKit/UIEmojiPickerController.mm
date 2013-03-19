@@ -7,7 +7,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
+signal_t kSignalEmojiSelected = @"::nnt::uikit::emoji::pick";
 
 @implementation UIEmojiPickerView
 
@@ -28,9 +28,9 @@ signal_t kSignalEmojiSelected = @"::wsi::uikit::emoji::pick";
 }
 
 - (void)layoutSubviews {
-    wsi::CGRectLayoutVBox lyt_main(self.bounds);
-    wsi::CGRectLayoutLinear lnr_main(lyt_main);
-    lnr_main << (wsi::flex)1 << (wsi::pixel)10;
+    ::nnt::CGRectLayoutVBox lyt_main(self.bounds);
+    ::nnt::CGRectLayoutLinear lnr_main(lyt_main);
+    lnr_main << (::nnt::flex)1 << (::nnt::pixel)10;
     [self.switcher cur_page].view.frame = lyt_main << lnr_main;
     page.frame = lyt_main << lnr_main;
 }

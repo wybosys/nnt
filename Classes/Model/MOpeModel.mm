@@ -19,7 +19,7 @@ NNT_BEGIN_NS(model)
 Operation::Operation()
 {
     set_update(true);
-    set_url(@"::wsi::model::operation::skipcache::url");
+    set_url(@"::nnt::model::operation::skipcache::url");
     set_rpc(cross::OperationRequest::getClass());
 }
 

@@ -73,7 +73,7 @@ class User
     
 public:
     
-    typedef ::wsi::store::ns::Configuration configuration_type;
+    typedef ::nnt::store::ns::Configuration configuration_type;
     
     User()
     : super(nil),

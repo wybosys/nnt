@@ -5,8 +5,8 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalPullHeaderReload = @"::wsi::ui::tableview::pull::reload";
-signal_t kSignalPullHeaderMore = @"::wsi::ui::tableview::pull::moreload";
+signal_t kSignalPullHeaderReload = @"::nnt::ui::tableview::pull::reload";
+signal_t kSignalPullHeaderMore = @"::nnt::ui::tableview::pull::moreload";
 
 # define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
 # define BACKGROUND_COLOR  [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0]

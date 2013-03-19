@@ -10,19 +10,19 @@ NSString* kStyleBackground = @"background";
 
 @dynamic backgroundFill;
 
-- (WCGFill*)backgroundFill {
-    WCGFillStyle* style = (WCGFillStyle*)[self styleForKey:kStyleBackground];
+- (NgFill*)backgroundFill {
+    NgFillStyle* style = (NgFillStyle*)[self styleForKey:kStyleBackground];
     if (style == nil)
         return nil;
     return style.fill;
 }
 
-- (void)setBackgroundFill:(WCGFill*)fill {
+- (void)setBackgroundFill:(NgFill*)fill {
     if (fill == nil) {
         [self removeStyleForKey:kStyleBackground];
         return;
     }
-    WCGFillStyle* style = [[WCGFillStyle alloc] init];
+    NgFillStyle* style = [[WCGFillStyle alloc] init];
     style.fill = fill;    
     [self addStyle:style forKey:kStyleBackground];
     [style release];

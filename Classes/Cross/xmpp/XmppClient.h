@@ -103,13 +103,13 @@ public:
         
 };
 
-NNT_STATIC_CONST cxx::signal_t kSignalConnected = "::wsi::xmpp::connected";
-NNT_STATIC_CONST cxx::signal_t kSignalDisconnected = "::wsi::xmpp::disconnected";
-NNT_STATIC_CONST cxx::signal_t kSignalFailure = "::wsi::xmpp::failure";
-NNT_STATIC_CONST cxx::signal_t kSignalBind = "::wsi::xmpp::bind";
-NNT_STATIC_CONST cxx::signal_t kSignalSession = "::wsi::xmpp::session";
-NNT_STATIC_CONST cxx::signal_t kSignalDiscoInfo = "::wsi::xmpp::disco::info";
-NNT_STATIC_CONST cxx::signal_t kSignalDiscoItems = "::wsi::xmpp::disco::items";
+NNT_STATIC_CONST cxx::signal_t kSignalConnected = "::nnt::xmpp::connected";
+NNT_STATIC_CONST cxx::signal_t kSignalDisconnected = "::nnt::xmpp::disconnected";
+NNT_STATIC_CONST cxx::signal_t kSignalFailure = "::nnt::xmpp::failure";
+NNT_STATIC_CONST cxx::signal_t kSignalBind = "::nnt::xmpp::bind";
+NNT_STATIC_CONST cxx::signal_t kSignalSession = "::nnt::xmpp::session";
+NNT_STATIC_CONST cxx::signal_t kSignalDiscoInfo = "::nnt::xmpp::disco::info";
+NNT_STATIC_CONST cxx::signal_t kSignalDiscoItems = "::nnt::xmpp::disco::items";
 
 template <typename objT>
 inline_impl bool Client::execute(objT& obj, typename objT::response_object_empty_type*) const

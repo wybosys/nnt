@@ -167,8 +167,8 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_OBJC
 
-typedef ::wsi::ntl::map<id, id> _NSMap;
-typedef ::wsi::core::multimap<id, id> _NSMultiMap;
+typedef ::nnt::ntl::map<id, id> _NSMap;
+typedef ::nnt::core::multimap<id, id> _NSMultiMap;
 
 typedef _NSMap::iterator NSMapIterator;
 typedef _NSMap::const_iterator NSMapConstIterator;

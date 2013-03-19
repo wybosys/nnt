@@ -74,7 +74,7 @@ NNTDECL_PRIVATE_END
     gra.translate(d_ptr->value, 0);
     
     // draw inp.
-    struct draw_block : ::wsi::core::sc<draw_block>
+    struct draw_block : ::nnt::core::sc<draw_block>
     {
         void operator () (Graphics& gra, CGRect const& rc) const
         {

@@ -42,7 +42,7 @@ Oracle::~Oracle()
     NNTDECL_PRIVATE_DESTROY();
 }
 
-bool Oracle::connect(const wsi::store::connection_info &)
+bool Oracle::connect(const ::nnt::store::connection_info &)
 {
     return false;
 }

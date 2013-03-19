@@ -4,7 +4,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGTextStyle);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
 
 @interface NSStyleString : NNTObject {
     
@@ -12,12 +12,12 @@ NNTDECL_EXTERN_CLASS(WCGTextStyle);
     NSString* string;
     
     //! text style.
-    WCGTextStyle* textStyle;
+    NgTextStyle* textStyle;
     
 }
 
 @property (nonatomic, copy) NSString* string;
-@property (nonatomic, retain) WCGTextStyle* textStyle;
+@property (nonatomic, retain) NgTextStyle* textStyle;
 
 //! init.
 - (id)initWithString:(NSString*)str;

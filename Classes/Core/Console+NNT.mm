@@ -5,9 +5,9 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalPrint = @"::wsi::console::print";
+signal_t kSignalPrint = @"::nnt::console::print";
 
-# define CON ((::wsi::Console*)h_console)
+# define CON ((::nnt::Console*)h_console)
 
 static NNTConsole* __gs_console = nil;
 
@@ -16,13 +16,13 @@ static NNTConsole* __gs_console = nil;
 - (id)init {
     self = [super init];
     
-    h_console = new ::wsi::Console;
+    h_console = new ::nnt::Console;
     
     return self;
 }
 
 - (void)dealloc {
-    delete (::wsi::Console*) h_console;
+    delete (::nnt::Console*) h_console;
     h_console = NULL;
     [super dealloc];
 }

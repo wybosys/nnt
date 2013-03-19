@@ -12,7 +12,7 @@ NNT_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    WCGMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] init];
+    NgMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] init];
     tmp.lineWidth = 1;
     tmp.lineColor = [WCGColor grayColor];
     tmp.dashPattern = [NSArray arrayWithObjects:NSNumber1, NSNumber1, nil];
@@ -24,10 +24,10 @@ NNT_BEGIN_OBJC
     return self;
 }
 
-- (id)initWithLineStyle:(WCGLineStyle *)ls {
+- (id)initWithLineStyle:(NgLineStyle *)ls {
     self = [super initWithZero];
     
-    WCGMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] initWithLineStyle:ls];
+    NgMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] initWithLineStyle:ls];
     self.lineStyle = tmp;
     safe_release(tmp);
     

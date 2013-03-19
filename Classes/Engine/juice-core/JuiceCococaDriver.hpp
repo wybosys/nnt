@@ -5,7 +5,7 @@
 
 # include "JuiceDriver.hpp"
 # include "JuiceCocoa++.hpp"
-# include "../../Graphic/WCGContext.h"
+# include "../../Graphic/NGContext.h"
 
 JUICE_BEGIN
 
@@ -126,7 +126,7 @@ public:
     void flush()
     {
         // draw _context to current.
-        CGContextRef ctx = WCGGetCurrentContext();
+        CGContextRef ctx = NgGetCurrentContext();
         if (ctx == NULL)
             return;
         
@@ -254,7 +254,7 @@ public:
     
 protected:
     
-    ::wsi::cg::Rect _bounds;
+    ::nnt::cg::Rect _bounds;
     context_type _context;
     context_type* _ptrcontext;
     drawable_type _drawable;

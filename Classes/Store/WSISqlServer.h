@@ -78,7 +78,7 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-NNTAPI(::wsi::store::test::Mssql*) UTMssql();
+NNTAPI(::nnt::store::test::Mssql*) UTMssql();
 
 NNT_END_HEADER_C
 

@@ -4,16 +4,16 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalURLConnectionSendRequest = @"::wsi::core::connection::sendrequest";
-signal_t kSignalURLConnectionReceiveResponse = @"::wsi::core::connection::receive::respone";
-signal_t kSignalURLConnectionReceiveData = @"::wsi::core::connection::receive::data";
-signal_t kSignalURLConnectionDataChanged = @"::wsi::core::connection::data::changed";
-signal_t kSignalURLConnectionFinish = @"::wsi::core::connection::finish";
-signal_t kSignalURLConnectionError = @"::wsi::core::connection::error";
-signal_t kSignalURLConnectionExit = @"::wsi::core::connection::exit";
+signal_t kSignalURLConnectionSendRequest = @"::nnt::core::connection::sendrequest";
+signal_t kSignalURLConnectionReceiveResponse = @"::nnt::core::connection::receive::respone";
+signal_t kSignalURLConnectionReceiveData = @"::nnt::core::connection::receive::data";
+signal_t kSignalURLConnectionDataChanged = @"::nnt::core::connection::data::changed";
+signal_t kSignalURLConnectionFinish = @"::nnt::core::connection::finish";
+signal_t kSignalURLConnectionError = @"::nnt::core::connection::error";
+signal_t kSignalURLConnectionExit = @"::nnt::core::connection::exit";
 
-signal_t kSignalURLConnectionWillRedirect = @"::wsi::core::connection::willredirect";
-signal_t kSignalURLConnectionRedirected = @"::wsi::core::connection::redirected";
+signal_t kSignalURLConnectionWillRedirect = @"::nnt::core::connection::willredirect";
+signal_t kSignalURLConnectionRedirected = @"::nnt::core::connection::redirected";
 
 @interface NSSyncURLConnection : NNTObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
     NSURLConnection* _req;

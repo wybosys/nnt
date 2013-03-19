@@ -51,9 +51,9 @@ NNT_BEGIN_OBJC
 }
 
 - (void)updateLayout:(CGRect)rect {
-    wsi::CGRectLayoutVBox lyt(CGRectDeflateCenter(rect, 5, 5));
-    wsi::CGRectLayoutLinear lnr(lyt);
-    lnr << (wsi::flex)1 << (wsi::flex)1;
+    ::nnt::CGRectLayoutVBox lyt(CGRectDeflateCenter(rect, 5, 5));
+    ::nnt::CGRectLayoutLinear lnr(lyt);
+    lnr << (::nnt::flex)1 << (::nnt::flex)1;
     
     labelName.frame = lyt.add_pixel(lnr.start());
     labelPhone.frame = lyt.add_pixel(lnr.next());
@@ -134,8 +134,8 @@ NNT_BEGIN_OBJC
     [NSObject refobjSet:&store_all ref:all];
     
     // refresh
-    wsi::ns::MutableArray phones(all.count);
-    wsi::ns::MutableArray names(all.count);
+    ::nnt::ns::MutableArray phones(all.count);
+    ::nnt::ns::MutableArray names(all.count);
     
     for (NSDictionary* each in all) {
         NSArray* data_phones = (NSArray*)[each objectForKey:@"phones"];
@@ -296,9 +296,9 @@ NNT_BEGIN_OBJC
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    wsi::CGRectLayoutHBox lyt(self.bounds);
-    wsi::CGRectLayoutLinear lnr(lyt);
-    lnr << (wsi::flex)1 << (wsi::pixel)self.bounds.size.height;
+    ::nnt::CGRectLayoutHBox lyt(self.bounds);
+    ::nnt::CGRectLayoutLinear lnr(lyt);
+    lnr << (::nnt::flex)1 << (::nnt::pixel)self.bounds.size.height;
     
     lyt.add_pixel(lnr.start());
     ((UIView*)buttonPicker).frame = lyt.add_pixel(lnr.next());

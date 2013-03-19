@@ -194,7 +194,7 @@ public:
                           typename ntl::is_wrapper<valT>::nonwrapper const* = NULL)
     : super(nil)
     {
-        this->_self = [::wsi::tostr(val) retain];
+        this->_self = [::nnt::tostr(val) retain];
     }
     
     template <typename valT>
@@ -438,7 +438,7 @@ NNT_BEGIN_NS(ntl)
 template <>
 struct value_type< ::NSString* >
 { 
-    typedef ::wsi::ns::String type; 
+    typedef ::nnt::ns::String type; 
 };
 
 
@@ -487,7 +487,7 @@ inline_impl core::string type_cast<core::string, ns::String>(ns::String const& s
 template <>
 inline_impl ns::String type_cast<ns::String, core::string>(core::string const& str)
 {
-    return ::wsi::tostr(str);
+    return ::nnt::tostr(str);
 }
 
 template <>
@@ -509,7 +509,7 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-using ::wsi::tostr;
+using ::nnt::tostr;
 
 NNT_END_HEADER_C
 

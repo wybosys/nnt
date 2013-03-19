@@ -5,7 +5,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalSnapshot = @"::wsi::snapshot";
+signal_t kSignalSnapshot = @"::nnt::snapshot";
 
 NNTDECL_PRIVATE_BEGIN(UICameraView, NNTObject) <AVCamCaptureManagerDelegate>
 

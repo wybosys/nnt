@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGLineStyle);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
 NNTDECL_EXTERN_CLASS(NNTUILabel);
 
 NNTDECL_PRIVATE_HEAD(UILayoutGridView);
@@ -23,8 +23,8 @@ NNTDECL_PRIVATE_HEAD(UILayoutGridView);
     CGMargin _margin;
     
     //! line style.
-    WCGLineStyle *_rowLineStyle;
-    WCGLineStyle *_colLineStyle;
+    NgLineStyle *_rowLineStyle;
+    NgLineStyle *_colLineStyle;
     
     //! reuse label.
     NNTUILabel *_reuseLabel;
@@ -39,7 +39,7 @@ NNTDECL_PRIVATE_HEAD(UILayoutGridView);
 @property (nonatomic, assign) NSUInteger rows, cols;
 @property (nonatomic, assign) CGPadding padding;
 @property (nonatomic, assign) CGMargin margin;
-@property (nonatomic, retain) WCGLineStyle *rowLineStyle, *colLineStyle;
+@property (nonatomic, retain) NgLineStyle *rowLineStyle, *colLineStyle;
 @property (nonatomic, retain) NNTUILabel *reuseLabel;
 
 //! init

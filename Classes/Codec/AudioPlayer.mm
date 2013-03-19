@@ -6,7 +6,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalPlayCompleted = @"::wsi::play::completed";
+signal_t kSignalPlayCompleted = @"::nnt::play::completed";
 
 static bool __gs_session_playback = false;
 

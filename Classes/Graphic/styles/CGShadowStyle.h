@@ -6,13 +6,13 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCGShadowStyle : WCGStyle {
-    WCGColor*  _color;
+@interface NgShadowStyle : NgStyle {
+    NgColor*  _color;
     CGFloat   _blur;
     CGSize    _offset;
 }
 
-@property (nonatomic, retain) WCGColor*  color;
+@property (nonatomic, retain) NgColor*  color;
 @property (nonatomic)         CGFloat   blur;
 @property (nonatomic)         CGSize    offset;
 

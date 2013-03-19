@@ -8,7 +8,7 @@ NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_EXTERN_CLASS(CGShadow);
 NNTDECL_PRIVATE_HEAD(UITearView);
-NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @interface UITearView : NNTUIView {
     
@@ -34,7 +34,7 @@ NNTDECL_EXTERN_CLASS(WCGFill);
     NSUInteger edgeWidth;
     
     //! fill.
-    WCGFill *fill;
+    NgFill *fill;
     
     //! main rect.
     CGRect contentRect;
@@ -69,7 +69,7 @@ NNTDECL_EXTERN_CLASS(WCGFill);
 @property (nonatomic, retain) CGShadow *edgeShadow;
 @property (nonatomic, retain) UIColor *edgeColor;
 @property (nonatomic, assign) NSUInteger edgeWidth;
-@property (nonatomic, retain) WCGFill *fill;
+@property (nonatomic, retain) NgFill *fill;
 @property (nonatomic, assign) real lenArrow, locationArrow;
 @property (nonatomic, readonly) CGRect contentRect;
 @property (nonatomic, assign) BOOL autoClose;

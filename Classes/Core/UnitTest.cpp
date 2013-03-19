@@ -145,22 +145,22 @@ NNT_END_CXX
 
 NNT_BEGIN_C
 
-::wsi::ut::Suite* UTSuiteDefault()
+::nnt::ut::Suite* UTSuiteDefault()
 {
-    return new ::wsi::ut::Suite;
+    return new ::nnt::ut::Suite;
 }
 
-void UTSuiteFree(::wsi::ut::Suite *obj)
+void UTSuiteFree(::nnt::ut::Suite *obj)
 {
     safe_delete(obj);
 }
 
-bool UTSuiteAddCase(::wsi::ut::Case *obj, ::wsi::ut::Suite *su)
+bool UTSuiteAddCase(::nnt::ut::Case *obj, ::nnt::ut::Suite *su)
 {
     return su->add(obj);
 }
 
-void UTSuiteRun(::wsi::ut::Suite* su)
+void UTSuiteRun(::nnt::ut::Suite* su)
 {
     su->run();
 }

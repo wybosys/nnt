@@ -1670,22 +1670,22 @@ typedef struct {} objc_type;
 # endif
 
 // include C++ Base Classes.
-# include "../WTL/Exception+NNT.h"
-# include "../WTL/Types+NNT.h"
-# include "../WTL/Operator+NNT.h"
-# include "../WTL/Function+NNT.h"
-# include "../WTL/String+NNT.h"
-# include "../WTL/Vector+NNT.h"
-# include "../WTL/List+NNT.h"
-# include "../WTL/Map+NNT.h"
-//# include "../WTL/Bimap+NNT.h"
-# include "../WTL/Tuple+NNT.h"
-# include "../WTL/Data+NNT.h"
-# include "../WTL/Algorithm+NNT.h"
-# include "../WTL/Regex+NNT.h"
-# include "../WTL/SmartPtr+NNT.h"
-# include "../WTL/Closure+NNT.h"
-# include "../WTL/Variant+NNT.h"
+# include "../TL/Exception+NNT.h"
+# include "../TL/Types+NNT.h"
+# include "../TL/Operator+NNT.h"
+# include "../TL/Function+NNT.h"
+# include "../TL/String+NNT.h"
+# include "../TL/Vector+NNT.h"
+# include "../TL/List+NNT.h"
+# include "../TL/Map+NNT.h"
+//# include "../TL/Bimap+NNT.h"
+# include "../TL/Tuple+NNT.h"
+# include "../TL/Data+NNT.h"
+# include "../TL/Algorithm+NNT.h"
+# include "../TL/Regex+NNT.h"
+# include "../TL/SmartPtr+NNT.h"
+# include "../TL/Closure+NNT.h"
+# include "../TL/Variant+NNT.h"
 
 // ignore assert.
 # include <assert.h>

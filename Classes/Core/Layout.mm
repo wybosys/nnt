@@ -398,7 +398,7 @@ void CGRectLayoutLinear::resize(uint sz)
     _segs.resize(sz);
 }
 
-void CGRectLayoutLinear::resize(uint sz, const wsi::CGRectLayoutLinear::_seg & __seg) 
+void CGRectLayoutLinear::resize(uint sz, const ::nnt::CGRectLayoutLinear::_seg & __seg) 
 {
     if (_segs.size() == sz)
         return;

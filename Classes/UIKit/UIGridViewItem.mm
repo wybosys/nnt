@@ -85,7 +85,7 @@ NNTEVENT_END
     
     CGContextSaveGState(context);
     
-    WCGFill *theBkFill = self.backgroundFill;
+    NgFill *theBkFill = self.backgroundFill;
     if (!theBkFill)
         theBkFill = _gridView.itemBackgroundFill;
     if (theBkFill) {
@@ -261,10 +261,10 @@ NNTEVENT_END
 }
 
 - (void)layoutSubviews {
-    wsi::CGRectLayoutVBox lyt(self.bounds);
+    ::nnt::CGRectLayoutVBox lyt(self.bounds);
     lyt.margin = self.margin;
     
-    wsi::CGRectLayoutLinear lnr(self.bounds.size.height);
+    ::nnt::CGRectLayoutLinear lnr(self.bounds.size.height);
     lnr.add_flex(1);
     lnr.add_pixel(height);
     

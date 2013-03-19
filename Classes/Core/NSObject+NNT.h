@@ -112,14 +112,14 @@ NNT_MAINTHREAD_END \
 //! set cxx signals/slots.
 # ifdef NNT_CXX
 
-- (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
-- (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (void)register_signal:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target;
+- (void)register_signal:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay;
 
-- (slot_t*)connect:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
-- (slot_t*)connect:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (slot_t*)connect:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target;
+- (slot_t*)connect:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay;
 
-- (void)disconnect_target:(::wsi::Object*)target;
-- (void)disconnect_target:(::wsi::Object *)target signal:(id)signal;
+- (void)disconnect_target:(::nnt::Object*)target;
+- (void)disconnect_target:(::nnt::Object *)target signal:(id)signal;
 
 # endif
 
@@ -212,14 +212,14 @@ NNTDECL_CATEGORY(NSObject, NNT);
 # define reference_retain assign
 
 @interface NSRefObject : NSObject {
-    ::wsi::RefObject const* _cxxobj;
+    ::nnt::RefObject const* _cxxobj;
 }
 
-@property (nonatomic, reference_retain) ::wsi::RefObject const* object;
+@property (nonatomic, reference_retain) ::nnt::RefObject const* object;
 
-- (id)initWith:(::wsi::RefObject const*)object;
-+ (id)objectWith:(::wsi::RefObject const*)object;
-- (void)setObject:(::wsi::RefObject const*)obj grab:(BOOL)grab;
+- (id)initWith:(::nnt::RefObject const*)object;
++ (id)objectWith:(::nnt::RefObject const*)object;
+- (void)setObject:(::nnt::RefObject const*)obj grab:(BOOL)grab;
 
 @end
 
@@ -247,14 +247,14 @@ NNT_AUTORELEASEPOOL_END
 # ifdef NNT_CXX
 
 @interface _cxxobject_perform_wrapper : NSObject {
-    ::wsi::Object* _object;
+    ::nnt::Object* _object;
     void* _params;
-    ::wsi::Object::func_callback _function;
+    ::nnt::Object::func_callback _function;
 }
 
-@property (nonatomic, assign) ::wsi::Object* object;
+@property (nonatomic, assign) ::nnt::Object* object;
 @property (nonatomic, assign) void * params;
-@property (nonatomic, assign) ::wsi::Object::func_callback function;
+@property (nonatomic, assign) ::nnt::Object::func_callback function;
 
 @end
 
@@ -263,7 +263,7 @@ _wsi_objcxx_wrapper_##cls
 
 @protocol NNT_OBJCXX_WRAPPER(object)
 <NSObject>
-@property (nonatomic, assign) ::wsi::IObject* _cxxobj;
+@property (nonatomic, assign) ::nnt::IObject* _cxxobj;
 @end
 
 # else
@@ -397,7 +397,7 @@ protected:
     
 };
 
-# define NNTMACRO_LOCKOBJ(obj) ::wsi::ns::AutoLockObject<__typeof__(*obj)> NNTAUTO_NAME(obj);
+# define NNTMACRO_LOCKOBJ(obj) ::nnt::ns::AutoLockObject<__typeof__(*obj)> NNTAUTO_NAME(obj);
 
 class AutoreleasePool
 {
@@ -417,7 +417,7 @@ public:
     
 };
 
-# define autocollect ::wsi::ns::AutoreleasePool NNTAUTO_NAME;
+# define autocollect ::nnt::ns::AutoreleasePool NNTAUTO_NAME;
 
 class Null
 {
@@ -527,7 +527,7 @@ public:
 # define _perform_action(clsfunc) (owner_function_type)&clsfunc
 
 template <typename T = ::NNTObject,
-typename baseT = ::wsi::Object >
+typename baseT = ::nnt::Object >
 class Object
 : public baseT
 {
@@ -671,8 +671,8 @@ public:
     void perform(owner_function_type func, NSTimeInterval ti = 0, void* params = NULL)
     {
         _cxxobject_perform_wrapper* wrapper = [[_cxxobject_perform_wrapper alloc] init];
-        wrapper.object = (::wsi::Object*)this;
-        wrapper.function = (::wsi::Object::func_callback)func;
+        wrapper.object = (::nnt::Object*)this;
+        wrapper.function = (::nnt::Object::func_callback)func;
         wrapper.params = params;
         
         if (ti) {
@@ -689,8 +689,8 @@ public:
     void perform(owner_function_type func, thread_main_t const& thdobj, void* params = NULL, bool wait = true)
     {
         _cxxobject_perform_wrapper* wrapper = [[_cxxobject_perform_wrapper alloc] init];
-        wrapper.object = (::wsi::Object*)this;
-        wrapper.function = (::wsi::Object::func_callback)(func);
+        wrapper.object = (::nnt::Object*)this;
+        wrapper.function = (::nnt::Object::func_callback)(func);
         wrapper.params = params;        
         [this->_self performSelectorOnMainThread:@selector(performCxxObjectFunctionWrapper:) withObject:wrapper waitUntilDone:wait];
         [wrapper release];
@@ -699,8 +699,8 @@ public:
     void perform(owner_function_type func, thread_background_t const& thdobj, void* params = NULL, bool wait = true)
     {
         _cxxobject_perform_wrapper* wrapper = [[_cxxobject_perform_wrapper alloc] init];
-        wrapper.object = (::wsi::Object*)this;
-        wrapper.function = (::wsi::Object::func_callback)(func);
+        wrapper.object = (::nnt::Object*)this;
+        wrapper.function = (::nnt::Object::func_callback)(func);
         wrapper.params = params;
         [this->_self performSelectorInBackground:@selector(performCxxObjectFunctionWrapper:) withObject:wrapper];
         [wrapper release];
@@ -709,8 +709,8 @@ public:
     void perform(owner_function_type func, thread_same_t const& thdobj, void* params = NULL, bool wait = true)
     {
         _cxxobject_perform_wrapper* wrapper = [[_cxxobject_perform_wrapper alloc] init];
-        wrapper.object = (::wsi::Object*)this;
-        wrapper.function = (::wsi::Object::func_callback)(func);
+        wrapper.object = (::nnt::Object*)this;
+        wrapper.function = (::nnt::Object::func_callback)(func);
         wrapper.params = params;
         [this->_self performSelector:@selector(performCxxObjectFunctionWrapper:) withObject:wrapper];
         [wrapper release];
@@ -795,14 +795,14 @@ public:
     
 # endif
         
-    void register_signal(id sig, objevent_func act, ::wsi::Object* tgt, real delay = 0)
+    void register_signal(id sig, objevent_func act, ::nnt::Object* tgt, real delay = 0)
     {
         slot_t* slot = [_self register_signal:sig action:act target:tgt delay:delay];
         slot.sender = this;
         slot.fixsender = YES;
     }
     
-    ns::Slot connect(id sig, objevent_func act, ::wsi::Object* tgt = NULL, real delay = 0)
+    ns::Slot connect(id sig, objevent_func act, ::nnt::Object* tgt = NULL, real delay = 0)
     {
         if (tgt == NULL)
             tgt = this;
@@ -815,15 +815,15 @@ public:
     template <typename objT>
     ns::Slot connect(id sig, objevent_func act, objT& tgt, real delay = 0)
     {
-        return connect(sig, act, (::wsi::Object*)tgt.cxxobject(), delay);
+        return connect(sig, act, (::nnt::Object*)tgt.cxxobject(), delay);
     }
     
-    void disconnect(::wsi::Object* tgt)
+    void disconnect(::nnt::Object* tgt)
     {
         [_self disconnect_target:tgt];
     }
     
-    void disconnect(id sig, ::wsi::Object* tgt)
+    void disconnect(id sig, ::nnt::Object* tgt)
     {
         [_self disconnect_target:tgt signal:sig];
     }
@@ -963,8 +963,8 @@ protected:
     
 };
 
-typedef Object < ::NNTObject, ::wsi::Object > SimpleObject;
-typedef Object < ::NNTObject, ::wsi::RefObject > RefObject;
+typedef Object < ::NNTObject, ::nnt::Object > SimpleObject;
+typedef Object < ::NNTObject, ::nnt::RefObject > RefObject;
 
 typedef struct {} property_writable;
 typedef struct {} property_readonly;
@@ -1134,22 +1134,22 @@ public:
 type selr() { return [this->_self selr]; }
     
 # define NNTDECL_PROPERTY(prop, type, scheme) \
-::wsi::ns::class_property<type, scheme> prop () const \
+::nnt::ns::class_property<type, scheme> prop () const \
 { \
-return ::wsi::ns::class_property<type, scheme>((id)this->_self, #prop); \
+return ::nnt::ns::class_property<type, scheme>((id)this->_self, #prop); \
 }
     
 # define NNTDECL_PROPERTY_RETAIN(prop, type) \
-NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_retain)
+NNTDECL_PROPERTY(prop, type, ::nnt::ns::property_retain)
     
 # define NNTDECL_PROPERTY_ASSIGN(prop, type) \
-NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_assign)
+NNTDECL_PROPERTY(prop, type, ::nnt::ns::property_assign)
     
 # define NNTDECL_PROPERTY_READONLY(prop, type) \
-NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_readonly)
+NNTDECL_PROPERTY(prop, type, ::nnt::ns::property_readonly)
     
 # define NNTDECL_PROPERTY_COPY(prop, type) \
-NNTDECL_PROPERTY(prop, type, ::wsi::ns::property_copy)
+NNTDECL_PROPERTY(prop, type, ::nnt::ns::property_copy)
     
 # define NNTDECL_PROPERTY_ACCESS(prop, type) \
 void set_##prop(type val) { this->_self.prop = val; } \
@@ -1173,7 +1173,7 @@ NNTIMPL_OBJCXX_WRAPPER_END
 @implementation NNT_OBJCXX_WRAPPER(cls) \
 @synthesize _cxxobj; \
 - (void)dealloc { \
-::wsi::destroy(self._cxxobj); \
+::nnt::destroy(self._cxxobj); \
 [super dealloc]; }
     
 # define NNTIMPL_OBJCXX_WRAPPER_END \
@@ -1182,7 +1182,7 @@ NNTIMPL_OBJCXX_WRAPPER_END
 NNT_BEGIN_NS(cxx)
     
 class IObject
-: public ::wsi::IObject
+: public ::nnt::IObject
 {
     
 public:

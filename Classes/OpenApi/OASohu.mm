@@ -36,7 +36,7 @@ NNT_BEGIN_OBJC
 
 - (void)generateParameters:(NSMutableDictionary *)__dict {
     
-    wsi::ns::MutableDictionary dict(__dict);
+    ::nnt::ns::MutableDictionary dict(__dict);
     dict[@"oauth_consumer_key"] = [self.appKey OAEncode];
     dict[@"oauth_nonce"] = [self.nonce OAEncode];
     dict[@"oauth_signature_method"] = [self.signature.method_name() OAEncode];
@@ -46,7 +46,7 @@ NNT_BEGIN_OBJC
 
 - (NSString*)baseString {
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"oauth_callback"] = [@"null" OAEncode];
     [self generateParameters:dict];
     
@@ -74,7 +74,7 @@ NNT_BEGIN_OBJC
     NSString* str_secret = [NSString stringWithFormat:@"%@&", [self.appSecret OAEncode]];
     NSString* str_signed = [self signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"oauth_signature"] = [str_signed OAEncode]; 
     dict[@"oauth_callback"] = [@"null" OAEncode];
     
@@ -111,7 +111,7 @@ NNT_BEGIN_OBJC
 
 - (NSString*)baseString {
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_verifier"] = self.request.verifier;
     dict[@"oauth_token"] = self.request.token;
@@ -139,7 +139,7 @@ NNT_BEGIN_OBJC
     NSString* str_secret = [NSString stringWithFormat:@"%@&%@", [self.request.appSecret OAEncode], [self.request.token_secret OAEncode]];
     NSString* str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     dict[@"oauth_verifier"] = self.request.verifier;
@@ -157,7 +157,7 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)process:(NSObject *)__result {
-    wsi::ns::MutableDictionary dict((NSMutableDictionary*)__result);
+    ::nnt::ns::MutableDictionary dict((NSMutableDictionary*)__result);
     self.request.access_token = dict[@"oauth_token"];
     self.request.access_token_secret = dict[@"oauth_token_secret"];
     return YES;
@@ -183,7 +183,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)saveTo:(NSMutableDictionary*)__dict {
-    wsi::ns::MutableDictionary dict(__dict);
+    ::nnt::ns::MutableDictionary dict(__dict);
     dict[@"::oauth::access_token"] = _request.access_token;
     dict[@"::oauth::access_token_secret"] = _request.access_token_secret;
     dict[@"::oauth::token"] = _request.token;
@@ -200,7 +200,7 @@ NNT_BEGIN_OBJC
 }
 
 + (UIImage*)LogoImage {    
-    WCGImage* imgRes = WCGImageLoadPngData(sohu_mblog, sizeof(sohu_mblog));
+    NgImage* imgRes = NgImageLoadPngData(sohu_mblog, sizeof(sohu_mblog));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 
@@ -266,7 +266,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSString*)baseString {
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     
     // base params.
     [self.request generateParameters:dict];
@@ -307,7 +307,7 @@ NNT_BEGIN_OBJC
     
     NSString* str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     dict[@"oauth_token"] = self.request.access_token;
@@ -333,7 +333,7 @@ NNT_BEGIN_OBJC
 
 - (NSMutableArray*)get_params {
     
-    wsi::ns::MutableArray arr([self dup_params]);
+    ::nnt::ns::MutableArray arr([self dup_params]);
     
     for (NSPair *each in self.sohu_params) {
         arr << pair(each.first, [each.second OAEncode]);
@@ -356,7 +356,7 @@ NNT_BEGIN_OBJC
 
 - (NSMutableArray*)get_sohu_params {
     
-    wsi::ns::MutableArray arr([super get_sohu_params]);
+    ::nnt::ns::MutableArray arr([super get_sohu_params]);
     return arr;
 }
 
@@ -410,7 +410,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSMutableArray*)get_sohu_params {
-    wsi::ns::MutableArray arr;
+    ::nnt::ns::MutableArray arr;
     arr << pair(@"status", content);
     return arr.consign();
 }
@@ -420,7 +420,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSMutableArray*)get_extend_datas {
-    wsi::ns::MutableArray arr([self dup_extend_datas]);
+    ::nnt::ns::MutableArray arr([self dup_extend_datas]);
     arr << [Model SetHttpHeaderValue:@"api.t.sohu.com" forField:@"HTTP/1.0 Host"];
     return arr;
 }
@@ -434,7 +434,7 @@ NNT_BEGIN_OBJC
     
     NSString* str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     dict[@"oauth_token"] = self.request.access_token;
@@ -445,7 +445,7 @@ NNT_BEGIN_OBJC
     }
     
     NSDictionary *tmp_dict = dict;
-    wsi::ns::MutableArray arr;
+    ::nnt::ns::MutableArray arr;
     for (id each in tmp_dict) {
         arr << pair(each, [tmp_dict valueForKey:each]);
     }

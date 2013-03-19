@@ -9,7 +9,7 @@ NNT_BEGIN_OBJC
 @implementation DTraceLogoSwitch
 
 + (id)logoSwitch {
-    WCGImage* wcgimage = WCGImageLoadPngData(png_dtrace_logo, sizeof(png_dtrace_logo));
+    NgImage* wcgimage = NgImageLoadPngData(png_dtrace_logo, sizeof(png_dtrace_logo));
     UIImage* image = [UIImage imageWithCGImage:wcgimage.image];
     DTraceLogoSwitch* ret = [[DTraceLogoSwitch alloc] initWithImage:image];
     

@@ -7,8 +7,8 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalInitialWillComplete = @"::wsi::ui::initial::complete::will";
-signal_t kSignalInitialComplete = @"::wsi::ui::initial::complete";
+signal_t kSignalInitialWillComplete = @"::nnt::ui::initial::complete::will";
+signal_t kSignalInitialComplete = @"::nnt::ui::initial::complete";
 
 @implementation UIInitialView
 
@@ -292,7 +292,7 @@ _CXXVIEW_IMPL_BEGIN(UIInitialView)
 }
 
 - (void)_do_initialViewWork:(UIInitialView*)view {
-    ((::wsi::ui::IInitialView*)self._cxxobj)->work();
+    ((::nnt::ui::IInitialView*)self._cxxobj)->work();
 }
 
 _CXXVIEW_IMPL_END

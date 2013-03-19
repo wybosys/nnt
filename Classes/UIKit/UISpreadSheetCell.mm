@@ -31,7 +31,7 @@ NNT_BEGIN_OBJC
 
 - (void)drawInContext:(CGContextRef)ctx {    
     // draw base.
-    WCGFill *theFill = self.cellFill;
+    NgFill *theFill = self.cellFill;
     
     if (theFill) {
         [theFill fillRect:self.frame inContext:ctx];
@@ -39,7 +39,7 @@ NNT_BEGIN_OBJC
     
     NSString *theText = self.text;
     if (text) {
-        WCGTextStyle *theTs = self.textStyle;
+        NgTextStyle *theTs = self.textStyle;
         if (theTs) {                    
             CGContextAddTextInRect(ctx, self.frame, theText, theTs);
         }

@@ -4,11 +4,11 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalPayReceive = @"::wsi::pay::receive";
-signal_t kSignalPaySuccess = @"::wsi::pay::success";
-signal_t kSignalPayFailed = @"::wsi::pay::failed";
-signal_t kSignalPaying = @"::wsi::pay::doing";
-signal_t kSignalPayRestore = @"::wsi::pay::restore";
+signal_t kSignalPayReceive = @"::nnt::pay::receive";
+signal_t kSignalPaySuccess = @"::nnt::pay::success";
+signal_t kSignalPayFailed = @"::nnt::pay::failed";
+signal_t kSignalPaying = @"::nnt::pay::doing";
+signal_t kSignalPayRestore = @"::nnt::pay::restore";
 
 @implementation PayNullApi
 

@@ -82,7 +82,7 @@ NNT_BEGIN_OBJC
     NSString *str_secret = [NSString stringWithFormat:@"%@&", self.appSecret];
     NSString *str_signed = [self signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"oauth_callback"] = [urlCallback OAEncode];
     dict[@"oauth_signature"] = [str_signed OAEncode]; 
     
@@ -215,7 +215,7 @@ NNT_BEGIN_OBJC
 }
 
 + (UIImage*)LogoImage {    
-    WCGImage* imgRes = WCGImageLoadPngData(netease_mblog, sizeof(netease_mblog));
+    NgImage* imgRes = NgImageLoadPngData(netease_mblog, sizeof(netease_mblog));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 
@@ -283,7 +283,7 @@ NNT_BEGIN_OBJC
     NSString *str_secret = [NSString stringWithFormat:@"%@&%@", self.request.appSecret, self.request.access_token_secret];
     NSString *str_signed = [self.request signatureString:str_base secret:str_secret];
     
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
     dict[@"oauth_token"] = self.request.access_token;

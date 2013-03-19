@@ -17,19 +17,19 @@ NNT_BEGIN_HEADER_OBJC
 
 @end
 
-NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @interface NNTNSView : NSView {
     
     //! background fill.
-    WCGFill* backgroundFill;
+    NgFill* backgroundFill;
     
     NNTOBJECT_DECL;
 }
 
 NNTOBJECT_PROP;
 
-@property (nonatomic, retain) WCGFill* backgroundFill;
+@property (nonatomic, retain) NgFill* backgroundFill;
 
 - (void)layoutSubviews;
 
@@ -51,13 +51,13 @@ NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_nsview_wrapper <NSObject>
 
-@property (nonatomic, assign) ::wsi::ui::IView* _cxxobj;
+@property (nonatomic, assign) ::nnt::ui::IView* _cxxobj;
 
 @end
 
 @interface _cxx_nsview_wrapper : NNTNSView <_cxx_nsview_wrapper>
 {
-    ::wsi::ui::IView* _cxxobj;    
+    ::nnt::ui::IView* _cxxobj;    
 }
 
 @end
@@ -65,7 +65,7 @@ NNT_BEGIN_HEADER_OBJC
 NNT_END_HEADER_OBJC
 
 # include "NNTUIObject.h"
-# include "../Graphic/WCGFill.h"
+# include "../Graphic/NGFill.h"
 
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ui)

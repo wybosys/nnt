@@ -72,7 +72,7 @@ public:
 
 template <typename itemT>
 class Section
-: public ::wsi::RefObject
+: public ::nnt::RefObject
 {
 public:
     

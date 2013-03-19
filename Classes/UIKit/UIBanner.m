@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIBanner.h"
 # import <QuartzCore/QuartzCore.h>
-# import "WCGGradient.h"
+# import "NGGradient.h"
 # import "CoreGraphic+NNT.h"
 
 NNT_BEGIN_OBJC
@@ -110,7 +110,7 @@ NNT_BEGIN_OBJC
     if (backgroundFill == nil) {
         switch (bannerPosition) {
             case UIBannerPositionTop: case UIBannerPositionBottom: {
-                WCGGradient *color = [WCGGradient gradientWithBeginningColor:[WCGColor colorWithRGB:0x777777] endingColor:[WCGColor colorWithRGB:0x000000]];
+                NgGradient *color = [WCGGradient gradientWithBeginningColor:[WCGColor colorWithRGB:0x777777] endingColor:[WCGColor colorWithRGB:0x000000]];
                 color.angle = 90;
                 self.backgroundFill = [WCGFill fillWithGradient:color];
             } break;

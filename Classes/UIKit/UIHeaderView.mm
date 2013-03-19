@@ -5,7 +5,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalAction = @"::wsi::action";
+signal_t kSignalAction = @"::nnt::action";
 
 @implementation UIHeaderView
 
@@ -24,7 +24,7 @@ NNTEVENT_END
     self.frame = frame;
     
     _height = 50;
-    _direction = WCGDirectionTop;
+    _direction = NgDirectionTop;
     _autoScale = YES;
     
     return self;
@@ -84,7 +84,7 @@ NNTEVENT_END
     CGRectLayoutLinear lnr(lyt);
     
     CGRect rc;
-    if (_direction == WCGDirectionTop) {
+    if (_direction == NgDirectionTop) {
         lnr << (flex)1 << (pixel)_height;
         lyt << lnr;
         rc = lyt << lnr;

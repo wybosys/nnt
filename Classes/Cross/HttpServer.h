@@ -59,7 +59,7 @@ public:
     
 };
 
-static cxx::signal_t kSignalNewConnection = "::wsi::connection::new";
+static cxx::signal_t kSignalNewConnection = "::nnt::connection::new";
 
 NNT_END_NS
 NNT_END_HEADER_CXX

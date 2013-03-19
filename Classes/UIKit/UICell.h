@@ -4,9 +4,9 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGLineStyle);
-NNTDECL_EXTERN_CLASS(WCGTextStyle);
-NNTDECL_EXTERN_CLASS(WCGFill);
+NNTDECL_EXTERN_CLASS(NgLineStyle);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
+NNTDECL_EXTERN_CLASS(NgFill);
 
 @protocol NSCell <NSObject>
 
@@ -25,13 +25,13 @@ NNTDECL_EXTERN_CLASS(WCGFill);
     real pos; //! position(offset from pre line) of self.
     real absolutePos; //! position from first line.
     
-    WCGLineStyle *style;
+    NgLineStyle *style;
 }
 
 @property (nonatomic, assign) NSCellLine *nextLine, *prevLine;
 @property (nonatomic, assign) NSUInteger npos;
 @property (nonatomic, assign) real pos;
-@property (nonatomic, retain) WCGLineStyle *style;
+@property (nonatomic, retain) NgLineStyle *style;
 @property (nonatomic, readonly, getter = getAbsolutePos) real absolutePos;
 
 - (real)getAbsolutePos;
@@ -45,7 +45,7 @@ NNTDECL_EXTERN_CLASS(WCGFill);
 @interface NSCell : NNTObject <NSCell> {
     
     NSString *text;
-    WCGTextStyle *textStyle;
+    NgTextStyle *textStyle;
         
     NSCellLine *lineLeft, *lineRight, *lineTop, *lineBottom;
     
@@ -55,7 +55,7 @@ NNTDECL_EXTERN_CLASS(WCGFill);
 }
 
 @property (nonatomic, copy) NSString *text;
-@property (nonatomic, retain) WCGTextStyle *textStyle;
+@property (nonatomic, retain) NgTextStyle *textStyle;
 @property (nonatomic, assign) NSCellLine *lineLeft, *lineRight, *lineTop, *lineBottom;
 @property (nonatomic, readonly, getter = getWidth) real width;
 @property (nonatomic, readonly, getter = getHeight) real height;
@@ -73,12 +73,12 @@ NNTDECL_EXTERN_CLASS(WCGFill);
 @interface UICell : UIView {
     
     NSCell *cell;
-    WCGFill *cellFill;
+    NgFill *cellFill;
     
 }
 
 @property (nonatomic, readonly) NSCell *cell;
-@property (nonatomic, retain) WCGFill *cellFill;
+@property (nonatomic, retain) NgFill *cellFill;
 
 @end
 

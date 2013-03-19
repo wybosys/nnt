@@ -74,7 +74,7 @@ public:
     
     virtual ITableTreeController const* root_tree() const = 0;
     
-    virtual ::wsi::Object* makesimple() const = 0;
+    virtual ::nnt::Object* makesimple() const = 0;
     
 };
 
@@ -195,7 +195,7 @@ public:
     virtual ITableTreeController const* root_tree() const;
     
     //! make simple group cell.
-    virtual ::wsi::Object* makesimple() const;
+    virtual ::nnt::Object* makesimple() const;
     
     // callback.
     
@@ -276,7 +276,7 @@ public:
 NNT_END_NS // impl
 
 template <typename implT, typename subtableT, typename cellT, typename cellI>
-inline_impl ::wsi::Object* TableGroupCell<implT, subtableT, cellT, cellI>::makesimple() const
+inline_impl ::nnt::Object* TableGroupCell<implT, subtableT, cellT, cellI>::makesimple() const
 {
     typedef tpl::impl::TableGroupCell<subtableT, cellT, cellI> simple_type;
     return new simple_type;

@@ -484,9 +484,9 @@ NNT_END_CXX
 
 NNT_BEGIN_C
 
-::wsi::store::test::Bdb* UTBdb()
+::nnt::store::test::Bdb* UTBdb()
 {
-    return new ::wsi::store::test::Bdb;
+    return new ::nnt::store::test::Bdb;
 }
 
 NNT_END_C

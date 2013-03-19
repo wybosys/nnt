@@ -82,8 +82,8 @@ typedef void (^slot_block_callback)(NNTEventObj*);
     
 # ifdef NNT_CXX
     
-    ::wsi::Object* _cxx_target;
-    ::wsi::objevent_func _cxx_action;
+    ::nnt::Object* _cxx_target;
+    ::nnt::objevent_func _cxx_action;
     
 # endif
     
@@ -122,8 +122,8 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 
 # ifdef NNT_CXX
 
-@property (nonatomic, assign) ::wsi::Object* cxx_target;
-@property (nonatomic, assign) ::wsi::objevent_func cxx_action;
+@property (nonatomic, assign) ::nnt::Object* cxx_target;
+@property (nonatomic, assign) ::nnt::objevent_func cxx_action;
 
 # endif
 
@@ -185,7 +185,7 @@ typedef NNTSlot slot_t;
 # ifdef NNT_CXX
 
 # ifndef NNT_PURE_CXX
-#   define _action(act) (::wsi::objevent_func)&act
+#   define _action(act) (::nnt::objevent_func)&act
 # endif
 
 NNTDECL_EXTERN_CLASS(NSDatePeriod);
@@ -291,7 +291,7 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
-- (NNTSlot*)register_action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (NNTSlot*)register_action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay;
 
 # endif
 
@@ -308,8 +308,8 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
-- (void)remove_action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
-- (void)remove_target:(::wsi::Object*)target;
+- (void)remove_action:(::nnt::objevent_func)action target:(::nnt::Object*)target;
+- (void)remove_target:(::nnt::Object*)target;
 
 # endif
 
@@ -389,8 +389,8 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
-- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target;
-- (NNTSlot*)_connect:(signal_t)sig action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay;
+- (NNTSlot*)_connect:(signal_t)sig action:(::nnt::objevent_func)action target:(::nnt::Object*)target;
+- (NNTSlot*)_connect:(signal_t)sig action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay;
 
 # endif
 
@@ -403,9 +403,9 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
-- (void)_disconnect:(signal_t)sig target:(::wsi::Object*)target action:(::wsi::objevent_func)action;
-- (void)_disconnect_target:(::wsi::Object*)target;
-- (void)_disconnect_target:(::wsi::Object*)target signal:(signal_t)sig;
+- (void)_disconnect:(signal_t)sig target:(::nnt::Object*)target action:(::nnt::objevent_func)action;
+- (void)_disconnect_target:(::nnt::Object*)target;
+- (void)_disconnect_target:(::nnt::Object*)target signal:(signal_t)sig;
 
 # endif
 
@@ -534,7 +534,7 @@ NNT_END_HEADER_CXX
 # include <vector>
 # include <list>
 
-# include "../WTL/Exception+NNT.h"
+# include "../TL/Exception+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 

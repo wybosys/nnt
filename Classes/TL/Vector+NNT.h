@@ -548,14 +548,14 @@ NNT_END_NS
 NNT_END_HEADER_CXX
 
 template <class valT>
-inline_impl ::wsi::ntl::vector<valT>& operator << (::wsi::ntl::vector<valT>& left, valT const& right) 
+inline_impl ::nnt::ntl::vector<valT>& operator << (::nnt::ntl::vector<valT>& left, valT const& right) 
 {
     left.push_back(right);
     return left;
 }
 
 template <class valT>
-inline_impl ::wsi::ntl::vector<valT const*>& operator << (::wsi::ntl::vector<valT const*>& con, valT* p)
+inline_impl ::nnt::ntl::vector<valT const*>& operator << (::nnt::ntl::vector<valT const*>& con, valT* p)
 {
     con.push_back((valT const*)p);
     return con;
@@ -565,7 +565,7 @@ inline_impl ::wsi::ntl::vector<valT const*>& operator << (::wsi::ntl::vector<val
 
 NNT_BEGIN_HEADER_OBJC
 
-typedef ::wsi::ntl::vector<id> _NSVector;
+typedef ::nnt::ntl::vector<id> _NSVector;
 typedef _NSVector::iterator NSVectorIterator;
 typedef _NSVector::const_iterator NSVectorConstIterator;
 

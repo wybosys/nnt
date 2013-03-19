@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalDisplayLink = @"::wsi::ui::displaylink::got";
+signal_t kSignalDisplayLink = @"::nnt::ui::displaylink::got";
 
 @implementation UIDisplayLink
 

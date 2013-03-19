@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIBadgeIndicator.h"
 # import <QuartzCore/QuartzCore.h>
-# import "WCGTextStyle.h"
+# import "NGTextStyle.h"
 # import "CoreGraphic+NNT.h"
 # import "JuiceCocoa++.hpp"
 
@@ -20,12 +20,12 @@ badgeLineStyle = _badgeLineStyle;
     self = [super initWithFrame:frame];
     
     // set default.
-    WCGMutableTextStyle *ts = [WCGMutableTextStyle textStyle];
+    NgMutableTextStyle *ts = [WCGMutableTextStyle textStyle];
     ts.color = [WCGColor whiteColor];
-    ts.fontType = WCGFontTypeBold;
+    ts.fontType = NgFontTypeBold;
     self.badgeStyle = ts;
     
-    WCGMutableLineStyle* ls = [WCGMutableLineStyle lineStyle];
+    NgMutableLineStyle* ls = [WCGMutableLineStyle lineStyle];
     ls.lineColor = [WCGColor whiteColor];
     ls.lineWidth = 2;
     self.badgeLineStyle = ls;
@@ -66,7 +66,7 @@ badgeLineStyle = _badgeLineStyle;
     [self setNeedsDisplay];
 }
 
-- (void)setBadgeStyle:(WCGMutableTextStyle *)badgeStyle {
+- (void)setBadgeStyle:(NgMutableTextStyle *)badgeStyle {
     if (_badgeStyle == badgeStyle)
         return;
     
@@ -82,11 +82,11 @@ badgeLineStyle = _badgeLineStyle;
 }
 
 - (void)drawRect:(CGRect)rect {
-    ::juice::cocoa::Graphics gra = ::juice::cocoa::Graphics::Current(::wsi::cg::Rect(rect).deflate(::wsi::cg::ratio(.1f), .1f, .1f, .1f));
+    ::juice::cocoa::Graphics gra = ::juice::cocoa::Graphics::Current(::nnt::cg::Rect(rect).deflate(::nnt::cg::ratio(.1f), .1f, .1f, .1f));
     
     // set edge shadow.
     ::juice::cocoa::Shadow sd;
-    sd.set_offset(::wsi::cg::Point(0, -1));
+    sd.set_offset(::nnt::cg::Point(0, -1));
     sd.set_radius(.7f);
     sd.set(gra);
     
@@ -96,18 +96,18 @@ badgeLineStyle = _badgeLineStyle;
     // background.
     ::juice::cocoa::Bezier bz;
     real radius = ::std::min(gra.bounds().width(), gra.bounds().height()) * .5f;
-    bz.set_rounded(gra.bounds(), ::wsi::cg::Size(radius, radius));
-    bz.fill(gra, ::juice::cocoa::Brush(::wsi::ui::Color(_badgeColor)));
-    bz.stroke(gra, ::juice::cocoa::Pen(::wsi::cg::Color(_badgeLineStyle.lineColor), _badgeLineStyle.lineWidth));
+    bz.set_rounded(gra.bounds(), ::nnt::cg::Size(radius, radius));
+    bz.fill(gra, ::juice::cocoa::Brush(::nnt::ui::Color(_badgeColor)));
+    bz.stroke(gra, ::juice::cocoa::Pen(::nnt::cg::Color(_badgeLineStyle.lineColor), _badgeLineStyle.lineWidth));
     
     // overlay.
     gra.push_state();
     bz.place(gra);
     gra.clip();
-    ::wsi::cg::Rect rcol = gra.bounds().deflate(::wsi::cg::ratio(0), 0, 0, .6f);
+    ::nnt::cg::Rect rcol = gra.bounds().deflate(::nnt::cg::ratio(0), 0, 0, .6f);
     radius = ::std::min(rcol.width(), rcol.height()) * .5f;
-    bz.set_rounded(rcol, ::wsi::cg::Size(radius, radius));
-    bz.fill(gra, ::juice::cocoa::Brush(::wsi::ui::Color(_badgeOverlayColor)));
+    bz.set_rounded(rcol, ::nnt::cg::Size(radius, radius));
+    bz.fill(gra, ::juice::cocoa::Brush(::nnt::ui::Color(_badgeOverlayColor)));
     gra.pop_state();
     
     gra.layer().end();

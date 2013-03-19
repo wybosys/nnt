@@ -4,7 +4,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCGShape : NSObject {
+@interface NgShape : NSObject {
     CGContextRef _ctx;
 }
 

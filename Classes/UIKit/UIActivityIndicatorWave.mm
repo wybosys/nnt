@@ -9,7 +9,7 @@ NNTDECL_PRIVATE_BEGIN(UIActivityIndicatorWave, NNTObject) {
     @public
     CADisplayLink* dl;
     uint segsize;
-    ::wsi::core::vector<CGPoint> pts;
+    ::nnt::core::vector<CGPoint> pts;
     uint delay;
 }
 

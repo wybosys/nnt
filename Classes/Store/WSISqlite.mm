@@ -249,22 +249,22 @@ NNTDECL_PRIVATE_END
 }
 
 - (bool)exist_table:(char const*)table {
-    wsi::core::string sql = "SELECT COUNT(*) as TabCount FROM sqlite_master where type='table' and name='";
+    ::nnt::core::string sql = "SELECT COUNT(*) as TabCount FROM sqlite_master where type='table' and name='";
     sql += table;
     sql += "'";
     DBMSqlDatatable* tbl = [self exec_ansi:sql.c_str() len:sql.length()];
-    wsi::ns::Number num = [tbl valueForKey:@"TabCount" row:0];
+    ::nnt::ns::Number num = [tbl valueForKey:@"TabCount" row:0];
     return num != 0;
 }
 
 - (void)drop_table:(const char *)table {
-    wsi::core::string sql = "drop table ";
+    ::nnt::core::string sql = "drop table ";
     sql += table;
     [self exec_ansi:sql.c_str() len:sql.length()];
 }
 
 - (void)create_table:(char const*)table cols:(char const*)cols {
-    wsi::core::string sql = "create table \"";
+    ::nnt::core::string sql = "create table \"";
     sql += table;
     sql += "\" (";
     sql += cols;

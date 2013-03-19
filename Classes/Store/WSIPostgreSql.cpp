@@ -54,7 +54,7 @@ PostgreSql::~PostgreSql()
     NNTDECL_PRIVATE_DESTROY();
 }
 
-bool PostgreSql::connect(const wsi::store::connection_info & info)
+bool PostgreSql::connect(const ::nnt::store::connection_info & info)
 {
     this->close();
     

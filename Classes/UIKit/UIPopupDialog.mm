@@ -7,8 +7,8 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalDialogExecute = @"::wsi::ui::dialog::execute";
-signal_t kSignalDialogClose = @"::wsi::ui::dialog::close";
+signal_t kSignalDialogExecute = @"::nnt::ui::dialog::execute";
+signal_t kSignalDialogClose = @"::nnt::ui::dialog::close";
 
 @interface UIPopupDialogPrivate : NSObject
 
@@ -159,9 +159,9 @@ NNTEVENT_END
 - (void)layoutSubviews {
     CGRect rc_client = self.bounds;
     
-    wsi::CGRectLayoutVBox lyt(rc_client);
+    ::nnt::CGRectLayoutVBox lyt(rc_client);
     lyt.margin = self.margin;
-    wsi::CGRectLayoutLinear lnr(lyt);
+    ::nnt::CGRectLayoutLinear lnr(lyt);
     lnr.add_flex(1);
 
     if (btnYes || btnNo || btnCancel) {
@@ -171,8 +171,8 @@ NNTEVENT_END
     content.frame = lyt.stride_pixel(lnr.start());
     
     if (btnYes || btnNo || btnCancel) {
-        wsi::CGRectLayoutHBox lyt_btns(lyt.stride_pixel(lnr.next()));
-        wsi::CGRectLayoutLinear lnr_btns(lyt_btns);
+        ::nnt::CGRectLayoutHBox lyt_btns(lyt.stride_pixel(lnr.next()));
+        ::nnt::CGRectLayoutLinear lnr_btns(lyt_btns);
         lnr_btns.add_flex(1);
         if (btnYes)
             lnr_btns.add_pixel(50);

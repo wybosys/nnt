@@ -338,7 +338,7 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_OBJC
 
-typedef ::wsi::core::list<id> _NSList;
+typedef ::nnt::core::list<id> _NSList;
 typedef _NSList::iterator NSListIterator;
 typedef _NSList::const_iterator NSListConstIterator;
 

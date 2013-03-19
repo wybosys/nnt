@@ -6,16 +6,16 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGGradient);
+NNTDECL_EXTERN_CLASS(NgGradient);
 
 @interface UIFogView : NNTUIView {
     
-    WCGGradient *fogColor;
+    NgGradient *fogColor;
     real fogDepth;
     
 }
 
-@property (nonatomic, retain) WCGGradient *fogColor;
+@property (nonatomic, retain) NgGradient *fogColor;
 @property (nonatomic) real fogDepth;
 
 @end

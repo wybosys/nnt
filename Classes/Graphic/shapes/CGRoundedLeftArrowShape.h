@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface CGRoundedLeftArrowShape : WCGShape {
+@interface CGRoundedLeftArrowShape : NgShape {
     real _radius;
 }
 

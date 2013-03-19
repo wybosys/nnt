@@ -18,10 +18,10 @@ struct _Types
     typedef ::juice::cocoa::Matrix matrix_type;
     typedef ::juice::Rect<vertex_type, ::juice::Size2d<float> > viewport_type;
     typedef ::juice::BoundingBox<vertex_type> bounding_type;
-    typedef ::wsi::core::vector< ::juice::renderentity_wrapper> entities_type;
-    typedef ::wsi::core::vector<vertex_type> vertices_type;
-    typedef ::wsi::core::vector<index_type> indexies_type;
-    typedef ::wsi::core::vector<color_type> colors_type;
+    typedef ::nnt::core::vector< ::juice::renderentity_wrapper> entities_type;
+    typedef ::nnt::core::vector<vertex_type> vertices_type;
+    typedef ::nnt::core::vector<index_type> indexies_type;
+    typedef ::nnt::core::vector<color_type> colors_type;
 };
 
 class Material
@@ -180,9 +180,9 @@ public:
 
 template <typename implT, typename screenmanagerT>
 class View
-: public ::wsi::ui::View<implT>
+: public ::nnt::ui::View<implT>
 {
-    typedef ::wsi::ui::View<implT> super;
+    typedef ::nnt::ui::View<implT> super;
     typedef View<implT, screenmanagerT> self_type;
     
 public:
@@ -241,9 +241,9 @@ protected:
 
 template <typename implT, typename viewT>
 class ViewController
-: public ::wsi::ui::Controller<implT, viewT>
+: public ::nnt::ui::Controller<implT, viewT>
 {
-    typedef ::wsi::ui::Controller<implT, viewT> super;
+    typedef ::nnt::ui::Controller<implT, viewT> super;
     typedef ViewController<implT, viewT> self_type;
     
 public:

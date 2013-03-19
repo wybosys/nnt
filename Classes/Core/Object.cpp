@@ -6,9 +6,9 @@
 NNT_BEGIN_CXX
 
 // global object counter.
-long ::wsi::Object::__global_object_counter = 0;
+long ::nnt::Object::__global_object_counter = 0;
 
-::wsi::Object::Object()
+::nnt::Object::Object()
 {
 # ifdef NNT_DEBUG
 
@@ -17,7 +17,7 @@ long ::wsi::Object::__global_object_counter = 0;
 # endif
 }
 
-::wsi::Object::~Object()
+::nnt::Object::~Object()
 {
 # ifdef NNT_DEBUG
 
@@ -84,14 +84,14 @@ NNT_END_CXX // wsi
 
 NNT_BEGIN_C
 
-bool Drop(::wsi::RefObject* obj)
+bool Drop(::nnt::RefObject* obj)
 {
     if (obj)
         return obj->drop();
     return true;
 }
 
-void Grab(::wsi::RefObject* obj)
+void Grab(::nnt::RefObject* obj)
 {
     if (obj)
         obj->grab();

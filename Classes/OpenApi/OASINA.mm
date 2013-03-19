@@ -134,7 +134,7 @@ NNT_BEGIN_OBJC
 }
 
 + (UIImage*)LogoImage {
-    WCGImage* imgRes = WCGImageLoadPngData(sina_mblog, sizeof(sina_mblog));
+    NgImage* imgRes = NgImageLoadPngData(sina_mblog, sizeof(sina_mblog));
     return [UIImage imageWithCGImage:imgRes.image];
 }
 
@@ -506,7 +506,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSMutableArray*)get_params {
-    wsi::ns::MutableArray arr([self dup_params]);        
+    ::nnt::ns::MutableArray arr([self dup_params]);        
     arr << pair(@"screen_name", screen_name);
     return arr;
 }

@@ -29,10 +29,10 @@ static const usize ldata_green[2] = {
 - (id)initWith:(byte const*[2])data len:(usize const [2])len {
     self = [super init];
     
-    WCGImage* img = WCGImageLoadPngData(data[0], len[0]);
+    NgImage* img = NgImageLoadPngData(data[0], len[0]);
     img_indicator = [WCGFill fillWithImage:img]; 
     
-    img = WCGImageLoadPngData(data[1], len[1]);
+    img = NgImageLoadPngData(data[1], len[1]);
     img_background = [WCGFill fillWithImage:img];
     
     return self;
@@ -59,14 +59,14 @@ static const usize ldata_green[2] = {
     [layer insertSublayer:ly_background atIndex:0];
     [ly_background release];
     
-    wsi::CGRectLayoutHBox lyt(layer.bounds);
-    wsi::CGRectLayoutVBox lyt_indicator(lyt.add_pixel(12));
+    ::nnt::CGRectLayoutHBox lyt(layer.bounds);
+    ::nnt::CGRectLayoutVBox lyt_indicator(lyt.add_pixel(12));
     
     CGRect rc_message = lyt.fill();
     rc_message.origin.y += 2;
     rc_message.origin.x -= 2;
     rc_message.size.height -= 4;
-    wsi::CGRectLayoutHBox lyt_message(rc_message);
+    ::nnt::CGRectLayoutHBox lyt_message(rc_message);
     
     // set indicator.
     CGRect rc_indicator = lyt_indicator.add_pixel(12);

@@ -5,7 +5,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalContentChanged = @"::wsi::content::changed";
+signal_t kSignalContentChanged = @"::nnt::content::changed";
 
 NNTDECL_PRIVATE_BEGIN(Clipboard, NNTObject)
 {

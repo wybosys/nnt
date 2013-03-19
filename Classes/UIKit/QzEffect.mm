@@ -5,7 +5,7 @@
 NNT_BEGIN_OBJC
 
 NSTimeInterval kQzEffectDuration = 0.35f;
-signal_t kSignalEffectComplete = @"::wsi::ui::effect::complete";
+signal_t kSignalEffectComplete = @"::nnt::ui::effect::complete";
 
 @interface QzEffect ()
 
@@ -131,7 +131,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     [super active:layer];
     
     if (self._cxxobj) {
-        ::wsi::use< ::wsi::qz::tpl::IEffect> obj(self._cxxobj);
+        ::nnt::use< ::nnt::qz::tpl::IEffect> obj(self._cxxobj);
         obj->active(layer);
     }
 }
@@ -140,7 +140,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     [super prepare];
     
     if (self._cxxobj) {
-        ::wsi::use< ::wsi::qz::tpl::IEffect> obj(self._cxxobj);
+        ::nnt::use< ::nnt::qz::tpl::IEffect> obj(self._cxxobj);
         obj->prepare();
     }
 }
@@ -149,7 +149,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     [super begin];
     
     if (self._cxxobj) {
-        ::wsi::use< ::wsi::qz::tpl::IEffect> obj(self._cxxobj);
+        ::nnt::use< ::nnt::qz::tpl::IEffect> obj(self._cxxobj);
         obj->begin();
     }
 }
@@ -158,7 +158,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     [super active];
     
     if (self._cxxobj) {
-        ::wsi::use< ::wsi::qz::tpl::IEffect> obj(self._cxxobj);
+        ::nnt::use< ::nnt::qz::tpl::IEffect> obj(self._cxxobj);
         obj->active();
     }
 }
@@ -167,7 +167,7 @@ NNTIMPL_OBJCXX_WRAPPER_BEGIN(QzEffect)
     [super end];
     
     if (self._cxxobj) {
-        ::wsi::use< ::wsi::qz::tpl::IEffect> obj(self._cxxobj);
+        ::nnt::use< ::nnt::qz::tpl::IEffect> obj(self._cxxobj);
         obj->end();
     }
 }

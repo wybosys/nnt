@@ -11,13 +11,13 @@ NNT_BEGIN_OBJC
 
 @interface UILayoutGridViewPrivate : NSObject {
     UILayoutGridView *d_owner;
-    wsi::CGRectLayoutGrid *lyt;
+    ::nnt::CGRectLayoutGrid *lyt;
     BOOL add_mode;
     NSUInteger am_row, am_col;
 }
 
 @property (nonatomic, assign) UILayoutGridView *d_owner;
-@property (nonatomic, assign) wsi::CGRectLayoutGrid *lyt;
+@property (nonatomic, assign) ::nnt::CGRectLayoutGrid *lyt;
 @property (nonatomic, assign) BOOL add_mode;
 @property (nonatomic, assign) NSUInteger am_row, am_col;
 
@@ -32,7 +32,7 @@ NNT_BEGIN_OBJC
 - (id)init {
     self = [super init];
     
-    lyt = new wsi::CGRectLayoutGrid();
+    lyt = new ::nnt::CGRectLayoutGrid();
     add_mode = NO;
     
     return self;
@@ -97,7 +97,7 @@ NNT_BEGIN_OBJC
     [super setFrame:frame];
 }
 
-- (void)setRowLineStyle:(WCGLineStyle *)__rowLineStyle {
+- (void)setRowLineStyle:(NgLineStyle *)__rowLineStyle {
     [_rowLineStyle release];
     _rowLineStyle = [__rowLineStyle retain];
     
@@ -122,7 +122,7 @@ NNT_BEGIN_OBJC
     }
 }
 
-- (void)setColLineStyle:(WCGLineStyle *)__colLineStyle {
+- (void)setColLineStyle:(NgLineStyle *)__colLineStyle {
     [_colLineStyle release];
     _colLineStyle = [__colLineStyle retain];
     
@@ -168,13 +168,13 @@ NNT_BEGIN_OBJC
         
         std::map<UIView*, CGRect> map;
         
-        wsi::CGRectLayoutVBox vbox(bounds);
+        ::nnt::CGRectLayoutVBox vbox(bounds);
         //vbox.margin_top = margin.top;
         //vbox.margin_bottom = margin.bottom;
         
         for (uint r = 0; r < _rows; ++r) {
             vbox.add_pixel(_margin.top);
-            wsi::CGRectLayoutHBox hbox(vbox.add_pixel(d_ptr.lyt->value(r) - _margin.top - _margin.bottom));
+            ::nnt::CGRectLayoutHBox hbox(vbox.add_pixel(d_ptr.lyt->value(r) - _margin.top - _margin.bottom));
             vbox.add_pixel(_margin.bottom);
             
             //hbox.margin_left = margin.left;
@@ -244,7 +244,7 @@ NNT_BEGIN_OBJC
     
 # ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
-        throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
+        throw [NSException exceptionWithName:@"::nnt::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
 # endif
     
@@ -259,7 +259,7 @@ NNT_BEGIN_OBJC
     
 # ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
-        throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
+        throw [NSException exceptionWithName:@"::nnt::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
 # endif
     
@@ -270,7 +270,7 @@ NNT_BEGIN_OBJC
     
 # ifdef NNT_DEBUG
     if (col >= _cols || row > _rows) {
-        throw [NSException exceptionWithName:@"::wsi::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
+        throw [NSException exceptionWithName:@"::nnt::ui::UILayoutGridView" reason:@"Out of Range" userInfo:nil];
     }
 # endif
     

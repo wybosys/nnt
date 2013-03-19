@@ -10,7 +10,7 @@ NNT_BEGIN_HEADER_OBJC
 @interface UIAnnualRingSingle : NNTUIView <UIItemsDatasource> {
     real _length, _radius;
     UIColor* _ringColor;
-    WCGFill* _ringFill;
+    NgFill* _ringFill;
     CGShadow* _ringShadow;
     UIItemsContainer* _items;
     real _startAngle, _offAngle, _sweepAngle;
@@ -21,7 +21,7 @@ NNT_BEGIN_HEADER_OBJC
 
 @property (nonatomic, assign) real length, radius;
 @property (retain) UIColor* ringColor;
-@property (retain) WCGFill* ringFill;
+@property (retain) NgFill* ringFill;
 @property (retain) CGShadow* ringShadow;
 @property (nonatomic, readonly) UIItemsContainer* items;
 @property (nonatomic, assign) real startAngle, sweepAngle;

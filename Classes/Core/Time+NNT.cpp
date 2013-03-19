@@ -254,7 +254,7 @@ bool Time::operator != (Time const& r) const
     return !(*this == r);
 }
 
-bool Time::today(const wsi::core::Time &r) const
+bool Time::today(const ::nnt::core::Time &r) const
 {
     return _tm.tm_year == r._tm.tm_year &&
     _tm.tm_mon == r._tm.tm_mon &&
@@ -278,7 +278,7 @@ Time Time::offset_hour(int val) const
     return ret;
 }
 
-Time& Time::operator = (const wsi::core::Time &r)
+Time& Time::operator = (const ::nnt::core::Time &r)
 {
     _fmt = r._fmt;
     _tm = r._tm;

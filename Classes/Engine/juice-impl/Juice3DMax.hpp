@@ -35,7 +35,7 @@ public:
         this->close();
     }
     
-    bool open(::wsi::core::string const& file)
+    bool open(::nnt::core::string const& file)
     {
         this->close();
         
@@ -159,7 +159,7 @@ protected:
     template <typename meshT>
     bool _read_name(meshT* mesh)
     {
-        wsi::core::string name;
+        ::nnt::core::string name;
         
         int i = 0;
         char c = 0;

@@ -136,12 +136,12 @@ NNT_BEGIN_NS(tpl)
 
 template <uint N>
 class Semaphore
-: public ::wsi::core::Semaphore
+: public ::nnt::core::Semaphore
 {
 public:
     
     Semaphore()
-    : ::wsi::core::Semaphore(N)
+    : ::nnt::core::Semaphore(N)
     {
         PASS;
     }

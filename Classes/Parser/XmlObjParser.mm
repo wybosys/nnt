@@ -101,7 +101,7 @@ NNTDECL_PRIVATE_END
     return [str dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-void xml_load_node(XmlNode* node, ::wsi::ns::MutableDictionary& dict)
+void xml_load_node(XmlNode* node, ::nnt::ns::MutableDictionary& dict)
 {
     NNT_USINGCXXNAMESPACE;
     

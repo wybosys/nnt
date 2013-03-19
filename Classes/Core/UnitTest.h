@@ -75,10 +75,10 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-NNTAPI(::wsi::ut::Suite*) UTSuiteDefault();
-NNTAPI(void) UTSuiteFree(::wsi::ut::Suite*);
-NNTAPI(bool) UTSuiteAddCase(::wsi::ut::Case*, ::wsi::ut::Suite*);
-NNTAPI(void) UTSuiteRun(::wsi::ut::Suite*);
+NNTAPI(::nnt::ut::Suite*) UTSuiteDefault();
+NNTAPI(void) UTSuiteFree(::nnt::ut::Suite*);
+NNTAPI(bool) UTSuiteAddCase(::nnt::ut::Case*, ::nnt::ut::Suite*);
+NNTAPI(void) UTSuiteRun(::nnt::ut::Suite*);
 
 NNT_END_HEADER_C
 

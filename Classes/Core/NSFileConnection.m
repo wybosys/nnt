@@ -8,11 +8,11 @@ NNT_BEGIN_OBJC
 
 usize kFileConnectionDefaultCacheSize = 4096;
 
-signal_t kSignalFileConnectionOpened = @"::wsi::filecnt::opened";
-signal_t kSignalFileConnectionReceiveData = @"::wsi::filecnt::data::recv";
-signal_t kSignalFileConnectionDataChanged = @"::wsi::filecnt::data::changed";
-signal_t kSignalFileConnectionFinish = @"::wsi::filecnt::finish";
-signal_t kSignalFileConnectionError = @"::wsi::filecnt::error";
+signal_t kSignalFileConnectionOpened = @"::nnt::filecnt::opened";
+signal_t kSignalFileConnectionReceiveData = @"::nnt::filecnt::data::recv";
+signal_t kSignalFileConnectionDataChanged = @"::nnt::filecnt::data::changed";
+signal_t kSignalFileConnectionFinish = @"::nnt::filecnt::finish";
+signal_t kSignalFileConnectionError = @"::nnt::filecnt::error";
 
 @interface NSFileConnection (hidden)
 

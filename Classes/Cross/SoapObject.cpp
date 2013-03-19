@@ -140,7 +140,7 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
         add_fault_node(nbody, 
                        lang::CLASS_NOTFOUND, 
                        "CLASS NOT FOUND", 
-                       "::wsi::parser::SoapDocument::invoke");
+                       "::nnt::parser::SoapDocument::invoke");
         
         // free.
         this->free(cls);
@@ -153,7 +153,7 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
         add_fault_node(nbody,
                        lang::INSTANCE_FAILED,
                        "CAN'T INSTANCE CLASS OBJECT",
-                       "::wsi::lang::instanceObject");
+                       "::nnt::lang::instanceObject");
         
         // free
         this->free(cls);
@@ -214,7 +214,7 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
             add_fault_node(nbody,
                            lang::METHOD_NOTFOUND,
                            "METHOD NOT FOUND",
-                           "::wsi::parser::SoapDocument::invoke");
+                           "::nnt::parser::SoapDocument::invoke");
         } break;
             
         default:
@@ -222,7 +222,7 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
             add_fault_node(nbody,
                            obj->fault.code != 0 ? obj->fault.code : -1,
                            !obj->fault.message.empty() ? obj->fault.message : "UNDEFINED ERROR",
-                           !obj->fault.actor.empty() ? obj->fault.actor : "::wsi::parser::SoapDocument::invoke");
+                           !obj->fault.actor.empty() ? obj->fault.actor : "::nnt::parser::SoapDocument::invoke");
         } break;
             
     }

@@ -41,23 +41,23 @@ NNT_BEGIN_OBJC
 # define kCacheActivityIndicatorSize 30, 30
 # define kCacheActivityIndicatorPos .75
 
-signal_t kSignalAppOpenUrl = @"::wsi::app::openurl";
-signal_t kSignalAppFinishLaunching = @"::wsi::app::finish_launching";
-signal_t kSignalAppHiding = @"::wsi::app::hiding";
-signal_t kSignalAppHiden = @"::wsi::app::hiden";
-signal_t kSignalAppShowing = @"::wsi::app::showing";
-signal_t kSignalAppShown = @"::wsi::app::shown";
-signal_t kSignalAppActiving = @"::wsi::app::activing";
-signal_t kSignalAppActived = @"::wsi::app::actived";
-signal_t kSignalAppInactiving = @"::wsi::app::inactiving";
-signal_t kSignalAppInactived = @"::wsi::app::inactived";
-signal_t kSignalAppBackground = @"::wsi::app::background::in";
-signal_t kSignalAppBackgroundExpired = @"::wsi::app::background::expired";
-signal_t kSignalNotification = @"::wsi::notification";
-signal_t kSignalDeviceToken = @"::wsi::devicetoken::got";
-signal_t kSignalMemoryWarning = @"::wsi::memory::warning";
+signal_t kSignalAppOpenUrl = @"::nnt::app::openurl";
+signal_t kSignalAppFinishLaunching = @"::nnt::app::finish_launching";
+signal_t kSignalAppHiding = @"::nnt::app::hiding";
+signal_t kSignalAppHiden = @"::nnt::app::hiden";
+signal_t kSignalAppShowing = @"::nnt::app::showing";
+signal_t kSignalAppShown = @"::nnt::app::shown";
+signal_t kSignalAppActiving = @"::nnt::app::activing";
+signal_t kSignalAppActived = @"::nnt::app::actived";
+signal_t kSignalAppInactiving = @"::nnt::app::inactiving";
+signal_t kSignalAppInactived = @"::nnt::app::inactived";
+signal_t kSignalAppBackground = @"::nnt::app::background::in";
+signal_t kSignalAppBackgroundExpired = @"::nnt::app::background::expired";
+signal_t kSignalNotification = @"::nnt::notification";
+signal_t kSignalDeviceToken = @"::nnt::devicetoken::got";
+signal_t kSignalMemoryWarning = @"::nnt::memory::warning";
 
-NSString* kConfigDeviceToken = @"::wsi::config::device::token";
+NSString* kConfigDeviceToken = @"::nnt::config::device::token";
 
 extern void LoadTheme(NSString*);
 
@@ -107,7 +107,7 @@ double DEVICE_VERSION = 0;
     
 # ifdef USE_DTRACE
     
-    ::wsi::cg::TransformRect rc_logo(::wsi::cg::Rect(64, 64, 32, 32),
+    ::nnt::cg::TransformRect rc_logo(::nnt::cg::Rect(64, 64, 32, 32),
                                      [[UIDevice currentDevice] transform]);
     _logo.logicFrame = rc_logo;
     [self bringSubviewToFront:_logo];
@@ -169,8 +169,8 @@ NNTDECL_PRIVATE_END
     // bin app to global.
     __gs_app = self;
     
-    if (::wsi::__cxxgs_app)
-        ::wsi::__cxxgs_app->replace(__gs_app);
+    if (::nnt::__cxxgs_app)
+        ::nnt::__cxxgs_app->replace(__gs_app);
     
 # ifdef NNT_TARGET_IOS
     
@@ -267,11 +267,11 @@ NNTDECL_PRIVATE_END
 }
 
 + (NSString*)DeviceIdentity {
-    NSString* idr = [[NNTConfiguration shared] get:@"::wsi::device::identity" null:nil];
+    NSString* idr = [[NNTConfiguration shared] get:@"::nnt::device::identity" null:nil];
     if (idr != nil)
         return idr;
     idr = uuid_string();
-    [[NNTConfiguration shared] set:@"::wsi::device::identity" val:idr];
+    [[NNTConfiguration shared] set:@"::nnt::device::identity" val:idr];
     return idr;
 }
 
@@ -539,8 +539,8 @@ void LoadTheme(NSString*) {
     
 # endif
     
-    if (::wsi::__cxxgs_app)
-        ::wsi::__cxxgs_app->background();
+    if (::nnt::__cxxgs_app)
+        ::nnt::__cxxgs_app->background();
     
     [self emit:kSignalAppBackground];
 }
@@ -548,8 +548,8 @@ void LoadTheme(NSString*) {
 - (void)backgroundExpired:(UIApplication*)app {
     trace_msg(@"background is expired.");
     
-    if (::wsi::__cxxgs_app)
-        ::wsi::__cxxgs_app->background_expired();
+    if (::nnt::__cxxgs_app)
+        ::nnt::__cxxgs_app->background_expired();
     
     [self emit:kSignalAppBackgroundExpired];
 }
@@ -674,7 +674,7 @@ static UIBackgroundTaskIdentifier __gs_background_identitier = UIBackgroundTaskI
     [self emit:kSignalAppInactived];
     
     // call cxx background function.
-    if (::wsi::__cxxgs_app) {
+    if (::nnt::__cxxgs_app) {
         
         __gs_background_identitier = [application beginBackgroundTaskWithExpirationHandler:^{
             [self backgroundExpired:application];
@@ -1032,8 +1032,8 @@ NNT_BEGIN_OBJC
 @implementation NNTApplicationDelegate
 
 - (void)load {
-    ::wsi::_ApplicationWrapper::set(::wsi::Application::getInstance(), __gs_app);
-    ::wsi::Application::getInstance().load();
+    ::nnt::_ApplicationWrapper::set(::nnt::Application::getInstance(), __gs_app);
+    ::nnt::Application::getInstance().load();
 }
 
 @end

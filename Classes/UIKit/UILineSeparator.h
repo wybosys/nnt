@@ -6,18 +6,18 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGMutableLineStyle);
+NNTDECL_EXTERN_CLASS(NgMutableLineStyle);
 
 @interface UILineSeparator : NNTUIView {
     
     //! line style.
-    WCGMutableLineStyle* _lineStyle;
+    NgMutableLineStyle* _lineStyle;
     
 }
 
-@property (nonatomic, retain) WCGMutableLineStyle* lineStyle;
+@property (nonatomic, retain) NgMutableLineStyle* lineStyle;
 
-- (id)initWithLineStyle:(WCGLineStyle*)ls;
+- (id)initWithLineStyle:(NgLineStyle*)ls;
 - (id)initWithDashPattern:(NSArray*)pat;
 
 @end

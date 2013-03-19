@@ -5,9 +5,9 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalUserLogin = @"::wsi::context::user::login";
-signal_t kSignalUserLogout = @"::wsi::context::user::logout";
-signal_t kSignalUserLoginStatusChanged = @"::wsi::context::user::login::changed";
+signal_t kSignalUserLogin = @"::nnt::context::user::login";
+signal_t kSignalUserLogout = @"::nnt::context::user::logout";
+signal_t kSignalUserLoginStatusChanged = @"::nnt::context::user::login::changed";
 
 @interface User ()
 

@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCGInnerShadowStyle : WCGShadowStyle
+@interface NgInnerShadowStyle : NgShadowStyle
 
 @end
 

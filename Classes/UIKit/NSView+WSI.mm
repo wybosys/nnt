@@ -41,10 +41,10 @@ NNTOBJECT_IMPL;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    CGContextRef ctx = WCGGetCurrentContext();
+    CGContextRef ctx = NgGetCurrentContext();
     
     if (backgroundFill) {
-        [backgroundFill fillRect: ::wsi::cg::conv(dirtyRect)
+        [backgroundFill fillRect: ::nnt::cg::conv(dirtyRect)
                        inContext:ctx];
     }
 }
@@ -80,7 +80,7 @@ NNTOBJECT_IMPL;
     [super drawRect:rect];
     
     if (_cxxobj)
-        _cxxobj->draw(WCGGetCurrentContext(), rect);
+        _cxxobj->draw(NgGetCurrentContext(), rect);
 }
 
 - (void*)object {

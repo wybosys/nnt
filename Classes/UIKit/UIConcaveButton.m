@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIConcaveButton.h"
 # import "CoreGraphic+NNT.h"
-# import "WCGColor.h"
+# import "NGColor.h"
 # import "UIColor+NNT.h"
 
 NNT_BEGIN_OBJC

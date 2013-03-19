@@ -164,7 +164,7 @@ NNTAPI(ulonglong) nanosec_tick_count(ulonglong);
 NNTAPI(ulonglong) micsec_tick_count(ulonglong);
 NNTAPI(double)    millisec_tick_count(ulonglong);
 
-NNT_STATIC_CONST cxx::signal_t kSignalTimerFired = "::wsi::core::timer::fired";
+NNT_STATIC_CONST cxx::signal_t kSignalTimerFired = "::nnt::core::timer::fired";
 
 # ifdef NNT_MSVC
 

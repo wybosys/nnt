@@ -31,7 +31,7 @@ NNTDECL_SINGLETON(OAManager);
 //! iterator
 # ifdef NNT_CXX
 
-typedef ::wsi::core::map<Class, oaclass_seg>::iterator oamanager_iterator;
+typedef ::nnt::core::map<Class, oaclass_seg>::iterator oamanager_iterator;
 
 - (oamanager_iterator)iterator_begin;
 - (oamanager_iterator)iterator_end;

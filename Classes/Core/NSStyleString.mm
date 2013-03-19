@@ -24,10 +24,10 @@ NNT_BEGIN_OBJC
 }
 
 - (void)loadCss:(NSString *)str {
-    WCGMutableTextStyle* ts = [[WCGMutableTextStyle alloc] init];
+    NgMutableTextStyle* ts = [[WCGMutableTextStyle alloc] init];
     
     NSArray* groups = [str arrayOfCaptureComponentsMatchedByRegex:@"([\\w-]+):([\\w#]+)"];
-    wsi::ns::MutableDictionary css_kv;
+    ::nnt::ns::MutableDictionary css_kv;
     
     for (NSArray* each in groups) {
         if (each.count != 3)
@@ -47,11 +47,11 @@ NNT_BEGIN_OBJC
     
     if ((value = css_kv[@"font-type"])) {
         if ([value isEqualToString:@"bold"])
-            ts.fontType = WCGFontTypeBold;
+            ts.fontType = NgFontTypeBold;
         else if ([value isEqualToString:@"italic"])
-            ts.fontType = WCGFontTypeBoldItalic;
+            ts.fontType = NgFontTypeBoldItalic;
         else if ([value isEqualToString:@"bold-italic"])
-            ts.fontType = WCGFontTypeBoldItalic;
+            ts.fontType = NgFontTypeBoldItalic;
     }
     
     if ((value = css_kv[@"font-color"])) {

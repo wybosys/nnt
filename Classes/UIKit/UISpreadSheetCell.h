@@ -25,14 +25,14 @@ NNTDECL_EXTERN_CLASS(UISpreadSheetCellMatrixLayer);
 
 @interface UISpreadSheetCell : NSCell {
     
-    WCGFill *cellFill;
+    NgFill *cellFill;
     CGRect frame;
     UISpreadSheetCellMatrixLayer *layer;
     UISpreadSheetRow *parentRow;
     
 }
 
-@property (nonatomic, retain) WCGFill *cellFill;
+@property (nonatomic, retain) NgFill *cellFill;
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, readonly) CGRect bounds;
 @property (nonatomic, assign) UISpreadSheetCellMatrixLayer *layer;
@@ -52,7 +52,7 @@ NNTDECL_EXTERN_CLASS(UISpreadSheetCellMatrixLayer);
 
 @interface _cxx_sheetcell : UISpreadSheetCell {
 @public
-    ::wsi::ui::sheet::Cell* cell;
+    ::nnt::ui::sheet::Cell* cell;
 }
 
 @end

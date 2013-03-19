@@ -19,12 +19,12 @@ typedef void (*func_server_callback)(id);
 NNT_BEGIN_HEADER_CXX
 
 typedef void (Object::*func_server_objcallback)(id);
-typedef void (Object::*func_server_modelcallback)(::wsi::ns::IModel*);
-typedef void (Object::*func_server_modelscallback)(::wsi::core::vector< ::wsi::ns::IModel*> const&);
+typedef void (Object::*func_server_modelcallback)(::nnt::ns::IModel*);
+typedef void (Object::*func_server_modelscallback)(::nnt::core::vector< ::nnt::ns::IModel*> const&);
 
-# define _objaction(func) (::wsi::func_server_objcallback)&func
-# define _mdlaction(func) (::wsi::func_server_modelcallback)&func
-# define _mdlsaction(func) (::wsi::func_server_modelscallback)&func
+# define _objaction(func) (::nnt::func_server_objcallback)&func
+# define _mdlaction(func) (::nnt::func_server_modelcallback)&func
+# define _mdlsaction(func) (::nnt::func_server_modelscallback)&func
 
 NNT_END_HEADER_CXX
 
@@ -54,10 +54,10 @@ typedef uint ServerCallbackType;
     
 # ifdef NNT_CXX
     
-    ::wsi::func_server_modelcallback _cxxmdl_func;
-    ::wsi::func_server_modelscallback _cxxmdls_func;
-    ::wsi::func_server_objcallback _cxx_func;
-    ::wsi::Object* _cxx_target;
+    ::nnt::func_server_modelcallback _cxxmdl_func;
+    ::nnt::func_server_modelscallback _cxxmdls_func;
+    ::nnt::func_server_objcallback _cxx_func;
+    ::nnt::Object* _cxx_target;
     
 # endif
     
@@ -71,10 +71,10 @@ typedef uint ServerCallbackType;
 
 # ifdef NNT_CXX
 
-@property (nonatomic, assign) ::wsi::func_server_modelcallback cxxmdl_func;
-@property (nonatomic, assign) ::wsi::func_server_modelscallback cxxmdls_func;
-@property (nonatomic, assign) ::wsi::func_server_objcallback cxx_func;
-@property (nonatomic, assign) ::wsi::Object* cxx_target;
+@property (nonatomic, assign) ::nnt::func_server_modelcallback cxxmdl_func;
+@property (nonatomic, assign) ::nnt::func_server_modelscallback cxxmdls_func;
+@property (nonatomic, assign) ::nnt::func_server_objcallback cxx_func;
+@property (nonatomic, assign) ::nnt::Object* cxx_target;
 
 # endif
 
@@ -85,9 +85,9 @@ typedef uint ServerCallbackType;
 
 # ifdef NNT_CXX
 
-- (id)initWithCxxAction:(::wsi::func_server_objcallback)action target:(::wsi::Object*)target;
-- (id)initWithCxxMdlAction:(::wsi::func_server_modelcallback)action target:(::wsi::Object*)target;
-- (id)initWithCxxMdlsAction:(::wsi::func_server_modelscallback)action target:(::wsi::Object*)target;
+- (id)initWithCxxAction:(::nnt::func_server_objcallback)action target:(::nnt::Object*)target;
+- (id)initWithCxxMdlAction:(::nnt::func_server_modelcallback)action target:(::nnt::Object*)target;
+- (id)initWithCxxMdlsAction:(::nnt::func_server_modelscallback)action target:(::nnt::Object*)target;
 
 # endif
 
@@ -155,17 +155,17 @@ typedef uint ServerCallbackType;
 # ifdef NNT_CXX
 
 //! retrieve model sync.
-- (BOOL)retrieve_cxxmodel:(::wsi::ns::IModel*)model;
+- (BOOL)retrieve_cxxmodel:(::nnt::ns::IModel*)model;
 
 //! retrieve model async.
-- (void)retrieve_model_async:(Model*)model action:(::wsi::func_server_objcallback)func target:(::wsi::Object*)target;
-- (void)retrieve_model_async:(Model*)model action:(::wsi::func_server_objcallback)func target:(::wsi::Object*)target callbackType:(ServerCallbackType)callbackType;
+- (void)retrieve_model_async:(Model*)model action:(::nnt::func_server_objcallback)func target:(::nnt::Object*)target;
+- (void)retrieve_model_async:(Model*)model action:(::nnt::func_server_objcallback)func target:(::nnt::Object*)target callbackType:(ServerCallbackType)callbackType;
 
 //! retrieve models async.
-- (void)retrieve_cxxmodel_async:(::wsi::ns::IModel*)model action:(::wsi::func_server_modelcallback)func target:(::wsi::Object*)target;
+- (void)retrieve_cxxmodel_async:(::nnt::ns::IModel*)model action:(::nnt::func_server_modelcallback)func target:(::nnt::Object*)target;
 
 //! retrieve models async.
-- (void)retrieve_cxxmodel_async:(::wsi::ns::IModel*)model action:(::wsi::func_server_modelcallback)func target:(::wsi::Object*)target callbackType:(ServerCallbackType)callbackType;
+- (void)retrieve_cxxmodel_async:(::nnt::ns::IModel*)model action:(::nnt::func_server_modelcallback)func target:(::nnt::Object*)target callbackType:(ServerCallbackType)callbackType;
 
 # endif
 
@@ -181,9 +181,9 @@ typedef uint ServerCallbackType;
 # ifdef NNT_CXX
 
 //! @function retrieve cxx model.
-- (void)retrieve_cxxmodels_async:(::wsi::core::vector< ::wsi::ns::IModel*> const&)model action:(::wsi::func_server_modelscallback)func target:(::wsi::Object*)target;
+- (void)retrieve_cxxmodels_async:(::nnt::core::vector< ::nnt::ns::IModel*> const&)model action:(::nnt::func_server_modelscallback)func target:(::nnt::Object*)target;
 
-- (void)retrieve_cxxmodels_async:(::wsi::core::vector< ::wsi::ns::IModel*> const&)model action:(::wsi::func_server_modelscallback)func target:(::wsi::Object*)target callbackType:(ServerCallbackType)callbackType;
+- (void)retrieve_cxxmodels_async:(::nnt::core::vector< ::nnt::ns::IModel*> const&)model action:(::nnt::func_server_modelscallback)func target:(::nnt::Object*)target callbackType:(ServerCallbackType)callbackType;
 
 # endif
 
@@ -224,12 +224,12 @@ public:
         this->retrieve_async(model, _mdlaction(Server::__null_callback_model), this);
     }
     
-    void retrieve_async(ns::IModel* model, func_server_modelcallback func, ::wsi::Object* target)
+    void retrieve_async(ns::IModel* model, func_server_modelcallback func, ::nnt::Object* target)
     {
         [this->_self retrieve_cxxmodel_async:model action:func target:target];
     }
     
-    void retrieve_async(ns::IModel* model, func_server_modelcallback func, ::wsi::Object* target, ServerCallbackType type)
+    void retrieve_async(ns::IModel* model, func_server_modelcallback func, ::nnt::Object* target, ServerCallbackType type)
     {
         [this->_self retrieve_cxxmodel_async:model action:func target:target callbackType:type];
     }
@@ -239,7 +239,7 @@ public:
         this->retrieve_async(mdl, _mdlsaction(Server::__null_callback_models), this);
     }
     
-    void retrieve_async(core::vector<ns::IModel*> const& mdl, func_server_modelscallback cb, ::wsi::Object* target)
+    void retrieve_async(core::vector<ns::IModel*> const& mdl, func_server_modelscallback cb, ::nnt::Object* target)
     {
         [this->_self retrieve_cxxmodels_async:mdl action:cb target:target];
     }

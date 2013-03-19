@@ -32,7 +32,7 @@ NNT_BEGIN_HEADER_OBJC
 
 _CXXCONTROLLER_DECL_BEGIN(UITableTreeViewController)
 
-@property (nonatomic, assign) ::wsi::ui::ITableTreeController* _cxxtable;
+@property (nonatomic, assign) ::nnt::ui::ITableTreeController* _cxxtable;
 
 _CXXCONTROLLER_DECL_END
 
@@ -190,7 +190,7 @@ public:
     
     typedef typename super::IndexPath IndexPath;
     typedef typename super::cellobj_type cellobj_type;
-    typedef ::wsi::Object* cell_type;
+    typedef ::nnt::Object* cell_type;
     
     TableTreeController()
     : owner_cell(NULL)

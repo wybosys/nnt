@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIDrawerView.h"
-# import "WCGBase.h"
+# import "NGBase.h"
 
 NNT_BEGIN_OBJC
 

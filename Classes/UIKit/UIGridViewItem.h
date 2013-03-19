@@ -32,7 +32,7 @@ NNTDECL_EXTERN_CLASS(UIGridViewItem);
     BOOL _selfMargin;
     
     //! high light.
-    WCGFill* _highlightFill;
+    NgFill* _highlightFill;
     
     //! delegate & source.
     id <UIGridViewItemDelegate> _delegate;
@@ -45,7 +45,7 @@ NNTDECL_EXTERN_CLASS(UIGridViewItem);
 @property (nonatomic, assign) CGMargin margin;
 @property (nonatomic, assign) BOOL selfMargin;
 @property (nonatomic, assign) id <UIGridViewItemDelegate> delegate;
-@property (nonatomic, retain) WCGFill* highlightFill;
+@property (nonatomic, retain) NgFill* highlightFill;
 
 @end
 

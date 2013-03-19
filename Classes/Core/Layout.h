@@ -2,7 +2,7 @@
 # ifndef __NNT_LAYOUT_A6584424B660411E8BAA70740AA758D7_H_INCLUDED
 # define __NNT_LAYOUT_A6584424B660411E8BAA70740AA758D7_H_INCLUDED
 
-# import "../Graphic/WCGBase.h"
+# import "../Graphic/NGBase.h"
 
 # ifdef NNT_CXX
 
@@ -170,12 +170,12 @@ public:
 
 NNT_BEGIN_NS(lb)
 
-typedef ::wsi::CGRectLayoutHBox CGRectLayoutHBox;
+typedef ::nnt::CGRectLayoutHBox CGRectLayoutHBox;
 
 class CGRectLayoutVBox
-: public ::wsi::CGRectLayoutVBox
+: public ::nnt::CGRectLayoutVBox
 {
-    typedef ::wsi::CGRectLayoutVBox super;
+    typedef ::nnt::CGRectLayoutVBox super;
     
 public:
     
@@ -495,8 +495,8 @@ NNT_END_NS
 NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
-using wsi::flex;
-using wsi::pixel;
+using ::nnt::flex;
+using ::nnt::pixel;
 NNT_END_HEADER_C
 
 # endif

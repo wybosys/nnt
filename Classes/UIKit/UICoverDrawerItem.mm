@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "UICoverDrawer.h"
 # import "UICoverDrawerItem.h"
-# import "WCGDefines.h"
-# import "WCGLineStyle.h"
-# import "WCGFill.h"
-# import "WCGTextStyle.h"
+# import "NGDefines.h"
+# import "NGLineStyle.h"
+# import "NGFill.h"
+# import "NGTextStyle.h"
 # import <QuartzCore/QuartzCore.h>
 # import "CoreGraphic+NNT.h"
 

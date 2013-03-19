@@ -7,7 +7,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalByPayClose = @"::wsi::pay::unipay::close";
+signal_t kSignalByPayClose = @"::nnt::pay::unipay::close";
 
 @implementation ByPayApiView
 

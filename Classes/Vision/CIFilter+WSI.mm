@@ -74,8 +74,8 @@ NNT_BEGIN_OBJC
 }
 
 - (void)layoutSubviews {
-    ::wsi::CGRectLayoutVBox lyt(self.bounds);
-    ::wsi::CGRectLayoutLinear lnr(lyt);
+    ::nnt::CGRectLayoutVBox lyt(self.bounds);
+    ::nnt::CGRectLayoutLinear lnr(lyt);
     lnr << (flex)1 << (flex)1 << (flex)1 << (flex)1;
     slider_x.frame = lyt << lnr;
     slider_y.frame = lyt << lnr;
@@ -224,7 +224,7 @@ WCGImage* Filter::process(CGImageRef _img) const
     CIImage* output = _filter.outputImage;    
     CIContext *context = [CIContext contextWithOptions:nil];
     CGImageRef resimg = [context createCGImage:output fromRect:output.extent];
-    WCGImage* ret = [WCGImage imageWithCGImage:resimg];
+    NgImage* ret = [WCGImage imageWithCGImage:resimg];
     CGImageRelease(resimg);
     [img release];
     return ret;

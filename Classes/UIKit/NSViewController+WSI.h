@@ -52,13 +52,13 @@ NNT_BEGIN_HEADER_OBJC
 
 @protocol _cxx_nscontroller_wrapper <NSObject>
 
-@property (nonatomic, assign) ::wsi::ui::IViewController* _cxxobj;
+@property (nonatomic, assign) ::nnt::ui::IViewController* _cxxobj;
 
 @end
 
 @interface _cxx_nsviewcontroller_wrapper : NNTNSViewController <_cxx_nscontroller_wrapper>
 {
-    ::wsi::ui::IViewController* _cxxobj;
+    ::nnt::ui::IViewController* _cxxobj;
 }
 
 @end

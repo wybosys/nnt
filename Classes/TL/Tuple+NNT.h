@@ -156,8 +156,8 @@ public:
     Pair(valL const& l, valR const& r)
     : super(nil)
     {
-        id lobj = ::wsi::to_object(l);
-        id robj = ::wsi::to_object(r);
+        id lobj = ::nnt::to_object(l);
+        id robj = ::nnt::to_object(r);
         this->_self = [[NSPair alloc] initWith:lobj second:robj];
     }
     

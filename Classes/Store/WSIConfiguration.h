@@ -81,7 +81,7 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(store)
 NNT_BEGIN_NS(ns)
 
-using namespace ::wsi::ns;
+using namespace ::nnt::ns;
 
 class Configuration
 : public Object<NNTConfiguration>
@@ -365,23 +365,23 @@ public:
     }
     
     template <typename keyT, typename valT>
-    typename ::wsi::ntl::cxx_type<valT>::type
+    typename ::nnt::ntl::cxx_type<valT>::type
     get(keyT const& key, valT const& null) const
     {
         core::data da;
         if (find(core::type_cast<core::data>(key), da) == false)
             return null;
-        return core::type_cast< typename ::wsi::ntl::cxx_type<valT>::type >(da);
+        return core::type_cast< typename ::nnt::ntl::cxx_type<valT>::type >(da);
     }
     
     template <typename valT>
-    typename ::wsi::ntl::cxx_type<valT>::type
+    typename ::nnt::ntl::cxx_type<valT>::type
     get(core::data const& key, valT const& null) const
     {
         core::data da;
         if (find(key, da) == false)
             return null;
-        return core::type_cast< typename ::wsi::ntl::cxx_type<valT>::type >(da);
+        return core::type_cast< typename ::nnt::ntl::cxx_type<valT>::type >(da);
     }
     
     void clear();

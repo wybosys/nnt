@@ -10,8 +10,8 @@
 
 NNT_BEGIN_CXX
 
-cxx::signal_t kSignalSuccess = "::wsi::success";
-cxx::signal_t kSignalFailed = "::wsi::failed";
+cxx::signal_t kSignalSuccess = "::nnt::success";
+cxx::signal_t kSignalFailed = "::nnt::failed";
 
 # ifdef NNT_MSVC
 #   define USE_PROACTOR_MODE

@@ -68,8 +68,8 @@ void act_bytes(cxx::eventobj_t& evt)
 {
     // read data.
     cross::SocketStream* stm = (cross::SocketStream*)evt.data;
-    ::wsi::core::data da(d_owner->setting.framelen);
-    ::wsi::core::Timeout tm = ::wsi::core::Timeout::Milliseconds(d_owner->setting.timeout);
+    ::nnt::core::data da(d_owner->setting.framelen);
+    ::nnt::core::Timeout tm = ::nnt::core::Timeout::Milliseconds(d_owner->setting.timeout);
     
     // parse data.
     if (stm->read_all(da, tm))
@@ -132,7 +132,7 @@ timeout(100),
 mechanism(cor::MECHANISM_UNKNOWN)
 {
     version = "1.0.0.0";
-    name = "::wsi::cross::xmpp";
+    name = "::nnt::cross::xmpp";
 }
 
 Client::Client()
@@ -163,7 +163,7 @@ void Client::start()
 
 bool Client::execute(xmpp::Object const& obj) const
 {
-    ::wsi::core::data da;
+    ::nnt::core::data da;
     
     // save to data.
     if (false == obj.save(da))

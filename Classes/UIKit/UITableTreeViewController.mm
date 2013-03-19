@@ -171,7 +171,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
     _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)_cell;
     ui::impl::TableTreeController* table = (ui::impl::TableTreeController*)self._cxxtable;
     ui::TableTreeSection const& sec = table->section_at(indexPath.section);
-    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
+    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::nnt::RefObject*)[cell object]);
     ui::TableTreeCellObject& cellobj = (ui::TableTreeCellObject&)cxxcell->object();
     
     // set to cell.
@@ -205,7 +205,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {        
     _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
     ui::impl::TableTreeController* table = (ui::impl::TableTreeController*)self._cxxtable;
-    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
+    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::nnt::RefObject*)[cell object]);
     ui::TableTreeCellObject& cellobj = (ui::TableTreeCellObject&)cxxcell->object();
     
     if (cellobj.selectable == false)
@@ -238,7 +238,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
     if ([cell isKindOfClass:[ui::UITableViewGroupCell class]]) {
         ui::UITableViewGroupCell* gcell = (ui::UITableViewGroupCell*)cell;
         gcell.isExpanded = cellobj.is_expanded;
-        ui::ITableGroupCell* cxxgcell = dynamic_cast<ui::ITableGroupCell*>((::wsi::RefObject*)[cell object]);
+        ui::ITableGroupCell* cxxgcell = dynamic_cast<ui::ITableGroupCell*>((::nnt::RefObject*)[cell object]);
         
         if (cxxgcell->is_expanded()) {
             needreload = cxxgcell->collapse();
@@ -262,7 +262,7 @@ _CXXCONTROLLER_IMPL_BEGIN(UITableTreeViewController)
 
 - (void)tableView:(UITableView *)_tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     _CXXVIEW(NNTUITableViewCell)* cell = (_CXXVIEW(NNTUITableViewCell)*)[_tableView cellForRowAtIndexPath:indexPath]; 
-    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::wsi::RefObject*)[cell object]);
+    ui::ITableCell* cxxcell = dynamic_cast<ui::ITableCell*>((::nnt::RefObject*)[cell object]);
 
     // cell select status changed.
     cxxcell->deselected();

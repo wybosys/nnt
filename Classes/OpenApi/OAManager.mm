@@ -10,7 +10,7 @@ NNT_BEGIN_OBJC
 @interface OAManagerPrivate : NSObject
 
 @property (nonatomic, assign) OAManager *d_owner;
-@property (nonatomic, readonly) ::wsi::core::map<Class, oaclass_seg>* classes;
+@property (nonatomic, readonly) ::nnt::core::map<Class, oaclass_seg>* classes;
 
 @end
 
@@ -22,7 +22,7 @@ NNT_BEGIN_OBJC
 - (id)init {
     self = [super init];
 
-    classes = new ::wsi::core::map<Class, oaclass_seg>;
+    classes = new ::nnt::core::map<Class, oaclass_seg>;
     
     return self;
 }

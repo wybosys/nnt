@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-@implementation WCGStyle
+@implementation NgStyle
 
 @synthesize previous = _previous, next = _next;
 @synthesize fillable, strokable;
@@ -18,7 +18,7 @@ NNT_BEGIN_OBJC
     return self;
 }
 
-- (void)drawInContext:(WCGStyleContext*)ctx {
+- (void)drawInContext:(NgStyleContext*)ctx {
     [_next drawInContext:ctx];
 }
 
@@ -32,7 +32,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCGShapeStyle
+@implementation NgShapeStyle
 
 @synthesize shape = _shape;
 
@@ -41,7 +41,7 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
-- (void)drawInContext:(WCGStyleContext*)ctx {
+- (void)drawInContext:(NgStyleContext*)ctx {
     _shape.context = ctx.context;
     [_shape addToPath:ctx.bounds];
     _shape.context = nil;
@@ -52,7 +52,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCGFillStyle
+@implementation NgFillStyle
 
 @synthesize fill = _fill;
 
@@ -68,7 +68,7 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
-- (void)drawInContext:(WCGStyleContext*)ctx {
+- (void)drawInContext:(NgStyleContext*)ctx {
     if (_previous && _previous.strokable) {
         [_fill fillPathInContext:ctx.context];
         [_next drawInContext:ctx];
@@ -85,7 +85,7 @@ NNT_BEGIN_OBJC
 
 @end
 
-@implementation WCGStyleSheet
+@implementation NgStyleSheet
 
 @synthesize styles = _styles;
 
@@ -103,9 +103,9 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
-- (void)addStyle:(WCGStyle*)style forKey:(NSString*)key {        
+- (void)addStyle:(NgStyle*)style forKey:(NSString*)key {        
     // over.
-    WCGStyle* tstyle = (WCGStyle*)[_styles objectForKey:key];
+    NgStyle* tstyle = (NgStyle*)[_styles objectForKey:key];
     if (tstyle) {
         style.previous = tstyle.previous;
         style.next = tstyle.next;
@@ -136,7 +136,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)removeStyleForKey:(NSString*)key {
-    WCGStyle* style = (WCGStyle*)[_styles objectForKey:key];
+    NgStyle* style = (NgStyle*)[_styles objectForKey:key];
     if (style == _root) {
         _root = style.next;
         if (style == _last)
@@ -158,7 +158,7 @@ NNT_BEGIN_OBJC
 - (void)drawInContext:(CGContextRef)ctx inRect:(CGRect)rect {
     CGContextSaveGState(ctx);
 
-    WCGStyleContext* context = [[WCGStyleContext alloc] init];
+    NgStyleContext* context = [[NgStyleContext alloc] init];
     context.context = ctx;
     context.bounds = rect;
     [_root drawInContext:context];

@@ -49,7 +49,7 @@ uuid::~uuid()
     
 }
 
-uuid& uuid::operator = (const wsi::uuid & r)
+uuid& uuid::operator = (const ::nnt::uuid & r)
 {
 # ifdef NNT_MSVC
     

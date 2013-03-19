@@ -60,7 +60,7 @@ NNT_BEGIN_OBJC
 - (void)layoutSubviews {
     CGRectLayoutVBox lyt(self.bounds, 2);
     CGRectLayoutLinear lnr(lyt);
-    lnr << (::wsi::flex)1 << (pixel)30;
+    lnr << (::nnt::flex)1 << (pixel)30;
     
     output.frame = lyt << lnr;
     

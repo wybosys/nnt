@@ -32,13 +32,13 @@ NNTDECL_PRIVATE_HEAD(UIGridView);
     NSArray *_children;
     
     //! item's default background fill.
-    WCGFill *_itemBackgroundFill;
+    NgFill *_itemBackgroundFill;
     
     //! item scaleToFit. default is NO.
     BOOL _itemScaleToFit;
     
     //! item's high light fill.
-    WCGFill *_itemHighlight;
+    NgFill *_itemHighlight;
     
     //! item size.
     CGSize _preferredItemSize;
@@ -47,13 +47,13 @@ NNTDECL_PRIVATE_HEAD(UIGridView);
     CGShadow *_itemShadow;
     
     //! item border.
-    WCGLineStyle *_itemBorder;
+    NgLineStyle *_itemBorder;
     
     //! class for instance item, default is UIGridViewItem.
     Class _classItem;
     
     //! split line style. default is nil.
-    WCGLineStyle *_rowLineStyle, *_colLineStyle;
+    NgLineStyle *_rowLineStyle, *_colLineStyle;
     
     //! enable animated, default is YES.
     BOOL _enableAnimated;
@@ -67,15 +67,15 @@ NNTDECL_PRIVATE_HEAD(UIGridView);
 @property (nonatomic) CGMargin margin;
 @property (nonatomic) BOOL enableFillIndex;
 @property (nonatomic, readonly) NSArray *children;
-@property (nonatomic, retain) WCGFill *itemBackgroundFill;
+@property (nonatomic, retain) NgFill *itemBackgroundFill;
 @property (nonatomic, assign) BOOL itemScaleToFit;
 @property (nonatomic, retain) CGShadow *itemShadow;
 @property (nonatomic, assign) CGSize preferredItemSize;
-@property (nonatomic, retain) WCGLineStyle *itemBorder;
+@property (nonatomic, retain) NgLineStyle *itemBorder;
 @property (nonatomic, assign) BOOL enableAnimated;
 @property (nonatomic, assign) Class classItem;
-@property (nonatomic, retain) WCGFill *itemHighlight;
-@property (nonatomic, retain) WCGLineStyle *rowLineStyle, *colLineStyle;
+@property (nonatomic, retain) NgFill *itemHighlight;
+@property (nonatomic, retain) NgLineStyle *rowLineStyle, *colLineStyle;
 
 - (id)initWithFrame:(CGRect)frame;
 - (id)initWithFrame:(CGRect)frame rows:(NSUInteger)rows cols:(NSUInteger)cols;

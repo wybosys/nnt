@@ -11,8 +11,8 @@ NNT_BEGIN_OBJC
     [super call:model withUrl:url];
     
     __cxxmodel_wrapper* nsmdl = (__cxxmodel_wrapper*)model;
-    ::wsi::ns::IModel* cxxmdl = nsmdl.model;
-    ::wsi::ns::model::IOperation* opemdl = dynamic_cast< ::wsi::ns::model::IOperation*>(cxxmdl);
+    ::nnt::ns::IModel* cxxmdl = nsmdl.model;
+    ::nnt::ns::model::IOperation* opemdl = dynamic_cast< ::nnt::ns::model::IOperation*>(cxxmdl);
     return opemdl->run();
 }
 

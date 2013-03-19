@@ -46,7 +46,7 @@ BOOL __gs_debug_attachstore_error_enable = YES;
 #   define NNTNS_ERR \
 else if (__gs_debug_attachstore_error_enable) { \
 NSString *msg = [NSString stringWithFormat:@"this [%@] class isn't inherit from NNTObject or use NNTOBJECT_ macros", [NSString stringWithUTF8String:object_getClassName(self)]]; \
-@throw [NSException exceptionWithName:@"wsi::nsobject" reason:msg userInfo:nil]; \
+@throw [NSException exceptionWithName:@"::nnt::nsobject" reason:msg userInfo:nil]; \
 }
 
 # else
@@ -65,7 +65,7 @@ trace_msg(msg); \
 
 # endif
 
-#   define THROW_MSG(msg)  @throw [NSException exceptionWithName:@"::wsi::ns::object" reason:msg userInfo:nil];
+#   define THROW_MSG(msg)  @throw [NSException exceptionWithName:@"::nnt::ns::object" reason:msg userInfo:nil];
 
 - (BOOL)supportSignalSlot {
     if ([self respondsToSelector:@selector(_event)]) {
@@ -254,17 +254,17 @@ trace_msg(msg); \
 
 # ifdef NNT_CXX
 
-- (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
+- (void)register_signal:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     [self register_signal:signal];
     [self connect:signal action:action target:target];
 }
 
-- (void)register_signal:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+- (void)register_signal:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay {
     [self register_signal:signal];
     [self connect:signal action:action target:target delay:delay];
 }
 
-- (slot_t*)connect:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target {
+- (slot_t*)connect:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
@@ -276,7 +276,7 @@ trace_msg(msg); \
     return ret;
 }
 
-- (slot_t*)connect:(id)signal action:(::wsi::objevent_func)action target:(::wsi::Object*)target delay:(real)delay {
+- (slot_t*)connect:(id)signal action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay {
     slot_t* ret = nil;
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
@@ -380,7 +380,7 @@ trace_msg(msg); \
     } NNTNS_ERR;
 }
 
-- (void)disconnect_target:(::wsi::Object*)target {
+- (void)disconnect_target:(::nnt::Object*)target {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
         if ([evt_obj isKindOfClass:[NNTEvent class]]) {
@@ -400,7 +400,7 @@ trace_msg(msg); \
     } NNTNS_ERR;
 }
 
-- (void)disconnect_target:(::wsi::Object *)target signal:(id)signal {
+- (void)disconnect_target:(::nnt::Object *)target signal:(id)signal {
     if ([self respondsToSelector:@selector(_event)]) {
         id evt_obj = [self performSelector:@selector(_event) withObject:nil];
         if ([evt_obj isKindOfClass:[NNTEvent class]]) {
@@ -733,13 +733,13 @@ trace_msg(msg); \
     return self;
 }
 
-- (id)initWith:(::wsi::RefObject const*)object {
+- (id)initWith:(::nnt::RefObject const*)object {
     self = [super init];
     self.object = object;
     return self;
 }
 
-+ (id)objectWith:(::wsi::RefObject const*)object {
++ (id)objectWith:(::nnt::RefObject const*)object {
     return [[[NSRefObject alloc] initWith:object] autorelease];
 }
 
@@ -748,7 +748,7 @@ trace_msg(msg); \
     [super dealloc];
 }
 
-- (void)setObject:(::wsi::RefObject const*)object {
+- (void)setObject:(::nnt::RefObject const*)object {
     if (object == _cxxobj)
         return;
     
@@ -757,7 +757,7 @@ trace_msg(msg); \
     safe_grab(_cxxobj);
 }
 
-- (void)setObject:(::wsi::RefObject const*)object grab:(BOOL)grab {
+- (void)setObject:(::nnt::RefObject const*)object grab:(BOOL)grab {
     if (object == _cxxobj)
         return;
     
@@ -840,7 +840,7 @@ NNTIMPL_CATEGORY(NSObject, NNT);
 
 dispatch_queue_t kQueueDefault;
 dispatch_queue_t kQueueSignalSlot;
-char const* DISPATCH_QUEUE_PRIORITY_SIGNALSLOT = "::wsi::gcd::queue::signalslot";
+char const* DISPATCH_QUEUE_PRIORITY_SIGNALSLOT = "::nnt::gcd::queue::signalslot";
 
 NNT_END_OBJC
 

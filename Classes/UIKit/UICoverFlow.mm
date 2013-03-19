@@ -358,8 +358,8 @@ NNTEVENT_END
 			UIItemView* item = [self coverForIndex:i];
             
             // set cover.
-			[d_ptr.onscreen_covers setObject:item forKey:wsi::number(i)];
-            [d_ptr.offscreen_covers removeObjectForKey:wsi::number(i)];
+			[d_ptr.onscreen_covers setObject:item forKey:::nnt::number(i)];
+            [d_ptr.offscreen_covers removeObjectForKey:::nnt::number(i)];
             
             // update cover.
             [self updateCover:item];
@@ -376,10 +376,10 @@ NNTEVENT_END
             (newUpperBound < d_ptr.upperVisibleCover)) {
                         
             for (int i = d_ptr.lowerVisibleCover; i <= d_ptr.upperVisibleCover; ++i) {
-                UIItemView* item = [d_ptr.onscreen_covers objectForKey:wsi::number(i)];
+                UIItemView* item = [d_ptr.onscreen_covers objectForKey:::nnt::number(i)];
                 
-                [d_ptr.offscreen_covers setObject:item forKey:wsi::number(i)];
-                [d_ptr.onscreen_covers removeObjectForKey:wsi::number(i)];
+                [d_ptr.offscreen_covers setObject:item forKey:::nnt::number(i)];
+                [d_ptr.onscreen_covers removeObjectForKey:::nnt::number(i)];
                 
                 [item.layer removeFromSuperlayer];
             }
@@ -388,8 +388,8 @@ NNTEVENT_END
             for (int i = newLowerBound; i <= newUpperBound; ++i) {
                 UIItemView* item = [self coverForIndex:i];
                 
-                [d_ptr.onscreen_covers setObject:item forKey:wsi::number(i)];
-                [d_ptr.offscreen_covers removeObjectForKey:wsi::number(i)];
+                [d_ptr.onscreen_covers setObject:item forKey:::nnt::number(i)];
+                [d_ptr.offscreen_covers removeObjectForKey:::nnt::number(i)];
                 
                 [self updateCover:item];
                 [d_ptr.scrollView.layer addSublayer:item.layer];
@@ -402,11 +402,11 @@ NNTEVENT_END
         } else if (newSelectedCover > d_ptr.selectedCover.number) {
         
             for (int i = d_ptr.lowerVisibleCover; i < newLowerBound; ++i) {
-                UIItemView* item = [d_ptr.onscreen_covers objectForKey:wsi::number(i)];
+                UIItemView* item = [d_ptr.onscreen_covers objectForKey:::nnt::number(i)];
                 
                 if (d_ptr.upperVisibleCover > newUpperBound) {
-                    [d_ptr.offscreen_covers setObject:item forKey:wsi::number(i)];
-                    [d_ptr.onscreen_covers removeObjectForKey:wsi::number(i)];
+                    [d_ptr.offscreen_covers setObject:item forKey:::nnt::number(i)];
+                    [d_ptr.onscreen_covers removeObjectForKey:::nnt::number(i)];
                     
                     [item.layer removeFromSuperlayer];
                 }                
@@ -418,8 +418,8 @@ NNTEVENT_END
             for (int i = d_ptr.upperVisibleCover + 1; i <= newUpperBound; ++i) {
                 UIItemView* item = [self coverForIndex:i];
                 
-                [d_ptr.onscreen_covers setObject:item forKey:wsi::number(i)];
-                [d_ptr.offscreen_covers removeObjectForKey:wsi::number(i)];
+                [d_ptr.onscreen_covers setObject:item forKey:::nnt::number(i)];
+                [d_ptr.offscreen_covers removeObjectForKey:::nnt::number(i)];
                 
                 [self updateCover:item];
                 [d_ptr.scrollView.layer addSublayer:item.layer];
@@ -434,8 +434,8 @@ NNTEVENT_END
                 UIItemView* item = [d_ptr.onscreen_covers objectForKey:[NSNumber numberWithInt:i]];
                 
                 if (d_ptr.lowerVisibleCover < newLowerBound) {
-                    [d_ptr.offscreen_covers setObject:item forKey:wsi::number(i)];
-                    [d_ptr.onscreen_covers removeObjectForKey:wsi::number(i)];
+                    [d_ptr.offscreen_covers setObject:item forKey:::nnt::number(i)];
+                    [d_ptr.onscreen_covers removeObjectForKey:::nnt::number(i)];
                     
                     [item.layer removeFromSuperlayer];                    
                 }
@@ -447,8 +447,8 @@ NNTEVENT_END
             for (int i = d_ptr.lowerVisibleCover - 1; i >= newLowerBound; --i) {
                 UIItemView* item = [self coverForIndex:i];
                 
-                [d_ptr.onscreen_covers setObject:item forKey:wsi::number(i)];
-                [d_ptr.offscreen_covers removeObjectForKey:wsi::number(i)];
+                [d_ptr.onscreen_covers setObject:item forKey:::nnt::number(i)];
+                [d_ptr.offscreen_covers removeObjectForKey:::nnt::number(i)];
                 
                 [self updateCover:item];
                 [d_ptr.scrollView.layer addSublayer:item.layer];
@@ -461,7 +461,7 @@ NNTEVENT_END
     }
     
     // set select.
-	d_ptr.selectedItem = [d_ptr.onscreen_covers objectForKey:wsi::number(newSelectedCover)];
+	d_ptr.selectedItem = [d_ptr.onscreen_covers objectForKey:::nnt::number(newSelectedCover)];
 }
 
 - (void)setCoverSlant:(real)val {
@@ -539,11 +539,11 @@ NNTEVENT_END
 	UIItemView *item = nil;
     
     // find in off.
-    item = [d_ptr.offscreen_covers objectForKey:wsi::number(coverIndex) null:nil];
+    item = [d_ptr.offscreen_covers objectForKey:::nnt::number(coverIndex) null:nil];
     
     // find in on.
     if (item == nil) {
-        item = [d_ptr.onscreen_covers objectForKey:wsi::number(coverIndex) null:nil];
+        item = [d_ptr.onscreen_covers objectForKey:::nnt::number(coverIndex) null:nil];
     }
     
 	if (item == nil) {
@@ -641,7 +641,7 @@ NNTEVENT_END
     UICoverFlowItem* cover = (UICoverFlowItem*)item.contentView;
     int indexSelected = cover.number;
 	for (int i = lowerBound; i <= upperBound; ++i) {
-		UIItemView *each = [d_ptr.onscreen_covers objectForKey:wsi::number(i)];
+		UIItemView *each = [d_ptr.onscreen_covers objectForKey:::nnt::number(i)];
         [self layoutCover:each indexSelected:indexSelected animated:animated];
 	}
 }
@@ -662,7 +662,7 @@ NNTEVENT_END
 
 - (void)updateCoverFrom:(int)lowBound to:(int)upperBound animated:(BOOL)animated {
     for (int i = lowBound; i <= upperBound; ++i) {
-        UIItemView *item = [d_ptr.onscreen_covers objectForKey:wsi::number(i)];
+        UIItemView *item = [d_ptr.onscreen_covers objectForKey:::nnt::number(i)];
         if (item) {
             [self updateCover:item animated:animated];
         }        

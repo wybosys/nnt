@@ -48,7 +48,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)layoutSubviews {
-    wsi::CGRectLayoutHBox lyt(self.bounds);
+    ::nnt::CGRectLayoutHBox lyt(self.bounds);
     title.frame = lyt.add_fpercent(ratio);
     label.frame = lyt.fill();
 }

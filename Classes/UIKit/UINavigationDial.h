@@ -6,8 +6,8 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-NNTDECL_EXTERN_CLASS(WCGFill);
-NNTDECL_EXTERN_CLASS(WCGTextStyle);
+NNTDECL_EXTERN_CLASS(NgFill);
+NNTDECL_EXTERN_CLASS(NgTextStyle);
 NNTDECL_EXTERN_CLASS(NNTUIViewController);
 NNTDECL_EXTERN_CLASS(CGShadow);
 
@@ -36,8 +36,8 @@ NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
     UIColor *imageMaskColor;
     
     //! label.
-    WCGFill *labelFill;
-    WCGTextStyle *labelTextStyle;
+    NgFill *labelFill;
+    NgTextStyle *labelTextStyle;
     
     //! view controller.
     NNTUIViewController *viewController;
@@ -51,8 +51,8 @@ NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
 @property (nonatomic, retain) WCABadgeIndicator         *layerBadge;
 @property (nonatomic, retain) UIColor                   *imageMaskColor;
 @property (nonatomic, retain) NNTUIViewController       *viewController;
-@property (nonatomic, retain) WCGFill                   *labelFill;
-@property (nonatomic, retain) WCGTextStyle              *labelTextStyle;
+@property (nonatomic, retain) NgFill                   *labelFill;
+@property (nonatomic, retain) NgTextStyle              *labelTextStyle;
 @property (nonatomic, copy)   NSString                  *badgeValue;
 
 //! refresh.
@@ -76,16 +76,16 @@ NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
     //! item color.
     UIColor *itemDefaultColor, *itemSelectedColor;
     CGShadow *itemEdgeShadow;
-    WCGFill *itemFill;
+    NgFill *itemFill;
     
     //! label.
-    WCGFill *labelFill;
-    WCGTextStyle *labelTextStyle;
+    NgFill *labelFill;
+    NgTextStyle *labelTextStyle;
     CGSize preferredLabelSize;
     real labelOffset;
     
     //! color.
-    WCGFill *dialFill, *centerFill;
+    NgFill *dialFill, *centerFill;
     CGShadow* dialInnerShadow, *dialOutterShadow;
     
     //! clockwise. default is YES.
@@ -105,12 +105,12 @@ NNTDECL_EXTERN_CLASS(WCABadgeIndicator);
 @property (nonatomic, assign) real radiusOuter, radiusInner, radiusCollapse, radiusExpand;
 @property (nonatomic, retain) NSArray *items;
 @property (nonatomic, retain) UIColor *itemDefaultColor, *itemSelectedColor;
-@property (nonatomic, retain) WCGFill *dialFill, *centerFill;
-@property (nonatomic, retain) WCGFill *itemFill;
+@property (nonatomic, retain) NgFill *dialFill, *centerFill;
+@property (nonatomic, retain) NgFill *itemFill;
 @property (nonatomic, retain) CGShadow* dialInnerShadow, *dialOutterShadow;
 @property (nonatomic, retain) CGShadow *itemEdgeShadow;
-@property (nonatomic, retain) WCGFill *labelFill;
-@property (nonatomic, retain) WCGTextStyle *labelTextStyle;
+@property (nonatomic, retain) NgFill *labelFill;
+@property (nonatomic, retain) NgTextStyle *labelTextStyle;
 @property (nonatomic, assign) CGSize preferredLabelSize;
 @property (nonatomic, assign) BOOL clockwise;
 @property (nonatomic, assign) real startAngle;

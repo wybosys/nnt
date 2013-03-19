@@ -56,7 +56,7 @@ public:
     id instance_settings(ns::String const& name) const;
     
     //! image.
-    WCGImage* process(CGImageRef) const;
+    NgImage* process(CGImageRef) const;
     
     //! retype.
     operator CIFilter* () const

@@ -13,10 +13,10 @@
 
 NNT_BEGIN_CXX 
 
-signal_t kSignalConnected = "::wsi::cross::connected";
-signal_t kSignalDisconnected = "::wsi::cross::disconnected";
-signal_t kSignalBytesAvailable = "::wsi::cross::bytes";
-signal_t kSignalClosed = "::wsi::cross::closed";
+signal_t kSignalConnected = "::nnt::cross::connected";
+signal_t kSignalDisconnected = "::nnt::cross::disconnected";
+signal_t kSignalBytesAvailable = "::nnt::cross::bytes";
+signal_t kSignalClosed = "::nnt::cross::closed";
 
 NNT_BEGIN_NS(cross)
 

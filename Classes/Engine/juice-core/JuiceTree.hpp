@@ -82,7 +82,7 @@ public:
         return entity;
     }
     
-    entity_type const* find_byname(::wsi::core::string const& name) const
+    entity_type const* find_byname(::nnt::core::string const& name) const
     {
         typename entities_type::const_iterator each = entities.begin();
         while (each != entities.end())
@@ -95,7 +95,7 @@ public:
         return NULL;
     }
     
-    entity_type const* find_byidentity(::wsi::core::string const& identity) const
+    entity_type const* find_byidentity(::nnt::core::string const& identity) const
     {
         typename entities_type::const_iterator each = entities.begin();
         while (each != entities.end())
@@ -204,7 +204,7 @@ public:
 
 template <typename implT,
 typename physicsT, 
-typename entitiesT = ::wsi::core::vector<renderentity_wrapper>
+typename entitiesT = ::nnt::core::vector<renderentity_wrapper>
 >
 class PhyTree
 : public Tree<implT, entitiesT>

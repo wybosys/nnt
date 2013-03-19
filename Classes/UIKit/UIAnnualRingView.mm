@@ -9,9 +9,9 @@ NNT_BEGIN_OBJC
 
 NNT_USINGCXXNAMESPACE;
 
-signal_t kSignalRingRotated = @"::wsi::ui::ring::rotated";
-signal_t kSignalItemLayoutted = @"::wsi::ui::item::layoutted";
-signal_t kSignalItemsLayoutted = @"::wsi::ui::items::layoutted";
+signal_t kSignalRingRotated = @"::nnt::ui::ring::rotated";
+signal_t kSignalItemLayoutted = @"::nnt::ui::item::layoutted";
+signal_t kSignalItemsLayoutted = @"::nnt::ui::items::layoutted";
 
 @implementation UIAnnualRingSingle
 

@@ -89,7 +89,7 @@ static NNTConfiguration *__gs_confcenter = nil;
             zero_release(__gs_confcenter);
         }
         if (__gs_confcenter && wsiobj) {
-            [wsiobj storeSet:@"::wsi::gs::confcenter" obj:__gs_confcenter];
+            [wsiobj storeSet:@"::nnt::gs::confcenter" obj:__gs_confcenter];
         }
     }
     NNT_SYNCHRONIZED_END

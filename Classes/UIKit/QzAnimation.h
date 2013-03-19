@@ -2,7 +2,7 @@
 # ifndef __NNT_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
 # define __NNT_QZ_ANIMATION_660F7DC100C74083867B9191124CEF61_H_INCLUDED
 
-# import "../Graphic/WCGPath.h"
+# import "../Graphic/NGPath.h"
 # import "../Core/NSValue+NNT.h"
 
 # ifdef NNT_CXX
@@ -65,10 +65,10 @@ public:
 
 template <typename aniT = CAAnimation>
 class Animation
-: public ::wsi::ns::Object<__cxxobject_qzanimation>,
+: public ::nnt::ns::Object<__cxxobject_qzanimation>,
 public MediaTiming<Animation<aniT> >
 {    
-    typedef ::wsi::ns::Object<__cxxobject_qzanimation> super;
+    typedef ::nnt::ns::Object<__cxxobject_qzanimation> super;
     
 protected:
     

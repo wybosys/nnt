@@ -12,7 +12,7 @@
 
 XMPPCORE_BEGIN
 
-wf::State kStateAuth = wf::State("::wsi::xmpp::auth");
+wf::State kStateAuth = wf::State("::nnt::xmpp::auth");
 
 Features::Features()
 : _sasl(NULL)

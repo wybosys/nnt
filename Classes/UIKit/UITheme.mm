@@ -14,14 +14,14 @@ NNT_BEGIN_OBJC
 
 - (UIColor*)asColor {
     if ([self isKindOfClass:[WCGColor class]]) {
-        return [UIColor colorWithCGColor:((WCGColor*)self).cgColor];
+        return [UIColor colorWithCGColor:((NgColor*)self).cgColor];
     }
     return nil;
 }
 
 - (UIImage*)asImage {
     if ([self isKindOfClass:[WCGImage class]]) {
-        return [UIImage imageWithCGImage:((WCGImage*)self).image];
+        return [UIImage imageWithCGImage:((NgImage*)self).image];
     }
     return nil;
 }
@@ -211,7 +211,7 @@ UITheme* currentTheme = nil;
 }
 
 - (NSArray*)allKeys {
-    wsi::ns::MutableArray arr;
+    ::nnt::ns::MutableArray arr;
     void* iter = [d_ptr_theme.store iterator_begin];
     for (; iter; iter = [d_ptr_theme.store iterator_next:iter]) {
         void *key, *data;

@@ -12,8 +12,8 @@ NNT_USINGCXXNAMESPACE;
 
 NNT_BEGIN_OBJC
 
-NSString *kSignalClosed = @"::wsi::closed";
-NSString *kSignalShown = @"::wsi::shown";
+NSString *kSignalClosed = @"::nnt::closed";
+NSString *kSignalShown = @"::nnt::shown";
 
 @implementation NNTUIDesktop
 

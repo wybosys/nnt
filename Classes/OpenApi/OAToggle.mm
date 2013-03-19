@@ -100,7 +100,7 @@ NNT_BEGIN_OBJC
 - (void)authorize:(uindex)idx {
     Class cls = [_manager classAtIndex:idx];
     id obj = [[cls alloc] init];
-    [obj storeSet:@"toggle::index" obj:wsi::number(idx)];
+    [obj storeSet:@"toggle::index" obj:::nnt::number(idx)];
     [obj connect:kSignalAuthorizeSuccess sel:@selector(__suc_authorize:) obj:self];
     [obj retrieve];
     [obj release];
@@ -111,7 +111,7 @@ NNTEVENT_SIGNAL(@"kSignalToggleAuthorizeSuccess")
 NNTEVENT_END
 
 - (void)__suc_authorize:(NNTEventObj*)evt {
-    wsi::ns::MutableDictionary dict;
+    ::nnt::ns::MutableDictionary dict;
     dict[@"enable"] = NSNumberYes;
 
     id sender = (id)evt.sender;
@@ -128,12 +128,12 @@ NNTEVENT_END
 }
 
 - (BOOL)is_enable:(uindex)idx {
-    wsi::ns::Dictionary dict([self load:idx]);
+    ::nnt::ns::Dictionary dict([self load:idx]);
     return dict[@"enable"] == NSNumberYes;
 }
 
 - (BOOL)is_enable_byclass:(Class)cls {
-    wsi::ns::Dictionary dict([self load_byclass:cls]);
+    ::nnt::ns::Dictionary dict([self load_byclass:cls]);
     return dict[@"enable"] == NSNumberYes;
 }
 

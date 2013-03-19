@@ -12,9 +12,9 @@ using namespace ::wsi;
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalAuthorizeSuccess = @"::wsi::authorize::success";
-signal_t kSignalAuthorizeFailed = @"::wsi::authorize::failed";
-signal_t kSignalAuthorizeExit = @"::wsi::authorize::exit";
+signal_t kSignalAuthorizeSuccess = @"::nnt::authorize::success";
+signal_t kSignalAuthorizeFailed = @"::nnt::authorize::failed";
+signal_t kSignalAuthorizeExit = @"::nnt::authorize::exit";
 
 NSString* kOAuthCallbackSuccess = @"::oauth::success";
 NSString* kOAuthCallbackCancel = @"::oauth::cancel";
@@ -409,7 +409,7 @@ NNTEVENT_END
     ns::MutableDictionary dict;
     [self.request generateParameters:dict];
     dict[@"oauth_signature"] = [str_signed OAEncode];
-    dict[@"oauth_verifier"] = (wsi::ignore_null)self.request.verifier;
+    dict[@"oauth_verifier"] = (::nnt::ignore_null)self.request.verifier;
     dict[@"oauth_token"] = self.request.token;
     
     NSString *header = [NSString stringWithFormat:@"OAuth %@", [dict combineWithKVSep:@"=" andSegSep:@", " keysur:@"" valsur:@"\""]];
@@ -747,28 +747,28 @@ NNTEVENT_END
 - (void)saveTo:(NSMutableDictionary*)__dict {
     ns::MutableDictionary dict(__dict);
     
-    dict[@"::wsi::oauth::version"] = @"1.0";
-    dict[@"::wsi::oauth::access_token"] = _request.access_token;
-    dict[@"::wsi::oauth::access_token_secret"] = _request.access_token_secret;
-    dict[@"::wsi::oauth::token"] = _request.token;
-    dict[@"::wsi::oauth::token_secret"] = _request.token_secret;
-    dict[@"::wsi::oauth::user_id"] = _request.user_id;
-    dict[@"::wsi::oauth::verifier"] = _request.verifier;
+    dict[@"::nnt::oauth::version"] = @"1.0";
+    dict[@"::nnt::oauth::access_token"] = _request.access_token;
+    dict[@"::nnt::oauth::access_token_secret"] = _request.access_token_secret;
+    dict[@"::nnt::oauth::token"] = _request.token;
+    dict[@"::nnt::oauth::token_secret"] = _request.token_secret;
+    dict[@"::nnt::oauth::user_id"] = _request.user_id;
+    dict[@"::nnt::oauth::verifier"] = _request.verifier;
 }
 
 - (BOOL)loadFrom:(NSDictionary*)__dict {
     ns::Dictionary dict(__dict);
     
-    ns::String ver = dict[@"::wsi::oauth::version"];
+    ns::String ver = dict[@"::nnt::oauth::version"];
     if (ver != ns::String(@"1.0"))
         return NO;
     
-    _request.access_token = dict[@"::wsi::oauth::access_token"];
-    _request.access_token_secret = dict[@"::wsi::oauth::access_token_secret"];
-    _request.token = dict[@"::wsi::oauth::token"];
-    _request.token_secret = dict[@"::wsi::oauth::token_secret"];
-    _request.user_id = dict[@"::wsi::oauth::user_id"];
-    _request.verifier = dict[@"::wsi::oauth::verifier"];
+    _request.access_token = dict[@"::nnt::oauth::access_token"];
+    _request.access_token_secret = dict[@"::nnt::oauth::access_token_secret"];
+    _request.token = dict[@"::nnt::oauth::token"];
+    _request.token_secret = dict[@"::nnt::oauth::token_secret"];
+    _request.user_id = dict[@"::nnt::oauth::user_id"];
+    _request.verifier = dict[@"::nnt::oauth::verifier"];
     
     return YES;
 }
@@ -827,7 +827,7 @@ NNTEVENT_END
     
     dict[@"client_id"] = self.clientId;    
     dict[@"redirect_uri"] = self.redirectUrl;
-    dict[@"scope"] = (wsi::ignore_null)[self generateScopes];
+    dict[@"scope"] = (::nnt::ignore_null)[self generateScopes];
     
     // add params.
     for (NSPair* each in self.params) {
@@ -1125,27 +1125,27 @@ NNTEVENT_END
 - (void)saveTo:(NSMutableDictionary*)__dict {
     ns::MutableDictionary dict(__dict);
     
-    dict[@"::wsi::oauth::version"] = @"2.0";
-    dict[@"::wsi::oauth::access_token"] = _request.access_token;
-    dict[@"::wsi::oauth::code"] = _request.code;
-    dict[@"::wsi::oauth::user_id"] = _request.user_id;
-    dict[@"::wsi::oauth::remind"] = tostr(_request.remind);
-    dict[@"::wsi::oauth::expire"] = tostr(_request.expires);
+    dict[@"::nnt::oauth::version"] = @"2.0";
+    dict[@"::nnt::oauth::access_token"] = _request.access_token;
+    dict[@"::nnt::oauth::code"] = _request.code;
+    dict[@"::nnt::oauth::user_id"] = _request.user_id;
+    dict[@"::nnt::oauth::remind"] = tostr(_request.remind);
+    dict[@"::nnt::oauth::expire"] = tostr(_request.expires);
     
 }
 
 - (BOOL)loadFrom:(NSDictionary*)__dict {
     ns::Dictionary dict(__dict);
     
-    ns::String ver = dict[@"::wsi::oauth::version"];
+    ns::String ver = dict[@"::nnt::oauth::version"];
     if (ver != ns::String(@"2.0"))
         return NO;
     
-    _request.access_token = dict[@"::wsi::oauth::access_token"];
-    _request.code = dict[@"::wsi::oauth::code"];
-    _request.user_id = dict[@"::wsi::oauth::user_id"];
-    _request.remind = core::touint(dict[@"::wsi::oauth::remind"]);
-    _request.expires = core::touint(dict[@"::wsi::oauth::expire"]);
+    _request.access_token = dict[@"::nnt::oauth::access_token"];
+    _request.code = dict[@"::nnt::oauth::code"];
+    _request.user_id = dict[@"::nnt::oauth::user_id"];
+    _request.remind = core::touint(dict[@"::nnt::oauth::remind"]);
+    _request.expires = core::touint(dict[@"::nnt::oauth::expire"]);
     
     return YES;
 }

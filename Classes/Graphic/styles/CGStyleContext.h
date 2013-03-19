@@ -6,14 +6,14 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface WCGStyleContext : NSObject {
+@interface NgStyleContext : NSObject {
     CGContextRef _ctx;
-    WCGShape* _shape;
+    NgShape* _shape;
 }
 
 @property (nonatomic, assign) CGContextRef context;
 @property (nonatomic, assign) CGRect bounds;
-@property (nonatomic, assign) WCGShape* shape;
+@property (nonatomic, assign) NgShape* shape;
 
 @end
 

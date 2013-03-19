@@ -11,7 +11,7 @@
 
 NNT_BEGIN_OBJC
 
-NSString *kSignalDialClicked = @"wsi::uikit::dial::clicked";
+NSString *kSignalDialClicked = @"::nnt::uikit::dial::clicked";
 
 @interface UINavigationDialPrivate : NSObject {
     UINavigationDial *d_owner;
@@ -152,7 +152,7 @@ NSString *kSignalDialClicked = @"wsi::uikit::dial::clicked";
     self.labelFill = [WCGFill fillWithColor:[WCGColor blackColor]];
     self.labelOffset = 0;
     
-    WCGMutableTextStyle *ts = [[WCGMutableTextStyle alloc] init];
+    NgMutableTextStyle *ts = [[WCGMutableTextStyle alloc] init];
     ts.color = [WCGColor whiteColor];
     ts.fontSize = 30;
     ts.charRotation = -M_PI_2;
@@ -249,12 +249,12 @@ NNTEVENT_END
     d_ptr.layer_ring.startAngle = val;
 }
 
-- (void)setDialFill:(WCGFill *)color {
+- (void)setDialFill:(NgFill *)color {
     [NSObject refobjSet:&dialFill obj:&color];
     d_ptr.layer_ring.backgroundFill = color;
 }
 
-- (void)setCenterFill:(WCGFill *)color {
+- (void)setCenterFill:(NgFill *)color {
     [NSObject refobjSet:&centerFill obj:&color];
     d_ptr.layer_center.backgroundFill = color;
 }
@@ -508,13 +508,13 @@ NNTEVENT_END
     [self setNeedsDisplay];
 }
 
-- (void)setLabelFill:(WCGFill *)color {
+- (void)setLabelFill:(NgFill *)color {
     [NSObject refobjSet:&labelFill obj:&color];
     
     layerLabel.backgroundFill = color;
 }
 
-- (void)setLabelTextStyle:(WCGTextStyle *)ts {
+- (void)setLabelTextStyle:(NgTextStyle *)ts {
     [NSObject refobjSet:&labelTextStyle obj:&ts];
     layerLabel.textStyle = ts;
 }

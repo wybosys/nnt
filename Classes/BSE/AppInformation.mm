@@ -67,9 +67,9 @@ NNT_BEGIN_OBJC
 - (void)act_finish_loading {
     // increase app launch counter.
     {
-        uint val = [[NNTConfiguration shared] getInt:@"::wsi::app::counter::launch" null:0];
+        uint val = [[NNTConfiguration shared] getInt:@"::nnt::app::counter::launch" null:0];
         val += 1;
-        [[NNTConfiguration shared] set:@"::wsi::app::counter::launch" intValue:val];
+        [[NNTConfiguration shared] set:@"::nnt::app::counter::launch" intValue:val];
     }
 }
 
@@ -82,7 +82,7 @@ NNT_BEGIN_NS(bse)
 
 uint Application::Counter::Launch()
 {
-    uint val = [[NNTConfiguration shared] getInt:@"::wsi::app::counter::launch" null:1];
+    uint val = [[NNTConfiguration shared] getInt:@"::nnt::app::counter::launch" null:1];
     return val;
 }
 

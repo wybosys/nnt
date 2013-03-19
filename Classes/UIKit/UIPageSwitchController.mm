@@ -4,7 +4,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalPageCreate = @"::wsi::uikit::page::create";
+signal_t kSignalPageCreate = @"::nnt::uikit::page::create";
 
 @implementation UIPageSwitchController
 

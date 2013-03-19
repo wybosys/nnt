@@ -4,9 +4,9 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalAnimationStart = @"::wsi::ui::animation::start";
-signal_t kSignalAnimationStop  = @"::wsi::ui::animation::stop";
-signal_t kSignalAnimationRun = @"::wsi::ui::animation::run";
+signal_t kSignalAnimationStart = @"::nnt::ui::animation::start";
+signal_t kSignalAnimationStop  = @"::nnt::ui::animation::stop";
+signal_t kSignalAnimationRun = @"::nnt::ui::animation::run";
 
 @implementation NNTUIAnimation
 

@@ -146,18 +146,18 @@ _CXXCONTROL_IMPL_BEGIN(UIPickerControl)
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    ::wsi::ui::IPickerControl* obj = (::wsi::ui::IPickerControl*)self._cxxobj;
+    ::nnt::ui::IPickerControl* obj = (::nnt::ui::IPickerControl*)self._cxxobj;
     return obj->count_components();
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    ::wsi::ui::Picker* obj = interface_cast(self._cxxobj, ::wsi::ui::Picker);
+    ::nnt::ui::Picker* obj = interface_cast(self._cxxobj, ::nnt::ui::Picker);
     return obj->at(component).count();
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    ::wsi::ui::Picker* obj = interface_cast(self._cxxobj, ::wsi::ui::Picker);
-    ::wsi::ui::PickerSection& sec = obj->at(component);
+    ::nnt::ui::Picker* obj = interface_cast(self._cxxobj, ::nnt::ui::Picker);
+    ::nnt::ui::PickerSection& sec = obj->at(component);
     id da = sec.at(row);
     if ([da isKindOfClass:[NSString class]])
         return (NSString*)da;
@@ -165,17 +165,17 @@ _CXXCONTROL_IMPL_BEGIN(UIPickerControl)
 }
 
 - (UIView*)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    ::wsi::ui::Picker* obj = interface_cast(self._cxxobj, ::wsi::ui::Picker);
-    ::wsi::ui::Picker::IndexPath ip(component, row);
-    ::wsi::ui::PickerItem* item = obj->makeitem(ip);
+    ::nnt::ui::Picker* obj = interface_cast(self._cxxobj, ::nnt::ui::Picker);
+    ::nnt::ui::Picker::IndexPath ip(component, row);
+    ::nnt::ui::PickerItem* item = obj->makeitem(ip);
     if (item) {
         // reference manage.
-        ::wsi::ui::IView* view = interface_cast(item, ::wsi::ui::IView);
+        ::nnt::ui::IView* view = interface_cast(item, ::nnt::ui::IView);
         UIView* ret = [view->nsobject() consign];
         view->drop();
         
         // set.
-        ::wsi::ui::PickerItemObject& var = obj->at(component).object_at(row);
+        ::nnt::ui::PickerItemObject& var = obj->at(component).object_at(row);
         var.view = item;
         item->set_object(&var);
         item->update();
@@ -187,10 +187,10 @@ _CXXCONTROL_IMPL_BEGIN(UIPickerControl)
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    ::wsi::ui::Picker* obj = interface_cast(self._cxxobj, ::wsi::ui::Picker);
-    ::wsi::ui::PickerSection& sec = obj->at(component);
-    ::wsi::ui::PickerItemObject& io = sec.object_at(row);
-    ::wsi::ui::PickerItem* item = (::wsi::ui::PickerItem*)io.view;
+    ::nnt::ui::Picker* obj = interface_cast(self._cxxobj, ::nnt::ui::Picker);
+    ::nnt::ui::PickerSection& sec = obj->at(component);
+    ::nnt::ui::PickerItemObject& io = sec.object_at(row);
+    ::nnt::ui::PickerItem* item = (::nnt::ui::PickerItem*)io.view;
     
     // callback.
     io.emit(kSignalSelected);
@@ -247,8 +247,8 @@ static void __gsf_pickerdesktop_cancel(NNTEventObj* evt) {
 UIPickerControl* NNTOpenPickerDesktop(NSArray* items, SEL ok, SEL cancel, id target) {    
     NNTUIDesktop *desk = [NNTUIDesktop desktop];
     
-    wsi::CGRectLayoutVBox lyt(desk.bounds);
-    wsi::CGRectLayoutLinear lnr(lyt);
+    ::nnt::CGRectLayoutVBox lyt(desk.bounds);
+    ::nnt::CGRectLayoutLinear lnr(lyt);
     lnr.add_flex(1);
     lnr.add_pixel(kUIPickerViewHeight + 44);
     lyt.add_pixel(lnr.get_comp(0));

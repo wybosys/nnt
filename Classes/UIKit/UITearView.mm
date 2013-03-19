@@ -8,7 +8,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalViewClose = @"::wsi::view::close";
+signal_t kSignalViewClose = @"::nnt::view::close";
 
 @interface UITearMaskDesk : NNTUIDesktop {
     UITearView *_tear;
@@ -51,7 +51,7 @@ struct _element_info {
     BOOL    changed;
 };
 
-typedef wsi::core::vector<_element_info> _element_infos;
+typedef ::nnt::core::vector<_element_info> _element_infos;
 
 @interface UITearViewPrivate : NSObject {
     UITearView *d_owner;
@@ -373,7 +373,7 @@ NNTEVENT_END
     CGRect rc_res = CGRectMake(rc_tgt.origin.x, rc_tgt.origin.y + location, rc_tgt.size.width, spacing);
     real max_edge = rc_res.origin.y + rc_res.size.height;
     
-    wsi::core::vector<UIView*> in_region;
+    ::nnt::core::vector<UIView*> in_region;
     for (UIView *view in targetView.subviews) {
         if (view == sourceView)
             continue;
@@ -421,7 +421,7 @@ NNTEVENT_END
     }
 
     // push other views.
-    for (wsi::core::vector<UIView*>::iterator iter = in_region.begin(); iter != in_region.end(); ++iter) {
+    for (::nnt::core::vector<UIView*>::iterator iter = in_region.begin(); iter != in_region.end(); ++iter) {
         _element_info info;
         info.view = *iter;
         info.rect = (*iter).frame;

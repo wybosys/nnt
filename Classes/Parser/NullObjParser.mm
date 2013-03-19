@@ -6,7 +6,7 @@
 
 NNT_BEGIN_OBJC
 
-signal_t kSignalParserError = @"::wsi::parser::parse::error";
+signal_t kSignalParserError = @"::nnt::parser::parse::error";
 
 void ParserInit() {
     [NNT Register:NNTHookTypeFin hookFunc:[func_object withAddr:(void*)&ParserFin]];

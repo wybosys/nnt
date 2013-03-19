@@ -6,8 +6,8 @@
 # import "Math+NNT.h"
 # import "UIFogView.h"
 # import <QuartzCore/QuartzCore.h>
-# import "WCGTextStyle.h"
-# import "WCGGradient.h"
+# import "NGTextStyle.h"
+# import "NGGradient.h"
 # import "CoreGraphic+NNT.h"
 
 NNT_BEGIN_OBJC

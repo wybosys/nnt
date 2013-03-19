@@ -41,10 +41,10 @@ NNT_BEGIN_OBJC
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
-    wsi::CGRectLayoutVBox lyt(frame);
+    ::nnt::CGRectLayoutVBox lyt(frame);
     picker.frame = lyt.add_pixel(175);
     
-    wsi::CGRectLayoutHBox lyt_panel(lyt.fill());
+    ::nnt::CGRectLayoutHBox lyt_panel(lyt.fill());
     lyt_panel.margin.left = 5;
     btnInc.frame = lyt_panel.add_pixel(30);
     btnDec.frame = lyt_panel.add_pixel(30);
