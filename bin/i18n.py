@@ -4,24 +4,24 @@ import os
 import re
 import codecs
 
-##find wsi's home directory by find .WSI_IDENTIFY file.
-def find_wsi (tgtdir):
-    wsi_path = ""
-    if (os.path.exists(tgtdir + "/.WSI_IDENTIFY")):
-        wsi_path = tgtdir + "/wsi"
+##find nnt's home directory by find .NNT_IDENTIFY file.
+def find_nnt (tgtdir):
+    nnt_path = ""
+    if (os.path.exists(tgtdir + "/.NNT_IDENTIFY")):
+        nnt_path = tgtdir + "/nnt"
     else:
         # find in parent dir.
         sup_dir = os.path.dirname(tgtdir)
-        wsi_path = find_wsi(sup_dir)
+        nnt_path = find_nnt(sup_dir)
         # find in sub dir.
-        if (wsi_path == ""):
+        if (nnt_path == ""):
             for each in os.listdir(tgtdir):
                 full_each = tgtdir + "/" + each
                 if (os.path.isdir(full_each)):
-                    wsi_path = find_wsi(full_each)
-                    if (wsi_path != ""):
+                    nnt_path = find_nnt(full_each)
+                    if (nnt_path != ""):
                         break
-    return wsi_path
+    return nnt_path
 
 ##select language.
 def sel_language ():
@@ -91,12 +91,12 @@ def readstore (tgtdir, store):
     return store
 
 ##translate
-def translate (wsi, lang):
+def translate (nnt, lang):
     file_path = "./" + lang + ".lproj/Localizable.strings"
     store = read_langfile(file_path)
-    wsi_class = wsi + "/Classes"
+    nnt_class = nnt + "/Classes"
     self_class = os.path.dirname(os.path.abspath(os.path.curdir))
-    tgtstore = readstore(wsi_class, {})
+    tgtstore = readstore(nnt_class, {})
     tgtstore = readstore(self_class, tgtstore)
     for key in tgtstore.keys():
         if store.has_key(key):
@@ -125,13 +125,13 @@ def translate (wsi, lang):
 
 ##main
 def main():
-    # find wsi.
-    wsi_path = find_wsi(os.path.abspath(os.path.curdir))
-    if (wsi_path == ""):
-        print "error: can not find wsi"
+    # find nnt.
+    nnt_path = find_nnt(os.path.abspath(os.path.curdir))
+    if (nnt_path == ""):
+        print "error: can not find nnt"
         return
     else:
-        print "wsi: " + wsi_path
+        print "nnt: " + nnt_path
     # select language.
     lang_id = sel_language()
     if (lang_id == ""):
@@ -140,7 +140,7 @@ def main():
     else:
         print "lang: " + lang_id
     # translate.
-    translate(wsi_path, lang_id)
+    translate(nnt_path, lang_id)
     pass
 
 main()

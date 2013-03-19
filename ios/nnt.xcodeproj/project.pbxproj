@@ -317,6 +317,10 @@
 		16444EA31561EFD4006BB97C /* QzAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16444EA11561EFD4006BB97C /* QzAnimation.mm */; };
 		16444EAA15623E5D006BB97C /* UIAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 16444EA815623E5B006BB97C /* UIAnimation.h */; };
 		16444EAB15623E5D006BB97C /* UIAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16444EA915623E5C006BB97C /* UIAnimation.mm */; };
+		1644C91716DF4B6F0035EF59 /* NSValue+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 1644C91516DF4B6F0035EF59 /* NSValue+WSI.h */; };
+		1644C91816DF4B6F0035EF59 /* NSValue+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1644C91616DF4B6F0035EF59 /* NSValue+WSI.mm */; };
+		1644C91D16DF59010035EF59 /* QzMediaTiming.h in Headers */ = {isa = PBXBuildFile; fileRef = 1644C91B16DF59010035EF59 /* QzMediaTiming.h */; };
+		1644C91E16DF59010035EF59 /* QzMediaTiming.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1644C91C16DF59010035EF59 /* QzMediaTiming.mm */; };
 		1646C23F140BA407009B3E79 /* WSILua.h in Headers */ = {isa = PBXBuildFile; fileRef = 1646C23D140BA407009B3E79 /* WSILua.h */; };
 		1646C241140BA407009B3E79 /* WSILua.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1646C23E140BA407009B3E79 /* WSILua.mm */; };
 		1647BFEA160C5B73007AC94E /* ChatRobotSTART.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1647BFE8160C5B73007AC94E /* ChatRobotSTART.cpp */; };
@@ -518,6 +522,8 @@
 		167BA91F1589D35B0054FA81 /* ACE+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167BA91D1589D35B0054FA81 /* ACE+WSI.cpp */; };
 		167BA9201589D35B0054FA81 /* ACE+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 167BA91E1589D35B0054FA81 /* ACE+WSI.h */; };
 		167CDC7415764D9F00E46FFF /* UIBarButtonItem+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167CDC7315764D9F00E46FFF /* UIBarButtonItem+WSI.mm */; };
+		167D544D16E03D4D00F68533 /* OAWeChat.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D544B16E03D4D00F68533 /* OAWeChat.h */; };
+		167D544E16E03D4D00F68533 /* OAWeChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D544C16E03D4D00F68533 /* OAWeChat.mm */; };
 		167DA91C16786EA10009BB4B /* Algorithm+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DA8F016786EA10009BB4B /* Algorithm+WSI.cpp */; };
 		167DA91D16786EA10009BB4B /* Algorithm+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DA8F116786EA10009BB4B /* Algorithm+WSI.h */; };
 		167DA91E16786EA10009BB4B /* Assembly+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DA8F216786EA10009BB4B /* Assembly+WSI.cpp */; };
@@ -761,6 +767,26 @@
 		169225F913FCF61A000770FF /* AlipayApi.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169225F613FCF61A000770FF /* AlipayApi.mm */; };
 		169225FE13FCF6F6000770FF /* PayNullApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 169225FC13FCF6F6000770FF /* PayNullApi.h */; };
 		1692260013FCF6F6000770FF /* PayNullApi.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169225FD13FCF6F6000770FF /* PayNullApi.mm */; };
+		1693685C16F185CC0021909E /* HttpParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1693685A16F185CC0021909E /* HttpParser.cpp */; };
+		1693685D16F185CC0021909E /* HttpParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1693685B16F185CC0021909E /* HttpParser.h */; };
+		1693687D16F192960021909E /* uuid_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686216F192960021909E /* uuid_cli.c */; };
+		1693687E16F192960021909E /* uuid_dce.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686316F192960021909E /* uuid_dce.c */; };
+		1693688016F192960021909E /* uuid_mac.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686516F192960021909E /* uuid_mac.c */; };
+		1693688216F192960021909E /* uuid_md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686716F192960021909E /* uuid_md5.c */; };
+		1693688416F192960021909E /* uuid_prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686916F192960021909E /* uuid_prng.c */; };
+		1693688616F192960021909E /* uuid_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686B16F192960021909E /* uuid_sha1.c */; };
+		1693688816F192960021909E /* uuid_str.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686D16F192960021909E /* uuid_str.c */; };
+		1693688A16F192960021909E /* uuid_time.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693686F16F192960021909E /* uuid_time.c */; };
+		1693688C16F192960021909E /* uuid_ui64.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693687116F192960021909E /* uuid_ui64.c */; };
+		1693688E16F192960021909E /* uuid_ui128.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693687316F192960021909E /* uuid_ui128.c */; };
+		1693689116F192960021909E /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 1693687616F192960021909E /* uuid.c */; };
+		1693689316F192960021909E /* uuid++.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1693687816F192960021909E /* uuid++.cc */; };
+		16936C7316F1A3C70021909E /* Nodejs+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936C7116F1A3C70021909E /* Nodejs+WSI.h */; };
+		16936C7416F1A3C70021909E /* Nodejs+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936C7216F1A3C70021909E /* Nodejs+WSI.mm */; };
+		16936FEB16F1AF160021909E /* Nodejs+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */; };
+		16936FEF16F1AF1E0021909E /* V8+WSI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEC16F1AF1D0021909E /* V8+WSI.cpp */; };
+		16936FF016F1AF1E0021909E /* V8+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16936FED16F1AF1D0021909E /* V8+WSI.h */; };
+		16936FF116F1AF1E0021909E /* V8+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936FEE16F1AF1E0021909E /* V8+WSI.mm */; };
 		169379F1151B0364007644DC /* NSFileConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 169379EF151B0364007644DC /* NSFileConnection.h */; };
 		169379F2151B0364007644DC /* NSFileConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 169379F0151B0364007644DC /* NSFileConnection.m */; };
 		16967E7D16D612A000D0F33A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16967E7C16D612A000D0F33A /* GameKit.framework */; };
@@ -954,16 +980,6 @@
 		16A1C5D214BC48DF00B30F19 /* GaloisFieldPolynomial.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A1C5C114BC48DF00B30F19 /* GaloisFieldPolynomial.h */; };
 		16A1C5D614BC48DF00B30F19 /* GaloisProto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C5C314BC48DF00B30F19 /* GaloisProto.cpp */; };
 		16A1C5D814BC48DF00B30F19 /* GaloisShiftProto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C5C414BC48DF00B30F19 /* GaloisShiftProto.cpp */; };
-		16A2269B159163E500BB6203 /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A2269A159163E500BB6203 /* uuid.c */; };
-		16A2269D159164F900BB6203 /* uuid_prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A2269C159164F900BB6203 /* uuid_prng.c */; };
-		16A2269F1591651600BB6203 /* uuid_md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A2269E1591651600BB6203 /* uuid_md5.c */; };
-		16A226A11591652F00BB6203 /* uuid_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226A01591652F00BB6203 /* uuid_sha1.c */; };
-		16A226A31591653400BB6203 /* uuid_str.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226A21591653400BB6203 /* uuid_str.c */; };
-		16A226A51591653A00BB6203 /* uuid_time.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226A41591653A00BB6203 /* uuid_time.c */; };
-		16A226A71591654700BB6203 /* uuid_dce.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226A61591654700BB6203 /* uuid_dce.c */; };
-		16A226A91591656200BB6203 /* uuid_ui64.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226A81591656200BB6203 /* uuid_ui64.c */; };
-		16A226AB1591656800BB6203 /* uuid_ui128.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226AA1591656800BB6203 /* uuid_ui128.c */; };
-		16A226AD1591656E00BB6203 /* uuid_mac.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A226AC1591656E00BB6203 /* uuid_mac.c */; };
 		16A4D7B3169BF3BC0058BB78 /* MaeAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A4D7B1169BF3BC0058BB78 /* MaeAuth.h */; };
 		16A4D7B4169BF3BC0058BB78 /* MaeAuth.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A4D7B2169BF3BC0058BB78 /* MaeAuth.mm */; };
 		16A4DB14169C10B60058BB78 /* MaeAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A4DB12169C10B60058BB78 /* MaeAccount.h */; };
@@ -986,6 +1002,9 @@
 		16A7C5701459086C0013CCF8 /* SecSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A7C56E1459086C0013CCF8 /* SecSignature.m */; };
 		16AA1A8616D081860031BDA9 /* UISectionItems.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AA1A8416D081860031BDA9 /* UISectionItems.h */; };
 		16AA1A8716D081860031BDA9 /* UISectionItems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16AA1A8516D081860031BDA9 /* UISectionItems.mm */; };
+		16AC1CF016F2D08E00316206 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 16AC1CEF16F2D08E00316206 /* mongoose.c */; };
+		16AC1CF316F2D1A100316206 /* HttpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC1CF116F2D1A100316206 /* HttpServer.cpp */; };
+		16AC1CF416F2D1A100316206 /* HttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AC1CF216F2D1A100316206 /* HttpServer.h */; };
 		16ADDB811573279000BC2378 /* CGShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ADDB7F1573279000BC2378 /* CGShape.h */; };
 		16ADDB821573279000BC2378 /* CGShape.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16ADDB801573279000BC2378 /* CGShape.mm */; };
 		16ADDB89157342ED00BC2378 /* UIStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ADDB87157342EC00BC2378 /* UIStyleSheet.h */; };
@@ -1359,7 +1378,7 @@
 		16D0187A147B9BB600B0A489 /* UIPickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D01878147B9BB400B0A489 /* UIPickerControl.h */; };
 		16D0187B147B9BB600B0A489 /* UIPickerControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D01879147B9BB500B0A489 /* UIPickerControl.mm */; };
 		16D0DAC31490BC56002F309D /* WSIPython.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D0DAC11490BC56002F309D /* WSIPython.h */; };
-		16D0DAC41490BC56002F309D /* WSIPython.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D0DAC21490BC56002F309D /* WSIPython.m */; };
+		16D0DAC41490BC56002F309D /* WSIPython.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D0DAC21490BC56002F309D /* WSIPython.mm */; };
 		16D11F17156A10AD00F87A51 /* UIStackControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D11F15156A10AA00F87A51 /* UIStackControllers.h */; };
 		16D11F18156A10AD00F87A51 /* UIStackControllers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D11F16156A10AB00F87A51 /* UIStackControllers.mm */; };
 		16D11F1C156A110100F87A51 /* UISetControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D11F1A156A10FF00F87A51 /* UISetControllers.h */; };
@@ -1511,7 +1530,7 @@
 		16F0E62316BA52AB0068A20A /* iOSPrinter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F0E62116BA52AA0068A20A /* iOSPrinter.mm */; };
 		16F2384A149843F700E7F082 /* WSIContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F23848149843F700E7F082 /* WSIContact.h */; };
 		16F2384B149843F700E7F082 /* WSIContact.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F23849149843F700E7F082 /* WSIContact.mm */; };
-		16F32C1813A60C52003B9987 /* wsi_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* wsi_prefix.pch */; };
+		16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* nnt_prefix.pch */; };
 		16F7AA27145649E3009A3F7A /* UITheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F7AA25145649E3009A3F7A /* UITheme.h */; };
 		16F7AA28145649E3009A3F7A /* UITheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F7AA26145649E3009A3F7A /* UITheme.mm */; };
 		16F7AA2D14565621009A3F7A /* uictypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F7AA2C14565620009A3F7A /* uictypes.h */; };
@@ -2066,6 +2085,10 @@
 		16444EA11561EFD4006BB97C /* QzAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QzAnimation.mm; sourceTree = "<group>"; };
 		16444EA815623E5B006BB97C /* UIAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAnimation.h; sourceTree = "<group>"; };
 		16444EA915623E5C006BB97C /* UIAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIAnimation.mm; sourceTree = "<group>"; };
+		1644C91516DF4B6F0035EF59 /* NSValue+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+WSI.h"; sourceTree = "<group>"; };
+		1644C91616DF4B6F0035EF59 /* NSValue+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSValue+WSI.mm"; sourceTree = "<group>"; };
+		1644C91B16DF59010035EF59 /* QzMediaTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QzMediaTiming.h; sourceTree = "<group>"; };
+		1644C91C16DF59010035EF59 /* QzMediaTiming.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QzMediaTiming.mm; sourceTree = "<group>"; };
 		1646C23D140BA407009B3E79 /* WSILua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSILua.h; sourceTree = "<group>"; };
 		1646C23E140BA407009B3E79 /* WSILua.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WSILua.mm; sourceTree = "<group>"; };
 		1647BFE8160C5B73007AC94E /* ChatRobotSTART.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChatRobotSTART.cpp; sourceTree = "<group>"; };
@@ -2171,7 +2194,7 @@
 		16624C7B1505B7C200AFED23 /* WSIExecution+Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSIExecution+Chart.h"; sourceTree = "<group>"; };
 		1662FFBA165E11390058876E /* RegexObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexObjParser.h; sourceTree = "<group>"; };
 		1662FFBB165E113A0058876E /* RegexObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RegexObjParser.mm; sourceTree = "<group>"; };
-		16654BB213A5FF11008DF239 /* libwsi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwsi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16654BB213A5FF11008DF239 /* libnnt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnnt.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16654BB513A5FF11008DF239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1665526413A604E3008DF239 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1665528F13A6086E008DF239 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -2274,6 +2297,8 @@
 		167BA91D1589D35B0054FA81 /* ACE+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "ACE+WSI.cpp"; sourceTree = "<group>"; };
 		167BA91E1589D35B0054FA81 /* ACE+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ACE+WSI.h"; sourceTree = "<group>"; };
 		167CDC7315764D9F00E46FFF /* UIBarButtonItem+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIBarButtonItem+WSI.mm"; sourceTree = "<group>"; };
+		167D544B16E03D4D00F68533 /* OAWeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAWeChat.h; sourceTree = "<group>"; };
+		167D544C16E03D4D00F68533 /* OAWeChat.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAWeChat.mm; sourceTree = "<group>"; };
 		167DA8F016786EA10009BB4B /* Algorithm+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Algorithm+WSI.cpp"; sourceTree = "<group>"; };
 		167DA8F116786EA10009BB4B /* Algorithm+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Algorithm+WSI.h"; sourceTree = "<group>"; };
 		167DA8F216786EA10009BB4B /* Assembly+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Assembly+WSI.cpp"; sourceTree = "<group>"; };
@@ -2518,6 +2543,26 @@
 		169225F613FCF61A000770FF /* AlipayApi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AlipayApi.mm; sourceTree = "<group>"; };
 		169225FC13FCF6F6000770FF /* PayNullApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayNullApi.h; sourceTree = "<group>"; };
 		169225FD13FCF6F6000770FF /* PayNullApi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PayNullApi.mm; sourceTree = "<group>"; };
+		1693685A16F185CC0021909E /* HttpParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpParser.cpp; sourceTree = "<group>"; };
+		1693685B16F185CC0021909E /* HttpParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpParser.h; sourceTree = "<group>"; };
+		1693686216F192960021909E /* uuid_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_cli.c; path = "../contrib/ossp-uuid/uuid_cli.c"; sourceTree = "<group>"; };
+		1693686316F192960021909E /* uuid_dce.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_dce.c; path = "../contrib/ossp-uuid/uuid_dce.c"; sourceTree = "<group>"; };
+		1693686516F192960021909E /* uuid_mac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_mac.c; path = "../contrib/ossp-uuid/uuid_mac.c"; sourceTree = "<group>"; };
+		1693686716F192960021909E /* uuid_md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_md5.c; path = "../contrib/ossp-uuid/uuid_md5.c"; sourceTree = "<group>"; };
+		1693686916F192960021909E /* uuid_prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_prng.c; path = "../contrib/ossp-uuid/uuid_prng.c"; sourceTree = "<group>"; };
+		1693686B16F192960021909E /* uuid_sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_sha1.c; path = "../contrib/ossp-uuid/uuid_sha1.c"; sourceTree = "<group>"; };
+		1693686D16F192960021909E /* uuid_str.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_str.c; path = "../contrib/ossp-uuid/uuid_str.c"; sourceTree = "<group>"; };
+		1693686F16F192960021909E /* uuid_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_time.c; path = "../contrib/ossp-uuid/uuid_time.c"; sourceTree = "<group>"; };
+		1693687116F192960021909E /* uuid_ui64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_ui64.c; path = "../contrib/ossp-uuid/uuid_ui64.c"; sourceTree = "<group>"; };
+		1693687316F192960021909E /* uuid_ui128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid_ui128.c; path = "../contrib/ossp-uuid/uuid_ui128.c"; sourceTree = "<group>"; };
+		1693687616F192960021909E /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uuid.c; path = "../contrib/ossp-uuid/uuid.c"; sourceTree = "<group>"; };
+		1693687816F192960021909E /* uuid++.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "uuid++.cc"; path = "../contrib/ossp-uuid/uuid++.cc"; sourceTree = "<group>"; };
+		16936C7116F1A3C70021909E /* Nodejs+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nodejs+WSI.h"; sourceTree = "<group>"; };
+		16936C7216F1A3C70021909E /* Nodejs+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Nodejs+WSI.mm"; sourceTree = "<group>"; };
+		16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Nodejs+WSI.cpp"; sourceTree = "<group>"; };
+		16936FEC16F1AF1D0021909E /* V8+WSI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "V8+WSI.cpp"; sourceTree = "<group>"; };
+		16936FED16F1AF1D0021909E /* V8+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "V8+WSI.h"; sourceTree = "<group>"; };
+		16936FEE16F1AF1E0021909E /* V8+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "V8+WSI.mm"; sourceTree = "<group>"; };
 		169379EF151B0364007644DC /* NSFileConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileConnection.h; sourceTree = "<group>"; };
 		169379F0151B0364007644DC /* NSFileConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileConnection.m; sourceTree = "<group>"; };
 		16967E7C16D612A000D0F33A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -2713,16 +2758,6 @@
 		16A1C5C114BC48DF00B30F19 /* GaloisFieldPolynomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaloisFieldPolynomial.h; sourceTree = "<group>"; };
 		16A1C5C314BC48DF00B30F19 /* GaloisProto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaloisProto.cpp; sourceTree = "<group>"; };
 		16A1C5C414BC48DF00B30F19 /* GaloisShiftProto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaloisShiftProto.cpp; sourceTree = "<group>"; };
-		16A2269A159163E500BB6203 /* uuid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid.c; sourceTree = "<group>"; };
-		16A2269C159164F900BB6203 /* uuid_prng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_prng.c; sourceTree = "<group>"; };
-		16A2269E1591651600BB6203 /* uuid_md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_md5.c; sourceTree = "<group>"; };
-		16A226A01591652F00BB6203 /* uuid_sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_sha1.c; sourceTree = "<group>"; };
-		16A226A21591653400BB6203 /* uuid_str.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_str.c; sourceTree = "<group>"; };
-		16A226A41591653A00BB6203 /* uuid_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_time.c; sourceTree = "<group>"; };
-		16A226A61591654700BB6203 /* uuid_dce.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_dce.c; sourceTree = "<group>"; };
-		16A226A81591656200BB6203 /* uuid_ui64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_ui64.c; sourceTree = "<group>"; };
-		16A226AA1591656800BB6203 /* uuid_ui128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_ui128.c; sourceTree = "<group>"; };
-		16A226AC1591656E00BB6203 /* uuid_mac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uuid_mac.c; sourceTree = "<group>"; };
 		16A4D7B1169BF3BC0058BB78 /* MaeAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaeAuth.h; sourceTree = "<group>"; };
 		16A4D7B2169BF3BC0058BB78 /* MaeAuth.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MaeAuth.mm; sourceTree = "<group>"; };
 		16A4DB12169C10B60058BB78 /* MaeAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaeAccount.h; sourceTree = "<group>"; };
@@ -2745,6 +2780,9 @@
 		16A7C56E1459086C0013CCF8 /* SecSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecSignature.m; sourceTree = "<group>"; };
 		16AA1A8416D081860031BDA9 /* UISectionItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISectionItems.h; sourceTree = "<group>"; };
 		16AA1A8516D081860031BDA9 /* UISectionItems.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UISectionItems.mm; sourceTree = "<group>"; };
+		16AC1CEF16F2D08E00316206 /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mongoose.c; path = ../contrib/mongoose/mongoose.c; sourceTree = "<group>"; };
+		16AC1CF116F2D1A100316206 /* HttpServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpServer.cpp; sourceTree = "<group>"; };
+		16AC1CF216F2D1A100316206 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
 		16ADDB7F1573279000BC2378 /* CGShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGShape.h; sourceTree = "<group>"; };
 		16ADDB801573279000BC2378 /* CGShape.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGShape.mm; sourceTree = "<group>"; };
 		16ADDB87157342EC00BC2378 /* UIStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStyleSheet.h; sourceTree = "<group>"; };
@@ -3119,7 +3157,7 @@
 		16D01878147B9BB400B0A489 /* UIPickerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPickerControl.h; sourceTree = "<group>"; };
 		16D01879147B9BB500B0A489 /* UIPickerControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIPickerControl.mm; sourceTree = "<group>"; };
 		16D0DAC11490BC56002F309D /* WSIPython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIPython.h; sourceTree = "<group>"; };
-		16D0DAC21490BC56002F309D /* WSIPython.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSIPython.m; sourceTree = "<group>"; };
+		16D0DAC21490BC56002F309D /* WSIPython.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WSIPython.mm; sourceTree = "<group>"; };
 		16D11F15156A10AA00F87A51 /* UIStackControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStackControllers.h; sourceTree = "<group>"; };
 		16D11F16156A10AB00F87A51 /* UIStackControllers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIStackControllers.mm; sourceTree = "<group>"; };
 		16D11F1A156A10FF00F87A51 /* UISetControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISetControllers.h; sourceTree = "<group>"; };
@@ -3274,7 +3312,7 @@
 		16F0E62116BA52AA0068A20A /* iOSPrinter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSPrinter.mm; sourceTree = "<group>"; };
 		16F23848149843F700E7F082 /* WSIContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSIContact.h; path = Trail/WSIContact.h; sourceTree = "<group>"; };
 		16F23849149843F700E7F082 /* WSIContact.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WSIContact.mm; path = Trail/WSIContact.mm; sourceTree = "<group>"; };
-		16F32C1713A60C52003B9987 /* wsi_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wsi_prefix.pch; sourceTree = "<group>"; };
+		16F32C1713A60C52003B9987 /* nnt_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt_prefix.pch; sourceTree = "<group>"; };
 		16F7AA25145649E3009A3F7A /* UITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITheme.h; sourceTree = "<group>"; };
 		16F7AA26145649E3009A3F7A /* UITheme.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UITheme.mm; sourceTree = "<group>"; };
 		16F7AA2C14565620009A3F7A /* uictypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uictypes.h; sourceTree = "<group>"; };
@@ -3825,9 +3863,10 @@
 		16358B3114A07BF1005F06B5 /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				16AC1CEE16F2D07F00316206 /* mongoose */,
+				1693685E16F192860021909E /* ossp-uuid */,
 				162C725E15BFA1240013084C /* lua */,
 				16AFE91915B66BB500220161 /* alipay */,
-				16A22699159163E500BB6203 /* uuid */,
 				168F47C3158C61DC00F4D998 /* libxml */,
 				167BA91C1589D35B0054FA81 /* ace */,
 				16BF9B9A154A376C000BF0A5 /* giflib */,
@@ -3868,10 +3907,16 @@
 				1646C23E140BA407009B3E79 /* WSILua.mm */,
 				16ADF2AD1602CE1C008B242B /* WSILua.cpp */,
 				16D0DAC11490BC56002F309D /* WSIPython.h */,
-				16D0DAC21490BC56002F309D /* WSIPython.m */,
+				16D0DAC21490BC56002F309D /* WSIPython.mm */,
 				16A5F13414A1D77100503290 /* WSITinyScheme.h */,
 				16A5F13514A1D77100503290 /* WSITinyScheme.m */,
 				16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */,
+				16936C7116F1A3C70021909E /* Nodejs+WSI.h */,
+				16936C7216F1A3C70021909E /* Nodejs+WSI.mm */,
+				16936FEA16F1AF160021909E /* Nodejs+WSI.cpp */,
+				16936FED16F1AF1D0021909E /* V8+WSI.h */,
+				16936FEC16F1AF1D0021909E /* V8+WSI.cpp */,
+				16936FEE16F1AF1E0021909E /* V8+WSI.mm */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -3982,6 +4027,8 @@
 				16E434DB15F5D5880026BFFF /* OAOpenQQ.mm */,
 				16165AE5148CBCA1002B87E4 /* OADouban.h */,
 				16165AE6148CBCA1002B87E4 /* OADouban.mm */,
+				167D544B16E03D4D00F68533 /* OAWeChat.h */,
+				167D544C16E03D4D00F68533 /* OAWeChat.mm */,
 			);
 			name = OpenApi;
 			path = ../Classes/OpenApi;
@@ -3990,7 +4037,7 @@
 		16654BA713A5FF11008DF239 = {
 			isa = PBXGroup;
 			children = (
-				16F32C1713A60C52003B9987 /* wsi_prefix.pch */,
+				16F32C1713A60C52003B9987 /* nnt_prefix.pch */,
 				1665526F13A6086E008DF239 /* Classes */,
 				16358B3114A07BF1005F06B5 /* contrib */,
 				16654BDE13A603A6008DF239 /* 3rd */,
@@ -4003,7 +4050,7 @@
 		16654BB313A5FF11008DF239 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16654BB213A5FF11008DF239 /* libwsi.a */,
+				16654BB213A5FF11008DF239 /* libnnt.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4101,6 +4148,8 @@
 		1665528E13A6086E008DF239 /* Cross */ = {
 			isa = PBXGroup;
 			children = (
+				16AC1CF116F2D1A100316206 /* HttpServer.cpp */,
+				16AC1CF216F2D1A100316206 /* HttpServer.h */,
 				160FB1A715FF02BE00F8E37B /* NSHttpCache.h */,
 				160FB1A815FF02BE00F8E37B /* NSHttpCache.mm */,
 				162244C5158894FB0073B178 /* NetAddress.cpp */,
@@ -4208,6 +4257,8 @@
 		166552B313A6086E008DF239 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				1693685A16F185CC0021909E /* HttpParser.cpp */,
+				1693685B16F185CC0021909E /* HttpParser.h */,
 				167DAA8616787DDE0009BB4B /* CmdArguments.cpp */,
 				167DAA8716787DDE0009BB4B /* CmdArguments.h */,
 				16C34EE7161177B700DFAC04 /* CSVParser.cpp */,
@@ -4614,6 +4665,25 @@
 			path = ../contrib/libxml;
 			sourceTree = "<group>";
 		};
+		1693685E16F192860021909E /* ossp-uuid */ = {
+			isa = PBXGroup;
+			children = (
+				1693686216F192960021909E /* uuid_cli.c */,
+				1693686316F192960021909E /* uuid_dce.c */,
+				1693686516F192960021909E /* uuid_mac.c */,
+				1693686716F192960021909E /* uuid_md5.c */,
+				1693686916F192960021909E /* uuid_prng.c */,
+				1693686B16F192960021909E /* uuid_sha1.c */,
+				1693686D16F192960021909E /* uuid_str.c */,
+				1693686F16F192960021909E /* uuid_time.c */,
+				1693687116F192960021909E /* uuid_ui64.c */,
+				1693687316F192960021909E /* uuid_ui128.c */,
+				1693687616F192960021909E /* uuid.c */,
+				1693687816F192960021909E /* uuid++.cc */,
+			);
+			name = "ossp-uuid";
+			sourceTree = "<group>";
+		};
 		16967E8216D615A700D0F33A /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -4877,6 +4947,8 @@
 				16CCBCC314A176A800FDEB99 /* NSStyleString.mm */,
 				16E67AD1156613B800560FA4 /* NSPreference+WSI.h */,
 				16E67AD2156613B800560FA4 /* NSPreference+WSI.mm */,
+				1644C91516DF4B6F0035EF59 /* NSValue+WSI.h */,
+				1644C91616DF4B6F0035EF59 /* NSValue+WSI.mm */,
 				1699DCF114466F0D00E9CAE2 /* Time+WSI.h */,
 				1699DCF214466F0D00E9CAE2 /* Time+WSI.m */,
 				165227BA1541174A00E98F48 /* Time+WSI.cpp */,
@@ -4992,24 +5064,6 @@
 			path = ../contrib/galois;
 			sourceTree = "<group>";
 		};
-		16A22699159163E500BB6203 /* uuid */ = {
-			isa = PBXGroup;
-			children = (
-				16A226AC1591656E00BB6203 /* uuid_mac.c */,
-				16A226AA1591656800BB6203 /* uuid_ui128.c */,
-				16A226A81591656200BB6203 /* uuid_ui64.c */,
-				16A226A61591654700BB6203 /* uuid_dce.c */,
-				16A226A41591653A00BB6203 /* uuid_time.c */,
-				16A2269E1591651600BB6203 /* uuid_md5.c */,
-				16A226A21591653400BB6203 /* uuid_str.c */,
-				16A226A01591652F00BB6203 /* uuid_sha1.c */,
-				16A2269C159164F900BB6203 /* uuid_prng.c */,
-				16A2269A159163E500BB6203 /* uuid.c */,
-			);
-			name = uuid;
-			path = ../contrib/uuid;
-			sourceTree = "<group>";
-		};
 		16A4D7B0169BF3BC0058BB78 /* WAE */ = {
 			isa = PBXGroup;
 			children = (
@@ -5064,6 +5118,14 @@
 			name = Security;
 			path = ../Classes/Security;
 			sourceTree = SOURCE_ROOT;
+		};
+		16AC1CEE16F2D07F00316206 /* mongoose */ = {
+			isa = PBXGroup;
+			children = (
+				16AC1CEF16F2D08E00316206 /* mongoose.c */,
+			);
+			name = mongoose;
+			sourceTree = "<group>";
 		};
 		16ADDB7E1573279000BC2378 /* shapes */ = {
 			isa = PBXGroup;
@@ -5142,10 +5204,12 @@
 				1686D70C167EBAFA006B4FE9 /* QzEffect.h */,
 				16444EA01561EFD4006BB97C /* QzAnimation.h */,
 				16444EA11561EFD4006BB97C /* QzAnimation.mm */,
-				16444E9B1561EE95006BB97C /* QzTransition.h */,
-				16444E9C1561EE95006BB97C /* QzTransition.mm */,
 				166C187E166F14C300E4423F /* QzDisplayLink.h */,
 				166C187F166F14C300E4423F /* QzDisplayLink.mm */,
+				16444E9B1561EE95006BB97C /* QzTransition.h */,
+				16444E9C1561EE95006BB97C /* QzTransition.mm */,
+				1644C91B16DF59010035EF59 /* QzMediaTiming.h */,
+				1644C91C16DF59010035EF59 /* QzMediaTiming.mm */,
 				16444EA815623E5B006BB97C /* UIAnimation.h */,
 				16444EA915623E5C006BB97C /* UIAnimation.mm */,
 				16A7B885157E63B0007B11D0 /* UIActionSheet+WSI.h */,
@@ -6075,7 +6139,7 @@
 				1665551813A6086E008DF239 /* VHtml.h in Headers */,
 				1665551C13A6086E008DF239 /* VHtmlChart.h in Headers */,
 				1665552013A6086E008DF239 /* VHtmlTable.h in Headers */,
-				16F32C1813A60C52003B9987 /* wsi_prefix.pch in Headers */,
+				16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */,
 				16141C4F13AA00D500896301 /* Context.h in Headers */,
 				16141C5313AA00D500896301 /* Preferences.h in Headers */,
 				16141C5713AA00D500896301 /* Server.h in Headers */,
@@ -6852,15 +6916,22 @@
 				16BB8E5A16DC59C0007DFFE8 /* AdmobService.h in Headers */,
 				16DBF4F416DC89CE0098709B /* DomobService.h in Headers */,
 				16DBF87016DC98970098709B /* AppStoreService.h in Headers */,
+				1644C91716DF4B6F0035EF59 /* NSValue+WSI.h in Headers */,
+				1644C91D16DF59010035EF59 /* QzMediaTiming.h in Headers */,
+				167D544D16E03D4D00F68533 /* OAWeChat.h in Headers */,
+				1693685D16F185CC0021909E /* HttpParser.h in Headers */,
+				16936C7316F1A3C70021909E /* Nodejs+WSI.h in Headers */,
+				16936FF016F1AF1E0021909E /* V8+WSI.h in Headers */,
+				16AC1CF416F2D1A100316206 /* HttpServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		16654BB113A5FF11008DF239 /* wsi */ = {
+		16654BB113A5FF11008DF239 /* nnt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16654BBC13A5FF11008DF239 /* Build configuration list for PBXNativeTarget "wsi" */;
+			buildConfigurationList = 16654BBC13A5FF11008DF239 /* Build configuration list for PBXNativeTarget "nnt" */;
 			buildPhases = (
 				16654BAE13A5FF11008DF239 /* Sources */,
 				16654BAF13A5FF11008DF239 /* Frameworks */,
@@ -6870,9 +6941,9 @@
 			);
 			dependencies = (
 			);
-			name = wsi;
-			productName = wsi;
-			productReference = 16654BB213A5FF11008DF239 /* libwsi.a */;
+			name = nnt;
+			productName = nnt;
+			productReference = 16654BB213A5FF11008DF239 /* libnnt.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -6883,7 +6954,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "wsi" */;
+			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -6895,7 +6966,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				16654BB113A5FF11008DF239 /* wsi */,
+				16654BB113A5FF11008DF239 /* nnt */,
 			);
 		};
 /* End PBXProject section */
@@ -7128,7 +7199,7 @@
 				29497401148F4D150012E232 /* UIOAToggleView.mm in Sources */,
 				16C9B5E5149050DA00B46E80 /* UICacheActivityIndicatorView.m in Sources */,
 				16C9B71A1490988700B46E80 /* ASIHttpRequest+WSI.mm in Sources */,
-				16D0DAC41490BC56002F309D /* WSIPython.m in Sources */,
+				16D0DAC41490BC56002F309D /* WSIPython.mm in Sources */,
 				1606EACE14958B0900748D81 /* UIContactField.mm in Sources */,
 				1689958A1496FF0D00B5FDBF /* WSIChar.cpp in Sources */,
 				168995E014971E6000B5FDBF /* WSIChar.mm in Sources */,
@@ -7576,16 +7647,6 @@
 				161AD9F0159080B200415EBD /* XmppStream.cpp in Sources */,
 				161AD9F41590890000415EBD /* XmppChallengeFactory.cpp in Sources */,
 				161ADAC215908C0600415EBD /* XmppChallenge.cpp in Sources */,
-				16A2269B159163E500BB6203 /* uuid.c in Sources */,
-				16A2269D159164F900BB6203 /* uuid_prng.c in Sources */,
-				16A2269F1591651600BB6203 /* uuid_md5.c in Sources */,
-				16A226A11591652F00BB6203 /* uuid_sha1.c in Sources */,
-				16A226A31591653400BB6203 /* uuid_str.c in Sources */,
-				16A226A51591653A00BB6203 /* uuid_time.c in Sources */,
-				16A226A71591654700BB6203 /* uuid_dce.c in Sources */,
-				16A226A91591656200BB6203 /* uuid_ui64.c in Sources */,
-				16A226AB1591656800BB6203 /* uuid_ui128.c in Sources */,
-				16A226AD1591656E00BB6203 /* uuid_mac.c in Sources */,
 				1669EE931591CC29002B57B2 /* XmppResponse.cpp in Sources */,
 				16F9AC49159C36CA000433D3 /* WSISqlite.cpp in Sources */,
 				1685910715A024A600F6FBAA /* UIMapAMapView.mm in Sources */,
@@ -7823,6 +7884,28 @@
 				16BB8E5B16DC59C0007DFFE8 /* AdmobService.mm in Sources */,
 				16DBF4F516DC89CE0098709B /* DomobService.mm in Sources */,
 				16DBF87116DC98970098709B /* AppStoreService.mm in Sources */,
+				1644C91816DF4B6F0035EF59 /* NSValue+WSI.mm in Sources */,
+				1644C91E16DF59010035EF59 /* QzMediaTiming.mm in Sources */,
+				167D544E16E03D4D00F68533 /* OAWeChat.mm in Sources */,
+				1693685C16F185CC0021909E /* HttpParser.cpp in Sources */,
+				1693687D16F192960021909E /* uuid_cli.c in Sources */,
+				1693687E16F192960021909E /* uuid_dce.c in Sources */,
+				1693688016F192960021909E /* uuid_mac.c in Sources */,
+				1693688216F192960021909E /* uuid_md5.c in Sources */,
+				1693688416F192960021909E /* uuid_prng.c in Sources */,
+				1693688616F192960021909E /* uuid_sha1.c in Sources */,
+				1693688816F192960021909E /* uuid_str.c in Sources */,
+				1693688A16F192960021909E /* uuid_time.c in Sources */,
+				1693688C16F192960021909E /* uuid_ui64.c in Sources */,
+				1693688E16F192960021909E /* uuid_ui128.c in Sources */,
+				1693689116F192960021909E /* uuid.c in Sources */,
+				1693689316F192960021909E /* uuid++.cc in Sources */,
+				16936C7416F1A3C70021909E /* Nodejs+WSI.mm in Sources */,
+				16936FEB16F1AF160021909E /* Nodejs+WSI.cpp in Sources */,
+				16936FEF16F1AF1E0021909E /* V8+WSI.cpp in Sources */,
+				16936FF116F1AF1E0021909E /* V8+WSI.mm in Sources */,
+				16AC1CF016F2D08E00316206 /* mongoose.c in Sources */,
+				16AC1CF316F2D1A100316206 /* HttpServer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7865,20 +7948,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/wsi.dst;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = wsi_prefix.pch;
+				GCC_PREFIX_HEADER = nnt_prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"LIBWSI=1",
+					"LIBNNT=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";
@@ -7909,18 +7989,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/wsi.dst;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = wsi_prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "LIBWSI=1";
+				GCC_PREFIX_HEADER = nnt_prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "LIBNNT=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = "";
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
@@ -7950,7 +8027,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "wsi" */ = {
+		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBA13A5FF11008DF239 /* Debug */,
@@ -7959,7 +8036,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16654BBC13A5FF11008DF239 /* Build configuration list for PBXNativeTarget "wsi" */ = {
+		16654BBC13A5FF11008DF239 /* Build configuration list for PBXNativeTarget "nnt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBD13A5FF11008DF239 /* Debug */,

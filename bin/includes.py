@@ -13,7 +13,7 @@ if (re.compile(r'[\w/]+/bin$').match(workdir)):
     workdir = workdir[:-4]
 
 classdir = workdir + '/Classes'
-incdir = workdir + '/wsi'
+incdir = workdir + '/nnt'
 
 def isabs(string):
     '''
