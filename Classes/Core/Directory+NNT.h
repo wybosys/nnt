@@ -47,7 +47,7 @@ typedef uint NNTDirectoryType;
 # define NNTDirectoryTypeMajor(type) \
     ((type) & 0xf0000000)
 
-# define NNTDirectoryTypeWsiMinor(type) \
+# define NNTDirectoryTypeNNTMinor(type) \
     ((type) & 0xf000000)
 
 # define NNTDirectoryTypeMinor(type) \
