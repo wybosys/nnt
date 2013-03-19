@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		161E20EB152D876B0031D976 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E20EA152D876B0031D976 /* Cocoa.framework */; };
+		161E20F5152D876B0031D976 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 161E20F3152D876B0031D976 /* InfoPlist.strings */; };
+		161E20F7152D876B0031D976 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E20F6152D876B0031D976 /* main.mm */; };
+		161E20FB152D876B0031D976 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 161E20F9152D876B0031D976 /* Credits.rtf */; };
+		161E20FE152D876B0031D976 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E20FD152D876B0031D976 /* AppDelegate.mm */; };
+		161E2101152D876B0031D976 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161E20FF152D876B0031D976 /* MainMenu.xib */; };
+		161E2117152D882B0031D976 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E2116152D882B0031D976 /* wsi.framework */; };
+		161E211C152D89960031D976 /* TMMainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E211B152D89960031D976 /* TMMainController.mm */; };
+		16F2AF501532BCB80047DB0B /* TMColorController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4B1532BCB80047DB0B /* TMColorController.mm */; };
+		16F2AF511532BCB80047DB0B /* TMImageController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4D1532BCB80047DB0B /* TMImageController.mm */; };
+		16F2AF521532BCB80047DB0B /* TMRAWController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4F1532BCB80047DB0B /* TMRAWController.mm */; };
+		16F2AF5F1532CA880047DB0B /* TMGradientController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF5E1532CA880047DB0B /* TMGradientController.mm */; };
+		16F2AF661532DDA50047DB0B /* TMDataController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF651532DDA50047DB0B /* TMDataController.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		161E20E6152D876B0031D976 /* theme-maker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "theme-maker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161E20EA152D876B0031D976 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		161E20ED152D876B0031D976 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		161E20EE152D876B0031D976 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		161E20EF152D876B0031D976 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		161E20F2152D876B0031D976 /* theme-maker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "theme-maker-Info.plist"; sourceTree = "<group>"; };
+		161E20F4152D876B0031D976 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		161E20F6152D876B0031D976 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		161E20F8152D876B0031D976 /* theme-maker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "theme-maker-Prefix.pch"; sourceTree = "<group>"; };
+		161E20FA152D876B0031D976 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		161E20FC152D876B0031D976 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		161E20FD152D876B0031D976 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		161E2100152D876B0031D976 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		161E2116152D882B0031D976 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/tools-hepbwodoidnhhcbrtcmpledershu/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
+		161E211A152D89960031D976 /* TMMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMainController.h; sourceTree = "<group>"; };
+		161E211B152D89960031D976 /* TMMainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMainController.mm; sourceTree = "<group>"; };
+		16F2AF4A1532BCB80047DB0B /* TMColorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMColorController.h; sourceTree = "<group>"; };
+		16F2AF4B1532BCB80047DB0B /* TMColorController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMColorController.mm; sourceTree = "<group>"; };
+		16F2AF4C1532BCB80047DB0B /* TMImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMImageController.h; sourceTree = "<group>"; };
+		16F2AF4D1532BCB80047DB0B /* TMImageController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMImageController.mm; sourceTree = "<group>"; };
+		16F2AF4E1532BCB80047DB0B /* TMRAWController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMRAWController.h; sourceTree = "<group>"; };
+		16F2AF4F1532BCB80047DB0B /* TMRAWController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMRAWController.mm; sourceTree = "<group>"; };
+		16F2AF5D1532CA880047DB0B /* TMGradientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMGradientController.h; sourceTree = "<group>"; };
+		16F2AF5E1532CA880047DB0B /* TMGradientController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMGradientController.mm; sourceTree = "<group>"; };
+		16F2AF641532DDA50047DB0B /* TMDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMDataController.h; sourceTree = "<group>"; };
+		16F2AF651532DDA50047DB0B /* TMDataController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMDataController.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		161E20E3152D876B0031D976 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161E2117152D882B0031D976 /* wsi.framework in Frameworks */,
+				161E20EB152D876B0031D976 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		161E20DB152D876B0031D976 = {
+			isa = PBXGroup;
+			children = (
+				161E2116152D882B0031D976 /* wsi.framework */,
+				161E20F0152D876B0031D976 /* theme-maker */,
+				161E20E9152D876B0031D976 /* Frameworks */,
+				161E20E7152D876B0031D976 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		161E20E7152D876B0031D976 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				161E20E6152D876B0031D976 /* theme-maker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		161E20E9152D876B0031D976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				161E20EA152D876B0031D976 /* Cocoa.framework */,
+				161E20EC152D876B0031D976 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		161E20EC152D876B0031D976 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				161E20ED152D876B0031D976 /* AppKit.framework */,
+				161E20EE152D876B0031D976 /* CoreData.framework */,
+				161E20EF152D876B0031D976 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		161E20F0152D876B0031D976 /* theme-maker */ = {
+			isa = PBXGroup;
+			children = (
+				161E2119152D89960031D976 /* classes */,
+				161E20FC152D876B0031D976 /* AppDelegate.h */,
+				161E20FD152D876B0031D976 /* AppDelegate.mm */,
+				161E20FF152D876B0031D976 /* MainMenu.xib */,
+				161E20F1152D876B0031D976 /* Supporting Files */,
+			);
+			path = "theme-maker";
+			sourceTree = "<group>";
+		};
+		161E20F1152D876B0031D976 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				161E20F2152D876B0031D976 /* theme-maker-Info.plist */,
+				161E20F3152D876B0031D976 /* InfoPlist.strings */,
+				161E20F6152D876B0031D976 /* main.mm */,
+				161E20F8152D876B0031D976 /* theme-maker-Prefix.pch */,
+				161E20F9152D876B0031D976 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		161E2119152D89960031D976 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				16F2AF641532DDA50047DB0B /* TMDataController.h */,
+				16F2AF651532DDA50047DB0B /* TMDataController.mm */,
+				16F2AF4A1532BCB80047DB0B /* TMColorController.h */,
+				16F2AF4B1532BCB80047DB0B /* TMColorController.mm */,
+				16F2AF4C1532BCB80047DB0B /* TMImageController.h */,
+				16F2AF4D1532BCB80047DB0B /* TMImageController.mm */,
+				16F2AF4E1532BCB80047DB0B /* TMRAWController.h */,
+				16F2AF4F1532BCB80047DB0B /* TMRAWController.mm */,
+				16F2AF5D1532CA880047DB0B /* TMGradientController.h */,
+				16F2AF5E1532CA880047DB0B /* TMGradientController.mm */,
+				161E211A152D89960031D976 /* TMMainController.h */,
+				161E211B152D89960031D976 /* TMMainController.mm */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		161E20E5152D876B0031D976 /* theme-maker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 161E2104152D876B0031D976 /* Build configuration list for PBXNativeTarget "theme-maker" */;
+			buildPhases = (
+				161E20E2152D876B0031D976 /* Sources */,
+				161E20E3152D876B0031D976 /* Frameworks */,
+				161E20E4152D876B0031D976 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "theme-maker";
+			productName = "theme-maker";
+			productReference = 161E20E6152D876B0031D976 /* theme-maker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		161E20DD152D876B0031D976 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 161E20E0152D876B0031D976 /* Build configuration list for PBXProject "theme-maker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 161E20DB152D876B0031D976;
+			productRefGroup = 161E20E7152D876B0031D976 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				161E20E5152D876B0031D976 /* theme-maker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		161E20E4152D876B0031D976 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161E20F5152D876B0031D976 /* InfoPlist.strings in Resources */,
+				161E20FB152D876B0031D976 /* Credits.rtf in Resources */,
+				161E2101152D876B0031D976 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		161E20E2152D876B0031D976 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161E20F7152D876B0031D976 /* main.mm in Sources */,
+				161E20FE152D876B0031D976 /* AppDelegate.mm in Sources */,
+				161E211C152D89960031D976 /* TMMainController.mm in Sources */,
+				16F2AF501532BCB80047DB0B /* TMColorController.mm in Sources */,
+				16F2AF511532BCB80047DB0B /* TMImageController.mm in Sources */,
+				16F2AF521532BCB80047DB0B /* TMRAWController.mm in Sources */,
+				16F2AF5F1532CA880047DB0B /* TMGradientController.mm in Sources */,
+				16F2AF661532DDA50047DB0B /* TMDataController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		161E20F3152D876B0031D976 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				161E20F4152D876B0031D976 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		161E20F9152D876B0031D976 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				161E20FA152D876B0031D976 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		161E20FF152D876B0031D976 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				161E2100152D876B0031D976 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		161E2102152D876B0031D976 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		161E2103152D876B0031D976 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		161E2105152D876B0031D976 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/tools-hepbwodoidnhhcbrtcmpledershu/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "theme-maker/theme-maker-Prefix.pch";
+				INFOPLIST_FILE = "theme-maker/theme-maker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		161E2106152D876B0031D976 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/tools-hepbwodoidnhhcbrtcmpledershu/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "theme-maker/theme-maker-Prefix.pch";
+				INFOPLIST_FILE = "theme-maker/theme-maker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		161E20E0152D876B0031D976 /* Build configuration list for PBXProject "theme-maker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				161E2102152D876B0031D976 /* Debug */,
+				161E2103152D876B0031D976 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		161E2104152D876B0031D976 /* Build configuration list for PBXNativeTarget "theme-maker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				161E2105152D876B0031D976 /* Debug */,
+				161E2106152D876B0031D976 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 161E20DD152D876B0031D976 /* Project object */;
+}

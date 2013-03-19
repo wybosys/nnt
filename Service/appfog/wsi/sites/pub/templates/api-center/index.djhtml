@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>API CENTER</title>
+
+{% for class, methods in apis.iteritems %}
+<a>
+	{{ class }}
+</a>
+<br />
+
+	{% for methodname, arguments in methods.iteritems %}
+		<span style="padding-left: 10em">
+			(
+			<a href="lookup/{{ class }}.{{ methodname }}">
+				{{ methodname }}
+			</a>
+			) 
+			required {{ arguments.0 }}
+			optional {{ arguments.1 }}
+		</span>	
+		<br />
+	{% endfor %}
+
+{% endfor %}

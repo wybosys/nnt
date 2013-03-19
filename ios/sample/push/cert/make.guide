@@ -1,0 +1,6 @@
+openssl pkcs12 -nodes -out aps_key.pem -in wsi\:sample\:push\:key.p12 
+openssl x509 -in aps_development.cer -inform der -out aps_cert.pem
+cat aps_cert.pem aps_key.pem > aps_dev.pem
+
+test:
+openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert aps_dev.pem -key aps_key.pem 

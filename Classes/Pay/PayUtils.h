@@ -1,0 +1,22 @@
+
+# ifndef __WSI_PAY_UTILS_ED01AF8F098D4046AEF5154CB6A41B22_H_INCLUDED
+# define __WSI_PAY_UTILS_ED01AF8F098D4046AEF5154CB6A41B22_H_INCLUDED
+
+WSI_NEED_CXX;
+
+WSI_BEGIN_HEADER_CXX
+WSI_BEGIN_NS(pay)
+
+class utils
+{
+public:
+    
+    WSI_STATIC ns::String orderid();
+    WSI_STATIC ulong ordertime();
+    
+};
+
+WSI_END_NS
+WSI_END_HEADER_CXX
+
+# endif

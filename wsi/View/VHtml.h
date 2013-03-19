@@ -1,0 +1,20 @@
+
+# ifndef __WSI_VIEW_HTML_57B98C4E1AC1484AA433351115342157_H_INCLUDED
+# define __WSI_VIEW_HTML_57B98C4E1AC1484AA433351115342157_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+WSIDECL_PRIVATE_HEAD(VHtml);
+
+@interface VHtml : NSObject {
+	WSIDECL_PRIVATE(VHtml);
+}
+
++ (NSString*)make_css:(NSString*)content;
++ (NSString*)make_javascript:(NSString*)content;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

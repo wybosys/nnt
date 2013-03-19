@@ -1,0 +1,14 @@
+
+# ifndef __TM_IMAGE_203C800A6768416EBDE105AD9046F8F3_H_INCLUDED
+# define __TM_IMAGE_203C800A6768416EBDE105AD9046F8F3_H_INCLUDED
+
+# import "TMDataController.h"
+
+WSIAPP_BEGIN_OBJC
+
+@interface TMImageController : TMDataController
+@end
+
+WSIAPP_END_OBJC
+
+# endif

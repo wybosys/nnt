@@ -1,0 +1,1797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1609AD3C1446C75E00DD4C39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1609AD3B1446C75E00DD4C39 /* Foundation.framework */; };
+		1609AD421446C75E00DD4C39 /* geos.m in Sources */ = {isa = PBXBuildFile; fileRef = 1609AD411446C75E00DD4C39 /* geos.m */; };
+		1609B1F41446C7F000DD4C39 /* Angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF281446C7EF00DD4C39 /* Angle.cpp */; };
+		1609B1F51446C7F000DD4C39 /* BoundaryNodeRule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF291446C7EF00DD4C39 /* BoundaryNodeRule.cpp */; };
+		1609B1F61446C7F000DD4C39 /* CentroidArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF2A1446C7EF00DD4C39 /* CentroidArea.cpp */; };
+		1609B1F71446C7F000DD4C39 /* CentroidLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF2B1446C7EF00DD4C39 /* CentroidLine.cpp */; };
+		1609B1F81446C7F000DD4C39 /* CentroidPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF2C1446C7EF00DD4C39 /* CentroidPoint.cpp */; };
+		1609B1F91446C7F000DD4C39 /* CGAlgorithms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF2D1446C7EF00DD4C39 /* CGAlgorithms.cpp */; };
+		1609B1FA1446C7F000DD4C39 /* ConvexHull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF2E1446C7EF00DD4C39 /* ConvexHull.cpp */; };
+		1609B1FB1446C7F000DD4C39 /* DiscreteHausdorffDistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF301446C7EF00DD4C39 /* DiscreteHausdorffDistance.cpp */; };
+		1609B1FC1446C7F000DD4C39 /* DistanceToPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF311446C7EF00DD4C39 /* DistanceToPoint.cpp */; };
+		1609B1FD1446C7F000DD4C39 /* HCoordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF341446C7EF00DD4C39 /* HCoordinate.cpp */; };
+		1609B1FE1446C7F000DD4C39 /* InteriorPointArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF351446C7EF00DD4C39 /* InteriorPointArea.cpp */; };
+		1609B1FF1446C7F000DD4C39 /* InteriorPointLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF361446C7EF00DD4C39 /* InteriorPointLine.cpp */; };
+		1609B2001446C7F000DD4C39 /* InteriorPointPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF371446C7EF00DD4C39 /* InteriorPointPoint.cpp */; };
+		1609B2011446C7F000DD4C39 /* LineIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF381446C7EF00DD4C39 /* LineIntersector.cpp */; };
+		1609B2021446C7F000DD4C39 /* IndexedPointInAreaLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF3A1446C7EF00DD4C39 /* IndexedPointInAreaLocator.cpp */; };
+		1609B2031446C7F000DD4C39 /* PointOnGeometryLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF3D1446C7EF00DD4C39 /* PointOnGeometryLocator.cpp */; };
+		1609B2041446C7F000DD4C39 /* SimplePointInAreaLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF3E1446C7EF00DD4C39 /* SimplePointInAreaLocator.cpp */; };
+		1609B2051446C7F000DD4C39 /* MCPointInRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF411446C7EF00DD4C39 /* MCPointInRing.cpp */; };
+		1609B2061446C7F000DD4C39 /* MinimumDiameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF421446C7EF00DD4C39 /* MinimumDiameter.cpp */; };
+		1609B2071446C7F000DD4C39 /* NotRepresentableException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF431446C7EF00DD4C39 /* NotRepresentableException.cpp */; };
+		1609B2081446C7F000DD4C39 /* PointLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF441446C7EF00DD4C39 /* PointLocator.cpp */; };
+		1609B2091446C7F000DD4C39 /* RayCrossingCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF451446C7EF00DD4C39 /* RayCrossingCounter.cpp */; };
+		1609B20A1446C7F000DD4C39 /* RobustDeterminant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF461446C7EF00DD4C39 /* RobustDeterminant.cpp */; };
+		1609B20B1446C7F000DD4C39 /* SimplePointInRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF471446C7EF00DD4C39 /* SimplePointInRing.cpp */; };
+		1609B20C1446C7F000DD4C39 /* SIRtreePointInRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF481446C7EF00DD4C39 /* SIRtreePointInRing.cpp */; };
+		1609B20D1446C7F000DD4C39 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF4C1446C7EF00DD4C39 /* Coordinate.cpp */; };
+		1609B20E1446C7F000DD4C39 /* CoordinateArraySequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF4D1446C7EF00DD4C39 /* CoordinateArraySequence.cpp */; };
+		1609B20F1446C7F000DD4C39 /* CoordinateArraySequenceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF4E1446C7EF00DD4C39 /* CoordinateArraySequenceFactory.cpp */; };
+		1609B2101446C7F000DD4C39 /* CoordinateSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF4F1446C7EF00DD4C39 /* CoordinateSequence.cpp */; };
+		1609B2111446C7F000DD4C39 /* CoordinateSequenceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF501446C7EF00DD4C39 /* CoordinateSequenceFactory.cpp */; };
+		1609B2121446C7F000DD4C39 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF511446C7EF00DD4C39 /* Dimension.cpp */; };
+		1609B2131446C7F000DD4C39 /* Envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF521446C7EF00DD4C39 /* Envelope.cpp */; };
+		1609B2141446C7F000DD4C39 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF531446C7EF00DD4C39 /* Geometry.cpp */; };
+		1609B2151446C7F000DD4C39 /* GeometryCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF541446C7EF00DD4C39 /* GeometryCollection.cpp */; };
+		1609B2161446C7F000DD4C39 /* GeometryComponentFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF551446C7EF00DD4C39 /* GeometryComponentFilter.cpp */; };
+		1609B2171446C7F000DD4C39 /* GeometryFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF561446C7EF00DD4C39 /* GeometryFactory.cpp */; };
+		1609B2181446C7F000DD4C39 /* GeometryList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF571446C7EF00DD4C39 /* GeometryList.cpp */; };
+		1609B2191446C7F000DD4C39 /* IntersectionMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF581446C7EF00DD4C39 /* IntersectionMatrix.cpp */; };
+		1609B21A1446C7F000DD4C39 /* LinearRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF591446C7EF00DD4C39 /* LinearRing.cpp */; };
+		1609B21B1446C7F000DD4C39 /* LineSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF5A1446C7EF00DD4C39 /* LineSegment.cpp */; };
+		1609B21C1446C7F000DD4C39 /* LineString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF5B1446C7EF00DD4C39 /* LineString.cpp */; };
+		1609B21D1446C7F000DD4C39 /* Location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF5C1446C7EF00DD4C39 /* Location.cpp */; };
+		1609B21E1446C7F000DD4C39 /* MultiLineString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF5F1446C7EF00DD4C39 /* MultiLineString.cpp */; };
+		1609B21F1446C7F000DD4C39 /* MultiPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF601446C7EF00DD4C39 /* MultiPoint.cpp */; };
+		1609B2201446C7F000DD4C39 /* MultiPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF611446C7EF00DD4C39 /* MultiPolygon.cpp */; };
+		1609B2211446C7F000DD4C39 /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF621446C7EF00DD4C39 /* Point.cpp */; };
+		1609B2221446C7F000DD4C39 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF631446C7EF00DD4C39 /* Polygon.cpp */; };
+		1609B2231446C7F000DD4C39 /* PrecisionModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF641446C7EF00DD4C39 /* PrecisionModel.cpp */; };
+		1609B2241446C7F000DD4C39 /* AbstractPreparedPolygonContains.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF661446C7EF00DD4C39 /* AbstractPreparedPolygonContains.cpp */; };
+		1609B2251446C7F000DD4C39 /* BasicPreparedGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF671446C7EF00DD4C39 /* BasicPreparedGeometry.cpp */; };
+		1609B2261446C7F000DD4C39 /* PreparedGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6A1446C7EF00DD4C39 /* PreparedGeometry.cpp */; };
+		1609B2271446C7F000DD4C39 /* PreparedGeometryFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6B1446C7EF00DD4C39 /* PreparedGeometryFactory.cpp */; };
+		1609B2281446C7F000DD4C39 /* PreparedLineString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6C1446C7EF00DD4C39 /* PreparedLineString.cpp */; };
+		1609B2291446C7F000DD4C39 /* PreparedLineStringIntersects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6D1446C7EF00DD4C39 /* PreparedLineStringIntersects.cpp */; };
+		1609B22A1446C7F000DD4C39 /* PreparedPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6E1446C7EF00DD4C39 /* PreparedPoint.cpp */; };
+		1609B22B1446C7F000DD4C39 /* PreparedPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF6F1446C7EF00DD4C39 /* PreparedPolygon.cpp */; };
+		1609B22C1446C7F000DD4C39 /* PreparedPolygonContains.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF701446C7EF00DD4C39 /* PreparedPolygonContains.cpp */; };
+		1609B22D1446C7F000DD4C39 /* PreparedPolygonContainsProperly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF711446C7EF00DD4C39 /* PreparedPolygonContainsProperly.cpp */; };
+		1609B22E1446C7F000DD4C39 /* PreparedPolygonCovers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF721446C7EF00DD4C39 /* PreparedPolygonCovers.cpp */; };
+		1609B22F1446C7F000DD4C39 /* PreparedPolygonIntersects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF731446C7EF00DD4C39 /* PreparedPolygonIntersects.cpp */; };
+		1609B2301446C7F000DD4C39 /* PreparedPolygonPredicate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF741446C7EF00DD4C39 /* PreparedPolygonPredicate.cpp */; };
+		1609B2311446C7F000DD4C39 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF751446C7EF00DD4C39 /* Triangle.cpp */; };
+		1609B2321446C7F000DD4C39 /* ComponentCoordinateExtracter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF771446C7EF00DD4C39 /* ComponentCoordinateExtracter.cpp */; };
+		1609B2331446C7F000DD4C39 /* CoordinateOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF781446C7EF00DD4C39 /* CoordinateOperation.cpp */; };
+		1609B2341446C7F000DD4C39 /* GeometryCombiner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF791446C7EF00DD4C39 /* GeometryCombiner.cpp */; };
+		1609B2351446C7F000DD4C39 /* GeometryEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF7A1446C7EF00DD4C39 /* GeometryEditor.cpp */; };
+		1609B2361446C7F000DD4C39 /* GeometryTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF7B1446C7EF00DD4C39 /* GeometryTransformer.cpp */; };
+		1609B2371446C7F000DD4C39 /* ShortCircuitedGeometryVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF7E1446C7EF00DD4C39 /* ShortCircuitedGeometryVisitor.cpp */; };
+		1609B2381446C7F000DD4C39 /* SineStarFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF7F1446C7EF00DD4C39 /* SineStarFactory.cpp */; };
+		1609B2391446C7F000DD4C39 /* Depth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF811446C7EF00DD4C39 /* Depth.cpp */; };
+		1609B23A1446C7F000DD4C39 /* DirectedEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF821446C7EF00DD4C39 /* DirectedEdge.cpp */; };
+		1609B23B1446C7F000DD4C39 /* DirectedEdgeStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF831446C7EF00DD4C39 /* DirectedEdgeStar.cpp */; };
+		1609B23C1446C7F000DD4C39 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF841446C7EF00DD4C39 /* Edge.cpp */; };
+		1609B23D1446C7F000DD4C39 /* EdgeEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF851446C7EF00DD4C39 /* EdgeEnd.cpp */; };
+		1609B23E1446C7F000DD4C39 /* EdgeEndStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF861446C7EF00DD4C39 /* EdgeEndStar.cpp */; };
+		1609B23F1446C7F000DD4C39 /* EdgeIntersectionList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF871446C7EF00DD4C39 /* EdgeIntersectionList.cpp */; };
+		1609B2401446C7F000DD4C39 /* EdgeList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF881446C7EF00DD4C39 /* EdgeList.cpp */; };
+		1609B2411446C7F000DD4C39 /* EdgeNodingValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF891446C7EF00DD4C39 /* EdgeNodingValidator.cpp */; };
+		1609B2421446C7F000DD4C39 /* EdgeRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF8A1446C7EF00DD4C39 /* EdgeRing.cpp */; };
+		1609B2431446C7F000DD4C39 /* GeometryGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF8B1446C7EF00DD4C39 /* GeometryGraph.cpp */; };
+		1609B2441446C7F000DD4C39 /* GraphComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF8C1446C7EF00DD4C39 /* GraphComponent.cpp */; };
+		1609B2451446C7F000DD4C39 /* MonotoneChainEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF901446C7EF00DD4C39 /* MonotoneChainEdge.cpp */; };
+		1609B2461446C7F000DD4C39 /* MonotoneChainIndexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF911446C7EF00DD4C39 /* MonotoneChainIndexer.cpp */; };
+		1609B2471446C7F000DD4C39 /* SegmentIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF921446C7EF00DD4C39 /* SegmentIntersector.cpp */; };
+		1609B2481446C7F000DD4C39 /* SimpleEdgeSetIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF931446C7EF00DD4C39 /* SimpleEdgeSetIntersector.cpp */; };
+		1609B2491446C7F000DD4C39 /* SimpleMCSweepLineIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF941446C7EF00DD4C39 /* SimpleMCSweepLineIntersector.cpp */; };
+		1609B24A1446C7F000DD4C39 /* SimpleSweepLineIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF951446C7EF00DD4C39 /* SimpleSweepLineIntersector.cpp */; };
+		1609B24B1446C7F000DD4C39 /* SweepLineEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF961446C7EF00DD4C39 /* SweepLineEvent.cpp */; };
+		1609B24C1446C7F000DD4C39 /* SweepLineSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF971446C7EF00DD4C39 /* SweepLineSegment.cpp */; };
+		1609B24D1446C7F000DD4C39 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF981446C7EF00DD4C39 /* Label.cpp */; };
+		1609B24E1446C7F000DD4C39 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF9B1446C7EF00DD4C39 /* Node.cpp */; };
+		1609B24F1446C7F000DD4C39 /* NodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF9C1446C7EF00DD4C39 /* NodeFactory.cpp */; };
+		1609B2501446C7F000DD4C39 /* NodeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF9D1446C7EF00DD4C39 /* NodeMap.cpp */; };
+		1609B2511446C7F000DD4C39 /* PlanarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF9E1446C7EF00DD4C39 /* PlanarGraph.cpp */; };
+		1609B2521446C7F000DD4C39 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AF9F1446C7EF00DD4C39 /* Position.cpp */; };
+		1609B2531446C7F000DD4C39 /* Quadrant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA01446C7EF00DD4C39 /* Quadrant.cpp */; };
+		1609B2541446C7F000DD4C39 /* TopologyLocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA11446C7EF00DD4C39 /* TopologyLocation.cpp */; };
+		1609B2551446C7F000DD4C39 /* Bintree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA41446C7EF00DD4C39 /* Bintree.cpp */; };
+		1609B2561446C7F000DD4C39 /* Interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA51446C7EF00DD4C39 /* Interval.cpp */; };
+		1609B2571446C7F000DD4C39 /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA61446C7EF00DD4C39 /* Key.cpp */; };
+		1609B2581446C7F000DD4C39 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFA91446C7EF00DD4C39 /* Node.cpp */; };
+		1609B2591446C7F000DD4C39 /* NodeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFAA1446C7EF00DD4C39 /* NodeBase.cpp */; };
+		1609B25A1446C7F000DD4C39 /* Root.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFAB1446C7EF00DD4C39 /* Root.cpp */; };
+		1609B25B1446C7F000DD4C39 /* MonotoneChain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFAF1446C7EF00DD4C39 /* MonotoneChain.cpp */; };
+		1609B25C1446C7F000DD4C39 /* MonotoneChainBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB01446C7EF00DD4C39 /* MonotoneChainBuilder.cpp */; };
+		1609B25D1446C7F000DD4C39 /* MonotoneChainOverlapAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB11446C7EF00DD4C39 /* MonotoneChainOverlapAction.cpp */; };
+		1609B25E1446C7F000DD4C39 /* MonotoneChainSelectAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB21446C7EF00DD4C39 /* MonotoneChainSelectAction.cpp */; };
+		1609B25F1446C7F000DD4C39 /* IntervalRTreeBranchNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB41446C7EF00DD4C39 /* IntervalRTreeBranchNode.cpp */; };
+		1609B2601446C7F000DD4C39 /* IntervalRTreeLeafNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB51446C7EF00DD4C39 /* IntervalRTreeLeafNode.cpp */; };
+		1609B2611446C7F000DD4C39 /* IntervalRTreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB61446C7EF00DD4C39 /* IntervalRTreeNode.cpp */; };
+		1609B2621446C7F000DD4C39 /* SortedPackedIntervalRTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFB91446C7EF00DD4C39 /* SortedPackedIntervalRTree.cpp */; };
+		1609B2631446C7F000DD4C39 /* DoubleBits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFBD1446C7EF00DD4C39 /* DoubleBits.cpp */; };
+		1609B2641446C7F000DD4C39 /* IntervalSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFBE1446C7EF00DD4C39 /* IntervalSize.cpp */; };
+		1609B2651446C7F000DD4C39 /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFBF1446C7EF00DD4C39 /* Key.cpp */; };
+		1609B2661446C7F000DD4C39 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC21446C7EF00DD4C39 /* Node.cpp */; };
+		1609B2671446C7F000DD4C39 /* NodeBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC31446C7EF00DD4C39 /* NodeBase.cpp */; };
+		1609B2681446C7F000DD4C39 /* Quadtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC41446C7EF00DD4C39 /* Quadtree.cpp */; };
+		1609B2691446C7F000DD4C39 /* Root.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC51446C7EF00DD4C39 /* Root.cpp */; };
+		1609B26A1446C7F000DD4C39 /* AbstractNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC71446C7EF00DD4C39 /* AbstractNode.cpp */; };
+		1609B26B1446C7F000DD4C39 /* AbstractSTRtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC81446C7EF00DD4C39 /* AbstractSTRtree.cpp */; };
+		1609B26C1446C7F000DD4C39 /* Interval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFC91446C7EF00DD4C39 /* Interval.cpp */; };
+		1609B26D1446C7F000DD4C39 /* ItemBoundable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFCA1446C7EF00DD4C39 /* ItemBoundable.cpp */; };
+		1609B26E1446C7F000DD4C39 /* SIRtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFCD1446C7EF00DD4C39 /* SIRtree.cpp */; };
+		1609B26F1446C7F000DD4C39 /* STRtree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFCE1446C7EF00DD4C39 /* STRtree.cpp */; };
+		1609B2701446C7F000DD4C39 /* SweepLineEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD21446C7EF00DD4C39 /* SweepLineEvent.cpp */; };
+		1609B2711446C7F000DD4C39 /* SweepLineIndex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD31446C7EF00DD4C39 /* SweepLineIndex.cpp */; };
+		1609B2721446C7F000DD4C39 /* SweepLineInterval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD41446C7EF00DD4C39 /* SweepLineInterval.cpp */; };
+		1609B2731446C7F000DD4C39 /* inlines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD61446C7EF00DD4C39 /* inlines.cpp */; };
+		1609B2741446C7F000DD4C39 /* ByteOrderDataInStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD81446C7EF00DD4C39 /* ByteOrderDataInStream.cpp */; };
+		1609B2751446C7F000DD4C39 /* ByteOrderValues.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFD91446C7EF00DD4C39 /* ByteOrderValues.cpp */; };
+		1609B2761446C7F000DD4C39 /* CLocalizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFDA1446C7EF00DD4C39 /* CLocalizer.cpp */; };
+		1609B2771446C7F000DD4C39 /* ParseException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFDD1446C7EF00DD4C39 /* ParseException.cpp */; };
+		1609B2781446C7F000DD4C39 /* StringTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFDE1446C7EF00DD4C39 /* StringTokenizer.cpp */; };
+		1609B2791446C7F000DD4C39 /* Unload.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFDF1446C7EF00DD4C39 /* Unload.cpp */; };
+		1609B27A1446C7F000DD4C39 /* WKBReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE01446C7EF00DD4C39 /* WKBReader.cpp */; };
+		1609B27B1446C7F000DD4C39 /* WKBWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE11446C7EF00DD4C39 /* WKBWriter.cpp */; };
+		1609B27C1446C7F000DD4C39 /* WKTReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE21446C7EF00DD4C39 /* WKTReader.cpp */; };
+		1609B27D1446C7F000DD4C39 /* WKTWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE31446C7EF00DD4C39 /* WKTWriter.cpp */; };
+		1609B27E1446C7F000DD4C39 /* Writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE41446C7EF00DD4C39 /* Writer.cpp */; };
+		1609B27F1446C7F000DD4C39 /* ExtractLineByLocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE61446C7EF00DD4C39 /* ExtractLineByLocation.cpp */; };
+		1609B2801446C7F000DD4C39 /* LengthIndexedLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE71446C7EF00DD4C39 /* LengthIndexedLine.cpp */; };
+		1609B2811446C7F000DD4C39 /* LengthIndexOfPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE81446C7EF00DD4C39 /* LengthIndexOfPoint.cpp */; };
+		1609B2821446C7F000DD4C39 /* LengthLocationMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFE91446C7EF00DD4C39 /* LengthLocationMap.cpp */; };
+		1609B2831446C7F000DD4C39 /* LinearGeometryBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFEA1446C7EF00DD4C39 /* LinearGeometryBuilder.cpp */; };
+		1609B2841446C7F000DD4C39 /* LinearIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFEB1446C7EF00DD4C39 /* LinearIterator.cpp */; };
+		1609B2851446C7F000DD4C39 /* LinearLocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFEC1446C7EF00DD4C39 /* LinearLocation.cpp */; };
+		1609B2861446C7F000DD4C39 /* LocationIndexOfLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFED1446C7EF00DD4C39 /* LocationIndexOfLine.cpp */; };
+		1609B2871446C7F000DD4C39 /* LocationIndexOfPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFEE1446C7EF00DD4C39 /* LocationIndexOfPoint.cpp */; };
+		1609B2881446C7F000DD4C39 /* BasicSegmentString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFF51446C7EF00DD4C39 /* BasicSegmentString.cpp */; };
+		1609B2891446C7F000DD4C39 /* FastNodingValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFF61446C7EF00DD4C39 /* FastNodingValidator.cpp */; };
+		1609B28A1446C7F000DD4C39 /* FastSegmentSetIntersectionFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFF71446C7EF00DD4C39 /* FastSegmentSetIntersectionFinder.cpp */; };
+		1609B28B1446C7F000DD4C39 /* IntersectionAdder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFF81446C7EF00DD4C39 /* IntersectionAdder.cpp */; };
+		1609B28C1446C7F000DD4C39 /* IntersectionFinderAdder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFF91446C7EF00DD4C39 /* IntersectionFinderAdder.cpp */; };
+		1609B28D1446C7F000DD4C39 /* IteratedNoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFFA1446C7EF00DD4C39 /* IteratedNoder.cpp */; };
+		1609B28E1446C7F000DD4C39 /* MCIndexNoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFFD1446C7EF00DD4C39 /* MCIndexNoder.cpp */; };
+		1609B28F1446C7F000DD4C39 /* MCIndexSegmentSetMutualIntersector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFFE1446C7EF00DD4C39 /* MCIndexSegmentSetMutualIntersector.cpp */; };
+		1609B2901446C7F000DD4C39 /* NodedSegmentString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609AFFF1446C7EF00DD4C39 /* NodedSegmentString.cpp */; };
+		1609B2911446C7F000DD4C39 /* NodingValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0001446C7EF00DD4C39 /* NodingValidator.cpp */; };
+		1609B2921446C7F000DD4C39 /* Octant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0011446C7EF00DD4C39 /* Octant.cpp */; };
+		1609B2931446C7F000DD4C39 /* OrientedCoordinateArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0021446C7EF00DD4C39 /* OrientedCoordinateArray.cpp */; };
+		1609B2941446C7F000DD4C39 /* ScaledNoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0031446C7EF00DD4C39 /* ScaledNoder.cpp */; };
+		1609B2951446C7F000DD4C39 /* SegmentIntersectionDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0041446C7EF00DD4C39 /* SegmentIntersectionDetector.cpp */; };
+		1609B2961446C7F000DD4C39 /* SegmentNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0051446C7EF00DD4C39 /* SegmentNode.cpp */; };
+		1609B2971446C7F000DD4C39 /* SegmentNodeList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0061446C7EF00DD4C39 /* SegmentNodeList.cpp */; };
+		1609B2981446C7F000DD4C39 /* SegmentString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0071446C7EF00DD4C39 /* SegmentString.cpp */; };
+		1609B2991446C7F000DD4C39 /* SegmentStringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0081446C7EF00DD4C39 /* SegmentStringUtil.cpp */; };
+		1609B29A1446C7F000DD4C39 /* SimpleNoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0091446C7EF00DD4C39 /* SimpleNoder.cpp */; };
+		1609B29B1446C7F000DD4C39 /* SingleInteriorIntersectionFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B00A1446C7EF00DD4C39 /* SingleInteriorIntersectionFinder.cpp */; };
+		1609B29C1446C7F000DD4C39 /* HotPixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B00C1446C7EF00DD4C39 /* HotPixel.cpp */; };
+		1609B29D1446C7F000DD4C39 /* MCIndexPointSnapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B00F1446C7EF00DD4C39 /* MCIndexPointSnapper.cpp */; };
+		1609B29E1446C7F000DD4C39 /* MCIndexSnapRounder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0101446C7EF00DD4C39 /* MCIndexSnapRounder.cpp */; };
+		1609B29F1446C7F000DD4C39 /* SimpleSnapRounder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0111446C7EF00DD4C39 /* SimpleSnapRounder.cpp */; };
+		1609B2A01446C7F000DD4C39 /* BufferBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0141446C7EF00DD4C39 /* BufferBuilder.cpp */; };
+		1609B2A11446C7F000DD4C39 /* BufferInputLineSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0151446C7EF00DD4C39 /* BufferInputLineSimplifier.cpp */; };
+		1609B2A21446C7F000DD4C39 /* BufferInputLineSimplifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609B0161446C7EF00DD4C39 /* BufferInputLineSimplifier.h */; };
+		1609B2A31446C7F000DD4C39 /* BufferOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0171446C7EF00DD4C39 /* BufferOp.cpp */; };
+		1609B2A41446C7F000DD4C39 /* BufferParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0181446C7EF00DD4C39 /* BufferParameters.cpp */; };
+		1609B2A51446C7F000DD4C39 /* BufferSubgraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0191446C7EF00DD4C39 /* BufferSubgraph.cpp */; };
+		1609B2A61446C7F000DD4C39 /* OffsetCurveBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B01C1446C7EF00DD4C39 /* OffsetCurveBuilder.cpp */; };
+		1609B2A71446C7F000DD4C39 /* OffsetCurveSetBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B01D1446C7EF00DD4C39 /* OffsetCurveSetBuilder.cpp */; };
+		1609B2A81446C7F000DD4C39 /* OffsetSegmentGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B01E1446C7EF00DD4C39 /* OffsetSegmentGenerator.cpp */; };
+		1609B2A91446C7F000DD4C39 /* RightmostEdgeFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B01F1446C7EF00DD4C39 /* RightmostEdgeFinder.cpp */; };
+		1609B2AA1446C7F000DD4C39 /* SubgraphDepthLocater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0201446C7EF00DD4C39 /* SubgraphDepthLocater.cpp */; };
+		1609B2AB1446C7F000DD4C39 /* ConnectedElementLocationFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0221446C7EF00DD4C39 /* ConnectedElementLocationFilter.cpp */; };
+		1609B2AC1446C7F000DD4C39 /* ConnectedElementPointFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0231446C7EF00DD4C39 /* ConnectedElementPointFilter.cpp */; };
+		1609B2AD1446C7F000DD4C39 /* DistanceOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0241446C7EF00DD4C39 /* DistanceOp.cpp */; };
+		1609B2AE1446C7F000DD4C39 /* GeometryLocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0251446C7EF00DD4C39 /* GeometryLocation.cpp */; };
+		1609B2AF1446C7F000DD4C39 /* GeometryGraphOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0281446C7EF00DD4C39 /* GeometryGraphOperation.cpp */; };
+		1609B2B01446C7F000DD4C39 /* IsSimpleOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0291446C7EF00DD4C39 /* IsSimpleOp.cpp */; };
+		1609B2B11446C7F000DD4C39 /* EdgeString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B02B1446C7EF00DD4C39 /* EdgeString.cpp */; };
+		1609B2B21446C7F000DD4C39 /* LineMergeDirectedEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B02C1446C7EF00DD4C39 /* LineMergeDirectedEdge.cpp */; };
+		1609B2B31446C7F000DD4C39 /* LineMergeEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B02D1446C7EF00DD4C39 /* LineMergeEdge.cpp */; };
+		1609B2B41446C7F000DD4C39 /* LineMergeGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B02E1446C7EF00DD4C39 /* LineMergeGraph.cpp */; };
+		1609B2B51446C7F000DD4C39 /* LineMerger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B02F1446C7EF00DD4C39 /* LineMerger.cpp */; };
+		1609B2B61446C7F000DD4C39 /* LineSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0301446C7EF00DD4C39 /* LineSequencer.cpp */; };
+		1609B2B71446C7F000DD4C39 /* EdgeSetNoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0361446C7EF00DD4C39 /* EdgeSetNoder.cpp */; };
+		1609B2B81446C7F000DD4C39 /* ElevationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0371446C7EF00DD4C39 /* ElevationMatrix.cpp */; };
+		1609B2B91446C7F000DD4C39 /* ElevationMatrixCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0381446C7EF00DD4C39 /* ElevationMatrixCell.cpp */; };
+		1609B2BA1446C7F000DD4C39 /* LineBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0391446C7EF00DD4C39 /* LineBuilder.cpp */; };
+		1609B2BB1446C7F000DD4C39 /* MaximalEdgeRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B03C1446C7EF00DD4C39 /* MaximalEdgeRing.cpp */; };
+		1609B2BC1446C7F000DD4C39 /* MinimalEdgeRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B03D1446C7EF00DD4C39 /* MinimalEdgeRing.cpp */; };
+		1609B2BD1446C7F000DD4C39 /* OverlayNodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B03E1446C7EF00DD4C39 /* OverlayNodeFactory.cpp */; };
+		1609B2BE1446C7F000DD4C39 /* OverlayOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B03F1446C7EF00DD4C39 /* OverlayOp.cpp */; };
+		1609B2BF1446C7F000DD4C39 /* PointBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0401446C7EF00DD4C39 /* PointBuilder.cpp */; };
+		1609B2C01446C7F000DD4C39 /* PolygonBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0411446C7EF00DD4C39 /* PolygonBuilder.cpp */; };
+		1609B2C11446C7F000DD4C39 /* GeometrySnapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0431446C7EF00DD4C39 /* GeometrySnapper.cpp */; };
+		1609B2C21446C7F000DD4C39 /* LineStringSnapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0441446C7EF00DD4C39 /* LineStringSnapper.cpp */; };
+		1609B2C31446C7F000DD4C39 /* SnapIfNeededOverlayOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0451446C7EF00DD4C39 /* SnapIfNeededOverlayOp.cpp */; };
+		1609B2C41446C7F000DD4C39 /* SnapOverlayOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0461446C7EF00DD4C39 /* SnapOverlayOp.cpp */; };
+		1609B2C51446C7F000DD4C39 /* FuzzyPointLocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0481446C7EF00DD4C39 /* FuzzyPointLocator.cpp */; };
+		1609B2C61446C7F000DD4C39 /* OffsetPointGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0491446C7EF00DD4C39 /* OffsetPointGenerator.cpp */; };
+		1609B2C71446C7F000DD4C39 /* OverlayResultValidator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B04A1446C7EF00DD4C39 /* OverlayResultValidator.cpp */; };
+		1609B2C81446C7F000DD4C39 /* EdgeRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B04C1446C7EF00DD4C39 /* EdgeRing.cpp */; };
+		1609B2C91446C7F000DD4C39 /* PolygonizeDirectedEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B04F1446C7EF00DD4C39 /* PolygonizeDirectedEdge.cpp */; };
+		1609B2CA1446C7F000DD4C39 /* PolygonizeEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0501446C7EF00DD4C39 /* PolygonizeEdge.cpp */; };
+		1609B2CB1446C7F000DD4C39 /* PolygonizeGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0511446C7EF00DD4C39 /* PolygonizeGraph.cpp */; };
+		1609B2CC1446C7F000DD4C39 /* Polygonizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0521446C7EF00DD4C39 /* Polygonizer.cpp */; };
+		1609B2CD1446C7F000DD4C39 /* RectangleContains.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0561446C7EF00DD4C39 /* RectangleContains.cpp */; };
+		1609B2CE1446C7F000DD4C39 /* RectangleIntersects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0571446C7EF00DD4C39 /* RectangleIntersects.cpp */; };
+		1609B2CF1446C7F000DD4C39 /* SegmentIntersectionTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0581446C7EF00DD4C39 /* SegmentIntersectionTester.cpp */; };
+		1609B2D01446C7F000DD4C39 /* EdgeEndBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B05A1446C7EF00DD4C39 /* EdgeEndBuilder.cpp */; };
+		1609B2D11446C7F000DD4C39 /* EdgeEndBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B05B1446C7EF00DD4C39 /* EdgeEndBundle.cpp */; };
+		1609B2D21446C7F000DD4C39 /* EdgeEndBundleStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B05C1446C7EF00DD4C39 /* EdgeEndBundleStar.cpp */; };
+		1609B2D31446C7F000DD4C39 /* RelateComputer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B05F1446C7EF00DD4C39 /* RelateComputer.cpp */; };
+		1609B2D41446C7F000DD4C39 /* RelateNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0601446C7EF00DD4C39 /* RelateNode.cpp */; };
+		1609B2D51446C7F000DD4C39 /* RelateNodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0611446C7EF00DD4C39 /* RelateNodeFactory.cpp */; };
+		1609B2D61446C7F000DD4C39 /* RelateNodeGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0621446C7EF00DD4C39 /* RelateNodeGraph.cpp */; };
+		1609B2D71446C7F000DD4C39 /* RelateOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0631446C7EF00DD4C39 /* RelateOp.cpp */; };
+		1609B2D81446C7F000DD4C39 /* SharedPathsOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0671446C7EF00DD4C39 /* SharedPathsOp.cpp */; };
+		1609B2D91446C7F000DD4C39 /* CascadedPolygonUnion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0691446C7EF00DD4C39 /* CascadedPolygonUnion.cpp */; };
+		1609B2DA1446C7F000DD4C39 /* CascadedUnion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B06A1446C7EF00DD4C39 /* CascadedUnion.cpp */; };
+		1609B2DB1446C7F000DD4C39 /* PointGeometryUnion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B06D1446C7EF00DD4C39 /* PointGeometryUnion.cpp */; };
+		1609B2DC1446C7F000DD4C39 /* UnaryUnionOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B06E1446C7EF00DD4C39 /* UnaryUnionOp.cpp */; };
+		1609B2DD1446C7F000DD4C39 /* ConnectedInteriorTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0701446C7EF00DD4C39 /* ConnectedInteriorTester.cpp */; };
+		1609B2DE1446C7F000DD4C39 /* ConsistentAreaTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0711446C7EF00DD4C39 /* ConsistentAreaTester.cpp */; };
+		1609B2DF1446C7F000DD4C39 /* IndexedNestedRingTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0721446C7EF00DD4C39 /* IndexedNestedRingTester.cpp */; };
+		1609B2E01446C7F000DD4C39 /* IndexedNestedRingTester.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609B0731446C7EF00DD4C39 /* IndexedNestedRingTester.h */; };
+		1609B2E11446C7F000DD4C39 /* IsValidOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0741446C7EF00DD4C39 /* IsValidOp.cpp */; };
+		1609B2E21446C7F000DD4C39 /* QuadtreeNestedRingTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0771446C7EF00DD4C39 /* QuadtreeNestedRingTester.cpp */; };
+		1609B2E31446C7F000DD4C39 /* RepeatedPointTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0781446C7EF00DD4C39 /* RepeatedPointTester.cpp */; };
+		1609B2E41446C7F000DD4C39 /* SimpleNestedRingTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0791446C7EF00DD4C39 /* SimpleNestedRingTester.cpp */; };
+		1609B2E51446C7F000DD4C39 /* SweeplineNestedRingTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B07A1446C7EF00DD4C39 /* SweeplineNestedRingTester.cpp */; };
+		1609B2E61446C7F000DD4C39 /* TopologyValidationError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B07B1446C7EF00DD4C39 /* TopologyValidationError.cpp */; };
+		1609B2E71446C7F000DD4C39 /* ConnectedSubgraphFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B07E1446C7EF00DD4C39 /* ConnectedSubgraphFinder.cpp */; };
+		1609B2E81446C7F000DD4C39 /* DirectedEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B07F1446C7EF00DD4C39 /* DirectedEdge.cpp */; };
+		1609B2E91446C7F000DD4C39 /* DirectedEdgeStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0801446C7EF00DD4C39 /* DirectedEdgeStar.cpp */; };
+		1609B2EA1446C7F000DD4C39 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0811446C7EF00DD4C39 /* Edge.cpp */; };
+		1609B2EB1446C7F000DD4C39 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0841446C7EF00DD4C39 /* Node.cpp */; };
+		1609B2EC1446C7F000DD4C39 /* NodeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0851446C7EF00DD4C39 /* NodeMap.cpp */; };
+		1609B2ED1446C7F000DD4C39 /* PlanarGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0861446C7EF00DD4C39 /* PlanarGraph.cpp */; };
+		1609B2EE1446C7F000DD4C39 /* Subgraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0871446C7EF00DD4C39 /* Subgraph.cpp */; };
+		1609B2EF1446C7F000DD4C39 /* CommonBits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0891446C7EF00DD4C39 /* CommonBits.cpp */; };
+		1609B2F01446C7F000DD4C39 /* CommonBitsOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B08A1446C7EF00DD4C39 /* CommonBitsOp.cpp */; };
+		1609B2F11446C7F000DD4C39 /* CommonBitsRemover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B08B1446C7EF00DD4C39 /* CommonBitsRemover.cpp */; };
+		1609B2F21446C7F000DD4C39 /* EnhancedPrecisionOp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B08C1446C7EF00DD4C39 /* EnhancedPrecisionOp.cpp */; };
+		1609B2F31446C7F000DD4C39 /* SimpleGeometryPrecisionReducer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B08F1446C7EF00DD4C39 /* SimpleGeometryPrecisionReducer.cpp */; };
+		1609B2F41446C7F000DD4C39 /* DouglasPeuckerLineSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0911446C7EF00DD4C39 /* DouglasPeuckerLineSimplifier.cpp */; };
+		1609B2F51446C7F000DD4C39 /* DouglasPeuckerSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0921446C7EF00DD4C39 /* DouglasPeuckerSimplifier.cpp */; };
+		1609B2F61446C7F000DD4C39 /* LineSegmentIndex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0931446C7EF00DD4C39 /* LineSegmentIndex.cpp */; };
+		1609B2F71446C7F000DD4C39 /* TaggedLineSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0961446C7EF00DD4C39 /* TaggedLineSegment.cpp */; };
+		1609B2F81446C7F000DD4C39 /* TaggedLinesSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0971446C7EF00DD4C39 /* TaggedLinesSimplifier.cpp */; };
+		1609B2F91446C7F000DD4C39 /* TaggedLineString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0981446C7EF00DD4C39 /* TaggedLineString.cpp */; };
+		1609B2FA1446C7F000DD4C39 /* TaggedLineStringSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0991446C7EF00DD4C39 /* TaggedLineStringSimplifier.cpp */; };
+		1609B2FB1446C7F000DD4C39 /* TopologyPreservingSimplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B09A1446C7EF00DD4C39 /* TopologyPreservingSimplifier.cpp */; };
+		1609B2FC1446C7F000DD4C39 /* Assert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B09C1446C7EF00DD4C39 /* Assert.cpp */; };
+		1609B2FD1446C7F000DD4C39 /* GeometricShapeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B09D1446C7EF00DD4C39 /* GeometricShapeFactory.cpp */; };
+		1609B2FE1446C7F000DD4C39 /* math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0A01446C7EF00DD4C39 /* math.cpp */; };
+		1609B2FF1446C7F000DD4C39 /* Profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B0A11446C7EF00DD4C39 /* Profiler.cpp */; };
+		1609B97E1446E8F000DD4C39 /* geos_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B97B1446E8F000DD4C39 /* geos_c.cpp */; };
+		1609B97F1446E8F000DD4C39 /* geos_c.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609B97C1446E8F000DD4C39 /* geos_c.h */; };
+		1609B9801446E8F000DD4C39 /* geos_ts_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609B97D1446E8F000DD4C39 /* geos_ts_c.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1609AD381446C75E00DD4C39 /* libgeos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgeos.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1609AD3B1446C75E00DD4C39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1609AD3F1446C75E00DD4C39 /* geos-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "geos-Prefix.pch"; sourceTree = "<group>"; };
+		1609AD401446C75E00DD4C39 /* geos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geos.h; sourceTree = "<group>"; };
+		1609AD411446C75E00DD4C39 /* geos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = geos.m; sourceTree = "<group>"; };
+		1609AF281446C7EF00DD4C39 /* Angle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Angle.cpp; sourceTree = "<group>"; };
+		1609AF291446C7EF00DD4C39 /* BoundaryNodeRule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundaryNodeRule.cpp; sourceTree = "<group>"; };
+		1609AF2A1446C7EF00DD4C39 /* CentroidArea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CentroidArea.cpp; sourceTree = "<group>"; };
+		1609AF2B1446C7EF00DD4C39 /* CentroidLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CentroidLine.cpp; sourceTree = "<group>"; };
+		1609AF2C1446C7EF00DD4C39 /* CentroidPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CentroidPoint.cpp; sourceTree = "<group>"; };
+		1609AF2D1446C7EF00DD4C39 /* CGAlgorithms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGAlgorithms.cpp; sourceTree = "<group>"; };
+		1609AF2E1446C7EF00DD4C39 /* ConvexHull.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConvexHull.cpp; sourceTree = "<group>"; };
+		1609AF301446C7EF00DD4C39 /* DiscreteHausdorffDistance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscreteHausdorffDistance.cpp; sourceTree = "<group>"; };
+		1609AF311446C7EF00DD4C39 /* DistanceToPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DistanceToPoint.cpp; sourceTree = "<group>"; };
+		1609AF321446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF331446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF341446C7EF00DD4C39 /* HCoordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HCoordinate.cpp; sourceTree = "<group>"; };
+		1609AF351446C7EF00DD4C39 /* InteriorPointArea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteriorPointArea.cpp; sourceTree = "<group>"; };
+		1609AF361446C7EF00DD4C39 /* InteriorPointLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteriorPointLine.cpp; sourceTree = "<group>"; };
+		1609AF371446C7EF00DD4C39 /* InteriorPointPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteriorPointPoint.cpp; sourceTree = "<group>"; };
+		1609AF381446C7EF00DD4C39 /* LineIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineIntersector.cpp; sourceTree = "<group>"; };
+		1609AF3A1446C7EF00DD4C39 /* IndexedPointInAreaLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexedPointInAreaLocator.cpp; sourceTree = "<group>"; };
+		1609AF3B1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF3C1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF3D1446C7EF00DD4C39 /* PointOnGeometryLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointOnGeometryLocator.cpp; sourceTree = "<group>"; };
+		1609AF3E1446C7EF00DD4C39 /* SimplePointInAreaLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimplePointInAreaLocator.cpp; sourceTree = "<group>"; };
+		1609AF3F1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF401446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF411446C7EF00DD4C39 /* MCPointInRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MCPointInRing.cpp; sourceTree = "<group>"; };
+		1609AF421446C7EF00DD4C39 /* MinimumDiameter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MinimumDiameter.cpp; sourceTree = "<group>"; };
+		1609AF431446C7EF00DD4C39 /* NotRepresentableException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotRepresentableException.cpp; sourceTree = "<group>"; };
+		1609AF441446C7EF00DD4C39 /* PointLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointLocator.cpp; sourceTree = "<group>"; };
+		1609AF451446C7EF00DD4C39 /* RayCrossingCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RayCrossingCounter.cpp; sourceTree = "<group>"; };
+		1609AF461446C7EF00DD4C39 /* RobustDeterminant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RobustDeterminant.cpp; sourceTree = "<group>"; };
+		1609AF471446C7EF00DD4C39 /* SimplePointInRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimplePointInRing.cpp; sourceTree = "<group>"; };
+		1609AF481446C7EF00DD4C39 /* SIRtreePointInRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SIRtreePointInRing.cpp; sourceTree = "<group>"; };
+		1609AF491446C7EF00DD4C39 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		1609AF4A1446C7EF00DD4C39 /* dirlist.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dirlist.mk; sourceTree = "<group>"; };
+		1609AF4C1446C7EF00DD4C39 /* Coordinate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coordinate.cpp; sourceTree = "<group>"; };
+		1609AF4D1446C7EF00DD4C39 /* CoordinateArraySequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateArraySequence.cpp; sourceTree = "<group>"; };
+		1609AF4E1446C7EF00DD4C39 /* CoordinateArraySequenceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateArraySequenceFactory.cpp; sourceTree = "<group>"; };
+		1609AF4F1446C7EF00DD4C39 /* CoordinateSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateSequence.cpp; sourceTree = "<group>"; };
+		1609AF501446C7EF00DD4C39 /* CoordinateSequenceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateSequenceFactory.cpp; sourceTree = "<group>"; };
+		1609AF511446C7EF00DD4C39 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
+		1609AF521446C7EF00DD4C39 /* Envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Envelope.cpp; sourceTree = "<group>"; };
+		1609AF531446C7EF00DD4C39 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
+		1609AF541446C7EF00DD4C39 /* GeometryCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryCollection.cpp; sourceTree = "<group>"; };
+		1609AF551446C7EF00DD4C39 /* GeometryComponentFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryComponentFilter.cpp; sourceTree = "<group>"; };
+		1609AF561446C7EF00DD4C39 /* GeometryFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryFactory.cpp; sourceTree = "<group>"; };
+		1609AF571446C7EF00DD4C39 /* GeometryList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryList.cpp; sourceTree = "<group>"; };
+		1609AF581446C7EF00DD4C39 /* IntersectionMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntersectionMatrix.cpp; sourceTree = "<group>"; };
+		1609AF591446C7EF00DD4C39 /* LinearRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearRing.cpp; sourceTree = "<group>"; };
+		1609AF5A1446C7EF00DD4C39 /* LineSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineSegment.cpp; sourceTree = "<group>"; };
+		1609AF5B1446C7EF00DD4C39 /* LineString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineString.cpp; sourceTree = "<group>"; };
+		1609AF5C1446C7EF00DD4C39 /* Location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Location.cpp; sourceTree = "<group>"; };
+		1609AF5D1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF5E1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF5F1446C7EF00DD4C39 /* MultiLineString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiLineString.cpp; sourceTree = "<group>"; };
+		1609AF601446C7EF00DD4C39 /* MultiPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiPoint.cpp; sourceTree = "<group>"; };
+		1609AF611446C7EF00DD4C39 /* MultiPolygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiPolygon.cpp; sourceTree = "<group>"; };
+		1609AF621446C7EF00DD4C39 /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
+		1609AF631446C7EF00DD4C39 /* Polygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
+		1609AF641446C7EF00DD4C39 /* PrecisionModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrecisionModel.cpp; sourceTree = "<group>"; };
+		1609AF661446C7EF00DD4C39 /* AbstractPreparedPolygonContains.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractPreparedPolygonContains.cpp; sourceTree = "<group>"; };
+		1609AF671446C7EF00DD4C39 /* BasicPreparedGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicPreparedGeometry.cpp; sourceTree = "<group>"; };
+		1609AF681446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF691446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF6A1446C7EF00DD4C39 /* PreparedGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedGeometry.cpp; sourceTree = "<group>"; };
+		1609AF6B1446C7EF00DD4C39 /* PreparedGeometryFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedGeometryFactory.cpp; sourceTree = "<group>"; };
+		1609AF6C1446C7EF00DD4C39 /* PreparedLineString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedLineString.cpp; sourceTree = "<group>"; };
+		1609AF6D1446C7EF00DD4C39 /* PreparedLineStringIntersects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedLineStringIntersects.cpp; sourceTree = "<group>"; };
+		1609AF6E1446C7EF00DD4C39 /* PreparedPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPoint.cpp; sourceTree = "<group>"; };
+		1609AF6F1446C7EF00DD4C39 /* PreparedPolygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygon.cpp; sourceTree = "<group>"; };
+		1609AF701446C7EF00DD4C39 /* PreparedPolygonContains.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygonContains.cpp; sourceTree = "<group>"; };
+		1609AF711446C7EF00DD4C39 /* PreparedPolygonContainsProperly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygonContainsProperly.cpp; sourceTree = "<group>"; };
+		1609AF721446C7EF00DD4C39 /* PreparedPolygonCovers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygonCovers.cpp; sourceTree = "<group>"; };
+		1609AF731446C7EF00DD4C39 /* PreparedPolygonIntersects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygonIntersects.cpp; sourceTree = "<group>"; };
+		1609AF741446C7EF00DD4C39 /* PreparedPolygonPredicate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreparedPolygonPredicate.cpp; sourceTree = "<group>"; };
+		1609AF751446C7EF00DD4C39 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		1609AF771446C7EF00DD4C39 /* ComponentCoordinateExtracter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentCoordinateExtracter.cpp; sourceTree = "<group>"; };
+		1609AF781446C7EF00DD4C39 /* CoordinateOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateOperation.cpp; sourceTree = "<group>"; };
+		1609AF791446C7EF00DD4C39 /* GeometryCombiner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryCombiner.cpp; sourceTree = "<group>"; };
+		1609AF7A1446C7EF00DD4C39 /* GeometryEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryEditor.cpp; sourceTree = "<group>"; };
+		1609AF7B1446C7EF00DD4C39 /* GeometryTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryTransformer.cpp; sourceTree = "<group>"; };
+		1609AF7C1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF7D1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF7E1446C7EF00DD4C39 /* ShortCircuitedGeometryVisitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShortCircuitedGeometryVisitor.cpp; sourceTree = "<group>"; };
+		1609AF7F1446C7EF00DD4C39 /* SineStarFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SineStarFactory.cpp; sourceTree = "<group>"; };
+		1609AF811446C7EF00DD4C39 /* Depth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Depth.cpp; sourceTree = "<group>"; };
+		1609AF821446C7EF00DD4C39 /* DirectedEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectedEdge.cpp; sourceTree = "<group>"; };
+		1609AF831446C7EF00DD4C39 /* DirectedEdgeStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectedEdgeStar.cpp; sourceTree = "<group>"; };
+		1609AF841446C7EF00DD4C39 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		1609AF851446C7EF00DD4C39 /* EdgeEnd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeEnd.cpp; sourceTree = "<group>"; };
+		1609AF861446C7EF00DD4C39 /* EdgeEndStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeEndStar.cpp; sourceTree = "<group>"; };
+		1609AF871446C7EF00DD4C39 /* EdgeIntersectionList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeIntersectionList.cpp; sourceTree = "<group>"; };
+		1609AF881446C7EF00DD4C39 /* EdgeList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeList.cpp; sourceTree = "<group>"; };
+		1609AF891446C7EF00DD4C39 /* EdgeNodingValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeNodingValidator.cpp; sourceTree = "<group>"; };
+		1609AF8A1446C7EF00DD4C39 /* EdgeRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeRing.cpp; sourceTree = "<group>"; };
+		1609AF8B1446C7EF00DD4C39 /* GeometryGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryGraph.cpp; sourceTree = "<group>"; };
+		1609AF8C1446C7EF00DD4C39 /* GraphComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphComponent.cpp; sourceTree = "<group>"; };
+		1609AF8E1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF8F1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF901446C7EF00DD4C39 /* MonotoneChainEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChainEdge.cpp; sourceTree = "<group>"; };
+		1609AF911446C7EF00DD4C39 /* MonotoneChainIndexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChainIndexer.cpp; sourceTree = "<group>"; };
+		1609AF921446C7EF00DD4C39 /* SegmentIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentIntersector.cpp; sourceTree = "<group>"; };
+		1609AF931446C7EF00DD4C39 /* SimpleEdgeSetIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleEdgeSetIntersector.cpp; sourceTree = "<group>"; };
+		1609AF941446C7EF00DD4C39 /* SimpleMCSweepLineIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleMCSweepLineIntersector.cpp; sourceTree = "<group>"; };
+		1609AF951446C7EF00DD4C39 /* SimpleSweepLineIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleSweepLineIntersector.cpp; sourceTree = "<group>"; };
+		1609AF961446C7EF00DD4C39 /* SweepLineEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweepLineEvent.cpp; sourceTree = "<group>"; };
+		1609AF971446C7EF00DD4C39 /* SweepLineSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweepLineSegment.cpp; sourceTree = "<group>"; };
+		1609AF981446C7EF00DD4C39 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
+		1609AF991446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AF9A1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AF9B1446C7EF00DD4C39 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		1609AF9C1446C7EF00DD4C39 /* NodeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeFactory.cpp; sourceTree = "<group>"; };
+		1609AF9D1446C7EF00DD4C39 /* NodeMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeMap.cpp; sourceTree = "<group>"; };
+		1609AF9E1446C7EF00DD4C39 /* PlanarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanarGraph.cpp; sourceTree = "<group>"; };
+		1609AF9F1446C7EF00DD4C39 /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		1609AFA01446C7EF00DD4C39 /* Quadrant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quadrant.cpp; sourceTree = "<group>"; };
+		1609AFA11446C7EF00DD4C39 /* TopologyLocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TopologyLocation.cpp; sourceTree = "<group>"; };
+		1609AFA41446C7EF00DD4C39 /* Bintree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bintree.cpp; sourceTree = "<group>"; };
+		1609AFA51446C7EF00DD4C39 /* Interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interval.cpp; sourceTree = "<group>"; };
+		1609AFA61446C7EF00DD4C39 /* Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
+		1609AFA71446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFA81446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFA91446C7EF00DD4C39 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		1609AFAA1446C7EF00DD4C39 /* NodeBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeBase.cpp; sourceTree = "<group>"; };
+		1609AFAB1446C7EF00DD4C39 /* Root.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Root.cpp; sourceTree = "<group>"; };
+		1609AFAD1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFAE1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFAF1446C7EF00DD4C39 /* MonotoneChain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChain.cpp; sourceTree = "<group>"; };
+		1609AFB01446C7EF00DD4C39 /* MonotoneChainBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChainBuilder.cpp; sourceTree = "<group>"; };
+		1609AFB11446C7EF00DD4C39 /* MonotoneChainOverlapAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChainOverlapAction.cpp; sourceTree = "<group>"; };
+		1609AFB21446C7EF00DD4C39 /* MonotoneChainSelectAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneChainSelectAction.cpp; sourceTree = "<group>"; };
+		1609AFB41446C7EF00DD4C39 /* IntervalRTreeBranchNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntervalRTreeBranchNode.cpp; sourceTree = "<group>"; };
+		1609AFB51446C7EF00DD4C39 /* IntervalRTreeLeafNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntervalRTreeLeafNode.cpp; sourceTree = "<group>"; };
+		1609AFB61446C7EF00DD4C39 /* IntervalRTreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntervalRTreeNode.cpp; sourceTree = "<group>"; };
+		1609AFB71446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFB81446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFB91446C7EF00DD4C39 /* SortedPackedIntervalRTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortedPackedIntervalRTree.cpp; sourceTree = "<group>"; };
+		1609AFBA1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFBB1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFBD1446C7EF00DD4C39 /* DoubleBits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoubleBits.cpp; sourceTree = "<group>"; };
+		1609AFBE1446C7EF00DD4C39 /* IntervalSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntervalSize.cpp; sourceTree = "<group>"; };
+		1609AFBF1446C7EF00DD4C39 /* Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
+		1609AFC01446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFC11446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFC21446C7EF00DD4C39 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		1609AFC31446C7EF00DD4C39 /* NodeBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeBase.cpp; sourceTree = "<group>"; };
+		1609AFC41446C7EF00DD4C39 /* Quadtree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quadtree.cpp; sourceTree = "<group>"; };
+		1609AFC51446C7EF00DD4C39 /* Root.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Root.cpp; sourceTree = "<group>"; };
+		1609AFC71446C7EF00DD4C39 /* AbstractNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractNode.cpp; sourceTree = "<group>"; };
+		1609AFC81446C7EF00DD4C39 /* AbstractSTRtree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractSTRtree.cpp; sourceTree = "<group>"; };
+		1609AFC91446C7EF00DD4C39 /* Interval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interval.cpp; sourceTree = "<group>"; };
+		1609AFCA1446C7EF00DD4C39 /* ItemBoundable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemBoundable.cpp; sourceTree = "<group>"; };
+		1609AFCB1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFCC1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFCD1446C7EF00DD4C39 /* SIRtree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SIRtree.cpp; sourceTree = "<group>"; };
+		1609AFCE1446C7EF00DD4C39 /* STRtree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = STRtree.cpp; sourceTree = "<group>"; };
+		1609AFD01446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFD11446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFD21446C7EF00DD4C39 /* SweepLineEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweepLineEvent.cpp; sourceTree = "<group>"; };
+		1609AFD31446C7EF00DD4C39 /* SweepLineIndex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweepLineIndex.cpp; sourceTree = "<group>"; };
+		1609AFD41446C7EF00DD4C39 /* SweepLineInterval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweepLineInterval.cpp; sourceTree = "<group>"; };
+		1609AFD51446C7EF00DD4C39 /* info.plist.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = info.plist.in; sourceTree = "<group>"; };
+		1609AFD61446C7EF00DD4C39 /* inlines.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inlines.cpp; sourceTree = "<group>"; };
+		1609AFD81446C7EF00DD4C39 /* ByteOrderDataInStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteOrderDataInStream.cpp; sourceTree = "<group>"; };
+		1609AFD91446C7EF00DD4C39 /* ByteOrderValues.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteOrderValues.cpp; sourceTree = "<group>"; };
+		1609AFDA1446C7EF00DD4C39 /* CLocalizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CLocalizer.cpp; sourceTree = "<group>"; };
+		1609AFDB1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFDC1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFDD1446C7EF00DD4C39 /* ParseException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParseException.cpp; sourceTree = "<group>"; };
+		1609AFDE1446C7EF00DD4C39 /* StringTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringTokenizer.cpp; sourceTree = "<group>"; };
+		1609AFDF1446C7EF00DD4C39 /* Unload.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unload.cpp; sourceTree = "<group>"; };
+		1609AFE01446C7EF00DD4C39 /* WKBReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WKBReader.cpp; sourceTree = "<group>"; };
+		1609AFE11446C7EF00DD4C39 /* WKBWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WKBWriter.cpp; sourceTree = "<group>"; };
+		1609AFE21446C7EF00DD4C39 /* WKTReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WKTReader.cpp; sourceTree = "<group>"; };
+		1609AFE31446C7EF00DD4C39 /* WKTWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WKTWriter.cpp; sourceTree = "<group>"; };
+		1609AFE41446C7EF00DD4C39 /* Writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Writer.cpp; sourceTree = "<group>"; };
+		1609AFE61446C7EF00DD4C39 /* ExtractLineByLocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtractLineByLocation.cpp; sourceTree = "<group>"; };
+		1609AFE71446C7EF00DD4C39 /* LengthIndexedLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LengthIndexedLine.cpp; sourceTree = "<group>"; };
+		1609AFE81446C7EF00DD4C39 /* LengthIndexOfPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LengthIndexOfPoint.cpp; sourceTree = "<group>"; };
+		1609AFE91446C7EF00DD4C39 /* LengthLocationMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LengthLocationMap.cpp; sourceTree = "<group>"; };
+		1609AFEA1446C7EF00DD4C39 /* LinearGeometryBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearGeometryBuilder.cpp; sourceTree = "<group>"; };
+		1609AFEB1446C7EF00DD4C39 /* LinearIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearIterator.cpp; sourceTree = "<group>"; };
+		1609AFEC1446C7EF00DD4C39 /* LinearLocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LinearLocation.cpp; sourceTree = "<group>"; };
+		1609AFED1446C7EF00DD4C39 /* LocationIndexOfLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocationIndexOfLine.cpp; sourceTree = "<group>"; };
+		1609AFEE1446C7EF00DD4C39 /* LocationIndexOfPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocationIndexOfPoint.cpp; sourceTree = "<group>"; };
+		1609AFEF1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFF01446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFF11446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFF21446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFF31446C7EF00DD4C39 /* Makefile.vc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.vc; sourceTree = "<group>"; };
+		1609AFF51446C7EF00DD4C39 /* BasicSegmentString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicSegmentString.cpp; sourceTree = "<group>"; };
+		1609AFF61446C7EF00DD4C39 /* FastNodingValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FastNodingValidator.cpp; sourceTree = "<group>"; };
+		1609AFF71446C7EF00DD4C39 /* FastSegmentSetIntersectionFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FastSegmentSetIntersectionFinder.cpp; sourceTree = "<group>"; };
+		1609AFF81446C7EF00DD4C39 /* IntersectionAdder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntersectionAdder.cpp; sourceTree = "<group>"; };
+		1609AFF91446C7EF00DD4C39 /* IntersectionFinderAdder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IntersectionFinderAdder.cpp; sourceTree = "<group>"; };
+		1609AFFA1446C7EF00DD4C39 /* IteratedNoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IteratedNoder.cpp; sourceTree = "<group>"; };
+		1609AFFB1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609AFFC1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609AFFD1446C7EF00DD4C39 /* MCIndexNoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MCIndexNoder.cpp; sourceTree = "<group>"; };
+		1609AFFE1446C7EF00DD4C39 /* MCIndexSegmentSetMutualIntersector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MCIndexSegmentSetMutualIntersector.cpp; sourceTree = "<group>"; };
+		1609AFFF1446C7EF00DD4C39 /* NodedSegmentString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodedSegmentString.cpp; sourceTree = "<group>"; };
+		1609B0001446C7EF00DD4C39 /* NodingValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodingValidator.cpp; sourceTree = "<group>"; };
+		1609B0011446C7EF00DD4C39 /* Octant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Octant.cpp; sourceTree = "<group>"; };
+		1609B0021446C7EF00DD4C39 /* OrientedCoordinateArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrientedCoordinateArray.cpp; sourceTree = "<group>"; };
+		1609B0031446C7EF00DD4C39 /* ScaledNoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaledNoder.cpp; sourceTree = "<group>"; };
+		1609B0041446C7EF00DD4C39 /* SegmentIntersectionDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentIntersectionDetector.cpp; sourceTree = "<group>"; };
+		1609B0051446C7EF00DD4C39 /* SegmentNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentNode.cpp; sourceTree = "<group>"; };
+		1609B0061446C7EF00DD4C39 /* SegmentNodeList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentNodeList.cpp; sourceTree = "<group>"; };
+		1609B0071446C7EF00DD4C39 /* SegmentString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentString.cpp; sourceTree = "<group>"; };
+		1609B0081446C7EF00DD4C39 /* SegmentStringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentStringUtil.cpp; sourceTree = "<group>"; };
+		1609B0091446C7EF00DD4C39 /* SimpleNoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleNoder.cpp; sourceTree = "<group>"; };
+		1609B00A1446C7EF00DD4C39 /* SingleInteriorIntersectionFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleInteriorIntersectionFinder.cpp; sourceTree = "<group>"; };
+		1609B00C1446C7EF00DD4C39 /* HotPixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HotPixel.cpp; sourceTree = "<group>"; };
+		1609B00D1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B00E1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B00F1446C7EF00DD4C39 /* MCIndexPointSnapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MCIndexPointSnapper.cpp; sourceTree = "<group>"; };
+		1609B0101446C7EF00DD4C39 /* MCIndexSnapRounder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MCIndexSnapRounder.cpp; sourceTree = "<group>"; };
+		1609B0111446C7EF00DD4C39 /* SimpleSnapRounder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleSnapRounder.cpp; sourceTree = "<group>"; };
+		1609B0141446C7EF00DD4C39 /* BufferBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferBuilder.cpp; sourceTree = "<group>"; };
+		1609B0151446C7EF00DD4C39 /* BufferInputLineSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferInputLineSimplifier.cpp; sourceTree = "<group>"; };
+		1609B0161446C7EF00DD4C39 /* BufferInputLineSimplifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferInputLineSimplifier.h; sourceTree = "<group>"; };
+		1609B0171446C7EF00DD4C39 /* BufferOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferOp.cpp; sourceTree = "<group>"; };
+		1609B0181446C7EF00DD4C39 /* BufferParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferParameters.cpp; sourceTree = "<group>"; };
+		1609B0191446C7EF00DD4C39 /* BufferSubgraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferSubgraph.cpp; sourceTree = "<group>"; };
+		1609B01A1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B01B1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B01C1446C7EF00DD4C39 /* OffsetCurveBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OffsetCurveBuilder.cpp; sourceTree = "<group>"; };
+		1609B01D1446C7EF00DD4C39 /* OffsetCurveSetBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OffsetCurveSetBuilder.cpp; sourceTree = "<group>"; };
+		1609B01E1446C7EF00DD4C39 /* OffsetSegmentGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OffsetSegmentGenerator.cpp; sourceTree = "<group>"; };
+		1609B01F1446C7EF00DD4C39 /* RightmostEdgeFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RightmostEdgeFinder.cpp; sourceTree = "<group>"; };
+		1609B0201446C7EF00DD4C39 /* SubgraphDepthLocater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubgraphDepthLocater.cpp; sourceTree = "<group>"; };
+		1609B0221446C7EF00DD4C39 /* ConnectedElementLocationFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectedElementLocationFilter.cpp; sourceTree = "<group>"; };
+		1609B0231446C7EF00DD4C39 /* ConnectedElementPointFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectedElementPointFilter.cpp; sourceTree = "<group>"; };
+		1609B0241446C7EF00DD4C39 /* DistanceOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DistanceOp.cpp; sourceTree = "<group>"; };
+		1609B0251446C7EF00DD4C39 /* GeometryLocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryLocation.cpp; sourceTree = "<group>"; };
+		1609B0261446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0271446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0281446C7EF00DD4C39 /* GeometryGraphOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometryGraphOperation.cpp; sourceTree = "<group>"; };
+		1609B0291446C7EF00DD4C39 /* IsSimpleOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IsSimpleOp.cpp; sourceTree = "<group>"; };
+		1609B02B1446C7EF00DD4C39 /* EdgeString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeString.cpp; sourceTree = "<group>"; };
+		1609B02C1446C7EF00DD4C39 /* LineMergeDirectedEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineMergeDirectedEdge.cpp; sourceTree = "<group>"; };
+		1609B02D1446C7EF00DD4C39 /* LineMergeEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineMergeEdge.cpp; sourceTree = "<group>"; };
+		1609B02E1446C7EF00DD4C39 /* LineMergeGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineMergeGraph.cpp; sourceTree = "<group>"; };
+		1609B02F1446C7EF00DD4C39 /* LineMerger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineMerger.cpp; sourceTree = "<group>"; };
+		1609B0301446C7EF00DD4C39 /* LineSequencer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineSequencer.cpp; sourceTree = "<group>"; };
+		1609B0311446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0321446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0331446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0341446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0361446C7EF00DD4C39 /* EdgeSetNoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeSetNoder.cpp; sourceTree = "<group>"; };
+		1609B0371446C7EF00DD4C39 /* ElevationMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ElevationMatrix.cpp; sourceTree = "<group>"; };
+		1609B0381446C7EF00DD4C39 /* ElevationMatrixCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ElevationMatrixCell.cpp; sourceTree = "<group>"; };
+		1609B0391446C7EF00DD4C39 /* LineBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineBuilder.cpp; sourceTree = "<group>"; };
+		1609B03A1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B03B1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B03C1446C7EF00DD4C39 /* MaximalEdgeRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaximalEdgeRing.cpp; sourceTree = "<group>"; };
+		1609B03D1446C7EF00DD4C39 /* MinimalEdgeRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MinimalEdgeRing.cpp; sourceTree = "<group>"; };
+		1609B03E1446C7EF00DD4C39 /* OverlayNodeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverlayNodeFactory.cpp; sourceTree = "<group>"; };
+		1609B03F1446C7EF00DD4C39 /* OverlayOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverlayOp.cpp; sourceTree = "<group>"; };
+		1609B0401446C7EF00DD4C39 /* PointBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointBuilder.cpp; sourceTree = "<group>"; };
+		1609B0411446C7EF00DD4C39 /* PolygonBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonBuilder.cpp; sourceTree = "<group>"; };
+		1609B0431446C7EF00DD4C39 /* GeometrySnapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometrySnapper.cpp; sourceTree = "<group>"; };
+		1609B0441446C7EF00DD4C39 /* LineStringSnapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineStringSnapper.cpp; sourceTree = "<group>"; };
+		1609B0451446C7EF00DD4C39 /* SnapIfNeededOverlayOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SnapIfNeededOverlayOp.cpp; sourceTree = "<group>"; };
+		1609B0461446C7EF00DD4C39 /* SnapOverlayOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SnapOverlayOp.cpp; sourceTree = "<group>"; };
+		1609B0481446C7EF00DD4C39 /* FuzzyPointLocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FuzzyPointLocator.cpp; sourceTree = "<group>"; };
+		1609B0491446C7EF00DD4C39 /* OffsetPointGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OffsetPointGenerator.cpp; sourceTree = "<group>"; };
+		1609B04A1446C7EF00DD4C39 /* OverlayResultValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverlayResultValidator.cpp; sourceTree = "<group>"; };
+		1609B04C1446C7EF00DD4C39 /* EdgeRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeRing.cpp; sourceTree = "<group>"; };
+		1609B04D1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B04E1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B04F1446C7EF00DD4C39 /* PolygonizeDirectedEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonizeDirectedEdge.cpp; sourceTree = "<group>"; };
+		1609B0501446C7EF00DD4C39 /* PolygonizeEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonizeEdge.cpp; sourceTree = "<group>"; };
+		1609B0511446C7EF00DD4C39 /* PolygonizeGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonizeGraph.cpp; sourceTree = "<group>"; };
+		1609B0521446C7EF00DD4C39 /* Polygonizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polygonizer.cpp; sourceTree = "<group>"; };
+		1609B0541446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0551446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0561446C7EF00DD4C39 /* RectangleContains.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleContains.cpp; sourceTree = "<group>"; };
+		1609B0571446C7EF00DD4C39 /* RectangleIntersects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleIntersects.cpp; sourceTree = "<group>"; };
+		1609B0581446C7EF00DD4C39 /* SegmentIntersectionTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentIntersectionTester.cpp; sourceTree = "<group>"; };
+		1609B05A1446C7EF00DD4C39 /* EdgeEndBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeEndBuilder.cpp; sourceTree = "<group>"; };
+		1609B05B1446C7EF00DD4C39 /* EdgeEndBundle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeEndBundle.cpp; sourceTree = "<group>"; };
+		1609B05C1446C7EF00DD4C39 /* EdgeEndBundleStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeEndBundleStar.cpp; sourceTree = "<group>"; };
+		1609B05D1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B05E1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B05F1446C7EF00DD4C39 /* RelateComputer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RelateComputer.cpp; sourceTree = "<group>"; };
+		1609B0601446C7EF00DD4C39 /* RelateNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RelateNode.cpp; sourceTree = "<group>"; };
+		1609B0611446C7EF00DD4C39 /* RelateNodeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RelateNodeFactory.cpp; sourceTree = "<group>"; };
+		1609B0621446C7EF00DD4C39 /* RelateNodeGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RelateNodeGraph.cpp; sourceTree = "<group>"; };
+		1609B0631446C7EF00DD4C39 /* RelateOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RelateOp.cpp; sourceTree = "<group>"; };
+		1609B0651446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0661446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0671446C7EF00DD4C39 /* SharedPathsOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SharedPathsOp.cpp; sourceTree = "<group>"; };
+		1609B0691446C7EF00DD4C39 /* CascadedPolygonUnion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CascadedPolygonUnion.cpp; sourceTree = "<group>"; };
+		1609B06A1446C7EF00DD4C39 /* CascadedUnion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CascadedUnion.cpp; sourceTree = "<group>"; };
+		1609B06B1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B06C1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B06D1446C7EF00DD4C39 /* PointGeometryUnion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointGeometryUnion.cpp; sourceTree = "<group>"; };
+		1609B06E1446C7EF00DD4C39 /* UnaryUnionOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnaryUnionOp.cpp; sourceTree = "<group>"; };
+		1609B0701446C7EF00DD4C39 /* ConnectedInteriorTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectedInteriorTester.cpp; sourceTree = "<group>"; };
+		1609B0711446C7EF00DD4C39 /* ConsistentAreaTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsistentAreaTester.cpp; sourceTree = "<group>"; };
+		1609B0721446C7EF00DD4C39 /* IndexedNestedRingTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexedNestedRingTester.cpp; sourceTree = "<group>"; };
+		1609B0731446C7EF00DD4C39 /* IndexedNestedRingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexedNestedRingTester.h; sourceTree = "<group>"; };
+		1609B0741446C7EF00DD4C39 /* IsValidOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IsValidOp.cpp; sourceTree = "<group>"; };
+		1609B0751446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0761446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0771446C7EF00DD4C39 /* QuadtreeNestedRingTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadtreeNestedRingTester.cpp; sourceTree = "<group>"; };
+		1609B0781446C7EF00DD4C39 /* RepeatedPointTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RepeatedPointTester.cpp; sourceTree = "<group>"; };
+		1609B0791446C7EF00DD4C39 /* SimpleNestedRingTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleNestedRingTester.cpp; sourceTree = "<group>"; };
+		1609B07A1446C7EF00DD4C39 /* SweeplineNestedRingTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweeplineNestedRingTester.cpp; sourceTree = "<group>"; };
+		1609B07B1446C7EF00DD4C39 /* TopologyValidationError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TopologyValidationError.cpp; sourceTree = "<group>"; };
+		1609B07E1446C7EF00DD4C39 /* ConnectedSubgraphFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectedSubgraphFinder.cpp; sourceTree = "<group>"; };
+		1609B07F1446C7EF00DD4C39 /* DirectedEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectedEdge.cpp; sourceTree = "<group>"; };
+		1609B0801446C7EF00DD4C39 /* DirectedEdgeStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectedEdgeStar.cpp; sourceTree = "<group>"; };
+		1609B0811446C7EF00DD4C39 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		1609B0821446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0831446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0841446C7EF00DD4C39 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		1609B0851446C7EF00DD4C39 /* NodeMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeMap.cpp; sourceTree = "<group>"; };
+		1609B0861446C7EF00DD4C39 /* PlanarGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlanarGraph.cpp; sourceTree = "<group>"; };
+		1609B0871446C7EF00DD4C39 /* Subgraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subgraph.cpp; sourceTree = "<group>"; };
+		1609B0891446C7EF00DD4C39 /* CommonBits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonBits.cpp; sourceTree = "<group>"; };
+		1609B08A1446C7EF00DD4C39 /* CommonBitsOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonBitsOp.cpp; sourceTree = "<group>"; };
+		1609B08B1446C7EF00DD4C39 /* CommonBitsRemover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonBitsRemover.cpp; sourceTree = "<group>"; };
+		1609B08C1446C7EF00DD4C39 /* EnhancedPrecisionOp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnhancedPrecisionOp.cpp; sourceTree = "<group>"; };
+		1609B08D1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B08E1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B08F1446C7EF00DD4C39 /* SimpleGeometryPrecisionReducer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleGeometryPrecisionReducer.cpp; sourceTree = "<group>"; };
+		1609B0911446C7EF00DD4C39 /* DouglasPeuckerLineSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DouglasPeuckerLineSimplifier.cpp; sourceTree = "<group>"; };
+		1609B0921446C7EF00DD4C39 /* DouglasPeuckerSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DouglasPeuckerSimplifier.cpp; sourceTree = "<group>"; };
+		1609B0931446C7EF00DD4C39 /* LineSegmentIndex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineSegmentIndex.cpp; sourceTree = "<group>"; };
+		1609B0941446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B0951446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0961446C7EF00DD4C39 /* TaggedLineSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaggedLineSegment.cpp; sourceTree = "<group>"; };
+		1609B0971446C7EF00DD4C39 /* TaggedLinesSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaggedLinesSimplifier.cpp; sourceTree = "<group>"; };
+		1609B0981446C7EF00DD4C39 /* TaggedLineString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaggedLineString.cpp; sourceTree = "<group>"; };
+		1609B0991446C7EF00DD4C39 /* TaggedLineStringSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaggedLineStringSimplifier.cpp; sourceTree = "<group>"; };
+		1609B09A1446C7EF00DD4C39 /* TopologyPreservingSimplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TopologyPreservingSimplifier.cpp; sourceTree = "<group>"; };
+		1609B09C1446C7EF00DD4C39 /* Assert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assert.cpp; sourceTree = "<group>"; };
+		1609B09D1446C7EF00DD4C39 /* GeometricShapeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometricShapeFactory.cpp; sourceTree = "<group>"; };
+		1609B09E1446C7EF00DD4C39 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		1609B09F1446C7EF00DD4C39 /* Makefile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.in; sourceTree = "<group>"; };
+		1609B0A01446C7EF00DD4C39 /* math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = math.cpp; sourceTree = "<group>"; };
+		1609B0A11446C7EF00DD4C39 /* Profiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Profiler.cpp; sourceTree = "<group>"; };
+		1609B97B1446E8F000DD4C39 /* geos_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geos_c.cpp; sourceTree = "<group>"; };
+		1609B97C1446E8F000DD4C39 /* geos_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geos_c.h; sourceTree = "<group>"; };
+		1609B97D1446E8F000DD4C39 /* geos_ts_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geos_ts_c.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1609AD351446C75E00DD4C39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1609AD3C1446C75E00DD4C39 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1609AD2D1446C75D00DD4C39 = {
+			isa = PBXGroup;
+			children = (
+				1609AD3D1446C75E00DD4C39 /* geos */,
+				1609AD3A1446C75E00DD4C39 /* Frameworks */,
+				1609AD391446C75E00DD4C39 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1609AD391446C75E00DD4C39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1609AD381446C75E00DD4C39 /* libgeos.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1609AD3A1446C75E00DD4C39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1609AD3B1446C75E00DD4C39 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1609AD3D1446C75E00DD4C39 /* geos */ = {
+			isa = PBXGroup;
+			children = (
+				1609B97A1446E8F000DD4C39 /* capi */,
+				1609AF261446C7EF00DD4C39 /* src */,
+				1609AD401446C75E00DD4C39 /* geos.h */,
+				1609AD411446C75E00DD4C39 /* geos.m */,
+				1609AD3E1446C75E00DD4C39 /* Supporting Files */,
+			);
+			path = geos;
+			sourceTree = "<group>";
+		};
+		1609AD3E1446C75E00DD4C39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1609AD3F1446C75E00DD4C39 /* geos-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1609AF261446C7EF00DD4C39 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF271446C7EF00DD4C39 /* algorithm */,
+				1609AF491446C7EF00DD4C39 /* CMakeLists.txt */,
+				1609AF4A1446C7EF00DD4C39 /* dirlist.mk */,
+				1609AF4B1446C7EF00DD4C39 /* geom */,
+				1609AF801446C7EF00DD4C39 /* geomgraph */,
+				1609AFA21446C7EF00DD4C39 /* index */,
+				1609AFD51446C7EF00DD4C39 /* info.plist.in */,
+				1609AFD61446C7EF00DD4C39 /* inlines.cpp */,
+				1609AFD71446C7EF00DD4C39 /* io */,
+				1609AFE51446C7EF00DD4C39 /* linearref */,
+				1609AFF11446C7EF00DD4C39 /* Makefile.am */,
+				1609AFF21446C7EF00DD4C39 /* Makefile.in */,
+				1609AFF31446C7EF00DD4C39 /* Makefile.vc */,
+				1609AFF41446C7EF00DD4C39 /* noding */,
+				1609B0121446C7EF00DD4C39 /* operation */,
+				1609B07C1446C7EF00DD4C39 /* planargraph */,
+				1609B0881446C7EF00DD4C39 /* precision */,
+				1609B0901446C7EF00DD4C39 /* simplify */,
+				1609B09B1446C7EF00DD4C39 /* util */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		1609AF271446C7EF00DD4C39 /* algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF281446C7EF00DD4C39 /* Angle.cpp */,
+				1609AF291446C7EF00DD4C39 /* BoundaryNodeRule.cpp */,
+				1609AF2A1446C7EF00DD4C39 /* CentroidArea.cpp */,
+				1609AF2B1446C7EF00DD4C39 /* CentroidLine.cpp */,
+				1609AF2C1446C7EF00DD4C39 /* CentroidPoint.cpp */,
+				1609AF2D1446C7EF00DD4C39 /* CGAlgorithms.cpp */,
+				1609AF2E1446C7EF00DD4C39 /* ConvexHull.cpp */,
+				1609AF2F1446C7EF00DD4C39 /* distance */,
+				1609AF341446C7EF00DD4C39 /* HCoordinate.cpp */,
+				1609AF351446C7EF00DD4C39 /* InteriorPointArea.cpp */,
+				1609AF361446C7EF00DD4C39 /* InteriorPointLine.cpp */,
+				1609AF371446C7EF00DD4C39 /* InteriorPointPoint.cpp */,
+				1609AF381446C7EF00DD4C39 /* LineIntersector.cpp */,
+				1609AF391446C7EF00DD4C39 /* locate */,
+				1609AF3F1446C7EF00DD4C39 /* Makefile.am */,
+				1609AF401446C7EF00DD4C39 /* Makefile.in */,
+				1609AF411446C7EF00DD4C39 /* MCPointInRing.cpp */,
+				1609AF421446C7EF00DD4C39 /* MinimumDiameter.cpp */,
+				1609AF431446C7EF00DD4C39 /* NotRepresentableException.cpp */,
+				1609AF441446C7EF00DD4C39 /* PointLocator.cpp */,
+				1609AF451446C7EF00DD4C39 /* RayCrossingCounter.cpp */,
+				1609AF461446C7EF00DD4C39 /* RobustDeterminant.cpp */,
+				1609AF471446C7EF00DD4C39 /* SimplePointInRing.cpp */,
+				1609AF481446C7EF00DD4C39 /* SIRtreePointInRing.cpp */,
+			);
+			path = algorithm;
+			sourceTree = "<group>";
+		};
+		1609AF2F1446C7EF00DD4C39 /* distance */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF301446C7EF00DD4C39 /* DiscreteHausdorffDistance.cpp */,
+				1609AF311446C7EF00DD4C39 /* DistanceToPoint.cpp */,
+				1609AF321446C7EF00DD4C39 /* Makefile.am */,
+				1609AF331446C7EF00DD4C39 /* Makefile.in */,
+			);
+			path = distance;
+			sourceTree = "<group>";
+		};
+		1609AF391446C7EF00DD4C39 /* locate */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF3A1446C7EF00DD4C39 /* IndexedPointInAreaLocator.cpp */,
+				1609AF3B1446C7EF00DD4C39 /* Makefile.am */,
+				1609AF3C1446C7EF00DD4C39 /* Makefile.in */,
+				1609AF3D1446C7EF00DD4C39 /* PointOnGeometryLocator.cpp */,
+				1609AF3E1446C7EF00DD4C39 /* SimplePointInAreaLocator.cpp */,
+			);
+			path = locate;
+			sourceTree = "<group>";
+		};
+		1609AF4B1446C7EF00DD4C39 /* geom */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF4C1446C7EF00DD4C39 /* Coordinate.cpp */,
+				1609AF4D1446C7EF00DD4C39 /* CoordinateArraySequence.cpp */,
+				1609AF4E1446C7EF00DD4C39 /* CoordinateArraySequenceFactory.cpp */,
+				1609AF4F1446C7EF00DD4C39 /* CoordinateSequence.cpp */,
+				1609AF501446C7EF00DD4C39 /* CoordinateSequenceFactory.cpp */,
+				1609AF511446C7EF00DD4C39 /* Dimension.cpp */,
+				1609AF521446C7EF00DD4C39 /* Envelope.cpp */,
+				1609AF531446C7EF00DD4C39 /* Geometry.cpp */,
+				1609AF541446C7EF00DD4C39 /* GeometryCollection.cpp */,
+				1609AF551446C7EF00DD4C39 /* GeometryComponentFilter.cpp */,
+				1609AF561446C7EF00DD4C39 /* GeometryFactory.cpp */,
+				1609AF571446C7EF00DD4C39 /* GeometryList.cpp */,
+				1609AF581446C7EF00DD4C39 /* IntersectionMatrix.cpp */,
+				1609AF591446C7EF00DD4C39 /* LinearRing.cpp */,
+				1609AF5A1446C7EF00DD4C39 /* LineSegment.cpp */,
+				1609AF5B1446C7EF00DD4C39 /* LineString.cpp */,
+				1609AF5C1446C7EF00DD4C39 /* Location.cpp */,
+				1609AF5D1446C7EF00DD4C39 /* Makefile.am */,
+				1609AF5E1446C7EF00DD4C39 /* Makefile.in */,
+				1609AF5F1446C7EF00DD4C39 /* MultiLineString.cpp */,
+				1609AF601446C7EF00DD4C39 /* MultiPoint.cpp */,
+				1609AF611446C7EF00DD4C39 /* MultiPolygon.cpp */,
+				1609AF621446C7EF00DD4C39 /* Point.cpp */,
+				1609AF631446C7EF00DD4C39 /* Polygon.cpp */,
+				1609AF641446C7EF00DD4C39 /* PrecisionModel.cpp */,
+				1609AF651446C7EF00DD4C39 /* prep */,
+				1609AF751446C7EF00DD4C39 /* Triangle.cpp */,
+				1609AF761446C7EF00DD4C39 /* util */,
+			);
+			path = geom;
+			sourceTree = "<group>";
+		};
+		1609AF651446C7EF00DD4C39 /* prep */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF661446C7EF00DD4C39 /* AbstractPreparedPolygonContains.cpp */,
+				1609AF671446C7EF00DD4C39 /* BasicPreparedGeometry.cpp */,
+				1609AF681446C7EF00DD4C39 /* Makefile.am */,
+				1609AF691446C7EF00DD4C39 /* Makefile.in */,
+				1609AF6A1446C7EF00DD4C39 /* PreparedGeometry.cpp */,
+				1609AF6B1446C7EF00DD4C39 /* PreparedGeometryFactory.cpp */,
+				1609AF6C1446C7EF00DD4C39 /* PreparedLineString.cpp */,
+				1609AF6D1446C7EF00DD4C39 /* PreparedLineStringIntersects.cpp */,
+				1609AF6E1446C7EF00DD4C39 /* PreparedPoint.cpp */,
+				1609AF6F1446C7EF00DD4C39 /* PreparedPolygon.cpp */,
+				1609AF701446C7EF00DD4C39 /* PreparedPolygonContains.cpp */,
+				1609AF711446C7EF00DD4C39 /* PreparedPolygonContainsProperly.cpp */,
+				1609AF721446C7EF00DD4C39 /* PreparedPolygonCovers.cpp */,
+				1609AF731446C7EF00DD4C39 /* PreparedPolygonIntersects.cpp */,
+				1609AF741446C7EF00DD4C39 /* PreparedPolygonPredicate.cpp */,
+			);
+			path = prep;
+			sourceTree = "<group>";
+		};
+		1609AF761446C7EF00DD4C39 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF771446C7EF00DD4C39 /* ComponentCoordinateExtracter.cpp */,
+				1609AF781446C7EF00DD4C39 /* CoordinateOperation.cpp */,
+				1609AF791446C7EF00DD4C39 /* GeometryCombiner.cpp */,
+				1609AF7A1446C7EF00DD4C39 /* GeometryEditor.cpp */,
+				1609AF7B1446C7EF00DD4C39 /* GeometryTransformer.cpp */,
+				1609AF7C1446C7EF00DD4C39 /* Makefile.am */,
+				1609AF7D1446C7EF00DD4C39 /* Makefile.in */,
+				1609AF7E1446C7EF00DD4C39 /* ShortCircuitedGeometryVisitor.cpp */,
+				1609AF7F1446C7EF00DD4C39 /* SineStarFactory.cpp */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		1609AF801446C7EF00DD4C39 /* geomgraph */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF811446C7EF00DD4C39 /* Depth.cpp */,
+				1609AF821446C7EF00DD4C39 /* DirectedEdge.cpp */,
+				1609AF831446C7EF00DD4C39 /* DirectedEdgeStar.cpp */,
+				1609AF841446C7EF00DD4C39 /* Edge.cpp */,
+				1609AF851446C7EF00DD4C39 /* EdgeEnd.cpp */,
+				1609AF861446C7EF00DD4C39 /* EdgeEndStar.cpp */,
+				1609AF871446C7EF00DD4C39 /* EdgeIntersectionList.cpp */,
+				1609AF881446C7EF00DD4C39 /* EdgeList.cpp */,
+				1609AF891446C7EF00DD4C39 /* EdgeNodingValidator.cpp */,
+				1609AF8A1446C7EF00DD4C39 /* EdgeRing.cpp */,
+				1609AF8B1446C7EF00DD4C39 /* GeometryGraph.cpp */,
+				1609AF8C1446C7EF00DD4C39 /* GraphComponent.cpp */,
+				1609AF8D1446C7EF00DD4C39 /* index */,
+				1609AF981446C7EF00DD4C39 /* Label.cpp */,
+				1609AF991446C7EF00DD4C39 /* Makefile.am */,
+				1609AF9A1446C7EF00DD4C39 /* Makefile.in */,
+				1609AF9B1446C7EF00DD4C39 /* Node.cpp */,
+				1609AF9C1446C7EF00DD4C39 /* NodeFactory.cpp */,
+				1609AF9D1446C7EF00DD4C39 /* NodeMap.cpp */,
+				1609AF9E1446C7EF00DD4C39 /* PlanarGraph.cpp */,
+				1609AF9F1446C7EF00DD4C39 /* Position.cpp */,
+				1609AFA01446C7EF00DD4C39 /* Quadrant.cpp */,
+				1609AFA11446C7EF00DD4C39 /* TopologyLocation.cpp */,
+			);
+			path = geomgraph;
+			sourceTree = "<group>";
+		};
+		1609AF8D1446C7EF00DD4C39 /* index */ = {
+			isa = PBXGroup;
+			children = (
+				1609AF8E1446C7EF00DD4C39 /* Makefile.am */,
+				1609AF8F1446C7EF00DD4C39 /* Makefile.in */,
+				1609AF901446C7EF00DD4C39 /* MonotoneChainEdge.cpp */,
+				1609AF911446C7EF00DD4C39 /* MonotoneChainIndexer.cpp */,
+				1609AF921446C7EF00DD4C39 /* SegmentIntersector.cpp */,
+				1609AF931446C7EF00DD4C39 /* SimpleEdgeSetIntersector.cpp */,
+				1609AF941446C7EF00DD4C39 /* SimpleMCSweepLineIntersector.cpp */,
+				1609AF951446C7EF00DD4C39 /* SimpleSweepLineIntersector.cpp */,
+				1609AF961446C7EF00DD4C39 /* SweepLineEvent.cpp */,
+				1609AF971446C7EF00DD4C39 /* SweepLineSegment.cpp */,
+			);
+			path = index;
+			sourceTree = "<group>";
+		};
+		1609AFA21446C7EF00DD4C39 /* index */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFA31446C7EF00DD4C39 /* bintree */,
+				1609AFAC1446C7EF00DD4C39 /* chain */,
+				1609AFB31446C7EF00DD4C39 /* intervalrtree */,
+				1609AFBA1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFBB1446C7EF00DD4C39 /* Makefile.in */,
+				1609AFBC1446C7EF00DD4C39 /* quadtree */,
+				1609AFC61446C7EF00DD4C39 /* strtree */,
+				1609AFCF1446C7EF00DD4C39 /* sweepline */,
+			);
+			path = index;
+			sourceTree = "<group>";
+		};
+		1609AFA31446C7EF00DD4C39 /* bintree */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFA41446C7EF00DD4C39 /* Bintree.cpp */,
+				1609AFA51446C7EF00DD4C39 /* Interval.cpp */,
+				1609AFA61446C7EF00DD4C39 /* Key.cpp */,
+				1609AFA71446C7EF00DD4C39 /* Makefile.am */,
+				1609AFA81446C7EF00DD4C39 /* Makefile.in */,
+				1609AFA91446C7EF00DD4C39 /* Node.cpp */,
+				1609AFAA1446C7EF00DD4C39 /* NodeBase.cpp */,
+				1609AFAB1446C7EF00DD4C39 /* Root.cpp */,
+			);
+			path = bintree;
+			sourceTree = "<group>";
+		};
+		1609AFAC1446C7EF00DD4C39 /* chain */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFAD1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFAE1446C7EF00DD4C39 /* Makefile.in */,
+				1609AFAF1446C7EF00DD4C39 /* MonotoneChain.cpp */,
+				1609AFB01446C7EF00DD4C39 /* MonotoneChainBuilder.cpp */,
+				1609AFB11446C7EF00DD4C39 /* MonotoneChainOverlapAction.cpp */,
+				1609AFB21446C7EF00DD4C39 /* MonotoneChainSelectAction.cpp */,
+			);
+			path = chain;
+			sourceTree = "<group>";
+		};
+		1609AFB31446C7EF00DD4C39 /* intervalrtree */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFB41446C7EF00DD4C39 /* IntervalRTreeBranchNode.cpp */,
+				1609AFB51446C7EF00DD4C39 /* IntervalRTreeLeafNode.cpp */,
+				1609AFB61446C7EF00DD4C39 /* IntervalRTreeNode.cpp */,
+				1609AFB71446C7EF00DD4C39 /* Makefile.am */,
+				1609AFB81446C7EF00DD4C39 /* Makefile.in */,
+				1609AFB91446C7EF00DD4C39 /* SortedPackedIntervalRTree.cpp */,
+			);
+			path = intervalrtree;
+			sourceTree = "<group>";
+		};
+		1609AFBC1446C7EF00DD4C39 /* quadtree */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFBD1446C7EF00DD4C39 /* DoubleBits.cpp */,
+				1609AFBE1446C7EF00DD4C39 /* IntervalSize.cpp */,
+				1609AFBF1446C7EF00DD4C39 /* Key.cpp */,
+				1609AFC01446C7EF00DD4C39 /* Makefile.am */,
+				1609AFC11446C7EF00DD4C39 /* Makefile.in */,
+				1609AFC21446C7EF00DD4C39 /* Node.cpp */,
+				1609AFC31446C7EF00DD4C39 /* NodeBase.cpp */,
+				1609AFC41446C7EF00DD4C39 /* Quadtree.cpp */,
+				1609AFC51446C7EF00DD4C39 /* Root.cpp */,
+			);
+			path = quadtree;
+			sourceTree = "<group>";
+		};
+		1609AFC61446C7EF00DD4C39 /* strtree */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFC71446C7EF00DD4C39 /* AbstractNode.cpp */,
+				1609AFC81446C7EF00DD4C39 /* AbstractSTRtree.cpp */,
+				1609AFC91446C7EF00DD4C39 /* Interval.cpp */,
+				1609AFCA1446C7EF00DD4C39 /* ItemBoundable.cpp */,
+				1609AFCB1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFCC1446C7EF00DD4C39 /* Makefile.in */,
+				1609AFCD1446C7EF00DD4C39 /* SIRtree.cpp */,
+				1609AFCE1446C7EF00DD4C39 /* STRtree.cpp */,
+			);
+			path = strtree;
+			sourceTree = "<group>";
+		};
+		1609AFCF1446C7EF00DD4C39 /* sweepline */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFD01446C7EF00DD4C39 /* Makefile.am */,
+				1609AFD11446C7EF00DD4C39 /* Makefile.in */,
+				1609AFD21446C7EF00DD4C39 /* SweepLineEvent.cpp */,
+				1609AFD31446C7EF00DD4C39 /* SweepLineIndex.cpp */,
+				1609AFD41446C7EF00DD4C39 /* SweepLineInterval.cpp */,
+			);
+			path = sweepline;
+			sourceTree = "<group>";
+		};
+		1609AFD71446C7EF00DD4C39 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFD81446C7EF00DD4C39 /* ByteOrderDataInStream.cpp */,
+				1609AFD91446C7EF00DD4C39 /* ByteOrderValues.cpp */,
+				1609AFDA1446C7EF00DD4C39 /* CLocalizer.cpp */,
+				1609AFDB1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFDC1446C7EF00DD4C39 /* Makefile.in */,
+				1609AFDD1446C7EF00DD4C39 /* ParseException.cpp */,
+				1609AFDE1446C7EF00DD4C39 /* StringTokenizer.cpp */,
+				1609AFDF1446C7EF00DD4C39 /* Unload.cpp */,
+				1609AFE01446C7EF00DD4C39 /* WKBReader.cpp */,
+				1609AFE11446C7EF00DD4C39 /* WKBWriter.cpp */,
+				1609AFE21446C7EF00DD4C39 /* WKTReader.cpp */,
+				1609AFE31446C7EF00DD4C39 /* WKTWriter.cpp */,
+				1609AFE41446C7EF00DD4C39 /* Writer.cpp */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		1609AFE51446C7EF00DD4C39 /* linearref */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFE61446C7EF00DD4C39 /* ExtractLineByLocation.cpp */,
+				1609AFE71446C7EF00DD4C39 /* LengthIndexedLine.cpp */,
+				1609AFE81446C7EF00DD4C39 /* LengthIndexOfPoint.cpp */,
+				1609AFE91446C7EF00DD4C39 /* LengthLocationMap.cpp */,
+				1609AFEA1446C7EF00DD4C39 /* LinearGeometryBuilder.cpp */,
+				1609AFEB1446C7EF00DD4C39 /* LinearIterator.cpp */,
+				1609AFEC1446C7EF00DD4C39 /* LinearLocation.cpp */,
+				1609AFED1446C7EF00DD4C39 /* LocationIndexOfLine.cpp */,
+				1609AFEE1446C7EF00DD4C39 /* LocationIndexOfPoint.cpp */,
+				1609AFEF1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFF01446C7EF00DD4C39 /* Makefile.in */,
+			);
+			path = linearref;
+			sourceTree = "<group>";
+		};
+		1609AFF41446C7EF00DD4C39 /* noding */ = {
+			isa = PBXGroup;
+			children = (
+				1609AFF51446C7EF00DD4C39 /* BasicSegmentString.cpp */,
+				1609AFF61446C7EF00DD4C39 /* FastNodingValidator.cpp */,
+				1609AFF71446C7EF00DD4C39 /* FastSegmentSetIntersectionFinder.cpp */,
+				1609AFF81446C7EF00DD4C39 /* IntersectionAdder.cpp */,
+				1609AFF91446C7EF00DD4C39 /* IntersectionFinderAdder.cpp */,
+				1609AFFA1446C7EF00DD4C39 /* IteratedNoder.cpp */,
+				1609AFFB1446C7EF00DD4C39 /* Makefile.am */,
+				1609AFFC1446C7EF00DD4C39 /* Makefile.in */,
+				1609AFFD1446C7EF00DD4C39 /* MCIndexNoder.cpp */,
+				1609AFFE1446C7EF00DD4C39 /* MCIndexSegmentSetMutualIntersector.cpp */,
+				1609AFFF1446C7EF00DD4C39 /* NodedSegmentString.cpp */,
+				1609B0001446C7EF00DD4C39 /* NodingValidator.cpp */,
+				1609B0011446C7EF00DD4C39 /* Octant.cpp */,
+				1609B0021446C7EF00DD4C39 /* OrientedCoordinateArray.cpp */,
+				1609B0031446C7EF00DD4C39 /* ScaledNoder.cpp */,
+				1609B0041446C7EF00DD4C39 /* SegmentIntersectionDetector.cpp */,
+				1609B0051446C7EF00DD4C39 /* SegmentNode.cpp */,
+				1609B0061446C7EF00DD4C39 /* SegmentNodeList.cpp */,
+				1609B0071446C7EF00DD4C39 /* SegmentString.cpp */,
+				1609B0081446C7EF00DD4C39 /* SegmentStringUtil.cpp */,
+				1609B0091446C7EF00DD4C39 /* SimpleNoder.cpp */,
+				1609B00A1446C7EF00DD4C39 /* SingleInteriorIntersectionFinder.cpp */,
+				1609B00B1446C7EF00DD4C39 /* snapround */,
+			);
+			path = noding;
+			sourceTree = "<group>";
+		};
+		1609B00B1446C7EF00DD4C39 /* snapround */ = {
+			isa = PBXGroup;
+			children = (
+				1609B00C1446C7EF00DD4C39 /* HotPixel.cpp */,
+				1609B00D1446C7EF00DD4C39 /* Makefile.am */,
+				1609B00E1446C7EF00DD4C39 /* Makefile.in */,
+				1609B00F1446C7EF00DD4C39 /* MCIndexPointSnapper.cpp */,
+				1609B0101446C7EF00DD4C39 /* MCIndexSnapRounder.cpp */,
+				1609B0111446C7EF00DD4C39 /* SimpleSnapRounder.cpp */,
+			);
+			path = snapround;
+			sourceTree = "<group>";
+		};
+		1609B0121446C7EF00DD4C39 /* operation */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0131446C7EF00DD4C39 /* buffer */,
+				1609B0211446C7EF00DD4C39 /* distance */,
+				1609B0281446C7EF00DD4C39 /* GeometryGraphOperation.cpp */,
+				1609B0291446C7EF00DD4C39 /* IsSimpleOp.cpp */,
+				1609B02A1446C7EF00DD4C39 /* linemerge */,
+				1609B0331446C7EF00DD4C39 /* Makefile.am */,
+				1609B0341446C7EF00DD4C39 /* Makefile.in */,
+				1609B0351446C7EF00DD4C39 /* overlay */,
+				1609B04B1446C7EF00DD4C39 /* polygonize */,
+				1609B0531446C7EF00DD4C39 /* predicate */,
+				1609B0591446C7EF00DD4C39 /* relate */,
+				1609B0641446C7EF00DD4C39 /* sharedpaths */,
+				1609B0681446C7EF00DD4C39 /* union */,
+				1609B06F1446C7EF00DD4C39 /* valid */,
+			);
+			path = operation;
+			sourceTree = "<group>";
+		};
+		1609B0131446C7EF00DD4C39 /* buffer */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0141446C7EF00DD4C39 /* BufferBuilder.cpp */,
+				1609B0151446C7EF00DD4C39 /* BufferInputLineSimplifier.cpp */,
+				1609B0161446C7EF00DD4C39 /* BufferInputLineSimplifier.h */,
+				1609B0171446C7EF00DD4C39 /* BufferOp.cpp */,
+				1609B0181446C7EF00DD4C39 /* BufferParameters.cpp */,
+				1609B0191446C7EF00DD4C39 /* BufferSubgraph.cpp */,
+				1609B01A1446C7EF00DD4C39 /* Makefile.am */,
+				1609B01B1446C7EF00DD4C39 /* Makefile.in */,
+				1609B01C1446C7EF00DD4C39 /* OffsetCurveBuilder.cpp */,
+				1609B01D1446C7EF00DD4C39 /* OffsetCurveSetBuilder.cpp */,
+				1609B01E1446C7EF00DD4C39 /* OffsetSegmentGenerator.cpp */,
+				1609B01F1446C7EF00DD4C39 /* RightmostEdgeFinder.cpp */,
+				1609B0201446C7EF00DD4C39 /* SubgraphDepthLocater.cpp */,
+			);
+			path = buffer;
+			sourceTree = "<group>";
+		};
+		1609B0211446C7EF00DD4C39 /* distance */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0221446C7EF00DD4C39 /* ConnectedElementLocationFilter.cpp */,
+				1609B0231446C7EF00DD4C39 /* ConnectedElementPointFilter.cpp */,
+				1609B0241446C7EF00DD4C39 /* DistanceOp.cpp */,
+				1609B0251446C7EF00DD4C39 /* GeometryLocation.cpp */,
+				1609B0261446C7EF00DD4C39 /* Makefile.am */,
+				1609B0271446C7EF00DD4C39 /* Makefile.in */,
+			);
+			path = distance;
+			sourceTree = "<group>";
+		};
+		1609B02A1446C7EF00DD4C39 /* linemerge */ = {
+			isa = PBXGroup;
+			children = (
+				1609B02B1446C7EF00DD4C39 /* EdgeString.cpp */,
+				1609B02C1446C7EF00DD4C39 /* LineMergeDirectedEdge.cpp */,
+				1609B02D1446C7EF00DD4C39 /* LineMergeEdge.cpp */,
+				1609B02E1446C7EF00DD4C39 /* LineMergeGraph.cpp */,
+				1609B02F1446C7EF00DD4C39 /* LineMerger.cpp */,
+				1609B0301446C7EF00DD4C39 /* LineSequencer.cpp */,
+				1609B0311446C7EF00DD4C39 /* Makefile.am */,
+				1609B0321446C7EF00DD4C39 /* Makefile.in */,
+			);
+			path = linemerge;
+			sourceTree = "<group>";
+		};
+		1609B0351446C7EF00DD4C39 /* overlay */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0361446C7EF00DD4C39 /* EdgeSetNoder.cpp */,
+				1609B0371446C7EF00DD4C39 /* ElevationMatrix.cpp */,
+				1609B0381446C7EF00DD4C39 /* ElevationMatrixCell.cpp */,
+				1609B0391446C7EF00DD4C39 /* LineBuilder.cpp */,
+				1609B03A1446C7EF00DD4C39 /* Makefile.am */,
+				1609B03B1446C7EF00DD4C39 /* Makefile.in */,
+				1609B03C1446C7EF00DD4C39 /* MaximalEdgeRing.cpp */,
+				1609B03D1446C7EF00DD4C39 /* MinimalEdgeRing.cpp */,
+				1609B03E1446C7EF00DD4C39 /* OverlayNodeFactory.cpp */,
+				1609B03F1446C7EF00DD4C39 /* OverlayOp.cpp */,
+				1609B0401446C7EF00DD4C39 /* PointBuilder.cpp */,
+				1609B0411446C7EF00DD4C39 /* PolygonBuilder.cpp */,
+				1609B0421446C7EF00DD4C39 /* snap */,
+				1609B0471446C7EF00DD4C39 /* validate */,
+			);
+			path = overlay;
+			sourceTree = "<group>";
+		};
+		1609B0421446C7EF00DD4C39 /* snap */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0431446C7EF00DD4C39 /* GeometrySnapper.cpp */,
+				1609B0441446C7EF00DD4C39 /* LineStringSnapper.cpp */,
+				1609B0451446C7EF00DD4C39 /* SnapIfNeededOverlayOp.cpp */,
+				1609B0461446C7EF00DD4C39 /* SnapOverlayOp.cpp */,
+			);
+			path = snap;
+			sourceTree = "<group>";
+		};
+		1609B0471446C7EF00DD4C39 /* validate */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0481446C7EF00DD4C39 /* FuzzyPointLocator.cpp */,
+				1609B0491446C7EF00DD4C39 /* OffsetPointGenerator.cpp */,
+				1609B04A1446C7EF00DD4C39 /* OverlayResultValidator.cpp */,
+			);
+			path = validate;
+			sourceTree = "<group>";
+		};
+		1609B04B1446C7EF00DD4C39 /* polygonize */ = {
+			isa = PBXGroup;
+			children = (
+				1609B04C1446C7EF00DD4C39 /* EdgeRing.cpp */,
+				1609B04D1446C7EF00DD4C39 /* Makefile.am */,
+				1609B04E1446C7EF00DD4C39 /* Makefile.in */,
+				1609B04F1446C7EF00DD4C39 /* PolygonizeDirectedEdge.cpp */,
+				1609B0501446C7EF00DD4C39 /* PolygonizeEdge.cpp */,
+				1609B0511446C7EF00DD4C39 /* PolygonizeGraph.cpp */,
+				1609B0521446C7EF00DD4C39 /* Polygonizer.cpp */,
+			);
+			path = polygonize;
+			sourceTree = "<group>";
+		};
+		1609B0531446C7EF00DD4C39 /* predicate */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0541446C7EF00DD4C39 /* Makefile.am */,
+				1609B0551446C7EF00DD4C39 /* Makefile.in */,
+				1609B0561446C7EF00DD4C39 /* RectangleContains.cpp */,
+				1609B0571446C7EF00DD4C39 /* RectangleIntersects.cpp */,
+				1609B0581446C7EF00DD4C39 /* SegmentIntersectionTester.cpp */,
+			);
+			path = predicate;
+			sourceTree = "<group>";
+		};
+		1609B0591446C7EF00DD4C39 /* relate */ = {
+			isa = PBXGroup;
+			children = (
+				1609B05A1446C7EF00DD4C39 /* EdgeEndBuilder.cpp */,
+				1609B05B1446C7EF00DD4C39 /* EdgeEndBundle.cpp */,
+				1609B05C1446C7EF00DD4C39 /* EdgeEndBundleStar.cpp */,
+				1609B05D1446C7EF00DD4C39 /* Makefile.am */,
+				1609B05E1446C7EF00DD4C39 /* Makefile.in */,
+				1609B05F1446C7EF00DD4C39 /* RelateComputer.cpp */,
+				1609B0601446C7EF00DD4C39 /* RelateNode.cpp */,
+				1609B0611446C7EF00DD4C39 /* RelateNodeFactory.cpp */,
+				1609B0621446C7EF00DD4C39 /* RelateNodeGraph.cpp */,
+				1609B0631446C7EF00DD4C39 /* RelateOp.cpp */,
+			);
+			path = relate;
+			sourceTree = "<group>";
+		};
+		1609B0641446C7EF00DD4C39 /* sharedpaths */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0651446C7EF00DD4C39 /* Makefile.am */,
+				1609B0661446C7EF00DD4C39 /* Makefile.in */,
+				1609B0671446C7EF00DD4C39 /* SharedPathsOp.cpp */,
+			);
+			path = sharedpaths;
+			sourceTree = "<group>";
+		};
+		1609B0681446C7EF00DD4C39 /* union */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0691446C7EF00DD4C39 /* CascadedPolygonUnion.cpp */,
+				1609B06A1446C7EF00DD4C39 /* CascadedUnion.cpp */,
+				1609B06B1446C7EF00DD4C39 /* Makefile.am */,
+				1609B06C1446C7EF00DD4C39 /* Makefile.in */,
+				1609B06D1446C7EF00DD4C39 /* PointGeometryUnion.cpp */,
+				1609B06E1446C7EF00DD4C39 /* UnaryUnionOp.cpp */,
+			);
+			path = union;
+			sourceTree = "<group>";
+		};
+		1609B06F1446C7EF00DD4C39 /* valid */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0701446C7EF00DD4C39 /* ConnectedInteriorTester.cpp */,
+				1609B0711446C7EF00DD4C39 /* ConsistentAreaTester.cpp */,
+				1609B0721446C7EF00DD4C39 /* IndexedNestedRingTester.cpp */,
+				1609B0731446C7EF00DD4C39 /* IndexedNestedRingTester.h */,
+				1609B0741446C7EF00DD4C39 /* IsValidOp.cpp */,
+				1609B0751446C7EF00DD4C39 /* Makefile.am */,
+				1609B0761446C7EF00DD4C39 /* Makefile.in */,
+				1609B0771446C7EF00DD4C39 /* QuadtreeNestedRingTester.cpp */,
+				1609B0781446C7EF00DD4C39 /* RepeatedPointTester.cpp */,
+				1609B0791446C7EF00DD4C39 /* SimpleNestedRingTester.cpp */,
+				1609B07A1446C7EF00DD4C39 /* SweeplineNestedRingTester.cpp */,
+				1609B07B1446C7EF00DD4C39 /* TopologyValidationError.cpp */,
+			);
+			path = valid;
+			sourceTree = "<group>";
+		};
+		1609B07C1446C7EF00DD4C39 /* planargraph */ = {
+			isa = PBXGroup;
+			children = (
+				1609B07D1446C7EF00DD4C39 /* algorithm */,
+				1609B07F1446C7EF00DD4C39 /* DirectedEdge.cpp */,
+				1609B0801446C7EF00DD4C39 /* DirectedEdgeStar.cpp */,
+				1609B0811446C7EF00DD4C39 /* Edge.cpp */,
+				1609B0821446C7EF00DD4C39 /* Makefile.am */,
+				1609B0831446C7EF00DD4C39 /* Makefile.in */,
+				1609B0841446C7EF00DD4C39 /* Node.cpp */,
+				1609B0851446C7EF00DD4C39 /* NodeMap.cpp */,
+				1609B0861446C7EF00DD4C39 /* PlanarGraph.cpp */,
+				1609B0871446C7EF00DD4C39 /* Subgraph.cpp */,
+			);
+			path = planargraph;
+			sourceTree = "<group>";
+		};
+		1609B07D1446C7EF00DD4C39 /* algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				1609B07E1446C7EF00DD4C39 /* ConnectedSubgraphFinder.cpp */,
+			);
+			path = algorithm;
+			sourceTree = "<group>";
+		};
+		1609B0881446C7EF00DD4C39 /* precision */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0891446C7EF00DD4C39 /* CommonBits.cpp */,
+				1609B08A1446C7EF00DD4C39 /* CommonBitsOp.cpp */,
+				1609B08B1446C7EF00DD4C39 /* CommonBitsRemover.cpp */,
+				1609B08C1446C7EF00DD4C39 /* EnhancedPrecisionOp.cpp */,
+				1609B08D1446C7EF00DD4C39 /* Makefile.am */,
+				1609B08E1446C7EF00DD4C39 /* Makefile.in */,
+				1609B08F1446C7EF00DD4C39 /* SimpleGeometryPrecisionReducer.cpp */,
+			);
+			path = precision;
+			sourceTree = "<group>";
+		};
+		1609B0901446C7EF00DD4C39 /* simplify */ = {
+			isa = PBXGroup;
+			children = (
+				1609B0911446C7EF00DD4C39 /* DouglasPeuckerLineSimplifier.cpp */,
+				1609B0921446C7EF00DD4C39 /* DouglasPeuckerSimplifier.cpp */,
+				1609B0931446C7EF00DD4C39 /* LineSegmentIndex.cpp */,
+				1609B0941446C7EF00DD4C39 /* Makefile.am */,
+				1609B0951446C7EF00DD4C39 /* Makefile.in */,
+				1609B0961446C7EF00DD4C39 /* TaggedLineSegment.cpp */,
+				1609B0971446C7EF00DD4C39 /* TaggedLinesSimplifier.cpp */,
+				1609B0981446C7EF00DD4C39 /* TaggedLineString.cpp */,
+				1609B0991446C7EF00DD4C39 /* TaggedLineStringSimplifier.cpp */,
+				1609B09A1446C7EF00DD4C39 /* TopologyPreservingSimplifier.cpp */,
+			);
+			path = simplify;
+			sourceTree = "<group>";
+		};
+		1609B09B1446C7EF00DD4C39 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				1609B09C1446C7EF00DD4C39 /* Assert.cpp */,
+				1609B09D1446C7EF00DD4C39 /* GeometricShapeFactory.cpp */,
+				1609B09E1446C7EF00DD4C39 /* Makefile.am */,
+				1609B09F1446C7EF00DD4C39 /* Makefile.in */,
+				1609B0A01446C7EF00DD4C39 /* math.cpp */,
+				1609B0A11446C7EF00DD4C39 /* Profiler.cpp */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		1609B97A1446E8F000DD4C39 /* capi */ = {
+			isa = PBXGroup;
+			children = (
+				1609B97B1446E8F000DD4C39 /* geos_c.cpp */,
+				1609B97C1446E8F000DD4C39 /* geos_c.h */,
+				1609B97D1446E8F000DD4C39 /* geos_ts_c.cpp */,
+			);
+			name = capi;
+			path = ../../capi;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1609AD361446C75E00DD4C39 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1609B2A21446C7F000DD4C39 /* BufferInputLineSimplifier.h in Headers */,
+				1609B2E01446C7F000DD4C39 /* IndexedNestedRingTester.h in Headers */,
+				1609B97F1446E8F000DD4C39 /* geos_c.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1609AD371446C75E00DD4C39 /* geos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1609AD451446C75E00DD4C39 /* Build configuration list for PBXNativeTarget "geos" */;
+			buildPhases = (
+				1609AD341446C75E00DD4C39 /* Sources */,
+				1609AD351446C75E00DD4C39 /* Frameworks */,
+				1609AD361446C75E00DD4C39 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = geos;
+			productName = geos;
+			productReference = 1609AD381446C75E00DD4C39 /* libgeos.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1609AD2F1446C75D00DD4C39 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1609AD321446C75D00DD4C39 /* Build configuration list for PBXProject "geos" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1609AD2D1446C75D00DD4C39;
+			productRefGroup = 1609AD391446C75E00DD4C39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1609AD371446C75E00DD4C39 /* geos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1609AD341446C75E00DD4C39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1609AD421446C75E00DD4C39 /* geos.m in Sources */,
+				1609B1F41446C7F000DD4C39 /* Angle.cpp in Sources */,
+				1609B1F51446C7F000DD4C39 /* BoundaryNodeRule.cpp in Sources */,
+				1609B1F61446C7F000DD4C39 /* CentroidArea.cpp in Sources */,
+				1609B1F71446C7F000DD4C39 /* CentroidLine.cpp in Sources */,
+				1609B1F81446C7F000DD4C39 /* CentroidPoint.cpp in Sources */,
+				1609B1F91446C7F000DD4C39 /* CGAlgorithms.cpp in Sources */,
+				1609B1FA1446C7F000DD4C39 /* ConvexHull.cpp in Sources */,
+				1609B1FB1446C7F000DD4C39 /* DiscreteHausdorffDistance.cpp in Sources */,
+				1609B1FC1446C7F000DD4C39 /* DistanceToPoint.cpp in Sources */,
+				1609B1FD1446C7F000DD4C39 /* HCoordinate.cpp in Sources */,
+				1609B1FE1446C7F000DD4C39 /* InteriorPointArea.cpp in Sources */,
+				1609B1FF1446C7F000DD4C39 /* InteriorPointLine.cpp in Sources */,
+				1609B2001446C7F000DD4C39 /* InteriorPointPoint.cpp in Sources */,
+				1609B2011446C7F000DD4C39 /* LineIntersector.cpp in Sources */,
+				1609B2021446C7F000DD4C39 /* IndexedPointInAreaLocator.cpp in Sources */,
+				1609B2031446C7F000DD4C39 /* PointOnGeometryLocator.cpp in Sources */,
+				1609B2041446C7F000DD4C39 /* SimplePointInAreaLocator.cpp in Sources */,
+				1609B2051446C7F000DD4C39 /* MCPointInRing.cpp in Sources */,
+				1609B2061446C7F000DD4C39 /* MinimumDiameter.cpp in Sources */,
+				1609B2071446C7F000DD4C39 /* NotRepresentableException.cpp in Sources */,
+				1609B2081446C7F000DD4C39 /* PointLocator.cpp in Sources */,
+				1609B2091446C7F000DD4C39 /* RayCrossingCounter.cpp in Sources */,
+				1609B20A1446C7F000DD4C39 /* RobustDeterminant.cpp in Sources */,
+				1609B20B1446C7F000DD4C39 /* SimplePointInRing.cpp in Sources */,
+				1609B20C1446C7F000DD4C39 /* SIRtreePointInRing.cpp in Sources */,
+				1609B20D1446C7F000DD4C39 /* Coordinate.cpp in Sources */,
+				1609B20E1446C7F000DD4C39 /* CoordinateArraySequence.cpp in Sources */,
+				1609B20F1446C7F000DD4C39 /* CoordinateArraySequenceFactory.cpp in Sources */,
+				1609B2101446C7F000DD4C39 /* CoordinateSequence.cpp in Sources */,
+				1609B2111446C7F000DD4C39 /* CoordinateSequenceFactory.cpp in Sources */,
+				1609B2121446C7F000DD4C39 /* Dimension.cpp in Sources */,
+				1609B2131446C7F000DD4C39 /* Envelope.cpp in Sources */,
+				1609B2141446C7F000DD4C39 /* Geometry.cpp in Sources */,
+				1609B2151446C7F000DD4C39 /* GeometryCollection.cpp in Sources */,
+				1609B2161446C7F000DD4C39 /* GeometryComponentFilter.cpp in Sources */,
+				1609B2171446C7F000DD4C39 /* GeometryFactory.cpp in Sources */,
+				1609B2181446C7F000DD4C39 /* GeometryList.cpp in Sources */,
+				1609B2191446C7F000DD4C39 /* IntersectionMatrix.cpp in Sources */,
+				1609B21A1446C7F000DD4C39 /* LinearRing.cpp in Sources */,
+				1609B21B1446C7F000DD4C39 /* LineSegment.cpp in Sources */,
+				1609B21C1446C7F000DD4C39 /* LineString.cpp in Sources */,
+				1609B21D1446C7F000DD4C39 /* Location.cpp in Sources */,
+				1609B21E1446C7F000DD4C39 /* MultiLineString.cpp in Sources */,
+				1609B21F1446C7F000DD4C39 /* MultiPoint.cpp in Sources */,
+				1609B2201446C7F000DD4C39 /* MultiPolygon.cpp in Sources */,
+				1609B2211446C7F000DD4C39 /* Point.cpp in Sources */,
+				1609B2221446C7F000DD4C39 /* Polygon.cpp in Sources */,
+				1609B2231446C7F000DD4C39 /* PrecisionModel.cpp in Sources */,
+				1609B2241446C7F000DD4C39 /* AbstractPreparedPolygonContains.cpp in Sources */,
+				1609B2251446C7F000DD4C39 /* BasicPreparedGeometry.cpp in Sources */,
+				1609B2261446C7F000DD4C39 /* PreparedGeometry.cpp in Sources */,
+				1609B2271446C7F000DD4C39 /* PreparedGeometryFactory.cpp in Sources */,
+				1609B2281446C7F000DD4C39 /* PreparedLineString.cpp in Sources */,
+				1609B2291446C7F000DD4C39 /* PreparedLineStringIntersects.cpp in Sources */,
+				1609B22A1446C7F000DD4C39 /* PreparedPoint.cpp in Sources */,
+				1609B22B1446C7F000DD4C39 /* PreparedPolygon.cpp in Sources */,
+				1609B22C1446C7F000DD4C39 /* PreparedPolygonContains.cpp in Sources */,
+				1609B22D1446C7F000DD4C39 /* PreparedPolygonContainsProperly.cpp in Sources */,
+				1609B22E1446C7F000DD4C39 /* PreparedPolygonCovers.cpp in Sources */,
+				1609B22F1446C7F000DD4C39 /* PreparedPolygonIntersects.cpp in Sources */,
+				1609B2301446C7F000DD4C39 /* PreparedPolygonPredicate.cpp in Sources */,
+				1609B2311446C7F000DD4C39 /* Triangle.cpp in Sources */,
+				1609B2321446C7F000DD4C39 /* ComponentCoordinateExtracter.cpp in Sources */,
+				1609B2331446C7F000DD4C39 /* CoordinateOperation.cpp in Sources */,
+				1609B2341446C7F000DD4C39 /* GeometryCombiner.cpp in Sources */,
+				1609B2351446C7F000DD4C39 /* GeometryEditor.cpp in Sources */,
+				1609B2361446C7F000DD4C39 /* GeometryTransformer.cpp in Sources */,
+				1609B2371446C7F000DD4C39 /* ShortCircuitedGeometryVisitor.cpp in Sources */,
+				1609B2381446C7F000DD4C39 /* SineStarFactory.cpp in Sources */,
+				1609B2391446C7F000DD4C39 /* Depth.cpp in Sources */,
+				1609B23A1446C7F000DD4C39 /* DirectedEdge.cpp in Sources */,
+				1609B23B1446C7F000DD4C39 /* DirectedEdgeStar.cpp in Sources */,
+				1609B23C1446C7F000DD4C39 /* Edge.cpp in Sources */,
+				1609B23D1446C7F000DD4C39 /* EdgeEnd.cpp in Sources */,
+				1609B23E1446C7F000DD4C39 /* EdgeEndStar.cpp in Sources */,
+				1609B23F1446C7F000DD4C39 /* EdgeIntersectionList.cpp in Sources */,
+				1609B2401446C7F000DD4C39 /* EdgeList.cpp in Sources */,
+				1609B2411446C7F000DD4C39 /* EdgeNodingValidator.cpp in Sources */,
+				1609B2421446C7F000DD4C39 /* EdgeRing.cpp in Sources */,
+				1609B2431446C7F000DD4C39 /* GeometryGraph.cpp in Sources */,
+				1609B2441446C7F000DD4C39 /* GraphComponent.cpp in Sources */,
+				1609B2451446C7F000DD4C39 /* MonotoneChainEdge.cpp in Sources */,
+				1609B2461446C7F000DD4C39 /* MonotoneChainIndexer.cpp in Sources */,
+				1609B2471446C7F000DD4C39 /* SegmentIntersector.cpp in Sources */,
+				1609B2481446C7F000DD4C39 /* SimpleEdgeSetIntersector.cpp in Sources */,
+				1609B2491446C7F000DD4C39 /* SimpleMCSweepLineIntersector.cpp in Sources */,
+				1609B24A1446C7F000DD4C39 /* SimpleSweepLineIntersector.cpp in Sources */,
+				1609B24B1446C7F000DD4C39 /* SweepLineEvent.cpp in Sources */,
+				1609B24C1446C7F000DD4C39 /* SweepLineSegment.cpp in Sources */,
+				1609B24D1446C7F000DD4C39 /* Label.cpp in Sources */,
+				1609B24E1446C7F000DD4C39 /* Node.cpp in Sources */,
+				1609B24F1446C7F000DD4C39 /* NodeFactory.cpp in Sources */,
+				1609B2501446C7F000DD4C39 /* NodeMap.cpp in Sources */,
+				1609B2511446C7F000DD4C39 /* PlanarGraph.cpp in Sources */,
+				1609B2521446C7F000DD4C39 /* Position.cpp in Sources */,
+				1609B2531446C7F000DD4C39 /* Quadrant.cpp in Sources */,
+				1609B2541446C7F000DD4C39 /* TopologyLocation.cpp in Sources */,
+				1609B2551446C7F000DD4C39 /* Bintree.cpp in Sources */,
+				1609B2561446C7F000DD4C39 /* Interval.cpp in Sources */,
+				1609B2571446C7F000DD4C39 /* Key.cpp in Sources */,
+				1609B2581446C7F000DD4C39 /* Node.cpp in Sources */,
+				1609B2591446C7F000DD4C39 /* NodeBase.cpp in Sources */,
+				1609B25A1446C7F000DD4C39 /* Root.cpp in Sources */,
+				1609B25B1446C7F000DD4C39 /* MonotoneChain.cpp in Sources */,
+				1609B25C1446C7F000DD4C39 /* MonotoneChainBuilder.cpp in Sources */,
+				1609B25D1446C7F000DD4C39 /* MonotoneChainOverlapAction.cpp in Sources */,
+				1609B25E1446C7F000DD4C39 /* MonotoneChainSelectAction.cpp in Sources */,
+				1609B25F1446C7F000DD4C39 /* IntervalRTreeBranchNode.cpp in Sources */,
+				1609B2601446C7F000DD4C39 /* IntervalRTreeLeafNode.cpp in Sources */,
+				1609B2611446C7F000DD4C39 /* IntervalRTreeNode.cpp in Sources */,
+				1609B2621446C7F000DD4C39 /* SortedPackedIntervalRTree.cpp in Sources */,
+				1609B2631446C7F000DD4C39 /* DoubleBits.cpp in Sources */,
+				1609B2641446C7F000DD4C39 /* IntervalSize.cpp in Sources */,
+				1609B2651446C7F000DD4C39 /* Key.cpp in Sources */,
+				1609B2661446C7F000DD4C39 /* Node.cpp in Sources */,
+				1609B2671446C7F000DD4C39 /* NodeBase.cpp in Sources */,
+				1609B2681446C7F000DD4C39 /* Quadtree.cpp in Sources */,
+				1609B2691446C7F000DD4C39 /* Root.cpp in Sources */,
+				1609B26A1446C7F000DD4C39 /* AbstractNode.cpp in Sources */,
+				1609B26B1446C7F000DD4C39 /* AbstractSTRtree.cpp in Sources */,
+				1609B26C1446C7F000DD4C39 /* Interval.cpp in Sources */,
+				1609B26D1446C7F000DD4C39 /* ItemBoundable.cpp in Sources */,
+				1609B26E1446C7F000DD4C39 /* SIRtree.cpp in Sources */,
+				1609B26F1446C7F000DD4C39 /* STRtree.cpp in Sources */,
+				1609B2701446C7F000DD4C39 /* SweepLineEvent.cpp in Sources */,
+				1609B2711446C7F000DD4C39 /* SweepLineIndex.cpp in Sources */,
+				1609B2721446C7F000DD4C39 /* SweepLineInterval.cpp in Sources */,
+				1609B2731446C7F000DD4C39 /* inlines.cpp in Sources */,
+				1609B2741446C7F000DD4C39 /* ByteOrderDataInStream.cpp in Sources */,
+				1609B2751446C7F000DD4C39 /* ByteOrderValues.cpp in Sources */,
+				1609B2761446C7F000DD4C39 /* CLocalizer.cpp in Sources */,
+				1609B2771446C7F000DD4C39 /* ParseException.cpp in Sources */,
+				1609B2781446C7F000DD4C39 /* StringTokenizer.cpp in Sources */,
+				1609B2791446C7F000DD4C39 /* Unload.cpp in Sources */,
+				1609B27A1446C7F000DD4C39 /* WKBReader.cpp in Sources */,
+				1609B27B1446C7F000DD4C39 /* WKBWriter.cpp in Sources */,
+				1609B27C1446C7F000DD4C39 /* WKTReader.cpp in Sources */,
+				1609B27D1446C7F000DD4C39 /* WKTWriter.cpp in Sources */,
+				1609B27E1446C7F000DD4C39 /* Writer.cpp in Sources */,
+				1609B27F1446C7F000DD4C39 /* ExtractLineByLocation.cpp in Sources */,
+				1609B2801446C7F000DD4C39 /* LengthIndexedLine.cpp in Sources */,
+				1609B2811446C7F000DD4C39 /* LengthIndexOfPoint.cpp in Sources */,
+				1609B2821446C7F000DD4C39 /* LengthLocationMap.cpp in Sources */,
+				1609B2831446C7F000DD4C39 /* LinearGeometryBuilder.cpp in Sources */,
+				1609B2841446C7F000DD4C39 /* LinearIterator.cpp in Sources */,
+				1609B2851446C7F000DD4C39 /* LinearLocation.cpp in Sources */,
+				1609B2861446C7F000DD4C39 /* LocationIndexOfLine.cpp in Sources */,
+				1609B2871446C7F000DD4C39 /* LocationIndexOfPoint.cpp in Sources */,
+				1609B2881446C7F000DD4C39 /* BasicSegmentString.cpp in Sources */,
+				1609B2891446C7F000DD4C39 /* FastNodingValidator.cpp in Sources */,
+				1609B28A1446C7F000DD4C39 /* FastSegmentSetIntersectionFinder.cpp in Sources */,
+				1609B28B1446C7F000DD4C39 /* IntersectionAdder.cpp in Sources */,
+				1609B28C1446C7F000DD4C39 /* IntersectionFinderAdder.cpp in Sources */,
+				1609B28D1446C7F000DD4C39 /* IteratedNoder.cpp in Sources */,
+				1609B28E1446C7F000DD4C39 /* MCIndexNoder.cpp in Sources */,
+				1609B28F1446C7F000DD4C39 /* MCIndexSegmentSetMutualIntersector.cpp in Sources */,
+				1609B2901446C7F000DD4C39 /* NodedSegmentString.cpp in Sources */,
+				1609B2911446C7F000DD4C39 /* NodingValidator.cpp in Sources */,
+				1609B2921446C7F000DD4C39 /* Octant.cpp in Sources */,
+				1609B2931446C7F000DD4C39 /* OrientedCoordinateArray.cpp in Sources */,
+				1609B2941446C7F000DD4C39 /* ScaledNoder.cpp in Sources */,
+				1609B2951446C7F000DD4C39 /* SegmentIntersectionDetector.cpp in Sources */,
+				1609B2961446C7F000DD4C39 /* SegmentNode.cpp in Sources */,
+				1609B2971446C7F000DD4C39 /* SegmentNodeList.cpp in Sources */,
+				1609B2981446C7F000DD4C39 /* SegmentString.cpp in Sources */,
+				1609B2991446C7F000DD4C39 /* SegmentStringUtil.cpp in Sources */,
+				1609B29A1446C7F000DD4C39 /* SimpleNoder.cpp in Sources */,
+				1609B29B1446C7F000DD4C39 /* SingleInteriorIntersectionFinder.cpp in Sources */,
+				1609B29C1446C7F000DD4C39 /* HotPixel.cpp in Sources */,
+				1609B29D1446C7F000DD4C39 /* MCIndexPointSnapper.cpp in Sources */,
+				1609B29E1446C7F000DD4C39 /* MCIndexSnapRounder.cpp in Sources */,
+				1609B29F1446C7F000DD4C39 /* SimpleSnapRounder.cpp in Sources */,
+				1609B2A01446C7F000DD4C39 /* BufferBuilder.cpp in Sources */,
+				1609B2A11446C7F000DD4C39 /* BufferInputLineSimplifier.cpp in Sources */,
+				1609B2A31446C7F000DD4C39 /* BufferOp.cpp in Sources */,
+				1609B2A41446C7F000DD4C39 /* BufferParameters.cpp in Sources */,
+				1609B2A51446C7F000DD4C39 /* BufferSubgraph.cpp in Sources */,
+				1609B2A61446C7F000DD4C39 /* OffsetCurveBuilder.cpp in Sources */,
+				1609B2A71446C7F000DD4C39 /* OffsetCurveSetBuilder.cpp in Sources */,
+				1609B2A81446C7F000DD4C39 /* OffsetSegmentGenerator.cpp in Sources */,
+				1609B2A91446C7F000DD4C39 /* RightmostEdgeFinder.cpp in Sources */,
+				1609B2AA1446C7F000DD4C39 /* SubgraphDepthLocater.cpp in Sources */,
+				1609B2AB1446C7F000DD4C39 /* ConnectedElementLocationFilter.cpp in Sources */,
+				1609B2AC1446C7F000DD4C39 /* ConnectedElementPointFilter.cpp in Sources */,
+				1609B2AD1446C7F000DD4C39 /* DistanceOp.cpp in Sources */,
+				1609B2AE1446C7F000DD4C39 /* GeometryLocation.cpp in Sources */,
+				1609B2AF1446C7F000DD4C39 /* GeometryGraphOperation.cpp in Sources */,
+				1609B2B01446C7F000DD4C39 /* IsSimpleOp.cpp in Sources */,
+				1609B2B11446C7F000DD4C39 /* EdgeString.cpp in Sources */,
+				1609B2B21446C7F000DD4C39 /* LineMergeDirectedEdge.cpp in Sources */,
+				1609B2B31446C7F000DD4C39 /* LineMergeEdge.cpp in Sources */,
+				1609B2B41446C7F000DD4C39 /* LineMergeGraph.cpp in Sources */,
+				1609B2B51446C7F000DD4C39 /* LineMerger.cpp in Sources */,
+				1609B2B61446C7F000DD4C39 /* LineSequencer.cpp in Sources */,
+				1609B2B71446C7F000DD4C39 /* EdgeSetNoder.cpp in Sources */,
+				1609B2B81446C7F000DD4C39 /* ElevationMatrix.cpp in Sources */,
+				1609B2B91446C7F000DD4C39 /* ElevationMatrixCell.cpp in Sources */,
+				1609B2BA1446C7F000DD4C39 /* LineBuilder.cpp in Sources */,
+				1609B2BB1446C7F000DD4C39 /* MaximalEdgeRing.cpp in Sources */,
+				1609B2BC1446C7F000DD4C39 /* MinimalEdgeRing.cpp in Sources */,
+				1609B2BD1446C7F000DD4C39 /* OverlayNodeFactory.cpp in Sources */,
+				1609B2BE1446C7F000DD4C39 /* OverlayOp.cpp in Sources */,
+				1609B2BF1446C7F000DD4C39 /* PointBuilder.cpp in Sources */,
+				1609B2C01446C7F000DD4C39 /* PolygonBuilder.cpp in Sources */,
+				1609B2C11446C7F000DD4C39 /* GeometrySnapper.cpp in Sources */,
+				1609B2C21446C7F000DD4C39 /* LineStringSnapper.cpp in Sources */,
+				1609B2C31446C7F000DD4C39 /* SnapIfNeededOverlayOp.cpp in Sources */,
+				1609B2C41446C7F000DD4C39 /* SnapOverlayOp.cpp in Sources */,
+				1609B2C51446C7F000DD4C39 /* FuzzyPointLocator.cpp in Sources */,
+				1609B2C61446C7F000DD4C39 /* OffsetPointGenerator.cpp in Sources */,
+				1609B2C71446C7F000DD4C39 /* OverlayResultValidator.cpp in Sources */,
+				1609B2C81446C7F000DD4C39 /* EdgeRing.cpp in Sources */,
+				1609B2C91446C7F000DD4C39 /* PolygonizeDirectedEdge.cpp in Sources */,
+				1609B2CA1446C7F000DD4C39 /* PolygonizeEdge.cpp in Sources */,
+				1609B2CB1446C7F000DD4C39 /* PolygonizeGraph.cpp in Sources */,
+				1609B2CC1446C7F000DD4C39 /* Polygonizer.cpp in Sources */,
+				1609B2CD1446C7F000DD4C39 /* RectangleContains.cpp in Sources */,
+				1609B2CE1446C7F000DD4C39 /* RectangleIntersects.cpp in Sources */,
+				1609B2CF1446C7F000DD4C39 /* SegmentIntersectionTester.cpp in Sources */,
+				1609B2D01446C7F000DD4C39 /* EdgeEndBuilder.cpp in Sources */,
+				1609B2D11446C7F000DD4C39 /* EdgeEndBundle.cpp in Sources */,
+				1609B2D21446C7F000DD4C39 /* EdgeEndBundleStar.cpp in Sources */,
+				1609B2D31446C7F000DD4C39 /* RelateComputer.cpp in Sources */,
+				1609B2D41446C7F000DD4C39 /* RelateNode.cpp in Sources */,
+				1609B2D51446C7F000DD4C39 /* RelateNodeFactory.cpp in Sources */,
+				1609B2D61446C7F000DD4C39 /* RelateNodeGraph.cpp in Sources */,
+				1609B2D71446C7F000DD4C39 /* RelateOp.cpp in Sources */,
+				1609B2D81446C7F000DD4C39 /* SharedPathsOp.cpp in Sources */,
+				1609B2D91446C7F000DD4C39 /* CascadedPolygonUnion.cpp in Sources */,
+				1609B2DA1446C7F000DD4C39 /* CascadedUnion.cpp in Sources */,
+				1609B2DB1446C7F000DD4C39 /* PointGeometryUnion.cpp in Sources */,
+				1609B2DC1446C7F000DD4C39 /* UnaryUnionOp.cpp in Sources */,
+				1609B2DD1446C7F000DD4C39 /* ConnectedInteriorTester.cpp in Sources */,
+				1609B2DE1446C7F000DD4C39 /* ConsistentAreaTester.cpp in Sources */,
+				1609B2DF1446C7F000DD4C39 /* IndexedNestedRingTester.cpp in Sources */,
+				1609B2E11446C7F000DD4C39 /* IsValidOp.cpp in Sources */,
+				1609B2E21446C7F000DD4C39 /* QuadtreeNestedRingTester.cpp in Sources */,
+				1609B2E31446C7F000DD4C39 /* RepeatedPointTester.cpp in Sources */,
+				1609B2E41446C7F000DD4C39 /* SimpleNestedRingTester.cpp in Sources */,
+				1609B2E51446C7F000DD4C39 /* SweeplineNestedRingTester.cpp in Sources */,
+				1609B2E61446C7F000DD4C39 /* TopologyValidationError.cpp in Sources */,
+				1609B2E71446C7F000DD4C39 /* ConnectedSubgraphFinder.cpp in Sources */,
+				1609B2E81446C7F000DD4C39 /* DirectedEdge.cpp in Sources */,
+				1609B2E91446C7F000DD4C39 /* DirectedEdgeStar.cpp in Sources */,
+				1609B2EA1446C7F000DD4C39 /* Edge.cpp in Sources */,
+				1609B2EB1446C7F000DD4C39 /* Node.cpp in Sources */,
+				1609B2EC1446C7F000DD4C39 /* NodeMap.cpp in Sources */,
+				1609B2ED1446C7F000DD4C39 /* PlanarGraph.cpp in Sources */,
+				1609B2EE1446C7F000DD4C39 /* Subgraph.cpp in Sources */,
+				1609B2EF1446C7F000DD4C39 /* CommonBits.cpp in Sources */,
+				1609B2F01446C7F000DD4C39 /* CommonBitsOp.cpp in Sources */,
+				1609B2F11446C7F000DD4C39 /* CommonBitsRemover.cpp in Sources */,
+				1609B2F21446C7F000DD4C39 /* EnhancedPrecisionOp.cpp in Sources */,
+				1609B2F31446C7F000DD4C39 /* SimpleGeometryPrecisionReducer.cpp in Sources */,
+				1609B2F41446C7F000DD4C39 /* DouglasPeuckerLineSimplifier.cpp in Sources */,
+				1609B2F51446C7F000DD4C39 /* DouglasPeuckerSimplifier.cpp in Sources */,
+				1609B2F61446C7F000DD4C39 /* LineSegmentIndex.cpp in Sources */,
+				1609B2F71446C7F000DD4C39 /* TaggedLineSegment.cpp in Sources */,
+				1609B2F81446C7F000DD4C39 /* TaggedLinesSimplifier.cpp in Sources */,
+				1609B2F91446C7F000DD4C39 /* TaggedLineString.cpp in Sources */,
+				1609B2FA1446C7F000DD4C39 /* TaggedLineStringSimplifier.cpp in Sources */,
+				1609B2FB1446C7F000DD4C39 /* TopologyPreservingSimplifier.cpp in Sources */,
+				1609B2FC1446C7F000DD4C39 /* Assert.cpp in Sources */,
+				1609B2FD1446C7F000DD4C39 /* GeometricShapeFactory.cpp in Sources */,
+				1609B2FE1446C7F000DD4C39 /* math.cpp in Sources */,
+				1609B2FF1446C7F000DD4C39 /* Profiler.cpp in Sources */,
+				1609B97E1446E8F000DD4C39 /* geos_c.cpp in Sources */,
+				1609B9801446E8F000DD4C39 /* geos_ts_c.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1609AD431446C75E00DD4C39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1609AD441446C75E00DD4C39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1609AD461446C75E00DD4C39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/geos.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "geos/geos-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GEOS_INLINE,
+					"DEBUG=1",
+					"$(inherited)",
+					HAVE_CONFIG_H,
+				);
+				GCC_VERSION = 4.2;
+				HEADER_SEARCH_PATHS = (
+					../,
+					../geos,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1609AD471446C75E00DD4C39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/geos.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "geos/geos-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GEOS_INLINE,
+					HAVE_CONFIG_H,
+				);
+				GCC_VERSION = 4.2;
+				HEADER_SEARCH_PATHS = (
+					../,
+					../geos,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1609AD321446C75D00DD4C39 /* Build configuration list for PBXProject "geos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1609AD431446C75E00DD4C39 /* Debug */,
+				1609AD441446C75E00DD4C39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1609AD451446C75E00DD4C39 /* Build configuration list for PBXNativeTarget "geos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1609AD461446C75E00DD4C39 /* Debug */,
+				1609AD471446C75E00DD4C39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1609AD2F1446C75D00DD4C39 /* Project object */;
+}

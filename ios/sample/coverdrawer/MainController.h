@@ -1,0 +1,15 @@
+
+# ifndef __TEST_MAINCONTROLLER_868C9DF7E3A14DD0B1260EC946C570DC_H_INCLUDED
+# define __TEST_MAINCONTROLLER_868C9DF7E3A14DD0B1260EC946C570DC_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface MainController : WSIUIViewController<UICoverDrawerDataSource, UICoverDrawerDelegate> {
+    UICoverDrawer* ctlr_draw;
+}
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

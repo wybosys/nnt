@@ -1,0 +1,18 @@
+
+# ifndef __WSI_TBXML_AC7B2410CC814F1B917F95FB758D0B04_H_INCLUDED
+# define __WSI_TBXML_AC7B2410CC814F1B917F95FB758D0B04_H_INCLUDED
+
+# import "TBXML.h"
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface TBXML (WSI)
+
+- (id)asObject:(BOOL)hideRoot;
+- (id)asObject;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

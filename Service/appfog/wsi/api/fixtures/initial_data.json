@@ -1,0 +1,11 @@
+[
+	{"pk": 1, "model": "api.auth_user", "fields": {"comment": "root", "user_id": 0, "app_secret": "root", "app_id": "root", "group_id": 0, "user_name": "root", "user_passwd": "83bc7f12c992f5eded28c3c546f02644"}}, 
+	{"pk": 2, "model": "api.auth_user", "fields": {"comment": "anonymous", "user_id": 1, "app_secret": "anony", "app_id": "anony", "group_id": 1, "user_name": "anony"}}, 
+	{"pk": 3, "model": "api.auth_user", "fields": {"comment": "sample", "user_id": 2, "app_secret": "sample", "app_id": "sample", "group_id": 2, "user_name": "sample", "user_passwd": "4731e6cab6ec4a4e9cbacd25505d7d71"}},
+	{"pk": 4, "model": "api.auth_user", "fields": {"comment": "toolkit", "user_id": 3, "app_secret": "toolkit", "app_id": "toolkit", "group_id": 3, "user_name": "toolkit"}},
+	
+	{"pk": 1, "model": "api.auth_group", "fields": {"comment": "wheel", "group_id": 0, "group_name": "wheel"}}, 
+	{"pk": 2, "model": "api.auth_group", "fields": {"comment": "anonymous", "group_id": 1, "group_name": "anony"}}, 
+	{"pk": 3, "model": "api.auth_group", "fields": {"comment": "sample", "group_id": 2, "group_name": "sample", "prefix": "sample"}},
+	{"pk": 4, "model": "api.auth_group", "fields": {"comment": "toolkit", "group_id": 3, "group_name": "toolkit", "prefix": "toolkit"}}
+]

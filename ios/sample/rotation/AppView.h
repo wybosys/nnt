@@ -1,0 +1,15 @@
+
+# ifndef __APP_VIEW_8F13B88D92C84AB39529E20304C6E5F5_H_INCLUDED
+# define __APP_VIEW_8F13B88D92C84AB39529E20304C6E5F5_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface AppView : WSIUIView {
+    UIViewController *ctlr_a, *ctlr_b;
+}
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

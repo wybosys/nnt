@@ -1,0 +1,4 @@
+
+@interface AppDelegate : WSIApplication
+
+@end

@@ -1,0 +1,23 @@
+
+# ifndef __WSI_SCRIPT_V8_2EE6A472CAF64DC8A2F9E10FED63E9A7_H_INCLUDED
+# define __WSI_SCRIPT_V8_2EE6A472CAF64DC8A2F9E10FED63E9A7_H_INCLUDED
+
+# ifdef WSI_OBJC
+
+WSI_BEGIN_HEADER_OBJC
+
+WSIDECL_PRIVATE_HEAD(V8js);
+
+@interface V8js : WSIObject {
+    WSIDECL_PRIVATE(V8js);
+}
+
+- (id)executeString:(NSString*)expr;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif
+
+# endif

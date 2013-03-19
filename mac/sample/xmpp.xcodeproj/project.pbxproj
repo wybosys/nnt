@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1620F0D81609C74300592F83 /* ContactsCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0D51609C74300592F83 /* ContactsCenter.mm */; };
+		1620F0D91609C74300592F83 /* ImplClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0D71609C74300592F83 /* ImplClient.mm */; };
+		1648F75E1587230700A47990 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648F75D1587230700A47990 /* Cocoa.framework */; };
+		1648F7681587230700A47990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1648F7661587230700A47990 /* InfoPlist.strings */; };
+		1648F76A1587230700A47990 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F7691587230700A47990 /* main.mm */; };
+		1648F76E1587230700A47990 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1648F76C1587230700A47990 /* Credits.rtf */; };
+		1648F7711587230700A47990 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F7701587230700A47990 /* AppDelegate.mm */; };
+		1648F7741587230800A47990 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1648F7721587230800A47990 /* MainMenu.xib */; };
+		1648F77F1587232F00A47990 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1648F77E1587232F00A47990 /* logo.icns */; };
+		1648F782158723B600A47990 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648F781158723B600A47990 /* wsi.framework */; };
+		1648F8A015872ADC00A47990 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F89F15872ADC00A47990 /* MainController.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1620F0D41609C74300592F83 /* ContactsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsCenter.h; sourceTree = "<group>"; };
+		1620F0D51609C74300592F83 /* ContactsCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContactsCenter.mm; sourceTree = "<group>"; };
+		1620F0D61609C74300592F83 /* ImplClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImplClient.h; sourceTree = "<group>"; };
+		1620F0D71609C74300592F83 /* ImplClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImplClient.mm; sourceTree = "<group>"; };
+		1648F7591587230700A47990 /* xmpp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xmpp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1648F75D1587230700A47990 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1648F7601587230700A47990 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1648F7611587230700A47990 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1648F7621587230700A47990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1648F7651587230700A47990 /* xmpp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xmpp-Info.plist"; sourceTree = "<group>"; };
+		1648F7671587230700A47990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1648F7691587230700A47990 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1648F76B1587230700A47990 /* xmpp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xmpp-Prefix.pch"; sourceTree = "<group>"; };
+		1648F76D1587230700A47990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1648F76F1587230700A47990 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1648F7701587230700A47990 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		1648F7731587230800A47990 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1648F77E1587232F00A47990 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
+		1648F781158723B600A47990 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<absolute>"; };
+		1648F89E15872ADC00A47990 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		1648F89F15872ADC00A47990 /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainController.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1648F7561587230700A47990 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1648F782158723B600A47990 /* wsi.framework in Frameworks */,
+				1648F75E1587230700A47990 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1648F74E1587230600A47990 = {
+			isa = PBXGroup;
+			children = (
+				1648F7631587230700A47990 /* xmpp */,
+				1648F75C1587230700A47990 /* Frameworks */,
+				1648F75A1587230700A47990 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1648F75A1587230700A47990 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1648F7591587230700A47990 /* xmpp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1648F75C1587230700A47990 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1648F77E1587232F00A47990 /* logo.icns */,
+				1648F781158723B600A47990 /* wsi.framework */,
+				1648F75D1587230700A47990 /* Cocoa.framework */,
+				1648F75F1587230700A47990 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1648F75F1587230700A47990 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1648F7601587230700A47990 /* AppKit.framework */,
+				1648F7611587230700A47990 /* CoreData.framework */,
+				1648F7621587230700A47990 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1648F7631587230700A47990 /* xmpp */ = {
+			isa = PBXGroup;
+			children = (
+				1648F76F1587230700A47990 /* AppDelegate.h */,
+				1648F7701587230700A47990 /* AppDelegate.mm */,
+				1648F89E15872ADC00A47990 /* MainController.h */,
+				1648F89F15872ADC00A47990 /* MainController.mm */,
+				1620F0D41609C74300592F83 /* ContactsCenter.h */,
+				1620F0D51609C74300592F83 /* ContactsCenter.mm */,
+				1620F0D61609C74300592F83 /* ImplClient.h */,
+				1620F0D71609C74300592F83 /* ImplClient.mm */,
+				1648F7721587230800A47990 /* MainMenu.xib */,
+				1648F7641587230700A47990 /* Supporting Files */,
+			);
+			path = xmpp;
+			sourceTree = "<group>";
+		};
+		1648F7641587230700A47990 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1648F7651587230700A47990 /* xmpp-Info.plist */,
+				1648F7661587230700A47990 /* InfoPlist.strings */,
+				1648F7691587230700A47990 /* main.mm */,
+				1648F76B1587230700A47990 /* xmpp-Prefix.pch */,
+				1648F76C1587230700A47990 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1648F7581587230700A47990 /* xmpp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1648F7771587230800A47990 /* Build configuration list for PBXNativeTarget "xmpp" */;
+			buildPhases = (
+				1648F7551587230700A47990 /* Sources */,
+				1648F7561587230700A47990 /* Frameworks */,
+				1648F7571587230700A47990 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xmpp;
+			productName = xmpp;
+			productReference = 1648F7591587230700A47990 /* xmpp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1648F7501587230600A47990 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 1648F7531587230600A47990 /* Build configuration list for PBXProject "xmpp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1648F74E1587230600A47990;
+			productRefGroup = 1648F75A1587230700A47990 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1648F7581587230700A47990 /* xmpp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1648F7571587230700A47990 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1648F7681587230700A47990 /* InfoPlist.strings in Resources */,
+				1648F76E1587230700A47990 /* Credits.rtf in Resources */,
+				1648F7741587230800A47990 /* MainMenu.xib in Resources */,
+				1648F77F1587232F00A47990 /* logo.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1648F7551587230700A47990 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1648F76A1587230700A47990 /* main.mm in Sources */,
+				1648F7711587230700A47990 /* AppDelegate.mm in Sources */,
+				1648F8A015872ADC00A47990 /* MainController.mm in Sources */,
+				1620F0D81609C74300592F83 /* ContactsCenter.mm in Sources */,
+				1620F0D91609C74300592F83 /* ImplClient.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1648F7661587230700A47990 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1648F7671587230700A47990 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1648F76C1587230700A47990 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1648F76D1587230700A47990 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1648F7721587230800A47990 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1648F7731587230800A47990 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1648F7751587230800A47990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1648F7761587230800A47990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1648F7781587230800A47990 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xmpp/xmpp-Prefix.pch";
+				INFOPLIST_FILE = "xmpp/xmpp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1648F7791587230800A47990 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xmpp/xmpp-Prefix.pch";
+				INFOPLIST_FILE = "xmpp/xmpp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1648F7531587230600A47990 /* Build configuration list for PBXProject "xmpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1648F7751587230800A47990 /* Debug */,
+				1648F7761587230800A47990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1648F7771587230800A47990 /* Build configuration list for PBXNativeTarget "xmpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1648F7781587230800A47990 /* Debug */,
+				1648F7791587230800A47990 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1648F7501587230600A47990 /* Project object */;
+}

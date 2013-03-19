@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16624C991505D66F00AFED23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16624C981505D66F00AFED23 /* Foundation.framework */; };
+		16624C9C1505D66F00AFED23 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16624C9B1505D66F00AFED23 /* main.mm */; };
+		16624CA01505D66F00AFED23 /* css.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16624C9F1505D66F00AFED23 /* css.1 */; };
+		16624CB21505D6B700AFED23 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16624CB11505D6B700AFED23 /* wsi.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16624C921505D66F00AFED23 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				16624CA01505D66F00AFED23 /* css.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		16624C941505D66F00AFED23 /* css */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = css; sourceTree = BUILT_PRODUCTS_DIR; };
+		16624C981505D66F00AFED23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		16624C9B1505D66F00AFED23 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		16624C9E1505D66F00AFED23 /* css-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "css-Prefix.pch"; sourceTree = "<group>"; };
+		16624C9F1505D66F00AFED23 /* css.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = css.1; sourceTree = "<group>"; };
+		16624CB11505D6B700AFED23 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16624C911505D66F00AFED23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16624CB21505D6B700AFED23 /* wsi.framework in Frameworks */,
+				16624C991505D66F00AFED23 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16624C891505D66E00AFED23 = {
+			isa = PBXGroup;
+			children = (
+				16624CB11505D6B700AFED23 /* wsi.framework */,
+				16624C9A1505D66F00AFED23 /* css */,
+				16624C971505D66F00AFED23 /* Frameworks */,
+				16624C951505D66F00AFED23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16624C951505D66F00AFED23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16624C941505D66F00AFED23 /* css */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16624C971505D66F00AFED23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16624C981505D66F00AFED23 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16624C9A1505D66F00AFED23 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				16624C9B1505D66F00AFED23 /* main.mm */,
+				16624C9F1505D66F00AFED23 /* css.1 */,
+				16624C9D1505D66F00AFED23 /* Supporting Files */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		16624C9D1505D66F00AFED23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16624C9E1505D66F00AFED23 /* css-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16624C931505D66F00AFED23 /* css */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16624CA31505D66F00AFED23 /* Build configuration list for PBXNativeTarget "css" */;
+			buildPhases = (
+				16624C901505D66F00AFED23 /* Sources */,
+				16624C911505D66F00AFED23 /* Frameworks */,
+				16624C921505D66F00AFED23 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = css;
+			productName = css;
+			productReference = 16624C941505D66F00AFED23 /* css */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16624C8B1505D66E00AFED23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 16624C8E1505D66E00AFED23 /* Build configuration list for PBXProject "css" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 16624C891505D66E00AFED23;
+			productRefGroup = 16624C951505D66F00AFED23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16624C931505D66F00AFED23 /* css */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16624C901505D66F00AFED23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16624C9C1505D66F00AFED23 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16624CA11505D66F00AFED23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		16624CA21505D66F00AFED23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		16624CA41505D66F00AFED23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "css/css-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		16624CA51505D66F00AFED23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "css/css-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16624C8E1505D66E00AFED23 /* Build configuration list for PBXProject "css" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16624CA11505D66F00AFED23 /* Debug */,
+				16624CA21505D66F00AFED23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16624CA31505D66F00AFED23 /* Build configuration list for PBXNativeTarget "css" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16624CA41505D66F00AFED23 /* Debug */,
+				16624CA51505D66F00AFED23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16624C8B1505D66E00AFED23 /* Project object */;
+}

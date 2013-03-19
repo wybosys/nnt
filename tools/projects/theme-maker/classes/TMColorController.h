@@ -1,0 +1,14 @@
+
+# ifndef __TM_COLOR_2E8F95B6FE41459FB22825C394C94DF3_H_INCLUDED
+# define __TM_COLOR_2E8F95B6FE41459FB22825C394C94DF3_H_INCLUDED
+
+# import "TMDataController.h"
+
+WSIAPP_BEGIN_OBJC
+
+@interface TMColorController : TMDataController
+@end
+
+WSIAPP_END_OBJC
+
+# endif

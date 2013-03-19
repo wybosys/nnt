@@ -1,0 +1,2 @@
+#!/bin/bash
+ls /opt/local/var/macports/distfiles/ | awk 'system("sudo port clean --all " $1);'

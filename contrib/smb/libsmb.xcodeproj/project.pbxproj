@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16D972951516131D00F8354F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D972941516131D00F8354F /* Foundation.framework */; };
+		16D972A81516138600F8354F /* libsmb-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16D972A51516138600F8354F /* libsmb-Prefix.pch */; };
+		16D972A91516138600F8354F /* libsmb.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D972A61516138600F8354F /* libsmb.h */; };
+		16D972AA1516138600F8354F /* libsmb.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D972A71516138600F8354F /* libsmb.m */; };
+		16D972EB151613BD00F8354F /* asn1.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972AD151613BD00F8354F /* asn1.c */; };
+		16D972EC151613BD00F8354F /* async_smb.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972AE151613BD00F8354F /* async_smb.c */; };
+		16D972ED151613BD00F8354F /* cliconnect.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972AF151613BD00F8354F /* cliconnect.c */; };
+		16D972EE151613BD00F8354F /* clidfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B0151613BD00F8354F /* clidfs.c */; };
+		16D972EF151613BD00F8354F /* clidgram.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B1151613BD00F8354F /* clidgram.c */; };
+		16D972F0151613BD00F8354F /* clientgen.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B2151613BD00F8354F /* clientgen.c */; };
+		16D972F1151613BD00F8354F /* clierror.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B3151613BD00F8354F /* clierror.c */; };
+		16D972F2151613BD00F8354F /* clifile.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B4151613BD00F8354F /* clifile.c */; };
+		16D972F3151613BD00F8354F /* clifsinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B5151613BD00F8354F /* clifsinfo.c */; };
+		16D972F4151613BD00F8354F /* clikrb5.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B6151613BD00F8354F /* clikrb5.c */; };
+		16D972F5151613BD00F8354F /* clilist.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B7151613BD00F8354F /* clilist.c */; };
+		16D972F6151613BD00F8354F /* climessage.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B8151613BD00F8354F /* climessage.c */; };
+		16D972F7151613BD00F8354F /* clioplock.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972B9151613BD00F8354F /* clioplock.c */; };
+		16D972F8151613BD00F8354F /* cliprint.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BA151613BD00F8354F /* cliprint.c */; };
+		16D972F9151613BD00F8354F /* cliquota.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BB151613BD00F8354F /* cliquota.c */; };
+		16D972FA151613BD00F8354F /* clirap.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BC151613BD00F8354F /* clirap.c */; };
+		16D972FB151613BD00F8354F /* clirap2.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BD151613BD00F8354F /* clirap2.c */; };
+		16D972FC151613BD00F8354F /* clireadwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BE151613BD00F8354F /* clireadwrite.c */; };
+		16D972FD151613BD00F8354F /* clisecdesc.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972BF151613BD00F8354F /* clisecdesc.c */; };
+		16D972FE151613BD00F8354F /* clispnego.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C0151613BD00F8354F /* clispnego.c */; };
+		16D972FF151613BD00F8354F /* clistr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C1151613BD00F8354F /* clistr.c */; };
+		16D97300151613BD00F8354F /* clitrans.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C2151613BD00F8354F /* clitrans.c */; };
+		16D97301151613BD00F8354F /* conncache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C3151613BD00F8354F /* conncache.c */; };
+		16D97302151613BD00F8354F /* credentials.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C4151613BD00F8354F /* credentials.c */; };
+		16D97303151613BD00F8354F /* dcerpc_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C5151613BD00F8354F /* dcerpc_err.c */; };
+		16D97304151613BD00F8354F /* doserr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C6151613BD00F8354F /* doserr.c */; };
+		16D97305151613BD00F8354F /* dsgetdcname.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C7151613BD00F8354F /* dsgetdcname.c */; };
+		16D97306151613BD00F8354F /* errormap.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C8151613BD00F8354F /* errormap.c */; };
+		16D97307151613BD00F8354F /* libsmb_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972C9151613BD00F8354F /* libsmb_cache.c */; };
+		16D97308151613BD00F8354F /* libsmb_compat.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CA151613BD00F8354F /* libsmb_compat.c */; };
+		16D97309151613BD00F8354F /* libsmb_context.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CB151613BD00F8354F /* libsmb_context.c */; };
+		16D9730A151613BD00F8354F /* libsmb_dir.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CC151613BD00F8354F /* libsmb_dir.c */; };
+		16D9730B151613BD00F8354F /* libsmb_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CD151613BD00F8354F /* libsmb_file.c */; };
+		16D9730C151613BD00F8354F /* libsmb_misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CE151613BD00F8354F /* libsmb_misc.c */; };
+		16D9730D151613BD00F8354F /* libsmb_path.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972CF151613BD00F8354F /* libsmb_path.c */; };
+		16D9730E151613BD00F8354F /* libsmb_printjob.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D0151613BD00F8354F /* libsmb_printjob.c */; };
+		16D9730F151613BD00F8354F /* libsmb_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D1151613BD00F8354F /* libsmb_server.c */; };
+		16D97310151613BD00F8354F /* libsmb_setget.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D2151613BD00F8354F /* libsmb_setget.c */; };
+		16D97311151613BD00F8354F /* libsmb_stat.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D3151613BD00F8354F /* libsmb_stat.c */; };
+		16D97312151613BD00F8354F /* libsmb_xattr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D4151613BD00F8354F /* libsmb_xattr.c */; };
+		16D97313151613BD00F8354F /* namecache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D5151613BD00F8354F /* namecache.c */; };
+		16D97314151613BD00F8354F /* namequery.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D6151613BD00F8354F /* namequery.c */; };
+		16D97315151613BD00F8354F /* namequery_dc.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D7151613BD00F8354F /* namequery_dc.c */; };
+		16D97316151613BD00F8354F /* nmblib.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D8151613BD00F8354F /* nmblib.c */; };
+		16D97317151613BD00F8354F /* nterr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972D9151613BD00F8354F /* nterr.c */; };
+		16D97318151613BD00F8354F /* ntlm_check.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DA151613BD00F8354F /* ntlm_check.c */; };
+		16D97319151613BD00F8354F /* ntlmssp.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DB151613BD00F8354F /* ntlmssp.c */; };
+		16D9731A151613BD00F8354F /* ntlmssp_parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DC151613BD00F8354F /* ntlmssp_parse.c */; };
+		16D9731B151613BD00F8354F /* ntlmssp_sign.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DD151613BD00F8354F /* ntlmssp_sign.c */; };
+		16D9731C151613BD00F8354F /* passchange.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DE151613BD00F8354F /* passchange.c */; };
+		16D9731D151613BD00F8354F /* pwd_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972DF151613BD00F8354F /* pwd_cache.c */; };
+		16D9731E151613BD00F8354F /* samlogon_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E0151613BD00F8354F /* samlogon_cache.c */; };
+		16D9731F151613BD00F8354F /* smb_seal.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E1151613BD00F8354F /* smb_seal.c */; };
+		16D97320151613BD00F8354F /* smb_share_modes.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E2151613BD00F8354F /* smb_share_modes.c */; };
+		16D97321151613BD00F8354F /* smb_signing.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E3151613BD00F8354F /* smb_signing.c */; };
+		16D97322151613BD00F8354F /* smbdes.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E4151613BD00F8354F /* smbdes.c */; };
+		16D97323151613BD00F8354F /* smbencrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E5151613BD00F8354F /* smbencrypt.c */; };
+		16D97324151613BD00F8354F /* smberr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E6151613BD00F8354F /* smberr.c */; };
+		16D97325151613BD00F8354F /* spnego.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E7151613BD00F8354F /* spnego.c */; };
+		16D97326151613BD00F8354F /* trustdom_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E8151613BD00F8354F /* trustdom_cache.c */; };
+		16D97327151613BD00F8354F /* trusts_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972E9151613BD00F8354F /* trusts_util.c */; };
+		16D97328151613BD00F8354F /* unexpected.c in Sources */ = {isa = PBXBuildFile; fileRef = 16D972EA151613BD00F8354F /* unexpected.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16D972911516131D00F8354F /* liblibsmb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibsmb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16D972941516131D00F8354F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		16D972A51516138600F8354F /* libsmb-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libsmb-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		16D972A61516138600F8354F /* libsmb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libsmb.h; sourceTree = SOURCE_ROOT; };
+		16D972A71516138600F8354F /* libsmb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = libsmb.m; sourceTree = SOURCE_ROOT; };
+		16D972AD151613BD00F8354F /* asn1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = asn1.c; sourceTree = "<group>"; };
+		16D972AE151613BD00F8354F /* async_smb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async_smb.c; sourceTree = "<group>"; };
+		16D972AF151613BD00F8354F /* cliconnect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cliconnect.c; sourceTree = "<group>"; };
+		16D972B0151613BD00F8354F /* clidfs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clidfs.c; sourceTree = "<group>"; };
+		16D972B1151613BD00F8354F /* clidgram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clidgram.c; sourceTree = "<group>"; };
+		16D972B2151613BD00F8354F /* clientgen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clientgen.c; sourceTree = "<group>"; };
+		16D972B3151613BD00F8354F /* clierror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clierror.c; sourceTree = "<group>"; };
+		16D972B4151613BD00F8354F /* clifile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clifile.c; sourceTree = "<group>"; };
+		16D972B5151613BD00F8354F /* clifsinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clifsinfo.c; sourceTree = "<group>"; };
+		16D972B6151613BD00F8354F /* clikrb5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clikrb5.c; sourceTree = "<group>"; };
+		16D972B7151613BD00F8354F /* clilist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clilist.c; sourceTree = "<group>"; };
+		16D972B8151613BD00F8354F /* climessage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = climessage.c; sourceTree = "<group>"; };
+		16D972B9151613BD00F8354F /* clioplock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clioplock.c; sourceTree = "<group>"; };
+		16D972BA151613BD00F8354F /* cliprint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cliprint.c; sourceTree = "<group>"; };
+		16D972BB151613BD00F8354F /* cliquota.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cliquota.c; sourceTree = "<group>"; };
+		16D972BC151613BD00F8354F /* clirap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clirap.c; sourceTree = "<group>"; };
+		16D972BD151613BD00F8354F /* clirap2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clirap2.c; sourceTree = "<group>"; };
+		16D972BE151613BD00F8354F /* clireadwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clireadwrite.c; sourceTree = "<group>"; };
+		16D972BF151613BD00F8354F /* clisecdesc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clisecdesc.c; sourceTree = "<group>"; };
+		16D972C0151613BD00F8354F /* clispnego.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clispnego.c; sourceTree = "<group>"; };
+		16D972C1151613BD00F8354F /* clistr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clistr.c; sourceTree = "<group>"; };
+		16D972C2151613BD00F8354F /* clitrans.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = clitrans.c; sourceTree = "<group>"; };
+		16D972C3151613BD00F8354F /* conncache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = conncache.c; sourceTree = "<group>"; };
+		16D972C4151613BD00F8354F /* credentials.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = credentials.c; sourceTree = "<group>"; };
+		16D972C5151613BD00F8354F /* dcerpc_err.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dcerpc_err.c; sourceTree = "<group>"; };
+		16D972C6151613BD00F8354F /* doserr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = doserr.c; sourceTree = "<group>"; };
+		16D972C7151613BD00F8354F /* dsgetdcname.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dsgetdcname.c; sourceTree = "<group>"; };
+		16D972C8151613BD00F8354F /* errormap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = errormap.c; sourceTree = "<group>"; };
+		16D972C9151613BD00F8354F /* libsmb_cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_cache.c; sourceTree = "<group>"; };
+		16D972CA151613BD00F8354F /* libsmb_compat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_compat.c; sourceTree = "<group>"; };
+		16D972CB151613BD00F8354F /* libsmb_context.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_context.c; sourceTree = "<group>"; };
+		16D972CC151613BD00F8354F /* libsmb_dir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_dir.c; sourceTree = "<group>"; };
+		16D972CD151613BD00F8354F /* libsmb_file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_file.c; sourceTree = "<group>"; };
+		16D972CE151613BD00F8354F /* libsmb_misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_misc.c; sourceTree = "<group>"; };
+		16D972CF151613BD00F8354F /* libsmb_path.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_path.c; sourceTree = "<group>"; };
+		16D972D0151613BD00F8354F /* libsmb_printjob.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_printjob.c; sourceTree = "<group>"; };
+		16D972D1151613BD00F8354F /* libsmb_server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_server.c; sourceTree = "<group>"; };
+		16D972D2151613BD00F8354F /* libsmb_setget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_setget.c; sourceTree = "<group>"; };
+		16D972D3151613BD00F8354F /* libsmb_stat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_stat.c; sourceTree = "<group>"; };
+		16D972D4151613BD00F8354F /* libsmb_xattr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libsmb_xattr.c; sourceTree = "<group>"; };
+		16D972D5151613BD00F8354F /* namecache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = namecache.c; sourceTree = "<group>"; };
+		16D972D6151613BD00F8354F /* namequery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = namequery.c; sourceTree = "<group>"; };
+		16D972D7151613BD00F8354F /* namequery_dc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = namequery_dc.c; sourceTree = "<group>"; };
+		16D972D8151613BD00F8354F /* nmblib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nmblib.c; sourceTree = "<group>"; };
+		16D972D9151613BD00F8354F /* nterr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nterr.c; sourceTree = "<group>"; };
+		16D972DA151613BD00F8354F /* ntlm_check.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ntlm_check.c; sourceTree = "<group>"; };
+		16D972DB151613BD00F8354F /* ntlmssp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ntlmssp.c; sourceTree = "<group>"; };
+		16D972DC151613BD00F8354F /* ntlmssp_parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ntlmssp_parse.c; sourceTree = "<group>"; };
+		16D972DD151613BD00F8354F /* ntlmssp_sign.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ntlmssp_sign.c; sourceTree = "<group>"; };
+		16D972DE151613BD00F8354F /* passchange.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = passchange.c; sourceTree = "<group>"; };
+		16D972DF151613BD00F8354F /* pwd_cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pwd_cache.c; sourceTree = "<group>"; };
+		16D972E0151613BD00F8354F /* samlogon_cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = samlogon_cache.c; sourceTree = "<group>"; };
+		16D972E1151613BD00F8354F /* smb_seal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smb_seal.c; sourceTree = "<group>"; };
+		16D972E2151613BD00F8354F /* smb_share_modes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smb_share_modes.c; sourceTree = "<group>"; };
+		16D972E3151613BD00F8354F /* smb_signing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smb_signing.c; sourceTree = "<group>"; };
+		16D972E4151613BD00F8354F /* smbdes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbdes.c; sourceTree = "<group>"; };
+		16D972E5151613BD00F8354F /* smbencrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbencrypt.c; sourceTree = "<group>"; };
+		16D972E6151613BD00F8354F /* smberr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smberr.c; sourceTree = "<group>"; };
+		16D972E7151613BD00F8354F /* spnego.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = spnego.c; sourceTree = "<group>"; };
+		16D972E8151613BD00F8354F /* trustdom_cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trustdom_cache.c; sourceTree = "<group>"; };
+		16D972E9151613BD00F8354F /* trusts_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trusts_util.c; sourceTree = "<group>"; };
+		16D972EA151613BD00F8354F /* unexpected.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unexpected.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16D9728E1516131D00F8354F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D972951516131D00F8354F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16D972861516131C00F8354F = {
+			isa = PBXGroup;
+			children = (
+				16D972AB151613BD00F8354F /* source */,
+				16D972961516131D00F8354F /* libsmb */,
+				16D972931516131D00F8354F /* Frameworks */,
+				16D972921516131D00F8354F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16D972921516131D00F8354F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16D972911516131D00F8354F /* liblibsmb.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16D972931516131D00F8354F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16D972941516131D00F8354F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16D972961516131D00F8354F /* libsmb */ = {
+			isa = PBXGroup;
+			children = (
+				16D972A51516138600F8354F /* libsmb-Prefix.pch */,
+				16D972A61516138600F8354F /* libsmb.h */,
+				16D972A71516138600F8354F /* libsmb.m */,
+			);
+			path = libsmb;
+			sourceTree = "<group>";
+		};
+		16D972AB151613BD00F8354F /* source */ = {
+			isa = PBXGroup;
+			children = (
+				16D972AC151613BD00F8354F /* libsmb */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		16D972AC151613BD00F8354F /* libsmb */ = {
+			isa = PBXGroup;
+			children = (
+				16D972AD151613BD00F8354F /* asn1.c */,
+				16D972AE151613BD00F8354F /* async_smb.c */,
+				16D972AF151613BD00F8354F /* cliconnect.c */,
+				16D972B0151613BD00F8354F /* clidfs.c */,
+				16D972B1151613BD00F8354F /* clidgram.c */,
+				16D972B2151613BD00F8354F /* clientgen.c */,
+				16D972B3151613BD00F8354F /* clierror.c */,
+				16D972B4151613BD00F8354F /* clifile.c */,
+				16D972B5151613BD00F8354F /* clifsinfo.c */,
+				16D972B6151613BD00F8354F /* clikrb5.c */,
+				16D972B7151613BD00F8354F /* clilist.c */,
+				16D972B8151613BD00F8354F /* climessage.c */,
+				16D972B9151613BD00F8354F /* clioplock.c */,
+				16D972BA151613BD00F8354F /* cliprint.c */,
+				16D972BB151613BD00F8354F /* cliquota.c */,
+				16D972BC151613BD00F8354F /* clirap.c */,
+				16D972BD151613BD00F8354F /* clirap2.c */,
+				16D972BE151613BD00F8354F /* clireadwrite.c */,
+				16D972BF151613BD00F8354F /* clisecdesc.c */,
+				16D972C0151613BD00F8354F /* clispnego.c */,
+				16D972C1151613BD00F8354F /* clistr.c */,
+				16D972C2151613BD00F8354F /* clitrans.c */,
+				16D972C3151613BD00F8354F /* conncache.c */,
+				16D972C4151613BD00F8354F /* credentials.c */,
+				16D972C5151613BD00F8354F /* dcerpc_err.c */,
+				16D972C6151613BD00F8354F /* doserr.c */,
+				16D972C7151613BD00F8354F /* dsgetdcname.c */,
+				16D972C8151613BD00F8354F /* errormap.c */,
+				16D972C9151613BD00F8354F /* libsmb_cache.c */,
+				16D972CA151613BD00F8354F /* libsmb_compat.c */,
+				16D972CB151613BD00F8354F /* libsmb_context.c */,
+				16D972CC151613BD00F8354F /* libsmb_dir.c */,
+				16D972CD151613BD00F8354F /* libsmb_file.c */,
+				16D972CE151613BD00F8354F /* libsmb_misc.c */,
+				16D972CF151613BD00F8354F /* libsmb_path.c */,
+				16D972D0151613BD00F8354F /* libsmb_printjob.c */,
+				16D972D1151613BD00F8354F /* libsmb_server.c */,
+				16D972D2151613BD00F8354F /* libsmb_setget.c */,
+				16D972D3151613BD00F8354F /* libsmb_stat.c */,
+				16D972D4151613BD00F8354F /* libsmb_xattr.c */,
+				16D972D5151613BD00F8354F /* namecache.c */,
+				16D972D6151613BD00F8354F /* namequery.c */,
+				16D972D7151613BD00F8354F /* namequery_dc.c */,
+				16D972D8151613BD00F8354F /* nmblib.c */,
+				16D972D9151613BD00F8354F /* nterr.c */,
+				16D972DA151613BD00F8354F /* ntlm_check.c */,
+				16D972DB151613BD00F8354F /* ntlmssp.c */,
+				16D972DC151613BD00F8354F /* ntlmssp_parse.c */,
+				16D972DD151613BD00F8354F /* ntlmssp_sign.c */,
+				16D972DE151613BD00F8354F /* passchange.c */,
+				16D972DF151613BD00F8354F /* pwd_cache.c */,
+				16D972E0151613BD00F8354F /* samlogon_cache.c */,
+				16D972E1151613BD00F8354F /* smb_seal.c */,
+				16D972E2151613BD00F8354F /* smb_share_modes.c */,
+				16D972E3151613BD00F8354F /* smb_signing.c */,
+				16D972E4151613BD00F8354F /* smbdes.c */,
+				16D972E5151613BD00F8354F /* smbencrypt.c */,
+				16D972E6151613BD00F8354F /* smberr.c */,
+				16D972E7151613BD00F8354F /* spnego.c */,
+				16D972E8151613BD00F8354F /* trustdom_cache.c */,
+				16D972E9151613BD00F8354F /* trusts_util.c */,
+				16D972EA151613BD00F8354F /* unexpected.c */,
+			);
+			path = libsmb;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		16D9728F1516131D00F8354F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D972A81516138600F8354F /* libsmb-Prefix.pch in Headers */,
+				16D972A91516138600F8354F /* libsmb.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		16D972901516131D00F8354F /* libsmb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16D9729E1516131D00F8354F /* Build configuration list for PBXNativeTarget "libsmb" */;
+			buildPhases = (
+				16D9728D1516131D00F8354F /* Sources */,
+				16D9728E1516131D00F8354F /* Frameworks */,
+				16D9728F1516131D00F8354F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libsmb;
+			productName = libsmb;
+			productReference = 16D972911516131D00F8354F /* liblibsmb.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16D972881516131C00F8354F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 16D9728B1516131C00F8354F /* Build configuration list for PBXProject "libsmb" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 16D972861516131C00F8354F;
+			productRefGroup = 16D972921516131D00F8354F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16D972901516131D00F8354F /* libsmb */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16D9728D1516131D00F8354F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D972AA1516138600F8354F /* libsmb.m in Sources */,
+				16D972EB151613BD00F8354F /* asn1.c in Sources */,
+				16D972EC151613BD00F8354F /* async_smb.c in Sources */,
+				16D972ED151613BD00F8354F /* cliconnect.c in Sources */,
+				16D972EE151613BD00F8354F /* clidfs.c in Sources */,
+				16D972EF151613BD00F8354F /* clidgram.c in Sources */,
+				16D972F0151613BD00F8354F /* clientgen.c in Sources */,
+				16D972F1151613BD00F8354F /* clierror.c in Sources */,
+				16D972F2151613BD00F8354F /* clifile.c in Sources */,
+				16D972F3151613BD00F8354F /* clifsinfo.c in Sources */,
+				16D972F4151613BD00F8354F /* clikrb5.c in Sources */,
+				16D972F5151613BD00F8354F /* clilist.c in Sources */,
+				16D972F6151613BD00F8354F /* climessage.c in Sources */,
+				16D972F7151613BD00F8354F /* clioplock.c in Sources */,
+				16D972F8151613BD00F8354F /* cliprint.c in Sources */,
+				16D972F9151613BD00F8354F /* cliquota.c in Sources */,
+				16D972FA151613BD00F8354F /* clirap.c in Sources */,
+				16D972FB151613BD00F8354F /* clirap2.c in Sources */,
+				16D972FC151613BD00F8354F /* clireadwrite.c in Sources */,
+				16D972FD151613BD00F8354F /* clisecdesc.c in Sources */,
+				16D972FE151613BD00F8354F /* clispnego.c in Sources */,
+				16D972FF151613BD00F8354F /* clistr.c in Sources */,
+				16D97300151613BD00F8354F /* clitrans.c in Sources */,
+				16D97301151613BD00F8354F /* conncache.c in Sources */,
+				16D97302151613BD00F8354F /* credentials.c in Sources */,
+				16D97303151613BD00F8354F /* dcerpc_err.c in Sources */,
+				16D97304151613BD00F8354F /* doserr.c in Sources */,
+				16D97305151613BD00F8354F /* dsgetdcname.c in Sources */,
+				16D97306151613BD00F8354F /* errormap.c in Sources */,
+				16D97307151613BD00F8354F /* libsmb_cache.c in Sources */,
+				16D97308151613BD00F8354F /* libsmb_compat.c in Sources */,
+				16D97309151613BD00F8354F /* libsmb_context.c in Sources */,
+				16D9730A151613BD00F8354F /* libsmb_dir.c in Sources */,
+				16D9730B151613BD00F8354F /* libsmb_file.c in Sources */,
+				16D9730C151613BD00F8354F /* libsmb_misc.c in Sources */,
+				16D9730D151613BD00F8354F /* libsmb_path.c in Sources */,
+				16D9730E151613BD00F8354F /* libsmb_printjob.c in Sources */,
+				16D9730F151613BD00F8354F /* libsmb_server.c in Sources */,
+				16D97310151613BD00F8354F /* libsmb_setget.c in Sources */,
+				16D97311151613BD00F8354F /* libsmb_stat.c in Sources */,
+				16D97312151613BD00F8354F /* libsmb_xattr.c in Sources */,
+				16D97313151613BD00F8354F /* namecache.c in Sources */,
+				16D97314151613BD00F8354F /* namequery.c in Sources */,
+				16D97315151613BD00F8354F /* namequery_dc.c in Sources */,
+				16D97316151613BD00F8354F /* nmblib.c in Sources */,
+				16D97317151613BD00F8354F /* nterr.c in Sources */,
+				16D97318151613BD00F8354F /* ntlm_check.c in Sources */,
+				16D97319151613BD00F8354F /* ntlmssp.c in Sources */,
+				16D9731A151613BD00F8354F /* ntlmssp_parse.c in Sources */,
+				16D9731B151613BD00F8354F /* ntlmssp_sign.c in Sources */,
+				16D9731C151613BD00F8354F /* passchange.c in Sources */,
+				16D9731D151613BD00F8354F /* pwd_cache.c in Sources */,
+				16D9731E151613BD00F8354F /* samlogon_cache.c in Sources */,
+				16D9731F151613BD00F8354F /* smb_seal.c in Sources */,
+				16D97320151613BD00F8354F /* smb_share_modes.c in Sources */,
+				16D97321151613BD00F8354F /* smb_signing.c in Sources */,
+				16D97322151613BD00F8354F /* smbdes.c in Sources */,
+				16D97323151613BD00F8354F /* smbencrypt.c in Sources */,
+				16D97324151613BD00F8354F /* smberr.c in Sources */,
+				16D97325151613BD00F8354F /* spnego.c in Sources */,
+				16D97326151613BD00F8354F /* trustdom_cache.c in Sources */,
+				16D97327151613BD00F8354F /* trusts_util.c in Sources */,
+				16D97328151613BD00F8354F /* unexpected.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16D9729C1516131D00F8354F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		16D9729D1516131D00F8354F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16D9729F1516131D00F8354F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libsmb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libsmb-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					Source/include/,
+					Source,
+					Source/lib/replace,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16D972A01516131D00F8354F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libsmb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libsmb-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					Source/include/,
+					Source,
+					Source/lib/replace,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16D9728B1516131C00F8354F /* Build configuration list for PBXProject "libsmb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16D9729C1516131D00F8354F /* Debug */,
+				16D9729D1516131D00F8354F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16D9729E1516131D00F8354F /* Build configuration list for PBXNativeTarget "libsmb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16D9729F1516131D00F8354F /* Debug */,
+				16D972A01516131D00F8354F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16D972881516131C00F8354F /* Project object */;
+}

@@ -1,0 +1,14 @@
+
+# ifndef __TM_GRADIENT_C59F24AD382A4A61B309340D8A80B8F3_H_INCLUDED
+# define __TM_GRADIENT_C59F24AD382A4A61B309340D8A80B8F3_H_INCLUDED
+
+# import "TMDataController.h"
+
+WSIAPP_BEGIN_OBJC
+
+@interface TMGradientController : TMDataController
+@end
+
+WSIAPP_END_OBJC
+
+# endif

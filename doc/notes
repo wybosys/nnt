@@ -1,0 +1,12 @@
+use like:
+    #pragma GCC diagnostic ignored "-Wconversion"
+to ignore the warning (conversion)
+
+map: 
+     parentheses => Equality comparison with extraneous parentheses
+
+use like:
+    gcc -dM -E - < /dev/null
+to print all macros.
+
+git config --global core.excludesfile ignorefile

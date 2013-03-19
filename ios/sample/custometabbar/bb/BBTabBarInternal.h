@@ -1,0 +1,21 @@
+
+# ifndef __BBTABBARINTERNAL_8AB18F07C2904887ABAB10D2C233893B_H_INCLUDED
+# define __BBTABBARINTERNAL_8AB18F07C2904887ABAB10D2C233893B_H_INCLUDED
+# import "BBTabBar.h"
+
+WSI_BEGIN_HEADER_OBJC
+
+extern       CGFloat   mTabMargin;
+extern const NSInteger kMaxBadgeNumber;
+
+WSIDECL_EXTERN_CLASS(BBTabBar);
+
+@interface BBTabBar (BBInternal)
+
+- (CGSize)layoutTabs;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

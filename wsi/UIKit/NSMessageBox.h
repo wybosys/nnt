@@ -1,0 +1,18 @@
+
+# ifndef __WSI_NS_MESSAGEBOX_2F18B7780E6441B588B127A18948B6E3_H_INCLUDED
+# define __WSI_NS_MESSAGEBOX_2F18B7780E6441B588B127A18948B6E3_H_INCLUDED
+
+# import "NSWindow+WSI.h"
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface NSMessageBox : WSINSWindow
+
+- (id)initWithTitle:(NSString*)title;
+- (void)show;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

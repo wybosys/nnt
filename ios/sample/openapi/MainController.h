@@ -1,0 +1,17 @@
+
+# ifndef __MAIN_CTLR_E447692B84094B5C9AF32B1A5A436DAE_H_INCLUDED
+# define __MAIN_CTLR_E447692B84094B5C9AF32B1A5A436DAE_H_INCLUDED
+
+WSIAPP_BEGIN_OBJC
+
+@interface MainView : WSIUIView
+
+@end
+
+@interface MainController : WSIUIViewController
+
+@end
+
+WSIAPP_END_OBJC
+
+# endif

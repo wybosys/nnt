@@ -1,0 +1,19 @@
+
+# ifndef __WSI_CG_ROUNDEDLEFTARROW_SHAPE_77ACA3962DFE4304B1AE921A67242F5A_H_INCLUDED
+# define __WSI_CG_ROUNDEDLEFTARROW_SHAPE_77ACA3962DFE4304B1AE921A67242F5A_H_INCLUDED
+
+# import "CGShape.h"
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface CGRoundedLeftArrowShape : WCGShape {
+    real _radius;
+}
+
+@property (nonatomic) real radius;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

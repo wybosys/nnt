@@ -1,0 +1,18 @@
+
+# ifndef __WSI_DTRACE_SWITCH_LOGO_104B3A24F4D64D8B9B4311DFE24B1147_H_INCLUDED
+# define __WSI_DTRACE_SWITCH_LOGO_104B3A24F4D64D8B9B4311DFE24B1147_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface DTraceLogoSwitch : WSIUIImageView {
+    @private
+    bool _skipmoved;
+}
+
++ (id)logoSwitch;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

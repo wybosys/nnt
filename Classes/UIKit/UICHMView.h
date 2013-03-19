@@ -1,0 +1,19 @@
+
+# ifndef __WSI_UIKIT_UICHMVIEW_226FC471316E4D94937BAC2EF1E1C6FA_H_INCLUDED
+# define __WSI_UIKIT_UICHMVIEW_226FC471316E4D94937BAC2EF1E1C6FA_H_INCLUDED
+
+# import "UIView+WSI.h"
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface UICHMView : WSIUIView {
+    UIView *main;
+}
+
+@property (nonatomic, assign) UIView *main;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

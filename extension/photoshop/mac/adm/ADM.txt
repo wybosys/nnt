@@ -1,0 +1,190 @@
+/*******************************************************************************
+*
+* ADM.txt -- Description of the Macintosh and Windows Resource format for
+*            Adobe Dialog Manager Items.
+*
+* ADOBE SYSTEMS INCORPORATED
+* Copyright 1996-2003 Adobe Systems Incorporated
+* All Rights Reserved
+*
+* NOTICE: Adobe permits you to use, modify, and distribute this file in
+* accordance with the terms of the Adobe license agreement accompanying it.
+* If you have received this file from a source other than Adobe, then your use,
+* modification, or distribution of it requires the prior written permission of
+* Adobe.
+*
+* Started by Dave Lazarony, 13 May 1996
+*
+********************************************************************************/
+
+/*
+ *													    Mac CNTL Resource			
+ *							   						   ------------------------------------------------------------------------------	
+ *	ADMItemType				 	   Mac Dialog Item 	   CDEF Res ID 	Variation					Additional Fields
+ * -----------------------------   -----------------   -----------  -------------------------  --------------------------------------		 
+ *	ADM Frame						User Item				
+ *									Control Item		1000		ADMFrameStyle				Control Title is Group Name			
+ *							   										
+ *	ADM List Box					Control Item		1010		ADMListBoxStyle				Min = MenuID = MenuResID
+ *
+ *	ADM Picture Check Box			Control Item		1023		ADMPictureButtonStyle		Value = PictureID, Min = PictureSelectedID, Max = PictureDisabledID
+ *
+ *	ADM Picture Push Button			Control Item		1020		ADMPictureButtonStyle		Value = PictureID, Min = PictureSelectedID, Max = PictureDisabledID
+ *
+ *	ADM Picture Radio Button		Control Item		1021		ADMPictureButtonStyle		Value = PictureID, Min = PictureSelectedID, Max = PictureDisabledID
+ *
+ *	ADM Picture Static				Icon Item							
+ *									Picture Item
+ *									Control Item		1022		0							Value = PictureID, Min = PictureSelectedID, Max = PictureDisabledID						
+ *
+ *	ADM Popup List					Control Item		63			0				 			Min = MenuID = MenuResID
+ *
+ *	ADM Popup Menu					Control Item		1030		ADMPopupMenuStyle			Min = MenuID = MenuResID
+ *
+ *	ADM Resize						Control Item		1040		0					
+ *
+ *	ADM Scrollbar					Control Item		1			0							Value = IntValue, Min = IntMin, Max = IntMax
+ *
+ *	ADM Scrolling Popup List		Control Item		1031		0
+ *
+ *	ADM Slider						Control Item		1050		0							Value = IntValue, Min = IntMin, Max = IntMax
+ *
+ *	ADM Spin Edit					Control Item		1060		ADMSpinEditStyle			Value = ADMJustify, 
+ *
+ *	ADM Spin Edit Popup				Control Item		1061		ADMSpinEditPopupStyle		Value = ADMJustify, Min = MenuID = MenuResID
+ *
+ *	ADM Spin Edit Scrolling Popup	Control Item		1062		ADMSpinEditPopupStyle		Value = ADMJustify, Min = MenuID = MenuResID
+ *
+ *	ADM Text Check Box				Check Box Item			
+ *									Control Item		0			1					
+ *
+ *	ADM Text Edit					Edit Text Item			
+ *									Control Item		1070		ADMTextEditStyle			Value = ADMJustify				
+ *
+ *	ADM Text Edit Multi Line		Control Item		1073		0							Value = ADMJustify				
+ *
+ *	ADM Text Edit Popup				Control Item		1071		ADMTextEditPopupStyle		Value = ADMJustify, Min = MenuID = MenuResID				
+ *
+ *	ADM Text Edit Scrolling Popup	Control Item		1075		ADMTextEditPopupStyle		Value = ADMJustify, Min = MenuID = MenuResID				
+ *
+ *	ADM Text Push Button			Push Button Item		
+ *									Control Item		0			0					
+ *									Control Item		0			4 = Default					itemID = 1 is made default automaticly.
+ *
+ *	ADM Text Radio Button			Radio Button Item		
+ *									ControlItem			0			2				
+ *
+ *	ADM Text Static					Static Text Item		
+ *									ControlItem			1072		0							Value = ADMJustify	
+ *									
+ *	ADM Text Static	Multi Line		ControlItem			1074		0							Value = ADMJustify	
+ *
+ *	ADM User						ControlItem			1080		0
+ *
+ *	ADM Custom						ControlItem			1090		CNTL Title = "Name Registered Custom Item Type"
+ *
+ *	ADM Hierarchical List			ControlItem 		1011		0
+ *
+ *	ADM Progress Bar				ControlItem			5			0							Value = IntValue, Min = IntMin, Max = IntMax
+ *
+ *	ADM Chasing Arrows				ControlItem			7			0
+ *
+ *	ADM Unicode Text Edit			ControlItem			1100		0							Value = ADMJustify
+ *
+ *	ADM Password Text Edit			ControlItem			1200		0
+ */
+ 
+ 
+/*
+ *	ADMItemType				 		Windows Class Name  					Window Style				Comments		
+ * -----------------------------	--------------------------------		------------------------	---------------------------------------------	 
+ *	ADM Frame						"Button"								BS_GROUPBOX					== kADMSunkenFrameStyle
+ *									"Static"								SS_BLACKRECT				== kADMBlackFrameStyle
+ *									"Static"								SS_GRAYRECT					== kADMGrayFrameStyle
+ *									"Static"								SS_WHITERECT				== kADMRaisedFrameStyle
+ *									"Static"								SS_BLACKFRAME				== kADMBlackFrameStyle
+ *									"Static"								SS_GRAYFRAME				== kADMGrayFrameStyle
+ *									"Static"								SS_WHITEFRAME				== kADMRaisedFrameStyle
+ *									"Static"								SS_ETCHEDHORZ				== kADMSunkenFrameStyle
+ *									"Static"								SS_ETCHEDVERT				== kADMSunkenFrameStyle
+ *									"Static"								SS_ETCHEDFRAME				== kADMSunkenFrameStyle
+ *									"ADM Frame Type"						ADMFrameStyle
+ *							   												
+ *	ADM List Box					"Listbox"								
+ *									"ADM List Box Type"						ADMListBoxStyle		
+ *																			
+ *	ADM Picture Push Button			"ADM Picture Push Button Type"			0							item name == MAKEINTRESOURCE(pictureID)			
+ *																			
+ *	ADM Picture Radio Button		"ADM Picture Radio Button Type"			0							item name == MAKEINTRESOURCE(pictureID)			
+ *																			
+ *	ADM Picture Static				"Static"								SS_BITMAP					item name == MAKEINTRESOURCE(pictureID)
+ *									"Static"								SS_ICON						item name == MAKEINTRESOURCE(pictureID)
+ *									"Static"								SS_ENHMETAFILE				item name == MAKEINTRESOURCE(pictureID)
+ *									"ADM Picture Static Type"				0							item name == MAKEINTRESOURCE(pictureID)
+ *																			
+ *	ADM Popup List					"Combobox"								CBS_DROPDOWNLIST			
+ *									"ADM Popup List Type"					0			
+ *																			
+ *	ADM Popup Menu					"ADM Popup Menu Type"					ADMPopupMenuStyle					
+ *																			
+ *	ADM Resize						"ADM Resize Type"						0					
+ *																			
+ *	ADM Scrollbar					"Scrollbar"								0
+ *									"ADM Scrollbar Type"					0
+ *																			
+ *	ADM Scrolling Popup List		"Combobox"								CBS_DROPDOWNLIST | WS_VSCROLL			
+ *									"ADM Scrolling Popup List Type"			0			
+ *																			
+ *	ADM Slider						"MSCtls_Trackbar32"						0					
+ *									"ADM Slider Type"						0			
+ *																			
+ *	ADM Spin Edit					"ADM Spin Edit Type"					ADMSpinEditStyle
+ *																			
+ *	ADM Spin Edit Popup				"Combobox"								CBS_DROPDOWN				== kADMSingleLineEditPopupStyle
+ *									"ADM Spin Edit Popup Type"				ADMSpinEditPopupStyle
+ *																			
+ *	ADM Spin Edit Scrolling Popup	"Combobox"								CBS_DROPDOWN | WS_VSCROLL	== kADMSingleLineEditPopupStyle
+ *									"ADM Spin Edit Scrolling Popup Type"	ADMSpinEditPopupStyle
+ *																			
+ *	ADM Text Check Box				"Button"								BS_CHECKBOX
+ *									"Button"								BS_AUTOCHECKBOX
+ *									"Button"								BS_3STATE
+ *									"Button"								BS_AUTO3STATE
+ *									"ADM Text Check Box Type"				0
+ *																			
+ *	ADM Text Edit					"Edit"									ES_LEFT						== kADMLeftJustify
+ *									"Edit"									ES_CENTER					== kADMCenterJustify
+ *									"Edit"									ES_RIGHT					== kADMRightJustify
+ *									"Edit"									ES_NUMBER					== kADMNumbericEditStyle  (Auto sets if you call SetXValue().)
+ *									"Edit"									ES_PASSWORD					== kADMPasswordTextEditStyle
+ *									"ADM Text Edit Type"					ADMTextEditStyle		
+ *																			
+ *	ADM Text Edit Multi Line		"Edit"									ES_MULTILINE					== kADMNumbericEditStyle  (Auto sets if you call SetXValue().)
+ *									"ADM Text Edit Multi Line Type"			0		
+ *																			
+ *	ADM Text Edit Popup				"Combobox"								CBS_DROPDOWN				== kADMSingleLineEditPopupStyle
+ *									"ADM Text Edit Popup Type"				ADMTextEditPopupStyle
+ *																			
+ *	ADM Text Push Button			"Button"								BS_DEFPUSHBUTTON			== Default
+ *									"Button"								BS_PUSHBUTTON
+ *									"Button"								BS_USERBUTTON
+ *									"Button"								BS_OWNERDRAW
+ *									"ADM Text Push Button Type"				0
+ *																			
+ *	ADM Text Radio Button			"Button"								BS_RADIOBUTTON
+ *									"Button"								BS_AUTORADIOBUTTON
+ *									"ADM Text Radio Button Type"			0
+ *																			
+ *	ADM Text Static					"Static"								SS_LEFT						== kADMLeftJustify
+ *									"Static"								SS_CENTER					== kADMCenterJustify
+ *									"Static"								SS_RIGHT					== kADMRightJustify
+ *									"Static"								SS_LEFTNOWORDWRAP			== kADMLeftJustify
+ *									"Static"								SS_SIMPLE					== kADMLeftJustify
+ *									"ADM Text Static Type"					0
+ *																			
+ *	ADM Text Static	Multi Line		"Edit"									ES_READONLY					
+ *									"ADM Text Static Multi Line Type"		0
+ *																			
+ *  ADM User						"ADM User Type"							0
+ */																			
+																			

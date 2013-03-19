@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		169368A216F1A0130021909E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169368A116F1A0130021909E /* Foundation.framework */; };
+		169368A716F1A0130021909E /* nodejs.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169368A616F1A0130021909E /* nodejs.h */; };
+		169368A916F1A0130021909E /* nodejs.m in Sources */ = {isa = PBXBuildFile; fileRef = 169368A816F1A0130021909E /* nodejs.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1693689C16F1A0130021909E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				169368A716F1A0130021909E /* nodejs.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1693689E16F1A0130021909E /* libnodejs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnodejs.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		169368A116F1A0130021909E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		169368A516F1A0130021909E /* nodejs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nodejs-Prefix.pch"; sourceTree = "<group>"; };
+		169368A616F1A0130021909E /* nodejs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nodejs.h; sourceTree = "<group>"; };
+		169368A816F1A0130021909E /* nodejs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nodejs.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1693689B16F1A0130021909E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				169368A216F1A0130021909E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1693689516F1A0130021909E = {
+			isa = PBXGroup;
+			children = (
+				169368A316F1A0130021909E /* nodejs */,
+				169368A016F1A0130021909E /* Frameworks */,
+				1693689F16F1A0130021909E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1693689F16F1A0130021909E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1693689E16F1A0130021909E /* libnodejs.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		169368A016F1A0130021909E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				169368A116F1A0130021909E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		169368A316F1A0130021909E /* nodejs */ = {
+			isa = PBXGroup;
+			children = (
+				169368A616F1A0130021909E /* nodejs.h */,
+				169368A816F1A0130021909E /* nodejs.m */,
+				169368A416F1A0130021909E /* Supporting Files */,
+			);
+			path = nodejs;
+			sourceTree = "<group>";
+		};
+		169368A416F1A0130021909E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				169368A516F1A0130021909E /* nodejs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1693689D16F1A0130021909E /* nodejs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 169368AC16F1A0130021909E /* Build configuration list for PBXNativeTarget "nodejs" */;
+			buildPhases = (
+				1693689A16F1A0130021909E /* Sources */,
+				1693689B16F1A0130021909E /* Frameworks */,
+				1693689C16F1A0130021909E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nodejs;
+			productName = nodejs;
+			productReference = 1693689E16F1A0130021909E /* libnodejs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1693689616F1A0130021909E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = wsi;
+			};
+			buildConfigurationList = 1693689916F1A0130021909E /* Build configuration list for PBXProject "nodejs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1693689516F1A0130021909E;
+			productRefGroup = 1693689F16F1A0130021909E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1693689D16F1A0130021909E /* nodejs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1693689A16F1A0130021909E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				169368A916F1A0130021909E /* nodejs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		169368AA16F1A0130021909E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		169368AB16F1A0130021909E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		169368AD16F1A0130021909E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/nodejs.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nodejs/nodejs-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		169368AE16F1A0130021909E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/nodejs.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "nodejs/nodejs-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1693689916F1A0130021909E /* Build configuration list for PBXProject "nodejs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				169368AA16F1A0130021909E /* Debug */,
+				169368AB16F1A0130021909E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		169368AC16F1A0130021909E /* Build configuration list for PBXNativeTarget "nodejs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				169368AD16F1A0130021909E /* Debug */,
+				169368AE16F1A0130021909E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1693689616F1A0130021909E /* Project object */;
+}

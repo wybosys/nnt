@@ -1,0 +1,19 @@
+
+# ifndef __WSI_UIKIT_ANIMATION_153E2E9C8BF94924A3AC215083B5F69A_H_INCLUDED
+# define __WSI_UIKIT_ANIMATION_153E2E9C8BF94924A3AC215083B5F69A_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface CGAnimation : WSIObject {
+    
+    CGFloat duration;
+    
+}
+
+@property (nonatomic) CGFloat duration;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

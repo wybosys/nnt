@@ -1,0 +1,2 @@
+#!/bin/bash
+uuidgen |sed -e 's/-//g' -e "s/^/__$1_/" -e 's/$/_H_INCLUDED/'

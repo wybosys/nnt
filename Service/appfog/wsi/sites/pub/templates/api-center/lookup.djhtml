@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<title>{{ method }}</title>
+<body>
+	
+	<h1>{{ doc.summary }}</h1>
+	{% for param_name, param_value in doc.param.iteritems %}
+	<div>
+		<span style="font-weight: bold; font-style: italic">{{ param_name }}</span> : {{ param_value }}
+	</div>
+	{% endfor %}
+	
+	{% if doc.return %}
+	<h1>Return</h1>
+	<div>
+		{{ doc.return }}
+	</div>
+	{% endif %}
+	
+	{% if right %}
+	<h1>Right</h1>
+	<div>
+		<div><span style="font-weight: bold">Group: </span>{{ right.group }}</div>
+		<div><span style="font-weight: bold">User: </span>{{ right.user }}</div>
+		<div><span style="font-weight: bold">Permission: </span>
+			<span> Group: </span>{{ right.right.0 }}
+			<span> User: </span>{{ right.right.1 }}
+			<span> Other :</span>{{ right.right.2 }}
+		</div>
+	</div>
+	{% endif %}
+	
+</body>

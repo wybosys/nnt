@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16AC1C3F16F2B13D00316206 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC1C3E16F2B13D00316206 /* Foundation.framework */; };
+		16AC1C4416F2B13D00316206 /* libv8.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16AC1C4316F2B13D00316206 /* libv8.h */; };
+		16AC1C4616F2B13D00316206 /* libv8.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AC1C4516F2B13D00316206 /* libv8.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16AC1C3916F2B13D00316206 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				16AC1C4416F2B13D00316206 /* libv8.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		16AC1C3B16F2B13D00316206 /* libv8_i32.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libv8_i32.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16AC1C3E16F2B13D00316206 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		16AC1C4216F2B13D00316206 /* libv8-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libv8-Prefix.pch"; sourceTree = "<group>"; };
+		16AC1C4316F2B13D00316206 /* libv8.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libv8.h; sourceTree = "<group>"; };
+		16AC1C4516F2B13D00316206 /* libv8.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libv8.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16AC1C3816F2B13D00316206 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16AC1C3F16F2B13D00316206 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16AC1C3216F2B13D00316206 = {
+			isa = PBXGroup;
+			children = (
+				16AC1C4016F2B13D00316206 /* libv8 */,
+				16AC1C3D16F2B13D00316206 /* Frameworks */,
+				16AC1C3C16F2B13D00316206 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16AC1C3C16F2B13D00316206 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16AC1C3B16F2B13D00316206 /* libv8_i32.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16AC1C3D16F2B13D00316206 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16AC1C3E16F2B13D00316206 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16AC1C4016F2B13D00316206 /* libv8 */ = {
+			isa = PBXGroup;
+			children = (
+				16AC1C4316F2B13D00316206 /* libv8.h */,
+				16AC1C4516F2B13D00316206 /* libv8.m */,
+				16AC1C4116F2B13D00316206 /* Supporting Files */,
+			);
+			path = libv8;
+			sourceTree = "<group>";
+		};
+		16AC1C4116F2B13D00316206 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16AC1C4216F2B13D00316206 /* libv8-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16AC1C3A16F2B13D00316206 /* v8_i32 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16AC1C4916F2B13D00316206 /* Build configuration list for PBXNativeTarget "v8_i32" */;
+			buildPhases = (
+				16AC1C3716F2B13D00316206 /* Sources */,
+				16AC1C3816F2B13D00316206 /* Frameworks */,
+				16AC1C3916F2B13D00316206 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = v8_i32;
+			productName = libv8;
+			productReference = 16AC1C3B16F2B13D00316206 /* libv8_i32.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16AC1C3316F2B13D00316206 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = wsi;
+			};
+			buildConfigurationList = 16AC1C3616F2B13D00316206 /* Build configuration list for PBXProject "libv8" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 16AC1C3216F2B13D00316206;
+			productRefGroup = 16AC1C3C16F2B13D00316206 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16AC1C3A16F2B13D00316206 /* v8_i32 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16AC1C3716F2B13D00316206 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16AC1C4616F2B13D00316206 /* libv8.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		16AC1C4716F2B13D00316206 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		16AC1C4816F2B13D00316206 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16AC1C4A16F2B13D00316206 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libv8.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libv8/libv8-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					V8_ENABLE_CHECKS,
+					ENABLE_DISASSEMBLER,
+					V8_TARGET_ARCH_IA32,
+					ENABLE_DEBUGGER_SUPPORT,
+					ENABLE_LATIN_1,
+					OBJECT_PRINT,
+					VERIFY_HEAP,
+					ENABLE_EXTRA_CHECKS,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16AC1C4B16F2B13D00316206 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libv8.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libv8/libv8-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16AC1C3616F2B13D00316206 /* Build configuration list for PBXProject "libv8" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16AC1C4716F2B13D00316206 /* Debug */,
+				16AC1C4816F2B13D00316206 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16AC1C4916F2B13D00316206 /* Build configuration list for PBXNativeTarget "v8_i32" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16AC1C4A16F2B13D00316206 /* Debug */,
+				16AC1C4B16F2B13D00316206 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16AC1C3316F2B13D00316206 /* Project object */;
+}

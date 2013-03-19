@@ -1,0 +1,15 @@
+
+# ifndef __BBLAYOUT_F3E70DDD9CFE400E9634A887A85945B9_H_INCLUDED
+# define __BBLAYOUT_F3E70DDD9CFE400E9634A887A85945B9_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface BBLayout : NSObject
+
+-(CGSize)layoutSubviews:(NSArray *)subviews forView:(UIView *)view;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif

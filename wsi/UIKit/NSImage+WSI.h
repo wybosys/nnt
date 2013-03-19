@@ -1,0 +1,19 @@
+
+# ifndef __WSINS_IMAGE_345B366F03764606BD52C5771FD6426B_H_INCLUDED
+# define __WSINS_IMAGE_345B366F03764606BD52C5771FD6426B_H_INCLUDED
+
+WSI_BEGIN_HEADER_OBJC
+
+@interface NSImage (WSI)
+
+//! save as png image.
+- (void)saveAsPNG:(NSURL*)url;
+
+//! get png data.
+- (NSData*)dataAsPNG;
+
+@end
+
+WSI_END_HEADER_OBJC
+
+# endif
