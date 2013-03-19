@@ -32,9 +32,9 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include NGColor.h"
-# include NGGradient.h"
-# include NGImage.h"
+# include "NGColor.h"
+# include "NGGradient.h"
+# include "NGImage.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(cg)

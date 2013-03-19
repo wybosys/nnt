@@ -1,7 +1,7 @@
 
 # include "Core.h"
-# include "NNTConfiguration.h"
-# include "NNTBdb.h"
+# include "Configuration+NNT.h"
+# include "Bdb+NNT.h"
 
 NNT_BEGIN_CXX 
 NNT_BEGIN_NS(store)

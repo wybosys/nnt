@@ -16,7 +16,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include NGPath.h"
+# include "NGPath.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ca)

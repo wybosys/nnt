@@ -1,6 +1,6 @@
 
-# ifndef __WSI_ACE_8F20E046D78F4D1389474C889A208C3E_H_INCLUDED
-# define __WSI_ACE_8F20E046D78F4D1389474C889A208C3E_H_INCLUDED
+# ifndef __NNT_ACE_8F20E046D78F4D1389474C889A208C3E_H_INCLUDED
+# define __NNT_ACE_8F20E046D78F4D1389474C889A208C3E_H_INCLUDED
 
 # include <boost/shared_ptr.hpp>
 
@@ -17,23 +17,23 @@
 # include <ace/Mutex.h>
 # include <ace/Semaphore.h>
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ace)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ace)
 
 template <typename RT, typename LT>
 RT type_cast(LT const& l);
 
 typedef ::boost::shared_ptr<ACE_Time_Value> ACE_Time_Value_Shared;
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
-# include "../../Classes/Core/Time+WSI.h"
+# include "../../Classes/Core/Time+NNT.h"
 # include "../../Classes/Cross/NetAddress.h"
 # include "../../Classes/Cross/SocketStream.h"
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(ace)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ace)
 
 template <>
 inline_impl ACE_INET_Addr type_cast<ACE_INET_Addr, cross::NetAddress>(cross::NetAddress const& addr)
@@ -218,7 +218,7 @@ protected:
     
     ACE_SOCK_Stream _stm;
     
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
 };
 
 class SocketStreamAsync
@@ -270,7 +270,7 @@ protected:
 
     bool _do_read(core::data&);
 
-    WSIDECL_SIGNALS_SLOTS;
+    NNTDECL_SIGNALS_SLOTS;
 
 };
 
@@ -315,7 +315,7 @@ protected:
     threads_type _threads;
 };
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif

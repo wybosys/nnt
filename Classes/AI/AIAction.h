@@ -2,7 +2,7 @@
 # ifndef __NNTAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
 # define __NNTAI_ACTION_e062f2a3aa664315a23e742902bbb5ee_H_INCLUDED
 
-# include "../WTL/Interface+NNT.h"
+# include "../TL/Interface+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ai)

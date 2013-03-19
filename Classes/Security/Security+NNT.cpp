@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "WsiSecurity.h"
+# include "Security+NNT.h"
 
 NNT_BEGIN_CXX
 

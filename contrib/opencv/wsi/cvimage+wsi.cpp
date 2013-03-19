@@ -5,7 +5,7 @@
 # include "cvimage+wsi.h"
 # include "../modules/highgui/grfmt_base.hpp"
 
-//WSI_BEGIN_CXX
+//NNT_BEGIN_CXX
 
 using namespace cv;
 
@@ -41,4 +41,4 @@ IplImage* cvLoadImageFromData(byte const* __data, usize __len)
 }
  */
 
-//WSI_END_CXX
+//NNT_END_CXX

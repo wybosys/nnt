@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "XmlParser.h"
-# include "../Security/WsiSecurity.h"
+# include "../Security/Security+NNT.h"
 
 # ifdef USE_LIBXERCESC
 #   include "../../contrib/libxml/LIBXERCESC+NNT.h"

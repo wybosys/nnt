@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTBdb.h"
+# include "Bdb+NNT.h"
 
 NNT_BEGIN_HEADER_C
 

@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTLua.h"
+# include "Lua+NNT.h"
 
 NNT_BEGIN_HEADER_C
 

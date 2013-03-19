@@ -61,7 +61,7 @@ NNTEVENT_END
     CALayer *layer = [CALayer layer];
     layer.frame = CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f);
     layer.contentsGravity = kCAGravityResizeAspect;
-    layer.contents = (id)WCGImageLoadPngData(png_arrow_blue, sizeof(png_arrow_blue));
+    layer.contents = (id)NgImageLoadPngData(png_arrow_blue, sizeof(png_arrow_blue));
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {

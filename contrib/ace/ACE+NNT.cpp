@@ -1,14 +1,14 @@
 
 # include "Core.h"
-# include "ACE+WSI.h"
-# include "../../Classes/Core/Task+WSI.h"
+# include "ACE+NNT.h"
+# include "../../Classes/Core/Task+NNT.h"
 
 # if !defined(ACE_HAS_WIN32_OVERLAPPED_IO) && !defined(ACE_HAS_AIO_CALLS)
 #   error "unsupport aio handler."
 # endif
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(ace)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ace)
 
 struct _ace_global
 {
@@ -121,7 +121,7 @@ bool SocketStreamSync::write(core::data const& d)
     int sta = this->w()->send_n(d.c_str(), d.length());
     bool suc = sta == d.length();
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (suc) 
 	{
 		trace_msg("stream send:\n" + core::type_cast<core::string>(d));
@@ -143,7 +143,7 @@ bool SocketStreamSync::read(core::data& d)
 	d.set_length(sta);
 	this->wait = sta != 0;
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (suc) 
 	{
 		trace_msg("stream receive:\n" + core::string(d.c_str(), d.length()));
@@ -170,7 +170,7 @@ bool SocketStreamSync::read(core::data& d, core::Timeout const& tm)
 	d.set_length(readed);
 	this->wait = readed != 0;
     
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (suc) 
 	{
 		trace_msg("stream receive:\n" + core::string(d.c_str(), d.length()));
@@ -208,10 +208,10 @@ cross::NetAddress SocketStreamSync::remote_address() const
     return addr_client;
 }
 
-WSIDECL_SIGNALS_BEGIN(SocketStreamSync, cross::SocketStream)
-WSI_SIGNAL(kSignalBytesAvailable)
-WSI_SIGNAL(kSignalClosed)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(SocketStreamSync, cross::SocketStream)
+NNT_SIGNAL(kSignalBytesAvailable)
+NNT_SIGNAL(kSignalClosed)
+NNTDECL_SIGNALS_END
 
 // stream async.
 
@@ -230,10 +230,10 @@ SocketStreamAsync::~SocketStreamAsync()
     core::clear_destroy(buffers);
 }
 
-WSIDECL_SIGNALS_BEGIN(SocketStreamAsync, cross::SocketStream)
-WSI_SIGNAL(kSignalBytesAvailable)
-WSI_SIGNAL(kSignalClosed)
-WSIDECL_SIGNALS_END
+NNTDECL_SIGNALS_BEGIN(SocketStreamAsync, cross::SocketStream)
+NNT_SIGNAL(kSignalBytesAvailable)
+NNT_SIGNAL(kSignalClosed)
+NNTDECL_SIGNALS_END
 
 bool SocketStreamAsync::wait_next(bool _wait)
 {
@@ -312,7 +312,7 @@ bool SocketStreamAsync::_do_read(core::data& d)
 
 	target.set_length(target.position());
 
-# ifdef WSI_DEBUG
+# ifdef NNT_DEBUG
     if (d.length() != 0)
     {
         trace_msg("stream receive:\n" + core::string(d.c_str(), d.length()));
@@ -386,5 +386,5 @@ void ProactorTask::RunLoop()
     task.open();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

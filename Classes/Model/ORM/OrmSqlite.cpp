@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "OrmSqlite.hpp"
-# include "NNTSqlite.h"
+# include "Sqlite+NNT.h"
 # include <sqlite/sqlite3.h>
 
 NNT_BEGIN_ORM

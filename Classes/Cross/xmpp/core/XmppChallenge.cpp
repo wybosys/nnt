@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "XmppChallenge.h"
 # include "../XmppClient.h"
-# include "../../../Security/WsiSecurity.h"
+# include "../../../Security/Security+NNT.h"
 # include "XmppResponse.h"
 # include "../../../Parser/XmlParserUtil.h"
 

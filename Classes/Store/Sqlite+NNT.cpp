@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTSqlite.h"
+# include "Sqlite+NNT.h"
 
 NNT_BEGIN_HEADER_C
 

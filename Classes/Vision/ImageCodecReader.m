@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "ImageCodecReader.h"
 # import "../../contrib/libpng/png.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 # import "../../contrib/zbar/include/zbar.h"
 
 NNT_BEGIN_OBJC

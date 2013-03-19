@@ -1,12 +1,12 @@
 
 # include "Core.h"
-# include "LIBXERCESC+WSI.h"
+# include "LIBXERCESC+NNT.h"
 
 # include <xercesc/util/PlatformUtils.hpp>
 # include <xercesc/util/XMLString.hpp>
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(xml)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(xml)
 
 class Environment
 {
@@ -27,5 +27,5 @@ Environment::~Environment()
 
 static Environment __gs_xml_environment;
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

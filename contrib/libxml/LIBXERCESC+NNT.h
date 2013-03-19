@@ -1,6 +1,6 @@
 
-# ifndef __XERCESC_WSI_621C44AD041E42088893D630D4BC8851_H_INCLUDED
-# define __XERCESC_WSI_621C44AD041E42088893D630D4BC8851_H_INCLUDED
+# ifndef __XERCESC_NNT_621C44AD041E42088893D630D4BC8851_H_INCLUDED
+# define __XERCESC_NNT_621C44AD041E42088893D630D4BC8851_H_INCLUDED
 
 # include <xercesc/dom/DOM.hpp>
 # include <xercesc/dom/DOMException.hpp>
@@ -14,8 +14,8 @@
 # include <xercesc/framework/LocalFileInputSource.hpp>
 # include <xercesc/framework/LocalFileFormatTarget.hpp>
 
-WSI_BEGIN_HEADER_CXX
-WSI_BEGIN_NS(xml)
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(xml)
 
 class string
 {
@@ -68,7 +68,7 @@ static string tostr(core::string const& str)
     return string(raw);
 }
 
-WSI_END_NS
-WSI_END_HEADER_CXX
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif
