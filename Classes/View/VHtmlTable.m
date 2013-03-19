@@ -3,7 +3,7 @@
 # import "VHtmlTable.h"
 # import "IVTable.h"
 # import "VHtml.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 
 NNT_BEGIN
 
