@@ -1553,8 +1553,8 @@
 		16FF0DCA155B97540044E9F8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167172FE144459320066E7FE /* MapKit.framework */; };
 		16FF0DCB155B975F0044E9F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1665553313A60B81008DF239 /* UIKit.framework */; };
 		16FF0DCC155B97680044E9F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D7998214414088007E014D /* CoreLocation.framework */; };
-		16FF0DCF155BA0430044E9F8 /* CIFilter+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FF0DCD155BA0430044E9F8 /* CIFilter+WSI.h */; };
-		16FF0DD0155BA0430044E9F8 /* CIFilter+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FF0DCE155BA0430044E9F8 /* CIFilter+WSI.mm */; };
+		16FF0DCF155BA0430044E9F8 /* CIFilter+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FF0DCD155BA0430044E9F8 /* CIFilter+NNT.h */; };
+		16FF0DD0155BA0430044E9F8 /* CIFilter+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16FF0DCE155BA0430044E9F8 /* CIFilter+NNT.mm */; };
 		29497400148F4D150012E232 /* UIOAToggleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 294973FE148F4D150012E232 /* UIOAToggleView.h */; };
 		29497401148F4D150012E232 /* UIOAToggleView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 294973FF148F4D150012E232 /* UIOAToggleView.mm */; };
 		7499EC5015270DF60051E9D7 /* JuiceCLI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7499EC4315270DF60051E9D7 /* JuiceCLI.hpp */; };
@@ -3128,8 +3128,8 @@
 		16FD79D2158F1DA6006E981C /* XmppFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppFeatures.cpp; sourceTree = "<group>"; };
 		16FD79D3158F1DA6006E981C /* XmppFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppFeatures.h; sourceTree = "<group>"; };
 		16FF0DC0155B971E0044E9F8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		16FF0DCD155BA0430044E9F8 /* CIFilter+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+WSI.h"; sourceTree = "<group>"; };
-		16FF0DCE155BA0430044E9F8 /* CIFilter+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "CIFilter+WSI.mm"; sourceTree = "<group>"; };
+		16FF0DCD155BA0430044E9F8 /* CIFilter+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+NNT.h"; sourceTree = "<group>"; };
+		16FF0DCE155BA0430044E9F8 /* CIFilter+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "CIFilter+NNT.mm"; sourceTree = "<group>"; };
 		293C4A521490886100813DE4 /* UIOAToggleView.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIOAToggleView.res; sourceTree = "<group>"; };
 		294973FE148F4D150012E232 /* UIOAToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOAToggleView.h; sourceTree = "<group>"; };
 		294973FF148F4D150012E232 /* UIOAToggleView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIOAToggleView.mm; sourceTree = "<group>"; };
@@ -5177,8 +5177,8 @@
 		16D8A82515367E3A0007EB8D /* Vision */ = {
 			isa = PBXGroup;
 			children = (
-				16FF0DCD155BA0430044E9F8 /* CIFilter+WSI.h */,
-				16FF0DCE155BA0430044E9F8 /* CIFilter+WSI.mm */,
+				16FF0DCD155BA0430044E9F8 /* CIFilter+NNT.h */,
+				16FF0DCE155BA0430044E9F8 /* CIFilter+NNT.mm */,
 				162EE3881537C7B700A47238 /* AVCamRecorderManager.h */,
 				162EE3891537C7B700A47238 /* AVCamRecorderManager.m */,
 				162EE38A1537C7B700A47238 /* AVCamSnapshotManager.h */,
@@ -5964,7 +5964,7 @@
 				16EAD51D155A422B00C3105F /* SOAPParser.h in Headers */,
 				16EAD51F155A422B00C3105F /* SVGParser.h in Headers */,
 				16EAD8C5155A5C3B00C3105F /* JuiceSVG.hpp in Headers */,
-				16FF0DCF155BA0430044E9F8 /* CIFilter+WSI.h in Headers */,
+				16FF0DCF155BA0430044E9F8 /* CIFilter+NNT.h in Headers */,
 				16444E9D1561EE95006BB97C /* QzTransition.h in Headers */,
 				16444EA21561EFD4006BB97C /* QzAnimation.h in Headers */,
 				16444EAA15623E5D006BB97C /* UIAnimation.h in Headers */,
@@ -6764,7 +6764,7 @@
 				16EAD51A155A422B00C3105F /* PropertyTree.cpp in Sources */,
 				16EAD51C155A422B00C3105F /* SOAPParser.cpp in Sources */,
 				16EAD51E155A422B00C3105F /* SVGParser.cpp in Sources */,
-				16FF0DD0155BA0430044E9F8 /* CIFilter+WSI.mm in Sources */,
+				16FF0DD0155BA0430044E9F8 /* CIFilter+NNT.mm in Sources */,
 				16444E9E1561EE95006BB97C /* QzTransition.mm in Sources */,
 				16444EA31561EFD4006BB97C /* QzAnimation.mm in Sources */,
 				16444EAB15623E5D006BB97C /* UIAnimation.mm in Sources */,

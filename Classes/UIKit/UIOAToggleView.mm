@@ -5,6 +5,8 @@
 # import "OAToggle.h"
 # import "UIOAToggleView.res"
 
+NNT_USINGCXXNAMESPACE;
+
 NNT_BEGIN_OBJC
 
 @interface UIOAToggleViewPrivate : NNTObject {
@@ -51,7 +53,7 @@ NNT_BEGIN_OBJC
         UIImageSwitch *imageSwitch = [[UIImageSwitch alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
         imageSwitch.image = imageRes;
         imageSwitch.value = 0;
-        [imageSwitch storeSet:@"index" obj:::nnt::number(i)];
+        [imageSwitch storeSet:@"index" obj:number(i)];
         [imageSwitch storeSet:@"name" obj:name];
         
         [imageSwitch connect:kSignalValueChanged sel:@selector(act_toggle:) obj:self];

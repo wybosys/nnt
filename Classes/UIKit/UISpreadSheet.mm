@@ -400,28 +400,28 @@ NNTEVENT_END
 - (NSUInteger)headerTopNumber {
     NSUInteger ret = 0;
     if ([dataSource respondsToSelector:@selector(sheetHeadersNumber:dir:)])
-        ret = [dataSource sheetHeadersNumber:self dir:WCGDirectionTop];
+        ret = [dataSource sheetHeadersNumber:self dir:NgDirectionTop];
     return ret;
 }
 
 - (NSUInteger)headerBottomNumber {
     NSUInteger ret = 0;
     if ([dataSource respondsToSelector:@selector(sheetHeadersNumber:dir:)])
-        ret = [dataSource sheetHeadersNumber:self dir:WCGDirectionBottom];
+        ret = [dataSource sheetHeadersNumber:self dir:NgDirectionBottom];
     return ret;
 }
 
 - (NSUInteger)headerLeftNumber {
     NSUInteger ret = 0;
     if ([dataSource respondsToSelector:@selector(sheetHeadersNumber:dir:)])
-        ret = [dataSource sheetHeadersNumber:self dir:WCGDirectionLeft];
+        ret = [dataSource sheetHeadersNumber:self dir:NgDirectionLeft];
     return ret;
 }
 
 - (NSUInteger)headerRightNumber {
     NSUInteger ret = 0;
     if ([dataSource respondsToSelector:@selector(sheetHeadersNumber:dir:)])
-        ret = [dataSource sheetHeadersNumber:self dir:WCGDirectionRight];
+        ret = [dataSource sheetHeadersNumber:self dir:NgDirectionRight];
     return ret;
 }
 
