@@ -1,7 +1,7 @@
 
 # import "Foundation+NNT.h"
 # define WSI_USE_PRECISE
-# import "WSIExecution.h"
+# import "Execution+NNT.h"
 # import "AppDelegate.h"
 
 int main(int argc, char *argv[])

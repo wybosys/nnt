@@ -1,6 +1,21 @@
 
-# import "Foundation+NNT.h"
+# ifndef APP_DELEGATE
+# define APP_DELEGATE
 
-@interface WSIAppDelegate : WSIApplication
+# include "ScriptController.h"
 
-@end
+NNTAPP_BEGIN
+
+class App
+: public Application
+{
+public:
+  
+    void load();
+    ScriptController ctlr;
+    
+};
+
+NNTAPP_END
+
+# endif

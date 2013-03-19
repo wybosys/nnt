@@ -2,16 +2,42 @@
 # ifndef __SAMPLE_SCRIPT_00DA391DB75448588540646FE11EF801_H_INCLUDED
 # define __SAMPLE_SCRIPT_00DA391DB75448588540646FE11EF801_H_INCLUDED
 
-WSI_BEGIN_HEADER_OBJC
+NNTAPP_BEGIN
 
-NNTDECL_PRIVATE_HEAD(ScriptController);
+class ScriptView
+: public ui::View<ScriptView>
+{
+public:
+    
+    ScriptView();
+    void layout_subviews();
+    
+    ui::TextView input, output;
+    ui::BevelButton run;
+    ui::SegmentedControl segment;
+    
+};
 
-@interface ScriptController : WSIUIViewController {
-    NNTDECL_PRIVATE(ScriptController);
-}
+NNTDECL_PRIVATE_HEAD_CXX(ScriptController);
 
-@end
+class ScriptController
+: public ui::Controller<ScriptController, ScriptView>
+{
+    NNTDECL_PRIVATE_CXX(ScriptController);
+    
+public:
+    
+    ScriptController();
+    ~ScriptController();
+    void view_loaded();
+    
+protected:
+    
+    void script_changed(EventObj&);
+    void script_run(EventObj&);
+    
+};
 
-WSI_END_HEADER_OBJC
+NNTAPP_END
 
 # endif

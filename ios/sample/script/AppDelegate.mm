@@ -1,15 +1,12 @@
 
-# import "Foundation+NNT.h"
-# import "AppDelegate.h"
-# import "ScriptController.h"
+# include "Foundation+NNT.h"
+# include "AppDelegate.h"
 
-@implementation WSIAppDelegate
+NNTAPP_BEGIN
 
-- (void)load:(UIApplication *)application options:(NSDictionary *)launchOptions {
-    ScriptController* ctlr = [[ScriptController alloc] init];
-    ctlr.orientationEnable = UIOrientationEnableAll;
-    self.rootViewController = ctlr;
-    [ctlr release];
+void App::load()
+{
+    set_root(ctlr);
 }
 
-@end
+NNTAPP_END

@@ -1,109 +1,60 @@
 
-# import "Foundation+NNT.h"
-# import "ScriptController.h"
-# import "WSIPython.h"
-# import "WSILua.h"
+# include "Foundation+NNT.h"
+# include "ScriptController.h"
+# include "Python+NNT.h"
+# include "Lua+NNT.h"
 
-WSI_BEGIN_OBJC
+NNTAPP_BEGIN
 
-@interface ScriptView : WSIUIView
-
-@property (nonatomic, readonly) WSIUITextView *input, *output;
-@property (nonatomic, readonly) WSIUIButton* run;
-@property (nonatomic, readonly) WSIUISegmentedControl* segment;
-
-@end
-
-@implementation ScriptView
-
-@synthesize input, output;
-@synthesize run;
-@synthesize segment;
-
-- (id)initWithZero {
-    self = [super initWithZero];
+ScriptView::ScriptView()
+{
+    input.layer().border().set_width(1);
+    output.layer().border().set_width(1);
+    output.set_readonly();
+    run.set_text(@"RUN");
+    segment.set_items(ns::MutableArray() << @"Python" << @"Lua");
     
-    input = [[WSIUITextView alloc] initWithZero];
-    input.layer.borderWidth = 1;
-    
-    output = [[WSIUITextView alloc] initWithZero];
-    output.editable = NO;
-    output.layer.borderWidth = 1;
-    
-    run = [[UIBevelButton alloc] initWithZero];
-    run.backgroundColor = [UIColor blueColor];
-    [run setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    segment = [[WSIUISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Python", @"Lua", nil]];   
-    
-    [self addSubview:input];
-    [self addSubview:output];
-    [self addSubview:run];
-    [self addSubview:segment];
-    
-    return self;
+    add_sub(input);
+    add_sub(output);
+    add_sub(run);
+    add_sub(segment);
 }
 
-- (void)dealloc {
-    [input release];
-    [output release];
-    [run release];
-    [segment release];
-    [super dealloc];
-}
-
-- (void)layoutSubviews {
-    wsi::CGRectLayoutVBox lyt(self.bounds);
+void ScriptView::layout_subviews()
+{
+    layout::vbox lyt(bounds());
     lyt.set_margin(5, 5);
+    layout::linear lnr(lyt);
+    lnr << (pixel)50 << (flex)1 << (flex)1;
     
-    wsi::CGRectLayoutLinear lnr(lyt);
-    lnr << (wsi::pixel)50 << (wsi::flex)1 << (wsi::flex)1;
+    segment.set_frame(lyt << lnr);
+    output.set_frame(lyt << lnr);
+    input.set_frame(lyt << lnr);
     
-    segment.frame = lyt.stride_pixel(lnr.start());
-    output.frame = lyt.stride_pixel(lnr.next());
-    input.frame = lyt.stride_pixel(lnr.next());    
-    
-    run.frame = CGRectMakePtSz(CGPointAddX(CGRectRightTop2(output.frame), -50), CGSizeMake(50, 50));
+    run.set_frame(CGRectMakePtSz(CGPointAddX(output.frame().rt(), -50), CGSizeMake(50, 50)));
 }
 
-@end
+NNTDECL_PRIVATE_BEGIN_CXX(ScriptController)
 
-@interface ScriptControllerPrivate : WSIObject {
-    WSIPython* python;
-    WSILua* lua;
+void init()
+{
+    python = NULL;
+    lua = NULL;
 }
 
-@property (nonatomic, assign) ScriptController* d_owner;
-@property (nonatomic, retain) WSIPython* python;
-@property (nonatomic, retain) WSILua* lua;
-
-- (void)clear;
-- (id<WSIScript>)script;
-
-@end
-
-@implementation ScriptControllerPrivate
-
-@synthesize d_owner;
-@synthesize python, lua;
-
-- (id)init {
-    self = [super init];    
-    return self;
+void dealloc()
+{
+    clear();
 }
 
-- (void)dealloc {
-    [python release];
-    [lua release];
-    [super dealloc];
+void clear()
+{
+    safe_release(python);
+    safe_release(lua);
 }
 
-- (void)clear {
-    zero_release(python);
-    zero_release(lua);
-}
-
-- (id<WSIScript>)script {
+id<NNTScript> script()
+{
     if (python) {
         return python;
     } else if (lua) {
@@ -112,67 +63,65 @@ WSI_BEGIN_OBJC
     return nil;
 }
 
-@end
+NNTPython* python;
+NNTLua* lua;
 
-@implementation ScriptController
+NNTDECL_PRIVATE_END_CXX
 
-- (id)init {
-    self = [super init];
-    NNTDECL_PRIVATE_INIT(ScriptController);
-    return self;
-}
-
-- (void)dealloc {
-    NNTDECL_PRIVATE_DEALLOC();
-    [super dealloc];
-}
-
-- (void)loadView {
-    ScriptView* view = [[ScriptView alloc] initWithZero];
-    self.view = view;
-    [view release];
-}
-
-- (void)viewDidLoad {
-    ScriptView* view = (ScriptView*)self.view;
+ScriptController::ScriptController()
+{
+    NNTDECL_PRIVATE_CONSTRUCT(ScriptController);
     
-    [view.segment connect:kSignalSelectChanged sel:@selector(script_changed:) obj:self];
-    [view.run connect:kSignalButtonClicked sel:@selector(script_run:) obj:self];
-    
-    view.segment.selectedSegmentIndex = 0;
+    set_orientation(UIOrientationEnableAll);
 }
 
-- (void)script_changed:(WSIEventObj*)evt {
-    ScriptView* view = (ScriptView*)self.view;
+ScriptController::~ScriptController()
+{
+    NNTDECL_PRIVATE_DESTROY();
+}
 
-    view.input.text = @"";
-    view.output.text = @"";
-    [d_ptr clear];
+void ScriptController::view_loaded()
+{
+    view().segment.connect(kSignalSelectChanged, _action(_class::script_changed), this);
+    view().run.connect(kSignalButtonClicked, _action(_class::script_run), this);
     
-    switch (view.segment.selectedSegmentIndex) {
-        case 0: {
-            WSIPython* python = [[WSIPython alloc] init];
-            d_ptr.python = python;
-            [python release];
+    view().segment.set_select(0);
+}
+
+void ScriptController::script_changed(EventObj& evt)
+{
+    view().input.set_text(@"");
+    view().output.set_text(@"");
+    d_ptr->clear();
+    
+    switch (view().segment.selected())
+    {
+        case 0:
+        {
+            NNTPython* python = [[NNTPython alloc] init];
+            d_ptr->python = python;
+            safe_release(python);
         } break;
-        case 1: {
-            WSILua* lua = [[WSILua alloc] init];
-            d_ptr.lua = lua;
-            [lua release];
+        case 1:
+        {
+            NNTLua* lua = [[NNTLua alloc] init];
+            d_ptr->lua = lua;
+            safe_release(lua);
         } break;
     }
 }
 
-- (void)script_run:(WSIEventObj*)evt {
-    ScriptView* view = (ScriptView*)self.view;
-    NSString* str = view.input.text;
-    if (NO == [[d_ptr script] executeString:str]) {
-        view.output.text = [[d_ptr script] errorMessage];
-    } else {
-        view.output.text = @"";
+void ScriptController::script_run(EventObj& evt)
+{
+    ns::String str = view().input.text();
+    if (![d_ptr->script() executeString:str])
+    {
+        view().output.set_text([d_ptr->script() errorMessage]);
+    }
+    else
+    {
+        view().output.set_text(@"");
     }
 }
 
-@end
-
-WSI_END_OBJC
+NNTAPP_END

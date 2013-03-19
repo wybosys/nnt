@@ -1,15 +1,10 @@
 
-# import "Foundation+NNT.h"
-# import "WSIExecution.h"
-# import "AppDelegate.h"
+# include "Foundation+NNT.h"
+# include "Execution+NNT.h"
+# include "AppDelegate.h"
 
 int main(int argc, char *argv[])
 {
-    int ret;
-    WSI_AUTORELEASEPOOL_BEGIN
-    ret = UIApplicationMain(argc, argv, nil, NSStringFromClass([WSIAppDelegate class]));
-    WSI_AUTORELEASEPOOL_END
-    return ret;
+    ::nntapp::App app;
+    return app.execute(argc, argv);
 }
-
-WSIDEBUG_THEME_IMPL;
