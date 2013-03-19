@@ -217,7 +217,7 @@ id Filter::instance_settings(ns::String const& name) const
     return obj;
 }
 
-WCGImage* Filter::process(CGImageRef _img) const
+NgImage* Filter::process(CGImageRef _img) const
 {
     CIImage* img = [[CIImage alloc] initWithCGImage:_img];
     [_filter setValue:img forKey:kCIInputImageKey];

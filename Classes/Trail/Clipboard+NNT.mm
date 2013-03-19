@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTClipboard.h"
+# import "Clipboard+NNT.h"
 # import <UIKit/UIKit.h>
 
 NNT_BEGIN_OBJC

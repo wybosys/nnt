@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "DTraceController.h"
-# import "NNTLua.h"
+# import "Lua+NNT.h"
 # import "Layout.h"
 # import "App.h"
 # import "DTraceLibrary.h"
