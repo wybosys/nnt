@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "ApnsObject.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 # import "App.h"
 
 NNT_BEGIN_OBJC

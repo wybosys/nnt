@@ -314,7 +314,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include "../Graphic/WCALayer.h"
+# include "../Graphic/NGLayer.h"
 # include "UITheme.h"
 
 NNT_BEGIN_HEADER_CXX 

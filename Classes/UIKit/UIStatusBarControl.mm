@@ -1,5 +1,5 @@
 
-# import "NNTFoundation.h"
+# import "Core.h"
 # import "UIStatusBarControl.h"
 
 NNT_BEGIN_OBJC

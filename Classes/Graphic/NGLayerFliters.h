@@ -18,7 +18,7 @@ NNT_BEGIN_HEADER_OBJC
 
 @interface CALayer (NgLayerFilters)
 
-- (void)applyFilter:(id<WCALayerFilters>)filter;
+- (void)applyFilter:(id<NgLayerFilters>)filter;
 
 @end
 

@@ -1288,8 +1288,8 @@
 		16C732E015EB60B80030A9A3 /* XepCAPTCHA.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C732DE15EB60B80030A9A3 /* XepCAPTCHA.h */; };
 		16C9B5E4149050DA00B46E80 /* UICacheActivityIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C9B5E2149050DA00B46E80 /* UICacheActivityIndicatorView.h */; };
 		16C9B5E5149050DA00B46E80 /* UICacheActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C9B5E3149050DA00B46E80 /* UICacheActivityIndicatorView.m */; };
-		16C9B7191490988700B46E80 /* ASIHttpRequest+WSI.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C9B7171490988700B46E80 /* ASIHttpRequest+WSI.h */; };
-		16C9B71A1490988700B46E80 /* ASIHttpRequest+WSI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C9B7181490988700B46E80 /* ASIHttpRequest+WSI.mm */; };
+		16C9B7191490988700B46E80 /* ASIHttpRequest+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C9B7171490988700B46E80 /* ASIHttpRequest+NNT.h */; };
+		16C9B71A1490988700B46E80 /* ASIHttpRequest+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C9B7181490988700B46E80 /* ASIHttpRequest+NNT.mm */; };
 		16CA7F9115171FE3008BEF53 /* SqliteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CA7F8F15171FE3008BEF53 /* SqliteRequest.h */; };
 		16CA7F9215171FE3008BEF53 /* SqliteRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CA7F9015171FE3008BEF53 /* SqliteRequest.mm */; };
 		16CA86BF145F91B600F047F3 /* Char+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CA86BE145F91B500F047F3 /* Char+NNT.h */; };
@@ -2868,8 +2868,8 @@
 		16C732DE15EB60B80030A9A3 /* XepCAPTCHA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XepCAPTCHA.h; sourceTree = "<group>"; };
 		16C9B5E2149050DA00B46E80 /* UICacheActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICacheActivityIndicatorView.h; sourceTree = "<group>"; };
 		16C9B5E3149050DA00B46E80 /* UICacheActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICacheActivityIndicatorView.m; sourceTree = "<group>"; };
-		16C9B7171490988700B46E80 /* ASIHttpRequest+WSI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHttpRequest+WSI.h"; sourceTree = "<group>"; };
-		16C9B7181490988700B46E80 /* ASIHttpRequest+WSI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASIHttpRequest+WSI.mm"; sourceTree = "<group>"; };
+		16C9B7171490988700B46E80 /* ASIHttpRequest+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASIHttpRequest+NNT.h"; sourceTree = "<group>"; };
+		16C9B7181490988700B46E80 /* ASIHttpRequest+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASIHttpRequest+NNT.mm"; sourceTree = "<group>"; };
 		16CA7F8F15171FE3008BEF53 /* SqliteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteRequest.h; sourceTree = "<group>"; };
 		16CA7F9015171FE3008BEF53 /* SqliteRequest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SqliteRequest.mm; sourceTree = "<group>"; };
 		16CA86BE145F91B500F047F3 /* Char+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Char+NNT.h"; sourceTree = "<group>"; };
@@ -5252,8 +5252,8 @@
 				16ADDC4F157375A100BC2378 /* VersionString.m */,
 				168995E21497268900B5FDBF /* ChineseString.h */,
 				168995E31497268900B5FDBF /* ChineseString.m */,
-				16C9B7171490988700B46E80 /* ASIHttpRequest+WSI.h */,
-				16C9B7181490988700B46E80 /* ASIHttpRequest+WSI.mm */,
+				16C9B7171490988700B46E80 /* ASIHttpRequest+NNT.h */,
+				16C9B7181490988700B46E80 /* ASIHttpRequest+NNT.mm */,
 				16DB8C801444136B00E85F90 /* AlphabetFlow.h */,
 				160D4588152D4F6200FFD25B /* AlphabetFlow.cpp */,
 				16DB8C811444136B00E85F90 /* AlphabetFlow.m */,
@@ -5715,7 +5715,7 @@
 				162EF884148F0A5900D8E41B /* UIFlowView.h in Headers */,
 				29497400148F4D150012E232 /* UIOAToggleView.h in Headers */,
 				16C9B5E4149050DA00B46E80 /* UICacheActivityIndicatorView.h in Headers */,
-				16C9B7191490988700B46E80 /* ASIHttpRequest+WSI.h in Headers */,
+				16C9B7191490988700B46E80 /* ASIHttpRequest+NNT.h in Headers */,
 				16D0DAC31490BC56002F309D /* Python+NNT.h in Headers */,
 				1606EACD14958B0900748D81 /* UIContactField.h in Headers */,
 				168995E41497268900B5FDBF /* ChineseString.h in Headers */,
@@ -6446,7 +6446,7 @@
 				162EF885148F0A5900D8E41B /* UIFlowView.m in Sources */,
 				29497401148F4D150012E232 /* UIOAToggleView.mm in Sources */,
 				16C9B5E5149050DA00B46E80 /* UICacheActivityIndicatorView.m in Sources */,
-				16C9B71A1490988700B46E80 /* ASIHttpRequest+WSI.mm in Sources */,
+				16C9B71A1490988700B46E80 /* ASIHttpRequest+NNT.mm in Sources */,
 				16D0DAC41490BC56002F309D /* Python+NNT.mm in Sources */,
 				1606EACE14958B0900748D81 /* UIContactField.mm in Sources */,
 				1689958A1496FF0D00B5FDBF /* Char+NNT.cpp in Sources */,

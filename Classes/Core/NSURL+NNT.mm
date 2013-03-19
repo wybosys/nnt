@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "NSURL+NNT.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 
 NNT_BEGIN_OBJC
 

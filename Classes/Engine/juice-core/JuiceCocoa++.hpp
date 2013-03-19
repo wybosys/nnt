@@ -11,7 +11,7 @@
 # import "../../Graphic/NGTextStyle.h"
 # import "../../Graphic/NGContext.h"
 # import "../../Graphic/NGFill.h"
-# import "../../Graphic/CGShadow.h"
+# import "../../Graphic/NGShadow.h"
 
 JUICE_BEGIN 
 NNT_BEGIN_NS(cocoa)

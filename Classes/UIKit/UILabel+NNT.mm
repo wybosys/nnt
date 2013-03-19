@@ -4,7 +4,7 @@
 # import "FontManager.h"
 # import "FontLabelStringDrawing.h"
 # import "ZFont.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "NGFill.h"
 # import "StyleStringParser.h"
 # import "NSStyleString.h"

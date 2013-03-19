@@ -2,9 +2,9 @@
 # import "Core.h"
 # import "UITheme.h"
 # include "uictypes.h"
-# import "NNTBdb.h"
-# import "NNTConfiguration.h"
-# import "NNTUIObject.h"
+# import "Bdb+NNT.h"
+# import "Configuration+NNT.h"
+# import "UIObject+NNT.h"
 
 NNT_BEGIN_OBJC
 

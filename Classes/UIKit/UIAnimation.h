@@ -4,7 +4,7 @@
 
 # ifdef NNT_CXX
 
-# include "NNTUIObject.h"
+# include "UIObject+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC
 

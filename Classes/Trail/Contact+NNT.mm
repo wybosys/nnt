@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTContact.h"
+# import "Contact+NNT.h"
 # import <AddressBook/AddressBook.h>
 
 NNT_BEGIN_OBJC

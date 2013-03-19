@@ -3,7 +3,7 @@
 # import "UITextField+NNT.h"
 # import "App.h"
 # import "UIScreen+NNT.h"
-# import "NNTBdb.h"
+# import "Bdb+NNT.h"
 
 NNT_BEGIN_OBJC
 

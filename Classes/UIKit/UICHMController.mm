@@ -6,7 +6,7 @@
 # import "UITableViewCell+NNT.h"
 # import "UITableViewController+NNT.h"
 # import "UIWebView+NNT.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 
 NNT_BEGIN_OBJC
 

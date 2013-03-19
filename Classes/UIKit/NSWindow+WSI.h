@@ -27,7 +27,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include "NNTUIObject.h"
+# include "UIObject+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 

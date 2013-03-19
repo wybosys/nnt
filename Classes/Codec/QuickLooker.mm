@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "QuickLooker.h"
 # import <QuickLook/QuickLook.h>
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 
 NNT_BEGIN_OBJC
 

@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UITableView+NNT.h"
 # import "UIView+NNT.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "Graphic+NNT.h"
 # import "UIScrollHeaderView.h"
 

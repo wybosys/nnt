@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "App.h"
 # include <stdio.h>
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "FileCache.h"
 # import "Graphic+NNT.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 # import "CmdArguments.h"
 # import "AppInformation.h"
 # import "UUID+NNT.h"

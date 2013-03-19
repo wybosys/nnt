@@ -2,10 +2,10 @@
 # import "Core.h"
 # import "UIView+NNT.h"
 # import "UITearView.h"
-# import "../Store/NNTConfiguration.h"
+# import "../Store/Configuration+NNT.h"
 # import "Graphic+NNT.h"
 # import <QuartzCore/QuartzCore.h>
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "Math+NNT.h"
 # import "NGFillImage.h"
 # import "UIDesktop.h"

@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 
 NNT_BEGIN_OBJC
 

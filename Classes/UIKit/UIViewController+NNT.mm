@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIViewController+NNT.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "UIScreen+NNT.h"
 # import "UIWebView+NNT.h"
 # import "UIView+NNT.h"

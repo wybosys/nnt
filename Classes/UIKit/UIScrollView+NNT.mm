@@ -2,7 +2,7 @@
 # import "Core.h"
 # import "UIScrollView+NNT.h"
 # import "UIView+NNT.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "Graphic+NNT.h"
 # include <cmath>
 

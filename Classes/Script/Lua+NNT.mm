@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTLua.h"
+# import "Lua+NNT.h"
 
 NNT_BEGIN_HEADER_C
 

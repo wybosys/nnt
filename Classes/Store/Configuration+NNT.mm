@@ -1,7 +1,7 @@
 
 # import "Core.h"
-# import "NNTConfiguration.h"
-# import "NNTBdb.h"
+# import "Configuration+NNT.h"
+# import "Bdb+NNT.h"
 
 NNT_BEGIN_OBJC
 

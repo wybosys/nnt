@@ -2,7 +2,7 @@
 # ifndef __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
 # define __NNT_UKIT_NSVIEW_D1542BE15AA14C9B80FE5F06E7F47276_H_INCLUDED
 
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 
 # ifdef NNT_OBJC
 
@@ -64,7 +64,7 @@ NNT_BEGIN_HEADER_OBJC
 
 NNT_END_HEADER_OBJC
 
-# include "NNTUIObject.h"
+# include "UIObject+NNT.h"
 # include "../Graphic/NGFill.h"
 
 NNT_BEGIN_HEADER_CXX 

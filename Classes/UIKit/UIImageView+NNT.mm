@@ -6,7 +6,7 @@
 # import "Graphic+NNT.h"
 # import "UIColor+NNT.h"
 # import "UIView+NNT.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
 # import "Model.h"
 # import "UIActivityIndicatorView+NNT.h"
 # import "UIKit.res"

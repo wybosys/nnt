@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "CGShadow.h"
+# import "NGShadow.h"
 
 # ifdef NNT_TARGET_IOS
 # import "UIColor+NNT.h"

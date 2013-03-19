@@ -8,7 +8,7 @@ NNT_BEGIN_HEADER_OBJC
 
 NNTDECL_EXTERN_CLASS(NgFill);
 
-@interface ThemeRenkoo : NgLayerTheme <WCALayerTheme> {
+@interface ThemeRenkoo : NgLayerTheme <NgLayerTheme> {
     NgFill *img_indicator, *img_background;
 }
 

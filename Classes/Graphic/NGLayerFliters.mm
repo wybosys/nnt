@@ -20,7 +20,7 @@ NNT_USINGCXXNAMESPACE;
 
 @implementation CALayer (NgLayerFilters)
 
-- (void)applyFilter:(id<WCALayerFilters>)filter {
+- (void)applyFilter:(id<NgLayerFilters>)filter {
     [filter applyLayer:self];
 }
 

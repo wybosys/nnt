@@ -1,6 +1,5 @@
 
 # import "Core.h"
-# import "NNTEvent.h"
 # import "NSDate+NNT.h"
 
 NNT_BEGIN_OBJC

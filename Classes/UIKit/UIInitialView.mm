@@ -2,8 +2,8 @@
 # import "Core.h"
 # import "UIInitialView.h"
 # import "UIDevice+NNT.h"
-# import "NNTResource.h"
-# import "NNTUIObject.h"
+# import "Resource+NNT.h"
+# import "UIObject+NNT.h"
 
 NNT_BEGIN_OBJC
 

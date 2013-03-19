@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTLevelDB.h"
+# import "LevelDB+NNT.h"
 # import "../../3rd/leveldb/db.h"
 
 NNT_BEGIN_OBJC

@@ -46,6 +46,8 @@ public:
 		PASS;
 	}
 
+# ifdef NNT_MSVC
+    
 	bool has_brandstring()
 	{
 		bool b;
@@ -114,6 +116,8 @@ END:
 
 		return buf;
 	}
+    
+# endif
 	
 
 };

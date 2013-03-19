@@ -124,10 +124,10 @@ static void resolveHSV(CGFloat *color1, CGFloat *color2);
             count++;
             currentElement = currentElement->nextElement;
         }
-        [coder encodeInteger:count forKey:@NGGradientElementCount"];
-        [coder encodeInt:_blendingMode forKey:@NGGradientBlendingMode"];
-        [coder encodeDouble:_angle forKey:@NGGradientAngle"];
-        [coder encodeInt:_gradientType forKey:@NGGradientType"];
+        [coder encodeInteger:count forKey:@"NGGradientElementCount"];
+        [coder encodeInt:_blendingMode forKey:@"NGGradientBlendingMode"];
+        [coder encodeDouble:_angle forKey:@"NGGradientAngle"];
+        [coder encodeInt:_gradientType forKey:@"NGGradientType"];
 	} else {
         [NSException raise:NSInvalidArchiveOperationException format:@"Only supports NSKeyedArchiver coders"];
 	}
@@ -140,11 +140,11 @@ static void resolveHSV(CGFloat *color1, CGFloat *color2);
 
     [self commonInit];
 		
-    _gradientType = (NgGradientType)[coder decodeIntForKey:@NGGradientType"];
-    _angle = [coder decodeDoubleForKey:@NGGradientAngle"];
-    self.blendingMode = (NgGradientBlendingMode)[coder decodeIntForKey:@NGGradientBlendingMode"];
+    _gradientType = (NgGradientType)[coder decodeIntForKey:@"NGGradientType"];
+    _angle = [coder decodeDoubleForKey:@"NGGradientAngle"];
+    self.blendingMode = (NgGradientBlendingMode)[coder decodeIntForKey:@"NGGradientBlendingMode"];
     
-    NSUInteger count = [coder decodeIntegerForKey:@NGGradientElementCount"];
+    NSUInteger count = [coder decodeIntegerForKey:@"NGGradientElementCount"];
     
     while (count != 0) {
         NgGradientElement newElement;

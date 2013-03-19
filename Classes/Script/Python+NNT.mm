@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTPython.h"
+# import "Python+NNT.h"
 
 NNT_BEGIN_HEADER_C
 # import "../../3rd/python/Include/Python.h"

@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UIContactField.h"
-# import "NNTAddressBookStore.h"
+# import "AddressBookStore+NNT.h"
 # import "UIKit.res"
 # import "UIAddressBookPickController.h"
 

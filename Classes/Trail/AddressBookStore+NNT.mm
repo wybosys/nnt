@@ -1,7 +1,7 @@
 
 # import "Core.h"
-# import "NNTAddressBookStore.h"
-# import "NNTSqlite.h"
+# import "AddressBookStore+NNT.h"
+# import "Sqlite+NNT.h"
 # import "ChineseString.h"
 
 NNT_BEGIN_OBJC

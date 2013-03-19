@@ -5,7 +5,7 @@
 # import "DTraceController.h"
 # include <signal.h>
 # import "AbstractCache.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 
 NNT_BEGIN_HEADER_C
 

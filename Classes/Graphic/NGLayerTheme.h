@@ -20,7 +20,7 @@ NNT_BEGIN_HEADER_OBJC
 
 @end
 
-@interface NgLayerTheme : NNTObject <WCALayerTheme> 
+@interface NgLayerTheme : NNTObject <NgLayerTheme>
 {
     
     CGColorRef background;

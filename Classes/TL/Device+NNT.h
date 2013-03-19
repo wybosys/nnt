@@ -20,6 +20,8 @@ class Bios
 
 };
 
+# ifdef WSI_MSVC
+
 template <>
 class Bios<os_windows>
 	: public Bios<os_unknown>
@@ -174,6 +176,8 @@ protected:
 	windows::wbem::PhysicalMemory::iterator _obj;
 
 };
+
+# endif
 
 NNT_END_NS
 NNT_END_NS

@@ -4,6 +4,8 @@
 # import "OAuths.h"
 # import "OAManager.h"
 
+NNT_USINGCXXNAMESPACE;
+
 NNT_BEGIN_OBJC
 
 @interface OAToggle ()
@@ -100,7 +102,7 @@ NNT_BEGIN_OBJC
 - (void)authorize:(uindex)idx {
     Class cls = [_manager classAtIndex:idx];
     id obj = [[cls alloc] init];
-    [obj storeSet:@"toggle::index" obj:::nnt::number(idx)];
+    [obj storeSet:@"toggle::index" obj:number(idx)];
     [obj connect:kSignalAuthorizeSuccess sel:@selector(__suc_authorize:) obj:self];
     [obj retrieve];
     [obj release];

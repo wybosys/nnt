@@ -3,7 +3,7 @@
 # import "AppInformation.h"
 # import "AEMInformation.h"
 # import "Server.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 
 NNT_BEGIN_OBJC
 

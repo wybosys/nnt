@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "NGImage.h"
-# import "NNTResource.h"
+# import "Resource+NNT.h"
 # import "Directory+NNT.h"
 
 NNT_BEGIN_OBJC

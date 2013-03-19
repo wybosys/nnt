@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "SqliteRequest.h"
-# import "NNTSqlite.h"
+# import "Sqlite+NNT.h"
 # import "Model.h"
 
 NNT_BEGIN_OBJC

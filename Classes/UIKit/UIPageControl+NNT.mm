@@ -2,7 +2,9 @@
 # import "Core.h"
 # import "UIPageControl+NNT.h"
 # import "UIView+NNT.h"
-# import "NNTUIObject.h"
+# import "UIObject+NNT.h"
+
+NNT_USINGCXXNAMESPACE;
 
 NNT_BEGIN_OBJC
 
@@ -167,7 +169,7 @@ NNTEVENT_END
 	[self changeCurrentPage:pageNumber];
     
     // event.
-    [self emit:kSignalSelectChanged result:::nnt::number(_currentPage)];
+    [self emit:kSignalSelectChanged result:number(_currentPage)];
 }
 
 - (NSInteger)currentPage {

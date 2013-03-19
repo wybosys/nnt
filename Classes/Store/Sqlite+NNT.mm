@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTSqlite.h"
+# import "Sqlite+NNT.h"
 # include <sqlite3.h>
 
 NNT_BEGIN_OBJC

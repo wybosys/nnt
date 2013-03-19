@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "AppStoreService.h"
-# import "NNTConfiguration.h"
+# import "Configuration+NNT.h"
 # import "AppInformation.h"
 # import <UIKit/UIKit.h>
 # import "Mach+NNT.h"
