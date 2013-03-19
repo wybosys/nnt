@@ -3,7 +3,7 @@
 # include "opencv/cv.h"
 # include "opencv/highgui.h"
 # include "cvimage+nnt.h"
-# include "../modules/highgui/grfmt_base.hpp"
+# include "modules/highgui/grfmt_base.hpp"
 
 //NNT_BEGIN_CXX
 
