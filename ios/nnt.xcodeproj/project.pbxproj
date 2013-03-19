@@ -955,10 +955,9 @@
 		169F840F16F8478E0008AAC9 /* Vector+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83DD16F8478E0008AAC9 /* Vector+NNT.cpp */; };
 		169F841016F8478E0008AAC9 /* Vector+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83DE16F8478E0008AAC9 /* Vector+NNT.h */; };
 		169F841116F8478E0008AAC9 /* Vector+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169F83DF16F8478E0008AAC9 /* Vector+NNT.mm */; };
+		169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F841216F84ADF0008AAC9 /* cvimage+nnt.cpp */; };
 		16A1B93F16018FAB00981BC4 /* XepSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A1B93D16018FAB00981BC4 /* XepSubject.cpp */; };
 		16A1B94016018FAB00981BC4 /* XepSubject.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A1B93E16018FAB00981BC4 /* XepSubject.h */; };
-		16A1C56C14BC356300B30F19 /* cvimage+wsi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C56A14BC356300B30F19 /* cvimage+wsi.cpp */; };
-		16A1C56E14BC356300B30F19 /* cvimage+wsi.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A1C56B14BC356300B30F19 /* cvimage+wsi.h */; };
 		16A1C57B14BC3C6200B30F19 /* png.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C57814BC3C6200B30F19 /* png.c */; };
 		16A1C58C14BC3CCD00B30F19 /* pngerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C58114BC3CCD00B30F19 /* pngerror.c */; };
 		16A1C58E14BC3CCD00B30F19 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A1C58214BC3CCD00B30F19 /* pngget.c */; };
@@ -2533,12 +2532,11 @@
 		169F83DD16F8478E0008AAC9 /* Vector+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Vector+NNT.cpp"; path = "TL/Vector+NNT.cpp"; sourceTree = "<group>"; };
 		169F83DE16F8478E0008AAC9 /* Vector+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Vector+NNT.h"; path = "TL/Vector+NNT.h"; sourceTree = "<group>"; };
 		169F83DF16F8478E0008AAC9 /* Vector+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Vector+NNT.mm"; path = "TL/Vector+NNT.mm"; sourceTree = "<group>"; };
+		169F841216F84ADF0008AAC9 /* cvimage+nnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "cvimage+nnt.cpp"; path = "../contrib/opencv/cvimage+nnt.cpp"; sourceTree = "<group>"; };
 		16A0EA7314C3CBBE00F81E74 /* exection.tpl */ = {isa = PBXFileReference; lastKnownFileType = text; path = exection.tpl; sourceTree = "<group>"; };
 		16A0EA7414C3CBBE00F81E74 /* framework.tpl */ = {isa = PBXFileReference; lastKnownFileType = text; path = framework.tpl; sourceTree = "<group>"; };
 		16A1B93D16018FAB00981BC4 /* XepSubject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XepSubject.cpp; sourceTree = "<group>"; };
 		16A1B93E16018FAB00981BC4 /* XepSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XepSubject.h; sourceTree = "<group>"; };
-		16A1C56A14BC356300B30F19 /* cvimage+wsi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cvimage+wsi.cpp"; sourceTree = "<group>"; };
-		16A1C56B14BC356300B30F19 /* cvimage+wsi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cvimage+wsi.h"; sourceTree = "<group>"; };
 		16A1C57814BC3C6200B30F19 /* png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = png.c; sourceTree = "<group>"; };
 		16A1C58114BC3CCD00B30F19 /* pngerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngerror.c; sourceTree = "<group>"; };
 		16A1C58214BC3CCD00B30F19 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngget.c; sourceTree = "<group>"; };
@@ -4604,19 +4602,9 @@
 		16A1C56714BC355600B30F19 /* opencv */ = {
 			isa = PBXGroup;
 			children = (
-				16A1C56914BC356300B30F19 /* wsi */,
+				169F841216F84ADF0008AAC9 /* cvimage+nnt.cpp */,
 			);
 			name = opencv;
-			sourceTree = "<group>";
-		};
-		16A1C56914BC356300B30F19 /* wsi */ = {
-			isa = PBXGroup;
-			children = (
-				16A1C56A14BC356300B30F19 /* cvimage+wsi.cpp */,
-				16A1C56B14BC356300B30F19 /* cvimage+wsi.h */,
-			);
-			name = wsi;
-			path = ../contrib/opencv/wsi;
 			sourceTree = "<group>";
 		};
 		16A1C57714BC3C6200B30F19 /* libpng */ = {
@@ -5763,7 +5751,6 @@
 				16CFAB8A14A2D445000C30DB /* Script+NNT.h in Headers */,
 				16CEB9F614A30DAD002DB496 /* UIScrollHeaderView.h in Headers */,
 				165D4A2A14A9BA3000FEF20D /* PreciseNumber.h in Headers */,
-				16A1C56E14BC356300B30F19 /* cvimage+wsi.h in Headers */,
 				16A1C5C814BC48DF00B30F19 /* GaloisField.h in Headers */,
 				16A1C5CC14BC48DF00B30F19 /* GaloisFieldElement.h in Headers */,
 				16A1C5D214BC48DF00B30F19 /* GaloisFieldPolynomial.h in Headers */,
@@ -6490,7 +6477,6 @@
 				16CFAB8414A2CBFD000C30DB /* pynnt.mm in Sources */,
 				16CEB9F714A30DAD002DB496 /* UIScrollHeaderView.m in Sources */,
 				165D4A2B14A9BA3000FEF20D /* PreciseNumber.mm in Sources */,
-				16A1C56C14BC356300B30F19 /* cvimage+wsi.cpp in Sources */,
 				16A1C57B14BC3C6200B30F19 /* png.c in Sources */,
 				16A1C58C14BC3CCD00B30F19 /* pngerror.c in Sources */,
 				16A1C58E14BC3CCD00B30F19 /* pngget.c in Sources */,
@@ -7081,6 +7067,7 @@
 				169F840D16F8478E0008AAC9 /* Variant+NNT.cpp in Sources */,
 				169F840F16F8478E0008AAC9 /* Vector+NNT.cpp in Sources */,
 				169F841116F8478E0008AAC9 /* Vector+NNT.mm in Sources */,
+				169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
