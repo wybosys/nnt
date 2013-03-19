@@ -224,7 +224,7 @@ WCGImage* Filter::process(CGImageRef _img) const
     CIImage* output = _filter.outputImage;    
     CIContext *context = [CIContext contextWithOptions:nil];
     CGImageRef resimg = [context createCGImage:output fromRect:output.extent];
-    NgImage* ret = [WCGImage imageWithCGImage:resimg];
+    NgImage* ret = [NgImage imageWithCGImage:resimg];
     CGImageRelease(resimg);
     [img release];
     return ret;

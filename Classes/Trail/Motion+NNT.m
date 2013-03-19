@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTMotion.h"
+# import "Motion+NNT.h"
 # import <CoreMotion/CoreMotion.h>
 
 NNT_BEGIN_OBJC

@@ -110,12 +110,12 @@ NNT_BEGIN_OBJC
     if (backgroundFill == nil) {
         switch (bannerPosition) {
             case UIBannerPositionTop: case UIBannerPositionBottom: {
-                NgGradient *color = [WCGGradient gradientWithBeginningColor:[WCGColor colorWithRGB:0x777777] endingColor:[WCGColor colorWithRGB:0x000000]];
+                NgGradient *color = [NgGradient gradientWithBeginningColor:[NgColor colorWithRGB:0x777777] endingColor:[NgColor colorWithRGB:0x000000]];
                 color.angle = 90;
-                self.backgroundFill = [WCGFill fillWithGradient:color];
+                self.backgroundFill = [NgFill fillWithGradient:color];
             } break;
             case UIBannerPositionLeft: case UIBannerPositionRight: {
-                self.backgroundFill = [WCGFill fillWithColor:[WCGColor blackColor]];
+                self.backgroundFill = [NgFill fillWithColor:[NgColor blackColor]];
             } break;
         }        
     }

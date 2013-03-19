@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NNTBdb.h"
+# import "Bdb+NNT.h"
 
 NNT_BEGIN_HEADER_C
 # include <bdb/db.h>

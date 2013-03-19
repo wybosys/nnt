@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "XmppAuth.h"
-# include "../../../Security/WsiSecurity.h"
+# include "../../../Security/Security+NNT.h"
 
 XMPPCORE_BEGIN
 

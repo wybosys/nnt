@@ -138,7 +138,7 @@ typedef ::nnt::core::vector<_element_info> _element_infos;
     
     self.backgroundColor = [UIColor clearColor];
     self.edgeShadow = [CGShadow shadow];
-    self.edgeShadow.shadowColor = [WCGColor colorWithRGBA:0x00000060];
+    self.edgeShadow.shadowColor = [NgColor colorWithRGBA:0x00000060];
     edgeShadow.radius = 1;
     edgeShadow.opacity = 20;
     
@@ -149,7 +149,7 @@ typedef ::nnt::core::vector<_element_info> _element_infos;
     locationArrow = 0;
     padding = CGPaddingZero;
     
-    self.fill = [WCGFill fillWithColor:[WCGColor whiteColor]];
+    self.fill = [NgFill fillWithColor:[NgColor whiteColor]];
     
     autoClose = YES;
     

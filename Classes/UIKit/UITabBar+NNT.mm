@@ -107,9 +107,9 @@ real kTabMargin = 2.0f;
     
     // draw bk.
     if (bk) {
-        NgColor *begin = [WCGColor colorWithRGBA:0x00000099];
-        NgColor *end = [WCGColor colorWithRGBA:0x00000000];
-        NgGradient *grad = [WCGGradient gradientWithBeginningColor:begin endingColor:end];
+        NgColor *begin = [NgColor colorWithRGBA:0x00000099];
+        NgColor *end = [NgColor colorWithRGBA:0x00000000];
+        NgGradient *grad = [NgGradient gradientWithBeginningColor:begin endingColor:end];
         grad.angle = 135;
         [grad fillRect:rect inContext:ctx];
     }
@@ -177,11 +177,11 @@ real kTabMargin = 2.0f;
         } else if ([selectedColor isKindOfClass:[UIColor class]]) {
             CGContextSetFillColorWithColor(ctx, ((UIColor*)selectedColor).CGColor);
             CGContextFillRect(ctx, rect);
-        } else if ([selectedColor isKindOfClass:[WCGColor class]]) {
+        } else if ([selectedColor isKindOfClass:[NgColor class]]) {
             NgColor *color = (NgColor*)selectedColor;
             CGContextSetFillColorWithColor(ctx, color.cgColor);
             CGContextFillRect(ctx, rect);
-        } else if ([selectedColor isKindOfClass:[WCGGradient class]]) {
+        } else if ([selectedColor isKindOfClass:[NgGradient class]]) {
             [(NgGradient*)selectedColor fillRect:rect inContext:ctx];
         }
         
@@ -341,16 +341,16 @@ real kTabMargin = 2.0f;
         
 		self.userInteractionEnabled = YES;
         
-        NgMutableTextStyle *ts = [WCGMutableTextStyle new];
+        NgMutableTextStyle *ts = [NgMutableTextStyle new];
         ts.fontSize = 15;
-        ts.color = [WCGColor whiteColor];
+        ts.color = [NgColor whiteColor];
         ts.alignment = NgAlignmentCenter;
         self.normalTitleStyle = ts;      
         [ts release];
         
-        ts = [WCGMutableTextStyle new];
+        ts = [NgMutableTextStyle new];
         ts.fontSize = 15;
-        ts.color = [WCGColor whiteColor];
+        ts.color = [NgColor whiteColor];
         ts.alignment = NgAlignmentCenter;
         ts.textShadow = [CGShadow textShadow];
         self.selectedTitleStyle = ts;        
@@ -365,17 +365,17 @@ real kTabMargin = 2.0f;
         self.arrowPosition = UITabBarArrowPositionTop;
 		[self addSubview:self.arrow];
         
-        NgMutableLineStyle *ls = [WCGMutableLineStyle new];
-        ls.lineColor = [WCGColor whiteColor];
+        NgMutableLineStyle *ls = [NgMutableLineStyle new];
+        ls.lineColor = [NgColor whiteColor];
         ls.lineWidth = 2;
         self.badgeLineStyle = ls;
         [ls release];
                 
         self.badgeColor = [UIColor redColor];
         
-        ts = [WCGMutableTextStyle new];
+        ts = [NgMutableTextStyle new];
         ts.fontSize = 16;
-        ts.color = [WCGColor whiteColor];
+        ts.color = [NgColor whiteColor];
         ts.alignment = NgAlignmentCenter;
         self.badgeStyle = ts;        
         [ts release];

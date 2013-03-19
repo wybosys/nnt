@@ -24,7 +24,7 @@ NNT_BEGIN_OBJC
 }
 
 - (void)loadCss:(NSString *)str {
-    NgMutableTextStyle* ts = [[WCGMutableTextStyle alloc] init];
+    NgMutableTextStyle* ts = [[NgMutableTextStyle alloc] init];
     
     NSArray* groups = [str arrayOfCaptureComponentsMatchedByRegex:@"([\\w-]+):([\\w#]+)"];
     ::nnt::ns::MutableDictionary css_kv;
@@ -63,7 +63,7 @@ NNT_BEGIN_OBJC
         } else {
             rgb = [value intValue];
         }
-        ts.color = [WCGColor colorWithRGB:rgb];
+        ts.color = [NgColor colorWithRGB:rgb];
     }
     
     self.textStyle = ts;

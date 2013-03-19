@@ -30,10 +30,10 @@ static const usize ldata_green[2] = {
     self = [super init];
     
     NgImage* img = NgImageLoadPngData(data[0], len[0]);
-    img_indicator = [WCGFill fillWithImage:img]; 
+    img_indicator = [NgFill fillWithImage:img]; 
     
     img = NgImageLoadPngData(data[1], len[1]);
-    img_background = [WCGFill fillWithImage:img];
+    img_background = [NgFill fillWithImage:img];
     
     return self;
 }

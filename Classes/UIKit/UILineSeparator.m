@@ -1,7 +1,7 @@
 
 # import "Core.h"
 # import "UILineSeparator.h"
-# import "CoreGraphic+NNT.h"
+# import "Graphic+NNT.h"
 
 NNT_BEGIN_OBJC
 
@@ -12,9 +12,9 @@ NNT_BEGIN_OBJC
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    NgMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] init];
+    NgMutableLineStyle* tmp = [[NgMutableLineStyle alloc] init];
     tmp.lineWidth = 1;
-    tmp.lineColor = [WCGColor grayColor];
+    tmp.lineColor = [NgColor grayColor];
     tmp.dashPattern = [NSArray arrayWithObjects:NSNumber1, NSNumber1, nil];
     self.lineStyle = tmp;
     safe_release(tmp);
@@ -27,7 +27,7 @@ NNT_BEGIN_OBJC
 - (id)initWithLineStyle:(NgLineStyle *)ls {
     self = [super initWithZero];
     
-    NgMutableLineStyle* tmp = [[WCGMutableLineStyle alloc] initWithLineStyle:ls];
+    NgMutableLineStyle* tmp = [[NgMutableLineStyle alloc] initWithLineStyle:ls];
     self.lineStyle = tmp;
     safe_release(tmp);
     

@@ -13,14 +13,14 @@ NNT_BEGIN_OBJC
 @implementation NSObject (UITheme)
 
 - (UIColor*)asColor {
-    if ([self isKindOfClass:[WCGColor class]]) {
+    if ([self isKindOfClass:[NgColor class]]) {
         return [UIColor colorWithCGColor:((NgColor*)self).cgColor];
     }
     return nil;
 }
 
 - (UIImage*)asImage {
-    if ([self isKindOfClass:[WCGImage class]]) {
+    if ([self isKindOfClass:[NgImage class]]) {
         return [UIImage imageWithCGImage:((NgImage*)self).image];
     }
     return nil;

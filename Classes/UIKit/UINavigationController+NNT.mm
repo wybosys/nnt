@@ -62,7 +62,7 @@ NNT_BEGIN_OBJC
             CGRect fm = CGRectMake(pt.x + 5, pt.y, sz_img.width + 10, height);
             
             UIClearButton* btn = [[UIClearButton alloc] initWithZero];
-            btn.backgroundFill = [WCGFill fillWithImage:[WCGImage imageWithCGImage:each.image.CGImage]];
+            btn.backgroundFill = [NgFill fillWithImage:[NgImage imageWithCGImage:each.image.CGImage]];
             btn.frame = fm;
             [viewitem addSubview:btn];
             [btn connect:kSignalButtonClicked sig:kSignalButtonClicked obj:each];
@@ -122,7 +122,7 @@ NNT_BEGIN_OBJC
             CGRect fm = CGRectMake(pt.x + 5, pt.y, sz_img.width + 10, height);
             
             UIClearButton* btn = [[UIClearButton alloc] initWithZero];
-            btn.backgroundFill = [WCGFill fillWithImage:[WCGImage imageWithCGImage:each.image.CGImage]];
+            btn.backgroundFill = [NgFill fillWithImage:[NgImage imageWithCGImage:each.image.CGImage]];
             btn.frame = fm;
             [viewitem addSubview:btn];
             [btn connect:kSignalButtonClicked sig:kSignalButtonClicked obj:each];

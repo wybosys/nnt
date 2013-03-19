@@ -69,10 +69,10 @@ NNT_BEGIN_OBJC
 - (void)setRingColorWithStyle:(UIActivityIndicatorViewStyle)style {
     NgColor *color = nil;
     switch (style) {
-        case UIActivityIndicatorViewStyleGray: color = [WCGColor grayColor]; break;
+        case UIActivityIndicatorViewStyleGray: color = [NgColor grayColor]; break;
         case UIActivityIndicatorViewStyleWhite:
         case UIActivityIndicatorViewStyleWhiteLarge:
-            color = [WCGColor whiteColor]; break;
+            color = [NgColor whiteColor]; break;
     }
     
     if (color && indicatorActivity) {

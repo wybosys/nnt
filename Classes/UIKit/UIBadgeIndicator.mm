@@ -20,13 +20,13 @@ badgeLineStyle = _badgeLineStyle;
     self = [super initWithFrame:frame];
     
     // set default.
-    NgMutableTextStyle *ts = [WCGMutableTextStyle textStyle];
-    ts.color = [WCGColor whiteColor];
+    NgMutableTextStyle *ts = [NgMutableTextStyle textStyle];
+    ts.color = [NgColor whiteColor];
     ts.fontType = NgFontTypeBold;
     self.badgeStyle = ts;
     
-    NgMutableLineStyle* ls = [WCGMutableLineStyle lineStyle];
-    ls.lineColor = [WCGColor whiteColor];
+    NgMutableLineStyle* ls = [NgMutableLineStyle lineStyle];
+    ls.lineColor = [NgColor whiteColor];
     ls.lineWidth = 2;
     self.badgeLineStyle = ls;
     

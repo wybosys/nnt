@@ -215,10 +215,10 @@ signal_t kSignalSheetTouchs = @"::nnt::ui::sheet::touches";
     
     self.backgroundColor = [UIColor whiteColor];
                 
-    colLineStyle = [[WCGMutableLineStyle alloc] init];
-    rowLineStyle = [[WCGMutableLineStyle alloc] init];
+    colLineStyle = [[NgMutableLineStyle alloc] init];
+    rowLineStyle = [[NgMutableLineStyle alloc] init];
     
-    textStyle = [[WCGMutableTextStyle alloc] init];
+    textStyle = [[NgMutableTextStyle alloc] init];
     ((NgMutableTextStyle*)textStyle).alignment = NgAlignmentCenter;
     
     self.selHighlightColor = [UIColor colorWithARGB:0x33000000];

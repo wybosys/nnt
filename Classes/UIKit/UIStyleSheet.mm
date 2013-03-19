@@ -22,7 +22,7 @@ NSString* kStyleBackground = @"background";
         [self removeStyleForKey:kStyleBackground];
         return;
     }
-    NgFillStyle* style = [[WCGFillStyle alloc] init];
+    NgFillStyle* style = [[NgFillStyle alloc] init];
     style.fill = fill;    
     [self addStyle:style forKey:kStyleBackground];
     [style release];

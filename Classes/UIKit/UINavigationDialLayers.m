@@ -66,9 +66,9 @@ NNT_BEGIN_OBJC
     self = [super init];    
     
     self.ringShadowOuter = [CGShadow shadow];
-    self.ringShadowOuter.shadowColor = [WCGColor colorWithRGBA:0x00000077];
+    self.ringShadowOuter.shadowColor = [NgColor colorWithRGBA:0x00000077];
     self.ringShadowInner = [CGShadow shadow];
-    self.ringShadowInner.shadowColor = [WCGColor colorWithRGBA:0x00000077];
+    self.ringShadowInner.shadowColor = [NgColor colorWithRGBA:0x00000077];
     
     startAngle = -M_PI_2;
     

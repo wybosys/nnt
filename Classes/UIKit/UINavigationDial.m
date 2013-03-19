@@ -147,13 +147,13 @@ NSString *kSignalDialClicked = @"::nnt::uikit::dial::clicked";
     
     self.itemDefaultColor = [UIColor grayColor];
     self.itemSelectedColor = [UIColor blueColor];
-    self.dialFill = [WCGFill fillWithColor:[WCGColor whiteColor]];
-    self.centerFill = [WCGFill fillWithColor:[WCGColor blackColor]];
-    self.labelFill = [WCGFill fillWithColor:[WCGColor blackColor]];
+    self.dialFill = [NgFill fillWithColor:[NgColor whiteColor]];
+    self.centerFill = [NgFill fillWithColor:[NgColor blackColor]];
+    self.labelFill = [NgFill fillWithColor:[NgColor blackColor]];
     self.labelOffset = 0;
     
-    NgMutableTextStyle *ts = [[WCGMutableTextStyle alloc] init];
-    ts.color = [WCGColor whiteColor];
+    NgMutableTextStyle *ts = [[NgMutableTextStyle alloc] init];
+    ts.color = [NgColor whiteColor];
     ts.fontSize = 30;
     ts.charRotation = -M_PI_2;
     self.labelTextStyle = ts;

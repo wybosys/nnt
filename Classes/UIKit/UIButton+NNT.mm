@@ -65,7 +65,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
     [self addTarget:self action:@selector(act_touchup) forControlEvents:UIControlEventTouchUpInside];
     [self addTarget:self action:@selector(act_touchup) forControlEvents:UIControlEventTouchUpOutside];
     
-    self.touchedFill = [WCGFill fillWithColor:[WCGColor colorWithRGBA:0x0c0c0c0c]];
+    self.touchedFill = [NgFill fillWithColor:[NgColor colorWithRGBA:0x0c0c0c0c]];
     self.enableFeedback = YES;
     
     return self;
@@ -361,15 +361,15 @@ NNTOBJECT_IMPL_NOSIGNALS;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    self.innerShadowColor = [WCGColor colorWithRGBA:0xFFFFFF20];
+    self.innerShadowColor = [NgColor colorWithRGBA:0xFFFFFF20];
     innerShadowLength = 6;
     innerShadowBlur = .1f;
     
-    NgGradient *backgroundTop = [WCGGradient gradientWithBeginningColor:[WCGColor colorWithRGBA:0x00000000]
-                                                             endingColor:[WCGColor colorWithRGBA:0x00000040] 
+    NgGradient *backgroundTop = [NgGradient gradientWithBeginningColor:[NgColor colorWithRGBA:0x00000000]
+                                                             endingColor:[NgColor colorWithRGBA:0x00000040] 
                                                                    angle:90];            
-    NgGradient *backgroundBottom = [WCGGradient gradientWithBeginningColor:[WCGColor colorWithRGBA:0x00000060]
-                                                                endingColor:[WCGColor colorWithRGBA:0x00000000]
+    NgGradient *backgroundBottom = [NgGradient gradientWithBeginningColor:[NgColor colorWithRGBA:0x00000060]
+                                                                endingColor:[NgColor colorWithRGBA:0x00000000]
                                                                       angle:90];
     self.backgroundGradient = [NSArray arrayWithObjects:backgroundTop, backgroundBottom, nil];
     
@@ -396,7 +396,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
 
 - (void)drawInnerShadow:(CGContextRef)ctx rect:(CGRect)rc {
     int radius = self.layer.cornerRadius;
-    NgColor *color = [WCGColor colorWithCGColor:innerShadowColor.cgColor];
+    NgColor *color = [NgColor colorWithCGColor:innerShadowColor.cgColor];
     uint valueColor = [color valueRGBA];
     real alpha_offset = AS_C32P(ceil(RGBA_ALPHA(valueColor) * innerShadowBlur));
     
@@ -413,7 +413,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
         rc.size.width -= 2;
         rc.size.height -= 2;
         
-        color = [WCGColor addWith:[WCGColor colorWithCGColor:color.cgColor] r:0 g:0 b:0 a:-alpha_offset];
+        color = [NgColor addWith:[NgColor colorWithCGColor:color.cgColor] r:0 g:0 b:0 a:-alpha_offset];
         
         CGContextStrokePath(ctx);
     }
@@ -433,7 +433,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
             [gradient fillRect:rc inContext:ctx];
             rc.origin.y += comp_height;
         }
-    } else if ([_backgroundGradient isKindOfClass:[WCGGradient class]]) {
+    } else if ([_backgroundGradient isKindOfClass:[NgGradient class]]) {
         [(NgGradient*)_backgroundGradient fillRect:rect inContext:ctx];
     } else if ([_backgroundGradient isKindOfClass:[UIColor class]]) {
         [(UIColor*)_backgroundGradient set];
@@ -444,7 +444,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
     if (innerShadowColor) {        
         CGRect rc = rect;
         int radius = self.layer.cornerRadius;
-        NgColor *color = [WCGColor colorWithCGColor:innerShadowColor.cgColor];
+        NgColor *color = [NgColor colorWithCGColor:innerShadowColor.cgColor];
         uint valueColor = [color valueRGBA];
         real alpha_offset = AS_C32P(ceil(RGBA_ALPHA(valueColor) * innerShadowBlur));
         
@@ -461,7 +461,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
             rc.size.width -= 2;
             rc.size.height -= 2;
             
-            color = [WCGColor addWith:[WCGColor colorWithCGColor:color.cgColor] r:0 g:0 b:0 a:-alpha_offset];
+            color = [NgColor addWith:[NgColor colorWithCGColor:color.cgColor] r:0 g:0 b:0 a:-alpha_offset];
             
             CGContextStrokePath(ctx);
         }
@@ -487,7 +487,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    NgShapeStyle* style = [[WCGShapeStyle alloc] init];
+    NgShapeStyle* style = [[NgShapeStyle alloc] init];
     CGRoundedLeftArrowShape* shape = [[CGRoundedLeftArrowShape alloc] init];
     shape.radius = 4.5;
     style.shape = shape;

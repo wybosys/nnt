@@ -437,7 +437,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
 }
 
 - (void)scaleToBackgroundImage {
-    if (_backgroundFill && [_backgroundFill isKindOfClass:[WCGFillImage class]]) {
+    if (_backgroundFill && [_backgroundFill isKindOfClass:[NgFillImage class]]) {
         NgFillImage* theFill = (NgFillImage*)_backgroundFill;
         CGRect rc = self.frame;
         rc.size = theFill.image.size;
