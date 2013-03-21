@@ -2,9 +2,9 @@
 # ifndef __IMPL_CLIENT_CFF7465F4E904FEAB0C042A6261F4FA7_H_INCLUDED
 # define __IMPL_CLIENT_CFF7465F4E904FEAB0C042A6261F4FA7_H_INCLUDED
 
-# include <wsi/Cross/xmpp/XmppIMClientor.h>
+# include <nnt/Cross/xmpp/XmppIMClientor.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class Client
 : public xmpp::IMClientor
@@ -27,6 +27,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

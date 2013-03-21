@@ -1,20 +1,20 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 # include "MainController.h"
 
 # include "ContactsCenter.h"
 # include "ImplClient.h"
 
-# include <wsi/Cross/xmpp/core/XmppFailure.h>
-# include <wsi/Cross/xmpp/core/XmppClose.h>
-# include <wsi/Cross/xmpp/im/XimPresence.h>
-# include <wsi/Cross/xmpp/im/XimMessage.h>
-# include <wsi/Cross/xmpp/im/XimRoster.h>
-# include <wsi/Cross/xmpp/im/XimShow.h>
-# include <wsi/Cross/xmpp/xep/XepVCard.h>
-# include <wsi/Cross/xmpp/xep/XepAvatar.h>
+# include <nnt/Cross/xmpp/core/XmppFailure.h>
+# include <nnt/Cross/xmpp/core/XmppClose.h>
+# include <nnt/Cross/xmpp/im/XimPresence.h>
+# include <nnt/Cross/xmpp/im/XimMessage.h>
+# include <nnt/Cross/xmpp/im/XimRoster.h>
+# include <nnt/Cross/xmpp/im/XimShow.h>
+# include <nnt/Cross/xmpp/xep/XepVCard.h>
+# include <nnt/Cross/xmpp/xep/XepAvatar.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 xmpp::im::User const* __gs_user = NULL;
 xmpp::IMClient* __gs_client = NULL;
@@ -29,7 +29,7 @@ void MainView::layout_subviews()
 
 }
 
-WSIDECL_PRIVATE_BEGIN_CXX(MainController)
+NNTDECL_PRIVATE_BEGIN_CXX(MainController)
 
 void init()
 {
@@ -45,16 +45,16 @@ void dealloc()
 ContactsCenter contacts;
 Client clientor;
 
-WSIDECL_PRIVATE_END_CXX
+NNTDECL_PRIVATE_END_CXX
 
 MainController::MainController()
 {
-    WSIDECL_PRIVATE_CONSTRUCT(MainController);
+    NNTDECL_PRIVATE_CONSTRUCT(MainController);
 }
 
 MainController::~MainController()
 {
-    WSIDECL_PRIVATE_DESTROY();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 void MainController::view_loaded()
@@ -131,4 +131,4 @@ void MainController::mdl_got_vcard(cxx::eventobj_t &evt)
     trace_msg(str);
 }
 
-WSIAPP_END
+NNTAPP_END

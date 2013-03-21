@@ -2,7 +2,7 @@
 # ifndef __MAIN_CTLR_7A6991BA55064C309410439970D7229D_H_INCLUDED
 # define __MAIN_CTLR_7A6991BA55064C309410439970D7229D_H_INCLUDED
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 : public ui::uc::View<MainView>
@@ -19,6 +19,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

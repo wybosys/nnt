@@ -1,12 +1,12 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 # include "AppModel.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 GoogleModel::GoogleModel()
 {
 
 }
 
-WSIAPP_END
+NNTAPP_END

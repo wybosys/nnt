@@ -1,10 +1,10 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 # include "ContactsCenter.h"
 
-# include <wsi/Cross/xmpp/im/XimRoster.h>
+# include <nnt/Cross/xmpp/im/XimRoster.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 Contact::Contact()
 : data(NULL)
@@ -91,4 +91,4 @@ void ContactsCenter::load(contacts_type const& contacts)
     }
 }
 
-WSIAPP_END
+NNTAPP_END

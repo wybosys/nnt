@@ -1,10 +1,10 @@
 // sysinfo.cpp : Defines the entry point for the console application.
 //
 
-# include <wsi/WSIFoundation.h>
-# include <wsi/WTL/Device+WSI.h>
+# include <nnt/Foundation+NNT.h>
+# include <nnt/TL/Device+NNT.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
     : public cross::Console
@@ -17,7 +17,7 @@ public:
 
         // cpu
         {
-            wtl::cpu::Info<> cpuid;
+            ntl::cpu::Info<> cpuid;
             OUTPUT("CPU", "");
             OUTPUT("Family", cpuid.vid());
             OUTPUT("No.", core::type_cast<core::string>(cpuid.serialno()));
@@ -25,7 +25,7 @@ public:
 
         // bios.
         {
-            wtl::dev::Bios<> bios;
+            ntl::dev::Bios<> bios;
             OUTPUT("BIOS", "");
             if (bios.is_null())
             {
@@ -41,7 +41,7 @@ public:
 
         // main board.
         {
-            wtl::dev::Mainboard<> mb;
+            ntl::dev::Mainboard<> mb;
             OUTPUT("MainBoard", "");
             if (mb.is_null())
             {
@@ -55,7 +55,7 @@ public:
 
         // disk.
         {
-            wtl::dev::Disk<> dk;
+            ntl::dev::Disk<> dk;
             OUTPUT("Disk", "");
             if (dk.is_null())
             {
@@ -71,7 +71,7 @@ public:
 
         // memory.
         {
-            wtl::dev::Memory<> mem;
+            ntl::dev::Memory<> mem;
             OUTPUT("Memory", "");
             if (mem.is_null())
             {
@@ -86,10 +86,10 @@ public:
 
 };
 
-WSIAPP_END
+NNTAPP_END
 
 int main(int argc, char* argv[])
 {
-    ::wsiapp::App app;
+    ::nntapp::App app;
     return app.execute(argc, argv);
 }

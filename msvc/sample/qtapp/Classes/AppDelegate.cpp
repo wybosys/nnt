@@ -1,8 +1,8 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 # include "AppDelegate.h"
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void App::load()
 {
@@ -11,4 +11,4 @@ void App::load()
     set_root(ctlr);
 }
 
-WSIAPP_END
+NNTAPP_END

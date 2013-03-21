@@ -1,7 +1,7 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
     : public cross::Console
@@ -16,11 +16,11 @@ public:
 
 };
 
-WSIAPP_END
+NNTAPP_END
 
 int main(int argc, char* argv[])
 {
-    ::wsiapp::App app;
+    ::nntapp::App app;
     return app.execute(argc, argv);
 }
 

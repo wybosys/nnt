@@ -1,10 +1,10 @@
 // store.cpp : Defines the entry point for the console application.
 //
 
-# include <wsi/WSIFoundation.h>
-# include <wsi/Store/WSISqlServer.h>
+# include <nnt/Foundation+NNT.h>
+# include <nnt/Store/SqlServer+NNT.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class App
     : public cross::Console
@@ -53,11 +53,11 @@ public:
 
 };
 
-WSIAPP_END
+NNTAPP_END
 
 int main(int argc, char* argv[])
 {
-    ::wsiapp::App app;
+    ::nntapp::App app;
     return app.execute(argc, argv);
 }
 

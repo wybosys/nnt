@@ -1,10 +1,10 @@
 // security.cpp : Defines the entry point for the console application.
 //
 
-# include <wsi/WSIFoundation.h>
-# include <wsi/Security/WsiSecurity.h>
+# include <nnt/Foundation+NNT.h>
+# include <nnt/Security/Security+NNT.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 extern core::string str_long;
 extern core::string str_short;
@@ -98,12 +98,12 @@ core::string str_short = "1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-q
 
 core::string str_long = "1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./1234567890-qwertyuiop[]asdfghjklzxcvbnm,./";
 
-WSIAPP_END
+NNTAPP_END
 
 
 
 int main(int argc, char* argv[])
 {   
-    ::wsiapp::App app;
+    ::nntapp::App app;
     return app.execute(argc, argv);
 }

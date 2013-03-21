@@ -1,13 +1,13 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 # include "ImplClient.h"
-# include <wsi/store/WSISqlite.h>
-# include <wsi/Core/Directory+WSI.h>
-# include <wsi/Cross/xmpp/im/XimMessage.h>
-# include <wsi/Cross/xmpp/im/XimXPhoto.h>
-# include <wsi/Cross/xmpp/xep/XepVCard.h>
+# include <nnt/store/Sqlite+NNT.h>
+# include <nnt/Core/Directory+NNT.h>
+# include <nnt/Cross/xmpp/im/XimMessage.h>
+# include <nnt/Cross/xmpp/im/XimXPhoto.h>
+# include <nnt/Cross/xmpp/xep/XepVCard.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 void Client::set(xmpp::IMClient& cli)
 {
@@ -117,4 +117,4 @@ void Client::mdl_xphoto(cxx::eventobj_t &evt)
     client().execute(obj);
 }
 
-WSIAPP_END
+NNTAPP_END

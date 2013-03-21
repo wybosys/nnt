@@ -2,9 +2,9 @@
 # ifndef __MAIN_CTLR_1B2928C6300A4AE6915A4E3E46FCAC7E_H_INCLUDED
 # define __MAIN_CTLR_1B2928C6300A4AE6915A4E3E46FCAC7E_H_INCLUDED
 
-# include <wsi/Cross/xmpp/XmppIMClient.h>
+# include <nnt/Cross/xmpp/XmppIMClient.h>
 
-WSIAPP_BEGIN
+NNTAPP_BEGIN
 
 class MainView
 	: public ui::uc::View<MainView>
@@ -17,12 +17,12 @@ public:
     
 };
 
-WSIDECL_PRIVATE_HEADER_CXX(MainController);
+NNTDECL_PRIVATE_HEAD_CXX(MainController);
 
 class MainController
 	: public ui::uc::Controller<MainController, MainView>
 {
-    WSIDECL_PRIVATE_CXX(MainController);
+    NNTDECL_PRIVATE_CXX(MainController);
     
 public:
     
@@ -50,6 +50,6 @@ protected:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

@@ -2,11 +2,9 @@
 # ifndef __CONTACTS_CENTER_1DB98D731F3D40B9ACB7A169162C5F44_H_INCLUDED
 # define __CONTACTS_CENTER_1DB98D731F3D40B9ACB7A169162C5F44_H_INCLUDED
 
-# include <wsi/Cross/xmpp/im/XimUser.h>
+# include <nnt/Cross/xmpp/im/XimUser.h>
 
-WSIAPP_BEGIN
-
-using namespace ::wsi;
+NNTAPP_BEGIN
 
 class Contact
 {
@@ -54,6 +52,6 @@ public:
     
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif
