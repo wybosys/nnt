@@ -1,4 +1,4 @@
-// libwsi.h : main header file for the libwsi DLL
+// libNNT.h : main header file for the libNNT DLL
 //
 
 #pragma once
@@ -10,14 +10,14 @@
 #include "resource.h"		// main symbols
 
 
-// ClibwsiApp
-// See libwsi.cpp for the implementation of this class
+// ClibNNTApp
+// See libNNT.cpp for the implementation of this class
 //
 
-class ClibwsiApp : public CWinApp
+class ClibNNTApp : public CWinApp
 {
 public:
-	ClibwsiApp();
+	ClibNNTApp();
 
 // Overrides
 public:

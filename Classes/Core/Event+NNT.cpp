@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTEvent.h"
+# include "Event+NNT.h"
 
 NNT_BEGIN_CXX
 

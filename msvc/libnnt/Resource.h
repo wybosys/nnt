@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by libwsi.rc
+// Used by libNNT.rc
 //
 #define VS_VERSION_INFO                 1
 #define IDP_SOCKETS_INIT_FAILED         101

@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTSqlServer.h"
+# include "SqlServer+NNT.h"
 # include "../Core/Boost+NNT.h"
 # include <boost/regex.hpp>
 

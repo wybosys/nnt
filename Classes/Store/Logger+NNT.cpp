@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTLogger.h"
+# include "Logger+NNT.h"
 # include "../Core/Time+NNT.h"
 
 # define LOG4CPP_FIX_ERROR_COLLISION

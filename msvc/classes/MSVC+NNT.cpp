@@ -1,15 +1,15 @@
 
 # include "Core.h"
-# include "MSVC+WSI.h"
+# include "MSVC+NNT.h"
 # include "ExceptionProcess.h"
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(msvc)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(msvc)
 
 void Init()
 {
     static ExceptionProcess exception_process = ExceptionProcess();
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX

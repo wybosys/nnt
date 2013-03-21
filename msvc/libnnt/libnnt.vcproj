@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="libwsi"
+	Name="libnnt"
 	ProjectGUID="{36DBA52B-7C56-41ED-B6E5-D4418089EA1D}"
-	RootNamespace="libwsi"
+	RootNamespace="libnnt"
 	Keyword="MFCDLLProj"
 	TargetFrameworkVersion="196613"
 	>
@@ -44,13 +44,13 @@
 				PreprocessorDefinitions="_DEBUG"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
-				TypeLibraryName="$(IntDir)/libwsi.tlb"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBWSI;DLLWSI;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -75,13 +75,13 @@
 				Name="VCLinkerTool"
 				RegisterOutput="false"
 				AdditionalDependencies="ACEd.lib libdb51d.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3D.lib log4cppds.lib QtCored4.lib QtGuid4.lib"
-				OutputFile="$(OutDir)\libwsid.dll"
+				OutputFile="$(OutDir)\libnntd.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../lib/MSVC"
-				ModuleDefinitionFile=".\libwsid.def"
+				ModuleDefinitionFile=".\libnntd.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
-				ImportLibrary="$(TargetDir)/libwsid.lib"
+				ImportLibrary="$(TargetDir)/libnntd.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -131,13 +131,13 @@
 				PreprocessorDefinitions="_DEBUG"
 				MkTypLibCompatible="false"
 				TargetEnvironment="3"
-				TypeLibraryName="$(IntDir)/libwsi.tlb"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBWSI;DLLWSI;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -162,13 +162,13 @@
 				Name="VCLinkerTool"
 				RegisterOutput="false"
 				AdditionalDependencies="ACEd.lib libdb51d.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3D.lib log4cppds.lib"
-				OutputFile="$(OutDir)\libwsid.dll"
+				OutputFile="$(OutDir)\libnntd.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../lib/MSVC"
-				ModuleDefinitionFile=".\libwsid.def"
+				ModuleDefinitionFile=".\libnntd.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
-				ImportLibrary="$(TargetDir)/libwsid.lib"
+				ImportLibrary="$(TargetDir)/libnntd.lib"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -219,14 +219,14 @@
 				PreprocessorDefinitions="NDEBUG"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
-				TypeLibraryName="$(IntDir)/libwsi.tlb"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBWSI;DLLWSI;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
@@ -250,10 +250,10 @@
 				Name="VCLinkerTool"
 				RegisterOutput="false"
 				AdditionalDependencies="ACE.lib libdb51.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3.lib log4cpps.lib QtCore4.lib QtGui4.lib"
-				OutputFile="$(OutDir)\libwsi.dll"
+				OutputFile="$(OutDir)\libnnt.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../lib/MSVC"
-				ModuleDefinitionFile=".\libwsi.def"
+				ModuleDefinitionFile=".\libnnt.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -308,14 +308,14 @@
 				PreprocessorDefinitions="NDEBUG"
 				MkTypLibCompatible="false"
 				TargetEnvironment="3"
-				TypeLibraryName="$(IntDir)/libwsi.tlb"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBWSI;DLLWSI;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
@@ -339,10 +339,10 @@
 				Name="VCLinkerTool"
 				RegisterOutput="false"
 				AdditionalDependencies="ACE.lib libdb51.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3.lib log4cpps.lib"
-				OutputFile="$(OutDir)\libwsi.dll"
+				OutputFile="$(OutDir)\libnnt.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../lib/MSVC"
-				ModuleDefinitionFile=".\libwsi.def"
+				ModuleDefinitionFile=".\libnnt.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -381,15 +381,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\libwsi.cpp"
+				RelativePath=".\libnnt.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\libwsi.def"
+				RelativePath=".\libnnt.def"
 				>
 			</File>
 			<File
-				RelativePath=".\libwsi.idl"
+				RelativePath=".\libnnt.idl"
 				>
 			</File>
 			<File
@@ -439,7 +439,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\libwsi.h"
+				RelativePath=".\libnnt.h"
 				>
 			</File>
 			<File
@@ -461,11 +461,11 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\libwsi.rc"
+				RelativePath=".\libnnt.rc"
 				>
 			</File>
 			<File
-				RelativePath=".\res\libwsi.rc2"
+				RelativePath=".\res\libnnt.rc2"
 				>
 			</File>
 		</Filter>
@@ -473,11 +473,11 @@
 			Name="Classes"
 			>
 			<File
-				RelativePath="..\..\Classes\WSIExecution.h"
+				RelativePath="..\..\Classes\Execution+NNT.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Classes\WSIFoundation.h"
+				RelativePath="..\..\Classes\Foundation+NNT.h"
 				>
 			</File>
 			<Filter
@@ -489,6 +489,21 @@
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\App.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\Char+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\Char+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -514,11 +529,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Directory+WSI.cpp"
+					RelativePath="..\..\Classes\Core\Directory+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Directory+WSI.h"
+					RelativePath="..\..\Classes\Core\Directory+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -529,11 +544,19 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\File+WSI.cpp"
+					RelativePath="..\..\Classes\Core\Event+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\File+WSI.h"
+					RelativePath="..\..\Classes\Core\Event+NNT.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\File+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\File+NNT.h"
 					>
 				</File>
 				<File
@@ -567,11 +590,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Task+WSI.cpp"
+					RelativePath="..\..\Classes\Core\Task+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Task+WSI.h"
+					RelativePath="..\..\Classes\Core\Task+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -582,11 +605,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Time+WSI.cpp"
+					RelativePath="..\..\Classes\Core\Time+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Core\Time+WSI.h"
+					RelativePath="..\..\Classes\Core\Time+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -602,48 +625,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\UnitTest.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Core\WSIChar.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Core\WSIChar.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Core\WSIEvent.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Core\WSIEvent.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Baison"
-				>
-				<File
-					RelativePath="..\..\Classes\Baison\BSEServer.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Baison\BSEServer.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -759,11 +740,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Cross\Mime+WSI.cpp"
+					RelativePath="..\..\Classes\Cross\Mime+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Cross\Mime+WSI.h"
+					RelativePath="..\..\Classes\Cross\Mime+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -916,11 +897,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Cross\VCard+WSI.cpp"
+					RelativePath="..\..\Classes\Cross\VCard+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Cross\VCard+WSI.h"
+					RelativePath="..\..\Classes\Cross\VCard+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1776,6 +1757,36 @@
 				Name="Store"
 				>
 				<File
+					RelativePath="..\..\Classes\Store\Bdb+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Store\Bdb+NNT.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Store\Configuration+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Store\Configuration+NNT.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath="..\..\Classes\Store\DBMS.h"
 					>
 					<FileConfiguration
@@ -1813,26 +1824,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSIBdb.cpp"
+					RelativePath="..\..\Classes\Store\Logger+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSIBdb.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Store\WSIConfiguration.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Store\WSIConfiguration.h"
+					RelativePath="..\..\Classes\Store\Logger+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1843,26 +1839,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSILogger.cpp"
+					RelativePath="..\..\Classes\Store\MySql+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSILogger.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Store\WSIMySql.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Store\WSIMySql.h"
+					RelativePath="..\..\Classes\Store\MySql+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1873,11 +1854,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSISqlServer.cpp"
+					RelativePath="..\..\Classes\Store\SqlServer+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Store\WSISqlServer.h"
+					RelativePath="..\..\Classes\Store\SqlServer+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1892,26 +1873,11 @@
 				Name="Security"
 				>
 				<File
-					RelativePath="..\..\Classes\Security\AES+WSI.cpp"
+					RelativePath="..\..\Classes\Security\AES+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\AES+WSI.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\BaseN+WSI.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\BaseN+WSI.h"
+					RelativePath="..\..\Classes\Security\AES+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1922,26 +1888,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\DES+WSI.cpp"
+					RelativePath="..\..\Classes\Security\BaseN+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\DES+WSI.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\MDN+WSI.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\MDN+WSI.h"
+					RelativePath="..\..\Classes\Security\BaseN+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1952,34 +1903,11 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\RSA+WSI.cpp"
+					RelativePath="..\..\Classes\Security\DES+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\RSA+WSI.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\SHA+WSI.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\SHA+WSI.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\UUID+WSI.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Security\UUID+WSI.h"
+					RelativePath="..\..\Classes\Security\DES+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -1990,11 +1918,64 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\WsiSecurity.cpp"
+					RelativePath="..\..\Classes\Security\MDN+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Security\WsiSecurity.h"
+					RelativePath="..\..\Classes\Security\MDN+NNT.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\RSA+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\RSA+NNT.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\Security+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\Security+NNT.h"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\SHA+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\SHA+NNT.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\UUID+NNT.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Security\UUID+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -2120,11 +2101,11 @@
 				Name="Qt"
 				>
 				<File
-					RelativePath="..\..\Classes\Qt\QtApplication+WSI.cpp"
+					RelativePath="..\..\Classes\Qt\QtApplication+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Qt\QtApplication+WSI.h"
+					RelativePath="..\..\Classes\Qt\QtApplication+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -2243,11 +2224,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Math\Math+WSI.cpp"
+					RelativePath="..\..\Classes\Math\Math+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Math\Math+WSI.h"
+					RelativePath="..\..\Classes\Math\Math+NNT.h"
 					>
 				</File>
 				<File
@@ -2387,178 +2368,178 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="WTL"
+				Name="TL"
 				>
 				<File
-					RelativePath="..\..\Classes\WTL\Algorithm+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Algorithm+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Algorithm+WSI.h"
+					RelativePath="..\..\Classes\TL\Algorithm+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Assembly+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Assembly+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Assembly+WSI.h"
+					RelativePath="..\..\Classes\TL\Assembly+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Bimap+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Bimap+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Bimap+WSI.h"
+					RelativePath="..\..\Classes\TL\Bimap+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Closure+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Closure+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Closure+WSI.h"
+					RelativePath="..\..\Classes\TL\Closure+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Cpu+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Cpu+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Cpu+WSI.h"
+					RelativePath="..\..\Classes\TL\Cpu+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Data+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Data+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Data+WSI.h"
+					RelativePath="..\..\Classes\TL\Data+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Device+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Device+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Device+WSI.h"
+					RelativePath="..\..\Classes\TL\Device+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Exception+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Exception+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Exception+WSI.h"
+					RelativePath="..\..\Classes\TL\Exception+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Hardware+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Hardware+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Hardware+WSI.h"
+					RelativePath="..\..\Classes\TL\Hardware+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Interface+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Interface+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Interface+WSI.h"
+					RelativePath="..\..\Classes\TL\Interface+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\List+WSI.cpp"
+					RelativePath="..\..\Classes\TL\List+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\List+WSI.h"
+					RelativePath="..\..\Classes\TL\List+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Map+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Map+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Map+WSI.h"
+					RelativePath="..\..\Classes\TL\Map+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\MSCOM+WSI.cpp"
+					RelativePath="..\..\Classes\TL\MSCOM+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\MSCOM+WSI.h"
+					RelativePath="..\..\Classes\TL\MSCOM+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Operator+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Operator+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Operator+WSI.h"
+					RelativePath="..\..\Classes\TL\Operator+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Regex+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Regex+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Regex+WSI.h"
+					RelativePath="..\..\Classes\TL\Regex+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\SmartPtr+WSI.cpp"
+					RelativePath="..\..\Classes\TL\SmartPtr+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\SmartPtr+WSI.h"
+					RelativePath="..\..\Classes\TL\SmartPtr+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\String+WSI.cpp"
+					RelativePath="..\..\Classes\TL\String+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\String+WSI.h"
+					RelativePath="..\..\Classes\TL\String+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\System+WSI.cpp"
+					RelativePath="..\..\Classes\TL\System+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\System+WSI.h"
+					RelativePath="..\..\Classes\TL\System+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Tuple+WSI.h"
+					RelativePath="..\..\Classes\TL\Tuple+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Types+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Types+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Types+WSI.h"
+					RelativePath="..\..\Classes\TL\Types+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Variant+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Variant+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Variant+WSI.h"
+					RelativePath="..\..\Classes\TL\Variant+NNT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Vector+WSI.cpp"
+					RelativePath="..\..\Classes\TL\Vector+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Classes\WTL\Vector+WSI.h"
+					RelativePath="..\..\Classes\TL\Vector+NNT.h"
 					>
 				</File>
 			</Filter>
@@ -2570,11 +2551,11 @@
 				Name="ace"
 				>
 				<File
-					RelativePath="..\..\contrib\ace\ACE+WSI.cpp"
+					RelativePath="..\..\contrib\ace\ACE+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\contrib\ace\ACE+WSI.h"
+					RelativePath="..\..\contrib\ace\ACE+NNT.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -2589,11 +2570,11 @@
 				Name="libxml"
 				>
 				<File
-					RelativePath="..\..\contrib\libxml\LIBXERCESC+WSI.cpp"
+					RelativePath="..\..\contrib\libxml\LIBXERCESC+NNT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\contrib\libxml\LIBXERCESC+WSI.h"
+					RelativePath="..\..\contrib\libxml\LIBXERCESC+NNT.h"
 					>
 				</File>
 			</Filter>
@@ -2634,11 +2615,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\classes\MSVC+WSI.cpp"
+				RelativePath="..\classes\MSVC+NNT.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\classes\MSVC+WSI.h"
+				RelativePath="..\classes\MSVC+NNT.h"
 				>
 			</File>
 		</Filter>

@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTMySql.h"
+# include "MySql+NNT.h"
 # include "../Cross/NetAddress.h"
 
 NNT_BEGIN_HEADER_C

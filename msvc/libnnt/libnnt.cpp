@@ -1,8 +1,8 @@
-// libwsi.cpp : Defines the initialization routines for the DLL.
+// libNNT.cpp : Defines the initialization routines for the DLL.
 //
 
 # include "Core.h"
-# include "libwsi.h"
+# include "libnnt.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -33,24 +33,24 @@
 //		details.
 //
 
-// ClibwsiApp
+// ClibNNTApp
 
-BEGIN_MESSAGE_MAP(ClibwsiApp, CWinApp)
+BEGIN_MESSAGE_MAP(ClibNNTApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// ClibwsiApp construction
+// ClibNNTApp construction
 
-ClibwsiApp::ClibwsiApp()
+ClibNNTApp::ClibNNTApp()
 {
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
 
-// The one and only ClibwsiApp object
+// The one and only ClibNNTApp object
 
-ClibwsiApp theApp;
+ClibNNTApp theApp;
 
 const GUID CDECL BASED_CODE _tlid =
 		{ 0x9DCB1EC8, 0x3FD, 0x4C48, { 0x86, 0x1, 0x39, 0xE8, 0x90, 0x47, 0x4F, 0x9 } };
@@ -58,9 +58,9 @@ const WORD _wVerMajor = 1;
 const WORD _wVerMinor = 0;
 
 
-// ClibwsiApp initialization
+// ClibNNTApp initialization
 
-BOOL ClibwsiApp::InitInstance()
+BOOL ClibNNTApp::InitInstance()
 {
 	CWinApp::InitInstance();
 

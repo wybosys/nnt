@@ -4,8 +4,8 @@
 # include <DbgHelp.h>
 # pragma comment (lib, "DbgHelp.lib")
 
-WSI_BEGIN_CXX
-WSI_BEGIN_NS(msvc)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(msvc)
 
 core::string ExceptionProcess::Path = "DumpFile.dmp";
 
@@ -50,5 +50,5 @@ LONG ExceptionProcess::HandleUnknownException(struct _EXCEPTION_POINTERS* _excep
     return EXCEPTION_EXECUTE_HANDLER;
 }
 
-WSI_END_NS
-WSI_END_CXX
+NNT_END_NS
+NNT_END_CXX
