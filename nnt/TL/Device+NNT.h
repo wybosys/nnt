@@ -20,7 +20,7 @@ class Bios
 
 };
 
-# ifdef WSI_MSVC
+# ifdef NNT_MSVC
 
 template <>
 class Bios<os_windows>
