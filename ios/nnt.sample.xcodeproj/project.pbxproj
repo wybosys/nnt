@@ -1481,6 +1481,8 @@
 		16F2384A149843F700E7F082 /* Contact+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F23848149843F700E7F082 /* Contact+NNT.h */; };
 		16F2384B149843F700E7F082 /* Contact+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F23849149843F700E7F082 /* Contact+NNT.mm */; };
 		16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* nnt_prefix.pch */; };
+		16F653E217004AC200DF2ADB /* EC+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F653E017004AC100DF2ADB /* EC+NNT.cpp */; };
+		16F653E317004AC200DF2ADB /* EC+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F653E117004AC200DF2ADB /* EC+NNT.h */; };
 		16F7AA27145649E3009A3F7A /* UITheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F7AA25145649E3009A3F7A /* UITheme.h */; };
 		16F7AA28145649E3009A3F7A /* UITheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F7AA26145649E3009A3F7A /* UITheme.mm */; };
 		16F7AA2D14565621009A3F7A /* uictypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F7AA2C14565620009A3F7A /* uictypes.h */; };
@@ -3064,6 +3066,8 @@
 		16F23848149843F700E7F082 /* Contact+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contact+NNT.h"; path = "Trail/Contact+NNT.h"; sourceTree = "<group>"; };
 		16F23849149843F700E7F082 /* Contact+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Contact+NNT.mm"; path = "Trail/Contact+NNT.mm"; sourceTree = "<group>"; };
 		16F32C1713A60C52003B9987 /* nnt_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt_prefix.pch; sourceTree = "<group>"; };
+		16F653E017004AC100DF2ADB /* EC+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "EC+NNT.cpp"; sourceTree = "<group>"; };
+		16F653E117004AC200DF2ADB /* EC+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EC+NNT.h"; sourceTree = "<group>"; };
 		16F7AA25145649E3009A3F7A /* UITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITheme.h; sourceTree = "<group>"; };
 		16F7AA26145649E3009A3F7A /* UITheme.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UITheme.mm; sourceTree = "<group>"; };
 		16F7AA2C14565620009A3F7A /* uictypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uictypes.h; sourceTree = "<group>"; };
@@ -4687,6 +4691,8 @@
 				16CBDE3215C6332300797960 /* BaseN+NNT.h */,
 				16CBDE3315C6332300797960 /* DES+NNT.cpp */,
 				16CBDE3415C6332300797960 /* DES+NNT.h */,
+				16F653E017004AC100DF2ADB /* EC+NNT.cpp */,
+				16F653E117004AC200DF2ADB /* EC+NNT.h */,
 				16A4DB16169C12510058BB78 /* MDN+NNT.mm */,
 				16CBDE3515C6332300797960 /* MDN+NNT.cpp */,
 				16CBDE3615C6332300797960 /* MDN+NNT.h */,
@@ -6182,6 +6188,7 @@
 				169F840C16F8478E0008AAC9 /* Types+NNT.h in Headers */,
 				169F840E16F8478E0008AAC9 /* Variant+NNT.h in Headers */,
 				169F841016F8478E0008AAC9 /* Vector+NNT.h in Headers */,
+				16F653E317004AC200DF2ADB /* EC+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6213,7 +6220,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */;
+			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -7068,6 +7075,7 @@
 				169F840F16F8478E0008AAC9 /* Vector+NNT.cpp in Sources */,
 				169F841116F8478E0008AAC9 /* Vector+NNT.mm in Sources */,
 				169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */,
+				16F653E217004AC200DF2ADB /* EC+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7189,7 +7197,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */ = {
+		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBA13A5FF11008DF239 /* Debug */,

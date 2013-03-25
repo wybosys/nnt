@@ -1,7 +1,7 @@
 
 # include "Foundation+NNT.h"
 # include "MainController.h"
-# include "WsiSecurity.h"
+# include "Security+NNT.h"
 
 NNTAPP_BEGIN
 

@@ -44,12 +44,12 @@ protected:
     
 };
 
-inline core::vector<byte> rsa::public_key() const
+inline_impl core::vector<byte> rsa::public_key() const
 {
     return this->_pubkey;
 }
 
-inline core::vector<byte> rsa::private_key() const
+inline_impl core::vector<byte> rsa::private_key() const
 {
     return this->_prvkey;
 }
