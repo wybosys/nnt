@@ -210,7 +210,7 @@ XmlDocument::XmlDocument()
 	_root->name = "ROOT";
     
 # ifdef USE_LIBXERCESC
-    //this->_env = new xml::Environment;
+    this->_env = new xml::Environment;
 # endif
 }
 
@@ -219,7 +219,7 @@ XmlDocument::~XmlDocument()
     _root->drop();
     
 # ifdef USE_LIBXERCESC
-    //delete (xml::Environment*)this->_env;
+    delete (xml::Environment*)this->_env;
 # endif
 
 }

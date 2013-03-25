@@ -17,6 +17,15 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(xml)
 
+class Environment
+{
+public:
+
+	Environment();
+	~Environment();
+
+};
+
 class string
 {
 public:
