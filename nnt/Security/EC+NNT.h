@@ -16,8 +16,9 @@ public:
 
     ecc();
     ~ecc();
-    
-    void generate(core::data const& pass);
+
+    //! generate public & private key.
+    bool generate();
 
 
 };

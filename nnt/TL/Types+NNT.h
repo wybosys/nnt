@@ -505,6 +505,8 @@ class implementation
 {
 protected:
     
+    typedef implT impl_type;
+    
     implT& _impl()
     {
         return *(implT*)this;
@@ -588,6 +590,8 @@ class composition
     typedef composition<implT, T> self_type;
     
 public:
+    
+    typedef T value_type;
     
     operator T& ()
     {

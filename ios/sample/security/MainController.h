@@ -15,11 +15,14 @@ public:
 
     ui::BevelButton btn_base64_encode, btn_base64_decode;
     ui::BevelButton btn_sha1, btn_sha2;
+    ui::BevelButton btn_ec_en, btn_ec_de;
     
     void act_base64_encode();
     void act_base64_decode();
     void act_sha1();
     void act_sha2();
+    void act_ec_en();
+    void act_ec_de();
     
 };
 
