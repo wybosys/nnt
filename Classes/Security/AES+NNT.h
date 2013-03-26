@@ -9,8 +9,10 @@ NNTCLASS(aes);
 class aes
 {
 public:
+    
     static void encrypt(core::data const& key, core::data const& in, core::vector<byte>& out);
     static void decrypt(core::data const& key, core::data const& in, core::vector<byte>& out);
+    
 };
 
 NNT_END_HEADER_CXX

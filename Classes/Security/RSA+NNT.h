@@ -6,9 +6,14 @@ NNT_BEGIN_HEADER_CXX
 
 NNTCLASS(rsa);
 
+NNTDECL_PRIVATE_HEAD_CXX(rsa);
+
 class rsa
 {
+    NNTDECL_PRIVATE_CXX(rsa);
+    
 public:
+    
     enum
     {
         DEFAULT_BITS = 2048,
@@ -16,13 +21,11 @@ public:
         RSA_F4 = 0x10001L,
     };
     
-public:
-    
     rsa();
     ~rsa();
     
     //! generate private key and public key.
-    bool generate();
+    bool generate(uint bits = DEFAULT_BITS);
     
     //! get key.
     core::vector<byte> public_key() const;
@@ -35,24 +38,7 @@ public:
     bool encrypt(core::data const& in, core::vector<byte>& out) const;
     bool decrypt(core::data const& in, core::vector<byte>& out) const;
     
-protected:
-    
-    void _free();
-    
-    void* _env;
-    core::vector<byte> _pubkey, _prvkey;
-    
 };
-
-inline_impl core::vector<byte> rsa::public_key() const
-{
-    return this->_pubkey;
-}
-
-inline_impl core::vector<byte> rsa::private_key() const
-{
-    return this->_prvkey;
-}
 
 NNT_END_HEADER_CXX
 

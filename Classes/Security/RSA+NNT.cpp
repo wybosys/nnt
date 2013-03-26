@@ -11,49 +11,83 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_CXX
 
-rsa::rsa()
-:_env(NULL)
+NNTDECL_PRIVATE_BEGIN_CXX(rsa)
+
+void init()
 {
-    PASS;
+    env = NULL;
+}
+
+void dealloc()
+{
+    free();
+}
+
+void free()
+{
+    if (env == NULL)
+        return;
+    
+    RSA_free(env);
+    env = NULL;
+}
+
+self_type& operator = (RSA* rsa)
+{
+    free();
+    env = rsa;
+    return *this;
+}
+
+operator RSA* ()
+{
+    return env;
+}
+
+core::vector<byte> pubkey, prvkey;
+
+protected:
+
+RSA* env;
+
+NNTDECL_PRIVATE_END_CXX
+
+rsa::rsa()
+{
+    NNTDECL_PRIVATE_CONSTRUCT(rsa);
 }
 
 rsa::~rsa()
 {
-    _free();
+    NNTDECL_PRIVATE_DESTROY();
 }
 
-void rsa::_free()
-{
-    RSA_free((RSA*)_env);
-    _env = NULL;
-}
-
-bool rsa::generate()
+bool rsa::generate(uint bits)
 {    
     RSA* rsa = RSA_new();
     
     BIGNUM* bg = BN_new();    
     BN_set_word(bg, RSA_F4);
-    RSA_generate_key_ex(rsa, DEFAULT_BITS, bg, NULL);
+    RSA_generate_key_ex(rsa, bits, bg, NULL);
     BN_free(bg);
     
     // read private key.
     BIO* bio = BIO_new(BIO_s_mem());
     PEM_write_bio_RSAPrivateKey(bio, rsa, 0, 0, 0, 0, 0);
-    this->_prvkey.resize(BIO_number_written(bio));
-    BIO_read(bio, core::pointer(this->_prvkey), (int)this->_prvkey.size());
+    d_ptr->prvkey.resize(BIO_number_written(bio));
+    BIO_read(bio, core::pointer(d_ptr->prvkey), (int)d_ptr->prvkey.size());
     BIO_free(bio);
     
     // read public key.
     bio = BIO_new(BIO_s_mem());
     //PEM_write_bio_RSAPublicKey(bio, rsa);
     PEM_write_bio_RSA_PUBKEY(bio, rsa);
-    this->_pubkey.resize(BIO_number_written(bio));
-    BIO_read(bio, core::pointer(this->_pubkey), (int)this->_pubkey.size());
+    d_ptr->pubkey.resize(BIO_number_written(bio));
+    BIO_read(bio, core::pointer(d_ptr->pubkey), (int)d_ptr->pubkey.size());
     BIO_free(bio);
     
     // set rsa.
-    this->_env = rsa;
+    d_ptr->env = rsa;
     
     return true;
 }
@@ -76,13 +110,14 @@ bool rsa::set_public_key(const byte * key, usize klen)
         return false;
     }
     
-    this->_env = rsa;
+    *d_ptr = rsa;
+
     return true;
 }
 
 bool rsa::encrypt(core::data const& in, core::vector<byte>& out) const
 {
-    int sz_rsa = RSA_size((RSA*)this->_env);
+    int sz_rsa = RSA_size(*d_ptr);
     
     if (sz_rsa - 11 < (int)in.length()) 
     {
@@ -100,7 +135,7 @@ bool rsa::encrypt(core::data const& in, core::vector<byte>& out) const
             int sta = RSA_public_encrypt(eatn,
                                          in.bytes() + in.length() - left,
                                          core::pointer(tmp),
-                                         (RSA*)this->_env,
+                                         *d_ptr,
                                          RSA_PKCS1_PADDING);
 			if (sta == -1)
 				return false;
@@ -117,7 +152,7 @@ bool rsa::encrypt(core::data const& in, core::vector<byte>& out) const
     int sta = RSA_public_encrypt((int)in.length(),
                                  in.bytes(),
                                  core::pointer(out),
-                                 (RSA*)this->_env,
+                                 *d_ptr,
                                  RSA_PKCS1_PADDING);
     if ((sta != -1) && (sta != out.size()))
         out.resize(sta);
@@ -126,7 +161,7 @@ bool rsa::encrypt(core::data const& in, core::vector<byte>& out) const
 
 bool rsa::decrypt(core::data const& in, core::vector<byte>& out) const
 {
-    int sz_rsa = RSA_size((RSA*)this->_env);    
+    int sz_rsa = RSA_size(*d_ptr);
     
     if (sz_rsa < (int)in.length())
     {
@@ -143,7 +178,7 @@ bool rsa::decrypt(core::data const& in, core::vector<byte>& out) const
             int sta = RSA_private_decrypt(eatn,
                                           in.bytes() + in.length() - left,
                                           core::pointer(tmp),
-                                          (RSA*)this->_env,
+                                          *d_ptr,
                                           RSA_PKCS1_PADDING);
             
 			if (sta == -1)
@@ -161,11 +196,21 @@ bool rsa::decrypt(core::data const& in, core::vector<byte>& out) const
     int sta = RSA_private_decrypt((int)in.length(), 
                                   in.bytes(), 
                                   core::pointer(out), 
-                                  (RSA*)this->_env, 
+                                  *d_ptr,
                                   RSA_PKCS1_PADDING);
     if ((sta != -1) && (sta != out.size()))
         out.resize(sta);
     return sta != -1;
+}
+
+core::vector<byte> rsa::public_key() const
+{
+    return d_ptr->pubkey;
+}
+
+core::vector<byte> rsa::private_key() const
+{
+    return d_ptr->prvkey;
 }
 
 NNT_END_CXX

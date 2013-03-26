@@ -4,6 +4,13 @@
 
 NNT_BEGIN_HEADER_CXX
 
+NNTCLASS(ecc);
+
+class ecc
+{
+    
+};
+
 NNT_END_HEADER_CXX
 
 # endif
