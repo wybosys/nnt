@@ -484,6 +484,8 @@
 		166C1886166F181800E4423F /* NSRunLoop+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166C1884166F181800E4423F /* NSRunLoop+NNT.mm */; };
 		166C437015FDCB2900A912D8 /* ApnsObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 166C436E15FDCB2900A912D8 /* ApnsObject.h */; };
 		166C437115FDCB2900A912D8 /* ApnsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166C436F15FDCB2900A912D8 /* ApnsObject.mm */; };
+		166DC71B170172EA0031B458 /* Openssl+NNT.p.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166DC719170172EA0031B458 /* Openssl+NNT.p.cpp */; };
+		166DC71C170172EA0031B458 /* Openssl+NNT.p.h in Headers */ = {isa = PBXBuildFile; fileRef = 166DC71A170172EA0031B458 /* Openssl+NNT.p.h */; };
 		16707C9816D360A500C8C9A4 /* IFlytekVoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 16707C9616D360A500C8C9A4 /* IFlytekVoice.h */; };
 		16707C9916D360A500C8C9A4 /* IFlytekVoice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16707C9716D360A500C8C9A4 /* IFlytekVoice.mm */; };
 		1670801116D3838600C8C9A4 /* VoiceObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1670800E16D3838600C8C9A4 /* VoiceObject.h */; };
@@ -2061,6 +2063,8 @@
 		166C1884166F181800E4423F /* NSRunLoop+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSRunLoop+NNT.mm"; sourceTree = "<group>"; };
 		166C436E15FDCB2900A912D8 /* ApnsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsObject.h; sourceTree = "<group>"; };
 		166C436F15FDCB2900A912D8 /* ApnsObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApnsObject.mm; sourceTree = "<group>"; };
+		166DC719170172EA0031B458 /* Openssl+NNT.p.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Openssl+NNT.p.cpp"; sourceTree = "<group>"; };
+		166DC71A170172EA0031B458 /* Openssl+NNT.p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Openssl+NNT.p.h"; sourceTree = "<group>"; };
 		16707C9616D360A500C8C9A4 /* IFlytekVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFlytekVoice.h; sourceTree = "<group>"; };
 		16707C9716D360A500C8C9A4 /* IFlytekVoice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IFlytekVoice.mm; sourceTree = "<group>"; };
 		1670800E16D3838600C8C9A4 /* VoiceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceObject.h; sourceTree = "<group>"; };
@@ -4683,6 +4687,8 @@
 		16A7C56C1459086C0013CCF8 /* Security */ = {
 			isa = PBXGroup;
 			children = (
+				166DC719170172EA0031B458 /* Openssl+NNT.p.cpp */,
+				166DC71A170172EA0031B458 /* Openssl+NNT.p.h */,
 				16D8A79A153678E40007EB8D /* Security+NNT.cpp */,
 				16D8A79B153678E40007EB8D /* Security+NNT.h */,
 				16CBDE2F15C6332300797960 /* AES+NNT.cpp */,
@@ -6189,6 +6195,7 @@
 				169F840E16F8478E0008AAC9 /* Variant+NNT.h in Headers */,
 				169F841016F8478E0008AAC9 /* Vector+NNT.h in Headers */,
 				16F653E317004AC200DF2ADB /* EC+NNT.h in Headers */,
+				166DC71C170172EA0031B458 /* Openssl+NNT.p.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7076,6 +7083,7 @@
 				169F841116F8478E0008AAC9 /* Vector+NNT.mm in Sources */,
 				169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */,
 				16F653E217004AC200DF2ADB /* EC+NNT.cpp in Sources */,
+				166DC71B170172EA0031B458 /* Openssl+NNT.p.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

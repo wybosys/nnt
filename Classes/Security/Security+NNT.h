@@ -9,6 +9,7 @@
 # include "./RSA+NNT.h"
 # include "./UUID+NNT.h"
 # include "./SHA+NNT.h"
+# include "./EC+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 

@@ -6,9 +6,20 @@ NNT_BEGIN_HEADER_CXX
 
 NNTCLASS(ecc);
 
+NNTDECL_PRIVATE_HEAD_CXX(ecc);
+
 class ecc
 {
+    NNTDECL_PRIVATE_CXX(ecc);
+
+public:
+
+    ecc();
+    ~ecc();
     
+    void generate(core::data const& pass);
+
+
 };
 
 NNT_END_HEADER_CXX
