@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualStudioToolFile
 	Name="Yasm"
 	Version="8.00"
@@ -9,7 +9,7 @@
 			DisplayName="Yasm Assembler"
 			CommandLine="yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
 			Outputs="[$ObjectFileName]"
-			FileExtensions="*.asm|*.s"
+			FileExtensions="*.asm"
 			ExecutionDescription="Assembling $(InputFileName)"
 			ShowOnlyRuleProperties="false"
 			>
@@ -112,3 +112,4 @@
     </CustomBuildRule>
   </Rules>
 </VisualStudioToolFile>
+
