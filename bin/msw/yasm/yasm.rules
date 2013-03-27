@@ -9,7 +9,7 @@
 			DisplayName="Yasm Assembler"
 			CommandLine="yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
 			Outputs="[$ObjectFileName]"
-			FileExtensions="*.asm"
+			FileExtensions="*.s"
 			ExecutionDescription="Assembling $(InputFileName)"
 			ShowOnlyRuleProperties="false"
 			>
