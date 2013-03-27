@@ -4,7 +4,7 @@ import os
 import re
 import shutil
 
-print("generator all include files for WSI library")
+print("generate include files")
 
 ignores = re.compile(r'.DS_Store|.svn|.git|_.+|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv.h$|^.+\.prv.hpp$|^.+\.res$')
 

@@ -2,7 +2,7 @@
 //
 
 # include <nnt/Foundation+NNT.h>
-# include <nnt/TL/Device+NNT.h>
+# include <nnt/TL/hardware/Device+NNT.h>
 
 NNTAPP_BEGIN
 

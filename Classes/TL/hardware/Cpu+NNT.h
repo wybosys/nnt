@@ -39,7 +39,7 @@ class Info <hw::_cpu_intel>
 {
 public:
 
-	typedef wasm::Opcode<hw::_cpu_intel> Opcode;
+	typedef nasm::Opcode<hw::_cpu_intel> Opcode;
 
 	Info()
 	{

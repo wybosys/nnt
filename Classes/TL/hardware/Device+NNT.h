@@ -6,7 +6,7 @@
 
 # ifdef NNT_WINDOWS
 
-#   include "MSCOM+NNT.h"
+#   include "../MSCOM+NNT.h"
 
 # endif
 

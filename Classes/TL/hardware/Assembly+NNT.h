@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
-NNT_BEGIN_NS(wasm)
+NNT_BEGIN_NS(nasm)
 
 template <typename cputraits, typename archtraits>
 class Registers
