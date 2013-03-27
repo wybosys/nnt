@@ -10,7 +10,7 @@ class IArguments
 {
 public:
 
-    virtual int count() const = 0;
+    virtual uint count() const = 0;
     virtual core::string& at(int) = 0;
 
 };

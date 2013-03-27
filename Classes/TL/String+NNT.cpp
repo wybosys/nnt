@@ -153,6 +153,16 @@ string tostr(ulong v)
     return ::boost::lexical_cast<string>(v);
 }
 
+string tostr(longlong v)
+{
+    return ::boost::lexical_cast<string)(v);
+}
+
+string tostr(ulonglong v)
+{
+    return ::boost::lexical_cast<string>(v);
+}
+
 # define STRTOVALUEIMPL(tp) \
 tp ret = 0; \
 try { \

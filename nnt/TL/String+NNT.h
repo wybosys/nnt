@@ -48,6 +48,8 @@ NNTAPI(string) tostr(short);
 NNTAPI(string) tostr(ushort);
 NNTAPI(string) tostr(long);
 NNTAPI(string) tostr(ulong);
+NNTAPI(string) tostr(longlong);
+NNTAPI(string) tostr(ulonglong);
 
 inline_impl string const& tostr(string const& str) {
     return str;

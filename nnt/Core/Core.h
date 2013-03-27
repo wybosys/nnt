@@ -42,7 +42,7 @@
 #   include <TargetConditionals.h>
 # endif
 
-# ifdef __amd64
+# if defined(__amd64) || defined(_M_X64)
 #   define NNT_X64 1
 # endif
 
@@ -483,7 +483,7 @@ typedef ulong uenum;
 #ifdef NNT_X64
    typedef double real;
 #  define REAL_IS_DOUBLE  1
-   typedef ulong uindex, usize, uinteger;
+   typedef ulonglong uindex, usize, uinteger;
    typedef long sindex, ssize, sinteger;
 #else
    typedef float real;

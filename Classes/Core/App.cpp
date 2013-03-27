@@ -74,7 +74,7 @@ public:
         PASS;
     }
     
-    virtual int count() const
+    virtual uint count() const
     {
         return argu.size();
     }
