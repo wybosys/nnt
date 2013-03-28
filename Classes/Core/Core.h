@@ -958,6 +958,8 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 //#   define NNTVAR(retype) NNT_EXTERN retype NNT_IMPORT 
 # endif
 
+# define NNTAPI_ASM(method) method##_
+
 # if defined(NNT_LIBRARY)
 #   define NNTAPPCLASS(cls) class NNT_EXPORT cls
 # else

@@ -155,7 +155,7 @@ string tostr(ulong v)
 
 string tostr(longlong v)
 {
-    return ::boost::lexical_cast<string)(v);
+    return ::boost::lexical_cast<string>(v);
 }
 
 string tostr(ulonglong v)

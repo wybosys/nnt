@@ -17,6 +17,9 @@
 		/>
 	</Platforms>
 	<ToolFiles>
+		<DefaultToolFile
+			FileName="yasm.rules"
+		/>
 	</ToolFiles>
 	<Configurations>
 		<Configuration
@@ -32,6 +35,9 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -119,6 +125,9 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -209,6 +218,9 @@
 				Name="VCCustomBuildTool"
 			/>
 			<Tool
+				Name="YASM"
+			/>
+			<Tool
 				Name="VCXMLDataGeneratorTool"
 			/>
 			<Tool
@@ -296,6 +308,9 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -2547,6 +2562,50 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="Mach"
+				>
+				<File
+					RelativePath="..\..\Classes\Mach\_cpu.s"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							PreProc="0"
+							Parser="1"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Mach\cpu.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="2"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Mach\cpu.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Mach\mcore.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Mach\mcore.inc"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Contrib"
@@ -2597,7 +2656,23 @@
 						/>
 					</FileConfiguration>
 					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
 						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
 						>
 						<Tool
 							Name="VCCLCompilerTool"

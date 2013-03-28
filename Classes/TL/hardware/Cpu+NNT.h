@@ -4,6 +4,7 @@
 
 # include "Hardware+NNT.h"
 # include "Assembly+NNT.h"
+# include "../../Mach/cpu.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
@@ -45,80 +46,37 @@ public:
 	{
 		PASS;
 	}
-
-# ifdef NNT_MSVC
     
-	bool has_brandstring()
-	{
-		bool b;
-		NNTASM_BEGIN;
-		mov eax, 80000000h;
-		cpuid;
-		cmp eax, 80000004h;
-		jb UNSUPPORT;
-		mov byte ptr [b], 1h;
-		jmp END;
-UNSUPPORT:
-		mov byte ptr [b], 0h;
-END:
-		nop;
-		NNTASM_END;
-		return b;
-	}
-
 	core::string vid()
 	{
-		dword b, c, d;
-
-		NNTASM_BEGIN;
-		mov eax, 0h;
-		cpuid;
-		mov b, ebx;
-		mov c, ecx;
-		mov d, edx;
-		NNTASM_END;
+        mregister mr;
+        cpuid(0, &mr);
 
 		core::data buf;
-		buf.append(&b, 4);
-		buf.append(&d, 4);
-		buf.append(&c, 4);
+		buf.append(mr.bx);
+		buf.append(mr.dx);
+		buf.append(mr.cx);
 
 		return core::type_cast<core::string>(buf);
 	}
 
 	core::data serialno()
-	{
-		dword a, c, d;
+	{        
 		core::data buf;
+        mregister mr;
+        cpuid(1, &mr);
+        // support no. feature.
+        if (bit_at(mr.dx, 18) == 0)
+            return buf;
 
-		NNTASM_BEGIN;
-		mov eax, 1h;
-		cpuid;
-		mov d, edx;
-		mov a, eax;
-		NNTASM_END;
-
-		// unsupport.
-		if (bit_at(d, 18) == 0)
-			return buf;
-
-		// support.
-		NNTASM_BEGIN;
-		mov eax, 03h;
-		cpuid;
-		mov c, ecx;
-		mov d, edx;
-		NNTASM_END;
+        cpuid(3, &mr);
 		
-		buf.append(&a, 8);
-		buf.append(&c, 8);
-		buf.append(&d, 8);
+		buf.append(mr.ax);
+		buf.append(mr.cx);
+		buf.append(mr.dx);
 
 		return buf;
-	}
-    
-# endif
-	
+	}	
 
 };
 

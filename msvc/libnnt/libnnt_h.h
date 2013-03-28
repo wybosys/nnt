@@ -4,10 +4,10 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Wed Mar 27 10:21:31 2013
+/* at Thu Mar 28 10:52:05 2013
  */
 /* Compiler settings for .\libnnt.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run)
+    Oicf, W1, Zp8, env=Win32 (32b run)
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
