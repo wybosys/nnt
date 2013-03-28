@@ -2580,6 +2580,17 @@
 							Parser="1"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							Parser="1"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Mach\cpu.cpp"
