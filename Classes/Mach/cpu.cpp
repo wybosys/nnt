@@ -12,4 +12,3 @@ void cpuid(mr_integer code, mregister* mr)
 }
 
 NNT_END_C
- 

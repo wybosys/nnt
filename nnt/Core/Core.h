@@ -484,12 +484,12 @@ typedef ulong uenum;
    typedef double real;
 #  define REAL_IS_DOUBLE  1
    typedef ulonglong uindex, usize, uinteger;
-   typedef long sindex, ssize, sinteger;
+   typedef long sindex, ssize, sinteger, integer;
 #else
    typedef float real;
 #  define REAL_IS_FLOAT   1
    typedef uint uindex, usize, uinteger;
-   typedef int sindex, ssize, sinteger;
+   typedef int sindex, ssize, sinteger, integer;
 #endif
 
 typedef struct _point3df
@@ -958,7 +958,13 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 //#   define NNTVAR(retype) NNT_EXTERN retype NNT_IMPORT 
 # endif
 
-# define NNTAPI_ASM(method) method##_
+# ifdef NNT_WINDOWS
+#   ifdef NNT_X32
+#     define NNTAPI_ASM(method) method##_
+#   else
+#     define NNTAPI_ASM(method) _##method##_
+#   endif
+# endif
 
 # if defined(NNT_LIBRARY)
 #   define NNTAPPCLASS(cls) class NNT_EXPORT cls

@@ -2585,9 +2585,10 @@
 						>
 						<Tool
 							Name="YASM"
-							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f$(PlatformName)  [AllOptions] [AdditionalOptions] [Inputs]"
 							Defines="$(PlatformName)"
 							Debug="true"
+							PreProc="0"
 							Parser="1"
 						/>
 					</FileConfiguration>

@@ -13,10 +13,6 @@
 %define NNTAPI(name) _ %+ name %+ _
 %endif
 
-.section .data
-mr:
-	.long 0
-
 ; copy value to mregister (ebp)
 %macro dump_registers 0
 %ifdef NNT_X32

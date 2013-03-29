@@ -5,11 +5,7 @@
 NNT_BEGIN_HEADER_C
 
 // mr is Mach Register.
-# ifdef NNT_X32
-typedef uint mr_integer;
-# elif defined(NNT_X64)
-typedef ulong mr_integer;
-# endif
+typedef uinteger mr_integer;
 
 typedef struct {
     mr_integer ax, bx, cx, dx, di, si;
