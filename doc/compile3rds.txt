@@ -9,5 +9,22 @@ DB：
 OPENSSL：
 	MSVC：
 		安装Perl
+		拷贝NASM
 		按照README编译
+		
+XERCESC：
+	MSVC：
+		直接打开VS编译
+		
+Log4Cpp：
+	MSVC：
+		复制Win32到Win64（64位时需要）
+		跳过NTEventLogCategories.mc
+		修改lib名称
+		
+BOOST：
+	MSVC：
+		根据说明生成b2
+		使用参数 toolset=msvc version=9 address-model=64 进行64位生成
+
 		
