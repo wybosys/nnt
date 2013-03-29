@@ -4,7 +4,7 @@
 %define NNT_X32
 %endif
 
-%ifdef X64
+%ifdef x64
 %define NNT_WINDOWS
 %define NNT_X64
 %endif
