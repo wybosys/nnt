@@ -523,6 +523,14 @@
 		167D544E16E03D4D00F68533 /* OAWeChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D544C16E03D4D00F68533 /* OAWeChat.mm */; };
 		167DAA8816787DDE0009BB4B /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DAA8616787DDE0009BB4B /* CmdArguments.cpp */; };
 		167DAA8916787DDE0009BB4B /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DAA8716787DDE0009BB4B /* CmdArguments.h */; };
+		167DBC1C17092E0000B94D5E /* Assembly+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DBC1417092E0000B94D5E /* Assembly+NNT.cpp */; };
+		167DBC1D17092E0000B94D5E /* Assembly+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DBC1517092E0000B94D5E /* Assembly+NNT.h */; };
+		167DBC1E17092E0000B94D5E /* Cpu+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DBC1617092E0000B94D5E /* Cpu+NNT.cpp */; };
+		167DBC1F17092E0000B94D5E /* Cpu+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DBC1717092E0000B94D5E /* Cpu+NNT.h */; };
+		167DBC2017092E0000B94D5E /* Device+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DBC1817092E0000B94D5E /* Device+NNT.cpp */; };
+		167DBC2117092E0000B94D5E /* Device+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DBC1917092E0000B94D5E /* Device+NNT.h */; };
+		167DBC2217092E0000B94D5E /* Hardware+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DBC1A17092E0000B94D5E /* Hardware+NNT.cpp */; };
+		167DBC2317092E0000B94D5E /* Hardware+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DBC1B17092E0000B94D5E /* Hardware+NNT.h */; };
 		167E54DF15BE49980075DD01 /* UIWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = 167E54DD15BE49980075DD01 /* UIWebController.h */; };
 		167E54E015BE49980075DD01 /* UIWebController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167E54DE15BE49980075DD01 /* UIWebController.mm */; };
 		167E54E515BE4ADA0075DD01 /* BehaviourSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */; };
@@ -909,24 +917,16 @@
 		169C0ACA140CDF36008F26FF /* LevelDB+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169C0AC7140CDF36008F26FF /* LevelDB+NNT.mm */; };
 		169F83E016F8478E0008AAC9 /* Algorithm+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */; };
 		169F83E116F8478E0008AAC9 /* Algorithm+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */; };
-		169F83E216F8478E0008AAC9 /* Assembly+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */; };
-		169F83E316F8478E0008AAC9 /* Assembly+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B116F8478D0008AAC9 /* Assembly+NNT.h */; };
 		169F83E416F8478E0008AAC9 /* Bimap+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */; };
 		169F83E516F8478E0008AAC9 /* Bimap+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B316F8478D0008AAC9 /* Bimap+NNT.h */; };
 		169F83E616F8478E0008AAC9 /* Closure+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */; };
 		169F83E716F8478E0008AAC9 /* Closure+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B516F8478D0008AAC9 /* Closure+NNT.h */; };
-		169F83E816F8478E0008AAC9 /* Cpu+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */; };
-		169F83E916F8478E0008AAC9 /* Cpu+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B716F8478D0008AAC9 /* Cpu+NNT.h */; };
 		169F83EA16F8478E0008AAC9 /* Data+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B816F8478D0008AAC9 /* Data+NNT.cpp */; };
 		169F83EB16F8478E0008AAC9 /* Data+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B916F8478D0008AAC9 /* Data+NNT.h */; };
-		169F83EC16F8478E0008AAC9 /* Device+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */; };
-		169F83ED16F8478E0008AAC9 /* Device+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BB16F8478D0008AAC9 /* Device+NNT.h */; };
 		169F83EE16F8478E0008AAC9 /* Exception+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */; };
 		169F83EF16F8478E0008AAC9 /* Exception+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BD16F8478D0008AAC9 /* Exception+NNT.h */; };
 		169F83F016F8478E0008AAC9 /* Function+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */; };
 		169F83F116F8478E0008AAC9 /* Function+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BF16F8478D0008AAC9 /* Function+NNT.h */; };
-		169F83F216F8478E0008AAC9 /* Hardware+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */; };
-		169F83F316F8478E0008AAC9 /* Hardware+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83C116F8478D0008AAC9 /* Hardware+NNT.h */; };
 		169F83F416F8478E0008AAC9 /* Interface+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */; };
 		169F83F516F8478E0008AAC9 /* Interface+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83C316F8478E0008AAC9 /* Interface+NNT.h */; };
 		169F83F616F8478E0008AAC9 /* List+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C416F8478E0008AAC9 /* List+NNT.cpp */; };
@@ -2103,6 +2103,14 @@
 		167D544C16E03D4D00F68533 /* OAWeChat.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAWeChat.mm; sourceTree = "<group>"; };
 		167DAA8616787DDE0009BB4B /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdArguments.cpp; sourceTree = "<group>"; };
 		167DAA8716787DDE0009BB4B /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdArguments.h; sourceTree = "<group>"; };
+		167DBC1417092E0000B94D5E /* Assembly+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Assembly+NNT.cpp"; path = "TL/hardware/Assembly+NNT.cpp"; sourceTree = "<group>"; };
+		167DBC1517092E0000B94D5E /* Assembly+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Assembly+NNT.h"; path = "TL/hardware/Assembly+NNT.h"; sourceTree = "<group>"; };
+		167DBC1617092E0000B94D5E /* Cpu+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Cpu+NNT.cpp"; path = "TL/hardware/Cpu+NNT.cpp"; sourceTree = "<group>"; };
+		167DBC1717092E0000B94D5E /* Cpu+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Cpu+NNT.h"; path = "TL/hardware/Cpu+NNT.h"; sourceTree = "<group>"; };
+		167DBC1817092E0000B94D5E /* Device+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Device+NNT.cpp"; path = "TL/hardware/Device+NNT.cpp"; sourceTree = "<group>"; };
+		167DBC1917092E0000B94D5E /* Device+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Device+NNT.h"; path = "TL/hardware/Device+NNT.h"; sourceTree = "<group>"; };
+		167DBC1A17092E0000B94D5E /* Hardware+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Hardware+NNT.cpp"; path = "TL/hardware/Hardware+NNT.cpp"; sourceTree = "<group>"; };
+		167DBC1B17092E0000B94D5E /* Hardware+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hardware+NNT.h"; path = "TL/hardware/Hardware+NNT.h"; sourceTree = "<group>"; };
 		167E54DD15BE49980075DD01 /* UIWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebController.h; sourceTree = "<group>"; };
 		167E54DE15BE49980075DD01 /* UIWebController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIWebController.mm; sourceTree = "<group>"; };
 		167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BehaviourSys.cpp; sourceTree = "<group>"; };
@@ -2490,24 +2498,16 @@
 		169C0AC7140CDF36008F26FF /* LevelDB+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "LevelDB+NNT.mm"; sourceTree = "<group>"; };
 		169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Algorithm+NNT.cpp"; path = "TL/Algorithm+NNT.cpp"; sourceTree = "<group>"; };
 		169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Algorithm+NNT.h"; path = "TL/Algorithm+NNT.h"; sourceTree = "<group>"; };
-		169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Assembly+NNT.cpp"; path = "TL/Assembly+NNT.cpp"; sourceTree = "<group>"; };
-		169F83B116F8478D0008AAC9 /* Assembly+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Assembly+NNT.h"; path = "TL/Assembly+NNT.h"; sourceTree = "<group>"; };
 		169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Bimap+NNT.cpp"; path = "TL/Bimap+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B316F8478D0008AAC9 /* Bimap+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bimap+NNT.h"; path = "TL/Bimap+NNT.h"; sourceTree = "<group>"; };
 		169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Closure+NNT.cpp"; path = "TL/Closure+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B516F8478D0008AAC9 /* Closure+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Closure+NNT.h"; path = "TL/Closure+NNT.h"; sourceTree = "<group>"; };
-		169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Cpu+NNT.cpp"; path = "TL/Cpu+NNT.cpp"; sourceTree = "<group>"; };
-		169F83B716F8478D0008AAC9 /* Cpu+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Cpu+NNT.h"; path = "TL/Cpu+NNT.h"; sourceTree = "<group>"; };
 		169F83B816F8478D0008AAC9 /* Data+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Data+NNT.cpp"; path = "TL/Data+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B916F8478D0008AAC9 /* Data+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Data+NNT.h"; path = "TL/Data+NNT.h"; sourceTree = "<group>"; };
-		169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Device+NNT.cpp"; path = "TL/Device+NNT.cpp"; sourceTree = "<group>"; };
-		169F83BB16F8478D0008AAC9 /* Device+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Device+NNT.h"; path = "TL/Device+NNT.h"; sourceTree = "<group>"; };
 		169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Exception+NNT.cpp"; path = "TL/Exception+NNT.cpp"; sourceTree = "<group>"; };
 		169F83BD16F8478D0008AAC9 /* Exception+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Exception+NNT.h"; path = "TL/Exception+NNT.h"; sourceTree = "<group>"; };
 		169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Function+NNT.cpp"; path = "TL/Function+NNT.cpp"; sourceTree = "<group>"; };
 		169F83BF16F8478D0008AAC9 /* Function+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Function+NNT.h"; path = "TL/Function+NNT.h"; sourceTree = "<group>"; };
-		169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Hardware+NNT.cpp"; path = "TL/Hardware+NNT.cpp"; sourceTree = "<group>"; };
-		169F83C116F8478D0008AAC9 /* Hardware+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hardware+NNT.h"; path = "TL/Hardware+NNT.h"; sourceTree = "<group>"; };
 		169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Interface+NNT.cpp"; path = "TL/Interface+NNT.cpp"; sourceTree = "<group>"; };
 		169F83C316F8478E0008AAC9 /* Interface+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Interface+NNT.h"; path = "TL/Interface+NNT.h"; sourceTree = "<group>"; };
 		169F83C416F8478E0008AAC9 /* List+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "List+NNT.cpp"; path = "TL/List+NNT.cpp"; sourceTree = "<group>"; };
@@ -4009,6 +4009,21 @@
 			path = ../contrib/ace;
 			sourceTree = "<group>";
 		};
+		167DBC1317092DED00B94D5E /* hardware */ = {
+			isa = PBXGroup;
+			children = (
+				167DBC1417092E0000B94D5E /* Assembly+NNT.cpp */,
+				167DBC1517092E0000B94D5E /* Assembly+NNT.h */,
+				167DBC1617092E0000B94D5E /* Cpu+NNT.cpp */,
+				167DBC1717092E0000B94D5E /* Cpu+NNT.h */,
+				167DBC1817092E0000B94D5E /* Device+NNT.cpp */,
+				167DBC1917092E0000B94D5E /* Device+NNT.h */,
+				167DBC1A17092E0000B94D5E /* Hardware+NNT.cpp */,
+				167DBC1B17092E0000B94D5E /* Hardware+NNT.h */,
+			);
+			name = hardware;
+			sourceTree = "<group>";
+		};
 		1680B09014BE7DEB00CF9762 /* libjpeg */ = {
 			isa = PBXGroup;
 			children = (
@@ -4544,26 +4559,19 @@
 		169F83AD16F847820008AAC9 /* TL */ = {
 			isa = PBXGroup;
 			children = (
+				167DBC1317092DED00B94D5E /* hardware */,
 				169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */,
 				169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */,
-				169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */,
-				169F83B116F8478D0008AAC9 /* Assembly+NNT.h */,
 				169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */,
 				169F83B316F8478D0008AAC9 /* Bimap+NNT.h */,
 				169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */,
 				169F83B516F8478D0008AAC9 /* Closure+NNT.h */,
-				169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */,
-				169F83B716F8478D0008AAC9 /* Cpu+NNT.h */,
 				169F83B816F8478D0008AAC9 /* Data+NNT.cpp */,
 				169F83B916F8478D0008AAC9 /* Data+NNT.h */,
-				169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */,
-				169F83BB16F8478D0008AAC9 /* Device+NNT.h */,
 				169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */,
 				169F83BD16F8478D0008AAC9 /* Exception+NNT.h */,
 				169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */,
 				169F83BF16F8478D0008AAC9 /* Function+NNT.h */,
-				169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */,
-				169F83C116F8478D0008AAC9 /* Hardware+NNT.h */,
 				169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */,
 				169F83C316F8478E0008AAC9 /* Interface+NNT.h */,
 				169F83C416F8478E0008AAC9 /* List+NNT.cpp */,
@@ -6172,15 +6180,11 @@
 				16936FF016F1AF1E0021909E /* V8+NNT.h in Headers */,
 				16AC1CF416F2D1A100316206 /* HttpServer.h in Headers */,
 				169F83E116F8478E0008AAC9 /* Algorithm+NNT.h in Headers */,
-				169F83E316F8478E0008AAC9 /* Assembly+NNT.h in Headers */,
 				169F83E516F8478E0008AAC9 /* Bimap+NNT.h in Headers */,
 				169F83E716F8478E0008AAC9 /* Closure+NNT.h in Headers */,
-				169F83E916F8478E0008AAC9 /* Cpu+NNT.h in Headers */,
 				169F83EB16F8478E0008AAC9 /* Data+NNT.h in Headers */,
-				169F83ED16F8478E0008AAC9 /* Device+NNT.h in Headers */,
 				169F83EF16F8478E0008AAC9 /* Exception+NNT.h in Headers */,
 				169F83F116F8478E0008AAC9 /* Function+NNT.h in Headers */,
-				169F83F316F8478E0008AAC9 /* Hardware+NNT.h in Headers */,
 				169F83F516F8478E0008AAC9 /* Interface+NNT.h in Headers */,
 				169F83F716F8478E0008AAC9 /* List+NNT.h in Headers */,
 				169F83FA16F8478E0008AAC9 /* Map+NNT.h in Headers */,
@@ -6196,6 +6200,10 @@
 				169F841016F8478E0008AAC9 /* Vector+NNT.h in Headers */,
 				16F653E317004AC200DF2ADB /* EC+NNT.h in Headers */,
 				166DC71C170172EA0031B458 /* Openssl+NNT.p.h in Headers */,
+				167DBC1D17092E0000B94D5E /* Assembly+NNT.h in Headers */,
+				167DBC1F17092E0000B94D5E /* Cpu+NNT.h in Headers */,
+				167DBC2117092E0000B94D5E /* Device+NNT.h in Headers */,
+				167DBC2317092E0000B94D5E /* Hardware+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7055,15 +7063,11 @@
 				16AC1CF016F2D08E00316206 /* mongoose.c in Sources */,
 				16AC1CF316F2D1A100316206 /* HttpServer.cpp in Sources */,
 				169F83E016F8478E0008AAC9 /* Algorithm+NNT.cpp in Sources */,
-				169F83E216F8478E0008AAC9 /* Assembly+NNT.cpp in Sources */,
 				169F83E416F8478E0008AAC9 /* Bimap+NNT.cpp in Sources */,
 				169F83E616F8478E0008AAC9 /* Closure+NNT.cpp in Sources */,
-				169F83E816F8478E0008AAC9 /* Cpu+NNT.cpp in Sources */,
 				169F83EA16F8478E0008AAC9 /* Data+NNT.cpp in Sources */,
-				169F83EC16F8478E0008AAC9 /* Device+NNT.cpp in Sources */,
 				169F83EE16F8478E0008AAC9 /* Exception+NNT.cpp in Sources */,
 				169F83F016F8478E0008AAC9 /* Function+NNT.cpp in Sources */,
-				169F83F216F8478E0008AAC9 /* Hardware+NNT.cpp in Sources */,
 				169F83F416F8478E0008AAC9 /* Interface+NNT.cpp in Sources */,
 				169F83F616F8478E0008AAC9 /* List+NNT.cpp in Sources */,
 				169F83F816F8478E0008AAC9 /* List+NNT.mm in Sources */,
@@ -7084,6 +7088,10 @@
 				169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */,
 				16F653E217004AC200DF2ADB /* EC+NNT.cpp in Sources */,
 				166DC71B170172EA0031B458 /* Openssl+NNT.p.cpp in Sources */,
+				167DBC1C17092E0000B94D5E /* Assembly+NNT.cpp in Sources */,
+				167DBC1E17092E0000B94D5E /* Cpu+NNT.cpp in Sources */,
+				167DBC2017092E0000B94D5E /* Device+NNT.cpp in Sources */,
+				167DBC2217092E0000B94D5E /* Hardware+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
