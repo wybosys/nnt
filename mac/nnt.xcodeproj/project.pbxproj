@@ -10,8 +10,6 @@
 		1609337715102DB500C84FBA /* SoapObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609337615102DB500C84FBA /* SoapObject.h */; settings = {ATTRIBUTES = (); }; };
 		1609337A15103E9C00C84FBA /* SoapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609337915103E9C00C84FBA /* SoapObject.cpp */; };
 		160FB0A91544E9AC00D3A8FB /* Directory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */; };
-		1617381E1609622600F1EA6E /* libQtCore.4.8.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1617381D1609622600F1EA6E /* libQtCore.4.8.2.dylib */; };
-		161738211609626400F1EA6E /* libQtGui.4.8.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 161738201609626400F1EA6E /* libQtGui.4.8.2.dylib */; };
 		161738311609711E00F1EA6E /* UcKernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617382F1609711E00F1EA6E /* UcKernel.cpp */; };
 		161738321609711E00F1EA6E /* UcKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738301609711E00F1EA6E /* UcKernel.h */; };
 		161738361609720200F1EA6E /* UcWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161738341609720200F1EA6E /* UcWindow.cpp */; };
@@ -370,6 +368,14 @@
 		167D00D81709616100B94D5E /* AppInformation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00D41709616100B94D5E /* AppInformation.mm */; };
 		167D00DB1709632300B94D5E /* AEModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00D91709632300B94D5E /* AEModel.h */; };
 		167D00DC1709632300B94D5E /* AEModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00DA1709632300B94D5E /* AEModel.mm */; };
+		167D00DE1709672900B94D5E /* libQtCore.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00DD1709672700B94D5E /* libQtCore.4.dylib */; };
+		167D00E01709674100B94D5E /* libQtGui.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00DF1709673F00B94D5E /* libQtGui.4.dylib */; };
+		167D00E2170967AE00B94D5E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00E1170967AC00B94D5E /* AudioUnit.framework */; };
+		167D00E4170967CB00B94D5E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00E3170967C900B94D5E /* CoreAudio.framework */; };
+		167D00E6170967D200B94D5E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00E5170967D100B94D5E /* CoreMedia.framework */; };
+		167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00E91709681D00B94D5E /* AVFoundation.framework */; };
+		167D00EC1709685000B94D5E /* Task+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00EB1709684F00B94D5E /* Task+NNT.mm */; };
+		167D00EF1709687800B94D5E /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 167D00EE1709687800B94D5E /* mongoose.c */; };
 		167EBAAB14F368670012570E /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9A14F368670012570E /* FtpServer.h */; };
 		167EBAAC14F368670012570E /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9B14F368670012570E /* FtpServer.m */; };
 		167EBAAD14F368680012570E /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9C14F368670012570E /* HttpRequest.h */; };
@@ -954,8 +960,6 @@
 		1609337615102DB500C84FBA /* SoapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapObject.h; sourceTree = "<group>"; };
 		1609337915103E9C00C84FBA /* SoapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoapObject.cpp; sourceTree = "<group>"; };
 		160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Directory+NNT.cpp"; path = "../Classes/Core/Directory+NNT.cpp"; sourceTree = "<group>"; };
-		1617381D1609622600F1EA6E /* libQtCore.4.8.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libQtCore.4.8.2.dylib; path = /opt/local/lib/libQtCore.4.8.2.dylib; sourceTree = "<absolute>"; };
-		161738201609626400F1EA6E /* libQtGui.4.8.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libQtGui.4.8.2.dylib; path = /opt/local/lib/libQtGui.4.8.2.dylib; sourceTree = "<absolute>"; };
 		1617382F1609711E00F1EA6E /* UcKernel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcKernel.cpp; sourceTree = "<group>"; };
 		161738301609711E00F1EA6E /* UcKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcKernel.h; sourceTree = "<group>"; };
 		161738341609720200F1EA6E /* UcWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcWindow.cpp; sourceTree = "<group>"; };
@@ -1314,6 +1318,14 @@
 		167D00D41709616100B94D5E /* AppInformation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppInformation.mm; sourceTree = "<group>"; };
 		167D00D91709632300B94D5E /* AEModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEModel.h; sourceTree = "<group>"; };
 		167D00DA1709632300B94D5E /* AEModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEModel.mm; sourceTree = "<group>"; };
+		167D00DD1709672700B94D5E /* libQtCore.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libQtCore.4.dylib; path = ../lib/Mac/libQtCore.4.dylib; sourceTree = "<group>"; };
+		167D00DF1709673F00B94D5E /* libQtGui.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libQtGui.4.dylib; path = ../lib/Mac/libQtGui.4.dylib; sourceTree = "<group>"; };
+		167D00E1170967AC00B94D5E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		167D00E3170967C900B94D5E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		167D00E5170967D100B94D5E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = /System/Library/Frameworks/CoreMedia.framework; sourceTree = "<absolute>"; };
+		167D00E91709681D00B94D5E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
+		167D00EB1709684F00B94D5E /* Task+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Task+NNT.mm"; path = "../Classes/Core/Task+NNT.mm"; sourceTree = "<group>"; };
+		167D00EE1709687800B94D5E /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mongoose.c; path = ../contrib/mongoose/mongoose.c; sourceTree = "<group>"; };
 		167EBA9A14F368670012570E /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		167EBA9B14F368670012570E /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
 		167EBA9C14F368670012570E /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -1907,8 +1919,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161738211609626400F1EA6E /* libQtGui.4.8.2.dylib in Frameworks */,
-				1617381E1609622600F1EA6E /* libQtCore.4.8.2.dylib in Frameworks */,
+				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
+				167D00E6170967D200B94D5E /* CoreMedia.framework in Frameworks */,
+				167D00E4170967CB00B94D5E /* CoreAudio.framework in Frameworks */,
+				167D00E2170967AE00B94D5E /* AudioUnit.framework in Frameworks */,
+				167D00E01709674100B94D5E /* libQtGui.4.dylib in Frameworks */,
+				167D00DE1709672900B94D5E /* libQtCore.4.dylib in Frameworks */,
 				16E00A86160869C100B35D3F /* AudioToolbox.framework in Frameworks */,
 				16F9AC91159C608A000433D3 /* libesmtp.a in Frameworks */,
 				1648F89D1587299100A47990 /* libgif.a in Frameworks */,
@@ -2346,6 +2362,14 @@
 			path = ../Classes/TL/hardware;
 			sourceTree = "<group>";
 		};
+		167D00ED1709686B00B94D5E /* mongoose */ = {
+			isa = PBXGroup;
+			children = (
+				167D00EE1709687800B94D5E /* mongoose.c */,
+			);
+			name = mongoose;
+			sourceTree = "<group>";
+		};
 		167EBA9914F368670012570E /* Cross */ = {
 			isa = PBXGroup;
 			children = (
@@ -2479,8 +2503,12 @@
 		169DD1151457A239000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				161738201609626400F1EA6E /* libQtGui.4.8.2.dylib */,
-				1617381D1609622600F1EA6E /* libQtCore.4.8.2.dylib */,
+				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
+				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
+				167D00E91709681D00B94D5E /* AVFoundation.framework */,
+				167D00E5170967D100B94D5E /* CoreMedia.framework */,
+				167D00E3170967C900B94D5E /* CoreAudio.framework */,
+				167D00E1170967AC00B94D5E /* AudioUnit.framework */,
 				16E00A85160869C000B35D3F /* AudioToolbox.framework */,
 				16D3CEF815381E60003A33CE /* GLUT.framework */,
 				16D3CEF615381E56003A33CE /* AGL.framework */,
@@ -2668,6 +2696,7 @@
 				168F22A615200C9900095E80 /* gil.prv.cpp */,
 				168F22A715200C9900095E80 /* gil.prv.h */,
 				16D3D2E215401715003A33CE /* Task+NNT.cpp */,
+				167D00EB1709684F00B94D5E /* Task+NNT.mm */,
 				16D3D2E315401716003A33CE /* Task+NNT.h */,
 			);
 			name = Core;
@@ -3171,6 +3200,7 @@
 		16DD17E5150471B10053958F /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				167D00ED1709686B00B94D5E /* mongoose */,
 				16F9AC7F159C5DA6000433D3 /* httpd */,
 				16CCEB431592FF4F00A16A3C /* libxml */,
 				16CCEB361592FEF600A16A3C /* ace */,
@@ -4391,6 +4421,8 @@
 				167D00D61709616100B94D5E /* AEMInformation.mm in Sources */,
 				167D00D81709616100B94D5E /* AppInformation.mm in Sources */,
 				167D00DC1709632300B94D5E /* AEModel.mm in Sources */,
+				167D00EC1709685000B94D5E /* Task+NNT.mm in Sources */,
+				167D00EF1709687800B94D5E /* mongoose.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4496,7 +4528,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nnt/nnt-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = NNT_FRAMEWORK;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "$(inherited)";
 				GCC_VERSION = "";
