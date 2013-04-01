@@ -125,7 +125,7 @@ static enum_field_types mysql_buffer_type(variant_t const& var)
 DBMSqlDatatable* MySql::exec(const core::string &sql, params_type const &params)
 {
     MYSQL_STMT* stmt = mysql_stmt_init(d_ptr->hdl);
-    int sta = mysql_stmt_prepare(stmt, sql.c_str(), sql.length());
+    int sta = mysql_stmt_prepare(stmt, sql.c_str(), (ulong)sql.length());
     if (sta)
     {
         trace_msg(mysql_error(d_ptr->hdl));
@@ -144,7 +144,7 @@ DBMSqlDatatable* MySql::exec(const core::string &sql, params_type const &params)
         
         bind.buffer_type = mysql_buffer_type(var);
         bind.buffer = var.address();
-        bind.buffer_length = var.size();
+        bind.buffer_length = (ulong)var.size();
     }
     sta = mysql_stmt_bind_param(stmt, binds);
     if (sta)

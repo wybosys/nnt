@@ -23,5 +23,11 @@
 	mov %edi, 16(%ebp)
 	mov %esi, 20(%ebp)
 %else
+	mov %rax, (%rbp)
+	mov %rbx, 8(%rbp)
+	mov %rcx, 16(%rbp)
+	mov %rdx, 24(%rbp)
+	mov %rdi, 32(%rbp)
+	mov %rsi, 40(%rbp)
 %endif
 %endmacro

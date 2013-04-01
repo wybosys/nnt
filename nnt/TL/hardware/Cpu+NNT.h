@@ -53,9 +53,9 @@ public:
         cpuid(0, &mr);
 
 		core::data buf;
-		buf.append(mr.bx);
-		buf.append(mr.dx);
-		buf.append(mr.cx);
+		buf.append((uint)mr.bx);
+		buf.append((uint)mr.dx);
+		buf.append((uint)mr.cx);
 
 		return core::type_cast<core::string>(buf);
 	}
@@ -71,9 +71,9 @@ public:
 
         cpuid(3, &mr);
 		
-		buf.append(mr.ax);
-		buf.append(mr.cx);
-		buf.append(mr.dx);
+		buf.append((uint)mr.ax);
+		buf.append((uint)mr.cx);
+		buf.append((uint)mr.dx);
 
 		return buf;
 	}	
