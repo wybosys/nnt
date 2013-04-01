@@ -6,7 +6,7 @@ import shutil
 
 print("generate include files")
 
-ignores = re.compile(r'.DS_Store|.svn|.git|_.+|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv.h$|^.+\.prv.hpp$|^.+\.res$')
+ignores = re.compile(r'.DS_Store|.svn|.git|_.+|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.s$|^.+\.asm$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv.h$|^.+\.prv.hpp$|^.+\.res$')
 
 workdir = os.getcwd()
 if (re.compile(r'[\w/]+/bin$').match(workdir)):
