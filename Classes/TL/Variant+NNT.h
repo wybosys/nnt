@@ -167,7 +167,7 @@ public:
         _v.refobj = v;
     }
     
-    explicit variant_t(char const* str, core::_bool_copy cpy, uint len = -1)
+    explicit variant_t(char const* str, core::_bool_copy cpy, usize len = -1)
     : vt(VT_PCHAR)
     {
         _rel = core::copy == cpy;
