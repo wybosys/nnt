@@ -1,7 +1,7 @@
 
 # include "Foundation+NNT.h"
 # include "MainController.h"
-# include "UIPopoverController+WSI.h"
+# include "UIPopoverController+NNT.h"
 
 NNTAPP_BEGIN
 
