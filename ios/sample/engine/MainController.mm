@@ -2,7 +2,7 @@
 # include "Foundation+NNT.h"
 # include "MainController.h"
 # include "JuiceImpl.h"
-# include "WSIResource.h"
+# include "Resource+NNT.h"
 
 NNTAPP_BEGIN
 

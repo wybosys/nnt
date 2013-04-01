@@ -1,7 +1,7 @@
 
 # include "Foundation+NNT.h"
 # include "AppDelegate.h"
-# include "WSIClipboard.h"
+# include "Clipboard+NNT.h"
 
 NNTAPP_BEGIN
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		164FAF7915BFFEF00039CC4C /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 164FAF7815BFFEF00039CC4C /* libdb.a */; };
-		167DBF8817092EBF00B94D5E /* mcore.inc in Sources */ = {isa = PBXBuildFile; fileRef = 167DBD2617092EBE00B94D5E /* mcore.inc */; };
 		167DBF8A17092EC600B94D5E /* libnnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 167DBF8917092EC600B94D5E /* libnnt.a */; };
 		16A64B2A16E43A400099F049 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A64B2916E43A400099F049 /* MainController.mm */; };
 		16A64B2C16E43B810099F049 /* logo@57.png in Resources */ = {isa = PBXBuildFile; fileRef = 16A64B2B16E43B810099F049 /* logo@57.png */; };
@@ -269,7 +268,6 @@
 		167DBD1F17092EBE00B94D5E /* CGStyleContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGStyleContext.h; sourceTree = "<group>"; };
 		167DBD2317092EBE00B94D5E /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
 		167DBD2517092EBE00B94D5E /* mcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcore.h; sourceTree = "<group>"; };
-		167DBD2617092EBE00B94D5E /* mcore.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = mcore.inc; sourceTree = "<group>"; };
 		167DBD2917092EBF00B94D5E /* Array.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
 		167DBD2A17092EBF00B94D5E /* Cholesky.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Cholesky.hpp; sourceTree = "<group>"; };
 		167DBD2B17092EBF00B94D5E /* Core.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
@@ -1293,7 +1291,6 @@
 			children = (
 				167DBD2317092EBE00B94D5E /* cpu.h */,
 				167DBD2517092EBE00B94D5E /* mcore.h */,
-				167DBD2617092EBE00B94D5E /* mcore.inc */,
 			);
 			path = Mach;
 			sourceTree = "<group>";
@@ -2371,7 +2368,6 @@
 				16B9D8CE148B50C100595735 /* main.mm in Sources */,
 				16B9D8D2148B50C100595735 /* AppDelegate.mm in Sources */,
 				16A64B2A16E43A400099F049 /* MainController.mm in Sources */,
-				167DBF8817092EBF00B94D5E /* mcore.inc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

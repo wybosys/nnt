@@ -2,7 +2,7 @@
 # ifndef MAIN_CTLR
 # define MAIN_CTLR
 
-# include "WSIClipboard.h"
+# include "Clipboard+NNT.h"
 
 NNTAPP_BEGIN
 
