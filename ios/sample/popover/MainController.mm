@@ -40,13 +40,12 @@ void MainController::view_loaded()
 void MainController::act_pop()
 {
     typedef ui::Popover<ui::Controllerize<ui::SimpleView> > pop_type;
-    pop_type* pop = pop_type::New();
+    ui::Instance<pop_type> pop;
     pop->connect(kSignalDismiss, _action(_class::act_dismiss), this);
     pop->set_direction(UIPopoverArrowDirectionAny);
     pop->set_content(cg::Size(0, 400));
     pop->content.view().set_background(ui::Color::Orange());
     pop->present(view().pop.frame(), view());
-    pop->Release();
 }
 
 void MainController::act_dismiss()
