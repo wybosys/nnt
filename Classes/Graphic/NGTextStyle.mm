@@ -3,7 +3,7 @@
 # import "NGTextStyle.h"
 
 # ifdef NNT_TARGET_MAC
-# import "NSFont+Ng.h"
+# import "NSFont+NNT.h"
 # endif
 
 # import "NGDefines.h"
@@ -136,7 +136,7 @@ NNT_BEGIN_OBJC
     self->scaleToFit = [coder decodeIntForKey:@"scaleToFit"];
     self->scaleToFitOffset = [coder decodeFloatForKey:@"scaleToFitOffset"];
     self->alignment = (NgAlignment)[coder decodeIntForKey:@"alignment"];
-    self->linebreak = (UILineBreakMode)[coder decodeIntForKey:@"linebreak"];
+    self->linebreak = (IOSEXPRESS(UILineBreakMode) MACEXPRESS(NSLineBreakMode))[coder decodeIntForKey:@"linebreak"];
     self->scaleToFitMax = [coder decodeFloatForKey:@"scaleToFitMax"];
     self->charRotation = [coder decodeFloatForKey:@"charRotation"];
 

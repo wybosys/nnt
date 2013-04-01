@@ -115,6 +115,8 @@ public:
         PASS;
     }
     
+# ifdef NNT_TARGET_IOS
+    
     operator Color () const
     {
         return [_obj asColor];
@@ -124,7 +126,9 @@ public:
     {
         return [_obj asImage];
     }
-        
+    
+# endif
+    
 protected:
     
     id _obj;

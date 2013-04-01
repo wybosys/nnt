@@ -32,7 +32,7 @@
 
 //NSString * SBJSONErrorDomain = @"org.brautaset.JSON.ErrorDomain";
 
-# define ERRORDOMAIN WSIMACRO_TOSTR_OBJC(WSI_BASE_DOMAIN ".error")
+# define ERRORDOMAIN NNTMACRO_TOSTR_OBJC(NNT_BASE_DOMAIN ".error")
 
 @implementation SBJsonBase
 

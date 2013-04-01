@@ -110,6 +110,8 @@ public:
         [layer addAnimation:this->_self forKey:name];
     }
     
+# ifdef NNT_TARGET_IOS
+    
     void play(UIView* view, ns::String const& name = ns::null_string)
     {
         [view.layer addAnimation:this->_self forKey:name];
@@ -119,6 +121,8 @@ public:
     {
         this->play(ctlr.view, name);
     }
+    
+# endif
     
     operator aniT* () const
     {

@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTPostgreSql.h"
+# include "PostgreSql+NNT.h"
 # include "../Cross/NetAddress.h"
 
 NNT_BEGIN_HEADER_C

@@ -173,16 +173,16 @@ public:
     {
         this->_add_sub(elemT, empty);
     }
-    
-    virtual void Destroy()
+        
+    virtual void destroy()
     {
         this->_self = nil;
-        super::Destroy();
+        super::destroy();
     }
     
-    virtual void Release()
+    virtual void drop()
     {
-        super::Release();
+        super::drop();
     }
     
     virtual void* cxxobject() const

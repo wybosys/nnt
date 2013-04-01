@@ -417,13 +417,13 @@ void LoadTheme(NSString*) {
 }
 
 - (void)setRootViewController:(NSViewController *)ctlr {
-    if (rootViewController == ctlr)
+    if (_rootViewController == ctlr)
         return;
     
     NSView* view = ctlr.view;
     self.window.contentView = view;
 
-    [NSObject refobjSet:&rootViewController ref:ctlr];
+    [NSObject refobjSet:&_rootViewController ref:ctlr];
 }
 
 - (void)setWindow:(NSWindow *)win {

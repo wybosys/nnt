@@ -379,4 +379,16 @@ MAC_IOS_SELECT(NSImage, UIImage)* NgGetImageFromCurrentImageContext() {
     return 0;
 }
 
+void NgPushCGContext(CGContextRef context) {
+# ifdef NNT_TARGET_IOS
+    UIGraphicsPushContext(context);
+# endif
+}
+
+void NgPopCGContext() {
+# ifdef NNT_TARGET_IOS
+    UIGraphicsPopContext();
+# endif
+}
+
 NNT_END_OBJC

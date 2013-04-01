@@ -1,8 +1,10 @@
 
 # import "Core.h"
+# import "NGBase.h"
 # import "NGImage.h"
 # import "Resource+NNT.h"
 # import "Directory+NNT.h"
+# import "NGContext.h"
 
 NNT_BEGIN_OBJC
 

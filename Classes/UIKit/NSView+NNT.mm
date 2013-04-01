@@ -65,7 +65,7 @@ NNTOBJECT_IMPL;
 
 - (void)dealloc {
     if (_cxxobj)
-        _cxxobj->Destroy();
+        _cxxobj->destroy();
     [super dealloc];
 }
 

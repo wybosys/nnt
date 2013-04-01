@@ -4,6 +4,7 @@
 # import "AEMInformation.h"
 # import "Server.h"
 # import "Configuration+NNT.h"
+# import "App.h"
 
 NNT_BEGIN_OBJC
 
@@ -61,7 +62,8 @@ NNT_BEGIN_OBJC
     }
     
     // other.
-    [_app connect:kSignalAppFinishLaunching sel:@selector(act_finish_loading) obj:self];
+    [_app connect:kSignalAppFinishLaunching
+              sel:@selector(act_finish_loading) obj:self];
 }
 
 - (void)act_finish_loading {

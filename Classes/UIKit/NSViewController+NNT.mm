@@ -71,7 +71,7 @@ NNT_BEGIN_OBJC
 
 - (void)dealloc {
     if (_cxxobj)
-        _cxxobj->Destroy();
+        _cxxobj->destroy();
     
     [super dealloc];
 }

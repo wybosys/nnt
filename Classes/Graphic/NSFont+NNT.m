@@ -1,6 +1,6 @@
 
 # import "Core.h"
-# import "NSFont+Ng.h"
+# import "NSFont+NNT.h"
 
 NNT_BEGIN_OBJC
 

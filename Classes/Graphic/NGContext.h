@@ -37,6 +37,10 @@ NNT_EXTERN CGContextRef NgGetCurrentContext(void);
 //! get current image.
 NNT_EXTERN MAC_IOS_SELECT(NSImage, UIImage)* NgGetImageFromCurrentImageContext(void);
 
+//! control context.
+void NgPushCGContext(CGContextRef context);
+void NgPopCGContext(void);
+
 NNT_END_HEADER_OBJC
 
 # endif

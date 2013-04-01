@@ -9,7 +9,7 @@
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(store)
 
-NNTDECL_PRIVATE_HEADER_CXX(PostgreSql)
+NNTDECL_PRIVATE_HEAD_CXX(PostgreSql)
 
 class PostgreSql
 : public DBMSqlAbstract
@@ -38,14 +38,16 @@ class PgSqlDatatable
 : public DBMSqlDatatable
 {
 public:
+    
     PgSqlDatatable(void* res);
     ~PgSqlDatatable();
     
-public:
     virtual void update();
     
 protected:
+    
     void* _res;
+    
 };
 
 NNT_END_NS 

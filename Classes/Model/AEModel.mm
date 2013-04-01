@@ -131,11 +131,15 @@ NNT_USINGCXXNAMESPACE;
 }
 
 - (void)beginWaiting {
+# ifdef NNT_TARGET_IOS
     [[UIWaitingOverlap shared] show];
+# endif
 }
 
 - (void)endWaiting {
+# ifdef NNT_TARGET_IOS
     [[UIWaitingOverlap shared] hide];
+# endif
 }
 
 @end
