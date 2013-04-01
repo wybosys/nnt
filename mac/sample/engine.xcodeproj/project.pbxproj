@@ -17,7 +17,6 @@
 		16C44CC514A02EBC00775B19 /* OpenglController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CC414A02EBC00775B19 /* OpenglController.mm */; };
 		16D3D023153D0356003A33CE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3D022153D0356003A33CE /* OpenGL.framework */; };
 		16D3D028153D08E7003A33CE /* box.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 16D3D027153D08E7003A33CE /* box.3ds */; };
-		16D3D23C153E5FE1003A33CE /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3D23B153E5FE1003A33CE /* wsi.framework */; };
 		16D3D240153E6F2B003A33CE /* mulberry.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 16D3D23F153E6F2B003A33CE /* mulberry.3ds */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		16C44CC414A02EBC00775B19 /* OpenglController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenglController.mm; sourceTree = "<group>"; };
 		16D3D022153D0356003A33CE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		16D3D027153D08E7003A33CE /* box.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = box.3ds; sourceTree = "<group>"; };
-		16D3D23B153E5FE1003A33CE /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<absolute>"; };
 		16D3D23F153E6F2B003A33CE /* mulberry.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = mulberry.3ds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16D3D23C153E5FE1003A33CE /* wsi.framework in Frameworks */,
 				16D3D023153D0356003A33CE /* OpenGL.framework in Frameworks */,
 				16A44DFA149F253000DF7F82 /* Cocoa.framework in Frameworks */,
 			);
@@ -79,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				16C3414014A04EAE00FB95B5 /* logo.icns */,
-				16D3D23B153E5FE1003A33CE /* wsi.framework */,
 				16D3D022153D0356003A33CE /* OpenGL.framework */,
 				16A44DF9149F253000DF7F82 /* Cocoa.framework */,
 				16A44DFB149F253000DF7F82 /* Other Frameworks */,

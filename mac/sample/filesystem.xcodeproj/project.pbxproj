@@ -10,7 +10,6 @@
 		16763A3A1513439C00021D40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16763A391513439C00021D40 /* Foundation.framework */; };
 		16763A3D1513439C00021D40 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16763A3C1513439C00021D40 /* main.cpp */; };
 		16763A411513439D00021D40 /* filesystem.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16763A401513439D00021D40 /* filesystem.1 */; };
-		16763A4D1513455800021D40 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16763A4C1513455800021D40 /* wsi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +31,6 @@
 		16763A3C1513439C00021D40 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		16763A3F1513439D00021D40 /* filesystem-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "filesystem-Prefix.pch"; sourceTree = "<group>"; };
 		16763A401513439D00021D40 /* filesystem.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = filesystem.1; sourceTree = "<group>"; };
-		16763A4C1513455800021D40 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16763A4D1513455800021D40 /* wsi.framework in Frameworks */,
 				16763A3A1513439C00021D40 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,7 +48,6 @@
 		16763A2A1513439B00021D40 = {
 			isa = PBXGroup;
 			children = (
-				16763A4C1513455800021D40 /* wsi.framework */,
 				16763A3B1513439C00021D40 /* filesystem */,
 				16763A381513439C00021D40 /* Frameworks */,
 				16763A361513439C00021D40 /* Products */,

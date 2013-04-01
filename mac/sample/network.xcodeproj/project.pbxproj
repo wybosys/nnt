@@ -13,7 +13,6 @@
 		16CCEB221592FE4A00A16A3C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 16CCEB201592FE4A00A16A3C /* Credits.rtf */; };
 		16CCEB251592FE4B00A16A3C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB241592FE4B00A16A3C /* AppDelegate.mm */; };
 		16CCEB281592FE4B00A16A3C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CCEB261592FE4B00A16A3C /* MainMenu.xib */; };
-		16CCEB341592FE7A00A16A3C /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CCEB331592FE7A00A16A3C /* wsi.framework */; };
 		16CCEB4D1592FFA000A16A3C /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 16CCEB4C1592FFA000A16A3C /* logo.icns */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 		16CCEB231592FE4B00A16A3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16CCEB241592FE4B00A16A3C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		16CCEB271592FE4B00A16A3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		16CCEB331592FE7A00A16A3C /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<absolute>"; };
 		16CCEB4C1592FFA000A16A3C /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16CCEB341592FE7A00A16A3C /* wsi.framework in Frameworks */,
 				16CCEB121592FE4A00A16A3C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				16CCEB4C1592FFA000A16A3C /* logo.icns */,
-				16CCEB331592FE7A00A16A3C /* wsi.framework */,
 				16CCEB111592FE4A00A16A3C /* Cocoa.framework */,
 				16CCEB131592FE4A00A16A3C /* Other Frameworks */,
 			);

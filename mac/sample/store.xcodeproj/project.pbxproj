@@ -11,7 +11,6 @@
 		166B1C841519C80E0000B257 /* phpext.zip in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166B1C811519C6740000B257 /* phpext.zip */; };
 		16AC3B42150889A1007AC666 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC3B41150889A1007AC666 /* Foundation.framework */; };
 		16AC3B45150889A1007AC666 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B44150889A1007AC666 /* main.cpp */; };
-		16AC3B54150889E2007AC666 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC3B53150889E2007AC666 /* wsi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +35,6 @@
 		16AC3B44150889A1007AC666 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		16AC3B47150889A1007AC666 /* store-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "store-Prefix.pch"; sourceTree = "<group>"; };
 		16AC3B48150889A1007AC666 /* store.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = store.1; sourceTree = "<group>"; };
-		16AC3B53150889E2007AC666 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16AC3B54150889E2007AC666 /* wsi.framework in Frameworks */,
 				16AC3B42150889A1007AC666 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +69,6 @@
 		16AC3B40150889A1007AC666 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16AC3B53150889E2007AC666 /* wsi.framework */,
 				16AC3B41150889A1007AC666 /* Foundation.framework */,
 			);
 			name = Frameworks;

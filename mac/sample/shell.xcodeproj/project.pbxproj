@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167D00F517096D5600B94D5E /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00F417096D5600B94D5E /* nnt.framework */; };
 		16F92ED8152164B800D09C5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F92ED7152164B800D09C5D /* Foundation.framework */; };
 		16F92EDB152164B800D09C5D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F92EDA152164B800D09C5D /* main.cpp */; };
 		16F92EDF152164B800D09C5D /* shell.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16F92EDE152164B800D09C5D /* shell.1 */; };
-		16F92EEA152164EC00D09C5D /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F92EE9152164EC00D09C5D /* wsi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +27,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		167D00F417096D5600B94D5E /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = nnt.framework; path = ../build/Release/nnt.framework; sourceTree = "<group>"; };
 		16F92ED3152164B800D09C5D /* shell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = shell; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F92ED7152164B800D09C5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16F92EDA152164B800D09C5D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		16F92EDD152164B800D09C5D /* shell-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shell-Prefix.pch"; sourceTree = "<group>"; };
 		16F92EDE152164B800D09C5D /* shell.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = shell.1; sourceTree = "<group>"; };
-		16F92EE9152164EC00D09C5D /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16F92EEA152164EC00D09C5D /* wsi.framework in Frameworks */,
+				167D00F517096D5600B94D5E /* nnt.framework in Frameworks */,
 				16F92ED8152164B800D09C5D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,7 +51,7 @@
 		16F92EC8152164B800D09C5D = {
 			isa = PBXGroup;
 			children = (
-				16F92EE9152164EC00D09C5D /* wsi.framework */,
+				167D00F417096D5600B94D5E /* nnt.framework */,
 				16F92ED9152164B800D09C5D /* shell */,
 				16F92ED6152164B800D09C5D /* Frameworks */,
 				16F92ED4152164B800D09C5D /* Products */,

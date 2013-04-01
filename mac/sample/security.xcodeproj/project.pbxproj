@@ -10,7 +10,6 @@
 		160933A915105F5C00C84FBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160933A815105F5C00C84FBA /* Foundation.framework */; };
 		160933AC15105F5C00C84FBA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160933AB15105F5C00C84FBA /* main.cpp */; };
 		160933B015105F5C00C84FBA /* security.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160933AF15105F5C00C84FBA /* security.1 */; };
-		160933BC15105FD600C84FBA /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160933BB15105FD600C84FBA /* wsi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +31,6 @@
 		160933AB15105F5C00C84FBA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		160933AE15105F5C00C84FBA /* security-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "security-Prefix.pch"; sourceTree = "<group>"; };
 		160933AF15105F5C00C84FBA /* security.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = security.1; sourceTree = "<group>"; };
-		160933BB15105FD600C84FBA /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				160933BC15105FD600C84FBA /* wsi.framework in Frameworks */,
 				160933A915105F5C00C84FBA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,7 +48,6 @@
 		1609339915105F5B00C84FBA = {
 			isa = PBXGroup;
 			children = (
-				160933BB15105FD600C84FBA /* wsi.framework */,
 				160933AA15105F5C00C84FBA /* security */,
 				160933A715105F5C00C84FBA /* Frameworks */,
 				160933A515105F5C00C84FBA /* Products */,

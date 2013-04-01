@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		162BA6B9150DE19D00F33E1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162BA6B8150DE19D00F33E1D /* Foundation.framework */; };
-		162BA6CB150DE1C100F33E1D /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162BA6CA150DE1C100F33E1D /* wsi.framework */; };
 		16D3D2D1153EAC3D003A33CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D2D0153EAC3D003A33CE /* main.cpp */; };
 		16D3D2D2153EAC8E003A33CE /* test.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16D3D2CE153EAB1D003A33CE /* test.xml */; };
 /* End PBXBuildFile section */
@@ -31,7 +30,6 @@
 		162BA6B8150DE19D00F33E1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		162BA6BE150DE19D00F33E1D /* parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "parser-Prefix.pch"; sourceTree = "<group>"; };
 		162BA6BF150DE19D00F33E1D /* parser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = parser.1; sourceTree = "<group>"; };
-		162BA6CA150DE1C100F33E1D /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
 		16D3D2CE153EAB1D003A33CE /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		16D3D2D0153EAC3D003A33CE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				162BA6CB150DE1C100F33E1D /* wsi.framework in Frameworks */,
 				162BA6B9150DE19D00F33E1D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +49,6 @@
 		162BA6A9150DE19D00F33E1D = {
 			isa = PBXGroup;
 			children = (
-				162BA6CA150DE1C100F33E1D /* wsi.framework */,
 				162BA6BA150DE19D00F33E1D /* parser */,
 				162BA6B7150DE19D00F33E1D /* Frameworks */,
 				162BA6B5150DE19D00F33E1D /* Products */,
