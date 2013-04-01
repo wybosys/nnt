@@ -183,7 +183,7 @@ public:
         }
     }
     
-    explicit variant_t(void* data, uint len, core::_bool_copy cpy)
+    explicit variant_t(void* data, usize len, core::_bool_copy cpy)
     : vt(VT_DATA), _sz(len)
     {
         _rel = core::copy == cpy;
@@ -693,7 +693,7 @@ public:
         vt = VT_PCHAR;
     }
     
-    void set_data(void const* data, uint len, core::_bool_copy cpy)
+    void set_data(void const* data, usize len, core::_bool_copy cpy)
     {
         clear();
         
@@ -738,7 +738,7 @@ public:
         return core::data((byte const*)_v.data, _sz);
     }
     
-    uint size() const
+    usize size() const
     {
         return _sz;
     }
@@ -764,7 +764,7 @@ public:
 protected:
     
     bool _rel;
-    uint _sz;
+    usize _sz;
 
 };
 
