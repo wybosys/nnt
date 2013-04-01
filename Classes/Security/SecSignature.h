@@ -9,10 +9,10 @@ typedef struct {
     NSString* (*method)(NSString* text, NSString* secret);
 } sec_signature_func_t;
 
-NNT_EXTERN NSString* signature_hmac_sha1_name();
+NNT_EXTERN NSString* signature_hmac_sha1_name(void);
 NNT_EXTERN NSString* signature_hmac_sha1(NSString* text, NSString* secret);
 
-NNT_EXTERN NSString* signature_md5_name();
+NNT_EXTERN NSString* signature_md5_name(void);
 NNT_EXTERN NSString* signature_md5(NSString* text, NSString* secret);
 
 NNT_END_HEADER_OBJC

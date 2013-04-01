@@ -376,6 +376,8 @@
 		167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00E91709681D00B94D5E /* AVFoundation.framework */; };
 		167D00EC1709685000B94D5E /* Task+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00EB1709684F00B94D5E /* Task+NNT.mm */; };
 		167D00EF1709687800B94D5E /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 167D00EE1709687800B94D5E /* mongoose.c */; };
+		167D00F1170968E300B94D5E /* HttpRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00F0170968E300B94D5E /* HttpRequest.cpp */; };
+		167D00F31709694200B94D5E /* NullRpc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00F21709694200B94D5E /* NullRpc.cpp */; };
 		167EBAAB14F368670012570E /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9A14F368670012570E /* FtpServer.h */; };
 		167EBAAC14F368670012570E /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9B14F368670012570E /* FtpServer.m */; };
 		167EBAAD14F368680012570E /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9C14F368670012570E /* HttpRequest.h */; };
@@ -912,7 +914,6 @@
 		16F98D54149EE19800240965 /* NGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D22149EE19800240965 /* NGUtils.m */; };
 		16F98D5B149EE1E000240965 /* Configuration+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D55149EE1E000240965 /* Configuration+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D5C149EE1E000240965 /* Configuration+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D56149EE1E000240965 /* Configuration+NNT.mm */; };
-		16F9AC82159C5DA6000433D3 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC80159C5DA6000433D3 /* mongoose.c */; };
 		16F9AC8A159C6023000433D3 /* HttpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC84159C6023000433D3 /* HttpServer.cpp */; };
 		16F9AC8B159C6023000433D3 /* HttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F9AC85159C6023000433D3 /* HttpServer.h */; };
 		16F9AC8C159C6023000433D3 /* SmtpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC86159C6023000433D3 /* SmtpClient.cpp */; };
@@ -1326,6 +1327,8 @@
 		167D00E91709681D00B94D5E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 		167D00EB1709684F00B94D5E /* Task+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Task+NNT.mm"; path = "../Classes/Core/Task+NNT.mm"; sourceTree = "<group>"; };
 		167D00EE1709687800B94D5E /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mongoose.c; path = ../contrib/mongoose/mongoose.c; sourceTree = "<group>"; };
+		167D00F0170968E300B94D5E /* HttpRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpRequest.cpp; sourceTree = "<group>"; };
+		167D00F21709694200B94D5E /* NullRpc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NullRpc.cpp; sourceTree = "<group>"; };
 		167EBA9A14F368670012570E /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		167EBA9B14F368670012570E /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
 		167EBA9C14F368670012570E /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -1870,7 +1873,6 @@
 		16F98D22149EE19800240965 /* NGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGUtils.m; sourceTree = "<group>"; };
 		16F98D55149EE1E000240965 /* Configuration+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Configuration+NNT.h"; path = "../Classes/Store/Configuration+NNT.h"; sourceTree = "<group>"; };
 		16F98D56149EE1E000240965 /* Configuration+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Configuration+NNT.mm"; path = "../Classes/Store/Configuration+NNT.mm"; sourceTree = "<group>"; };
-		16F9AC80159C5DA6000433D3 /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongoose.c; sourceTree = "<group>"; };
 		16F9AC84159C6023000433D3 /* HttpServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpServer.cpp; sourceTree = "<group>"; };
 		16F9AC85159C6023000433D3 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
 		16F9AC86159C6023000433D3 /* SmtpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmtpClient.cpp; sourceTree = "<group>"; };
@@ -2380,7 +2382,11 @@
 				167EBA9B14F368670012570E /* FtpServer.m */,
 				167EBA9C14F368670012570E /* HttpRequest.h */,
 				167EBA9D14F368670012570E /* HttpRequest.mm */,
+				167D00F0170968E300B94D5E /* HttpRequest.cpp */,
 				167EBA9E14F368670012570E /* IRpc.h */,
+				167EBAA514F368670012570E /* NullRpc.h */,
+				167EBAA614F368670012570E /* NullRpc.mm */,
+				167D00F21709694200B94D5E /* NullRpc.cpp */,
 				167EBA9F14F368670012570E /* JsonRpc.h */,
 				167EBAA014F368670012570E /* JsonRpc.mm */,
 				167EBAA114F368670012570E /* LighttpdServer.h */,
@@ -2395,8 +2401,6 @@
 				16F9AC89159C6023000433D3 /* SqliteRequest.mm */,
 				167EBAA314F368670012570E /* Network.h */,
 				167EBAA414F368670012570E /* Network.m */,
-				167EBAA514F368670012570E /* NullRpc.h */,
-				167EBAA614F368670012570E /* NullRpc.mm */,
 				167EBAA714F368670012570E /* SocketRequest.h */,
 				167EBAA814F368670012570E /* SocketRequest.mm */,
 				165E557114F3912F00D35087 /* SocketServer.cpp */,
@@ -3201,7 +3205,6 @@
 			isa = PBXGroup;
 			children = (
 				167D00ED1709686B00B94D5E /* mongoose */,
-				16F9AC7F159C5DA6000433D3 /* httpd */,
 				16CCEB431592FF4F00A16A3C /* libxml */,
 				16CCEB361592FEF600A16A3C /* ace */,
 				166B1C8B1519D4330000B257 /* zip */,
@@ -3325,15 +3328,6 @@
 			);
 			name = Graphic;
 			path = ../Classes/Graphic;
-			sourceTree = "<group>";
-		};
-		16F9AC7F159C5DA6000433D3 /* httpd */ = {
-			isa = PBXGroup;
-			children = (
-				16F9AC80159C5DA6000433D3 /* mongoose.c */,
-			);
-			name = httpd;
-			path = ../contrib/httpd;
 			sourceTree = "<group>";
 		};
 		16FE664C152704A70095521B /* Math */ = {
@@ -4285,7 +4279,6 @@
 				16CCEB411592FF3200A16A3C /* SocketStream.cpp in Sources */,
 				16CCEB481592FF4F00A16A3C /* LIBXERCESC+NNT.cpp in Sources */,
 				16CCEB4A1592FF4F00A16A3C /* LIBXML+NNT.cpp in Sources */,
-				16F9AC82159C5DA6000433D3 /* mongoose.c in Sources */,
 				16F9AC8A159C6023000433D3 /* HttpServer.cpp in Sources */,
 				16F9AC8C159C6023000433D3 /* SmtpClient.cpp in Sources */,
 				16F9AC8F159C6023000433D3 /* SqliteRequest.mm in Sources */,
@@ -4423,6 +4416,8 @@
 				167D00DC1709632300B94D5E /* AEModel.mm in Sources */,
 				167D00EC1709685000B94D5E /* Task+NNT.mm in Sources */,
 				167D00EF1709687800B94D5E /* mongoose.c in Sources */,
+				167D00F1170968E300B94D5E /* HttpRequest.cpp in Sources */,
+				167D00F31709694200B94D5E /* NullRpc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

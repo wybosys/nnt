@@ -266,6 +266,8 @@ NNTDECL_PRIVATE_END
     return [[[NSBundle mainBundle] infoDictionary] valueForKey:(NSString*)kCFBundleNameKey];
 }
 
+# endif // end ios.
+
 + (NSString*)DeviceIdentity {
     NSString* idr = [[NNTConfiguration shared] get:@"::nnt::device::identity" null:nil];
     if (idr != nil)
@@ -275,7 +277,17 @@ NNTDECL_PRIVATE_END
     return idr;
 }
 
-# endif // end ios.
+# ifdef NNT_TARGET_MAC
+
++ (NSString*)Identity {
+    return NULL;
+}
+
++ (NSString*)Name {
+    return @"";
+}
+
+# endif
 
 NNTEVENT_BEGIN
 NNTEVENT_SIGNAL(kSignalAppOpenUrl)
