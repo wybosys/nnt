@@ -1,0 +1,1 @@
+../../../msvc/sample/sysinfo/sysinfo.cpp

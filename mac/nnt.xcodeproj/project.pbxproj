@@ -382,7 +382,7 @@
 		167D01151709729000B94D5E /* cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01111709729000B94D5E /* cpu.h */; };
 		167D01161709729000B94D5E /* mcore.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01121709729000B94D5E /* mcore.h */; };
 		167D01171709729100B94D5E /* mcore.inc in Sources */ = {isa = PBXBuildFile; fileRef = 167D01131709729000B94D5E /* mcore.inc */; };
-		167D0119170973FC00B94D5E /* _cpu.s in Sources */ = {isa = PBXBuildFile; fileRef = 167D0118170973FC00B94D5E /* _cpu.s */; };
+		167D0119170973FC00B94D5E /* cpu_.s in Sources */ = {isa = PBXBuildFile; fileRef = 167D0118170973FC00B94D5E /* cpu_.s */; };
 		167EBAAB14F368670012570E /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9A14F368670012570E /* FtpServer.h */; };
 		167EBAAC14F368670012570E /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9B14F368670012570E /* FtpServer.m */; };
 		167EBAAD14F368680012570E /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9C14F368670012570E /* HttpRequest.h */; };
@@ -1362,7 +1362,7 @@
 		167D01111709729000B94D5E /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cpu.h; path = ../Classes/Mach/cpu.h; sourceTree = "<group>"; };
 		167D01121709729000B94D5E /* mcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mcore.h; path = ../Classes/Mach/mcore.h; sourceTree = "<group>"; };
 		167D01131709729000B94D5E /* mcore.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = mcore.inc; path = ../Classes/Mach/mcore.inc; sourceTree = "<group>"; };
-		167D0118170973FC00B94D5E /* _cpu.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = _cpu.s; path = ../Classes/Mach/_cpu.s; sourceTree = "<group>"; };
+		167D0118170973FC00B94D5E /* cpu_.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = cpu_.s; path = ../Classes/Mach/cpu_.s; sourceTree = "<group>"; };
 		167EBA9A14F368670012570E /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		167EBA9B14F368670012570E /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
 		167EBA9C14F368670012570E /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -2409,7 +2409,7 @@
 		167D010F1709726500B94D5E /* Mach */ = {
 			isa = PBXGroup;
 			children = (
-				167D0118170973FC00B94D5E /* _cpu.s */,
+				167D0118170973FC00B94D5E /* cpu_.s */,
 				167D01101709729000B94D5E /* cpu.cpp */,
 				167D01111709729000B94D5E /* cpu.h */,
 				167D01121709729000B94D5E /* mcore.h */,
@@ -4471,7 +4471,7 @@
 				167D00F31709694200B94D5E /* NullRpc.cpp in Sources */,
 				167D01141709729000B94D5E /* cpu.cpp in Sources */,
 				167D01171709729100B94D5E /* mcore.inc in Sources */,
-				167D0119170973FC00B94D5E /* _cpu.s in Sources */,
+				167D0119170973FC00B94D5E /* cpu_.s in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
