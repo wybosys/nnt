@@ -2566,34 +2566,6 @@
 				Name="Mach"
 				>
 				<File
-					RelativePath="..\..\Classes\Mach\_cpu.s"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="YASM"
-							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
-							Defines="$(PlatformName)"
-							Debug="true"
-							PreProc="0"
-							Parser="1"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Debug|x64"
-						>
-						<Tool
-							Name="YASM"
-							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f$(PlatformName)  [AllOptions] [AdditionalOptions] [Inputs]"
-							Defines="$(PlatformName)"
-							Debug="true"
-							PreProc="0"
-							Parser="1"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
 					RelativePath="..\..\Classes\Mach\cpu.cpp"
 					>
 					<FileConfiguration
@@ -2608,6 +2580,52 @@
 				<File
 					RelativePath="..\..\Classes\Mach\cpu.h"
 					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Mach\cpu_.s"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							Parser="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|x64"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							Parser="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Parser="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|x64"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Parser="1"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Mach\mcore.h"
