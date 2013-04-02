@@ -5,9 +5,7 @@
 # include "Cpu+NNT.h"
 
 # ifdef NNT_WINDOWS
-
 #   include "../MSCOM+NNT.h"
-
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -17,7 +15,89 @@ NNT_BEGIN_NS(dev)
 template <typename ostraits = os_type>
 class Bios
 {
+public:
+    
+    core::string name()
+    {
+        return "";
+    }
+    
+    core::string serialno()
+    {
+        return "";
+    }
+    
+    core::string manufacturer()
+    {
+        return "";        
+    }
+    
+    bool is_null() const
+    {
+        return true;
+    }
+    
+};
 
+template <typename ostraits = os_type>
+class Disk
+{
+public:
+    
+	bool is_null() const
+	{
+        return false;
+	}
+    
+	core::string serialno() const
+	{
+        return "";
+	}
+    
+	core::string deviceid() const
+	{
+        return "";
+	}
+    
+	uint signature() const
+	{
+        return 0;
+	}
+
+};
+
+template <typename ostraits = os_type>
+class Mainboard
+{
+public:
+    
+    bool is_null() const
+	{
+        return false;
+	}
+    
+	core::string serialno()
+	{
+        return "";
+	}
+    
+};
+
+template <typename ostraits = os_type>
+class Memory
+{
+public:
+    
+    bool is_null() const
+	{
+        return false;
+	}
+    
+	core::string banklabel()
+	{
+        return "";
+	}
+    
 };
 
 # ifdef NNT_MSVC
@@ -65,12 +145,6 @@ protected:
 
 };
 
-template <typename ostraits = os_type>
-class Mainboard
-{
-
-};
-
 template <>
 class Mainboard<os_windows>
 	: public Mainboard<os_unknown>
@@ -96,12 +170,6 @@ protected:
 
 	windows::wbem::BaseBoard _wbem;
 	windows::wbem::BaseBoard::iterator _obj;
-
-};
-
-template <typename ostraits = os_type>
-class Disk
-{
 
 };
 
@@ -140,12 +208,6 @@ protected:
 
 	windows::wbem::PhysicalDisk _wbem;
 	windows::wbem::PhysicalDisk::iterator _obj;
-
-};
-
-template <typename ostraits = os_type>
-class Memory
-{
 
 };
 

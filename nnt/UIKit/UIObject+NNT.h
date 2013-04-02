@@ -23,6 +23,7 @@ typedef enum
 }
 NNTAlignment;
 
+# ifdef NNT_TARGET_IOS
 # if NNT_IOS_MIN >= __IPHONE_6_0
 
 //#   define TextAlignment(op) NSTextAlignment##op
@@ -63,6 +64,7 @@ static UILineBreakMode LineBreak(NNTLineBreadMode mode)
     return (UILineBreakMode)ret;
 }
 
+# endif
 # endif
 
 @interface NNTUIObject : NNTObject {
@@ -153,6 +155,7 @@ public:
     
     TextAlignment()
     {
+# ifdef NNT_TARGET_IOS
 # if NNT_IOS_MIN >= __IPHONE_6_0
         switch (Type)
         {
@@ -168,6 +171,7 @@ public:
             case Right: align = UITextAlignmentRight; break;
         }
 # endif        
+# endif
     }
     
     template <typename valT>

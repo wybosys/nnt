@@ -171,7 +171,9 @@ NNTEVENT_SIGNAL(kSignalURLConnectionExit)
 NNTEVENT_END
 
 - (void)start {
-    [NNTApplication shared].networkActivityIndicatorVisible = YES;
+    IOSEXPRESS(
+               [NNTApplication shared].networkActivityIndicatorVisible = YES
+               );
 
     // wait complete.
     [self retain];
@@ -185,7 +187,10 @@ NNTEVENT_END
 
     // complete.
     [self release];
-    [NNTApplication shared].networkActivityIndicatorVisible = NO;
+    
+    IOSEXPRESS(
+               [NNTApplication shared].networkActivityIndicatorVisible = NO
+               );
 }
 
 - (void)startAsync {
@@ -197,7 +202,9 @@ NNTEVENT_END
 }
 
 - (void)doStartAsync {
-    [NNTApplication shared].networkActivityIndicatorVisible = YES;
+    IOSEXPRESS(
+               [NNTApplication shared].networkActivityIndicatorVisible = YES
+               );
     
     // connection start.
     [_connection start];
@@ -208,7 +215,10 @@ NNTEVENT_END
     
     // complete.
     [self release];
-    [NNTApplication shared].networkActivityIndicatorVisible = NO;
+    
+    IOSEXPRESS(
+               [NNTApplication shared].networkActivityIndicatorVisible = NO
+               );
 }
 
 - (void)cancel {

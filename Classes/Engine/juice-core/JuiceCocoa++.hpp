@@ -4,6 +4,7 @@
 
 # import "JuiceCore.hpp"
 # import "JuiceTypes.hpp"
+# import "../../Graphic/NGContext.h"
 # import "../../Graphic/NGPath.h"
 # import "../../Graphic/NGColor.h"
 # import "../../Graphic/NGGradient.h"
@@ -887,20 +888,24 @@ class Bezier
 {
 public:
     
+    typedef MAC_IOS_SELECT(NSBezierPath, UIBezierPath) bezierpath_t;
+    
     Bezier()
     {
-        _bezier = [[UIBezierPath bezierPath] retain];
-    }
-    
-    Bezier(Path& ph)
-    {
-        _bezier = [[UIBezierPath bezierPath] retain];
-        set_path(ph);
+        _bezier = [[bezierpath_t bezierPath] retain];
     }
     
     ~Bezier()
     {
         safe_release(_bezier);
+    }
+    
+# ifdef NNT_TARGET_IOS
+    
+    Bezier(Path& ph)
+    {
+        _bezier = [[bezierpath_t bezierPath] retain];
+        set_path(ph);
     }
     
     void set_path(Path& ph)
@@ -911,25 +916,25 @@ public:
     void set_rect(Rect const& rc)
     {
         clear();
-        _bezier = [[UIBezierPath bezierPathWithRect:rc] retain];
+        _bezier = [[bezierpath_t bezierPathWithRect:rc] retain];
     }
     
     void set_oval(Rect const& rc)
     {
         clear();
-        _bezier = [[UIBezierPath bezierPathWithOvalInRect:rc] retain];
+        _bezier = [[bezierpath_t bezierPathWithOvalInRect:rc] retain];
     }
     
     void set_rounded(Rect const& rc, Size const& radius, UIRectCorner corner = UIRectCornerAllCorners)
     {
         clear();
-        _bezier = [[UIBezierPath bezierPathWithRoundedRect:rc byRoundingCorners:corner cornerRadii:radius] retain];
+        _bezier = [[bezierpath_t bezierPathWithRoundedRect:rc byRoundingCorners:corner cornerRadii:radius] retain];
     }
     
     void set_arc(Point const& center, real radius, Angle const& start, Angle const& end, bool clockwise = true)
     {
         clear();
-        _bezier = [[UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:start endAngle:end clockwise:clockwise] retain];
+        _bezier = [[bezierpath_t bezierPathWithArcCenter:center radius:radius startAngle:start endAngle:end clockwise:clockwise] retain];
     }
     
     void clear()
@@ -998,13 +1003,15 @@ public:
         return ::nnt::cg::Path((CGPathRef)_bezier.CGPath);
     }
     
+# endif
+    
     void place(Graphics&) const;
     void fill(Graphics&, Brush const&) const;
     void stroke(Graphics&, Pen const&) const;
     
 protected:
     
-    UIBezierPath* _bezier;
+    bezierpath_t* _bezier;
     
 };
 
@@ -1318,12 +1325,12 @@ public:
     
     static void Push(::juice::cocoa::Graphics& gra)
     {
-        UIGraphicsPushContext(gra);
+        NgPushCGContext(gra);
     }
     
     static void Pop()
     {
-        UIGraphicsPopContext();
+        NgPopCGContext();
     }
     
 };
@@ -1451,7 +1458,9 @@ inline_impl void Path::fill(Graphics& gra, Fill const& fl) const
 
 inline_impl void Bezier::place(Graphics& gra) const
 {
+# ifdef NNT_TARGET_IOS
     CGContextAddPath(gra, _bezier.CGPath);
+# endif
 }
 
 inline_impl void Bezier::fill(Graphics& gra, Brush const& br) const

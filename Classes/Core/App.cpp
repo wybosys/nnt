@@ -125,6 +125,7 @@ void Console::_doload()
 
 static core::Condition __gs_app_wait;
 
+extern void act_break(int);
 void act_break(int)
 {
     __gs_app_wait.signal();

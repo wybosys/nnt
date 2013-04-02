@@ -22,7 +22,12 @@ NNT_BEGIN_OBJC
     startAngle = 0;
     endAngle = 0;
     offsetAngle = -M_PI_2;
+    
+# ifdef NNT_TARGET_IOS
     ringWidth = NNT_ISPAD ? 8 : 3;
+# else
+    ringWidth = 16;
+# endif
     
     //self.needsDisplayOnBoundsChange = NO;
     

@@ -67,6 +67,7 @@
     id _obj, _ctx;
     SEL _ok, _cancel;
     CFRunLoopRef _loop;
+    int _keyAction;
 }
 
 @property (nonatomic, assign) id obj;
@@ -79,7 +80,7 @@
 
 @implementation MsgboxDelegate
 
-@synthesize obj = _obj, ok = _ok, cancel = _cancel, ctx = _ctx, loop = _loop, keyAction;
+@synthesize obj = _obj, ok = _ok, cancel = _cancel, ctx = _ctx, loop = _loop, keyAction = _keyAction;
 
 - (id)init {
     self = [super init];
@@ -105,7 +106,7 @@
         }
     }
     
-    keyAction = buttonIndex;
+    _keyAction = buttonIndex;
     
     if (_loop) {
         CFRunLoopStop(_loop);

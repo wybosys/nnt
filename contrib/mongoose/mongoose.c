@@ -29,6 +29,11 @@
 #define __STDC_LIMIT_MACROS   // C++ wants that for INT64_MAX
 #endif
 
+#ifndef _WIN32
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+#endif
+
 #if defined (_MSC_VER)
 // conditional expression is constant: introduced by FD_SET(..)
 #pragma warning (disable : 4127)

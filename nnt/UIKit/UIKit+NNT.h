@@ -24,11 +24,11 @@
 // quartz + nnt.
 # import "QzAnimation.h"
 # import "QzTransition.h"
-# import "QzDisplayLink.h"
 
 // for ios.
 # ifdef NNT_TARGET_IOS
 
+# import "QzDisplayLink.h"
 # import "UIScreen+NNT.h"
 # import "UIDevice+NNT.h"
 # import "UIColor+NNT.h"

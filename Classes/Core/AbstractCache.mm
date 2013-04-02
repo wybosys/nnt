@@ -648,9 +648,10 @@ static AbstractCache *__gs_defaultCache = nil;
         return;
     
     safe_release(_data);
+    
 # ifdef NNT_DEBUG
     if (_data != nil) {
-        trace_fmt(@"the cache data remain in memory but should be free. retain count: %d .", [_data retainCount]);
+        trace_fmt(@"the cache data remain in memory but should be free. retain count: %d .", (int)[_data retainCount]);
     }
 # endif
     

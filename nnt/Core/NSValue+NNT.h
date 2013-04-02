@@ -42,6 +42,8 @@ public:
         return [this->_self CATransform3DValue];
     }
     
+# ifdef NNT_TARGET_IOS
+    
     Value(CGAffineTransform const& mat)
     : super(nil)
     {
@@ -85,6 +87,8 @@ public:
     {
         return [this->_self CGRectValue];
     }
+    
+# endif
     
 };
 

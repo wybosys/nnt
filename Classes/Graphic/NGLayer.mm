@@ -1,5 +1,6 @@
 
 # import "Core.h"
+# import "NGBase.h"
 # import "NGLayer.h"
 # import <QuartzCore/QuartzCore.h>
 # import "Graphic+NNT.h"

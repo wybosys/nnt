@@ -4,6 +4,8 @@
 
 # import <QuartzCore/CALayer.h>
 # import "NGDefines.h"
+# import "NGColor.h"
+# import "NGBase.h"
 
 NNT_BEGIN_HEADER_OBJC
 

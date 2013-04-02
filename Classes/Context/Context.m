@@ -15,9 +15,9 @@ static Class __gs_context_class = nil;
 
 NNTDECL_PRIVATE_BEGIN(Context, NSObject)
 {
-    Preferences *prefs;
-    Server *srv;
-    User *user;
+    Preferences *_prefs;
+    Server *_srv;
+    User *_user;
 }
 
 @property (nonatomic, retain) Preferences *prefs;
@@ -26,7 +26,7 @@ NNTDECL_PRIVATE_BEGIN(Context, NSObject)
 
 NNTDECL_PRIVATE_IMPL(Context)
 
-@synthesize prefs, srv, user;
+@synthesize prefs = _prefs, srv = _srv, user = _user;
 
 - (id)init {
 	self = [super init];
@@ -34,41 +34,41 @@ NNTDECL_PRIVATE_IMPL(Context)
 }
 
 - (void)dealloc {
-	zero_release(prefs);
-	zero_release(srv);
-    zero_release(user);
+	safe_release(_prefs);
+    safe_release(_srv);
+    safe_release(_user);
     
 	[super dealloc];
 }
 
 - (Preferences*)prefs {
     NNT_SYNCHRONIZED(self)
-    if (prefs == nil) {
-        prefs = [d_owner.classPrefs new];
-        prefs.ctx = d_owner;
+    if (_prefs == nil) {
+        _prefs = [d_owner.classPrefs new];
+        _prefs.ctx = d_owner;
     }
     NNT_SYNCHRONIZED_END
-    return prefs;
+    return _prefs;
 }
 
 - (Server*)srv {
     NNT_SYNCHRONIZED(self)
-    if (srv == nil) {
-        srv = [d_owner.classServ new];
-        srv.ctx = d_owner;
+    if (_srv == nil) {
+        _srv = [d_owner.classServ new];
+        _srv.ctx = d_owner;
     }
     NNT_SYNCHRONIZED_END
-    return srv;
+    return _srv;
 }
 
 - (User*)user {
     NNT_SYNCHRONIZED(self)
-    if (user == nil) {
-        user = [d_owner.classUser new];
-        user.ctx = d_owner;
+    if (_user == nil) {
+        _user = [d_owner.classUser new];
+        _user.ctx = d_owner;
     }
     NNT_SYNCHRONIZED_END
-    return user;
+    return _user;
 }
 
 NNTDECL_PRIVATE_END

@@ -8,9 +8,6 @@ NNT_BEGIN_HEADER_OBJC
 
 NgRGBAColor NgRGBAColorFromCGColor(CGColorRef color);
 
-void NgPushCGContext(CGContextRef context);
-void NgPopCGContext(void);
-
 NNT_END_HEADER_OBJC
 
 # endif

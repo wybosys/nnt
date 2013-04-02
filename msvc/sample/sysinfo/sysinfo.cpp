@@ -1,5 +1,3 @@
-// sysinfo.cpp : Defines the entry point for the console application.
-//
 
 # include <nnt/Foundation+NNT.h>
 # include <nnt/TL/hardware/Device+NNT.h>

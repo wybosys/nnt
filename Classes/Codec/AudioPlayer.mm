@@ -2,7 +2,10 @@
 # import "Core.h"
 # import "AudioPlayer.h"
 # import <AVFoundation/AVAudioPlayer.h>
-# import <AVFoundation/AVAudioSession.h>
+
+# ifdef NNT_TARGET_IOS
+#   import <AVFoundation/AVAudioSession.h>
+# endif
 
 NNT_BEGIN_OBJC
 
@@ -15,7 +18,10 @@ static void packPlayback()
     if (__gs_session_playback)
         return;
     __gs_session_playback = true;
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    IOSEXPRESS(
+               [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil]
+               );
 }
 
 static void unpackPlayback()
@@ -23,7 +29,10 @@ static void unpackPlayback()
     if (!__gs_session_playback)
         return;
     __gs_session_playback = false;
-    [[AVAudioSession sharedInstance] setCategory:nil error:nil];
+    
+    IOSEXPRESS(
+               [[AVAudioSession sharedInstance] setCategory:nil error:nil]
+               );
 }
 
 NNTDECL_PRIVATE_BEGIN(AudioPlayer, NNTObject)

@@ -13,7 +13,6 @@
 		1648F966158746B800A47990 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1648F964158746B800A47990 /* Credits.rtf */; };
 		1648F969158746B800A47990 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F968158746B800A47990 /* AppDelegate.mm */; };
 		1648F96C158746B800A47990 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1648F96A158746B800A47990 /* MainMenu.xib */; };
-		1648F97F1587497400A47990 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648F97E1587497400A47990 /* wsi.framework */; };
 		1648F98215874A6E00A47990 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F98115874A6E00A47990 /* MainController.mm */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +30,6 @@
 		1648F967158746B800A47990 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1648F968158746B800A47990 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		1648F96B158746B800A47990 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		1648F97E1587497400A47990 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug/wsi.framework"; sourceTree = "<absolute>"; };
 		1648F98015874A6E00A47990 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		1648F98115874A6E00A47990 /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1648F97F1587497400A47990 /* wsi.framework in Frameworks */,
 				1648F956158746B800A47990 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +66,6 @@
 		1648F954158746B800A47990 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1648F97E1587497400A47990 /* wsi.framework */,
 				1648F955158746B800A47990 /* Cocoa.framework */,
 				1648F957158746B800A47990 /* Other Frameworks */,
 			);
