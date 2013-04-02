@@ -57,7 +57,7 @@ public:
 		buf.append((uint)mr.dx);
 		buf.append((uint)mr.cx);
 
-		return core::type_cast<core::string>(buf);
+        return core::type_cast<core::string>(buf);
 	}
 
 	core::data serialno()

@@ -3,7 +3,7 @@
 # define __NNT_EXECUTION_D2E9D5492BA64F64AD565794E62B902D_H_INCLUDED
 
 # ifndef __cplusplus
-# error "please rename main.m to main.mm for support C++."
+//# error "please rename main.m to main.mm for support C++."
 # endif
 
 NNT_BEGIN_HEADER_OBJC

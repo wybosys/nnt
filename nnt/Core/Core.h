@@ -964,6 +964,8 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 #   else
 #     define NNTAPI_ASM(method) _##method##_
 #   endif
+# else
+#   define NNTAPI_ASM(method) _##method
 # endif
 
 # if defined(NNT_LIBRARY)

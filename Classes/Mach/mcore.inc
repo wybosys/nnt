@@ -4,13 +4,27 @@
 %define NNT_X32
 %endif
 
+%ifdef macho32
+%define NNT_MACH
+%define NNT_X32
+%endif
+
 %ifdef x64
 %define NNT_WINDOWS
 %define NNT_X64
 %endif
 
+%ifdef macho64
+%define NNT_MACH
+%define NNT_X64
+%endif
+
 %ifdef NNT_WINDOWS
 %define NNTAPI(name) _ %+ name %+ _
+%endif
+
+%ifdef NNT_MACH
+%define NNTAPI(name) __ %+ name
 %endif
 
 ; copy value to mregister (ebp)

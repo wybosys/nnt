@@ -382,6 +382,7 @@
 		167D01151709729000B94D5E /* cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01111709729000B94D5E /* cpu.h */; };
 		167D01161709729000B94D5E /* mcore.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01121709729000B94D5E /* mcore.h */; };
 		167D01171709729100B94D5E /* mcore.inc in Sources */ = {isa = PBXBuildFile; fileRef = 167D01131709729000B94D5E /* mcore.inc */; };
+		167D0119170973FC00B94D5E /* _cpu.s in Sources */ = {isa = PBXBuildFile; fileRef = 167D0118170973FC00B94D5E /* _cpu.s */; };
 		167EBAAB14F368670012570E /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9A14F368670012570E /* FtpServer.h */; };
 		167EBAAC14F368670012570E /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9B14F368670012570E /* FtpServer.m */; };
 		167EBAAD14F368680012570E /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9C14F368670012570E /* HttpRequest.h */; };
@@ -961,6 +962,30 @@
 		16FE670815270CC00095521B /* JuiceTypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66FB15270CC00095521B /* JuiceTypes.hpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		167D011A1709742A00B94D5E /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.inc";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "#!/bin/bash\necho \"skip: ${INPUT_FILE_PATH}\"";
+		};
+		167D011C1709749600B94D5E /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.s";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o",
+			);
+			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nYASM_MACH=macho64\nelse\nYASM_MACH=macho32\nfi\n\n/opt/local/bin/yasm -f ${YASM_MACH} -d ${YASM_MACH} -rnasm -pgas -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		1609337615102DB500C84FBA /* SoapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapObject.h; sourceTree = "<group>"; };
 		1609337915103E9C00C84FBA /* SoapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoapObject.cpp; sourceTree = "<group>"; };
@@ -1337,6 +1362,7 @@
 		167D01111709729000B94D5E /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cpu.h; path = ../Classes/Mach/cpu.h; sourceTree = "<group>"; };
 		167D01121709729000B94D5E /* mcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mcore.h; path = ../Classes/Mach/mcore.h; sourceTree = "<group>"; };
 		167D01131709729000B94D5E /* mcore.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; name = mcore.inc; path = ../Classes/Mach/mcore.inc; sourceTree = "<group>"; };
+		167D0118170973FC00B94D5E /* _cpu.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = _cpu.s; path = ../Classes/Mach/_cpu.s; sourceTree = "<group>"; };
 		167EBA9A14F368670012570E /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		167EBA9B14F368670012570E /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
 		167EBA9C14F368670012570E /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -2383,6 +2409,7 @@
 		167D010F1709726500B94D5E /* Mach */ = {
 			isa = PBXGroup;
 			children = (
+				167D0118170973FC00B94D5E /* _cpu.s */,
 				167D01101709729000B94D5E /* cpu.cpp */,
 				167D01111709729000B94D5E /* cpu.h */,
 				167D01121709729000B94D5E /* mcore.h */,
@@ -3973,6 +4000,8 @@
 				16D3D1A8153D22B0003A33CE /* ShellScript */,
 			);
 			buildRules = (
+				167D011C1709749600B94D5E /* PBXBuildRule */,
+				167D011A1709742A00B94D5E /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -4442,6 +4471,7 @@
 				167D00F31709694200B94D5E /* NullRpc.cpp in Sources */,
 				167D01141709729000B94D5E /* cpu.cpp in Sources */,
 				167D01171709729100B94D5E /* mcore.inc in Sources */,
+				167D0119170973FC00B94D5E /* _cpu.s in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
