@@ -32,6 +32,9 @@
 #ifndef _WIN32
 #pragma GCC diagnostic ignored "-Wshorten-64-to-32"
 #pragma GCC diagnostic ignored "-Wmissing-prototypes"
+#else
+#pragma warning (disable : 4244)
+#pragma warning (disable : 4267)
 #endif
 
 #if defined (_MSC_VER)
