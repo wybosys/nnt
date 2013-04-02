@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>libnnt</ProjectName>
+    <ProjectGuid>{36DBA52B-7C56-41ED-B6E5-D4418089EA1D}</ProjectGuid>
+    <RootNamespace>libnnt</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)libnnt.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../3rd/MSVC/;../../3rd/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Core.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>ACEd.lib;libdb51d.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3D.lib;log4cppds.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libnntd.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\libnntd.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(TargetDir)/libnntd.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)libnnt.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../3rd/MSVC/;../../3rd/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Core.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>ACEd.lib;libdb51d.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3D.lib;log4cppds.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libnntd.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\libnntd.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(TargetDir)/libnntd.lib</ImportLibrary>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)libnnt.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../3rd/MSVC/;../../3rd/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Core.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>ACE.lib;libdb51.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3.lib;log4cpps.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libnnt.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>$(IntDir)libnnt.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../3rd/MSVC/;../../3rd/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Core.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <RegisterOutput>false</RegisterOutput>
+      <AdditionalDependencies>ACE.lib;libdb51.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3.lib;log4cpps.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libnnt.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="libnnt.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\App.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Char+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Core.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Directory+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Event+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\File+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Object.cpp" />
+    <ClCompile Include="..\..\Classes\Core\ObjectDL.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Task+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Time+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\UnitTest.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\EmailContent.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\FtpServer.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\HttpRequest.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\HttpServer.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\JsonRpc.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\LighttpdServer.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\Mime+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\NetAddress.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\Network.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\NullRpc.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\SoapObject.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\SocketClient.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\SocketServer.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\SocketStream.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\SqliteRequest.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\VCard+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\XmlRpc.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppBlackholeFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppChallengeFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppClient.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppClientor.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppIMClient.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppIMClientor.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppInfoqueryFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppMessageFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppObject.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppPresenceFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppResponseFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppStreamFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\XmppSuccessFactory.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimActive.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimAvatar.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimComposing.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimContact.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimIM.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimMessage.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimPresence.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimPriority.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimRoster.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimShow.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimUser.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\im\XimXPhoto.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppAuth.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppBind.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppChallenge.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppClose.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppCompression.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppCore.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppFailure.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppFeatures.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppIQ.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppJID.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppPubsub.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppResponse.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppSasl.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppSession.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppStream.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\core\XmppSuccess.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepAvatar.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepBitsOfBinary.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepCAPTCHA.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepCore.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepField.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepMUC.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepOfflineMessage.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepPing.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepServiceDiscovery.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepSubject.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepVCard.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepVersion.cpp" />
+    <ClCompile Include="..\..\Classes\Cross\xmpp\xep\XepXHtmlIm.cpp" />
+    <ClCompile Include="..\..\Classes\Store\Bdb+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Store\Configuration+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Store\DBMSqlAbstract.cpp" />
+    <ClCompile Include="..\..\Classes\Store\Logger+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Store\MySql+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Store\SqlServer+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\AES+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\BaseN+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\DES+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\MDN+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\RSA+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\Security+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\SHA+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Security\UUID+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\CmdArguments.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\CSSParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\CSVParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\HttpParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\PropertyTree.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\SOAPParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\SVGParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\XmlParser.cpp" />
+    <ClCompile Include="..\..\Classes\Parser\XmlParserUtil.cpp" />
+    <ClCompile Include="..\..\Classes\Qt\QtApplication+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\UIKit\Cross\UcController.cpp" />
+    <ClCompile Include="..\..\Classes\UIKit\Cross\UcKernel.cpp" />
+    <ClCompile Include="..\..\Classes\UIKit\Cross\UcView.cpp" />
+    <ClCompile Include="..\..\Classes\UIKit\Cross\UcWindow.cpp" />
+    <ClCompile Include="..\..\Classes\Math\FlateBP.cpp" />
+    <ClCompile Include="..\..\Classes\Math\LePoint.cpp" />
+    <ClCompile Include="..\..\Classes\Math\LeRect.cpp" />
+    <ClCompile Include="..\..\Classes\Math\LeSize.cpp" />
+    <ClCompile Include="..\..\Classes\Math\Math+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Math\MathGeo.cpp" />
+    <ClCompile Include="..\..\Classes\Workflow\StateMachine.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIAction.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIBehave.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIBody.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIRole.cpp" />
+    <ClCompile Include="..\..\Classes\AI\ChatRobotSTART.cpp" />
+    <ClCompile Include="..\..\Classes\AI\IChatRobot.cpp" />
+    <ClCompile Include="..\..\Classes\Model\Model.cpp" />
+    <ClCompile Include="..\..\Classes\Model\MOpeModel.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Context.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Preferences.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Server.cpp" />
+    <ClCompile Include="..\..\Classes\Context\User.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Algorithm+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Bimap+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Closure+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Data+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Exception+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Interface+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\List+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Map+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\MSCOM+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Operator+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Regex+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\SmartPtr+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\String+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\System+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Types+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Variant+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\Vector+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\hardware\Assembly+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\hardware\Cpu+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\hardware\Device+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\TL\hardware\Hardware+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Mach\cpu.cpp" />
+    <ClCompile Include="..\..\contrib\ace\ACE+NNT.cpp" />
+    <ClCompile Include="..\..\contrib\libxml\LIBXERCESC+NNT.cpp" />
+    <ClCompile Include="..\..\contrib\mongoose\mongoose.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\classes\ExceptionProcess.cpp" />
+    <ClCompile Include="..\classes\MSVC+NNT.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libnnt.def" />
+    <None Include="res\libnnt.rc2" />
+    <YASM Include="..\..\Classes\Mach\cpu_.s">
+      <Defines Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)</Defines>
+      <Debug Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</Debug>
+      <Parser Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">1</Parser>
+      <Defines Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)</Defines>
+      <Parser Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">1</Parser>
+      <Defines Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)</Defines>
+      <Parser Condition="'$(Configuration)|$(Platform)'=='Release|x64'">1</Parser>
+    </YASM>
+    <None Include="..\..\Classes\Mach\mcore.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="libnnt.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="libnnt.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\Classes\Execution+NNT.h" />
+    <ClInclude Include="..\..\Classes\Foundation+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Core\App.h" />
+    <CustomBuild Include="..\..\Classes\Core\Char+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Core\Core.h" />
+    <CustomBuild Include="..\..\Classes\Core\Directory+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\Event+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\File+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Core\Object.h" />
+    <CustomBuild Include="..\..\Classes\Core\ObjectDL.h" />
+    <CustomBuild Include="..\..\Classes\Core\Task+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Core\Time+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Core\UnitTest.h" />
+    <CustomBuild Include="..\..\Classes\Cross\EmailContent.h" />
+    <CustomBuild Include="..\..\Classes\Cross\FtpServer.h" />
+    <CustomBuild Include="..\..\Classes\Cross\HttpRequest.h" />
+    <CustomBuild Include="..\..\Classes\Cross\HttpServer.h" />
+    <CustomBuild Include="..\..\Classes\Cross\IRpc.h" />
+    <CustomBuild Include="..\..\Classes\Cross\JsonRpc.h" />
+    <CustomBuild Include="..\..\Classes\Cross\LighttpdServer.h" />
+    <CustomBuild Include="..\..\Classes\Cross\Mime+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Cross\NetAddress.h" />
+    <CustomBuild Include="..\..\Classes\Cross\Network.h" />
+    <CustomBuild Include="..\..\Classes\Cross\NullRpc.h" />
+    <CustomBuild Include="..\..\Classes\Cross\OperationRequest.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SoapObject.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SocketClient.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SocketRequest.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SocketServer.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SocketStream.h" />
+    <CustomBuild Include="..\..\Classes\Cross\SqliteRequest.h" />
+    <CustomBuild Include="..\..\Classes\Cross\VCard+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Cross\XmlRpc.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppBlackholeFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppChallengeFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppClient.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppClientor.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppIMClient.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppIMClientor.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppInfoqueryFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppMessageFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppObject.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppPresenceFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppResponseFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppStreamFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\XmppSuccessFactory.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimActive.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimAvatar.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimComposing.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimContact.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimIM.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimMessage.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimPresence.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimPriority.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimRoster.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimShow.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimUser.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\im\XimXPhoto.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppAuth.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppBind.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppChallenge.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppClose.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppCompression.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppCore.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppFailure.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppFeatures.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppIQ.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppJID.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppPubsub.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppResponse.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppSasl.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppSession.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppStream.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\core\XmppSuccess.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepAvatar.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepBitsOfBinary.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepCAPTCHA.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepCore.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepField.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepMUC.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepOfflineMessage.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepPing.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepServiceDiscovery.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepSubject.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepVCard.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepVersion.h" />
+    <CustomBuild Include="..\..\Classes\Cross\xmpp\xep\XepXHtmlIm.h" />
+    <CustomBuild Include="..\..\Classes\Store\Bdb+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Store\Configuration+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Store\DBMS.h" />
+    <CustomBuild Include="..\..\Classes\Store\DBMSNoSqlAbstract.h" />
+    <CustomBuild Include="..\..\Classes\Store\DBMSqlAbstract.h" />
+    <CustomBuild Include="..\..\Classes\Store\Logger+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Store\MySql+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Store\SqlServer+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\AES+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\BaseN+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\DES+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\MDN+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\RSA+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\Security+NNT.h" />
+    <ClInclude Include="..\..\Classes\Security\SHA+NNT.h" />
+    <CustomBuild Include="..\..\Classes\Security\UUID+NNT.h" />
+    <ClInclude Include="..\..\Classes\Parser\CmdArguments.h" />
+    <CustomBuild Include="..\..\Classes\Parser\CSSParser.h" />
+    <ClInclude Include="..\..\Classes\Parser\CSVParser.h" />
+    <ClInclude Include="..\..\Classes\Parser\HttpParser.h" />
+    <CustomBuild Include="..\..\Classes\Parser\PropertyTree.h" />
+    <CustomBuild Include="..\..\Classes\Parser\SOAPParser.h" />
+    <CustomBuild Include="..\..\Classes\Parser\SVGParser.h" />
+    <CustomBuild Include="..\..\Classes\Parser\XmlParser.h" />
+    <ClInclude Include="..\..\Classes\Parser\XmlParserUtil.h" />
+    <CustomBuild Include="..\..\Classes\Qt\QtApplication+NNT.h" />
+    <ClInclude Include="..\..\Classes\UIKit\UIKit+Cross.h" />
+    <CustomBuild Include="..\..\Classes\UIKit\Cross\UcController.h" />
+    <CustomBuild Include="..\..\Classes\UIKit\Cross\UcKernel.h" />
+    <CustomBuild Include="..\..\Classes\UIKit\Cross\UcView.h" />
+    <CustomBuild Include="..\..\Classes\UIKit\Cross\UcWindow.h" />
+    <ClInclude Include="..\..\Classes\Math\FlateBP.h" />
+    <ClInclude Include="..\..\Classes\Math\LePoint.h" />
+    <ClInclude Include="..\..\Classes\Math\LeRect.h" />
+    <ClInclude Include="..\..\Classes\Math\LeSize.h" />
+    <ClInclude Include="..\..\Classes\Math\Math+NNT.h" />
+    <ClInclude Include="..\..\Classes\Math\MathGeo.h" />
+    <CustomBuild Include="..\..\Classes\Workflow\StateMachine.h" />
+    <ClInclude Include="..\..\Classes\AI\AIAction.h" />
+    <ClInclude Include="..\..\Classes\AI\AIBehave.h" />
+    <ClInclude Include="..\..\Classes\AI\AIBody.h" />
+    <ClInclude Include="..\..\Classes\AI\AIRole.h" />
+    <ClInclude Include="..\..\Classes\AI\ChatRobotSTART.h" />
+    <ClInclude Include="..\..\Classes\AI\IChatRobot.h" />
+    <ClInclude Include="..\..\Classes\Model\Model.h" />
+    <ClInclude Include="..\..\Classes\Model\MOpeModel.h" />
+    <ClInclude Include="..\..\Classes\Context\Context.h" />
+    <ClInclude Include="..\..\Classes\Context\Preferences.h" />
+    <ClInclude Include="..\..\Classes\Context\Server.h" />
+    <ClInclude Include="..\..\Classes\Context\User.h" />
+    <ClInclude Include="..\..\Classes\TL\Algorithm+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Bimap+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Closure+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Data+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Exception+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Interface+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\List+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Map+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\MSCOM+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Operator+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Regex+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\SmartPtr+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\String+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\System+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Tuple+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Types+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Variant+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\Vector+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\hardware\Assembly+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\hardware\Cpu+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\hardware\Device+NNT.h" />
+    <ClInclude Include="..\..\Classes\TL\hardware\Hardware+NNT.h" />
+    <ClInclude Include="..\..\Classes\Mach\cpu.h" />
+    <ClInclude Include="..\..\Classes\Mach\mcore.h" />
+    <CustomBuild Include="..\..\contrib\ace\ACE+NNT.h" />
+    <ClInclude Include="..\..\contrib\libxml\LIBXERCESC+NNT.h" />
+    <ClInclude Include="..\classes\ExceptionProcess.h" />
+    <ClInclude Include="..\classes\MSVC+NNT.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="libnnt.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.targets" />
+  </ImportGroup>
+</Project>
