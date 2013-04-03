@@ -9,11 +9,18 @@
 #   define CXX_EXPRESS(exp) exp
 #   define C_EXPRESS(exp)
 
-#   if __cplusplus < 201103L
+#   if (__cplusplus < 201103L)
 #      define NNT_CXX_99 1
 #   else
 #      define NNT_CXX_11 1
 #   endif
+
+# if defined(_MSC_EXTENSIONS) && defined(NNT_CXX_99)
+#   if _MSC_EXTENSIONS == 1
+#     undef NNT_CXX_99
+#     define NNT_CXX_11 1
+#   endif
+# endif
 
 # else
 #   define NNT_C
