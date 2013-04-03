@@ -221,8 +221,6 @@ public:
     
     static Time Local();
     
-public:
-    
     //! set as current local time.
     void local_time();
     
@@ -230,10 +228,10 @@ public:
     void set_format(core::string const& fmt);
     
     //! set timestamp.
-    void set_timestamp(ulong);
+    void set_timestamp(uinteger);
     
     //! timestamp.
-    ulong timestamp() const;
+    uinteger timestamp() const;
     
     //! to string.
     core::string to_string() const;
@@ -273,8 +271,8 @@ public:
     bool operator == (Time const& r) const;
     bool operator != (Time const& r) const;
     Time& operator = (Time const& r);
-    Time& operator += (ulong);
-    Time operator + (ulong) const;
+    Time& operator += (uinteger);
+    Time operator + (uinteger) const;
     
     //! is in one day.
     bool today(Time const& r) const;
