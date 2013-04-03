@@ -80,20 +80,27 @@ void Time::set_format(const core::string &fmt)
 void Time::local_time()
 {
     time_t tmt = time(NULL);
-    struct tm* ttm = localtime(&tmt);
-    _tm = *ttm;
+	set_timestamp(tmt);
 }
 
-void Time::set_timestamp(ulong ts)
+void Time::set_timestamp(uinteger ts)
 {
     time_t tmt = (time_t)ts;
-    struct tm* ttm = localtime(&tmt);
-    _tm = *ttm;
+
+# ifdef NNT_MSVC
+	struct tm ttm;
+	if (localtime_s(&ttm, &tmt) != 0)
+		trace_msg("failed to get localtime.");
+	_tm = ttm;
+# else
+	struct tm* ttm = localtime(&tmt);
+	_tm = *ttm;
+# endif
 }
 
-ulong Time::timestamp() const
+uinteger Time::timestamp() const
 {
-    return (ulong)mktime((struct tm*)&_tm);
+    return (uinteger)mktime((struct tm*)&_tm);
 }
 
 core::string Time::to_string() const
@@ -285,15 +292,15 @@ Time& Time::operator = (const ::nnt::core::Time &r)
     return *this;
 }
 
-Time& Time::operator += (ulong tm)
+Time& Time::operator += (uinteger tm)
 {
-    ulong ts = timestamp();
+    uinteger ts = timestamp();
     ts += tm;
     set_timestamp(ts);
     return *this;
 }
 
-Time Time::operator + (ulong tm) const
+Time Time::operator + (uinteger tm) const
 {
     Time ret = *this;
     return ret += tm;

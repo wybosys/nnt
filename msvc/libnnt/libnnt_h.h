@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Wed Apr 03 14:32:10 2013
+/* at Wed Apr 03 15:06:31 2013
  */
 /* Compiler settings for libnnt.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.00.0595 

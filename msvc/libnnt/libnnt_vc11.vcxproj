@@ -99,6 +99,8 @@
       <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ACEd.lib;libdb51d.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3D.lib;log4cppds.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -128,6 +130,8 @@
       <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ACEd.lib;libdb51d.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3D.lib;log4cppds.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -160,6 +164,8 @@
       <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ACE.lib;libdb51.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3.lib;log4cpps.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -193,6 +199,8 @@
       <ModuleDefinitionFile>.\libnnt.def</ModuleDefinitionFile>
       <RegisterOutput>true</RegisterOutput>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>../../lib/MSVC/$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ACE.lib;libdb51.lib;libeay32.lib;ssleay32.lib;rpcrt4.lib;xerces-c_3.lib;log4cpps.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -209,6 +217,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Classes\AI\AIAction.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIBehave.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIBody.cpp" />
+    <ClCompile Include="..\..\Classes\AI\AIRole.cpp" />
+    <ClCompile Include="..\..\Classes\AI\ChatRobotSTART.cpp" />
+    <ClCompile Include="..\..\Classes\AI\IChatRobot.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Context.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Preferences.cpp" />
+    <ClCompile Include="..\..\Classes\Context\Server.cpp" />
+    <ClCompile Include="..\..\Classes\Context\User.cpp" />
+    <ClCompile Include="..\..\Classes\Core\App.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Char+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Core.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Directory+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Event+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\File+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Object.cpp" />
+    <ClCompile Include="..\..\Classes\Core\ObjectDL.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Task+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\Time+NNT.cpp" />
+    <ClCompile Include="..\..\Classes\Core\UnitTest.cpp" />
+    <ClCompile Include="..\..\contrib\ace\ACE+NNT.cpp" />
+    <ClCompile Include="..\..\contrib\libxml\LIBXERCESC+NNT.cpp" />
+    <ClCompile Include="..\..\contrib\mongoose\mongoose.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\classes\ExceptionProcess.cpp" />
+    <ClCompile Include="..\classes\MSVC+NNT.cpp" />
     <ClCompile Include="libnnt.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -218,6 +257,31 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Classes\AI\AIAction.h" />
+    <ClInclude Include="..\..\Classes\AI\AIBehave.h" />
+    <ClInclude Include="..\..\Classes\AI\AIBody.h" />
+    <ClInclude Include="..\..\Classes\AI\AIRole.h" />
+    <ClInclude Include="..\..\Classes\AI\ChatRobotSTART.h" />
+    <ClInclude Include="..\..\Classes\AI\IChatRobot.h" />
+    <ClInclude Include="..\..\Classes\Context\Context.h" />
+    <ClInclude Include="..\..\Classes\Context\Preferences.h" />
+    <ClInclude Include="..\..\Classes\Context\Server.h" />
+    <ClInclude Include="..\..\Classes\Context\User.h" />
+    <ClInclude Include="..\..\Classes\Core\App.h" />
+    <ClInclude Include="..\..\Classes\Core\Char+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\Core.h" />
+    <ClInclude Include="..\..\Classes\Core\Directory+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\Event+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\File+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\Object.h" />
+    <ClInclude Include="..\..\Classes\Core\ObjectDL.h" />
+    <ClInclude Include="..\..\Classes\Core\Task+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\Time+NNT.h" />
+    <ClInclude Include="..\..\Classes\Core\UnitTest.h" />
+    <ClInclude Include="..\..\contrib\ace\ACE+NNT.h" />
+    <ClInclude Include="..\..\contrib\libxml\LIBXERCESC+NNT.h" />
+    <ClInclude Include="..\classes\ExceptionProcess.h" />
+    <ClInclude Include="..\classes\MSVC+NNT.h" />
     <ClInclude Include="libnnt.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />

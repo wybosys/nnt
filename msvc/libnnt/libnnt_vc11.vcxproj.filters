@@ -13,6 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Msvc">
+      <UniqueIdentifier>{22491256-8803-475b-8873-666e5162dc9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib">
+      <UniqueIdentifier>{c9741da1-3b22-4dea-ac93-1727d11b3e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\ace">
+      <UniqueIdentifier>{ea2ad2a4-e813-4010-a999-55b430eb99a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\libxml">
+      <UniqueIdentifier>{32debd70-4214-4e3e-a53b-f8b47ac4364c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contrib\mongoose">
+      <UniqueIdentifier>{7a4c2ff5-a577-425b-a500-14ac455b1ed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{12e4a3f3-0027-4975-b154-196c069b2e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\AI">
+      <UniqueIdentifier>{2ff70a35-221c-4bd8-953d-3999e3ddd471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Context">
+      <UniqueIdentifier>{4e28844b-b5ae-462d-8b7d-8ffcdaaf574c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Core">
+      <UniqueIdentifier>{3dc0c9c4-c4c5-4ef5-857c-c175ed8909fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -23,6 +50,84 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\classes\ExceptionProcess.cpp">
+      <Filter>Msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\classes\MSVC+NNT.cpp">
+      <Filter>Msvc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\ace\ACE+NNT.cpp">
+      <Filter>Contrib\ace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\libxml\LIBXERCESC+NNT.cpp">
+      <Filter>Contrib\libxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\contrib\mongoose\mongoose.c">
+      <Filter>Contrib\mongoose</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\AIAction.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\AIBehave.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\AIBody.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\AIRole.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\ChatRobotSTART.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\AI\IChatRobot.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Context\Context.cpp">
+      <Filter>Classes\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Context\Preferences.cpp">
+      <Filter>Classes\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Context\Server.cpp">
+      <Filter>Classes\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Context\User.cpp">
+      <Filter>Classes\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\App.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Char+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Core.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Directory+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Event+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\File+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Object.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\ObjectDL.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Task+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\Time+NNT.cpp">
+      <Filter>Classes\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Classes\Core\UnitTest.cpp">
+      <Filter>Classes\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +142,81 @@
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\classes\ExceptionProcess.h">
+      <Filter>Msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\classes\MSVC+NNT.h">
+      <Filter>Msvc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\ace\ACE+NNT.h">
+      <Filter>Contrib\ace</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\contrib\libxml\LIBXERCESC+NNT.h">
+      <Filter>Contrib\libxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\AIAction.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\AIBehave.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\AIBody.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\AIRole.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\ChatRobotSTART.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\AI\IChatRobot.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Context\Context.h">
+      <Filter>Classes\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Context\Preferences.h">
+      <Filter>Classes\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Context\Server.h">
+      <Filter>Classes\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Context\User.h">
+      <Filter>Classes\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\App.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Char+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Core.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Directory+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Event+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\File+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Object.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\ObjectDL.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Task+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\Time+NNT.h">
+      <Filter>Classes\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Classes\Core\UnitTest.h">
+      <Filter>Classes\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,9 @@ public:
     typedef void (Object::*func_simple)();
     typedef void (Object::*func_callback)(void*);
     
+# ifdef NNT_DEBUG
 	static long __global_object_counter;
+# endif
 
 };
 
