@@ -2,7 +2,7 @@
 // ip/impl/address_v4.ipp
 // ~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -55,7 +55,8 @@ address_v4::address_v4(unsigned long addr)
   }
 #endif // ULONG_MAX > 0xFFFFFFFF
 
-  addr_.s_addr = boost::asio::detail::socket_ops::host_to_network_long(addr);
+  addr_.s_addr = boost::asio::detail::socket_ops::host_to_network_long(
+      static_cast<boost::asio::detail::u_long_type>(addr));
 }
 
 address_v4::bytes_type address_v4::to_bytes() const

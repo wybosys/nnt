@@ -2,7 +2,7 @@
 // detail/impl/socket_ops.ipp
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -18,6 +18,7 @@
 #include <boost/asio/detail/config.hpp>
 #include <boost/assert.hpp>
 #include <boost/detail/workaround.hpp>
+#include <cctype>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -465,6 +466,10 @@ int connect(socket_type s, const socket_addr_type* addr,
         &msghdr::msg_namelen, s, addr, addrlen), ec);
   if (result == 0)
     ec = boost::system::error_code();
+#if defined(__linux__)
+  else if (ec == boost::asio::error::try_again)
+    ec = boost::asio::error::no_buffer_space;
+#endif // defined(__linux__)
   return result;
 }
 
@@ -665,8 +670,8 @@ inline void init_msghdr_msg_name(T& name, const socket_addr_type* addr)
   name = reinterpret_cast<T>(const_cast<socket_addr_type*>(addr));
 }
 
-int recv(socket_type s, buf* bufs, size_t count, int flags,
-    boost::system::error_code& ec)
+signed_size_type recv(socket_type s, buf* bufs, size_t count,
+    int flags, boost::system::error_code& ec)
 {
   clear_last_error();
 #if defined(BOOST_WINDOWS) || defined(__CYGWIN__)
@@ -687,8 +692,8 @@ int recv(socket_type s, buf* bufs, size_t count, int flags,
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   msghdr msg = msghdr();
   msg.msg_iov = bufs;
-  msg.msg_iovlen = count;
-  int result = error_wrapper(::recvmsg(s, &msg, flags), ec);
+  msg.msg_iovlen = static_cast<int>(count);
+  signed_size_type result = error_wrapper(::recvmsg(s, &msg, flags), ec);
   if (result >= 0)
     ec = boost::system::error_code();
   return result;
@@ -715,7 +720,7 @@ size_t sync_recv(socket_type s, state_type state, buf* bufs,
   for (;;)
   {
     // Try to complete the operation without blocking.
-    int bytes = socket_ops::recv(s, bufs, count, flags, ec);
+    signed_size_type bytes = socket_ops::recv(s, bufs, count, flags, ec);
 
     // Check if operation succeeded.
     if (bytes > 0)
@@ -777,7 +782,7 @@ bool non_blocking_recv(socket_type s,
   for (;;)
   {
     // Read some data.
-    int bytes = socket_ops::recv(s, bufs, count, flags, ec);
+    signed_size_type bytes = socket_ops::recv(s, bufs, count, flags, ec);
 
     // Check for end of stream.
     if (is_stream && bytes == 0)
@@ -810,8 +815,8 @@ bool non_blocking_recv(socket_type s,
 
 #endif // defined(BOOST_ASIO_HAS_IOCP)
 
-int recvfrom(socket_type s, buf* bufs, size_t count, int flags,
-    socket_addr_type* addr, std::size_t* addrlen,
+signed_size_type recvfrom(socket_type s, buf* bufs, size_t count,
+    int flags, socket_addr_type* addr, std::size_t* addrlen,
     boost::system::error_code& ec)
 {
   clear_last_error();
@@ -835,10 +840,10 @@ int recvfrom(socket_type s, buf* bufs, size_t count, int flags,
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   msghdr msg = msghdr();
   init_msghdr_msg_name(msg.msg_name, addr);
-  msg.msg_namelen = *addrlen;
+  msg.msg_namelen = static_cast<int>(*addrlen);
   msg.msg_iov = bufs;
-  msg.msg_iovlen = count;
-  int result = error_wrapper(::recvmsg(s, &msg, flags), ec);
+  msg.msg_iovlen = static_cast<int>(count);
+  signed_size_type result = error_wrapper(::recvmsg(s, &msg, flags), ec);
   *addrlen = msg.msg_namelen;
   if (result >= 0)
     ec = boost::system::error_code();
@@ -860,7 +865,8 @@ size_t sync_recvfrom(socket_type s, state_type state, buf* bufs,
   for (;;)
   {
     // Try to complete the operation without blocking.
-    int bytes = socket_ops::recvfrom(s, bufs, count, flags, addr, addrlen, ec);
+    signed_size_type bytes = socket_ops::recvfrom(
+        s, bufs, count, flags, addr, addrlen, ec);
 
     // Check if operation succeeded.
     if (bytes >= 0)
@@ -908,7 +914,8 @@ bool non_blocking_recvfrom(socket_type s,
   for (;;)
   {
     // Read some data.
-    int bytes = socket_ops::recvfrom(s, bufs, count, flags, addr, addrlen, ec);
+    signed_size_type bytes = socket_ops::recvfrom(
+        s, bufs, count, flags, addr, addrlen, ec);
 
     // Retry operation if interrupted by signal.
     if (ec == boost::asio::error::interrupted)
@@ -934,7 +941,7 @@ bool non_blocking_recvfrom(socket_type s,
 
 #endif // defined(BOOST_ASIO_HAS_IOCP)
 
-int recvmsg(socket_type s, buf* bufs, size_t count,
+signed_size_type recvmsg(socket_type s, buf* bufs, size_t count,
     int in_flags, int& out_flags, boost::system::error_code& ec)
 {
   clear_last_error();
@@ -944,8 +951,8 @@ int recvmsg(socket_type s, buf* bufs, size_t count,
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   msghdr msg = msghdr();
   msg.msg_iov = bufs;
-  msg.msg_iovlen = count;
-  int result = error_wrapper(::recvmsg(s, &msg, in_flags), ec);
+  msg.msg_iovlen = static_cast<int>(count);
+  signed_size_type result = error_wrapper(::recvmsg(s, &msg, in_flags), ec);
   if (result >= 0)
   {
     ec = boost::system::error_code();
@@ -971,7 +978,8 @@ size_t sync_recvmsg(socket_type s, state_type state,
   for (;;)
   {
     // Try to complete the operation without blocking.
-    int bytes = socket_ops::recvmsg(s, bufs, count, in_flags, out_flags, ec);
+    signed_size_type bytes = socket_ops::recvmsg(
+        s, bufs, count, in_flags, out_flags, ec);
 
     // Check if operation succeeded.
     if (bytes >= 0)
@@ -1018,7 +1026,8 @@ bool non_blocking_recvmsg(socket_type s,
   for (;;)
   {
     // Read some data.
-    int bytes = socket_ops::recvmsg(s, bufs, count, in_flags, out_flags, ec);
+    signed_size_type bytes = socket_ops::recvmsg(
+        s, bufs, count, in_flags, out_flags, ec);
 
     // Retry operation if interrupted by signal.
     if (ec == boost::asio::error::interrupted)
@@ -1044,8 +1053,8 @@ bool non_blocking_recvmsg(socket_type s,
 
 #endif // defined(BOOST_ASIO_HAS_IOCP)
 
-int send(socket_type s, const buf* bufs, size_t count, int flags,
-    boost::system::error_code& ec)
+signed_size_type send(socket_type s, const buf* bufs, size_t count,
+    int flags, boost::system::error_code& ec)
 {
   clear_last_error();
 #if defined(BOOST_WINDOWS) || defined(__CYGWIN__)
@@ -1066,11 +1075,11 @@ int send(socket_type s, const buf* bufs, size_t count, int flags,
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   msghdr msg = msghdr();
   msg.msg_iov = const_cast<buf*>(bufs);
-  msg.msg_iovlen = count;
+  msg.msg_iovlen = static_cast<int>(count);
 #if defined(__linux__)
   flags |= MSG_NOSIGNAL;
 #endif // defined(__linux__)
-  int result = error_wrapper(::sendmsg(s, &msg, flags), ec);
+  signed_size_type result = error_wrapper(::sendmsg(s, &msg, flags), ec);
   if (result >= 0)
     ec = boost::system::error_code();
   return result;
@@ -1097,7 +1106,7 @@ size_t sync_send(socket_type s, state_type state, const buf* bufs,
   for (;;)
   {
     // Try to complete the operation without blocking.
-    int bytes = socket_ops::send(s, bufs, count, flags, ec);
+    signed_size_type bytes = socket_ops::send(s, bufs, count, flags, ec);
 
     // Check if operation succeeded.
     if (bytes >= 0)
@@ -1144,7 +1153,7 @@ bool non_blocking_send(socket_type s,
   for (;;)
   {
     // Write some data.
-    int bytes = socket_ops::send(s, bufs, count, flags, ec);
+    signed_size_type bytes = socket_ops::send(s, bufs, count, flags, ec);
 
     // Retry operation if interrupted by signal.
     if (ec == boost::asio::error::interrupted)
@@ -1170,8 +1179,8 @@ bool non_blocking_send(socket_type s,
 
 #endif // defined(BOOST_ASIO_HAS_IOCP)
 
-int sendto(socket_type s, const buf* bufs, size_t count, int flags,
-    const socket_addr_type* addr, std::size_t addrlen,
+signed_size_type sendto(socket_type s, const buf* bufs, size_t count,
+    int flags, const socket_addr_type* addr, std::size_t addrlen,
     boost::system::error_code& ec)
 {
   clear_last_error();
@@ -1193,13 +1202,13 @@ int sendto(socket_type s, const buf* bufs, size_t count, int flags,
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   msghdr msg = msghdr();
   init_msghdr_msg_name(msg.msg_name, addr);
-  msg.msg_namelen = addrlen;
+  msg.msg_namelen = static_cast<int>(addrlen);
   msg.msg_iov = const_cast<buf*>(bufs);
-  msg.msg_iovlen = count;
+  msg.msg_iovlen = static_cast<int>(count);
 #if defined(__linux__)
   flags |= MSG_NOSIGNAL;
 #endif // defined(__linux__)
-  int result = error_wrapper(::sendmsg(s, &msg, flags), ec);
+  signed_size_type result = error_wrapper(::sendmsg(s, &msg, flags), ec);
   if (result >= 0)
     ec = boost::system::error_code();
   return result;
@@ -1220,7 +1229,8 @@ size_t sync_sendto(socket_type s, state_type state, const buf* bufs,
   for (;;)
   {
     // Try to complete the operation without blocking.
-    int bytes = socket_ops::sendto(s, bufs, count, flags, addr, addrlen, ec);
+    signed_size_type bytes = socket_ops::sendto(
+        s, bufs, count, flags, addr, addrlen, ec);
 
     // Check if operation succeeded.
     if (bytes >= 0)
@@ -1248,7 +1258,8 @@ bool non_blocking_sendto(socket_type s,
   for (;;)
   {
     // Write some data.
-    int bytes = socket_ops::sendto(s, bufs, count, flags, addr, addrlen, ec);
+    signed_size_type bytes = socket_ops::sendto(
+        s, bufs, count, flags, addr, addrlen, ec);
 
     // Retry operation if interrupted by signal.
     if (ec == boost::asio::error::interrupted)
@@ -1863,7 +1874,8 @@ const char* inet_ntop(int af, const void* src, char* dest, size_t length,
 
   return result == socket_error_retval ? 0 : dest;
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
-  const char* result = error_wrapper(::inet_ntop(af, src, dest, length), ec);
+  const char* result = error_wrapper(::inet_ntop(
+        af, src, dest, static_cast<int>(length)), ec);
   if (result == 0 && !ec)
     ec = boost::asio::error::invalid_argument;
   if (result != 0 && af == AF_INET6 && scope_id != 0)
@@ -1873,7 +1885,8 @@ const char* inet_ntop(int af, const void* src, char* dest, size_t length,
     const in6_addr_type* ipv6_address = static_cast<const in6_addr_type*>(src);
     bool is_link_local = ((ipv6_address->s6_addr[0] == 0xfe)
         && ((ipv6_address->s6_addr[1] & 0xc0) == 0x80));
-    if (!is_link_local || if_indextoname(scope_id, if_name + 1) == 0)
+    if (!is_link_local
+        || if_indextoname(static_cast<unsigned>(scope_id), if_name + 1) == 0)
       sprintf(if_name + 1, "%lu", scope_id);
     strcat(dest, if_name);
   }

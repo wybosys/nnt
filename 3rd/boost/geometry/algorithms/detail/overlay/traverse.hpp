@@ -1,6 +1,6 @@
 // Boost.Geometry (aka GGL, Generic Geometry Library)
 
-// Copyright (c) 2007-2011 Barend Gehrels, Amsterdam, the Netherlands.
+// Copyright (c) 2007-2012 Barend Gehrels, Amsterdam, the Netherlands.
 
 // Use, modification and distribution is subject to the Boost Software License,
 // Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
@@ -8,7 +8,6 @@
 
 #ifndef BOOST_GEOMETRY_ALGORITHMS_DETAIL_OVERLAY_TRAVERSE_HPP
 #define BOOST_GEOMETRY_ALGORITHMS_DETAIL_OVERLAY_TRAVERSE_HPP
-
 
 #include <cstddef>
 
@@ -18,46 +17,52 @@
 #include <boost/geometry/algorithms/detail/overlay/backtrack_check_si.hpp>
 #include <boost/geometry/algorithms/detail/overlay/copy_segments.hpp>
 #include <boost/geometry/algorithms/detail/overlay/turn_info.hpp>
+#include <boost/geometry/algorithms/num_points.hpp>
 #include <boost/geometry/core/access.hpp>
+#include <boost/geometry/core/closure.hpp>
 #include <boost/geometry/core/coordinate_dimension.hpp>
 #include <boost/geometry/geometries/concepts/check.hpp>
 
-
-#if defined(BOOST_GEOMETRY_DEBUG_INTERSECTION) || defined(BOOST_GEOMETRY_OVERLAY_REPORT_WKT)
+#if defined(BOOST_GEOMETRY_DEBUG_INTERSECTION) \
+    || defined(BOOST_GEOMETRY_OVERLAY_REPORT_WKT) \
+    || defined(BOOST_GEOMETRY_DEBUG_TRAVERSE)
 #  include <string>
 #  include <boost/geometry/algorithms/detail/overlay/debug_turn_info.hpp>
-#  include <boost/geometry/domains/gis/io/wkt/wkt.hpp>
+#  include <boost/geometry/io/wkt/wkt.hpp>
 #endif
-
-
 
 namespace boost { namespace geometry
 {
-
 
 #ifndef DOXYGEN_NO_DETAIL
 namespace detail { namespace overlay
 {
 
 template <typename Turn, typename Operation>
+#ifdef BOOST_GEOMETRY_DEBUG_TRAVERSE
 inline void debug_traverse(Turn const& turn, Operation op, 
                 std::string const& header)
 {
-#ifdef BOOST_GEOMETRY_DEBUG_TRAVERSE
     std::cout << header
         << " at " << op.seg_id
+        << " meth: " << method_char(turn.method)
         << " op: " << operation_char(op.operation)
         << " vis: " << visited_char(op.visited)
         << " of:  " << operation_char(turn.operations[0].operation)
         << operation_char(turn.operations[1].operation)
+        << " " << geometry::wkt(turn.point)
         << std::endl;
 
     if (boost::contains(header, "Finished"))
     {
         std::cout << std::endl;
     }
-#endif
 }
+#else
+inline void debug_traverse(Turn const& , Operation, std::string const& )
+{
+}
+#endif
 
 
 template <typename Info, typename Turn>
@@ -230,12 +235,19 @@ public :
                 detail::overlay::operation_type operation,
                 Turns& turns, Rings& rings)
     {
+        typedef typename boost::range_value<Rings>::type ring_type;
         typedef typename boost::range_iterator<Turns>::type turn_iterator;
         typedef typename boost::range_value<Turns>::type turn_type;
         typedef typename boost::range_iterator
             <
                 typename turn_type::container_type
             >::type turn_operation_iterator_type;
+
+        std::size_t const min_num_points
+                = core_detail::closure::minimum_ring_size
+                        <
+                            geometry::closure<ring_type>::value
+                        >::value;
 
         std::size_t size_at_start = boost::size(rings);
 
@@ -264,7 +276,7 @@ public :
                         {
                             set_visited_for_continue(*it, *iit);
 
-                            typename boost::range_value<Rings>::type current_output;
+                            ring_type current_output;
                             detail::overlay::append_no_duplicates(current_output, 
                                         it->point, true);
 
@@ -373,7 +385,10 @@ public :
                                 {
                                     iit->visited.set_finished();
                                     detail::overlay::debug_traverse(*current, *iit, "->Finished");
-                                    rings.push_back(current_output);
+                                    if (geometry::num_points(current_output) >= min_num_points)
+                                    {
+                                        rings.push_back(current_output);
+                                    }
                                 }
                             }
                         }
@@ -387,8 +402,6 @@ public :
 }} // namespace detail::overlay
 #endif // DOXYGEN_NO_DETAIL
 
-
 }} // namespace boost::geometry
-
 
 #endif // BOOST_GEOMETRY_ALGORITHMS_DETAIL_OVERLAY_TRAVERSE_HPP

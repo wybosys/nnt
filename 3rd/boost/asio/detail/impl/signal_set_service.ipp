@@ -2,7 +2,7 @@
 // detail/impl/signal_set_service.ipp
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -64,7 +64,7 @@ void asio_signal_handler(int signal_number)
 #else // defined(BOOST_WINDOWS) || defined(__CYGWIN__)
   int saved_errno = errno;
   signal_state* state = get_signal_state();
-  int result = ::write(state->write_descriptor_,
+  signed_size_type result = ::write(state->write_descriptor_,
       &signal_number, sizeof(signal_number));
   (void)result;
   errno = saved_errno;

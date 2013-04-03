@@ -24,7 +24,7 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(qz)
 
 class DisplayLink
-: public ns::Object<QzDisplayLink>
+: public ns::Object<UIDisplayLink>
 {
 public:
     

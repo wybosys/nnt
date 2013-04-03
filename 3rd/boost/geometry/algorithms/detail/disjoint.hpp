@@ -1,8 +1,8 @@
 // Boost.Geometry (aka GGL, Generic Geometry Library)
 
-// Copyright (c) 2007-2011 Barend Gehrels, Amsterdam, the Netherlands.
-// Copyright (c) 2008-2011 Bruno Lalande, Paris, France.
-// Copyright (c) 2009-2011 Mateusz Loskot, London, UK.
+// Copyright (c) 2007-2012 Barend Gehrels, Amsterdam, the Netherlands.
+// Copyright (c) 2008-2012 Bruno Lalande, Paris, France.
+// Copyright (c) 2009-2012 Mateusz Loskot, London, UK.
 
 // Parts of Boost.Geometry are redesigned from Geodan's Geographic Library
 // (geolib/GGL), copyright (c) 1995-2010 Geodan, Amsterdam, the Netherlands.
@@ -26,6 +26,7 @@
 #include <boost/geometry/core/coordinate_dimension.hpp>
 #include <boost/geometry/core/reverse_dispatch.hpp>
 
+#include <boost/geometry/algorithms/covered_by.hpp>
 
 #include <boost/geometry/util/math.hpp>
 
@@ -161,6 +162,19 @@ struct box_box<Box1, Box2, DimensionCount, DimensionCount>
     static inline bool apply(Box1 const& , Box2 const& )
     {
         return false;
+    }
+};
+
+
+template
+<
+    typename Geometry1, typename Geometry2
+>
+struct reverse_covered_by
+{
+    static inline bool apply(Geometry1 const& geometry1, Geometry2 const& geometry2)
+    {
+        return ! geometry::covered_by(geometry1, geometry2);
     }
 };
 

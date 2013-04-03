@@ -42,6 +42,11 @@ T bessel_jn(int n, T x, const Policy& pol)
     {
         factor = 1;
     }
+    if(x < 0)
+    {
+        factor *= (n & 0x1) ? -1 : 1;  // J_{n}(-z) = (-1)^n J_n(z)
+        x = -x;
+    }
     //
     // Special cases:
     //
@@ -72,7 +77,10 @@ T bessel_jn(int n, T x, const Policy& pol)
         for (int k = 1; k < n; k++)
         {
             T fact = 2 * k / x;
-            if((tools::max_value<T>() - fabs(prev)) / fabs(fact) < fabs(current))
+            //
+            // rescale if we would overflow or underflow:
+            //
+            if((fabs(fact) > 1) && ((tools::max_value<T>() - fabs(prev)) / fabs(fact) < fabs(current)))
             {
                scale /= current;
                prev /= current;
@@ -97,7 +105,7 @@ T bessel_jn(int n, T x, const Policy& pol)
         for (int k = n; k > 0; k--)
         {
             T fact = 2 * k / x;
-            if((tools::max_value<T>() - fabs(prev)) / fact < fabs(current))
+            if((fabs(fact) > 1) && ((tools::max_value<T>() - fabs(prev)) / fabs(fact) < fabs(current)))
             {
                prev /= current;
                scale /= current;

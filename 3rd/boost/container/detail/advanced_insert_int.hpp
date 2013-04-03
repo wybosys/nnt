@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2008-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2008-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -8,8 +8,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#ifndef BOOST_CONTAINERS_ADVANCED_INSERT_INT_HPP
-#define BOOST_CONTAINERS_ADVANCED_INSERT_INT_HPP
+#ifndef BOOST_CONTAINER_ADVANCED_INSERT_INT_HPP
+#define BOOST_CONTAINER_ADVANCED_INSERT_INT_HPP
 
 #if (defined _MSC_VER) && (_MSC_VER >= 1200)
 #  pragma once
@@ -17,369 +17,343 @@
 
 #include "config_begin.hpp"
 #include <boost/container/detail/workaround.hpp>
-#include <boost/move/move.hpp>
+#include <boost/container/allocator_traits.hpp>
+#include <boost/container/detail/destroyers.hpp>
+#include <boost/aligned_storage.hpp>
+#include <boost/move/utility.hpp>
 #include <iterator>  //std::iterator_traits
-#include <new>       //placement new
 #include <boost/assert.hpp>
+#include <boost/detail/no_exceptions_support.hpp>
 
-namespace boost { namespace container { namespace containers_detail {
+namespace boost { namespace container { namespace container_detail {
 
-//This class will be interface for operations dependent on FwdIt types used advanced_insert_aux_impl
-template<class T, class Iterator>
-struct advanced_insert_aux_int
+template<class A, class FwdIt, class Iterator>
+struct insert_range_proxy
 {
-   typedef typename std::iterator_traits<Iterator>::difference_type difference_type;
-   virtual void copy_all_to(Iterator p) = 0;
-   virtual void uninitialized_copy_all_to(Iterator p) = 0;
-   virtual void uninitialized_copy_some_and_update(Iterator pos, difference_type division_count, bool first) = 0;
-   virtual void copy_some_and_update(Iterator pos, difference_type division_count, bool first) = 0;
-   virtual ~advanced_insert_aux_int() {}
-};
+   typedef typename allocator_traits<A>::size_type size_type;
+   typedef typename allocator_traits<A>::value_type value_type;
 
-//This class template will adapt each FwIt types to advanced_insert_aux_int
-template<class T, class FwdIt, class Iterator>
-struct advanced_insert_aux_proxy
-   :  public advanced_insert_aux_int<T, Iterator>
-{
-   typedef typename advanced_insert_aux_int<T, Iterator>::difference_type difference_type;
-   advanced_insert_aux_proxy(FwdIt first, FwdIt last)
-      :  first_(first), last_(last)
+   insert_range_proxy(A& a, FwdIt first)
+      :  a_(a), first_(first)
    {}
 
-   virtual ~advanced_insert_aux_proxy()
-   {}
-
-   virtual void copy_all_to(Iterator p)
-   {  ::boost::copy_or_move(first_, last_, p);  }
-
-   virtual void uninitialized_copy_all_to(Iterator p)
-   {  ::boost::uninitialized_copy_or_move(first_, last_, p);  }
-
-   virtual void uninitialized_copy_some_and_update(Iterator pos, difference_type division_count, bool first_n)
+   void uninitialized_copy_n_and_update(Iterator pos, size_type n)
    {
-      FwdIt mid = first_;
-      std::advance(mid, division_count);
-      if(first_n){
-         ::boost::uninitialized_copy_or_move(first_, mid, pos);
-         first_ = mid;
-      }
-      else{
-         ::boost::uninitialized_copy_or_move(mid, last_, pos);
-         last_ = mid;
-      }
+      this->first_ = ::boost::container::uninitialized_copy_or_move_alloc_n_source
+         (this->a_, this->first_, n, pos);
    }
 
-   virtual void copy_some_and_update(Iterator pos, difference_type division_count, bool first_n)
+   void copy_n_and_update(Iterator pos, size_type n)
    {
-      FwdIt mid = first_;
-      std::advance(mid, division_count);
-      if(first_n){
-         ::boost::copy_or_move(first_, mid, pos);
-         first_ = mid;
-      }
-      else{
-         ::boost::copy_or_move(mid, last_, pos);
-         last_ = mid;
-      }
+      this->first_ = ::boost::container::copy_or_move_n_source(this->first_, n, pos);
    }
 
-   FwdIt first_, last_;
+   A &a_;
+   FwdIt first_;
 };
 
-//This class template will adapt each FwIt types to advanced_insert_aux_int
-template<class T, class Iterator, class SizeType>
-struct default_construct_aux_proxy
-   :  public advanced_insert_aux_int<T, Iterator>
+
+template<class A, class Iterator>
+struct insert_n_copies_proxy
 {
-   typedef typename advanced_insert_aux_int<T, Iterator>::difference_type difference_type;
-   default_construct_aux_proxy(SizeType count)
-      :  count_(count)
+   typedef typename allocator_traits<A>::size_type size_type;
+   typedef typename allocator_traits<A>::value_type value_type;
+
+   insert_n_copies_proxy(A& a, const value_type &v)
+      :  a_(a), v_(v)
    {}
 
-   void uninitialized_copy_impl(Iterator p, const SizeType n)
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)
+   {  std::uninitialized_fill_n(p, n, v_);   }
+
+   void copy_n_and_update(Iterator p, size_type n)
+   {  std::fill_n(p, n, v_);  }
+
+   A &a_;
+   const value_type &v_;
+};
+
+template<class A, class Iterator>
+struct insert_default_constructed_n_proxy
+{
+   typedef ::boost::container::allocator_traits<A> alloc_traits;
+   typedef typename allocator_traits<A>::size_type size_type;
+   typedef typename allocator_traits<A>::value_type value_type;
+
+
+   explicit insert_default_constructed_n_proxy(A &a)
+      :  a_(a)
+   {}
+
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)
    {
-      BOOST_ASSERT(n <= count_);
       Iterator orig_p = p;
-      SizeType i = 0;
-      try{
-         for(; i < n; ++i, ++p){
-            new(containers_detail::get_pointer(&*p))T();
+      size_type n_left = n;
+      BOOST_TRY{
+         for(; n_left--; ++p){
+            alloc_traits::construct(this->a_, container_detail::to_raw_pointer(&*p));
          }
       }
-      catch(...){
-         while(i--){
-            containers_detail::get_pointer(&*orig_p++)->~T();
+      BOOST_CATCH(...){
+         for(; orig_p != p; ++orig_p){
+            alloc_traits::destroy(this->a_, container_detail::to_raw_pointer(&*orig_p++));
          }
-         throw;
+         BOOST_RETHROW
       }
-      count_ -= n;
+      BOOST_CATCH_END
    }
 
-   virtual ~default_construct_aux_proxy()
-   {}
-
-   virtual void copy_all_to(Iterator)
-   {  //This should never be called with any count
-      BOOST_ASSERT(count_ == 0);
-   }
-
-   virtual void uninitialized_copy_all_to(Iterator p)
-   {  this->uninitialized_copy_impl(p, count_); }
-
-   virtual void uninitialized_copy_some_and_update(Iterator pos, difference_type division_count, bool first_n)
+   void copy_n_and_update(Iterator, size_type)
    {
-      SizeType new_count;
-      if(first_n){
-         new_count = division_count;
-      }
-      else{
-         BOOST_ASSERT(difference_type(count_)>= division_count);
-         new_count = count_ - division_count;
-      }
-      this->uninitialized_copy_impl(pos, new_count);
+      BOOST_ASSERT(false);
    }
 
-   virtual void copy_some_and_update(Iterator , difference_type division_count, bool first_n)
-   {
-      BOOST_ASSERT(count_ == 0);
-      SizeType new_count;
-      if(first_n){
-         new_count = division_count;
-      }
-      else{
-         BOOST_ASSERT(difference_type(count_)>= division_count);
-         new_count = count_ - division_count;
-      }
-      //This function should never called with a count different to zero
-      BOOST_ASSERT(new_count == 0);
-      (void)new_count;
-   }
-
-   SizeType count_;
+   private:
+   A &a_;
 };
 
-}}}   //namespace boost { namespace container { namespace containers_detail {
+template<class A, class Iterator>
+struct insert_copy_proxy
+{
+   typedef boost::container::allocator_traits<A> alloc_traits;
+   typedef typename alloc_traits::size_type size_type;
+   typedef typename alloc_traits::value_type value_type;
 
-#ifdef BOOST_CONTAINERS_PERFECT_FORWARDING
+   insert_copy_proxy(A& a, const value_type &v)
+      :  a_(a), v_(v)
+   {}
+
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)
+   {
+      BOOST_ASSERT(n == 1);  (void)n;
+      alloc_traits::construct( this->a_
+                              , container_detail::to_raw_pointer(&*p)
+                              , v_
+                              );
+   }
+
+   void copy_n_and_update(Iterator p, size_type n)
+   {
+      BOOST_ASSERT(n == 1);  (void)n;
+      *p =v_;
+   }
+
+   A &a_;
+   const value_type &v_;
+};
+
+
+template<class A, class Iterator>
+struct insert_move_proxy
+{
+   typedef boost::container::allocator_traits<A> alloc_traits;
+   typedef typename alloc_traits::size_type size_type;
+   typedef typename alloc_traits::value_type value_type;
+
+   insert_move_proxy(A& a, value_type &v)
+      :  a_(a), v_(v)
+   {}
+
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)
+   {
+      BOOST_ASSERT(n == 1);  (void)n;
+      alloc_traits::construct( this->a_
+                              , container_detail::to_raw_pointer(&*p)
+                              , ::boost::move(v_)
+                              );
+   }
+
+   void copy_n_and_update(Iterator p, size_type n)
+   {
+      BOOST_ASSERT(n == 1);  (void)n;
+      *p = ::boost::move(v_);
+   }
+
+   A &a_;
+   value_type &v_;
+};
+
+template<class It, class A>
+insert_move_proxy<A, It> get_insert_value_proxy(A& a, BOOST_RV_REF(typename std::iterator_traits<It>::value_type) v)
+{
+   return insert_move_proxy<A, It>(a, v);
+}
+
+template<class It, class A>
+insert_copy_proxy<A, It> get_insert_value_proxy(A& a, const typename std::iterator_traits<It>::value_type &v)
+{
+   return insert_copy_proxy<A, It>(a, v);
+}
+
+}}}   //namespace boost { namespace container { namespace container_detail {
+
+#ifdef BOOST_CONTAINER_PERFECT_FORWARDING
 
 #include <boost/container/detail/variadic_templates_tools.hpp>
-#include <boost/container/detail/stored_ref.hpp>
-#include <boost/move/move.hpp>
+#include <boost/move/utility.hpp>
 #include <typeinfo>
 //#include <iostream> //For debugging purposes
 
 namespace boost {
-namespace container { 
-namespace containers_detail {
+namespace container {
+namespace container_detail {
 
-//This class template will adapt each FwIt types to advanced_insert_aux_int
-template<class T, class Iterator, class ...Args>
-struct advanced_insert_aux_emplace
-   :  public advanced_insert_aux_int<T, Iterator>
+template<class A, class Iterator, class ...Args>
+struct insert_non_movable_emplace_proxy
 {
-   typedef typename advanced_insert_aux_int<T, Iterator>::difference_type difference_type;
-   typedef typename build_number_seq<sizeof...(Args)>::type             index_tuple_t;
+   typedef boost::container::allocator_traits<A>   alloc_traits;
+   typedef typename alloc_traits::size_type        size_type;
+   typedef typename alloc_traits::value_type       value_type;
 
-   explicit advanced_insert_aux_emplace(Args&&... args)
-      : args_(args...)
-      , used_(false)
+   typedef typename build_number_seq<sizeof...(Args)>::type index_tuple_t;
+
+   explicit insert_non_movable_emplace_proxy(A &a, Args&&... args)
+      : a_(a), args_(args...)
    {}
 
-   ~advanced_insert_aux_emplace()
-   {}
-
-   virtual void copy_all_to(Iterator p)
-   {  this->priv_copy_all_to(index_tuple_t(), p);   }
-
-   virtual void uninitialized_copy_all_to(Iterator p)
-   {  this->priv_uninitialized_copy_all_to(index_tuple_t(), p);   }
-
-   virtual void uninitialized_copy_some_and_update(Iterator p, difference_type division_count, bool first_n)
-   {  this->priv_uninitialized_copy_some_and_update(index_tuple_t(), p, division_count, first_n);  }
-
-   virtual void copy_some_and_update(Iterator p, difference_type division_count, bool first_n)
-   {  this->priv_copy_some_and_update(index_tuple_t(), p, division_count, first_n);  }
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)
+   {  this->priv_uninitialized_copy_some_and_update(index_tuple_t(), p, n);  }
 
    private:
    template<int ...IdxPack>
-   void priv_copy_all_to(const index_tuple<IdxPack...>&, Iterator p)
+   void priv_uninitialized_copy_some_and_update(const index_tuple<IdxPack...>&, Iterator p, size_type n)
    {
-      if(!used_){
-         *p = boost::move(T (::boost::container::containers_detail::stored_ref<Args>::forward(get<IdxPack>(args_))...));
-         used_ = true;
-      }
+      BOOST_ASSERT(n == 1); (void)n;
+      alloc_traits::construct( this->a_
+                              , container_detail::to_raw_pointer(&*p)
+                              , ::boost::forward<Args>(get<IdxPack>(this->args_))...
+                              );
    }
 
-   template<int ...IdxPack>
-   void priv_uninitialized_copy_all_to(const index_tuple<IdxPack...>&, Iterator p)
-   {
-      if(!used_){
-         new(containers_detail::get_pointer(&*p))T(::boost::container::containers_detail::stored_ref<Args>::forward(get<IdxPack>(args_))...);
-         used_ = true;
-      }
-   }
-
-   template<int ...IdxPack>
-   void priv_uninitialized_copy_some_and_update(const index_tuple<IdxPack...>&, Iterator p, difference_type division_count, bool first_n)
-   {
-      BOOST_ASSERT(division_count <=1);
-      if((first_n && division_count == 1) || (!first_n && division_count == 0)){
-         if(!used_){
-            new(containers_detail::get_pointer(&*p))T(::boost::container::containers_detail::stored_ref<Args>::forward(get<IdxPack>(args_))...);
-            used_ = true;
-         }
-      }
-   }
-
-   template<int ...IdxPack>
-   void priv_copy_some_and_update(const index_tuple<IdxPack...>&, Iterator p, difference_type division_count, bool first_n)
-   {
-      BOOST_ASSERT(division_count <=1);
-      if((first_n && division_count == 1) || (!first_n && division_count == 0)){
-         if(!used_){
-            *p = boost::move(T(::boost::container::containers_detail::stored_ref<Args>::forward(get<IdxPack>(args_))...));
-            used_ = true;
-         }
-      }
-   }
+   protected:
+   A &a_;
    tuple<Args&...> args_;
-   bool used_;
 };
 
-}}}   //namespace boost { namespace container { namespace containers_detail {
+template<class A, class Iterator, class ...Args>
+struct insert_emplace_proxy
+   :  public insert_non_movable_emplace_proxy<A, Iterator, Args...>
+{
+   typedef insert_non_movable_emplace_proxy<A, Iterator, Args...> base_t;
+   typedef boost::container::allocator_traits<A>   alloc_traits;
+   typedef typename base_t::value_type             value_type;
+   typedef typename base_t::size_type              size_type;
+   typedef typename base_t::index_tuple_t          index_tuple_t;
 
-#else //#ifdef BOOST_CONTAINERS_PERFECT_FORWARDING
+   explicit insert_emplace_proxy(A &a, Args&&... args)
+      : base_t(a, ::boost::forward<Args>(args)...)
+   {}
 
-#include <boost/container/detail/preprocessor.hpp> 
+   void copy_n_and_update(Iterator p, size_type n)
+   {  this->priv_copy_some_and_update(index_tuple_t(), p, n);  }
+
+   private:
+
+   template<int ...IdxPack>
+   void priv_copy_some_and_update(const index_tuple<IdxPack...>&, Iterator p, size_type n)
+   {
+      BOOST_ASSERT(n ==1); (void)n;
+      aligned_storage<sizeof(value_type), alignment_of<value_type>::value> v;
+      value_type *vp = static_cast<value_type *>(static_cast<void *>(&v));
+      alloc_traits::construct(this->a_, vp,
+         ::boost::forward<Args>(get<IdxPack>(this->args_))...);
+      BOOST_TRY{
+         *p = ::boost::move(*vp);
+      }
+      BOOST_CATCH(...){
+         alloc_traits::destroy(this->a_, vp);
+         BOOST_RETHROW
+      }
+      BOOST_CATCH_END
+      alloc_traits::destroy(this->a_, vp);
+   }
+};
+
+}}}   //namespace boost { namespace container { namespace container_detail {
+
+#else //#ifdef BOOST_CONTAINER_PERFECT_FORWARDING
+
+#include <boost/container/detail/preprocessor.hpp>
 #include <boost/container/detail/value_init.hpp>
 
 namespace boost {
-namespace container { 
-namespace containers_detail {
+namespace container {
+namespace container_detail {
 
-//This class template will adapt each FwIt types to advanced_insert_aux_int
-template<class T, class Iterator>
-struct advanced_insert_aux_emplace
-   :  public advanced_insert_aux_int<T, Iterator>
-{
-   typedef typename advanced_insert_aux_int<T, Iterator>::difference_type difference_type;
-   advanced_insert_aux_emplace()
-      :  used_(false)
-   {}
-
-   ~advanced_insert_aux_emplace()
-   {}
-
-   virtual void copy_all_to(Iterator p)
-   {
-      if(!used_){
-         value_init<T>v;
-         *p = boost::move(v.m_t);
-         used_ = true;
-      }
-   }
-
-   virtual void uninitialized_copy_all_to(Iterator p)
-   {
-      if(!used_){
-         new(containers_detail::get_pointer(&*p))T();
-         used_ = true;
-      }
-   }
-
-   virtual void uninitialized_copy_some_and_update(Iterator p, difference_type division_count, bool first_n)
-   {
-      BOOST_ASSERT(division_count <=1);
-      if((first_n && division_count == 1) || (!first_n && division_count == 0)){
-         if(!used_){
-            new(containers_detail::get_pointer(&*p))T();
-            used_ = true;
-         }
-      }
-   }
-
-   virtual void copy_some_and_update(Iterator p, difference_type division_count, bool first_n)
-   {
-      BOOST_ASSERT(division_count <=1);
-      if((first_n && division_count == 1) || (!first_n && division_count == 0)){
-         if(!used_){
-            value_init<T>v;
-            *p = boost::move(v.m_t);
-            used_ = true;
-         }
-      }
-   }
-   private:
-   bool used_;
-};
-
-   #define BOOST_PP_LOCAL_MACRO(n)                                                     \
-   template<class T, class Iterator, BOOST_PP_ENUM_PARAMS(n, class P) >                \
-   struct BOOST_PP_CAT(BOOST_PP_CAT(advanced_insert_aux_emplace, n), arg)                \
-      :  public advanced_insert_aux_int<T, Iterator>                                     \
-   {                                                                                   \
-      typedef typename advanced_insert_aux_int<T, Iterator>::difference_type difference_type;  \
-                                                                                       \
-      BOOST_PP_CAT(BOOST_PP_CAT(advanced_insert_aux_emplace, n), arg)                    \
-         ( BOOST_PP_ENUM(n, BOOST_CONTAINERS_PP_PARAM_LIST, _) )          \
-         : used_(false), BOOST_PP_ENUM(n, BOOST_CONTAINERS_AUX_PARAM_INIT, _) {}     \
-                                                                                       \
-      virtual void copy_all_to(Iterator p)                                             \
-      {                                                                                \
-         if(!used_){                                                                   \
-            T v(BOOST_PP_ENUM(n, BOOST_CONTAINERS_PP_MEMBER_FORWARD, _));            \
-            *p = boost::move(v);                                                 \
-            used_ = true;                                                              \
-         }                                                                             \
-      }                                                                                \
-                                                                                       \
-      virtual void uninitialized_copy_all_to(Iterator p)                               \
-      {                                                                                \
-         if(!used_){                                                                   \
-            new(containers_detail::get_pointer(&*p))T                                             \
-               (BOOST_PP_ENUM(n, BOOST_CONTAINERS_PP_MEMBER_FORWARD, _));            \
-            used_ = true;                                                              \
-         }                                                                             \
-      }                                                                                \
-                                                                                       \
-      virtual void uninitialized_copy_some_and_update                                  \
-         (Iterator p, difference_type division_count, bool first_n)                    \
-      {                                                                                \
-         BOOST_ASSERT(division_count <=1);                                                   \
-         if((first_n && division_count == 1) || (!first_n && division_count == 0)){    \
-            if(!used_){                                                                \
-               new(containers_detail::get_pointer(&*p))T                                          \
-                  (BOOST_PP_ENUM(n, BOOST_CONTAINERS_PP_MEMBER_FORWARD, _));         \
-               used_ = true;                                                           \
-            }                                                                          \
-         }                                                                             \
-      }                                                                                \
-                                                                                       \
-      virtual void copy_some_and_update                                                \
-         (Iterator p, difference_type division_count, bool first_n)                    \
-      {                                                                                \
-         BOOST_ASSERT(division_count <=1);                                                   \
-         if((first_n && division_count == 1) || (!first_n && division_count == 0)){    \
-            if(!used_){                                                                \
-               T v(BOOST_PP_ENUM(n, BOOST_CONTAINERS_PP_MEMBER_FORWARD, _));         \
-               *p = boost::move(v);                                              \
-               used_ = true;                                                           \
-            }                                                                          \
-         }                                                                             \
-      }                                                                                \
-                                                                                       \
-      bool used_;                                                                      \
-      BOOST_PP_REPEAT(n, BOOST_CONTAINERS_AUX_PARAM_DEFINE, _)                       \
-   };                                                                                  \
+#define BOOST_PP_LOCAL_MACRO(N)                                                     \
+template<class A, class Iterator BOOST_PP_ENUM_TRAILING_PARAMS(N, class P) >        \
+struct BOOST_PP_CAT(insert_non_movable_emplace_proxy_arg, N)                        \
+{                                                                                   \
+   typedef boost::container::allocator_traits<A> alloc_traits;                      \
+   typedef typename alloc_traits::size_type size_type;                              \
+   typedef typename alloc_traits::value_type value_type;                            \
+                                                                                    \
+   BOOST_PP_CAT(insert_non_movable_emplace_proxy_arg, N)                            \
+      ( A &a BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_PARAM_LIST, _) )          \
+      : a_(a)                                                                       \
+      BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_PARAM_INIT, _)                   \
+   {}                                                                               \
+                                                                                    \
+   void uninitialized_copy_n_and_update(Iterator p, size_type n)                    \
+   {                                                                                \
+      BOOST_ASSERT(n == 1); (void)n;                                                \
+      alloc_traits::construct                                                       \
+         ( this->a_                                                                 \
+         , container_detail::to_raw_pointer(&*p)                                    \
+         BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_MEMBER_FORWARD, _)            \
+         );                                                                         \
+   }                                                                                \
+                                                                                    \
+   void copy_n_and_update(Iterator, size_type)                                      \
+   {  BOOST_ASSERT(false);   }                                                      \
+                                                                                    \
+   protected:                                                                       \
+   A &a_;                                                                           \
+   BOOST_PP_REPEAT(N, BOOST_CONTAINER_PP_PARAM_DEFINE, _)                           \
+};                                                                                  \
+                                                                                    \
+template<class A, class Iterator BOOST_PP_ENUM_TRAILING_PARAMS(N, class P) >        \
+struct BOOST_PP_CAT(insert_emplace_proxy_arg, N)                                    \
+   : BOOST_PP_CAT(insert_non_movable_emplace_proxy_arg, N)                          \
+         < A, Iterator BOOST_PP_ENUM_TRAILING_PARAMS(N, P) >                        \
+{                                                                                   \
+   typedef BOOST_PP_CAT(insert_non_movable_emplace_proxy_arg, N)                    \
+         <A, Iterator BOOST_PP_ENUM_TRAILING_PARAMS(N, P) > base_t;                 \
+   typedef typename base_t::value_type       value_type;                            \
+   typedef typename base_t::size_type  size_type;                                   \
+   typedef boost::container::allocator_traits<A> alloc_traits;                      \
+                                                                                    \
+   BOOST_PP_CAT(insert_emplace_proxy_arg, N)                                        \
+      ( A &a BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_PARAM_LIST, _) )          \
+      : base_t(a BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_PARAM_FORWARD, _) )   \
+   {}                                                                               \
+                                                                                    \
+   void copy_n_and_update(Iterator p, size_type n)                                  \
+   {                                                                                \
+      BOOST_ASSERT(n == 1); (void)n;                                                \
+      aligned_storage<sizeof(value_type), alignment_of<value_type>::value> v;       \
+      value_type *vp = static_cast<value_type *>(static_cast<void *>(&v));          \
+      alloc_traits::construct(this->a_, vp                                          \
+         BOOST_PP_ENUM_TRAILING(N, BOOST_CONTAINER_PP_MEMBER_FORWARD, _));          \
+      BOOST_TRY{                                                                    \
+         *p = ::boost::move(*vp);                                                   \
+      }                                                                             \
+      BOOST_CATCH(...){                                                             \
+         alloc_traits::destroy(this->a_, vp);                                       \
+         BOOST_RETHROW                                                              \
+      }                                                                             \
+      BOOST_CATCH_END                                                               \
+      alloc_traits::destroy(this->a_, vp);                                          \
+   }                                                                                \
+};                                                                                  \
 //!
-
-#define BOOST_PP_LOCAL_LIMITS (1, BOOST_CONTAINERS_MAX_CONSTRUCTOR_PARAMETERS)
+#define BOOST_PP_LOCAL_LIMITS (0, BOOST_CONTAINER_MAX_CONSTRUCTOR_PARAMETERS)
 #include BOOST_PP_LOCAL_ITERATE()
 
-}}}   //namespace boost { namespace container { namespace containers_detail {
+}}}   //namespace boost { namespace container { namespace container_detail {
 
-#endif   //#ifdef BOOST_CONTAINERS_PERFECT_FORWARDING
+#endif   //#ifdef BOOST_CONTAINER_PERFECT_FORWARDING
 
 #include <boost/container/detail/config_end.hpp>
 
-#endif //#ifndef BOOST_CONTAINERS_ADVANCED_INSERT_INT_HPP
+#endif //#ifndef BOOST_CONTAINER_ADVANCED_INSERT_INT_HPP

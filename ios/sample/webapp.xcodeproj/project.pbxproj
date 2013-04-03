@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1657723C170C3586001585BD /* libboost_regex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1657723B170C3586001585BD /* libboost_regex.a */; };
 		169368BE16F1A0D10021909E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169368BD16F1A0D10021909E /* UIKit.framework */; };
 		169368C016F1A0D10021909E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169368BF16F1A0D10021909E /* Foundation.framework */; };
 		169368C216F1A0D10021909E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169368C116F1A0D10021909E /* CoreGraphics.framework */; };
@@ -30,10 +31,10 @@
 		16936C6D16F1A1830021909E /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16936C6C16F1A1830021909E /* libdb.a */; };
 		16936C7016F1A1BF0021909E /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936C6F16F1A1BF0021909E /* MainController.mm */; };
 		169F841716F84C4B0008AAC9 /* libnnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F841616F84C4B0008AAC9 /* libnnt.a */; };
-		16AC1CF616F2D3FA00316206 /* libregex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC1CF516F2D3FA00316206 /* libregex.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1657723B170C3586001585BD /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = ../../lib/iOS/libboost_regex.a; sourceTree = "<group>"; };
 		169368BA16F1A0D10021909E /* webapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169368BD16F1A0D10021909E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		169368BF16F1A0D10021909E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,7 +62,7 @@
 		16936C6C16F1A1830021909E /* libdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdb.a; path = ../../lib/iOS/libdb.a; sourceTree = "<group>"; };
 		16936C6E16F1A1BF0021909E /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		16936C6F16F1A1BF0021909E /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainController.mm; sourceTree = "<group>"; };
-		169F841616F84C4B0008AAC9 /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		169F841616F84C4B0008AAC9 /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
 		169F841A16F84C760008AAC9 /* AIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAction.h; sourceTree = "<group>"; };
 		169F841B16F84C760008AAC9 /* AIBehave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBehave.h; sourceTree = "<group>"; };
 		169F841C16F84C760008AAC9 /* AIBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBody.h; sourceTree = "<group>"; };
@@ -850,7 +851,6 @@
 		169F876C16F84C770008AAC9 /* ImageCodecReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodecReader.h; sourceTree = "<group>"; };
 		169F876E16F84C770008AAC9 /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		169F876F16F84C770008AAC9 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
-		16AC1CF516F2D3FA00316206 /* libregex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libregex.a; path = ../../lib/iOS/libregex.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -858,8 +858,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1657723C170C3586001585BD /* libboost_regex.a in Frameworks */,
 				169F841716F84C4B0008AAC9 /* libnnt.a in Frameworks */,
-				16AC1CF616F2D3FA00316206 /* libregex.a in Frameworks */,
 				16936C6D16F1A1830021909E /* libdb.a in Frameworks */,
 				16936C6B16F1A17A0021909E /* libicucore.dylib in Frameworks */,
 				16936C6916F1A1770021909E /* libxml2.dylib in Frameworks */,
@@ -876,7 +876,7 @@
 		169368B116F1A0D10021909E = {
 			isa = PBXGroup;
 			children = (
-				16AC1CF516F2D3FA00316206 /* libregex.a */,
+				1657723B170C3586001585BD /* libboost_regex.a */,
 				169F841816F84C760008AAC9 /* nnt */,
 				169368C316F1A0D10021909E /* webapp */,
 				169368BC16F1A0D10021909E /* Frameworks */,

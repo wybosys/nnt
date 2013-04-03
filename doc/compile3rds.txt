@@ -28,4 +28,23 @@ BOOST：
 		根据说明生成b2
 		使用参数 toolset=msvc version=9 address-model=64 进行64位生成
 
+	iOS:
+		当前用户目录下面建立user-config.jam文件，内容如下:
+			using darwin : iphone
+			      :	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ar\
+			m-apple-darwin10-llvm-g++-4.2 -fvisibility=hidden -fvisibility-inlines-hidden
+			      :	<striper>
+			      :	<architecture>arm <target-os>iphone
+			      ;	
+
+			using darwin : iphonesim
+			      :	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr\
+			/bin/i686-apple-darwin11-llvm-g++-4.2 -fvisibility=hidden -fvisibility-inlines-hidden
+			      :	<striper>
+			      :	<architecture>x86 <target-os>iphone
+			      ;
+		修改tools/darwin.jam文件，使用#注释掉options = -arch i386 以及 options = -arch arm
+		使用命令分别编译出静态文件再使用lipo合并库
+			./b2 --with-regex toolset=darwin architecture=arm address-model=32 target-os=iphone macosx-version=iphone-4.0 link=static
+			./b2 --with-regex toolset=darwin architecture=x86 address-model=32 target-os=iphone macosx-version=iphonesim-4.0 link=static
 		
