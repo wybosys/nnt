@@ -13,6 +13,7 @@ if %PROCESSOR_ARCHITECTURE% == "AMD64" (
 :win64
 	rem msvc9 installed
 	if exist "%ProgramFiles(x86)%\Microsoft Visual Studio 9.0\VC\VCProjectDefaults" (
+		copy Win32\yasm.exe "%ProgramFiles(x86)%\Microsoft Visual Studio 9.0\VC\bin" /Y
 		copy yasm.rules "%ProgramFiles(x86)%\Microsoft Visual Studio 9.0\VC\VCProjectDefaults\" /Y
 	)
 	if exist "%ProgramFiles(x86)%\MSBuild\Microsoft.Cpp\v4.0\V110\BuildCustomizations" (
