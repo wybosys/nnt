@@ -72,7 +72,7 @@ Time Time::Local()
     return ret;
 }
 
-void Time::set_format(const core::string &fmt)
+void Time::set_format(core::string const& fmt)
 {
     _fmt = fmt;
 }
@@ -83,7 +83,7 @@ void Time::local_time()
 	set_timestamp(tmt);
 }
 
-void Time::set_timestamp(uinteger ts)
+void Time::set_timestamp(ulonglong ts)
 {
     time_t tmt = (time_t)ts;
 
@@ -261,7 +261,7 @@ bool Time::operator != (Time const& r) const
     return !(*this == r);
 }
 
-bool Time::today(const ::nnt::core::Time &r) const
+bool Time::today(core::Time const& r) const
 {
     return _tm.tm_year == r._tm.tm_year &&
     _tm.tm_mon == r._tm.tm_mon &&
@@ -285,22 +285,22 @@ Time Time::offset_hour(int val) const
     return ret;
 }
 
-Time& Time::operator = (const ::nnt::core::Time &r)
+Time& Time::operator = (core::Time const& r)
 {
     _fmt = r._fmt;
     _tm = r._tm;
     return *this;
 }
 
-Time& Time::operator += (uinteger tm)
+Time& Time::operator += (ulonglong tm)
 {
-    uinteger ts = timestamp();
+    ulonglong ts = timestamp();
     ts += tm;
     set_timestamp(ts);
     return *this;
 }
 
-Time Time::operator + (uinteger tm) const
+Time Time::operator + (ulonglong tm) const
 {
     Time ret = *this;
     return ret += tm;

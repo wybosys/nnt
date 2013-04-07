@@ -228,7 +228,7 @@ public:
     void set_format(core::string const& fmt);
     
     //! set timestamp.
-    void set_timestamp(uinteger);
+    void set_timestamp(ulonglong);
     
     //! timestamp.
     uinteger timestamp() const;
@@ -271,8 +271,8 @@ public:
     bool operator == (Time const& r) const;
     bool operator != (Time const& r) const;
     Time& operator = (Time const& r);
-    Time& operator += (uinteger);
-    Time operator + (uinteger) const;
+    Time& operator += (ulonglong);
+    Time operator + (ulonglong) const;
     
     //! is in one day.
     bool today(Time const& r) const;
