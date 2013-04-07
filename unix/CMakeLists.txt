@@ -1,0 +1,4 @@
+
+MESSAGE (STATUS "build for Unix")
+
+ADD_SUBDIRECTORY ("../Classes" ${PROJECT_SOURCE_DIR})

@@ -1,3 +1,28 @@
 
-project (NNT)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
 
+PROJECT (NNT)
+
+INCLUDE (CMakeDetermineSystem)
+
+# on linux
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  ADD_SUBDIRECTORY (unix)
+ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+# on macos.
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  IF (${CMAKE_BUILD_TOOL} MATCHES "gmake")    
+    ADD_SUBDIRECTORY (unix)
+  ELSE()
+    ADD_SUBDIRECTORY (mac)
+  ENDIF (${CMAKE_BUILD_TOOL} MATCHES "gmake")
+ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+# on windows.
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  ADD_SUBDIRECTORY(msvc)
+ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+# for cmake config file debug.
+MESSAGE (STATUS "${NNT_SOURCE_FILES}")
