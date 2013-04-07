@@ -3,15 +3,24 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
 
 PROJECT (NNT)
 
+# prepare cmake for nnt.
+LIST (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+LIST (APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules")
+
+INCLUDE (NNTDebug)
+
+# process.
 INCLUDE (CMakeDetermineSystem)
 
 # on linux
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  INCLUDE (NNTLibrary)
   ADD_SUBDIRECTORY (unix)
 ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 # on macos.
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  INCLUDE (NNTLibrary)
   IF (${CMAKE_BUILD_TOOL} MATCHES "gmake")    
     ADD_SUBDIRECTORY (unix)
   ELSE()
@@ -25,4 +34,3 @@ IF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 # for cmake config file debug.
-MESSAGE (STATUS "${NNT_SOURCE_FILES}")
