@@ -23,7 +23,7 @@ NNTAPI(cpuid):
 %ifdef NNT_WINDOWS
     push %rbp
     mov %rsp, %rbp
-	add $64, %rbp
+    add $64, %rbp
     mov (%rbp), %rax
     mov 8(%rbp), %rbx
     mov %rbx, %rbp
@@ -40,6 +40,16 @@ NNTAPI(cpuid):
     dump_registers
 %endif
 
+%ifdef NNT_LINUX
+	push %rbp
+	mov %rdi, %rax
+	mov %rsi, %rbx
+	mov %rbx, %rbp
+	cpuid
+	dump_registers
+	pop %rbp
+%endif
+	
 %endif ;end x64
 
 	ret
