@@ -15,12 +15,14 @@ INCLUDE (CMakeDetermineSystem)
 # on linux
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   INCLUDE (NNTLibrary)
+  INCLUDE (NNTSample)
   ADD_SUBDIRECTORY (unix)
 ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 # on macos.
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   INCLUDE (NNTLibrary)
+  INCLUDE (NNTSample)
   IF (${CMAKE_BUILD_TOOL} MATCHES "gmake")    
     ADD_SUBDIRECTORY (unix)
   ELSE()
