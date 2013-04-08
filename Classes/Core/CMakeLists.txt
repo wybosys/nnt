@@ -1,3 +1,12 @@
 
-ADD_LIBRARY ($<TARGET_OBJECTS:Core> App.cpp)
-ADD_LIBRARY ($<Target_OBJECTS:Core> Core.cpp)
+SOURCE (App.cpp)
+SOURCE (Core.cpp)
+SOURCE (ObjectDL.cpp)
+SOURCE (Char+NNT.cpp)
+SOURCE (Directory+NNT.cpp)
+SOURCE (Task+NNT.cpp)
+SOURCE (TIme+NNT.cpp)
+SOURCE (UnitTest.cpp)
+SOURCE (Object.cpp)
+
+ADD_LIBRARY (NntCore STATIC ${CURRENT_SOURCES})

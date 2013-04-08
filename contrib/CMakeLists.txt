@@ -1,0 +1,3 @@
+
+ADD_SUBDIRECTORY (ace)
+ADD_SUBDIRECTORY (libxml)

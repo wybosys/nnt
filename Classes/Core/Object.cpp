@@ -5,8 +5,12 @@
 
 NNT_BEGIN_CXX
 
+# ifdef NNT_DEBUG
+
 // global object counter.
 long ::nnt::Object::__global_object_counter = 0;
+
+# endif
 
 ::nnt::Object::Object()
 {
