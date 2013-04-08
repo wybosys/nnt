@@ -5,6 +5,7 @@ ADD_SUBDIRECTORY (Cross)
 ADD_SUBDIRECTORY (Security)
 ADD_SUBDIRECTORY (Store)
 ADD_SUBDIRECTORY (Parser)
+ADD_SUBDIRECTORY (Mach)
 
 # contrib
 ADD_SUBDIRECTORY ("../contrib" "contrib")

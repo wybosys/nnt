@@ -1,0 +1,7 @@
+
+INCLUDE (NNTYasm)
+
+SOURCE (cpu.cpp)
+SOURCEYASM (cpu_.s)
+
+ADD_LIBRARY (NntMach STATIC ${CURRENT_SOURCES})
