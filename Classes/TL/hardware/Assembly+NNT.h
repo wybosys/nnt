@@ -13,28 +13,22 @@ class Registers
 {
 };
 
-template <>
-class Registers <hw::_cpu_intel, arch_x32>
+template <typename cputraits>
+class Registers <cputraits, arch_x32>
 {
 public:
-
-	enum 
-	{
-		EAX = 0,
-		EBX = 1,
-		ECX = 2,
-		EDX = 3,
-		EX_COUNT = 4,
-	};
-
-	typedef dword EX[EX_COUNT];
+    
+    udword eax, ebx, ecx, edx, esp, ebp;
 
 };
 
-template <>
-class Registers <hw::_cpu_intel, arch_x64>
+template <typename cputraits>
+class Registers <cputraits, arch_x64>
 {
 public:
+    
+    uqword rax, rbx, rcx, rdx, rsp, rbp;
+    
 };
 
 template <typename cputraits>
@@ -47,8 +41,6 @@ class Opcode <hw::_cpu_intel>
 	: public Opcode <hw::_cpu_unknown>
 {
 public:
-
-	typedef Registers<hw::_cpu_intel, arch_type> Registers;
 
 };
 
