@@ -1,8 +1,24 @@
 
+INCLUDE (CMakeDetermineSystem)
+
+MESSAGE ("${CMAKE_SYSTEM_NAME}")
+MESSAGE ("${NNT_ARCH}")
+
+IF (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+  IF (NNT_ARCH EQUAL 32)
+    SET (NNT_YASM_FORMAT macho32)
+  ELSE ()
+    SET (NNT_YASM_FORMAT macho64)
+  ENDIF (NNT_ARCH EQUAL 32)
+  SET (NNT_YASM_ARCH ${NNT_YASM_FORMAT})
+ENDIF (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+
+MESSAGE ("${NNT_YASM_ARCH}")
+
 MACRO (sourceyasm file)
   ADD_CUSTOM_COMMAND (
     OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${file}.o"
-    COMMAND yasm -w -fmacho64 -dmacho64 -rnasm -pgas -o${CMAKE_CURRENT_BINARY_DIR}/${file}.o ${CMAKE_CURRENT_SOURCE_DIR}/${file}
+    COMMAND yasm -w -f${NNT_YASM_FORMAT} -d${NNT_YASM_ARCH} -rnasm -pgas -o${CMAKE_CURRENT_BINARY_DIR}/${file}.o ${CMAKE_CURRENT_SOURCE_DIR}/${file}
     )
   SOURCE (${CMAKE_CURRENT_BINARY_DIR}/${file}.o)
 ENDMACRO (sourceyasm)
