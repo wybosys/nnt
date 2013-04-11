@@ -11,7 +11,7 @@
 # endif
 
 # ifdef _MSSQL
-#  include "../Cross/NetAddress.h"
+#  include "../Core/NetAddress.h"
 # endif
 
 # ifdef _FREETDS

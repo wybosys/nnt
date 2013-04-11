@@ -552,6 +552,173 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Release Static|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="4"
+			UseOfMFC="2"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="false"
+				TargetEnvironment="1"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;SYSDEV=$(SystemDrive)"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release Static|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="false"
+				TargetEnvironment="3"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				RegisterOutput="false"
+				AdditionalDependencies="ACE.lib libdb51.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3.lib log4cpps.lib"
+				OutputFile="$(OutDir)\libnnt.dll"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="../../lib/MSVC/$(PlatformName)"
+				ModuleDefinitionFile=".\libnnt.def"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -618,6 +785,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Debug Static|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release Static|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release Static|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -3573,6 +3756,26 @@
 							Parser="1"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Release Static|Win32"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Parser="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release Static|x64"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Parser="1"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Mach\mcore.h"
@@ -3673,6 +3876,22 @@
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Debug Static|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release Static|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release Static|x64"
 						>
 						<Tool
 							Name="VCCLCompilerTool"
