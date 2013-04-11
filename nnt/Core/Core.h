@@ -68,6 +68,10 @@
 # endif
 # endif
 
+# ifdef LIBNNT
+#   define NNT_LIBRARY 1
+# endif
+
 # if defined(_MSC_VER) && defined(WIN32)
 #   ifdef _MFC_VER
 #     define NNT_MFC 1 
@@ -75,7 +79,7 @@
 // is windows.
 #   define NNT_MSVC 1
 #   define NNT_WINDOWS 1
-#   if (defined(_USRDLL) && !defined(LIBNNT)) || defined(LIBNNT)
+#   if defined(_USRDLL) && !defined(LIBNNT)
 #     define NNT_LIBRARY
 #   endif
 #   if defined(NNT_LIBRARY)
@@ -124,6 +128,11 @@ const _nullptr nullptr();
 
 # if defined(NNT_LIBRARY)
 #   define APPNNT 1
+#   if defined(_USRDLL)
+#     define NNT_LIBRARY_STAIC 1
+#   else
+#     define NNT_LIBRARY_SHARED 1
+#   endif
 # endif
 
 # if defined(__OBJC__) || defined(__OBJC2__)

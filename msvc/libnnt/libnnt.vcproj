@@ -386,6 +386,172 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		<Configuration
+			Name="Debug Static|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="4"
+			UseOfMFC="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="false"
+				TargetEnvironment="1"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_LIB;LIBNNT;SYSDEV=$(SystemDrive)"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
+				WarningLevel="3"
+				DebugInformationFormat="4"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\libnntd.lib"
+				AdditionalLibraryDirectories="&quot;../../lib/MSVC/$(PlatformName)&quot;"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug Static|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="YASM"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="false"
+				TargetEnvironment="3"
+				TypeLibraryName="$(IntDir)/libnnt.tlb"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"
+				AdditionalIncludeDirectories="$(IntDir)"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				RegisterOutput="false"
+				AdditionalDependencies="ACEd.lib libdb51d.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3D.lib log4cppds.lib QtCored4.lib QtGuid4.lib"
+				OutputFile="$(OutDir)\libnntd.dll"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="../../lib/MSVC/$(PlatformName)"
+				ModuleDefinitionFile=".\libnntd.def"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				ImportLibrary="$(TargetDir)/libnntd.lib"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -436,6 +602,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug Static|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug Static|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -512,6 +694,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\Char+NNT.cpp"
@@ -522,6 +711,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -542,6 +738,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\Directory+NNT.cpp"
@@ -552,6 +755,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -588,6 +798,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\ObjectDL.cpp"
@@ -598,6 +815,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -618,6 +842,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\Time+NNT.cpp"
@@ -633,6 +864,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\UnitTest.cpp"
@@ -643,6 +881,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -667,6 +912,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\FtpServer.cpp"
@@ -677,6 +929,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -697,6 +956,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\HttpServer.cpp"
@@ -712,12 +978,26 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\IRpc.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -738,6 +1018,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\LighttpdServer.cpp"
@@ -748,6 +1035,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -768,6 +1062,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\NetAddress.cpp"
@@ -778,6 +1079,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -798,6 +1106,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\NullRpc.cpp"
@@ -813,12 +1128,26 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\OperationRequest.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -839,6 +1168,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\SocketClient.cpp"
@@ -854,12 +1190,26 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\SocketRequest.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -880,6 +1230,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\SocketStream.cpp"
@@ -890,6 +1247,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -910,6 +1274,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\VCard+NNT.cpp"
@@ -925,6 +1296,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\XmlRpc.cpp"
@@ -935,6 +1313,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -958,6 +1343,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppChallengeFactory.cpp"
@@ -968,6 +1360,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -988,6 +1387,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppClientor.cpp"
@@ -998,6 +1404,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -1018,6 +1431,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppIMClientor.cpp"
@@ -1028,6 +1448,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -1048,6 +1475,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppMessageFactory.cpp"
@@ -1058,6 +1492,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -1078,6 +1519,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppPresenceFactory.cpp"
@@ -1088,6 +1536,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -1108,6 +1563,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppStreamFactory.cpp"
@@ -1123,6 +1585,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\Cross\xmpp\XmppSuccessFactory.cpp"
@@ -1133,6 +1602,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -1156,6 +1632,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimAvatar.cpp"
@@ -1166,6 +1649,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1186,6 +1676,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimContact.cpp"
@@ -1196,6 +1693,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1216,6 +1720,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimMessage.cpp"
@@ -1226,6 +1737,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1246,6 +1764,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimPriority.cpp"
@@ -1256,6 +1781,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1276,6 +1808,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimShow.cpp"
@@ -1286,6 +1825,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1306,6 +1852,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\im\XimXPhoto.cpp"
@@ -1316,6 +1869,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1340,6 +1900,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppBind.cpp"
@@ -1350,6 +1917,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1370,6 +1944,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppClose.cpp"
@@ -1380,6 +1961,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1400,6 +1988,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppCore.cpp"
@@ -1410,6 +2005,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1430,6 +2032,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppFeatures.cpp"
@@ -1440,6 +2049,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1460,6 +2076,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppJID.cpp"
@@ -1470,6 +2093,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1490,6 +2120,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppResponse.cpp"
@@ -1500,6 +2137,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1520,6 +2164,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppSession.cpp"
@@ -1530,6 +2181,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1550,6 +2208,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\core\XmppSuccess.cpp"
@@ -1560,6 +2225,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1584,6 +2256,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepBitsOfBinary.cpp"
@@ -1594,6 +2273,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1614,6 +2300,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepCore.cpp"
@@ -1624,6 +2317,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1644,6 +2344,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepMUC.cpp"
@@ -1654,6 +2361,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1674,6 +2388,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepPing.cpp"
@@ -1684,6 +2405,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1704,6 +2432,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepSubject.cpp"
@@ -1714,6 +2449,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1734,6 +2476,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepVersion.cpp"
@@ -1749,6 +2498,13 @@
 									Name="VCCustomBuildTool"
 								/>
 							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
 						</File>
 						<File
 							RelativePath="..\..\Classes\Cross\xmpp\xep\XepXHtmlIm.cpp"
@@ -1759,6 +2515,13 @@
 							>
 							<FileConfiguration
 								Name="Debug|Win32"
+								>
+								<Tool
+									Name="VCCustomBuildTool"
+								/>
+							</FileConfiguration>
+							<FileConfiguration
+								Name="Debug Static|Win32"
 								>
 								<Tool
 									Name="VCCustomBuildTool"
@@ -1785,6 +2548,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Store\Configuration+NNT.cpp"
@@ -1795,6 +2565,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1811,12 +2588,26 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Store\DBMSNoSqlAbstract.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1837,6 +2628,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Store\Logger+NNT.cpp"
@@ -1847,6 +2645,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1867,6 +2672,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Store\SqlServer+NNT.cpp"
@@ -1877,6 +2689,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1901,6 +2720,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Security\BaseN+NNT.cpp"
@@ -1911,6 +2737,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1931,6 +2764,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Security\MDN+NNT.cpp"
@@ -1941,6 +2781,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1961,6 +2808,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Security\Security+NNT.cpp"
@@ -1971,6 +2825,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -1999,6 +2860,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 			</Filter>
 			<Filter
@@ -2021,6 +2889,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -2057,6 +2932,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Parser\SOAPParser.cpp"
@@ -2067,6 +2949,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -2087,6 +2976,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Parser\XmlParser.cpp"
@@ -2097,6 +2993,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -2129,6 +3032,13 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
 				</File>
 			</Filter>
 			<Filter
@@ -2155,6 +3065,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\UIKit\Cross\UcKernel.cpp"
@@ -2165,6 +3082,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -2185,6 +3109,13 @@
 								Name="VCCustomBuildTool"
 							/>
 						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\..\Classes\UIKit\Cross\UcWindow.cpp"
@@ -2195,6 +3126,13 @@
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
+							>
+							<Tool
+								Name="VCCustomBuildTool"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug Static|Win32"
 							>
 							<Tool
 								Name="VCCustomBuildTool"
@@ -2267,6 +3205,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -2576,6 +3521,14 @@
 							UsePrecompiledHeader="2"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="2"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Mach\cpu.h"
@@ -2626,6 +3579,28 @@
 							Parser="1"
 						/>
 					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							Parser="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|x64"
+						>
+						<Tool
+							Name="YASM"
+							CommandLine="$(ProjectDir)..\..\bin\msw\yasm\$(PlatformName)\yasm -Xvc -f $(PlatformName) [AllOptions] [AdditionalOptions] [Inputs]"
+							Defines="$(PlatformName)"
+							Debug="true"
+							Parser="1"
+						/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Mach\mcore.h"
@@ -2652,6 +3627,13 @@
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
 						>
 						<Tool
 							Name="VCCustomBuildTool"
@@ -2703,6 +3685,22 @@
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|x64"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug Static|x64"
 						>
 						<Tool
 							Name="VCCLCompilerTool"

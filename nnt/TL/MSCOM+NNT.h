@@ -2,15 +2,15 @@
 # ifndef __NNTWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
 # define __NNTWTL_MSCOM_5997ac7319de49b6b38720fbbab2c3e1_H_INCLUDED
 
-#   define _WIN32_DCOM
+# define _WIN32_DCOM
 
-#   include <comdef.h>
-#   include <atlbase.h>
-#   include <atlcom.h>
-#   include <atlstr.h>
+# include <comdef.h>
+# include <atlbase.h>
+# include <atlcom.h>
+# include <atlstr.h>
 
-#   include <Wbemidl.h>
-#   pragma comment(lib, "wbemuuid.lib")
+# include <Wbemidl.h>
+# pragma comment(lib, "wbemuuid.lib")
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
