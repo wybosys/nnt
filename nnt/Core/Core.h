@@ -122,11 +122,7 @@ const _nullptr nullptr();
 # define NNT_VERBOSE 1
 # define NNT_VERBOSE_VERBOSE 0
 
-# if defined(NNT_FRAMEWORK) && !defined(LIBNNT)
-#   define LIBNNT 1
-# endif
-
-# if defined(NNT_LIBRARY)
+# ifdef NNT_LIBRARY
 #   define APPNNT 1
 #   if defined(LIBNNT)
 #     define NNT_LIBRARY_STAIC 1
@@ -934,12 +930,19 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # endif
 
-# ifdef NNT_MSVC
-#   define NNT_EXPORT __declspec(dllexport)
-#   define NNT_IMPORT __declspec(dllimport)
-# else
-#   define NNT_EXPORT 
-#   define NNT_IMPORT  
+# ifdef NNT_LIBRARY_SHARED
+#   ifdef NNT_MSVC
+#     define NNT_EXPORT __declspec(dllexport)
+#     define NNT_IMPORT __declspec(dllimport)
+#   endif
+# endif
+
+# ifndef NNT_EXPORT
+#   define NNT_EXPORT  
+# endif
+
+# ifndef NNT_IMPORT
+#   define NNT_IMPORT
 # endif
 
 # if !defined (NNT_CONSTRUCTOR)
