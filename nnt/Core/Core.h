@@ -934,14 +934,12 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # endif
 
-# ifdef NNT_LIBRARY
-#   ifdef NNT_MSVC
-#     define NNT_EXPORT __declspec(dllexport)
-#     define NNT_IMPORT __declspec(dllimport)
-#   else
-#     define NNT_EXPORT
-#     define NNT_IMPORT 
-#   endif
+# ifdef NNT_MSVC
+#   define NNT_EXPORT __declspec(dllexport)
+#   define NNT_IMPORT __declspec(dllimport)
+# else
+#   define NNT_EXPORT 
+#   define NNT_IMPORT  
 # endif
 
 # if !defined (NNT_CONSTRUCTOR)
