@@ -93,9 +93,9 @@ void SocketStream::complete()
     PASS;
 }
 
-NetAddress SocketStream::remote_address() const
+core::NetAddress SocketStream::remote_address() const
 {
-    NetAddress addr;
+    core::NetAddress addr;
     return addr;
 }
 

@@ -3,6 +3,7 @@
 
 # ifdef NNT_MSVC
 
+#  include <time.h>
 #  include <direct.h>
 #  include "../msvc/classes/MSVC+NNT.h"
 

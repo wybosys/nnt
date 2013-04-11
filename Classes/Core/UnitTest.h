@@ -7,6 +7,8 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ut)
 
+NNTCLASS(Case);
+
 class Case
 : public RefObject
 {
@@ -39,6 +41,8 @@ protected:
     core::string _stepmsg;
     
 };
+
+NNTCLASS(Suite);
 
 class Suite
 {

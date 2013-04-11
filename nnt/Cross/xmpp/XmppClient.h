@@ -2,7 +2,7 @@
 # ifndef __XMPP_CLIENT_9EFA6AD889BF472092FCB3E0F7A63F4B_H_INCLUDED
 # define __XMPP_CLIENT_9EFA6AD889BF472092FCB3E0F7A63F4B_H_INCLUDED
 
-# include "../NetAddress.h"
+# include "../../Core/NetAddress.h"
 # include "XmppObject.h"
 
 # include "./core/XmppCore.h"
@@ -23,7 +23,7 @@ public:
     ClientSetting();
     
     //! address of server.
-    cross::NetAddress address;
+    core::NetAddress address;
     
     //! user for login.
     core::string user;

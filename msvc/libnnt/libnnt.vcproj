@@ -56,7 +56,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;DLLNNT;SYSDEV=$(SystemDrive)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -725,6 +725,14 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath="..\..\Classes\Core\CmdArguments.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\CmdArguments.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Classes\Core\Core.cpp"
 					>
 				</File>
@@ -782,6 +790,14 @@
 				</File>
 				<File
 					RelativePath="..\..\Classes\Core\File+NNT.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\NetAddress.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Core\NetAddress.h"
 					>
 				</File>
 				<File
@@ -1071,28 +1087,6 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\Classes\Cross\NetAddress.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Cross\NetAddress.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Debug Static|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
 					RelativePath="..\..\Classes\Cross\Network.cpp"
 					>
 				</File>
@@ -1138,28 +1132,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Classes\Cross\OperationRequest.h"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Debug Static|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Cross\SoapObject.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Cross\SoapObject.h"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -2873,14 +2845,6 @@
 				Name="Parser"
 				>
 				<File
-					RelativePath="..\..\Classes\Parser\CmdArguments.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Classes\Parser\CmdArguments.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Classes\Parser\CSSParser.cpp"
 					>
 				</File>
@@ -2939,6 +2903,14 @@
 							Name="VCCustomBuildTool"
 						/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Parser\SOAPObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Classes\Parser\SOAPObject.h"
+					>
 				</File>
 				<File
 					RelativePath="..\..\Classes\Parser\SOAPParser.cpp"

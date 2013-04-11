@@ -126,9 +126,11 @@ public:
 NNTAPI(lang::Namespace*) getNamespace();
 
 NNTCLASS(Invoker);
+
 class Invoker
 {
 public:
+
     Invoker(parser::SoapDocument&);
     
 protected:
@@ -144,16 +146,20 @@ protected:
     lang::Object* instance(lang::Class const*) const;
     
 public:
+
     //! invoke.
     void invoke(void* data, lang::Namespace* = NULL);
     void invoke(lang::Namespace*, void* data = NULL);
     void invoke() { _invoke(NULL, NULL); }
 
 protected:
+
     void _invoke(void* data, lang::Namespace*);
     
 protected:
+
     parser::SoapDocument* _doc;
+
 };
 
 NNT_END_NS 

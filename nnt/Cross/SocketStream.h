@@ -2,7 +2,7 @@
 # ifndef __NNT_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
 # define __NNT_CROSS_SOCKETSTREAM_23D3050063BE451EA7DD73941EDB5103_H_INCLUDED
 
-# include "NetAddress.h"
+# include "../Core/NetAddress.h"
 # include "../Core/Time+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
@@ -50,7 +50,7 @@ public:
     virtual void complete();
     
     //! get remove address.
-    virtual NetAddress remote_address() const;
+    virtual core::NetAddress remote_address() const;
     
 public:
     

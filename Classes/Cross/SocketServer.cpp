@@ -95,8 +95,8 @@ void _ace_proactor_service::open(ACE_HANDLE new_handle, ACE_Message_Block &messa
 
 void _ace_proactor_service::addresses (const ACE_INET_Addr &remote_address, const ACE_INET_Addr &local_address)
 {
-    NetAddress addr_client_nnt = ace::type_cast<NetAddress>(remote_address);
-    NetAddress addr_host_nnt = ace::type_cast<NetAddress>(local_address);
+    core::NetAddress addr_client_nnt = ace::type_cast<core::NetAddress>(remote_address);
+    core::NetAddress addr_host_nnt = ace::type_cast<core::NetAddress>(local_address);
     
 # ifdef NNT_DEBUG
     std::cout << "get a new connect from " << addr_client_nnt.to_string() << " to " << addr_host_nnt.to_string() << std::endl;
@@ -126,10 +126,9 @@ class _ace_proactor_acceptor
     typedef ACE_Asynch_Acceptor<_ace_proactor_service> super_type;
     
 public:  
+
     _ace_proactor_acceptor();
-    virtual ~_ace_proactor_acceptor();
-    
-public:        
+    virtual ~_ace_proactor_acceptor();   
     
     virtual int validate_connection (const ACE_Asynch_Accept::Result& result,
                                      const ACE_INET_Addr &remote,
@@ -137,11 +136,10 @@ public:
     
     virtual _ace_proactor_service *make_handler ();
     
-public:
-    bool open(NetAddress const& addr);
+    bool open(core::NetAddress const& addr);
     
-public:
     SocketServer* server;
+
 };
 
 _ace_proactor_acceptor::_ace_proactor_acceptor()
@@ -167,7 +165,7 @@ int _ace_proactor_acceptor::validate_connection(const ACE_Asynch_Accept::Result 
     return 0;
 }
 
-bool _ace_proactor_acceptor::open(cross::NetAddress const& in_addr)
+bool _ace_proactor_acceptor::open(core::NetAddress const& in_addr)
 {
     ACE_INET_Addr addr = ace::type_cast<ACE_INET_Addr>(in_addr);
     bool sta = -1 != super_type::open(addr);
@@ -229,9 +227,9 @@ int _ace_svc_handler::open(void *)
     
     ACE_INET_Addr addr;
     peer.get_remote_addr(addr);
-    NetAddress addr_client = ace::type_cast<NetAddress>(addr);
+    core::NetAddress addr_client = ace::type_cast<core::NetAddress>(addr);
     peer.get_local_addr(addr);
-    NetAddress addr_host = ace::type_cast<NetAddress>(addr);
+    core::NetAddress addr_host = ace::type_cast<core::NetAddress>(addr);
     
 # ifdef NNT_DEBUG
     std::cout << "get a new connect from " << addr_client.to_string() << " to " << addr_host.to_string() << std::endl;
@@ -290,7 +288,7 @@ public:
     ~_ace_acceptor();
     
 public:
-    bool open(NetAddress const& addr);
+    bool open(core::NetAddress const& addr);
     
 protected:
     virtual int make_svc_handler (_ace_svc_handler *&sh);
@@ -317,7 +315,7 @@ int _ace_acceptor::make_svc_handler (_ace_svc_handler *&sh)
     return super::make_svc_handler(sh);
 }
 
-bool _ace_acceptor::open(NetAddress const& in_addr)
+bool _ace_acceptor::open(core::NetAddress const& in_addr)
 {
     ACE_INET_Addr addr = ace::type_cast<ACE_INET_Addr>(in_addr);
     bool sta = -1 != super::open(addr);

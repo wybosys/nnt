@@ -451,7 +451,7 @@ protected:
 
 typedef _base_data<byte> data;
 
-NNT_EXTERN const data null_data;
+static const data null_data = data();
 
 class data_le
 : public data

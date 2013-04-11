@@ -29,31 +29,31 @@ NNT_END_NS
 NNT_END_HEADER_CXX
 
 # include "../../Classes/Core/Time+NNT.h"
-# include "../../Classes/Cross/NetAddress.h"
+# include "../../Classes/Core/NetAddress.h"
 # include "../../Classes/Cross/SocketStream.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ace)
 
 template <>
-inline_impl ACE_INET_Addr type_cast<ACE_INET_Addr, cross::NetAddress>(cross::NetAddress const& addr)
+inline_impl ACE_INET_Addr type_cast<ACE_INET_Addr, core::NetAddress>(core::NetAddress const& addr)
 {
     switch (addr.addr_type)
     {
         default: break;
-        case cross::NetAddress::ADDRESS_IPV4:
+        case core::NetAddress::ADDRESS_IPV4:
         {
             return ACE_INET_Addr(addr.port, addr.address.c_str(), PF_INET);
         } break;
-        case cross::NetAddress::ADDRESS_IPV6:
+        case core::NetAddress::ADDRESS_IPV6:
         {
             return ACE_INET_Addr(addr.port, addr.address.c_str(), PF_INET6);
         } break;
-        case cross::NetAddress::ADDRESS_NAME:
+        case core::NetAddress::ADDRESS_NAME:
         {
             return ACE_INET_Addr(addr.port, addr.address.c_str());
         } break;
-        case cross::NetAddress::ADDRESS_ANY:
+        case core::NetAddress::ADDRESS_ANY:
         {
             return ACE_INET_Addr(addr.port);
         } break;
@@ -63,9 +63,9 @@ inline_impl ACE_INET_Addr type_cast<ACE_INET_Addr, cross::NetAddress>(cross::Net
 }
 
 template <>
-inline_impl cross::NetAddress type_cast<cross::NetAddress, ACE_INET_Addr>(ACE_INET_Addr const& addr)
+inline_impl core::NetAddress type_cast<core::NetAddress, ACE_INET_Addr>(ACE_INET_Addr const& addr)
 {
-    return cross::NetAddress(addr.get_ip_address(), addr.get_port_number());
+    return core::NetAddress(addr.get_ip_address(), addr.get_port_number());
 }
 
 template <>
@@ -191,7 +191,7 @@ public:
 	virtual void close();
     
     //! get remote address.
-    virtual cross::NetAddress remote_address() const;
+    virtual core::NetAddress remote_address() const;
     
     //! operator.
     operator ACE_SOCK_Stream& ()

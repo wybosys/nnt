@@ -6,21 +6,25 @@
 
 # include "XmlParser.h"
 
-NNT_BEGIN_HEADER_CXX NNT_BEGIN_NS(parser)
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(parser)
 
 class SoapDocument
 : public XmlDocument
 {
 public:
+
     SoapDocument();
     ~SoapDocument();
     
 protected:
+
     virtual void loaded();
 
 };
 
-NNT_END_NS NNT_END_HEADER_CXX
+NNT_END_NS 
+NNT_END_HEADER_CXX
 
 # endif
 

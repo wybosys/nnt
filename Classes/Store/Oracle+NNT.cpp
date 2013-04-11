@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "NNTOracle.h"
+# include "Oracle+NNT.h"
 
 # include <oci/oci.h>
 

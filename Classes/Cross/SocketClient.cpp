@@ -360,7 +360,7 @@ NNT_SIGNAL(kSignalSuccess)
 NNT_SIGNAL(kSignalFailed)
 NNTDECL_SIGNALS_END
 
-bool SocketClient::connect_to(cross::NetAddress const& addr, core::Timeout const& tm)
+bool SocketClient::connect_to(core::NetAddress const& addr, core::Timeout const& tm)
 {    
     int ret = d_ptr->connector.connect(d_ptr->connector.peer(),
                                        ace::type_cast<ACE_INET_Addr>(addr), 
@@ -375,6 +375,7 @@ bool SocketClient::connect_to(cross::NetAddress const& addr, core::Timeout const
         emit(kSignalFailed);
 		trace_msg("socketclient: failed to connect server.");
     }
+
     return ret == 0;
 }
 
@@ -449,11 +450,12 @@ NNT_SIGNAL(kSignalSuccess)
 NNT_SIGNAL(kSignalFailed)
 NNTDECL_SIGNALS_END
 
-void SocketClientAsync::connect_to(cross::NetAddress const& addr, core::Timeout const& tm)
+void SocketClientAsync::connect_to(core::NetAddress const& addr, core::Timeout const& tm)
 {    
     // connect.
     
 # ifdef USE_REACTOR_MODE
+
     ACE_Synch_Options opt = ACE_Synch_Options::synch;
     if (tm.infinate())
     {
@@ -465,35 +467,44 @@ void SocketClientAsync::connect_to(cross::NetAddress const& addr, core::Timeout 
     }
     
     d_ptr->handler = new _aceasync_handler;
+
 # endif
     
 # ifdef USE_PROACTOR_MODE
+
     d_ptr->handler = new _ace_handler_async;
     d_ptr->handler->_owner = this;
+
 # endif
 
     // connect.
     
 # ifdef USE_REACTOR_MODE
+
     int ret = d_ptr->connector.connect(d_ptr->handler,
                                        ace::type_cast<ACE_INET_Addr>(addr),
                                        opt
                                        );
+
 # endif
 
 # ifdef USE_PROACTOR_MODE
+
     int ret = d_ptr->connector.open(d_ptr->handler);
     if (ret == 0)
     {
         ret = d_ptr->connector.connect(ace::type_cast<ACE_INET_Addr>(addr));
     }
+
 # endif
 
     if (ret == 0)
     {
+
 # ifdef USE_REACTOR_MODE
         emit(kSignalSuccess);
 # endif
+
     }
     else
     {

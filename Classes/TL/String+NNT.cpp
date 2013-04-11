@@ -1,13 +1,16 @@
 
 # include "Core.h"
 # include "String+NNT.h"
-# include "../Core/Char+NNT.h"
 # include <stdarg.h>
 # include "../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
 # include <boost/algorithm/string.hpp>
 # include <boost/algorithm/string/replace.hpp>
 # include <boost/algorithm/string/split.hpp>
+
+NNT_BEGIN_C
+NNTVAR_USE(char const*) gs_byte_to_hex_str [256];
+NNT_END_C
 
 NNT_BEGIN_CXX 
 NNT_BEGIN_NS(ntl)
@@ -33,7 +36,7 @@ string hex_cast(byte const* bytes, usize len)
     uindex idx, jdx;
     for (idx = 0, jdx = 0; idx < len; ++idx, ++jdx)
     {
-        char const* s = __gs_byte_to_hex_str[bytes[idx]];
+        char const* s = gs_byte_to_hex_str[bytes[idx]];
         str[jdx] = s[0];
         str[++jdx] = s[1];
     }

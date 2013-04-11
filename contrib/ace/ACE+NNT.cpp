@@ -200,11 +200,11 @@ void SocketStreamSync::close()
     _stm.close();
 }
 
-cross::NetAddress SocketStreamSync::remote_address() const
+core::NetAddress SocketStreamSync::remote_address() const
 {
     ACE_INET_Addr addr;
     _stm.get_remote_addr(addr);
-    cross::NetAddress addr_client = ace::type_cast<cross::NetAddress>(addr);
+    core::NetAddress addr_client = ace::type_cast<core::NetAddress>(addr);
     return addr_client;
 }
 

@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "App.h"
 # include "Directory+NNT.h"
-# include "../Parser/CmdArguments.h"
+# include "CmdArguments.h"
 # include "Task+NNT.h"
 
 # ifdef NNT_MSVC

@@ -8,6 +8,10 @@ NNT_BEGIN_HEADER_C
 #   undef DB_UNKNOWN
 # endif
 
+# ifdef NNT_MSVC
+#   include <oledb.h>
+# endif
+
 # include <bdb/db.h>
 
 NNT_END_HEADER_C

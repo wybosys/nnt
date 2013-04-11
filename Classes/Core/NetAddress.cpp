@@ -6,7 +6,7 @@
 # include <boost/lexical_cast.hpp>
 
 NNT_BEGIN_CXX
-NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(core)
 
 NetAddress::NetAddress()
 : port(0)

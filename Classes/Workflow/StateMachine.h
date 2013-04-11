@@ -5,6 +5,8 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(wf)
 
+NNTCLASS(State);
+
 class State
 {
 public:
@@ -19,6 +21,8 @@ public:
     // for map.
     bool operator < (State const& r) const;
 };
+
+NNTCLASS(Operation);
 
 class Operation
 : public RefObject
@@ -37,6 +41,8 @@ public:
     virtual int run(void*) { return RESULT_SUC; }
         
 };
+
+NNTCLASS(Machine);
 
 class Machine
 {

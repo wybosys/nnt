@@ -1,10 +1,11 @@
 
 # include "Core.h"
 # include "../Core/ObjectDL.h"
-# include "SoapObject.h"
+# include "SOAPObject.h"
 # include "../Parser/SOAPParser.h"
 
-NNT_BEGIN_CXX NNT_BEGIN_NS(soap)
+NNT_BEGIN_CXX 
+NNT_BEGIN_NS(soap)
 
 Invoker::Invoker(parser::SoapDocument& doc)
 : _doc(&doc)
@@ -232,4 +233,5 @@ void Invoker::_invoke(void* _da, lang::Namespace* _ns)
     this->free(cls);
 }
 
-NNT_END_NS NNT_END_CXX
+NNT_END_NS 
+NNT_END_CXX

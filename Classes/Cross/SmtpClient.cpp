@@ -16,7 +16,7 @@ static int authinteract (auth_client_request_t request, char **result, int field
 {
     SmtpClient* client = (SmtpClient*)arg;
     core::data da = client->get_user();
-    uint sz = MIN(da.length(), fields);
+    uint sz = MIN(da.length(), (uint)fields);
     memcpy(result, da.bytes(), sz);
     return 1;
 };
@@ -25,7 +25,7 @@ static int tlsinteract (char *buf, int buflen, int rwflag, void *arg)
 {
     SmtpClient* client = (SmtpClient*)arg;
     core::data da = client->get_password();
-    uint sz = MIN(da.length(), buflen);
+    uint sz = MIN(da.length(), (uint)buflen);
     memcpy(buf, da.bytes(), sz);
     return 1; 
 }

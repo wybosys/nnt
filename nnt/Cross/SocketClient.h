@@ -2,7 +2,7 @@
 # ifndef __NNT_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
 # define __NNT_CROSS_SOCKCLIENT_F2A633639EE84B6EA76A5A27157D07FB_H_INCLUDED
 
-# include "NetAddress.h"
+# include "../Core/NetAddress.h"
 # include "../Core/Time+NNT.h"
 # include "SocketStream.h"
 
@@ -35,7 +35,7 @@ public:
     ~SocketClient();
     
     //! connect to server.
-    bool connect_to(NetAddress const& addr, core::Timeout const& = core::Timeout::Default());
+    bool connect_to(core::NetAddress const& addr, core::Timeout const& = core::Timeout::Default());
     
     //! disconnect.
     void close();
@@ -62,7 +62,7 @@ public:
     ~SocketClientAsync();
     
     //! connect to server.
-    void connect_to(NetAddress const& addr, core::Timeout const& = core::Timeout::Default());
+    void connect_to(core::NetAddress const& addr, core::Timeout const& = core::Timeout::Default());
     
     //! disconnect.
     void close();

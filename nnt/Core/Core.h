@@ -68,7 +68,7 @@
 # endif
 # endif
 
-# ifdef LIBNNT
+# if defined(LIBNNT) || defined(DLLNNT)
 #   define NNT_LIBRARY 1
 # endif
 
@@ -79,8 +79,8 @@
 // is windows.
 #   define NNT_MSVC 1
 #   define NNT_WINDOWS 1
-#   if defined(_USRDLL) && !defined(LIBNNT)
-#     define NNT_LIBRARY
+#   if defined(_USRDLL) && !defined(NNT_LIBRARY)
+#     define NNT_LIBRARY 1
 #   endif
 #   if defined(NNT_LIBRARY)
 #     include "stdafx.h"
@@ -128,7 +128,7 @@ const _nullptr nullptr();
 
 # if defined(NNT_LIBRARY)
 #   define APPNNT 1
-#   if defined(_USRDLL)
+#   if defined(LIBNNT)
 #     define NNT_LIBRARY_STAIC 1
 #   else
 #     define NNT_LIBRARY_SHARED 1
@@ -934,14 +934,13 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # endif
 
-# if !defined (NNT_EXPORT)
+# ifdef NNT_LIBRARY
 #   ifdef NNT_MSVC
 #     define NNT_EXPORT __declspec(dllexport)
 #     define NNT_IMPORT __declspec(dllimport)
 #   else
-#     define NNT_EXPORT __attribute__((visibility("default")))
+#     define NNT_EXPORT
 #     define NNT_IMPORT 
-//__attribute__((visibility("default")))
 #   endif
 # endif
 
@@ -962,17 +961,19 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 #   define NNT_EXTERN extern
 # endif
 
-# if defined(LIBNNT)
+# if defined(NNT_LIBRARY)
 #   define NNTAPI(retype) NNT_EXPORT retype
 #   define NNTCLASS(cls)  class NNT_EXPORT cls
 #   define NNTNTERFACE(itr) interface_ NNT_EXPORT itr
-//#   define NNTVAR(retype) NNT_EXTERN NNT_EXPORT retype
+#   define NNTVAR(retype) NNT_EXTERN NNT_EXPORT retype
 # else
 #   define NNTAPI(retype) NNT_IMPORT retype
 #   define NNTCLASS(cls)  class NNT_IMPORT cls
 #   define NNTNTERFACE(itr) interface_ NNT_IMPORT itr
-//#   define NNTVAR(retype) NNT_EXTERN retype NNT_IMPORT 
+#   define NNTVAR(retype) NNT_EXTERN NNT_IMPORT retype
 # endif
+
+# define NNTVAR_USE(retype) NNT_EXTERN NNT_IMPORT retype
 
 # ifdef NNT_WINDOWS
 #   ifdef NNT_X32

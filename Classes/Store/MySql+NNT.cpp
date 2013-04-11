@@ -1,16 +1,17 @@
 
 # include "Core.h"
 # include "MySql+NNT.h"
-# include "../Cross/NetAddress.h"
+# include "../Core/NetAddress.h"
+
+# ifdef NNT_MSVC
+#   include <WinSock2.h>
+#   pragma comment (lib, "libmysql.lib")
+# endif
 
 NNT_BEGIN_HEADER_C
 # include <mysql/mysql.h>
 # include <mysql/errmsg.h>
 NNT_END_HEADER_C
-
-# ifdef NNT_MSVC
-# pragma comment (lib, "libmysql.lib")
-# endif
 
 NNT_BEGIN_CXX 
 NNT_BEGIN_NS(store)
@@ -51,7 +52,7 @@ MySql::~MySql()
 
 bool MySql::connect(connection_info const& info)
 {    
-	cross::NetAddress addr(info.url);
+	core::NetAddress addr(info.url);
     MYSQL* h = mysql_real_connect(d_ptr->hdl, 
                                   addr.address.c_str(),
                                   info.user.c_str(), 

@@ -15,6 +15,8 @@ NNTAPI(bool) regex_grep(string const& regex, string const& str, regex_matched_t&
 NNTAPI(bool) regex_capture(string const& regex, string const& str, regex_captured_t& result);
 NNTAPI(core::string) regex_replace(string const& regex, string const& replace, string const& str);
 
+NNTCLASS(regex);
+
 class regex
 {
 public:

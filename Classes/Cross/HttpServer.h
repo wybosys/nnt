@@ -2,7 +2,7 @@
 # ifndef __NNT_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
 # define __NNT_CROSS_HTTPSERVER_3222F06EBCE74858BA42A4C7C74E1331_H_INCLUDED
 
-# include "NetAddress.h"
+# include "../Core/NetAddress.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(cross)
@@ -13,7 +13,7 @@ class HttpConfig
 {
 public:
 
-    NetAddress addr;
+    core::NetAddress addr;
 
     bool is_correct() const;
 

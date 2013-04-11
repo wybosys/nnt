@@ -10,6 +10,9 @@
 #   include <ossp/uuid.h>
 # endif
 
+# ifdef NNT_MSVC
+#   include <Rpc.h>
+# endif
 
 NNT_BEGIN_CXX
 

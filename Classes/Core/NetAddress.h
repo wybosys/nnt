@@ -3,23 +3,22 @@
 # define __NNT_CROSS_NETADDRESS_C2B223FD39654F86874B8FE9765F8666_H_INCLUDED
 
 NNT_BEGIN_HEADER_CXX
-NNT_BEGIN_NS(cross)
+NNT_BEGIN_NS(core)
 
 NNTCLASS(NetAddress);
 
 class NetAddress
 {
 public:
-    enum ADDRESS_TYPE
+
+    typedef enum
     {
         ADDRESS_UNKNOWN,
         ADDRESS_IPV4,
         ADDRESS_IPV6,
         ADDRESS_NAME,
         ADDRESS_ANY,
-    };
-    
-public:
+    } ADDRESS_TYPE;
     
     NetAddress();
     NetAddress(core::string const& url);

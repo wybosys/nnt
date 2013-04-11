@@ -9,7 +9,7 @@
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(store)
 
-NNTDECL_PRIVATE_HEADER_CXX(Oracle);
+NNTDECL_PRIVATE_HEAD_CXX(Oracle);
 
 class Oracle
 : public DBMSqlAbstract

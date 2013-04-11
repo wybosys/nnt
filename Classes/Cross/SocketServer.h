@@ -2,7 +2,7 @@
 # ifndef __NNT_CROSS_SOCKETSERVER_D18EE2B9FC8143B1B1B0F44199704523_H_INCLUDED
 # define __NNT_CROSS_SOCKETSERVER_D18EE2B9FC8143B1B1B0F44199704523_H_INCLUDED
 
-# include "./NetAddress.h"
+# include "../Core/NetAddress.h"
 
 NNT_BEGIN_HEADER_CXX
 
@@ -40,7 +40,7 @@ public:
 
 protected:
     
-    NetAddress address;
+    core::NetAddress address;
     
 };
 

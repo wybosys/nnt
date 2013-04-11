@@ -2,7 +2,7 @@
 # include "Core.h"
 # include "SOAPParser.h"
 # include "../Core/ObjectDL.h"
-# include "../Cross/SoapObject.h"
+# include "SoapObject.h"
 
 NNT_BEGIN_CXX 
 

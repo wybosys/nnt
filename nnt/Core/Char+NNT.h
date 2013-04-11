@@ -14,13 +14,13 @@ NNT_BEGIN_HEADER_C
 # define CH2PY_TABLE_SIZE 396
 
 //! global array for convert pinyin to char code.
-NNT_EXTERN int __gs_pinyin_code [CH2PY_TABLE_SIZE];
+NNTVAR(int) gs_pinyin_code [CH2PY_TABLE_SIZE];
 
 //! global array for convert char code to char.
-NNT_EXTERN char const* __gs_pinyin_string [CH2PY_TABLE_SIZE];
+NNTVAR(char const*) gs_pinyin_string [CH2PY_TABLE_SIZE];
 
 //! global array for convert hex-int to hex-char.
-NNT_EXTERN char const* __gs_byte_to_hex_str [256];
+NNTVAR(char const*) gs_byte_to_hex_str [256];
 
 //! global array for convert hex-char to hex-int.
 //! u can use string's MAP_ASCII_BINARY.
