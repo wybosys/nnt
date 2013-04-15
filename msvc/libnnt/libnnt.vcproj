@@ -466,7 +466,7 @@
 			Name="Debug Static|x64"
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="2"
+			ConfigurationType="4"
 			UseOfMFC="2"
 			CharacterSet="1"
 			>
@@ -496,7 +496,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;LIBNNT;DLLNNT;SYSDEV=$(SystemDrive)"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL;DLLNNT;SYSDEV=$(SystemDrive)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -518,23 +518,10 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				RegisterOutput="false"
-				AdditionalDependencies="ACEd.lib libdb51d.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3D.lib log4cppds.lib QtCored4.lib QtGuid4.lib"
-				OutputFile="$(OutDir)\libnntd.dll"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="../../lib/MSVC/$(PlatformName)"
-				ModuleDefinitionFile=".\libnntd.def"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				ImportLibrary="$(TargetDir)/libnntd.lib"
-				TargetMachine="17"
+				Name="VCLibrarianTool"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -544,9 +531,6 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
