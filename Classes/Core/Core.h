@@ -122,15 +122,6 @@ const _nullptr nullptr();
 # define NNT_VERBOSE 1
 # define NNT_VERBOSE_VERBOSE 0
 
-# ifdef NNT_LIBRARY
-#   define APPNNT 1
-#   if defined(LIBNNT)
-#     define NNT_LIBRARY_STAIC 1
-#   else
-#     define NNT_LIBRARY_SHARED 1
-#   endif
-# endif
-
 # if defined(__OBJC__) || defined(__OBJC2__)
 #	define NNT_OBJC
 #   if __has_feature(objc_arc)
@@ -203,6 +194,29 @@ typedef ios_2 ios_version;
 typedef ios_unknown ios_version;
 # endif
 
+# endif
+
+# ifdef NNT_LIBRARY
+#   define APPNNT 1
+#   if defined(LIBNNT)
+#     define NNT_LIBRARY_STAIC 1
+#   else
+#     define NNT_LIBRARY_SHARED 1
+#   endif
+# endif
+
+# ifdef KERNELNNT
+#   define NNT_KERNEL_SPACE 1
+# else
+#   define NNT_USER_SPACE 1
+# endif
+
+# ifdef NNT_KERNEL_SPACE
+#   define NNTKS_EXPRESS(exp) exp
+#   define NNTUS_EXPRESS(exp) exp
+# else
+#   define NNTKS_EXPRESS(exp)
+#   define NNTUS_EXPRESS(exp) exp
 # endif
 
 # define NNT_INLINE inline

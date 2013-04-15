@@ -6,7 +6,11 @@
 
 NNT_BEGIN_HEADER_C
 
+# ifdef NNT_KERNEL_SPACE
+
 # include <ntddk.h>
+
+# endif
 
 NNT_END_HEADER_C
 
