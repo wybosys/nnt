@@ -65,7 +65,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="log4cppds.lib libdb51.lib"
+				AdditionalDependencies="log4cppds.lib libdb51d.lib"
 				OutputFile="$(OutDir)\$(ProjectName)d.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;../../lib/MSVC/$(PlatformName)&quot;"
@@ -122,10 +122,12 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBNNTSTORE_EXPORTS"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;DLLNNT;SYSDEV=$(SystemDrive)"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -140,7 +142,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="log4cpps.lib libdb51.lib"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;../../lib/MSVC/$(PlatformName)&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -260,10 +264,12 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;LIBNNT"
+				AdditionalIncludeDirectories="../../3rd/MSVC/;../../3rd/"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;LIBNNT;SYSDEV=$(SystemDrive)"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="Core.h"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>

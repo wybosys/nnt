@@ -26,7 +26,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="2"
+			ConfigurationType="4"
 			UseOfMFC="2"
 			CharacterSet="1"
 			>
@@ -78,23 +78,10 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				RegisterOutput="false"
-				AdditionalDependencies="ACEd.lib libdb51d.lib libeay32.lib ssleay32.lib rpcrt4.lib xerces-c_3D.lib log4cppds.lib QtCored4.lib QtGuid4.lib"
-				OutputFile="$(OutDir)\libnntd.dll"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;../../lib/MSVC/$(PlatformName)&quot;"
-				ModuleDefinitionFile=".\libnntd.def"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				ImportLibrary="$(TargetDir)/libnntd.lib"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -104,9 +91,6 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
