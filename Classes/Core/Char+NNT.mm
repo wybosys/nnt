@@ -17,9 +17,9 @@ NSString* chinese2pinyin(unichar ch) {
         } else if (charasc < -20319 || charasc > -10247) {
             PASS;
         } else {
-            for (int i = sizeof(__gs_pinyin_code) - 1; i >= 0; --i) {
-                if (__gs_pinyin_code[i] <= charasc) {
-                    str = [NSString stringWithCString:__gs_pinyin_string[i] encoding:NSUTF8StringEncoding];
+            for (int i = sizeof(gs_pinyin_code) - 1; i >= 0; --i) {
+                if (gs_pinyin_code[i] <= charasc) {
+                    str = [NSString stringWithCString:gs_pinyin_string[i] encoding:NSUTF8StringEncoding];
                     break;
                 }
             }

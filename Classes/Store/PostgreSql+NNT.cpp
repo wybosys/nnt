@@ -1,7 +1,7 @@
 
 # include "Core.h"
 # include "PostgreSql+NNT.h"
-# include "../Cross/NetAddress.h"
+# include "../Core/NetAddress.h"
 
 NNT_BEGIN_HEADER_C
 
@@ -63,10 +63,10 @@ bool PostgreSql::connect(const ::nnt::store::connection_info & info)
     char const* values[sz] = {0};
     uint idx = 0;
     
-    cross::NetAddress addr(info.url);
+    core::NetAddress addr(info.url);
     
     // 0
-    if (addr.addr_type == cross::NetAddress::ADDRESS_NAME)
+    if (addr.addr_type == core::NetAddress::ADDRESS_NAME)
         keys[idx] = "host";
     else 
         keys[idx] = "hostaddr";

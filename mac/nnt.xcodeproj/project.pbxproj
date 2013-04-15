@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1609337715102DB500C84FBA /* SoapObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1609337615102DB500C84FBA /* SoapObject.h */; settings = {ATTRIBUTES = (); }; };
-		1609337A15103E9C00C84FBA /* SoapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1609337915103E9C00C84FBA /* SoapObject.cpp */; };
 		160FB0A91544E9AC00D3A8FB /* Directory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */; };
 		161738311609711E00F1EA6E /* UcKernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617382F1609711E00F1EA6E /* UcKernel.cpp */; };
 		161738321609711E00F1EA6E /* UcKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738301609711E00F1EA6E /* UcKernel.h */; };
@@ -156,6 +154,12 @@
 		162BA6D6150DF0F600F33E1D /* AlphabetFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 162BA6D4150DF0F600F33E1D /* AlphabetFlow.h */; };
 		162BA6D7150DF0F600F33E1D /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D5150DF0F600F33E1D /* AlphabetFlow.m */; };
 		162BA6D9150DF15600F33E1D /* AlphabetFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */; };
+		1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */; };
+		1630A7FC171BFC1400B318A9 /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A7F8171BFC1400B318A9 /* CmdArguments.h */; };
+		1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F9171BFC1400B318A9 /* NetAddress.cpp */; };
+		1630A7FE171BFC1400B318A9 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A7FA171BFC1400B318A9 /* NetAddress.h */; };
+		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
+		1630A802171BFC2500B318A9 /* SOAPObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A800171BFC2500B318A9 /* SOAPObject.h */; };
 		1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */; };
 		1638EABC150F13E0000B8C35 /* SOAPParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1638EABA150F13E0000B8C35 /* SOAPParser.h */; settings = {ATTRIBUTES = (); }; };
 		1638EABF150F1DC9000B8C35 /* ObjectDL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1638EABE150F1DC9000B8C35 /* ObjectDL.h */; settings = {ATTRIBUTES = (); }; };
@@ -197,8 +201,6 @@
 		165ACD9C14F1DB14007C0559 /* Console+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 165ACD9A14F1DB14007C0559 /* Console+NNT.mm */; };
 		165E557314F3912F00D35087 /* SocketServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165E557114F3912F00D35087 /* SocketServer.cpp */; };
 		165E557414F3912F00D35087 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 165E557214F3912F00D35087 /* SocketServer.h */; settings = {ATTRIBUTES = (); }; };
-		165E557714F397F700D35087 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165E557514F397F700D35087 /* NetAddress.cpp */; };
-		165E557814F397F700D35087 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 165E557614F397F700D35087 /* NetAddress.h */; settings = {ATTRIBUTES = (); }; };
 		16624CB61505D7C000AFED23 /* CSSParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16624CB41505D7C000AFED23 /* CSSParser.cpp */; };
 		16624CB71505D7C000AFED23 /* CSSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16624CB51505D7C000AFED23 /* CSSParser.h */; settings = {ATTRIBUTES = (); }; };
 		1664FF9A14F48D410073A9E9 /* UnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1664FF9814F48D410073A9E9 /* UnitTest.cpp */; };
@@ -348,8 +350,6 @@
 		167D00B21709600000B94D5E /* SHA+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A81709600000B94D5E /* SHA+NNT.cpp */; };
 		167D00B31709600000B94D5E /* SHA+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00A91709600000B94D5E /* SHA+NNT.h */; };
 		167D00B41709600000B94D5E /* UUID+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00AA1709600000B94D5E /* UUID+NNT.mm */; };
-		167D00C31709614200B94D5E /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00B51709614000B94D5E /* CmdArguments.cpp */; };
-		167D00C41709614200B94D5E /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00B61709614100B94D5E /* CmdArguments.h */; };
 		167D00C51709614200B94D5E /* CSVParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00B71709614100B94D5E /* CSVParser.cpp */; };
 		167D00C61709614200B94D5E /* CSVParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00B81709614100B94D5E /* CSVParser.h */; };
 		167D00C71709614200B94D5E /* HttpParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00B91709614100B94D5E /* HttpParser.cpp */; };
@@ -987,8 +987,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		1609337615102DB500C84FBA /* SoapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapObject.h; sourceTree = "<group>"; };
-		1609337915103E9C00C84FBA /* SoapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoapObject.cpp; sourceTree = "<group>"; };
 		160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Directory+NNT.cpp"; path = "../Classes/Core/Directory+NNT.cpp"; sourceTree = "<group>"; };
 		1617382F1609711E00F1EA6E /* UcKernel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcKernel.cpp; sourceTree = "<group>"; };
 		161738301609711E00F1EA6E /* UcKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcKernel.h; sourceTree = "<group>"; };
@@ -1136,6 +1134,12 @@
 		162BA6D4150DF0F600F33E1D /* AlphabetFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlphabetFlow.h; path = ../Classes/Util/AlphabetFlow.h; sourceTree = "<group>"; };
 		162BA6D5150DF0F600F33E1D /* AlphabetFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlphabetFlow.m; path = ../Classes/Util/AlphabetFlow.m; sourceTree = "<group>"; };
 		162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlphabetFlow.cpp; path = ../Classes/Util/AlphabetFlow.cpp; sourceTree = "<group>"; };
+		1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CmdArguments.cpp; path = ../Classes/Core/CmdArguments.cpp; sourceTree = "<group>"; };
+		1630A7F8171BFC1400B318A9 /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CmdArguments.h; path = ../Classes/Core/CmdArguments.h; sourceTree = "<group>"; };
+		1630A7F9171BFC1400B318A9 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetAddress.cpp; path = ../Classes/Core/NetAddress.cpp; sourceTree = "<group>"; };
+		1630A7FA171BFC1400B318A9 /* NetAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetAddress.h; path = ../Classes/Core/NetAddress.h; sourceTree = "<group>"; };
+		1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SOAPObject.cpp; sourceTree = "<group>"; };
+		1630A800171BFC2500B318A9 /* SOAPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPObject.h; sourceTree = "<group>"; };
 		1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SOAPParser.cpp; sourceTree = "<group>"; };
 		1638EABA150F13E0000B8C35 /* SOAPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPParser.h; sourceTree = "<group>"; };
 		1638EABE150F1DC9000B8C35 /* ObjectDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectDL.h; path = ../Classes/Core/ObjectDL.h; sourceTree = "<group>"; };
@@ -1177,8 +1181,6 @@
 		165ACD9A14F1DB14007C0559 /* Console+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Console+NNT.mm"; path = "../Classes/Core/Console+NNT.mm"; sourceTree = "<group>"; };
 		165E557114F3912F00D35087 /* SocketServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketServer.cpp; sourceTree = "<group>"; };
 		165E557214F3912F00D35087 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
-		165E557514F397F700D35087 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetAddress.cpp; sourceTree = "<group>"; };
-		165E557614F397F700D35087 /* NetAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAddress.h; sourceTree = "<group>"; };
 		16624CB41505D7C000AFED23 /* CSSParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSSParser.cpp; sourceTree = "<group>"; };
 		16624CB51505D7C000AFED23 /* CSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSParser.h; sourceTree = "<group>"; };
 		1664FF9814F48D410073A9E9 /* UnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnitTest.cpp; path = ../Classes/Core/UnitTest.cpp; sourceTree = "<group>"; };
@@ -1328,8 +1330,6 @@
 		167D00A81709600000B94D5E /* SHA+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "SHA+NNT.cpp"; sourceTree = "<group>"; };
 		167D00A91709600000B94D5E /* SHA+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SHA+NNT.h"; sourceTree = "<group>"; };
 		167D00AA1709600000B94D5E /* UUID+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UUID+NNT.mm"; sourceTree = "<group>"; };
-		167D00B51709614000B94D5E /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdArguments.cpp; sourceTree = "<group>"; };
-		167D00B61709614100B94D5E /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdArguments.h; sourceTree = "<group>"; };
 		167D00B71709614100B94D5E /* CSVParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSVParser.cpp; sourceTree = "<group>"; };
 		167D00B81709614100B94D5E /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVParser.h; sourceTree = "<group>"; };
 		167D00B91709614100B94D5E /* HttpParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpParser.cpp; sourceTree = "<group>"; };
@@ -2422,8 +2422,6 @@
 			isa = PBXGroup;
 			children = (
 				1620EF9B1609BF6700592F83 /* xmpp */,
-				1609337615102DB500C84FBA /* SoapObject.h */,
-				1609337915103E9C00C84FBA /* SoapObject.cpp */,
 				167EBA9A14F368670012570E /* FtpServer.h */,
 				167EBA9B14F368670012570E /* FtpServer.m */,
 				167EBA9C14F368670012570E /* HttpRequest.h */,
@@ -2455,8 +2453,6 @@
 				16CCEB3E1592FF3200A16A3C /* SocketStream.h */,
 				16E00A651608676700B35D3F /* SocketClient.cpp */,
 				16E00A661608676700B35D3F /* SocketClient.h */,
-				165E557514F397F700D35087 /* NetAddress.cpp */,
-				165E557614F397F700D35087 /* NetAddress.h */,
 				167EBAA914F368670012570E /* XmlRpc.h */,
 				167EBAAA14F368670012570E /* XmlRpc.mm */,
 				16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */,
@@ -2749,6 +2745,10 @@
 				16D3D2E215401715003A33CE /* Task+NNT.cpp */,
 				167D00EB1709684F00B94D5E /* Task+NNT.mm */,
 				16D3D2E315401716003A33CE /* Task+NNT.h */,
+				1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */,
+				1630A7F8171BFC1400B318A9 /* CmdArguments.h */,
+				1630A7F9171BFC1400B318A9 /* NetAddress.cpp */,
+				1630A7FA171BFC1400B318A9 /* NetAddress.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -2806,8 +2806,6 @@
 		16A44A5D149F158B00DF7F82 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				167D00B51709614000B94D5E /* CmdArguments.cpp */,
-				167D00B61709614100B94D5E /* CmdArguments.h */,
 				167D00B71709614100B94D5E /* CSVParser.cpp */,
 				167D00B81709614100B94D5E /* CSVParser.h */,
 				167D00B91709614100B94D5E /* HttpParser.cpp */,
@@ -2855,6 +2853,8 @@
 				16E4E6CF15070D8900B6B7E8 /* XmlParser.cpp */,
 				1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */,
 				1638EABA150F13E0000B8C35 /* SOAPParser.h */,
+				1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */,
+				1630A800171BFC2500B318A9 /* SOAPObject.h */,
 			);
 			name = Parser;
 			path = ../Classes/Parser;
@@ -3494,7 +3494,6 @@
 				16FE670415270CC00095521B /* JuiceOpenGLDriver.hpp in Headers */,
 				16FE66FD15270CC00095521B /* JuiceCococaDriver.hpp in Headers */,
 				16FE670215270CC00095521B /* JuiceInteractive.hpp in Headers */,
-				1609337715102DB500C84FBA /* SoapObject.h in Headers */,
 				16FE66FE15270CC00095521B /* JuiceContainer.hpp in Headers */,
 				16F2AF561532BE460047DB0B /* NSTextView+NNT.h in Headers */,
 				16FE66FC15270CC00095521B /* JuiceCLI.hpp in Headers */,
@@ -3577,7 +3576,6 @@
 				169DD2381457D52E000A9889 /* Sqlite+NNT.h in Headers */,
 				16A449FE149F140200DF7F82 /* UIObject+NNT.h in Headers */,
 				169DD2301457D52E000A9889 /* Bdb+NNT.h in Headers */,
-				165E557814F397F700D35087 /* NetAddress.h in Headers */,
 				16E4E6EF15074EBC00B6B7E8 /* SqlServer+NNT.h in Headers */,
 				1675ACFB1515D1850046A630 /* FsSamba.h in Headers */,
 				1675ACF61515D0010046A630 /* Filesystem.h in Headers */,
@@ -3971,7 +3969,6 @@
 				167D00AF1709600000B94D5E /* Openssl+NNT.p.h in Headers */,
 				167D00B01709600000B94D5E /* SecSignature.h in Headers */,
 				167D00B31709600000B94D5E /* SHA+NNT.h in Headers */,
-				167D00C41709614200B94D5E /* CmdArguments.h in Headers */,
 				167D00C61709614200B94D5E /* CSVParser.h in Headers */,
 				167D00C81709614200B94D5E /* HttpParser.h in Headers */,
 				167D00C91709614200B94D5E /* RegexObjParser.h in Headers */,
@@ -3983,6 +3980,9 @@
 				167D00DB1709632300B94D5E /* AEModel.h in Headers */,
 				167D01151709729000B94D5E /* cpu.h in Headers */,
 				167D01161709729000B94D5E /* mcore.h in Headers */,
+				1630A7FC171BFC1400B318A9 /* CmdArguments.h in Headers */,
+				1630A7FE171BFC1400B318A9 /* NetAddress.h in Headers */,
+				1630A802171BFC2500B318A9 /* SOAPObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4164,7 +4164,6 @@
 				167EBB6414F36A030012570E /* VHtmlChart.m in Sources */,
 				167EBB6614F36A030012570E /* VHtmlTable.m in Sources */,
 				165E557314F3912F00D35087 /* SocketServer.cpp in Sources */,
-				165E557714F397F700D35087 /* NetAddress.cpp in Sources */,
 				1664FF9A14F48D410073A9E9 /* UnitTest.cpp in Sources */,
 				164EFDB214F4D456005FEDD8 /* Bdb+NNT.cpp in Sources */,
 				1627644814F5E49F00DC935B /* Security+NNT.cpp in Sources */,
@@ -4211,7 +4210,6 @@
 				162BA6D9150DF15600F33E1D /* AlphabetFlow.cpp in Sources */,
 				1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */,
 				1638EAC1150F2076000B8C35 /* ObjectDL.cpp in Sources */,
-				1609337A15103E9C00C84FBA /* SoapObject.cpp in Sources */,
 				16763A071512DD3300021D40 /* Sqlite+NNT.cpp in Sources */,
 				1675ACF51515D0010046A630 /* Filesystem.cpp in Sources */,
 				1675ACFA1515D1850046A630 /* FsSamba.cpp in Sources */,
@@ -4455,7 +4453,6 @@
 				167D00B11709600000B94D5E /* SecSignature.m in Sources */,
 				167D00B21709600000B94D5E /* SHA+NNT.cpp in Sources */,
 				167D00B41709600000B94D5E /* UUID+NNT.mm in Sources */,
-				167D00C31709614200B94D5E /* CmdArguments.cpp in Sources */,
 				167D00C51709614200B94D5E /* CSVParser.cpp in Sources */,
 				167D00C71709614200B94D5E /* HttpParser.cpp in Sources */,
 				167D00CA1709614200B94D5E /* RegexObjParser.mm in Sources */,
@@ -4472,6 +4469,9 @@
 				167D01141709729000B94D5E /* cpu.cpp in Sources */,
 				167D01171709729100B94D5E /* mcore.inc in Sources */,
 				167D0119170973FC00B94D5E /* cpu_.s in Sources */,
+				1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */,
+				1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */,
+				1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

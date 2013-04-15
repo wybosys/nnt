@@ -123,8 +123,6 @@
 		1620F1D91609D39900592F83 /* LeSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F1D31609D39800592F83 /* LeSize.h */; };
 		16213F001654BE810084F433 /* XmlParserUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16213EFE1654BE810084F433 /* XmlParserUtil.cpp */; };
 		16213F011654BE810084F433 /* XmlParserUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 16213EFF1654BE810084F433 /* XmlParserUtil.h */; };
-		162244C9158894FB0073B178 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162244C5158894FB0073B178 /* NetAddress.cpp */; };
-		162244CA158894FB0073B178 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244C6158894FB0073B178 /* NetAddress.h */; };
 		162244CB158894FB0073B178 /* SocketServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162244C7158894FB0073B178 /* SocketServer.cpp */; };
 		162244CC158894FB0073B178 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244C8158894FB0073B178 /* SocketServer.h */; };
 		162244D51588971F0073B178 /* SocketClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 162244D31588971F0073B178 /* SocketClient.h */; };
@@ -274,6 +272,20 @@
 		162EF885148F0A5900D8E41B /* UIFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162EF883148F0A5900D8E41B /* UIFlowView.m */; };
 		16307F001404F48D002559FA /* GRMustacheWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 16307EFE1404F48D002559FA /* GRMustacheWrapper.h */; };
 		16307F021404F48D002559FA /* GRMustacheWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16307EFF1404F48D002559FA /* GRMustacheWrapper.m */; };
+		1630A815171C021D00B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A811171C021D00B318A9 /* CmdArguments.cpp */; };
+		1630A816171C021D00B318A9 /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A812171C021D00B318A9 /* CmdArguments.h */; };
+		1630A817171C021D00B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A813171C021D00B318A9 /* NetAddress.cpp */; };
+		1630A818171C021D00B318A9 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A814171C021D00B318A9 /* NetAddress.h */; };
+		1630A81B171C023200B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A819171C023200B318A9 /* SOAPObject.cpp */; };
+		1630A81C171C023200B318A9 /* SOAPObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A81A171C023200B318A9 /* SOAPObject.h */; };
+		1630A826171C036000B318A9 /* Assembly+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A81E171C036000B318A9 /* Assembly+NNT.cpp */; };
+		1630A827171C036000B318A9 /* Assembly+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A81F171C036000B318A9 /* Assembly+NNT.h */; };
+		1630A828171C036000B318A9 /* Cpu+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A820171C036000B318A9 /* Cpu+NNT.cpp */; };
+		1630A829171C036000B318A9 /* Cpu+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A821171C036000B318A9 /* Cpu+NNT.h */; };
+		1630A82A171C036000B318A9 /* Device+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A822171C036000B318A9 /* Device+NNT.cpp */; };
+		1630A82B171C036000B318A9 /* Device+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A823171C036000B318A9 /* Device+NNT.h */; };
+		1630A82C171C036000B318A9 /* Hardware+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A824171C036000B318A9 /* Hardware+NNT.cpp */; };
+		1630A82D171C036000B318A9 /* Hardware+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A825171C036000B318A9 /* Hardware+NNT.h */; };
 		16310F801679C71E00232398 /* AIAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16310F781679C71E00232398 /* AIAction.cpp */; };
 		16310F811679C71E00232398 /* AIAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 16310F791679C71E00232398 /* AIAction.h */; };
 		16310F821679C71E00232398 /* AIBehave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16310F7A1679C71E00232398 /* AIBehave.cpp */; };
@@ -519,8 +531,6 @@
 		167CDC7415764D9F00E46FFF /* UIBarButtonItem+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167CDC7315764D9F00E46FFF /* UIBarButtonItem+NNT.mm */; };
 		167D544D16E03D4D00F68533 /* OAWeChat.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D544B16E03D4D00F68533 /* OAWeChat.h */; };
 		167D544E16E03D4D00F68533 /* OAWeChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D544C16E03D4D00F68533 /* OAWeChat.mm */; };
-		167DAA8816787DDE0009BB4B /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167DAA8616787DDE0009BB4B /* CmdArguments.cpp */; };
-		167DAA8916787DDE0009BB4B /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 167DAA8716787DDE0009BB4B /* CmdArguments.h */; };
 		167E54DF15BE49980075DD01 /* UIWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = 167E54DD15BE49980075DD01 /* UIWebController.h */; };
 		167E54E015BE49980075DD01 /* UIWebController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167E54DE15BE49980075DD01 /* UIWebController.mm */; };
 		167E54E515BE4ADA0075DD01 /* BehaviourSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */; };
@@ -690,7 +700,6 @@
 		168B119915426BA100D9325A /* JuiceCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B119815426BA100D9325A /* JuiceCamera.hpp */; };
 		168B11C515427B3C00D9325A /* JuiceGlslLibrary.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11C415427B3B00D9325A /* JuiceGlslLibrary.hpp */; };
 		168BE06615F0A13B00029DC1 /* EmojiCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168BE06515F0A13B00029DC1 /* EmojiCodec.mm */; };
-		168CCECB157A29DE00E83E60 /* SoapObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 168CCEC8157A29DE00E83E60 /* SoapObject.h */; };
 		168CCECF157A2A9600E83E60 /* HtmlObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 168CCECD157A2A9600E83E60 /* HtmlObjParser.h */; };
 		168CCED0157A2A9600E83E60 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */; };
 		168F47BA158C58C300F4D998 /* XmppObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F47B8158C58C300F4D998 /* XmppObject.cpp */; };
@@ -907,24 +916,16 @@
 		169C0ACA140CDF36008F26FF /* LevelDB+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169C0AC7140CDF36008F26FF /* LevelDB+NNT.mm */; };
 		169F83E016F8478E0008AAC9 /* Algorithm+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */; };
 		169F83E116F8478E0008AAC9 /* Algorithm+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */; };
-		169F83E216F8478E0008AAC9 /* Assembly+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */; };
-		169F83E316F8478E0008AAC9 /* Assembly+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B116F8478D0008AAC9 /* Assembly+NNT.h */; };
 		169F83E416F8478E0008AAC9 /* Bimap+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */; };
 		169F83E516F8478E0008AAC9 /* Bimap+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B316F8478D0008AAC9 /* Bimap+NNT.h */; };
 		169F83E616F8478E0008AAC9 /* Closure+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */; };
 		169F83E716F8478E0008AAC9 /* Closure+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B516F8478D0008AAC9 /* Closure+NNT.h */; };
-		169F83E816F8478E0008AAC9 /* Cpu+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */; };
-		169F83E916F8478E0008AAC9 /* Cpu+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B716F8478D0008AAC9 /* Cpu+NNT.h */; };
 		169F83EA16F8478E0008AAC9 /* Data+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83B816F8478D0008AAC9 /* Data+NNT.cpp */; };
 		169F83EB16F8478E0008AAC9 /* Data+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83B916F8478D0008AAC9 /* Data+NNT.h */; };
-		169F83EC16F8478E0008AAC9 /* Device+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */; };
-		169F83ED16F8478E0008AAC9 /* Device+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BB16F8478D0008AAC9 /* Device+NNT.h */; };
 		169F83EE16F8478E0008AAC9 /* Exception+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */; };
 		169F83EF16F8478E0008AAC9 /* Exception+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BD16F8478D0008AAC9 /* Exception+NNT.h */; };
 		169F83F016F8478E0008AAC9 /* Function+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */; };
 		169F83F116F8478E0008AAC9 /* Function+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83BF16F8478D0008AAC9 /* Function+NNT.h */; };
-		169F83F216F8478E0008AAC9 /* Hardware+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */; };
-		169F83F316F8478E0008AAC9 /* Hardware+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83C116F8478D0008AAC9 /* Hardware+NNT.h */; };
 		169F83F416F8478E0008AAC9 /* Interface+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */; };
 		169F83F516F8478E0008AAC9 /* Interface+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169F83C316F8478E0008AAC9 /* Interface+NNT.h */; };
 		169F83F616F8478E0008AAC9 /* List+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F83C416F8478E0008AAC9 /* List+NNT.cpp */; };
@@ -1062,7 +1063,6 @@
 		16BB8E5B16DC59C0007DFFE8 /* AdmobService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */; };
 		16BD80EF157C95B300EE4CC6 /* SmtpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */; };
 		16BD80F0157C95B300EE4CC6 /* SmtpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BD80ED157C95B300EE4CC6 /* SmtpClient.h */; };
-		16BD80F1157C95B300EE4CC6 /* SoapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BD80EE157C95B300EE4CC6 /* SoapObject.cpp */; };
 		16BD83B1157CA0D400EE4CC6 /* EmailContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BD83AF157CA0D400EE4CC6 /* EmailContent.h */; };
 		16BD83B2157CA0D400EE4CC6 /* EmailContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BD83B0157CA0D400EE4CC6 /* EmailContent.cpp */; };
 		16BEF811146B76AF009CD999 /* UIGridPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BEF80F146B76AF009CD999 /* UIGridPageController.h */; };
@@ -1691,8 +1691,6 @@
 		1620F1D31609D39800592F83 /* LeSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeSize.h; sourceTree = "<group>"; };
 		16213EFE1654BE810084F433 /* XmlParserUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlParserUtil.cpp; sourceTree = "<group>"; };
 		16213EFF1654BE810084F433 /* XmlParserUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlParserUtil.h; sourceTree = "<group>"; };
-		162244C5158894FB0073B178 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetAddress.cpp; sourceTree = "<group>"; };
-		162244C6158894FB0073B178 /* NetAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAddress.h; sourceTree = "<group>"; };
 		162244C7158894FB0073B178 /* SocketServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketServer.cpp; sourceTree = "<group>"; };
 		162244C8158894FB0073B178 /* SocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
 		162244D31588971F0073B178 /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
@@ -1843,6 +1841,20 @@
 		162EF883148F0A5900D8E41B /* UIFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowView.m; sourceTree = "<group>"; };
 		16307EFE1404F48D002559FA /* GRMustacheWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheWrapper.h; sourceTree = "<group>"; };
 		16307EFF1404F48D002559FA /* GRMustacheWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheWrapper.m; sourceTree = "<group>"; };
+		1630A811171C021D00B318A9 /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdArguments.cpp; sourceTree = "<group>"; };
+		1630A812171C021D00B318A9 /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdArguments.h; sourceTree = "<group>"; };
+		1630A813171C021D00B318A9 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetAddress.cpp; sourceTree = "<group>"; };
+		1630A814171C021D00B318A9 /* NetAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAddress.h; sourceTree = "<group>"; };
+		1630A819171C023200B318A9 /* SOAPObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SOAPObject.cpp; sourceTree = "<group>"; };
+		1630A81A171C023200B318A9 /* SOAPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPObject.h; sourceTree = "<group>"; };
+		1630A81E171C036000B318A9 /* Assembly+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Assembly+NNT.cpp"; path = "TL/hardware/Assembly+NNT.cpp"; sourceTree = "<group>"; };
+		1630A81F171C036000B318A9 /* Assembly+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Assembly+NNT.h"; path = "TL/hardware/Assembly+NNT.h"; sourceTree = "<group>"; };
+		1630A820171C036000B318A9 /* Cpu+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Cpu+NNT.cpp"; path = "TL/hardware/Cpu+NNT.cpp"; sourceTree = "<group>"; };
+		1630A821171C036000B318A9 /* Cpu+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Cpu+NNT.h"; path = "TL/hardware/Cpu+NNT.h"; sourceTree = "<group>"; };
+		1630A822171C036000B318A9 /* Device+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Device+NNT.cpp"; path = "TL/hardware/Device+NNT.cpp"; sourceTree = "<group>"; };
+		1630A823171C036000B318A9 /* Device+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Device+NNT.h"; path = "TL/hardware/Device+NNT.h"; sourceTree = "<group>"; };
+		1630A824171C036000B318A9 /* Hardware+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Hardware+NNT.cpp"; path = "TL/hardware/Hardware+NNT.cpp"; sourceTree = "<group>"; };
+		1630A825171C036000B318A9 /* Hardware+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hardware+NNT.h"; path = "TL/hardware/Hardware+NNT.h"; sourceTree = "<group>"; };
 		16310F781679C71E00232398 /* AIAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIAction.cpp; sourceTree = "<group>"; };
 		16310F791679C71E00232398 /* AIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAction.h; sourceTree = "<group>"; };
 		16310F7A1679C71E00232398 /* AIBehave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIBehave.cpp; sourceTree = "<group>"; };
@@ -2095,8 +2107,6 @@
 		167CDC7315764D9F00E46FFF /* UIBarButtonItem+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIBarButtonItem+NNT.mm"; sourceTree = "<group>"; };
 		167D544B16E03D4D00F68533 /* OAWeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAWeChat.h; sourceTree = "<group>"; };
 		167D544C16E03D4D00F68533 /* OAWeChat.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAWeChat.mm; sourceTree = "<group>"; };
-		167DAA8616787DDE0009BB4B /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdArguments.cpp; sourceTree = "<group>"; };
-		167DAA8716787DDE0009BB4B /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdArguments.h; sourceTree = "<group>"; };
 		167E54DD15BE49980075DD01 /* UIWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebController.h; sourceTree = "<group>"; };
 		167E54DE15BE49980075DD01 /* UIWebController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIWebController.mm; sourceTree = "<group>"; };
 		167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BehaviourSys.cpp; sourceTree = "<group>"; };
@@ -2267,7 +2277,6 @@
 		168B119815426BA100D9325A /* JuiceCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceCamera.hpp; sourceTree = "<group>"; };
 		168B11C415427B3B00D9325A /* JuiceGlslLibrary.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceGlslLibrary.hpp; sourceTree = "<group>"; };
 		168BE06515F0A13B00029DC1 /* EmojiCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmojiCodec.mm; sourceTree = "<group>"; };
-		168CCEC8157A29DE00E83E60 /* SoapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapObject.h; sourceTree = "<group>"; };
 		168CCECD157A2A9600E83E60 /* HtmlObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlObjParser.h; sourceTree = "<group>"; };
 		168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HtmlObjParser.mm; sourceTree = "<group>"; };
 		168F47B8158C58C300F4D998 /* XmppObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppObject.cpp; sourceTree = "<group>"; };
@@ -2484,24 +2493,16 @@
 		169C0AC7140CDF36008F26FF /* LevelDB+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "LevelDB+NNT.mm"; sourceTree = "<group>"; };
 		169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Algorithm+NNT.cpp"; path = "TL/Algorithm+NNT.cpp"; sourceTree = "<group>"; };
 		169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Algorithm+NNT.h"; path = "TL/Algorithm+NNT.h"; sourceTree = "<group>"; };
-		169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Assembly+NNT.cpp"; path = "TL/Assembly+NNT.cpp"; sourceTree = "<group>"; };
-		169F83B116F8478D0008AAC9 /* Assembly+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Assembly+NNT.h"; path = "TL/Assembly+NNT.h"; sourceTree = "<group>"; };
 		169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Bimap+NNT.cpp"; path = "TL/Bimap+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B316F8478D0008AAC9 /* Bimap+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bimap+NNT.h"; path = "TL/Bimap+NNT.h"; sourceTree = "<group>"; };
 		169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Closure+NNT.cpp"; path = "TL/Closure+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B516F8478D0008AAC9 /* Closure+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Closure+NNT.h"; path = "TL/Closure+NNT.h"; sourceTree = "<group>"; };
-		169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Cpu+NNT.cpp"; path = "TL/Cpu+NNT.cpp"; sourceTree = "<group>"; };
-		169F83B716F8478D0008AAC9 /* Cpu+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Cpu+NNT.h"; path = "TL/Cpu+NNT.h"; sourceTree = "<group>"; };
 		169F83B816F8478D0008AAC9 /* Data+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Data+NNT.cpp"; path = "TL/Data+NNT.cpp"; sourceTree = "<group>"; };
 		169F83B916F8478D0008AAC9 /* Data+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Data+NNT.h"; path = "TL/Data+NNT.h"; sourceTree = "<group>"; };
-		169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Device+NNT.cpp"; path = "TL/Device+NNT.cpp"; sourceTree = "<group>"; };
-		169F83BB16F8478D0008AAC9 /* Device+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Device+NNT.h"; path = "TL/Device+NNT.h"; sourceTree = "<group>"; };
 		169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Exception+NNT.cpp"; path = "TL/Exception+NNT.cpp"; sourceTree = "<group>"; };
 		169F83BD16F8478D0008AAC9 /* Exception+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Exception+NNT.h"; path = "TL/Exception+NNT.h"; sourceTree = "<group>"; };
 		169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Function+NNT.cpp"; path = "TL/Function+NNT.cpp"; sourceTree = "<group>"; };
 		169F83BF16F8478D0008AAC9 /* Function+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Function+NNT.h"; path = "TL/Function+NNT.h"; sourceTree = "<group>"; };
-		169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Hardware+NNT.cpp"; path = "TL/Hardware+NNT.cpp"; sourceTree = "<group>"; };
-		169F83C116F8478D0008AAC9 /* Hardware+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hardware+NNT.h"; path = "TL/Hardware+NNT.h"; sourceTree = "<group>"; };
 		169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Interface+NNT.cpp"; path = "TL/Interface+NNT.cpp"; sourceTree = "<group>"; };
 		169F83C316F8478E0008AAC9 /* Interface+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Interface+NNT.h"; path = "TL/Interface+NNT.h"; sourceTree = "<group>"; };
 		169F83C416F8478E0008AAC9 /* List+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "List+NNT.cpp"; path = "TL/List+NNT.cpp"; sourceTree = "<group>"; };
@@ -2641,7 +2642,6 @@
 		16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdmobService.mm; sourceTree = "<group>"; };
 		16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmtpClient.cpp; sourceTree = "<group>"; };
 		16BD80ED157C95B300EE4CC6 /* SmtpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmtpClient.h; sourceTree = "<group>"; };
-		16BD80EE157C95B300EE4CC6 /* SoapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoapObject.cpp; sourceTree = "<group>"; };
 		16BD83AF157CA0D400EE4CC6 /* EmailContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailContent.h; sourceTree = "<group>"; };
 		16BD83B0157CA0D400EE4CC6 /* EmailContent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmailContent.cpp; sourceTree = "<group>"; };
 		16BEF80F146B76AF009CD999 /* UIGridPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGridPageController.h; sourceTree = "<group>"; };
@@ -3453,6 +3453,21 @@
 			path = Joints;
 			sourceTree = "<group>";
 		};
+		1630A81D171C034B00B318A9 /* hardware */ = {
+			isa = PBXGroup;
+			children = (
+				1630A81E171C036000B318A9 /* Assembly+NNT.cpp */,
+				1630A81F171C036000B318A9 /* Assembly+NNT.h */,
+				1630A820171C036000B318A9 /* Cpu+NNT.cpp */,
+				1630A821171C036000B318A9 /* Cpu+NNT.h */,
+				1630A822171C036000B318A9 /* Device+NNT.cpp */,
+				1630A823171C036000B318A9 /* Device+NNT.h */,
+				1630A824171C036000B318A9 /* Hardware+NNT.cpp */,
+				1630A825171C036000B318A9 /* Hardware+NNT.h */,
+			);
+			name = hardware;
+			sourceTree = "<group>";
+		};
 		16358B3114A07BF1005F06B5 /* contrib */ = {
 			isa = PBXGroup;
 			children = (
@@ -3743,8 +3758,6 @@
 				16AC1CF216F2D1A100316206 /* HttpServer.h */,
 				160FB1A715FF02BE00F8E37B /* NSHttpCache.h */,
 				160FB1A815FF02BE00F8E37B /* NSHttpCache.mm */,
-				162244C5158894FB0073B178 /* NetAddress.cpp */,
-				162244C6158894FB0073B178 /* NetAddress.h */,
 				162244C7158894FB0073B178 /* SocketServer.cpp */,
 				162244C8158894FB0073B178 /* SocketServer.h */,
 				16AF98B815D39814009338B6 /* SocketClient.cpp */,
@@ -3779,8 +3792,6 @@
 				1647BFFD160C6880007AC94E /* SqliteRequest.cpp */,
 				162995EA15DB741D003C5B51 /* OperationRequest.h */,
 				162995EB15DB741D003C5B51 /* OperationRequest.mm */,
-				16BD80EE157C95B300EE4CC6 /* SoapObject.cpp */,
-				168CCEC8157A29DE00E83E60 /* SoapObject.h */,
 				16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */,
 				16BD80ED157C95B300EE4CC6 /* SmtpClient.h */,
 				16BD83AF157CA0D400EE4CC6 /* EmailContent.h */,
@@ -3850,8 +3861,6 @@
 			children = (
 				1693685A16F185CC0021909E /* HttpParser.cpp */,
 				1693685B16F185CC0021909E /* HttpParser.h */,
-				167DAA8616787DDE0009BB4B /* CmdArguments.cpp */,
-				167DAA8716787DDE0009BB4B /* CmdArguments.h */,
 				16C34EE7161177B700DFAC04 /* CSVParser.cpp */,
 				16C34EE8161177B700DFAC04 /* CSVParser.h */,
 				16EAD510155A422B00C3105F /* CSSParser.cpp */,
@@ -3860,6 +3869,8 @@
 				16EAD513155A422B00C3105F /* PropertyTree.h */,
 				16EAD515155A422B00C3105F /* SOAPParser.h */,
 				16EAD514155A422B00C3105F /* SOAPParser.cpp */,
+				1630A819171C023200B318A9 /* SOAPObject.cpp */,
+				1630A81A171C023200B318A9 /* SOAPObject.h */,
 				16EAD516155A422B00C3105F /* SVGParser.cpp */,
 				16EAD517155A422B00C3105F /* SVGParser.h */,
 				16BF9BB8154A4899000BF0A5 /* GifParser.h */,
@@ -4516,6 +4527,10 @@
 				165227B91541174A00E98F48 /* Task+NNT.h */,
 				1607E83B15A5870B009D40A8 /* UnitTest.cpp */,
 				1607E83C15A5870B009D40A8 /* UnitTest.h */,
+				1630A811171C021D00B318A9 /* CmdArguments.cpp */,
+				1630A812171C021D00B318A9 /* CmdArguments.h */,
+				1630A813171C021D00B318A9 /* NetAddress.cpp */,
+				1630A814171C021D00B318A9 /* NetAddress.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -4536,26 +4551,19 @@
 		169F83AD16F847820008AAC9 /* TL */ = {
 			isa = PBXGroup;
 			children = (
+				1630A81D171C034B00B318A9 /* hardware */,
 				169F83AE16F8478D0008AAC9 /* Algorithm+NNT.cpp */,
 				169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */,
-				169F83B016F8478D0008AAC9 /* Assembly+NNT.cpp */,
-				169F83B116F8478D0008AAC9 /* Assembly+NNT.h */,
 				169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */,
 				169F83B316F8478D0008AAC9 /* Bimap+NNT.h */,
 				169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */,
 				169F83B516F8478D0008AAC9 /* Closure+NNT.h */,
-				169F83B616F8478D0008AAC9 /* Cpu+NNT.cpp */,
-				169F83B716F8478D0008AAC9 /* Cpu+NNT.h */,
 				169F83B816F8478D0008AAC9 /* Data+NNT.cpp */,
 				169F83B916F8478D0008AAC9 /* Data+NNT.h */,
-				169F83BA16F8478D0008AAC9 /* Device+NNT.cpp */,
-				169F83BB16F8478D0008AAC9 /* Device+NNT.h */,
 				169F83BC16F8478D0008AAC9 /* Exception+NNT.cpp */,
 				169F83BD16F8478D0008AAC9 /* Exception+NNT.h */,
 				169F83BE16F8478D0008AAC9 /* Function+NNT.cpp */,
 				169F83BF16F8478D0008AAC9 /* Function+NNT.h */,
-				169F83C016F8478D0008AAC9 /* Hardware+NNT.cpp */,
-				169F83C116F8478D0008AAC9 /* Hardware+NNT.h */,
 				169F83C216F8478E0008AAC9 /* Interface+NNT.cpp */,
 				169F83C316F8478E0008AAC9 /* Interface+NNT.h */,
 				169F83C416F8478E0008AAC9 /* List+NNT.cpp */,
@@ -5972,7 +5980,6 @@
 				16ADDC541573767100BC2378 /* CGInnerShadowStyle.h in Headers */,
 				168FBEE01575BE4100E4B5CC /* NSIndex+NNT.h in Headers */,
 				168FBF92157603C900E4B5CC /* UIHeaderView.h in Headers */,
-				168CCECB157A29DE00E83E60 /* SoapObject.h in Headers */,
 				168CCECF157A2A9600E83E60 /* HtmlObjParser.h in Headers */,
 				16BD80F0157C95B300EE4CC6 /* SmtpClient.h in Headers */,
 				16BD83B1157CA0D400EE4CC6 /* EmailContent.h in Headers */,
@@ -5981,7 +5988,6 @@
 				16A7B890157E6832007B11D0 /* UISMSController.h in Headers */,
 				16F7F3E91583006A00198FCD /* NSDate+NNT.h in Headers */,
 				16F7F3EE158303BD00198FCD /* NSNotification+NNT.h in Headers */,
-				162244CA158894FB0073B178 /* NetAddress.h in Headers */,
 				162244CC158894FB0073B178 /* SocketServer.h in Headers */,
 				162244D51588971F0073B178 /* SocketClient.h in Headers */,
 				162247911588985E0073B178 /* SocketStream.h in Headers */,
@@ -6117,7 +6123,6 @@
 				1605FEF3166C3DB30060AAEF /* PayUtils.h in Headers */,
 				166C1880166F14C300E4423F /* QzDisplayLink.h in Headers */,
 				166C1885166F181800E4423F /* NSRunLoop+NNT.h in Headers */,
-				167DAA8916787DDE0009BB4B /* CmdArguments.h in Headers */,
 				16310F811679C71E00232398 /* AIAction.h in Headers */,
 				16310F831679C71E00232398 /* AIBehave.h in Headers */,
 				16310F851679C71E00232398 /* AIBody.h in Headers */,
@@ -6160,15 +6165,11 @@
 				16936FF016F1AF1E0021909E /* V8+NNT.h in Headers */,
 				16AC1CF416F2D1A100316206 /* HttpServer.h in Headers */,
 				169F83E116F8478E0008AAC9 /* Algorithm+NNT.h in Headers */,
-				169F83E316F8478E0008AAC9 /* Assembly+NNT.h in Headers */,
 				169F83E516F8478E0008AAC9 /* Bimap+NNT.h in Headers */,
 				169F83E716F8478E0008AAC9 /* Closure+NNT.h in Headers */,
-				169F83E916F8478E0008AAC9 /* Cpu+NNT.h in Headers */,
 				169F83EB16F8478E0008AAC9 /* Data+NNT.h in Headers */,
-				169F83ED16F8478E0008AAC9 /* Device+NNT.h in Headers */,
 				169F83EF16F8478E0008AAC9 /* Exception+NNT.h in Headers */,
 				169F83F116F8478E0008AAC9 /* Function+NNT.h in Headers */,
-				169F83F316F8478E0008AAC9 /* Hardware+NNT.h in Headers */,
 				169F83F516F8478E0008AAC9 /* Interface+NNT.h in Headers */,
 				169F83F716F8478E0008AAC9 /* List+NNT.h in Headers */,
 				169F83FA16F8478E0008AAC9 /* Map+NNT.h in Headers */,
@@ -6182,6 +6183,13 @@
 				169F840C16F8478E0008AAC9 /* Types+NNT.h in Headers */,
 				169F840E16F8478E0008AAC9 /* Variant+NNT.h in Headers */,
 				169F841016F8478E0008AAC9 /* Vector+NNT.h in Headers */,
+				1630A816171C021D00B318A9 /* CmdArguments.h in Headers */,
+				1630A818171C021D00B318A9 /* NetAddress.h in Headers */,
+				1630A81C171C023200B318A9 /* SOAPObject.h in Headers */,
+				1630A827171C036000B318A9 /* Assembly+NNT.h in Headers */,
+				1630A829171C036000B318A9 /* Cpu+NNT.h in Headers */,
+				1630A82B171C036000B318A9 /* Device+NNT.h in Headers */,
+				1630A82D171C036000B318A9 /* Hardware+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6775,7 +6783,6 @@
 				167CDC7415764D9F00E46FFF /* UIBarButtonItem+NNT.mm in Sources */,
 				168CCED0157A2A9600E83E60 /* HtmlObjParser.mm in Sources */,
 				16BD80EF157C95B300EE4CC6 /* SmtpClient.cpp in Sources */,
-				16BD80F1157C95B300EE4CC6 /* SoapObject.cpp in Sources */,
 				16BD83B2157CA0D400EE4CC6 /* EmailContent.cpp in Sources */,
 				165C8163157D1725001D95AC /* Configuration+NNT.cpp in Sources */,
 				165C8166157D1746001D95AC /* Bdb+NNT.cpp in Sources */,
@@ -6784,7 +6791,6 @@
 				16A7B891157E6832007B11D0 /* UISMSController.mm in Sources */,
 				16F7F3EA1583006A00198FCD /* NSDate+NNT.mm in Sources */,
 				16F7F3EF158303BD00198FCD /* NSNotification+NNT.mm in Sources */,
-				162244C9158894FB0073B178 /* NetAddress.cpp in Sources */,
 				162244CB158894FB0073B178 /* SocketServer.cpp in Sources */,
 				162247901588985E0073B178 /* SocketStream.cpp in Sources */,
 				167BA91F1589D35B0054FA81 /* ACE+NNT.cpp in Sources */,
@@ -6979,7 +6985,6 @@
 				1605FEF4166C3DB30060AAEF /* PayUtils.mm in Sources */,
 				166C1881166F14C300E4423F /* QzDisplayLink.mm in Sources */,
 				166C1886166F181800E4423F /* NSRunLoop+NNT.mm in Sources */,
-				167DAA8816787DDE0009BB4B /* CmdArguments.cpp in Sources */,
 				16310F801679C71E00232398 /* AIAction.cpp in Sources */,
 				16310F821679C71E00232398 /* AIBehave.cpp in Sources */,
 				16310F841679C71E00232398 /* AIBody.cpp in Sources */,
@@ -7041,15 +7046,11 @@
 				16AC1CF016F2D08E00316206 /* mongoose.c in Sources */,
 				16AC1CF316F2D1A100316206 /* HttpServer.cpp in Sources */,
 				169F83E016F8478E0008AAC9 /* Algorithm+NNT.cpp in Sources */,
-				169F83E216F8478E0008AAC9 /* Assembly+NNT.cpp in Sources */,
 				169F83E416F8478E0008AAC9 /* Bimap+NNT.cpp in Sources */,
 				169F83E616F8478E0008AAC9 /* Closure+NNT.cpp in Sources */,
-				169F83E816F8478E0008AAC9 /* Cpu+NNT.cpp in Sources */,
 				169F83EA16F8478E0008AAC9 /* Data+NNT.cpp in Sources */,
-				169F83EC16F8478E0008AAC9 /* Device+NNT.cpp in Sources */,
 				169F83EE16F8478E0008AAC9 /* Exception+NNT.cpp in Sources */,
 				169F83F016F8478E0008AAC9 /* Function+NNT.cpp in Sources */,
-				169F83F216F8478E0008AAC9 /* Hardware+NNT.cpp in Sources */,
 				169F83F416F8478E0008AAC9 /* Interface+NNT.cpp in Sources */,
 				169F83F616F8478E0008AAC9 /* List+NNT.cpp in Sources */,
 				169F83F816F8478E0008AAC9 /* List+NNT.mm in Sources */,
@@ -7068,6 +7069,13 @@
 				169F840F16F8478E0008AAC9 /* Vector+NNT.cpp in Sources */,
 				169F841116F8478E0008AAC9 /* Vector+NNT.mm in Sources */,
 				169F841316F84ADF0008AAC9 /* cvimage+nnt.cpp in Sources */,
+				1630A815171C021D00B318A9 /* CmdArguments.cpp in Sources */,
+				1630A817171C021D00B318A9 /* NetAddress.cpp in Sources */,
+				1630A81B171C023200B318A9 /* SOAPObject.cpp in Sources */,
+				1630A826171C036000B318A9 /* Assembly+NNT.cpp in Sources */,
+				1630A828171C036000B318A9 /* Cpu+NNT.cpp in Sources */,
+				1630A82A171C036000B318A9 /* Device+NNT.cpp in Sources */,
+				1630A82C171C036000B318A9 /* Hardware+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
