@@ -72,6 +72,12 @@
 #   define NNT_LIBRARY 1
 # endif
 
+# ifdef KERNELNNT
+#   define NNT_KERNEL_SPACE 1
+# else
+#   define NNT_USER_SPACE 1
+# endif
+
 # if defined(_MSC_VER) && defined(WIN32)
 #   ifdef _MFC_VER
 #     define NNT_MFC 1 
@@ -85,10 +91,13 @@
 #   if defined(NNT_LIBRARY)
 #     include "stdafx.h"
 #   endif
-#   include <Windows.h>
-//#   include <WinNT.h>
+#   ifdef NNT_USER_SPACE
+#     include <Windows.h>
+#   endif
 #   include <tchar.h>
-#   include <cwchar>
+#   ifdef NNT_USER_SPACE
+#     include <cwchar>
+#   endif
 #   ifdef NNT_MFC
 #     include <afx.h>
 #     include <afxwin.h>
@@ -203,12 +212,6 @@ typedef ios_unknown ios_version;
 #   else
 #     define NNT_LIBRARY_SHARED 1
 #   endif
-# endif
-
-# ifdef KERNELNNT
-#   define NNT_KERNEL_SPACE 1
-# else
-#   define NNT_USER_SPACE 1
 # endif
 
 # ifdef NNT_KERNEL_SPACE
@@ -1665,10 +1668,12 @@ NNT_END_HEADER_C
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+# include <string>
 # include <iostream>
 # include <iomanip>
-# include <string>
 # include <algorithm>
+# endif
 
 NNT_BEGIN_HEADER_CXX
 
@@ -1711,6 +1716,8 @@ typedef struct {} objc_type;
 #   define autocollect
 # endif
 
+# ifdef NNT_USER_SPACE
+
 // include C++ Base Classes.
 # include "../TL/Exception+NNT.h"
 # include "../TL/Types+NNT.h"
@@ -1729,6 +1736,8 @@ typedef struct {} objc_type;
 # include "../TL/Closure+NNT.h"
 # include "../TL/Variant+NNT.h"
 
+# endif
+
 // ignore assert.
 # include <assert.h>
 # ifdef assert
@@ -1736,8 +1745,12 @@ typedef struct {} objc_type;
 #   undef assert
 # endif
 
+# ifdef NNT_USER_SPACE
+
 // include unit test.
 # include "UnitTest.h"
+
+# endif
 
 # ifdef NNT_OBJC
 

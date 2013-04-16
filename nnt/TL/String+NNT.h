@@ -9,7 +9,7 @@ int str_indexof_char(char const*, char c, int len, int offset);
 
 NNT_END_HEADER_C
 
-# ifdef NNT_CXX
+# if defined(NNT_CXX) && defined(NNT_USER_SPACE)
 
 # include <string>
 # include <vector>
