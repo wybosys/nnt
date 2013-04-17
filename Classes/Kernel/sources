@@ -8,7 +8,8 @@ INCLUDES =\
 	..\..\3rd\MSVC\ddk;
 
 C_DEFINES = $(C_DEFINES) \
-	/DKERNELNNT
+	/DKERNELNNT \
+	/DLIBNNT
 
 SOURCES =\
 	DriverApp.cpp \

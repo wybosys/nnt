@@ -6,12 +6,16 @@
 
 # ifndef NNT_NOLIB
 
+# ifdef NNT_USER_SPACE
+
 # ifdef NNT_OBJC
 #   import "UIKit/UIKit+NNT.h"
 # endif
 
 # ifdef NNT_CROSS_PLATFORM
 #   include "UIKit/UIKit+Cross.h"
+# endif
+
 # endif
 
 # endif

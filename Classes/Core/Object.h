@@ -455,7 +455,7 @@ public:
 		{
 			values_type vals;
 			vals.push(obj);
-			store.insert(std::make_pair(name, vals));			
+			_store.insert(std::make_pair(name, vals));			
 			obj->grab();
 		}
 		else
