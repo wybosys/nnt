@@ -2,15 +2,13 @@
 # ifndef __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
 # define __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
 
-# ifdef NNT_CXX
-
 # ifdef NNT_USER_SPACE
+
+# ifdef NNT_CXX
 
 # include <stack>
 # include <map>
 # include "../TL/Exception+NNT.h"
-
-# endif
 
 NNT_BEGIN_HEADER_CXX
 
@@ -387,8 +385,6 @@ public:
     
 };
 
-# ifdef NNT_USER_SPACE
-
 template <class ObjectT>
 class StrongObjectStore
 {
@@ -615,17 +611,11 @@ protected:
 
 };
 
-# endif
-
 NNT_END_HEADER_CXX
 
 # endif
 
-# ifdef NNT_USER_SPACE
-
 # include "Event+NNT.h"
-
-# endif
 
 # ifdef NNT_OBJC
 
@@ -851,18 +841,16 @@ extern void ObjectInit();
 
 NNT_END_HEADER_OBJC
 
+# ifdef NNT_CXX
+
+# define NNTIMPL_SINGLETON(cls) \
+    ::nnt::AutoReleaseObj<cls> __gs_singleton_##cls; \
+    + (cls*)getInstance { return __gs_singleton_##cls.getInstance(); }
+
+# define NNTSINGLETON_INIT() \
+    - (void) instanceInit
+
 # endif
-
-# ifdef NNT_CXX_OBJC
-
-# define NNTIMPL_SINGLETON(cls) ::nnt::AutoReleaseObj<cls> __gs_singleton_##cls; \
-+ (cls*)getInstance { return __gs_singleton_##cls.getInstance(); }
-
-# define NNTSINGLETON_INIT() - (void) instanceInit
-
-# endif
-
-# ifdef NNT_OBJC
 
 NNT_BEGIN_HEADER_OBJC
 
@@ -908,8 +896,6 @@ protected:
 
 };
 
-# ifdef NNT_USER_SPACE
-
 # define NNTDECL_SIGNALS_SLOTS virtual void init_signals();
 # define NNTDECL_SIGNALS_BEGIN(cls, sup) void cls::init_signals() { sup::init_signals();
 # define NNTDECL_SIGNALS_END }
@@ -936,21 +922,19 @@ NNT_EXTERN eventobj_t null_eventobj;
 
 # ifdef NNT_OBJC
 
-#   define _cxxobjc_action(func) (::nnt::cxx::event_func)&func##_cxxobjc_mainthread
+#   define _cxxobjc_action(func) \
+    (::nnt::cxx::event_func)&func##_cxxobjc_mainthread
 #   define cxxobjc_action(func) \
-void func(::nnt::cxx::eventobj_t&); \
-void func##_cxxobjc_mainthread(::nnt::cxx::eventobj_t& evt) { \
-NNT_MAINTHREAD( \
-autocollect; \
-::nnt::core::down_const(this)->func(::nnt::core::down_const(evt)); \
-); \
-}
+    void func(::nnt::cxx::eventobj_t&); \
+    void func##_cxxobjc_mainthread(::nnt::cxx::eventobj_t& evt) { \
+    NNT_MAINTHREAD( \
+    autocollect; \
+    ::nnt::core::down_const(this)->func(::nnt::core::down_const(evt)); \
+    ); }
 
 # endif // objc
 
 # endif // pure cxx
-
-# endif // user space
 
 # define OBJECT_TPL_DECL template <class BaseT>
 # define OBJECT_TPL_IMPL BaseT
@@ -970,8 +954,6 @@ public:
     
     //! type for member slot.
 	typedef void (self_type::*member_func)(void*);
-    
-# ifdef NNT_USER_SPACE
 
     //! type for attach & store.
 	typedef StrongObjectStore< RefObject > store_type;
@@ -1039,12 +1021,8 @@ public:
     
     //! to string.
     virtual core::string to_string() const;
-
-# endif
     
 protected:
-
-# ifdef NNT_USER_SPACE
 
     //! event.
 	event_type *_event;
@@ -1054,8 +1032,6 @@ protected:
     
     //! attach.
 	attach_type *_attach;
-
-# endif
     
 };
 
@@ -1119,7 +1095,7 @@ protected:
 
 # define NNTMACRO_AUTOLOCK(obj) Autolock __autolock_##__LINE__##_obj(obj);
 
-# endif
+# endif // gcc
 
 template <typename mtxT>
 class Lockable
@@ -1164,12 +1140,6 @@ protected:
     
 };
 
-# ifdef NNT_PURE_CXX
-
-typedef Object<> NNTObject;
-
-# endif
-
 # ifndef release_ref
 #   define release_ref(obj) { if (obj) { if (obj->drop()) obj = 0; } }
 # endif
@@ -1184,9 +1154,7 @@ inline_impl void refobj_set(lT*& l, rT*& r)
 
 OBJECT_TPL_DECL
 template_impl Object<OBJECT_TPL_IMPL>::Object()
-# ifdef NNT_USER_SPACE
 : _event(NULL), _store(NULL), _attach(NULL)
-# endif
 {
 	PASS;
 }
@@ -1194,14 +1162,10 @@ template_impl Object<OBJECT_TPL_IMPL>::Object()
 OBJECT_TPL_DECL
 template_impl Object<OBJECT_TPL_IMPL>::~Object()
 {
-# ifdef NNT_USER_SPACE
     safe_delete(_event);
     safe_delete(_store);
     safe_delete(_attach);
-# endif
 }
-
-# ifdef NNT_USER_SPACE
 
 OBJECT_TPL_DECL
 template_impl event_type* Object<OBJECT_TPL_IMPL>::getEvent()
@@ -1398,13 +1362,12 @@ template_impl core::string Object<OBJECT_TPL_IMPL>::to_string() const
     return core::null_string;
 }
 
-# endif
-
 template <class BaseT = ::nnt::RefObject >
 class AutoFreeObject
 : public Object<BaseT>
 {
 public:
+
 	AutoFreeObject()
     : data(NULL)
 	{
@@ -1578,8 +1541,6 @@ public:
 
 };
 
-# ifdef NNT_USER_SPACE
-
 template <typename objT, typename evtfuncT, typename eventT>
 class BackgroundEmit
 	: public TaskBackground
@@ -1605,11 +1566,7 @@ protected:
 
 };
 
-# endif
-
 NNT_END_NS
-
-# ifdef NNT_USER_SPACE
 
 EVENT_TPL_DECL
 template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj_t& evt, void* sender) const
@@ -1675,19 +1632,9 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
 	}
 }
 
-# endif
-
 NNT_END_NS
 
 NNT_BEGIN_NS(ntl)
-
-/*
-template <typename objT>
-cxx::Autolock<objT> autolock(objT* obj)
-{
-	return cxx::Autolock<objT>(obj);
-}
-*/
 
 NNTDECL_BOOLOBJECT(enable, disable);
 NNTDECL_BOOLOBJECT(on, off);
@@ -1829,5 +1776,7 @@ NNTAPI(void) Grab(::nnt::RefObject* obj);
 NNT_END_HEADER_C
 
 # endif
+
+# endif // user space
 
 # endif

@@ -1519,7 +1519,7 @@ NNT_EXTERN NSString* NNTGetFeedbackEmail();
 
 # else
 
-# ifdef NNT_CXX
+# if defined(NNT_CXX) && defined(NNT_USER_SPACE)
 
 NNT_BEGIN_HEADER_CXX
 
