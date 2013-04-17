@@ -32,7 +32,7 @@ bool regex_grep(string const& re, string const& str, regex_matched_t& result)
 
 bool regex_capture(string const& re, string const& str, regex_captured_t& result)
 {
-    int old = result.size();
+    int old = (int)result.size();
     ::boost::regex expr(re);
     ::boost::sregex_iterator iter(str.begin(), str.end(), expr), end;
     for (; iter != end; ++iter)

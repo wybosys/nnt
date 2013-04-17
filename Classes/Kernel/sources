@@ -1,0 +1,16 @@
+TARGETNAME = libNntKernel
+TARGETPATH = build
+TARGETTYPE = DRIVER_LIBRARY
+TARGETLIBS =
+
+INCLUDES =\
+	..\Core; \
+	..\..\3rd\MSVC\ddk;
+
+C_DEFINES = $(C_DEFINES) \
+	/DKERNELNNT \
+	/DLIBNNT
+
+SOURCES =\
+	DriverApp.cpp \
+	DriverObject.cpp \

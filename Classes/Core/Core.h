@@ -72,6 +72,12 @@
 #   define NNT_LIBRARY 1
 # endif
 
+# ifdef KERNELNNT
+#   define NNT_KERNEL_SPACE 1
+# else
+#   define NNT_USER_SPACE 1
+# endif
+
 # if defined(_MSC_VER) && defined(WIN32)
 #   ifdef _MFC_VER
 #     define NNT_MFC 1 
@@ -82,13 +88,24 @@
 #   if defined(_USRDLL) && !defined(NNT_LIBRARY)
 #     define NNT_LIBRARY 1
 #   endif
-#   if defined(NNT_LIBRARY)
+#   if defined(NNT_LIBRARY) && defined(NNT_USER_SPACE)
 #     include "stdafx.h"
 #   endif
-#   include <Windows.h>
-//#   include <WinNT.h>
+#   ifdef NNT_USER_SPACE
+#     include <Windows.h>
+#   else // kernel space
+#     include <ntddk.h>
+#     define NNTKS_PAGED_CODE code_seg("PAGE")
+#     define NNTKS_LOCKED_CODE code_seg()
+#     define NNTKS_INIT_CODE code_seg("INIT")
+#     define NNTKS_PAGED_DATA data_seg("PAGE")
+#     define NNTKS_LOCKED_DATA data_seg()
+#     define NNTKS_INIT_DATA data_seg("INIT")
+#   endif // user space
 #   include <tchar.h>
-#   include <cwchar>
+#   ifdef NNT_USER_SPACE
+#     include <cwchar>
+#   endif
 #   ifdef NNT_MFC
 #     include <afx.h>
 #     include <afxwin.h>
@@ -205,12 +222,6 @@ typedef ios_unknown ios_version;
 #   endif
 # endif
 
-# ifdef KERNELNNT
-#   define NNT_KERNEL_SPACE 1
-# else
-#   define NNT_USER_SPACE 1
-# endif
-
 # ifdef NNT_KERNEL_SPACE
 #   define NNTKS_EXPRESS(exp) exp
 #   define NNTUS_EXPRESS(exp) exp
@@ -247,6 +258,9 @@ typedef struct {} compr_gcc;
 typedef struct {} compr_msvc;
 typedef struct {} compr_clang;
 
+typedef struct {} space_kernel;
+typedef struct {} space_user;
+
 # ifdef NNT_X64
 typedef arch_x64 arch_type;
 # endif
@@ -279,10 +293,17 @@ typedef compr_msvc compr_type;
 typedef compr_clang compr_type;
 # endif
 
+# ifdef NNT_KERNEL_SPACE
+typedef space_kernel space_type;
+# else
+typedef space_user space_type;
+# endif
+
 NNT_STATIC_CONST arch_type arch_object();
 NNT_STATIC_CONST os_type os_object();
 NNT_STATIC_CONST lang_type lang_object();
 NNT_STATIC_CONST compr_type compr_object();
+NNT_STATIC_CONST space_type space_object();
 
 # define NNTASM_BEGIN __asm {
 # define NNTASM_END }
@@ -405,34 +426,11 @@ NNTASM_END
 # import <Foundation/Foundation.h>
 
 # if TARGET_OS_IPHONE
-# import <UIKit/UIKit.h>
+#   import <UIKit/UIKit.h>
 # endif
 
 # define is_no == NO
 # define is_yes == YES
-
-# ifdef NNT_CXX
-
-class segment_accel_type
-{
-    public:
-    
-    segment_accel_type()
-    {
-        pool = [[NSAutoreleasePool alloc] init];
-    }
-    
-    ~segment_accel_type()
-    {
-        [pool drain];
-    }
-    
-    NSAutoreleasePool* pool;
-};
-
-# define segment_accel segment_accel_type __nnt_accel_segment;
-
-# endif
 
 # endif
 
@@ -1665,10 +1663,12 @@ NNT_END_HEADER_C
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+# include <string>
 # include <iostream>
 # include <iomanip>
-# include <string>
 # include <algorithm>
+# endif
 
 NNT_BEGIN_HEADER_CXX
 
@@ -1678,6 +1678,8 @@ struct _ignore_null;
 typedef _ignore_null *ignore_null;
 
 namespace cxx {}
+namespace ntl {}
+namespace core { using namespace ntl; }
 
 # ifdef NNT_PURE_CXX
 using namespace cxx;
@@ -1711,6 +1713,8 @@ typedef struct {} objc_type;
 #   define autocollect
 # endif
 
+# ifdef NNT_USER_SPACE
+
 // include C++ Base Classes.
 # include "../TL/Exception+NNT.h"
 # include "../TL/Types+NNT.h"
@@ -1729,6 +1733,8 @@ typedef struct {} objc_type;
 # include "../TL/Closure+NNT.h"
 # include "../TL/Variant+NNT.h"
 
+# endif
+
 // ignore assert.
 # include <assert.h>
 # ifdef assert
@@ -1736,8 +1742,12 @@ typedef struct {} objc_type;
 #   undef assert
 # endif
 
+# ifdef NNT_USER_SPACE
+
 // include unit test.
 # include "UnitTest.h"
+
+# endif
 
 # ifdef NNT_OBJC
 

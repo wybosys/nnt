@@ -1,0 +1,14 @@
+TARGETNAME = NntSampleDriver
+TARGETPATH = build
+TARGETTYPE = DRIVER
+TARGETLIBS =\
+	..\..\..\Classes\Kernel\build\$(_BUILDARCH)\libNntKernel.lib
+
+INCLUDES =\
+	..\..\..\;
+
+C_DEFINES = $(C_DEFINES) \
+	/DKERNELNNT
+
+SOURCES =\
+	SampleDevice.cpp

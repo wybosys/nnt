@@ -85,7 +85,7 @@ void Suite::run()
     ::std::cout << "Suite Test Begin: " << ::std::endl;
     
     // each case.
-    int idx = 0, max = _cases.size(), pass = 0, failed = 0;
+    int idx = 0, max = (int)_cases.size(), pass = 0, failed = 0;
     for (cases_type::iterator each = _cases.begin();
          each != _cases.end();
          ++each,

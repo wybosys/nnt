@@ -9,7 +9,8 @@ int str_indexof_char(char const*, char c, int len, int offset);
 
 NNT_END_HEADER_C
 
-# ifdef NNT_CXX
+# if defined(NNT_CXX)
+# if defined(NNT_USER_SPACE)
 
 # include <string>
 # include <vector>
@@ -111,15 +112,41 @@ inline_impl string& operator << (string& str, valT const& val)
 }
 
 NNT_END_NS
-
-NNT_BEGIN_NS(core)
-
-using namespace ntl;
-
-NNT_END_NS
-
 NNT_END_HEADER_CXX
 
+# else // kernel space
+
+NNT_BEGIN_HEADER_CXX 
+NNT_BEGIN_NS(ntl)
+
+# ifdef NNT_MSVC
+
+class UString
+{
+public:
+
+    UString(wchar_t const* str)
+    {
+        ::RtlInitUnicodeString(&_str, str);
+    }
+
+    ~UString()
+    {
+        PASS;
+    }
+
+protected:
+
+    UNICODE_STRING _str;
+
+};
+
+# endif
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
 # endif
 
 # ifdef NNT_C_COMPATIABLE
@@ -921,13 +948,10 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface NNTString : NSString <NSHash> {
-    
-}
-
+@interface NNTString : NSString <NSHash>
 @end
 
-extern CFStringEncoding CFStringEncodingFromWindowsLocaleCode(udword lang);
+NNT_EXTERN CFStringEncoding CFStringEncodingFromWindowsLocaleCode(udword lang);
 
 NNT_END_HEADER_OBJC
 

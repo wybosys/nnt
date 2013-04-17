@@ -4,9 +4,13 @@
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+
 # include <stack>
 # include <map>
 # include "../TL/Exception+NNT.h"
+
+# endif
 
 NNT_BEGIN_HEADER_CXX
 
@@ -383,10 +387,13 @@ public:
     
 };
 
+# ifdef NNT_USER_SPACE
+
 template <class ObjectT>
 class StrongObjectStore
 {
 public:
+
     typedef ::std::stack<ObjectT*> values_type;
 	typedef ::std::map< ::std::string, values_type> store_type;
     
@@ -402,7 +409,9 @@ public:
     
 	void clear()
 	{
-		for (typename_ store_type::iterator iter = store.begin(); iter != store.end(); ++iter)
+		for (typename_ store_type::iterator iter = _store.begin();
+            iter != _store.end();
+            ++iter)
 		{
 			values_type& values = iter->second;
 			while (values.size())
@@ -412,18 +421,19 @@ public:
 				values.pop();
 			}
 		}
-		store.clear();
+
+		_store.clear();
 	}
     
 	void set(char const* name, void* __obj)
 	{
 		ObjectT* obj = (ObjectT*)__obj;
-		typename_ store_type::iterator found = store.find(name);
-		if (found == store.end())
+		typename_ store_type::iterator found = _store.find(name);
+		if (found == _store.end())
 		{
 			values_type vals;
 			vals.push(obj);
-			store.insert(std::make_pair(name, vals));			
+			_store.insert(std::make_pair(name, vals));			
 			obj->grab();
 		}
 		else
@@ -440,12 +450,12 @@ public:
     void push(char const* name, void* __obj) 
     {
         ObjectT* obj = (ObjectT*)__obj;
-		typename_ store_type::iterator found = store.find(name);
-		if (found == store.end())
+		typename_ store_type::iterator found = _store.find(name);
+		if (found == _store.end())
 		{
 			values_type vals;
 			vals.push(obj);
-			store.insert(std::make_pair(name, vals));			
+			_store.insert(std::make_pair(name, vals));			
 			obj->grab();
 		}
 		else
@@ -458,24 +468,24 @@ public:
     
 	void* find(char const* name) const
 	{
-		typename_ store_type::const_iterator found = store.find(name);
-		if (found == store.end())
+		typename_ store_type::const_iterator found = _store.find(name);
+		if (found == _store.end())
 			return NULL;
 		return (void*)found->second.top();
 	}
     
     values_type const* all(char const* name) const
     {
-        typename_ store_type::const_iterator found = store.find(name);
-		if (found == store.end())
+        typename_ store_type::const_iterator found = _store.find(name);
+		if (found == _store.end())
 			return NULL;
         return found->second;
     }
     
     bool exist(char const* name, void* obj) const
     {
-        typename_ store_type::const_iterator found = store.find(name);
-        if (found == store.end())
+        typename_ store_type::const_iterator found = _store.find(name);
+        if (found == _store.end())
             return false;
         values_type tmp = found->second;
         while (tmp.size())
@@ -488,8 +498,8 @@ public:
     
 	void pop(char const* name)
 	{
-		typename_ store_type::iterator iter = store.find(name);
-		if (iter == store.end())
+		typename_ store_type::iterator iter = _store.find(name);
+		if (iter == _store.end())
 			return;
 		ObjectT *top = iter->second.top();
 		iter->second.pop();
@@ -497,13 +507,16 @@ public:
 	}
     
 protected:	    
-	store_type store;
+
+	store_type _store;
+
 };
 
 template <class ObjectT>
 class WeakObjectStore
 {
 public:
+
     typedef std::stack<ObjectT*> values_type;
 	typedef std::map<std::string, values_type> store_type;
     
@@ -519,18 +532,18 @@ public:
     
 	void clear()
 	{
-		store.clear();
+		_store.clear();
 	}
     
-	void set(char const* name, void* __obj)
+	void set(char const* name, void* vobj)
 	{
-		ObjectT* obj = (ObjectT*)__obj;
-		typename_ store_type::iterator found = store.find(name);
-		if (found == store.end())
+		ObjectT* obj = (ObjectT*)vobj;
+		typename_ store_type::iterator found = _store.find(name);
+		if (found == _store.end())
 		{
 			values_type vals;
 			vals.push(obj);
-			store.insert(std::make_pair(name, vals));			
+			_store.insert(std::make_pair(name, vals));			
 		}
 		else
 		{
@@ -541,15 +554,15 @@ public:
 		}
 	}
     
-    void push(char const* name, void* __obj)
+    void push(char const* name, void* vobj)
     {
-        ObjectT* obj = (ObjectT*)__obj;
-		typename_ store_type::iterator found = store.find(name);
-		if (found == store.end())
+        ObjectT* obj = (ObjectT*)vobj;
+		typename_ store_type::iterator found = _store.find(name);
+		if (found == _store.end())
 		{
 			values_type vals;
 			vals.push(obj);
-			store.insert(std::make_pair(name, vals));			
+			_store.insert(std::make_pair(name, vals));			
 		}
 		else
 		{
@@ -560,24 +573,24 @@ public:
     
 	void* find(char const* name) const
 	{
-		typename_ store_type::const_iterator found = store.find(name);
-		if (found == store.end())
+		typename_ store_type::const_iterator found = _store.find(name);
+		if (found == _store.end())
 			return NULL;
 		return (void*)found->second.top();
 	}
     
     values_type const* all(char const* name) const
     {
-        typename_ store_type::const_iterator found = store.find(name);
-		if (found == store.end())
+        typename_ store_type::const_iterator found = _store.find(name);
+		if (found == _store.end())
 			return NULL;
         return &found->second;
     }
     
     bool exist(char const* name, void* obj) const
     {
-        typename_ store_type::const_iterator found = store.find(name);
-        if (found == store.end())
+        typename_ store_type::const_iterator found = _store.find(name);
+        if (found == _store.end())
             return false;
         values_type tmp = found->second;
         while (tmp.size())
@@ -590,21 +603,29 @@ public:
     
 	void pop(char const* name)
 	{
-		typename_ store_type::iterator iter = store.find(name);
-		if (iter == store.end())
+		typename_ store_type::iterator iter = _store.find(name);
+		if (iter == _store.end())
 			return;
 		iter->second.pop();
 	}
     
 protected:	
-	store_type store;
+
+	store_type _store;
+
 };
+
+# endif
 
 NNT_END_HEADER_CXX
 
 # endif
 
+# ifdef NNT_USER_SPACE
+
 # include "Event+NNT.h"
+
+# endif
 
 # ifdef NNT_OBJC
 
@@ -881,9 +902,13 @@ class Class
 : public SelfT
 {
 protected:
+
 	typedef SelfT super;
     typedef Class class_type;
+
 };
+
+# ifdef NNT_USER_SPACE
 
 # define NNTDECL_SIGNALS_SLOTS virtual void init_signals();
 # define NNTDECL_SIGNALS_BEGIN(cls, sup) void cls::init_signals() { sup::init_signals();
@@ -925,6 +950,8 @@ autocollect; \
 
 # endif // pure cxx
 
+# endif // user space
+
 # define OBJECT_TPL_DECL template <class BaseT>
 # define OBJECT_TPL_IMPL BaseT
 
@@ -933,8 +960,6 @@ class Object
 : public Class<BaseT>
 {
     NNTDECL_NOCOPY(Object);
-    
-protected:
 
 	typedef Object<BaseT> self_type;
     
@@ -946,11 +971,11 @@ public:
     //! type for member slot.
 	typedef void (self_type::*member_func)(void*);
     
+# ifdef NNT_USER_SPACE
+
     //! type for attach & store.
 	typedef StrongObjectStore< RefObject > store_type;
 	typedef WeakObjectStore< RefObject > attach_type;
-    
-public:
         
     //! register signal.
 	virtual void register_signal(signal_t const&);
@@ -1014,8 +1039,12 @@ public:
     
     //! to string.
     virtual core::string to_string() const;
+
+# endif
     
 protected:
+
+# ifdef NNT_USER_SPACE
 
     //! event.
 	event_type *_event;
@@ -1025,6 +1054,8 @@ protected:
     
     //! attach.
 	attach_type *_attach;
+
+# endif
     
 };
 
@@ -1134,7 +1165,9 @@ protected:
 };
 
 # ifdef NNT_PURE_CXX
+
 typedef Object<> NNTObject;
+
 # endif
 
 # ifndef release_ref
@@ -1151,7 +1184,9 @@ inline_impl void refobj_set(lT*& l, rT*& r)
 
 OBJECT_TPL_DECL
 template_impl Object<OBJECT_TPL_IMPL>::Object()
+# ifdef NNT_USER_SPACE
 : _event(NULL), _store(NULL), _attach(NULL)
+# endif
 {
 	PASS;
 }
@@ -1159,10 +1194,14 @@ template_impl Object<OBJECT_TPL_IMPL>::Object()
 OBJECT_TPL_DECL
 template_impl Object<OBJECT_TPL_IMPL>::~Object()
 {
+# ifdef NNT_USER_SPACE
     safe_delete(_event);
     safe_delete(_store);
     safe_delete(_attach);
+# endif
 }
+
+# ifdef NNT_USER_SPACE
 
 OBJECT_TPL_DECL
 template_impl event_type* Object<OBJECT_TPL_IMPL>::getEvent()
@@ -1359,6 +1398,8 @@ template_impl core::string Object<OBJECT_TPL_IMPL>::to_string() const
     return core::null_string;
 }
 
+# endif
+
 template <class BaseT = ::nnt::RefObject >
 class AutoFreeObject
 : public Object<BaseT>
@@ -1537,6 +1578,8 @@ public:
 
 };
 
+# ifdef NNT_USER_SPACE
+
 template <typename objT, typename evtfuncT, typename eventT>
 class BackgroundEmit
 	: public TaskBackground
@@ -1562,7 +1605,11 @@ protected:
 
 };
 
+# endif
+
 NNT_END_NS
+
+# ifdef NNT_USER_SPACE
 
 EVENT_TPL_DECL
 template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj_t& evt, void* sender) const
@@ -1627,6 +1674,8 @@ template_impl void Event<EVENT_TPL_IMPL>::_do_emit(signal_t const& sig, eventobj
             break;
 	}
 }
+
+# endif
 
 NNT_END_NS
 
