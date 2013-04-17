@@ -1,6 +1,7 @@
 
-# import "Core.h"
-# import "ColorPalette.h"
+# include "Core.h"
+# include "ColorPalette.h"
+# include "../Graphic/NGBase.h"
 
 NNT_BEGIN_C
 
