@@ -1,0 +1,43 @@
+[Version]
+Signature="$Windows NT$"
+Class=Nnt
+ClassGUID={4315C9F6-661F-45cd-A3E2-2CF6C3ACE63F}
+Provider=%Company%
+DriverVer=01/01/2012,1.0.0.0
+CatalogFile.NTamd64=driver64.cat
+
+[SourceDisksNames]
+1=%Disks%,,,
+
+[SourceDisksFiles]
+NntSampleDriver.sys=1
+
+[ClassInstall32]
+Addreg=NntAddReg
+
+[NntAddReg]
+HKR,,,0,"Nnt"
+HKR,,Icon,,"-5"
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[Manufacturer]
+%DriverInfo%=Nnt,NTamd64
+
+[Nnt.NTamd64]
+%Product%=DriverInstall.NTamd64,PCI\VEN_9999&DEV_9999
+
+[DriverInstall.NTamd64]
+CopyFiles=DriverFiles.NTamd64
+
+[DriverFiles.NTamd64]
+NntSampleDriver.sys
+
+[Strings]
+Product="Nnt Sample Driver"
+DriverInfo="Sample driver for Nn Toolkit of wybosys."
+Author="wybosys@gmail.com"
+Company="wybosys"
+Copyright="wybosys"
+Disks="Nnt Drivers"
