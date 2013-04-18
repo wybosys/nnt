@@ -30,6 +30,8 @@ long ::nnt::Object::__global_object_counter = 0;
 # endif
 }
 
+# ifdef NNT_USER_SPACE
+
 NNT_BEGIN_NS(cxx)
 
 // empty event object.
@@ -84,7 +86,11 @@ NNT_END_NS // impl
 
 NNT_END_NS // cxx
 
+# endif // user space.
+
 NNT_END_CXX // nnt
+
+# ifdef NNT_USER_SPACE
 
 NNT_BEGIN_C
 
@@ -102,3 +108,5 @@ void Grab(::nnt::RefObject* obj)
 }
 
 NNT_END_C
+
+# endif

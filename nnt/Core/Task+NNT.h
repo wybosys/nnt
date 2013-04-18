@@ -19,7 +19,7 @@ NNT_END_HEADER_OBJC
 
 # endif
 
-# ifdef NNT_CXX
+# if defined(NNT_CXX) && defined(NNT_USER_SPACE)
 
 # ifdef NNT_UNIX
 #   include <semaphore.h>

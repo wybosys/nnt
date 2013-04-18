@@ -6,8 +6,14 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
 
 class App
+    : public ::nnt::Object
 {
 public:
+
+    App();
+    ~App();
+
+    void main();
 
 };
 

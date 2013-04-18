@@ -365,7 +365,7 @@ NNTASM_END
 #   define NNT_BLOCKS
 # endif
 
-# if defined(DEBUG) || defined(_DEBUG)
+# if defined(DEBUG) || defined(_DEBUG) || defined(DBG)
 #   define NNT_DEBUG
 # else
 #   ifndef NNT_DEBUG
@@ -877,14 +877,17 @@ inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8Str
 
 inline_impl void trace_msg(char const* msg)
 {
+# ifdef NNT_USER_SPACE
     ::OutputDebugStringA(msg);
     ::OutputDebugStringA("\n");
+# else
+    KdPrint((msg));
+# endif
 }
 
 inline_impl void trace_msg(char* msg)
 {
-    ::OutputDebugStringA(msg);
-    ::OutputDebugStringA("\n");
+    trace_msg((char const*)msg);
 }
 
 template <typename T>

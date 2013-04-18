@@ -1,6 +1,9 @@
 @echo OFF
 
-cd ..\..\..\Classes\Kernel
+cd ..\..\..\Classes\Core
+build
+
+cd ..\Kernel
 build
 
 cd ..\..\msvc\sample\driver

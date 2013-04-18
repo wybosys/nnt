@@ -2,6 +2,37 @@
 # ifndef __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
 # define __NNT_OBJECT_77794445A92C40C1ACCA7F19B1EF88E9_H_INCLUDED
 
+# ifdef NNT_CXX
+
+NNT_BEGIN_HEADER_CXX
+
+NNTCLASS(Object);
+
+class Object
+{
+public:
+
+    Object();
+    ~Object();
+
+    //! must override in subclass.
+    void Destroy();
+
+    //! func types.
+    typedef void (Object::*func_destroy)();
+    typedef void (Object::*func_simple)();
+    typedef void (Object::*func_callback)(void*);
+
+# ifdef NNT_DEBUG
+    static long __global_object_counter;
+# endif
+
+};
+
+NNT_END_HEADER_CXX
+
+# endif
+
 # ifdef NNT_USER_SPACE
 
 # ifdef NNT_CXX
@@ -15,30 +46,6 @@ NNT_BEGIN_HEADER_CXX
 # define NNTDECL_INSTANCE_STACK(cls) \
 protected: \
 cls() {}
-
-NNTCLASS(Object);
-NNTCLASS(RefObject);
-
-class Object
-{
-public:
-    
-    Object();
-	~Object();
-    
-    //! must override in subclass.
-    void Destroy();
-    
-    //! func types.
-    typedef void (Object::*func_destroy)();
-    typedef void (Object::*func_simple)();
-    typedef void (Object::*func_callback)(void*);
-    
-# ifdef NNT_DEBUG
-	static long __global_object_counter;
-# endif
-
-};
 
 class VirObject
 //: public Object
@@ -56,6 +63,8 @@ public:
     }
     
 };
+
+NNTCLASS(RefObject);
 
 class RefObject
 : public Object

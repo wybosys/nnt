@@ -1,4 +1,4 @@
-TARGETNAME = libNntKernel
+TARGETNAME = libNntCore
 TARGETPATH = build
 TARGETTYPE = DRIVER_LIBRARY
 TARGETLIBS =
@@ -12,5 +12,4 @@ C_DEFINES = $(C_DEFINES) \
 	/DLIBNNT
 
 SOURCES =\
-	DriverApp.cpp \
-	DriverObject.cpp
+	Object.cpp

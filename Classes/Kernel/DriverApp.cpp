@@ -9,6 +9,21 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(driver)
 
+App::App()
+{
+
+}
+
+App::~App()
+{
+
+}
+
+void App::main()
+{
+
+}
+
 NNT_END_NS
 NNT_END_CXX
 
@@ -71,6 +86,8 @@ NNT_BEGIN_C
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegisterPath)
 {
     KdBreakPoint();
+
+    ::nnt::driver::App appobj;
 
     // call app main entry.
     NNT_DRIVER_MAIN();
