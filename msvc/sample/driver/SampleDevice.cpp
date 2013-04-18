@@ -5,7 +5,7 @@
 
 NNT_BEGIN_C
 
-void NNTKS_MAIN()
+void NNT_DRIVER_MAIN()
 {
 
 }

@@ -1,11 +1,16 @@
 
-//# include "Core.h"
-# include <ntddk.h>
+# include "Core.h"
 # include "DriverApp.h"
 
 # ifdef NNT_MSVC
 #   pragma warning (disable:28101)
 # endif
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(driver)
+
+NNT_END_NS
+NNT_END_CXX
 
 # ifdef NNT_KERNEL_SPACE
 
@@ -66,7 +71,9 @@ NNT_BEGIN_C
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegisterPath)
 {
     // call app main entry.
-    //NNTKS_MAIN();
+    NNT_DRIVER_MAIN();
+
+    KdPrint(("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"));
 
     // driver impl.
     NTSTATUS ret;
