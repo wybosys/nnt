@@ -70,10 +70,10 @@ NNT_BEGIN_C
 
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegisterPath)
 {
+    KdBreakPoint();
+
     // call app main entry.
     NNT_DRIVER_MAIN();
-
-    KdPrint(("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"));
 
     // driver impl.
     NTSTATUS ret;
