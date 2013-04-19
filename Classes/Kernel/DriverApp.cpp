@@ -1,6 +1,7 @@
 
 # include "Core.h"
 # include "DriverApp.h"
+# include "../Core/Task+NNT.h"
 
 # ifdef NNT_KERNEL_SPACE
 
@@ -75,7 +76,15 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
     PDEVICE_OBJECT pdev_nx = pDriverObject->DeviceObject;
     while (pdev_nx != NULL)
     {
+        use<DriverExtension> ext = pdev_nx->DeviceExtension;
+        PDEVICE_OBJECT pdev_cur = ext->pApp->eo.pDeviceObject;
 
+        // remove symblic link.
+        ::IoDeleteSymbolicLink(ext->strSymName);
+
+        // delete device.
+        pdev_nx = pdev_nx->NextDevice;       
+        ::IoDeleteDevice(pdev_cur);
     }
 }
 
@@ -90,7 +99,7 @@ NNT_BEGIN_C
 
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegisterPath)
 {
-    KdBreakPoint();
+    NNTDEBUG_BREAK;
 
     ::nnt::driver::EntryObject eo(pDriverObject, pRegisterPath);
 

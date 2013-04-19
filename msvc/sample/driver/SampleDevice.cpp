@@ -20,6 +20,7 @@ Sample::~Sample()
 
 int Sample::main()
 {
+    NNTDEBUG_BREAK;
     return 0;
 }
 

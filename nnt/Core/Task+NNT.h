@@ -19,7 +19,9 @@ NNT_END_HEADER_OBJC
 
 # endif
 
-# if defined(NNT_CXX) && defined(NNT_USER_SPACE)
+# ifdef NNT_CXX
+
+# ifdef NNT_USER_SPACE
 
 # ifdef NNT_UNIX
 #   include <semaphore.h>
@@ -203,6 +205,26 @@ protected:
 NNT_END_NS
 NNT_END_HEADER_CXX
 
+# else
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(core)
+
+class Critical
+{
+public:
+
+    Critical();
+    ~Critical();
+
+};
+
+# define NNT_AUTOCRITICAL ::nnt::core::Critical NNTAUTO_NAMED(critical)
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif // user space.
 # endif // cxx
 
 # endif

@@ -14,7 +14,7 @@ rem C:\WinDDK\7600.16385.1\tools\Chkinf\chkinf.bat driver.inf
 build
 
 copy driver.inf ..\..\..\exchange\ /Y
-copy build\amd64\*.sys ..\..\..\exchange\ /Y
+copy build\amd64\* ..\..\..\exchange\ /Y
 
 cd ..\..\..\exchange
 rem signtool sign /f ..\cert\root.pfx NntSampleDriver.sys

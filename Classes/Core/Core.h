@@ -376,9 +376,7 @@ NNTASM_END
 # ifdef NNT_DEBUG
 #	define NNTDEBUG_EXPRESS(express)    express
 #	define NNTRELEASE_EXPRESS(express)
-# endif
-
-# ifdef NNT_RELEASE
+# else
 #	define NNTDEBUG_EXPRESS(express)
 #	define NNTRELEASE_EXPRESS(express)  express
 # endif
@@ -391,7 +389,8 @@ NNTASM_END
 # define _NNTMACRO_TOSTR(val)                  #val
 # define NNTMACRO_TOSTR(val)                  _NNTMACRO_TOSTR(val)
 # define NNTMACRO_COMBINE_2(v0, v1, sep)       NNTMACRO_SELF(v0)##sep##NNTMACRO_SELF(v1)
-# define NNTAUTO_NAME                        __nnt_autoname_ ## __LINE__ ## __FUNCTION__
+# define NNTAUTO_NAME                        __nnt_autoname_ ## __LINE__ ## _ ## __FUNCTION__
+# define NNTAUTO_NAMED(name)                 __nnt_autoname_ ## name ## _ ## __LINE__ ## _ ## __FUNCTION__
 
 # ifdef NNT_OBJC
 
@@ -799,7 +798,19 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 { if (MASK_CHECK(mask, val)) val ^= mask; }
 
 # ifdef NNT_DEBUG
-#	define NNTDEBUG_BREAK NNTDEBUG_EXPRESS(__asm__ int 3)
+#   ifdef NNT_USER_SPACE
+#     ifdef NNT_X32
+#       define NNTDEBUG_BREAK NNTASM_BEGIN int 3 NNTASM_END
+#     else
+#       define NNTDEBUG_BREAK SPACE
+#     endif
+#   else
+#     ifdef NNT_MSVC
+#       define NNTDEBUG_BREAK KdBreakPoint();
+#     else
+#       define NNTDEBUG_BREAK SPACE
+#     endif
+#   endif
 #	define NNTDEBUG_BREAK_IF(express) NNTDEBUG_EXPRESS(if (express) NNTDEBUG_BREAK)
 #	define NNTDEBUG_ASSERT(express) NNTDEBUG_EXPRESS_IF(!(express))
 # else

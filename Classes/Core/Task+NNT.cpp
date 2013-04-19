@@ -5,6 +5,8 @@
 NNT_BEGIN_CXX 
 NNT_BEGIN_NS(core)
   
+# ifdef NNT_USER_SPACE
+
 Mutex::Mutex()
 {
 # ifdef NNT_MSVC
@@ -388,6 +390,24 @@ void Task::resume()
 {
     d_ptr->mtx_ctl.unlock();
 }
+
+# else // kernel space.
+
+Critical::Critical()
+{
+# ifdef NNT_MSVC
+    ::KeEnterCriticalRegion();
+# endif
+}
+
+Critical::~Critical()
+{
+# ifdef NNT_MSVC
+    ::KeLeaveCriticalRegion();
+# endif
+}
+
+# endif // user space.
 
 NNT_END_NS 
 NNT_END_CXX
