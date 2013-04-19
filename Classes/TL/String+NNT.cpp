@@ -283,7 +283,7 @@ string::string(string const& r)
 : _need_release(true)
 {
     ::RtlInitEmptyUnicodeString(&_obj, 
-        (PWCHAR)::ExAllocatePool(PagedPool, r->Length), 
+        (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"), 
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
 }
