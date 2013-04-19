@@ -15,14 +15,10 @@ public:
 
 # ifdef NNT_MSVC
 
-    EntryObject(PDRIVER_OBJECT _0 = NULL, PUNICODE_STRING _1 = NULL)
-        : pDriverObject(_0), pRegisterPath(_1), pDeviceObject(NULL)
-    {
-
-    }
+    EntryObject(PDRIVER_OBJECT _0 = NULL, PUNICODE_STRING _1 = NULL);
 
     PDRIVER_OBJECT pDriverObject;
-    PUNICODE_STRING pRegisterPath;
+    core::string strRegisterPath;
     PDEVICE_OBJECT pDeviceObject;
 
 # endif

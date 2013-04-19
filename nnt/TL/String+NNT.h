@@ -131,6 +131,7 @@ public:
     string(char const*);
     string(wchar_t const*);
     string(string const&);
+    string(value_type const&);
     ~string();
 
     string& operator = (string const&);

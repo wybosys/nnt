@@ -279,6 +279,15 @@ string::string(wchar_t const* str)
     ::RtlInitUnicodeString(&_obj, str);
 }
 
+string::string(value_type const& r)
+: _need_release(true)
+{
+    ::RtlInitEmptyUnicodeString(&_obj,
+        (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r.Length, (ULONG)"str0"),
+        r.Length);
+    ::RtlCopyUnicodeString(&_obj, &r);
+}
+
 string::string(string const& r)
 : _need_release(true)
 {
@@ -298,7 +307,7 @@ string& string::operator = (string const& r)
     clear();
 
     ::RtlInitEmptyUnicodeString(&_obj,
-        (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str1"),
+        (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"),
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
     _need_release = true;
@@ -316,7 +325,7 @@ string& string::operator += (string const& r)
 {
     UNICODE_STRING str = {0};
     str.Length = str.MaximumLength = _obj.Length + r->Length;
-    str.Buffer = (PWCHAR)::ExAllocatePoolWithTag(PagedPool, str.MaximumLength, (ULONG)"str2");
+    str.Buffer = (PWCHAR)::ExAllocatePoolWithTag(PagedPool, str.MaximumLength, (ULONG)"str0");
 
     if (_obj.Length)
         ::RtlCopyMemory(str.Buffer, _obj.Buffer, _obj.Length);
