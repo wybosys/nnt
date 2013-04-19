@@ -10,6 +10,8 @@ bool Status::Success(int code)
 # ifdef NNT_MSVC
 #   ifdef NNT_KERNEL_SPACE
       return NT_SUCCESS(code);
+#   else
+    return SUCCEEDED(code);
 #   endif
 # endif
 }
