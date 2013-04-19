@@ -11,10 +11,12 @@ template <typename valT>
 class op_delete
 {
 public:
+
     void operator () (valT* ptr) const
     {
         delete ptr;
     }
+
 };
 
 template <typename valT>
@@ -24,10 +26,12 @@ template <typename valT>
 class op_new
 {
 public:
+
     void operator () (valT*& ptr) const
     {
         ptr = new valT;
     }
+
 };
 
 template <typename valT>

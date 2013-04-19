@@ -10,6 +10,7 @@ int str_indexof_char(char const*, char c, int len, int offset);
 NNT_END_HEADER_C
 
 # if defined(NNT_CXX)
+
 # if defined(NNT_USER_SPACE)
 
 # include <string>
@@ -119,29 +120,45 @@ NNT_END_HEADER_CXX
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ntl)
 
+class string
 # ifdef NNT_MSVC
-
-class UString
+    : public uml::composition<string, UNICODE_STRING>
+# endif
 {
 public:
 
-    UString(wchar_t const* str)
-    {
-        ::RtlInitUnicodeString(&_str, str);
-    }
+    string();
+    string(char const*);
+    string(wchar_t const*);
+    string(string const&);
+    ~string();
 
-    ~UString()
-    {
-        PASS;
-    }
+    string& operator = (string const&);
+    string operator + (string const&) const;
+    string& operator += (string const&);
+    bool operator == (string const&) const;
+    bool operator != (string const&) const;
+
+    bool is_equal(string const&, bool casesens = true) const;
+    void clear();
+    bool is_empty() const;
+    usize length() const;
 
 protected:
 
-    UNICODE_STRING _str;
+    bool _need_release;
 
 };
 
-# endif
+static string operator + (char const* str, string const& strr)
+{
+    return string(str) + strr;
+}
+
+static string operator + (wchar_t const* str, string const& strr)
+{
+    return string(str) + strr;
+}
 
 NNT_END_NS
 NNT_END_HEADER_CXX

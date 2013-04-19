@@ -1,0 +1,15 @@
+TARGETNAME = libNntTl
+TARGETPATH = build
+TARGETTYPE = DRIVER_LIBRARY
+TARGETLIBS =
+
+INCLUDES =\
+	..\Core; \
+	..\..\3rd\MSVC\ddk;
+
+C_DEFINES = $(C_DEFINES) \
+	/DKERNELNNT \
+	/DLIBNNT
+
+SOURCES =\
+	String+NNT.cpp

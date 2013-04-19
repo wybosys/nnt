@@ -2,12 +2,24 @@
 # include "Core.h"
 # include "DriverApp.h"
 
+# ifdef NNT_KERNEL_SPACE
+
 # ifdef NNT_MSVC
 #   pragma warning (disable:28101)
 # endif
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(driver)
+
+# ifdef NNT_MSVC
+
+struct DriverExtension
+{
+    App* pApp;
+    core::string strDevName, strSymName;
+};
+
+# endif
 
 App::App()
 {
@@ -19,64 +31,57 @@ App::~App()
 
 }
 
-void App::main()
+int App::install()
 {
+# ifdef NNT_MSVC
 
+    core::string str_devname = "\\Device\\" + name;
+    NTSTATUS sta = ::IoCreateDevice(eo.pDriverObject,
+        sizeof(DriverExtension),
+        str_devname,
+        FILE_DEVICE_UNKNOWN,
+        0,
+        TRUE,
+        &eo.pDeviceObject);
+
+    if (!NT_SUCCESS(sta))
+        return sta;
+
+    use<DriverExtension> ext = eo.pDeviceObject->DeviceExtension;
+    ext->pApp = this;
+    ext->strDevName = str_devname;
+    ext->strSymName = "\\??\\" + name;
+
+    // create symbol link.
+    sta = ::IoCreateSymbolicLink(ext->strSymName, ext->strDevName);
+    if (!NT_SUCCESS(sta))
+    {
+        ::IoDeleteDevice(eo.pDeviceObject);
+        eo.pDeviceObject = NULL;
+        return sta;
+    }
+
+    return STATUS_SUCCESS;
+
+# endif
 }
-
-NNT_END_NS
-NNT_END_CXX
-
-# ifdef NNT_KERNEL_SPACE
-
-NNT_BEGIN_CXX
 
 # ifdef NNT_MSVC
 
-NTSTATUS CreateDevice(IN PDRIVER_OBJECT pDriverObject)
+DRIVER_UNLOAD UnloadDriver;
+
+VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 {
-    NTSTATUS ret = STATUS_FILE_CLOSED;
-    return ret;
-}
+    PDEVICE_OBJECT pdev_nx = pDriverObject->DeviceObject;
+    while (pdev_nx != NULL)
+    {
 
-DRIVER_UNLOAD DriverUnload;
-
-__drv_dispatchType(IRP_MJ_CREATE) DRIVER_DISPATCH DispatchCreate;
-__drv_dispatchType(IRP_MJ_READ) DRIVER_DISPATCH DispatchRead;
-__drv_dispatchType(IRP_MJ_WRITE) DRIVER_DISPATCH DispatchWrite;
-__drv_dispatchType(IRP_MJ_CLOSE) DRIVER_DISPATCH DispatchClose;
-
-VOID DriverUnload(IN PDRIVER_OBJECT pDriverObject)
-{
-
-}
-
-NTSTATUS DispatchCreate(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp)
-{
-    NTSTATUS ret = STATUS_FILE_CLOSED;
-    return ret;
-}
-
-NTSTATUS DispatchRead(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp)
-{
-    NTSTATUS ret = STATUS_FILE_CLOSED;
-    return ret;
-}
-
-NTSTATUS DispatchWrite(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp)
-{
-    NTSTATUS ret = STATUS_FILE_CLOSED;
-    return ret;
-}
-
-NTSTATUS DispatchClose(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp)
-{
-    NTSTATUS ret = STATUS_FILE_CLOSED;
-    return ret;
+    }
 }
 
 # endif
 
+NNT_END_NS
 NNT_END_CXX
 
 NNT_BEGIN_C
@@ -87,25 +92,10 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegist
 {
     KdBreakPoint();
 
-    ::nnt::driver::App appobj;
+    ::nnt::driver::EntryObject eo(pDriverObject, pRegisterPath);
 
-    // call app main entry.
-    NNT_DRIVER_MAIN();
-
-    // driver impl.
-    NTSTATUS ret;
-
-    // register.
-    pDriverObject->DriverUnload = ::nnt::DriverUnload;
-    pDriverObject->MajorFunction[IRP_MJ_CREATE] = ::nnt::DispatchCreate;
-    pDriverObject->MajorFunction[IRP_MJ_CLOSE] = ::nnt::DispatchClose;
-    pDriverObject->MajorFunction[IRP_MJ_WRITE] = ::nnt::DispatchWrite;
-    pDriverObject->MajorFunction[IRP_MJ_READ] = ::nnt::DispatchRead;
-
-    // create.
-    ret = ::nnt::CreateDevice(pDriverObject);
-
-    return ret;
+    // call driver's main.
+    return NNT_DRIVER_MAIN(eo);
 }
 
 # endif

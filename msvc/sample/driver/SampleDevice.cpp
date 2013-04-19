@@ -1,13 +1,28 @@
 
 # include "common.h"
 # include "SampleDevice.h"
-# include <nnt/Kernel/DriverApp.h>
 
-NNT_BEGIN_C
+# ifdef NNT_KERNEL_SPACE
 
-void NNT_DRIVER_MAIN()
+NNTDECL_DRIVER_APP(::nntapp::Sample)
+
+NNTAPP_BEGIN
+
+Sample::Sample()
+{
+    name = "NntSampleDriver";
+}
+
+Sample::~Sample()
 {
 
 }
 
-NNT_END_C
+int Sample::main()
+{
+    return 0;
+}
+
+NNTAPP_END
+
+# endif

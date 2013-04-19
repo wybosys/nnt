@@ -1,6 +1,9 @@
 
 # include "Core.h"
 # include "String+NNT.h"
+
+# ifdef NNT_USER_SPACE
+
 # include <stdarg.h>
 # include "../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
@@ -250,3 +253,123 @@ string& replace_of(string& str, string const& from, string const& to)
 
 NNT_END_NS 
 NNT_END_CXX
+
+# else
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ntl)
+
+string::string()
+: _need_release(false)
+{
+    ::RtlInitEmptyUnicodeString(&_obj, NULL, 0);
+}
+
+string::string(char const* str)
+: _need_release(true)
+{
+    ANSI_STRING astr;
+    ::RtlInitAnsiString(&astr, str);
+    ::RtlAnsiStringToUnicodeString(&_obj, &astr, TRUE);
+}
+
+string::string(wchar_t const* str)
+: _need_release(false)
+{
+    ::RtlInitUnicodeString(&_obj, str);
+}
+
+string::string(string const& r)
+: _need_release(true)
+{
+    ::RtlInitEmptyUnicodeString(&_obj, 
+        (PWCHAR)::ExAllocatePool(PagedPool, r->Length), 
+        r->Length);
+    ::RtlCopyUnicodeString(&_obj, r);
+}
+
+string::~string()
+{
+    clear();
+}
+
+string& string::operator = (string const& r)
+{
+    clear();
+
+    ::RtlInitEmptyUnicodeString(&_obj,
+        (PWCHAR)::ExAllocatePool(PagedPool, r->Length),
+        r->Length);
+    ::RtlCopyUnicodeString(&_obj, r);
+    _need_release = true;
+
+    return *this;
+}
+
+string string::operator + (string const& r) const
+{
+    string ret = *this;
+    return ret += r;
+}
+
+string& string::operator += (string const& r)
+{
+    UNICODE_STRING str = {0};
+    str.Length = str.MaximumLength = _obj.Length + r->Length;
+    str.Buffer = (PWCHAR)::ExAllocatePool(PagedPool, str.MaximumLength);
+
+    if (_obj.Length)
+        ::RtlCopyMemory(str.Buffer, _obj.Buffer, _obj.Length);
+    if (r->Length)
+        ::RtlCopyMemory((byte*)str.Buffer + _obj.Length, r->Buffer, r->Length);
+
+    // clear current memory.
+    clear();
+
+    // set.
+    _obj = str;
+    _need_release = true;
+
+    return *this;
+}
+
+void string::clear()
+{
+    if (_need_release)
+    {
+        ::RtlFreeUnicodeString(&_obj);
+        _need_release = false;        
+    }
+
+    _obj.Length = 0;
+}
+
+bool string::operator == (string const& r) const
+{
+    return ::RtlEqualUnicodeString(*this, r, TRUE) != 0;
+}
+
+bool string::operator != (string const& r) const
+{
+    return !(*this == r);
+}
+
+bool string::is_equal(string const& r, bool casesens) const
+{
+    return ::RtlEqualUnicodeString(*this, r, casesens) != 0;
+}
+
+bool string::is_empty() const
+{
+    return _obj.Length == 0;
+}
+
+usize string::length() const
+{
+    return _obj.Length;
+}
+
+NNT_END_NS
+NNT_END_CXX
+
+# endif

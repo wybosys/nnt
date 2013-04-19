@@ -29,6 +29,120 @@ public:
 
 };
 
+template <typename objT>
+class use
+{
+public:
+
+    typedef objT value_type;
+
+    use(value_type* obj = NULL)
+        : _obj(obj)
+    {
+        PASS;
+    }
+
+    use(void const* obj)
+        : _obj((value_type*)obj)
+    {
+        PASS;
+    }
+
+    use(value_type const* obj)
+        : _obj((value_type*)obj)
+    {
+        PASS;
+    }
+
+    use(value_type& obj)
+        : _obj(&obj)
+    {
+        PASS;
+    }
+
+    use(value_type const& obj)
+        : _obj((value_type*)&obj)
+    {
+        PASS;
+    }
+
+    operator value_type& ()
+    {
+        return *_obj;
+    }
+
+    operator value_type const& () const
+    {
+        return *_obj;
+    }
+
+    operator value_type* ()
+    {
+        return _obj;
+    }
+
+    operator value_type const* () const
+    {
+        return _obj;
+    }
+
+    value_type* operator -> ()
+    {
+        return _obj;
+    }
+
+    value_type const* operator -> () const
+    {
+        return _obj;
+    }
+
+protected:
+
+    objT* _obj;
+
+};
+
+class AnyObject
+{
+protected:
+
+    AnyObject()
+    {
+        PASS;
+    }
+
+public:
+
+    bool operator == (void const* ptr) const
+    {
+        return this == ptr;
+    }
+
+    template <typename T>
+    bool operator == (T const& r) const
+    {
+        return this == &r;
+    }
+
+    operator void* () const
+    {
+        return (void*)this;
+    }
+
+    template <typename T>
+    operator T* () const
+    {
+        return (T*)(void*)this;
+    }
+
+    template <typename T>
+    operator T& () const
+    {
+        return *(T*)(void*)this;
+    }
+
+};
+
 NNT_END_HEADER_CXX
 
 # endif
@@ -125,47 +239,6 @@ inline_impl void destroy<RefObject>(RefObject* obj)
     safe_drop(obj);
 }
 
-class AnyObject
-{
-protected:
-    
-    AnyObject()
-    {
-        PASS;
-    }
-    
-public:
-    
-    bool operator == (void const* ptr) const
-    {
-        return this == ptr;
-    }
-    
-    template <typename T>
-    bool operator == (T const& r) const
-    {
-        return this == &r;
-    }
-    
-    operator void* () const
-    {
-        return (void*)this;
-    }
-    
-    template <typename T>
-    operator T* () const
-    {
-        return (T*)(void*)this;
-    }
-    
-    template <typename T>
-    operator T& () const
-    {
-        return *(T*)(void*)this;
-    }
-    
-};
-
 template <typename objT>
 class auto_ref
 {
@@ -245,79 +318,6 @@ protected:
     
     value_type* _obj;
     
-};
-
-template <typename objT>
-class use
-{
-public:
-
-    typedef objT value_type;
-
-    use(value_type* obj = NULL)
-        : _obj(obj)
-    {
-        PASS;
-    }
-
-    use(void const* obj)
-        : _obj((value_type*)obj)
-    {
-        PASS;
-    }
-
-    use(value_type const* obj)
-        : _obj((value_type*)obj)
-    {
-        PASS;
-    }
-
-    use(value_type& obj)
-        : _obj(&obj)
-    {
-        PASS;
-    }
-
-    use(value_type const& obj)
-        : _obj((value_type*)&obj)
-    {
-        PASS;
-    }
-
-    operator value_type& ()
-    {
-        return *_obj;
-    }
-
-    operator value_type const& () const
-    {
-        return *_obj;
-    }
-
-    operator value_type* ()
-    {
-        return _obj;
-    }
-
-    operator value_type const* () const
-    {
-        return _obj;
-    }
-
-    value_type* operator -> ()
-    {
-        return _obj;
-    }
-
-    value_type const* operator -> () const
-    {
-        return _obj;
-    }
-
-protected:
-
-    objT* _obj;
-
 };
 
 template <typename objT>

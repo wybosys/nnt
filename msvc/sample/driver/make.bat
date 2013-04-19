@@ -6,6 +6,9 @@ build
 cd ..\Kernel
 build
 
+cd ..\TL
+build
+
 cd ..\..\msvc\sample\driver
 rem C:\WinDDK\7600.16385.1\tools\Chkinf\chkinf.bat driver.inf
 build

@@ -3,6 +3,7 @@ TARGETPATH = build
 TARGETTYPE = DRIVER
 TARGETLIBS =\
 	..\..\..\Classes\Core\build\$(_BUILDARCH)\libNntCore.lib \
+	..\..\..\Classes\TL\build\$(_BUILDARCH)\libNntTl.lib \
 	..\..\..\Classes\Kernel\build\$(_BUILDARCH)\libNntKernel.lib
 
 INCLUDES =\

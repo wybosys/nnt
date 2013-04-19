@@ -2,13 +2,30 @@
 # ifndef __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
 # define __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
 
-# if defined(NNT_CXX) && defined(NNT_USER_SPACE)
+# if defined(NNT_CXX)
+
+# ifdef NNT_USER_SPACE
 
 # include <set>
 # include <deque>
 # include <stack>
 # include <sstream>
 # include <bitset>
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ntl)
+
+using std::set;
+using std::deque;
+using std::stack;
+using std::make_pair;
+using std::bitset;
+using std::pair;
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
 
 NNT_BEGIN_HEADER_CXX
 
@@ -29,13 +46,6 @@ typedef enum
     copy = true,
     assign = false,
 } _bool_copy;
-
-using std::set;
-using std::deque;
-using std::stack;
-using std::make_pair;
-using std::bitset;
-using std::pair;
 
 template <bool cond, typename A, typename B>
 struct triple_select
@@ -597,10 +607,20 @@ public:
     {
         return _obj;
     }
+
+    operator T* ()
+    {
+        return &_obj;
+    }
     
     operator T const& () const
     {
         return _obj;
+    }
+
+    operator T const* () const
+    {
+        return &_obj;
     }
     
     T* operator -> ()

@@ -5,6 +5,15 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
 
+class Status
+{
+public:
+
+    static bool Success(int);
+    static bool Failed(int);
+
+};
+
 class Object
     : public ::nnt::Object
 {

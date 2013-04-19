@@ -1401,14 +1401,20 @@ typedef struct {} objc_type;
 #   define autocollect
 # endif
 
+// include C++ Base Classes.
 # ifdef NNT_USER_SPACE
 
-// include C++ Base Classes.
 # include "../TL/Exception+NNT.h"
-# include "../TL/Types+NNT.h"
 # include "../TL/Operator+NNT.h"
+
+# endif
+
+# include "../TL/Types+NNT.h"
 # include "../TL/Function+NNT.h"
 # include "../TL/String+NNT.h"
+
+# ifdef NNT_USER_SPACE
+
 # include "../TL/Vector+NNT.h"
 # include "../TL/List+NNT.h"
 # include "../TL/Map+NNT.h"
