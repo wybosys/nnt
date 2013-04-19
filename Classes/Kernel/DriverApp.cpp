@@ -73,18 +73,18 @@ DRIVER_UNLOAD UnloadDriver;
 
 VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 {
-    PDEVICE_OBJECT pdev_nx = pDriverObject->DeviceObject;
-    while (pdev_nx != NULL)
+    PDEVICE_OBJECT pdev = pDriverObject->DeviceObject;
+    while (pdev != NULL)
     {
-        use<DriverExtension> ext = pdev_nx->DeviceExtension;
-        PDEVICE_OBJECT pdev_cur = ext->pApp->eo.pDeviceObject;
+        use<DriverExtension> ext = pdev->DeviceExtension;
 
         // remove symblic link.
         ::IoDeleteSymbolicLink(ext->strSymName);
 
         // delete device.
-        pdev_nx = pdev_nx->NextDevice;       
-        ::IoDeleteDevice(pdev_cur);
+        PDEVICE_OBJECT pdevnx = pdev->NextDevice;       
+        ::IoDeleteDevice(pdev);
+        pdev = pdevnx;
     }
 }
 
