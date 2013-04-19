@@ -393,6 +393,7 @@ void Task::resume()
 
 # else // kernel space.
 
+/*
 Critical::Critical()
 {
 # ifdef NNT_MSVC
@@ -406,6 +407,7 @@ Critical::~Critical()
     ::KeLeaveCriticalRegion();
 # endif
 }
+*/
 
 # endif // user space.
 
