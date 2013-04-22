@@ -1416,6 +1416,7 @@ typedef struct {} objc_type;
 
 # include "../TL/Allocate+NNT.h"
 # include "../TL/Memory+NNT.h"
+# include "../TL/Stdtype+NNT.h"
 
 # ifdef NNT_USER_SPACE
 
