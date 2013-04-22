@@ -438,10 +438,6 @@ NNTASM_END
 
 # endif
 
-# ifndef ENUM_DEFINED
-typedef unsigned int enum_t;
-# endif
-
 # ifndef WORD_DEFINED
 typedef short word;
 # endif
@@ -506,16 +502,18 @@ typedef unsigned short ushort;
 typedef unsigned long ulong;
 # endif
 
-typedef ulong uenum;
+# ifndef ENUM_DEFINED
+typedef uint enum_t;
+# endif
 
 #ifdef NNT_X64
-   typedef double real;
 #  define REAL_IS_DOUBLE  1
+   typedef double real;
    typedef ulonglong uindex, usize, uinteger;
    typedef long sindex, ssize, sinteger, integer;
 #else
-   typedef float real;
 #  define REAL_IS_FLOAT   1
+   typedef float real;
    typedef uint uindex, usize, uinteger;
    typedef int sindex, ssize, sinteger, integer;
 #endif

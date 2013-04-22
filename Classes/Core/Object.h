@@ -1068,7 +1068,8 @@ protected:
 
 };
 
-# define NNTMACRO_AUTOLOCK(obj) ::nnt::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
+# define NNTMACRO_AUTOLOCK(obj) \
+::nnt::cxx::Autolock<__typeof(obj)> __autolock_##__LINE__##_obj(&obj);
 
 # else
 
@@ -1785,6 +1786,39 @@ NNTAPI(void) Grab(::nnt::RefObject* obj);
 NNT_END_HEADER_C
 
 # endif
+
+# else // kernel space
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cxx)
+
+# define OBJECT_TPL_DECL template <class objT>
+# define OBJECT_TPL_IMPL objT
+
+template <class objT = ::nnt::Object>
+class Object
+{
+public:
+
+    Object();
+    ~Object();
+
+};
+
+OBJECT_TPL_DECL
+template_impl Object<OBJECT_TPL_IMPL>::Object()
+{
+
+}
+
+OBJECT_TPL_DECL
+template_impl Object<OBJECT_TPL_IMPL>::~Object()
+{
+
+}
+
+NNT_END_NS
+NNT_END_HEADER_CXX
 
 # endif // user space
 

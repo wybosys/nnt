@@ -1,9 +1,6 @@
 
 # include "Core.h"
 # include "File+NNT.h"
-# include <iostream>
-# include <fstream>
-# include <boost/iostreams/filtering_stream.hpp>
 
 NNT_BEGIN_CXX
 
@@ -11,8 +8,9 @@ NNTDECL_PRIVATE_BEGIN_CXX(File)
 
 void init()
 {
-	in = NULL;
-	out = NULL;
+# ifdef NNT_MSVC
+    file = NULL;
+# endif
 }
 
 void dealloc()
@@ -20,19 +18,33 @@ void dealloc()
 	close();
 }
 
-void close()
+bool is_opened() const
 {
-	safe_delete(in);
-	safe_delete(out);
-
-	fin.clear();
-	fout.clear();
+# ifdef NNT_MSVC
+    return file != NULL;
+# endif
 }
 
-::std::ifstream* in;
-::std::ofstream* out;
-::boost::iostreams::filtering_istream fin;
-::boost::iostreams::filtering_ostream fout;
+void close()
+{
+    if (!is_opened())
+        return;
+
+# ifdef NNT_MSVC
+
+# ifdef NNT_KERNEL_SPACE
+    ::ZwClose(file);
+    file = NULL;
+# endif
+
+# endif
+}
+
+# ifdef NNT_MSVC
+
+HANDLE file;
+
+# endif
 
 NNTDECL_PRIVATE_END_CXX
 
@@ -46,42 +58,50 @@ File::~File()
 	NNTDECL_PRIVATE_DESTROY();
 }
 
-bool File::read(core::string const& path)
+bool File::open(url_type const& path, mask_t const& flag)
 {
-	d_ptr->in = new ::std::ifstream(path.c_str(), ::std::ios::in | ::std::ios::binary);
-	if (d_ptr->in->is_open() == false)
-	{
-		safe_delete(d_ptr->in);
-		return false;
-	}
+    // close last.
+    close();
 
-	d_ptr->fin.clear();
-	d_ptr->fin.push(*d_ptr->in);
+    // open new.
+    core::string file = path.full();
 
-	return true;
-}
+# ifdef NNT_MSVC
 
-bool File::getline(core::string& str)
-{
-	if (d_ptr->in->eof())
-		return false;
-	::std::getline(d_ptr->fin, str);
-	return true;
-}
+# ifdef NNT_KERNEL_SPACE
 
-void File::getall(core::string& str)
-{
-	str = std::string(::std::istreambuf_iterator<char>(d_ptr->fin), ::std::istreambuf_iterator<char>());
-}
+    OBJECT_ATTRIBUTES attr_obj;
+    InitializeObjectAttributes(&attr_obj,
+        file,
+        OBJ_CASE_INSENSITIVE,
+        NULL,
+        NULL);
 
-bool File::is_eof() const
-{
-	return d_ptr->in->eof();
+    IO_STATUS_BLOCK sta_io;
+    ::ZwCreateFile(&d_ptr->file,
+        opt<enum_t>(flag.checked<Io::read>())[GENERIC_READ] | opt<enum_t>(flag.checked<Io::write>())[GENERIC_WRITE],
+        &attr_obj,
+        &sta_io,
+        NULL,
+        FILE_ATTRIBUTE_NORMAL,
+        opt<enum_t>(flag.checked<Io::read>())[FILE_SHARE_READ] | opt<enum_t>(flag.checked<Io::write>())[FILE_SHARE_WRITE],
+        opt<enum_t>(flag.checked<Io::read>())[FILE_OPEN] | opt<enum_t>(flag.checked<Io::write>() && flag.checked<Io::append>())[FILE_OPEN_IF] |
+        opt<enum_t>(flag.checked<Io::write>())[FILE_OVERWRITE_IF],
+        FILE_SYNCHRONOUS_IO_NONALERT,
+        NULL,
+        0
+        );
+
+# endif
+
+# endif
+
+    return d_ptr->file != NULL;
 }
 
 void File::close()
 {
-	d_ptr->close();
+    d_ptr->close();
 }
 
 NNT_END_CXX

@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_CXX
 
-NNT_BEGIN_NS(cxx)
+NNT_BEGIN_NS(ntl)
 
 template <typename implT, typename valT>
 class _BaseType
@@ -113,59 +113,179 @@ NNT_BEGIN_NS(impl)
 
 template <typename implT, typename intT>
 class number_t
-    : public cxx::_BaseType<implT, intT>
+    : public _BaseType<implT, intT>
 {
+
+};
+
+template <typename valT>
+class mask_t
+{
+public:
+
+    mask_t(valT v = 0)
+        : _val(v)
+    {
+
+    }
+
+    template <typename posT>
+    bool checked() const
+    {
+        return (0x1 << typename posT::VALUE) & _val;
+    }
+
+    template <typename posT>
+    mask_t& on()
+    {
+        _val |= 0x1 << typename posT::VALUE;
+        return*this;
+    }
+
+    template <typename posT>
+    mask_t& off()
+    {
+        _val &= ~(0x1 << typename posT::VALUE);
+        return *this;
+    }
+
+    template <typename posT>
+    mask_t& toggle()
+    {
+        _val ^= 0x1 << typename posT::VALUE;
+        return *this;
+    }
+
+    template <typename posT>
+    mask_t& set(bool val)
+    {
+        if (val)
+            on<posT>();
+        else
+            off<posT>();
+        return *this;
+    }
+
+    void set(valT val)
+    {
+        MASK_SET(val, _val);
+    }
+
+    void unset(valT val)
+    {
+        MASK_UNSET(val, _val);
+    }
+
+    bool checked(valT val)
+    {
+        return MASK_CHECK(val, _val);
+    }
+
+    mask_t& operator = (mask_t const& r)
+    {
+        _val = r._val;
+        return *this;
+    }
+
+    bool operator == (mask_t const& r) const
+    {
+        return _val == r._val;
+    }
+
+    bool operator != (mask_t const& r) const
+    {
+        return _val != r._val;
+    }
+
+protected:
+
+    valT _val;
 
 };
 
 NNT_END_NS
 
+template <ubyte valT>
+class position_t
+{
+public:
+
+    enum { VALUE = valT };
+
+    template <typename posT>
+    position_t operator + (posT const& r) const
+    {
+        return VALUE + typename posT::VALUE;
+    }
+
+    template <typename posT>
+    position_t operator - (posT const& r) const
+    {
+        return VALUE - typename posT::VALUE;
+    }
+
+    operator ubyte () const
+    {
+        return VALUE;
+    }
+
+};
+
 NNT_END_NS
 
+typedef ntl::impl::mask_t<uint> mask32_t;
+typedef ntl::impl::mask_t<ulonglong> mask64_t;
+
+# ifdef NNT_X32
+typedef mask32_t mask_t;
+# else
+typedef mask64_t mask_t;
+# endif
+
 class int_t
-    : public cxx::impl::number_t<int_t, int>
+    : public ntl::impl::number_t<int_t, int>
 {
 
 };
 
 class uint_t
-    : public cxx::impl::number_t<uint_t, uint>
+    : public ntl::impl::number_t<uint_t, uint>
 {
 
 };
 
 class long_t
-    : public cxx::impl::number_t<long_t, long>
+    : public ntl::impl::number_t<long_t, long>
 {
 
 };
 
 class ulong_t
-    : public cxx::impl::number_t<ulong_t, ulong>
+    : public ntl::impl::number_t<ulong_t, ulong>
 {
 
 };
 
 class longlong_t
-    : public cxx::impl::number_t<longlong_t, longlong>
+    : public ntl::impl::number_t<longlong_t, longlong>
 {
 
 };
 
 class ulonglong_t
-    : public cxx::impl::number_t<ulonglong_t, ulonglong>
+    : public ntl::impl::number_t<ulonglong_t, ulonglong>
 {
 
 };
 
 class float_t
-    : public cxx::impl::number_t<float_t, float>
+    : public ntl::impl::number_t<float_t, float>
 {
 
 };
 
 class double_t
-    : public cxx::impl::number_t<double_t, double>
+    : public ntl::impl::number_t<double_t, double>
 {
 
 };

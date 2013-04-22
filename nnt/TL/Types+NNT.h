@@ -29,6 +29,72 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_CXX
 
+template <typename valT>
+class opt
+{
+
+protected:
+
+    opt(valT const& r, bool f)
+        : _flag(f),
+        _val(r)
+    {
+
+    }
+
+public:
+
+    explicit opt(bool f)
+        : _flag(f)
+    {
+
+    }
+
+    opt& operator [] (valT const& r)
+    {
+        _val = r;
+        return *this;
+    }
+
+    opt operator | (opt const& r) const
+    {
+        if (_flag && !r._flag)
+            return opt(_val, true);
+        if (r._flag && !_flag)
+            return opt(r._val, true);
+        if (_flag && r._flag)
+            return opt(_flag | r._flag, true);
+        return opt(false);
+    }
+
+    opt operator & (opt const& r) const
+    {
+        if (_flag && !r._flag)
+            return opt(_val, true);
+        if (r._flag && !_flag)
+            return opt(r._val, true);
+        if (_flag && r._flag)
+            return opt(_flag & r._flag, true);
+        return opt(false);
+    }
+
+    operator valT& ()
+    {
+        return _val;
+    }
+
+    operator valT const& () const
+    {
+        return _val;
+    }
+
+protected:
+
+    bool _flag;
+    valT _val;
+
+};
+
 # ifdef NNT_OBJC
 
 template <typename valT>

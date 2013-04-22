@@ -4,7 +4,22 @@
 
 # ifdef NNT_CXX
 
+# include "../TL/URL+NNT.h"
+
 NNT_BEGIN_HEADER_CXX
+
+class Io
+{
+public:
+
+    typedef ntl::position_t<0> read;
+    typedef ntl::position_t<1> write;
+    typedef ntl::position_t<2> create;
+    typedef ntl::position_t<3> close;
+    typedef ntl::position_t<4> binary;
+    typedef ntl::position_t<5> append;
+
+};
 
 NNTDECL_PRIVATE_HEAD_CXX(File);
 
@@ -15,23 +30,13 @@ class File
 
 public:
 
+    typedef core::FileUrl<core::string> url_type;
+
 	File();
 	~File();
 
-	//! read file.
-	bool read(core::string const& path);
-
-	//! read line.
-	bool getline(core::string&);
-
-	//! read all.
-	void getall(core::string&);
-
-	//! is eof.
-	bool is_eof() const;
-
-	//! close.
-	void close();
+    bool open(url_type const& path, mask_t const& flag);
+    void close();
 
 };
 
