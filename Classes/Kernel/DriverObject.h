@@ -9,14 +9,38 @@ class Status
 {
 public:
 
+    Status();
+    ~Status();
+
     static bool Success(int);
     static bool Failed(int);
+
+};
+
+class Memory
+{
+public:
+
+    Memory(void* ptr, usize len);
+    ~Memory();
+
+    bool is_readable(ubyte align = 4) const;
+    bool is_writable(ubyte align = 4) const;
+
+protected:
+
+    void* _ptr;
+    usize _len;
 
 };
 
 class Object
     : public ::nnt::Object
 {
+public:
+
+    Object();
+    ~Object();
 
 };
 

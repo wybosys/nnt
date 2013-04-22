@@ -95,12 +95,6 @@
 #     include <Windows.h>
 #   else // kernel space
 #     include <ntddk.h>
-#     define NNTKS_PAGED_CODE code_seg("PAGE")
-#     define NNTKS_LOCKED_CODE code_seg()
-#     define NNTKS_INIT_CODE code_seg("INIT")
-#     define NNTKS_PAGED_DATA data_seg("PAGE")
-#     define NNTKS_LOCKED_DATA data_seg()
-#     define NNTKS_INIT_DATA data_seg("INIT")
 #   endif // user space
 #   include <tchar.h>
 #   ifdef NNT_USER_SPACE
@@ -223,11 +217,22 @@ typedef ios_unknown ios_version;
 # endif
 
 # ifdef NNT_KERNEL_SPACE
+
 #   define NNTKS_EXPRESS(exp) exp
 #   define NNTUS_EXPRESS(exp) exp
+
+#   define NNTKS_PAGED_CODE code_seg("PAGE")
+#   define NNTKS_LOCKED_CODE code_seg()
+#   define NNTKS_INIT_CODE code_seg("INIT")
+#   define NNTKS_PAGED_DATA data_seg("PAGE")
+#   define NNTKS_LOCKED_DATA data_seg()
+#   define NNTKS_INIT_DATA data_seg("INIT")
+
 # else
+
 #   define NNTKS_EXPRESS(exp)
 #   define NNTUS_EXPRESS(exp) exp
+
 # endif
 
 # define NNT_INLINE inline
