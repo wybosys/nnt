@@ -1,6 +1,6 @@
 
-# ifndef __NNT_CORE_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
-# define __NNT_CORE_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
+# ifndef __NNT_TL_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
+# define __NNT_TL_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
 
 # ifdef NNT_CXX
 
@@ -22,7 +22,7 @@ public:
     static value_type* New()
     {
 # ifdef NNT_MSVC
-        return (value_type*)::ExAllocatePoolWithTag(value_type, sizeof(value_type), (LONG)"ntla");
+        return (value_type*)::ExAllocatePoolWithTag(PagedPool, sizeof(value_type), (LONG)"ntla");
 # endif
     }
 
@@ -34,6 +34,22 @@ public:
     }
 
 };
+
+# ifdef NNT_MSVC
+
+// global new & delete operators.
+
+static void* __cdecl operator new(size_t sz, POOL_TYPE pt = PagedPool)
+{
+    return ::ExAllocatePoolWithTag(pt, sz, (LONG)"cxxn");
+}
+
+static void __cdecl operator delete(void* ptr)
+{
+    ::ExFreePoolWithTag(ptr, (LONG)"cxxn");
+}
+
+# endif
 
 # endif // user space.
 

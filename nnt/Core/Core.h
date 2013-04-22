@@ -1415,6 +1415,7 @@ typedef struct {} objc_type;
 // include C++ Base Classes.
 
 # include "../TL/Allocate+NNT.h"
+# include "../TL/Memory+NNT.h"
 
 # ifdef NNT_USER_SPACE
 
