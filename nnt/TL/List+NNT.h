@@ -4,10 +4,16 @@
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+
 # include <list>
+
+# endif
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
+
+# ifdef NNT_USER_SPACE
 
 template <typename valT>
 class _list
@@ -331,6 +337,101 @@ inline_impl list<ValueT>& operator << (list<ValueT>& left, ValueT right)
     return left;
 }
 
+# else // kernel space.
+
+template <typename ValT>
+class list
+{
+
+protected:
+
+# ifdef NNT_MSVC
+
+    struct _entry
+    {
+        LIST_ENTRY entry;
+        ValT val;
+    };
+
+    typedef alloc::Heap<_entry> _heap;
+
+# endif
+
+public:
+
+    typedef ValT value_type;
+
+    list()
+    {
+# ifdef NNT_MSVC
+        ::InitializeListHead(*this);
+# endif
+    }
+
+    ~list()
+    {
+        this->clear();
+    }
+
+    void clear()
+    {
+        while (!is_empty())
+        {
+            pop();
+        }
+    }
+
+    bool is_empty() const
+    {
+# ifdef NNT_MSVC
+        return ::IsListEmpty(*this);
+# endif
+    }
+
+    void push_front(value_type const& val)
+    {
+# ifdef NNT_MSVC
+        _entry* obj = _heap::New();
+        obj->val = val;
+        ::InsertHeadList(*this, obj->entry);
+# endif
+    }
+
+    void push_back(value_type const& val)
+    {
+# ifdef NNT_MSVC
+        _entry* obj = _heap::New();
+        obj->val = val;
+        ::InsertTailList(*this, obj->entry);
+# endif
+    }
+
+    void pop()
+    {
+# ifdef NNT_MSVC
+        PLIST_ENTRY pent = ::RemoveHeadList(*this);
+        _entry* pobj = CONTAINING_RECORD(pent, _entry, entry);
+        _heap::Delete(pobj);
+# endif
+    }
+
+# ifdef NNT_MSVC
+
+    operator LIST_ENTRY* () const
+    {
+        return (LIST_ENTRY*)&_lst;
+    }
+
+protected:
+
+    _entry _lst;
+
+# endif
+
+};
+
+# endif // user space.
+
 NNT_END_NS
 NNT_END_HEADER_CXX
 
@@ -355,8 +456,8 @@ typedef _NSList::const_iterator NSListConstIterator;
 
 NNT_END_HEADER_OBJC
 
-# endif
+# endif // objc
 
-# endif
+# endif // cxx
 
 # endif

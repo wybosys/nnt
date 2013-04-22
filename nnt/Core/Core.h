@@ -1413,6 +1413,9 @@ typedef struct {} objc_type;
 # endif
 
 // include C++ Base Classes.
+
+# include "../TL/Allocate+NNT.h"
+
 # ifdef NNT_USER_SPACE
 
 # include "../TL/Exception+NNT.h"
@@ -1423,11 +1426,11 @@ typedef struct {} objc_type;
 # include "../TL/Types+NNT.h"
 # include "../TL/Function+NNT.h"
 # include "../TL/String+NNT.h"
+# include "../TL/List+NNT.h"
 
 # ifdef NNT_USER_SPACE
 
 # include "../TL/Vector+NNT.h"
-# include "../TL/List+NNT.h"
 # include "../TL/Map+NNT.h"
 //# include "../TL/Bimap+NNT.h"
 # include "../TL/Tuple+NNT.h"
