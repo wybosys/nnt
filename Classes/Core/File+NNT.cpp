@@ -104,7 +104,6 @@ void File::close()
     d_ptr->close();
 }
 
-/*
 usize File::write(core::data const& da)
 {
 
@@ -131,6 +130,5 @@ usize File::write(core::data const& da)
 
     return 0;
 }
-*/
 
 NNT_END_CXX
