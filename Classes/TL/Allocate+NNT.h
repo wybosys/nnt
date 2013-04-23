@@ -94,6 +94,14 @@ public:
 };
 
 template <typename valT>
+class Heap <valT, os_mach, space_kernel>
+{
+
+};
+
+# ifdef NNT_MSVC
+
+template <typename valT>
 class Heap <valT, os_windows, space_kernel>
     : public HeapMemory<valT, os_windows, space_kernel>
 {
@@ -117,6 +125,8 @@ public:
     }
 
 };
+
+# endif
 
 # if defined(NNT_MSVC) && defined(NNT_KERNEL_SPACE)
 

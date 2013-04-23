@@ -37,7 +37,7 @@ void Local::fclose(file_io fd) const
 
 int Local::fwrite(file_io fd, const core::data & da) const
 {
-    return ::fwrite(da.bytes(), 1, da.size(), (FILE*)fd);
+    return ::fwrite(da.bytes(), 1, da.length(), (FILE*)fd);
 }
 
 bool save(core::data const& data, core::string const& name)

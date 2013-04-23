@@ -19,7 +19,7 @@ public:
     
 protected:
 
-    uenum _mechanism;
+    enum_t _mechanism;
     
 };
 

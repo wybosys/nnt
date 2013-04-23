@@ -19,7 +19,7 @@ public:
     
 protected:
     
-    uenum _compression;
+    enum_t _compression;
     
 };
 

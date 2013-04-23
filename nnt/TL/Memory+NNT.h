@@ -71,6 +71,8 @@ public:
 
 };
 
+# ifdef NNT_MSVC
+
 template <>
 class Memory <os_windows, space_kernel>
     : public Pointer <os_windows, space_kernel>
@@ -98,6 +100,8 @@ public:
     }
 
 };
+
+# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

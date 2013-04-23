@@ -576,21 +576,23 @@ public:
 
     typedef TVal value_type;
 
-	_base_framedata(TVal* da, usize capacity)
-		: _capacity(capacity), _offset(0)
+	_base_framedata(TVal* da, usize dl)
+		: _capacity(dl), _offset(0)
 	{
 		this->_da = da;
-		this->_dl = capacity;
+		this->_dl = dl;
 		this->_nrelease = false;
 	}
 
     _base_framedata(usize capacity = 0)
-        : _capacity(capacity), _offset(0)
+        : _offset(0)
     {
         if (capacity != 0)
         {
             super::resize(capacity);
         }
+        
+        _capacity = this->_dl;
     }
 
     ~_base_framedata()
@@ -611,11 +613,6 @@ public:
     usize length() const
     {
         return this->_dl - _offset;
-    }
-
-    usize size() const
-    {
-        return this->length();
     }
 
     void move(usize off)

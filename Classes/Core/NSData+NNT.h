@@ -227,7 +227,7 @@ inline_impl data type_cast<data, ns::Data>(ns::Data const& da)
 template <>
 inline_impl ns::Data type_cast<ns::Data, data>(data const& da)
 {
-    return ns::Data((void*)da.bytes(), da.size(), ntl::assign, false);
+    return ns::Data((void*)da.bytes(), da.length(), ntl::assign, false);
 }
 
 template <>
@@ -239,7 +239,7 @@ inline_impl data dup_cast<data, ns::Data>(ns::Data const& da)
 template <>
 inline_impl ns::Data dup_cast<ns::Data, data>(data const& da)
 {
-    return ns::Data((void*)da.bytes(), da.size(), ntl::copy, true);
+    return ns::Data((void*)da.bytes(), da.length(), ntl::copy, true);
 }
 
 template <>

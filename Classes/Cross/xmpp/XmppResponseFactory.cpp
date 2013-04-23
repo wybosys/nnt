@@ -31,7 +31,7 @@ void AbstractResponseFactory::set_client(Client &client)
 
 bool AbstractResponseFactory::process(core::data const& da)
 {
-    if (da.size() < 2)
+    if (da.length() < 2)
         return false;
     
     parser::XmlDocument xml;

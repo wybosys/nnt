@@ -775,7 +775,7 @@ bool Document::parse(core::data const& da)
     close();
     
     htmlDocPtr doc = htmlReadMemory((char const*)da.bytes(),
-                                    da.size(),
+                                    da.length(),
                                     NULL,
                                     encoding.size() ? encoding.c_str() : NULL,
                                     HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);

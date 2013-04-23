@@ -16,7 +16,7 @@ core::data sha1::digest(core::data const& da)
     
     SHA_CTX ctx;
     SHA1_Init(&ctx);
-    while (tmp.size())
+    while (tmp.length())
     {
         SHA1_Update(&ctx, tmp.bytes(), tmp.limit(SHA_DIGEST_LENGTH));
         tmp.offset(tmp.limit(SHA_DIGEST_LENGTH));
@@ -35,7 +35,7 @@ core::data sha2::digest224(core::data const& da)
     SHA256_CTX ctx;
     SHA224_Init(&ctx);
     
-    while (tmp.size())
+    while (tmp.length())
     {
         SHA224_Update(&ctx, tmp.bytes(), tmp.limit(SHA224_DIGEST_LENGTH));
         tmp.offset(tmp.limit(SHA224_DIGEST_LENGTH));
@@ -54,7 +54,7 @@ core::data sha2::digest256(core::data const& da)
     SHA256_CTX ctx;
     SHA256_Init(&ctx);
     
-    while (tmp.size())
+    while (tmp.length())
     {
         SHA256_Update(&ctx, tmp.bytes(), tmp.limit(SHA256_DIGEST_LENGTH));
         tmp.offset(tmp.limit(SHA256_DIGEST_LENGTH));
@@ -73,7 +73,7 @@ core::data sha2::digest512(core::data const& da)
     SHA512_CTX ctx;
     SHA512_Init(&ctx);
     
-    while (tmp.size())
+    while (tmp.length())
     {
         SHA512_Update(&ctx, tmp.bytes(), tmp.limit(SHA512_DIGEST_LENGTH));
         tmp.offset(tmp.limit(SHA512_DIGEST_LENGTH));
@@ -92,7 +92,7 @@ core::data sha2::digest384(core::data const& da)
     SHA512_CTX ctx;
     SHA384_Init(&ctx);
     
-    while (tmp.size())
+    while (tmp.length())
     {
         SHA384_Update(&ctx, tmp.bytes(), tmp.limit(SHA384_DIGEST_LENGTH));
         tmp.offset(tmp.limit(SHA384_DIGEST_LENGTH));

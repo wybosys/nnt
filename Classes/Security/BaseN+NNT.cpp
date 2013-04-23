@@ -82,7 +82,7 @@ void base64::decode(core::string const& l, core::string& r)
 void base64::decode(core::data const& l, core::string& r)
 {
     void* data = (void*)l.bytes();
-    uint ldata = l.size();
+    uint ldata = l.length();
     
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
@@ -116,7 +116,7 @@ core::data base64::encode(core::data const& da)
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
     BIO_push(bio, BIO_new(BIO_s_mem()));
-    BIO_write(bio, da.bytes(), da.size());
+    BIO_write(bio, da.bytes(), da.length());
     
     if(BIO_flush(bio)) {};
     BUF_MEM* mem;
@@ -133,11 +133,11 @@ core::data base64::decode(core::data const& da)
 {
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
-    BIO* bmem = BIO_new_mem_buf((void*)da.bytes(), da.size());
+    BIO* bmem = BIO_new_mem_buf((void*)da.bytes(), da.length());
     BIO_push(bio, bmem);        
     
-    core::data ret(da.size());
-    int len = BIO_read(bio, (void*)ret.bytes(), ret.size());
+    core::data ret(da.length());
+    int len = BIO_read(bio, (void*)ret.bytes(), ret.length());
     ret.set_length(len);
     BIO_free_all(bio);
     

@@ -132,27 +132,27 @@ public:
     template <typename posT>
     bool checked() const
     {
-        return (0x1 << typename posT::VALUE) & _val;
+        return (0x1 << posT::VALUE) & _val;
     }
 
     template <typename posT>
     mask_t& on()
     {
-        _val |= 0x1 << typename posT::VALUE;
+        _val |= 0x1 << posT::VALUE;
         return*this;
     }
 
     template <typename posT>
     mask_t& off()
     {
-        _val &= ~(0x1 << typename posT::VALUE);
+        _val &= ~(0x1 << posT::VALUE);
         return *this;
     }
 
     template <typename posT>
     mask_t& toggle()
     {
-        _val ^= 0x1 << typename posT::VALUE;
+        _val ^= 0x1 << posT::VALUE;
         return *this;
     }
 
@@ -215,13 +215,13 @@ public:
     template <typename posT>
     position_t operator + (posT const& r) const
     {
-        return VALUE + typename posT::VALUE;
+        return VALUE + posT::VALUE;
     }
 
     template <typename posT>
     position_t operator - (posT const& r) const
     {
-        return VALUE - typename posT::VALUE;
+        return VALUE - posT::VALUE;
     }
 
     operator ubyte () const
