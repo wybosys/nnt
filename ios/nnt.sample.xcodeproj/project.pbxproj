@@ -1544,6 +1544,12 @@
 		16F98CEB149EDECF00240965 /* NGBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CE9149EDECF00240965 /* NGBase.mm */; };
 		16F9AC49159C36CA000433D3 /* Sqlite+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC48159C36CA000433D3 /* Sqlite+NNT.cpp */; };
 		16FAF063146E434A00EF899B /* Msgbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FAF062146E434A00EF899B /* Msgbox.h */; };
+		16FBADDD17263F1B0041C5C4 /* Memory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FBADD717263F1B0041C5C4 /* Memory+NNT.cpp */; };
+		16FBADDE17263F1B0041C5C4 /* Memory+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FBADD817263F1B0041C5C4 /* Memory+NNT.h */; };
+		16FBADDF17263F1B0041C5C4 /* Stdtype+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FBADD917263F1B0041C5C4 /* Stdtype+NNT.cpp */; };
+		16FBADE017263F1B0041C5C4 /* Stdtype+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FBADDA17263F1B0041C5C4 /* Stdtype+NNT.h */; };
+		16FBADE117263F1B0041C5C4 /* URL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FBADDB17263F1B0041C5C4 /* URL+NNT.cpp */; };
+		16FBADE217263F1B0041C5C4 /* URL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FBADDC17263F1B0041C5C4 /* URL+NNT.h */; };
 		16FD79D4158F1DA6006E981C /* XmppFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FD79D2158F1DA6006E981C /* XmppFeatures.cpp */; };
 		16FD79D5158F1DA6006E981C /* XmppFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FD79D3158F1DA6006E981C /* XmppFeatures.h */; };
 		16FF0DC3155B972B0044E9F8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB8C5A1443F52D00E85F90 /* AVFoundation.framework */; };
@@ -3131,6 +3137,12 @@
 		16F98CE9149EDECF00240965 /* NGBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NGBase.mm; sourceTree = "<group>"; };
 		16F9AC48159C36CA000433D3 /* Sqlite+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Sqlite+NNT.cpp"; sourceTree = "<group>"; };
 		16FAF062146E434A00EF899B /* Msgbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Msgbox.h; sourceTree = "<group>"; };
+		16FBADD717263F1B0041C5C4 /* Memory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Memory+NNT.cpp"; path = "TL/Memory+NNT.cpp"; sourceTree = "<group>"; };
+		16FBADD817263F1B0041C5C4 /* Memory+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Memory+NNT.h"; path = "TL/Memory+NNT.h"; sourceTree = "<group>"; };
+		16FBADD917263F1B0041C5C4 /* Stdtype+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Stdtype+NNT.cpp"; path = "TL/Stdtype+NNT.cpp"; sourceTree = "<group>"; };
+		16FBADDA17263F1B0041C5C4 /* Stdtype+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Stdtype+NNT.h"; path = "TL/Stdtype+NNT.h"; sourceTree = "<group>"; };
+		16FBADDB17263F1B0041C5C4 /* URL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "URL+NNT.cpp"; path = "TL/URL+NNT.cpp"; sourceTree = "<group>"; };
+		16FBADDC17263F1B0041C5C4 /* URL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "URL+NNT.h"; path = "TL/URL+NNT.h"; sourceTree = "<group>"; };
 		16FD79D2158F1DA6006E981C /* XmppFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppFeatures.cpp; sourceTree = "<group>"; };
 		16FD79D3158F1DA6006E981C /* XmppFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppFeatures.h; sourceTree = "<group>"; };
 		16FF0DC0155B971E0044E9F8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -4564,6 +4576,12 @@
 				169F83AF16F8478D0008AAC9 /* Algorithm+NNT.h */,
 				169F83B216F8478D0008AAC9 /* Bimap+NNT.cpp */,
 				169F83B316F8478D0008AAC9 /* Bimap+NNT.h */,
+				16FBADD717263F1B0041C5C4 /* Memory+NNT.cpp */,
+				16FBADD817263F1B0041C5C4 /* Memory+NNT.h */,
+				16FBADD917263F1B0041C5C4 /* Stdtype+NNT.cpp */,
+				16FBADDA17263F1B0041C5C4 /* Stdtype+NNT.h */,
+				16FBADDB17263F1B0041C5C4 /* URL+NNT.cpp */,
+				16FBADDC17263F1B0041C5C4 /* URL+NNT.h */,
 				169F83B416F8478D0008AAC9 /* Closure+NNT.cpp */,
 				169F83B516F8478D0008AAC9 /* Closure+NNT.h */,
 				169F83B816F8478D0008AAC9 /* Data+NNT.cpp */,
@@ -6204,6 +6222,9 @@
 				1630A80A171BFF8200B318A9 /* CmdArguments.h in Headers */,
 				1630A80C171BFF8200B318A9 /* NetAddress.h in Headers */,
 				1630A810171BFF9B00B318A9 /* SOAPObject.h in Headers */,
+				16FBADDE17263F1B0041C5C4 /* Memory+NNT.h in Headers */,
+				16FBADE017263F1B0041C5C4 /* Stdtype+NNT.h in Headers */,
+				16FBADE217263F1B0041C5C4 /* URL+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7092,6 +7113,9 @@
 				1630A809171BFF8200B318A9 /* CmdArguments.cpp in Sources */,
 				1630A80B171BFF8200B318A9 /* NetAddress.cpp in Sources */,
 				1630A80F171BFF9B00B318A9 /* SOAPObject.cpp in Sources */,
+				16FBADDD17263F1B0041C5C4 /* Memory+NNT.cpp in Sources */,
+				16FBADDF17263F1B0041C5C4 /* Stdtype+NNT.cpp in Sources */,
+				16FBADE117263F1B0041C5C4 /* URL+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

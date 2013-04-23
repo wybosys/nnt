@@ -61,7 +61,7 @@ bool ecc::generate()
 {
     d_ptr->key.set(EC_KEY_new());
     
-    if (d_ptr->key == NULL)
+    if (d_ptr->key.null())
         return false;
     
     int sta = 0;

@@ -68,6 +68,11 @@ public:
         super::_obj = obj;
         return super::_impl();
     }
+    
+    bool null() const
+    {
+        return super::_obj == NULL;
+    }
 
     
 };
