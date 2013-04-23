@@ -7,84 +7,94 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
 
-class Void
+template <typename osT = os_type, typename spaceT = space_type>
+class Memory
+{
+public:
+
+    static void Copy(void* des, void const* src, usize len);
+    static void Move(void* des, void const* src, usize len);
+    static void Fill(void* des, usize len, ubyte data);
+    static bool Equal(void const* des, void const* src, usize len);
+
+};
+
+template <typename osT, typename spaceT>
+class Pointer
 {
 public:
 
     template <typename valT>
-    static void* pointer(valT const& obj)
+    static void* Pvoid(valT const& obj)
     {
         return (void*)&obj;
     }
 
     template <typename valT>
-    static void* pointer(valT const* obj)
+    static void* Pvoid(valT const* obj)
     {
         return (void*)obj;
     }
 
+    static void* Offset(void const* ptr, usize offset)
+    {
+        return (void*)(((byte*)ptr) + offset);
+    }
+
 };
 
-template <typename valT>
-class Common
+template <typename osT>
+class Memory <osT, space_user>
+    : public Pointer <osT, space_user>
 {
 public:
 
-    typedef valT value_type;
-
-    template <typename desT, typename srcT>
-    static void Copy(desT& des, srcT const& src, usize sz = sizeof(value_type))
+    static void Copy(void* des, void const* src, usize len)
     {
-        void* pdes = Void::pointer(des);
-        void* psrc = Void::pointer(src);
-
-# ifdef NNT_USER_SPACE
-# else
-# ifdef NNT_MSVC
-        ::RtlCopyMemory(pdes, psrc, sz);
-# endif
-# endif
+        memcpy(des, src, len);
     }
 
-    template <typename desT, typename srcT>
-    static void Move(desT& des, srcT const& src, usize sz = sizeof(value_type))
+    static void Move(void* des, void const* src, usize len)
     {
-        void* pdes = Void::pointer(des);
-        void* psrc = Void::pointer(src);
-
-# ifdef NNT_USER_SPACE
-# else
-# ifdef NNT_MSVC
-        ::RtlMoveMemory(pdes, psrc, sz);
-# endif
-# endif
+        memmove(des, src, len);
     }
 
-    template <typename desT>
-    static void Fill(desT& des, ubyte da = 0, usize sz = sizeof(value_type))
+    static void Fill(void* des, usize len, ubyte data)
     {
-        void* pdes = Void::pointer(des);
-
-# ifdef NNT_USER_SPACE
-# else
-# ifdef NNT_MSVC
-        ::RtlFillMemory(pdes, sz, da);
-# endif
-# endif
+        memset(des, data, len);
     }
 
-    template <typename desT, typename srcT>
-    static bool Equal(desT const& des, srcT const& src, usize sz = sizeof(value_type))
+    static bool Equal(void const* des, void const* src, usize len)
     {
-        void* pdes = Void::pointer(des);
-        void* psrc = Void::pointer(src);
+        return memcmp(des, src, len) == 0;
+    }
 
-# ifdef NNT_USER_SPACE
-# else
-# ifdef NNT_MSVC
-        return 0 != ::RtlCompareMemory(pdes, psrc, sz);
-# endif
-# endif
+};
+
+template <>
+class Memory <os_windows, space_kernel>
+    : public Pointer <os_windows, space_kernel>
+{
+public:
+
+    static void Copy(void* des, void const* src, usize len)
+    {
+        ::RtlCopyMemory(des, src, len);
+    }
+
+    static void Move(void* des, void const* src, usize len)
+    {
+        ::RtlMoveMemory(des, src, len);
+    }
+
+    static void Fill(void* des, usize len, ubyte data)
+    {
+        ::RtlFillMemory(des, len, data);
+    }
+
+    static bool Equal(void const* des, void const* src, usize len)
+    {
+        return ::RtlCompareMemory(des, src, len) != 0;
     }
 
 };

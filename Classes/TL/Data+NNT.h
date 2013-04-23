@@ -4,15 +4,21 @@
 
 # ifdef NNT_CXX
 
+# include "./Allocate+NNT.h"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
 
-template <typename _Tp>
+template <typename _Tp,
+typename heapT = alloc::Heap<_Tp>
+>
 class _base_data
 {
-    typedef _base_data<_Tp> self_type;
+    typedef _base_data<_Tp, heapT> self_type;
     
 protected:
+
+    typedef heapT heaper;
     
     template <typename value_type>
     class _iterator
@@ -131,10 +137,11 @@ public:
         PASS;
     }
     
-    _base_data(usize length)
-    : _dl(length), _nrelease(true)
+    _base_data(usize count)
+    : _nrelease(true)
     {
-        _da = (pointer)malloc(length * sizeof(value_type));
+        this->_da = heaper::Create(count);
+        this->_dl = heaper::Length(count);
     }
     
     _base_data(value_type const* d, usize l)
@@ -165,11 +172,10 @@ public:
     }
     
     _base_data(value_type const* d, usize l, usize ext)
-    : _da(NULL), _dl(0), _nrelease(false)
-    {        
-        this->_da = (value_type*)malloc((l + ext) * sizeof(value_type));
-        memcpy((void*)this->_da, d, l * sizeof(value_type));
-        memset((void*)(this->_da + l * sizeof(value_type)), 0, ext * sizeof(value_type));
+    {      
+        this->_da = heaper::Alloc(l + ext);
+        heaper::Memory::Copy(this->_da, d, l);
+        heaper::Memory::Fill(heaper::Memory::Offset(this->_da, l), ext, 0);
         this->_dl = l + ext;
         this->_nrelease = true;
     }
@@ -180,7 +186,7 @@ public:
         usize l = end - b;
         if (cpy == ntl::copy)
         {
-            this->duplicate((void*)d, l);
+            duplicate((void*)d, l);
         }
         else
         {
@@ -232,26 +238,26 @@ public:
     
     ~_base_data()
     {
-        clear();
+        this->clear();
     }
     
     void clear()
     {
-        if (_nrelease)
+        if (this->_nrelease)
         {
-            ::free((void*)_da);
-            _da = NULL;
-            _dl = 0;
-            _nrelease = false;
+            heaper::Free(this->_da);
+            this->_da = NULL;
+            this->_dl = 0;
+            this->_nrelease = false;
         }
     }
     
     void duplicate(void const* d, usize l)
     {
-        clear();
+        this->clear();
 
-        this->_da = (value_type*)malloc(l * sizeof(value_type));
-        memcpy((void*)this->_da, d, l * sizeof(value_type));
+        this->_da = heaper::Alloc(l);
+        heaper::Memory::Copy(this->_da, d, l);
         this->_dl = l;
         this->_nrelease = true;
     }
@@ -263,32 +269,42 @@ public:
             tgtsz = this->_dl;
         if (tgtsz == 0)
             return 0;
-        memcpy((void*)this->_da, d, tgtsz * sizeof(value_type));
+        heaper::Memory::Copy(this->_da, d, tgtsz);
         return tgtsz;
     }
 
     usize copy(self_type const& r)
     {
-        return this->copy(r._da, r._dl);
+        return copy(r._da, r._dl);
+    }
+
+    void resize(usize l)
+    {
+		clear();
+
+        this->_da = heaper::Create(l);
+        this->_dl = heaper::Length(l);
+        this->_nrelease = true;
     }
 
     void alloc(usize l)
     {
-		clear();
-        this->_da = (value_type*)malloc(l * sizeof(value_type));
+        clear();
+
+        this->_da = heaper::Alloc(l);
         this->_dl = l;
         this->_nrelease = true;
     }
     
     void append(self_type const& r)
     {
-        this->append(r._da, r._dl);
+        append(r._da, r._dl);
     }
     
     template <typename valT>
     void append(valT const& obj)
     {
-        this->append((void*)&obj, (usize)sizeof(obj));
+        append((void*)&obj, (usize)sizeof(obj));
     }
 
     void append(core::string const& str)
@@ -307,10 +323,10 @@ public:
             return;
         
         usize nsz = this->_dl + l;
-        value_type* da = (value_type*)malloc(nsz * sizeof(value_type));
-        if (this->_dl)
-            memcpy(da, this->_da, this->_dl * sizeof(value_type));
-        memcpy(da + this->_dl * sizeof(value_type), d, l * sizeof(value_type));
+        value_type* da = heaper::Alloc(nsz);
+        if (_dl)
+            heaper::Memory::Copy(da, this->_da, this->_dl);
+        heaper::Memory::Copy(heaper::Memory::Offset(da, this->_dl), d, l);
         
         // clear.
         this->clear();
@@ -346,11 +362,6 @@ public:
         return _dl;
     }
     
-    usize size() const
-    {
-        return _dl;
-    }
-    
     void set_length(usize l)
     {
         _dl = l;
@@ -360,14 +371,14 @@ public:
     {
         if (_dl != r._dl)
             return false;
-        return ::memcmp(_da, r._da, _dl * sizeof(value_type)) == 0;
+        return heaper::Memory::Equal(_da, r._da, _dl);
     }
     
     bool operator != (self_type const& r) const
     {
         if (_dl != r._dl)
             return true;
-        return ::memcmp(_da, r._da, _dl * sizeof(value_type)) != 0;
+        return !heaper::Memory::Equal(_da, r._da, _dl);
     }
     
     iterator begin()
@@ -451,7 +462,9 @@ protected:
 
 typedef _base_data<byte> data;
 
+NNTUS_EXPRESS(
 static const data null_data = data();
+);
 
 class data_le
 : public data
@@ -557,6 +570,7 @@ class _base_framedata
     : protected _base_data<TVal>
 {
     typedef _base_data<TVal> super;
+    typedef typename super::heaper heaper;
 
 public:
 
@@ -575,7 +589,7 @@ public:
     {
         if (capacity != 0)
         {
-            super::alloc(capacity * sizeof(TVal));
+            super::resize(capacity);
         }
     }
 
@@ -632,7 +646,7 @@ public:
 			tgtsz = spa;
 		if (tgtsz == 0)
 			return 0;
-		memcpy(this->bytes(), d, tgtsz * sizeof(value_type));
+        heaper::Memory::Copy(this->bytes(), d, tgtsz);
 		return tgtsz;
 	}
 

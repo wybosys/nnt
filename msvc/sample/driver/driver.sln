@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "driver", "driver\driver.vcproj", "{51D37E12-5F71-4ABD-A633-238FB3710930}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4CE7BB3F-7297-4F12-B25C-24DCD6683C9D} = {4CE7BB3F-7297-4F12-B25C-24DCD6683C9D}
+		{D6FD8385-23BB-46D7-A43B-9A44D1B48B43} = {D6FD8385-23BB-46D7-A43B-9A44D1B48B43}
+		{41D38EED-C58C-4795-B19D-50B0441A0568} = {41D38EED-C58C-4795-B19D-50B0441A0568}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNntCore", "..\..\libNntCore\libNntCore.vcproj", "{41D38EED-C58C-4795-B19D-50B0441A0568}"
 EndProject
@@ -12,6 +17,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNntKernel", "..\..\libNn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libNntTl", "..\..\libNntTl\libNntTl.vcproj", "{D6FD8385-23BB-46D7-A43B-9A44D1B48B43}"
 	ProjectSection(ProjectDependencies) = postProject
+		{41D38EED-C58C-4795-B19D-50B0441A0568} = {41D38EED-C58C-4795-B19D-50B0441A0568}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "driver-cli", "driver\driver-cli.vcproj", "{9D7C3195-68B6-477D-A980-940B8C84BB48}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4CE7BB3F-7297-4F12-B25C-24DCD6683C9D} = {4CE7BB3F-7297-4F12-B25C-24DCD6683C9D}
+		{D6FD8385-23BB-46D7-A43B-9A44D1B48B43} = {D6FD8385-23BB-46D7-A43B-9A44D1B48B43}
 		{41D38EED-C58C-4795-B19D-50B0441A0568} = {41D38EED-C58C-4795-B19D-50B0441A0568}
 	EndProjectSection
 EndProject
@@ -91,6 +103,21 @@ Global
 		{D6FD8385-23BB-46D7-A43B-9A44D1B48B43}.Release|Win32.Build.0 = Release|Win32
 		{D6FD8385-23BB-46D7-A43B-9A44D1B48B43}.Release|x64.ActiveCfg = Release|x64
 		{D6FD8385-23BB-46D7-A43B-9A44D1B48B43}.Release|x64.Build.0 = Release|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug Static|Win32.ActiveCfg = Debug Static|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug Static|Win32.Build.0 = Debug Static|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug Static|x64.ActiveCfg = Debug Static|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug Static|x64.Build.0 = Debug Static|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug|Win32.Build.0 = Debug|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug|x64.ActiveCfg = Debug|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Debug|x64.Build.0 = Debug|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release Static|Win32.ActiveCfg = Release|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release Static|x64.ActiveCfg = Release|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release Static|x64.Build.0 = Release|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release|Win32.ActiveCfg = Release|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release|Win32.Build.0 = Release|Win32
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release|x64.ActiveCfg = Release|x64
+		{9D7C3195-68B6-477D-A980-940B8C84BB48}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
