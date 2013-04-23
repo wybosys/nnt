@@ -21,6 +21,7 @@ NNT_END_HEADER_C
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ntl)
 
+typedef char const* cstr_type;
 using ::std::string;
 using ::std::stringstream;
 
@@ -120,6 +121,10 @@ NNT_END_HEADER_CXX
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ntl)
 
+# ifdef NNT_MSVC
+typedef wchar_t const* cstr_type;
+# endif
+
 class string
 # ifdef NNT_MSVC
     : public uml::composition<string, UNICODE_STRING>
@@ -130,6 +135,7 @@ public:
     string();
     string(char const*);
     string(wchar_t const*);
+    string(cstr_type, usize);
     string(string const&);
     string(value_type const&);
     ~string();
@@ -142,8 +148,10 @@ public:
 
     bool is_equal(string const&, bool casesens = true) const;
     void clear();
-    bool is_empty() const;
+    bool empty() const;
+    usize size() const;
     usize length() const;
+    cstr_type c_str() const;
 
 protected:
 

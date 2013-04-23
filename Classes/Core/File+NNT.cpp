@@ -104,4 +104,33 @@ void File::close()
     d_ptr->close();
 }
 
+/*
+usize File::write(core::data const& da)
+{
+
+# ifdef NNT_MSVC
+
+# ifdef NNT_KERNEL_SPACE
+
+    IO_STATUS_BLOCK sta;
+    ::ZwWriteFile(d_ptr->file,
+        NULL,
+        NULL,
+        NULL,
+        &sta,
+        da.bytes(),
+        da.length(),
+        0,
+        0);
+
+    return sta.Information;
+
+# endif
+
+# endif
+
+    return 0;
+}
+*/
+
 NNT_END_CXX

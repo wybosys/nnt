@@ -38,6 +38,8 @@ public:
     bool open(url_type const& path, mask_t const& flag);
     void close();
 
+    //usize write(core::data const&);
+
 };
 
 NNT_END_HEADER_CXX

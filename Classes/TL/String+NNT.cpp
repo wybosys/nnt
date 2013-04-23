@@ -254,7 +254,7 @@ string& replace_of(string& str, string const& from, string const& to)
 NNT_END_NS 
 NNT_END_CXX
 
-# else
+# else // kernel space.
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(ntl)
@@ -277,6 +277,15 @@ string::string(wchar_t const* str)
 : _need_release(false)
 {
     ::RtlInitUnicodeString(&_obj, str);
+}
+
+string::string(cstr_type ptr, usize len)
+: _need_release(true)
+{
+    ::RtlInitEmptyUnicodeString(&_obj,
+        (PWCHAR)::ExAllocatePoolWithTag(PagedPool, len, (ULONG)"str0"),
+        len);
+    ::RtlCopyMemory(_obj.Buffer, ptr, len);
 }
 
 string::string(value_type const& r)
@@ -368,14 +377,24 @@ bool string::is_equal(string const& r, bool casesens) const
     return ::RtlEqualUnicodeString(*this, r, casesens) != 0;
 }
 
-bool string::is_empty() const
+bool string::empty() const
 {
     return _obj.Length == 0;
 }
 
-usize string::length() const
+usize string::size() const
 {
     return _obj.Length;
+}
+
+usize string::length() const
+{
+    return size();
+}
+
+cstr_type string::c_str() const
+{
+    return (cstr_type)_obj.Buffer;
 }
 
 NNT_END_NS

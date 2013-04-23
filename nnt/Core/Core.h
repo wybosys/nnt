@@ -219,7 +219,8 @@ typedef ios_unknown ios_version;
 # ifdef NNT_KERNEL_SPACE
 
 #   define NNTKS_EXPRESS(exp) exp
-#   define NNTUS_EXPRESS(exp) exp
+#   define NNTUS_EXPRESS(exp)
+#   define NNTKUS_EXPRESS(ks, us) ks
 
 #   define NNTKS_PAGED_CODE code_seg("PAGE")
 #   define NNTKS_LOCKED_CODE code_seg()
@@ -232,6 +233,7 @@ typedef ios_unknown ios_version;
 
 #   define NNTKS_EXPRESS(exp)
 #   define NNTUS_EXPRESS(exp) exp
+#   define NNTKUS_EXPRESS(ks, us) us
 
 # endif
 
@@ -1420,33 +1422,27 @@ typedef struct {} objc_type;
 # include "../TL/Allocate+NNT.h"
 # include "../TL/Memory+NNT.h"
 # include "../TL/Stdtype+NNT.h"
-
-# ifdef NNT_USER_SPACE
-
 # include "../TL/Exception+NNT.h"
 # include "../TL/Operator+NNT.h"
-
-# endif
-
 # include "../TL/Types+NNT.h"
 # include "../TL/Function+NNT.h"
-# include "../TL/String+NNT.h"
-# include "../TL/List+NNT.h"
+# include "../TL/Closure+NNT.h"
+# include "../TL/SmartPtr+NNT.h"
 
 # ifdef NNT_USER_SPACE
 
 # include "../TL/Vector+NNT.h"
 # include "../TL/Map+NNT.h"
-//# include "../TL/Bimap+NNT.h"
-# include "../TL/Tuple+NNT.h"
-# include "../TL/Data+NNT.h"
-# include "../TL/Algorithm+NNT.h"
 # include "../TL/Regex+NNT.h"
-# include "../TL/SmartPtr+NNT.h"
-# include "../TL/Closure+NNT.h"
-# include "../TL/Variant+NNT.h"
 
 # endif
+
+# include "../TL/String+NNT.h"
+# include "../TL/List+NNT.h"
+# include "../TL/Data+NNT.h"
+# include "../TL/Tuple+NNT.h"
+# include "../TL/Variant+NNT.h"
+# include "../TL/Algorithm+NNT.h"
 
 // ignore assert.
 # include <assert.h>

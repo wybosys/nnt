@@ -4,12 +4,20 @@
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+
 # include <memory>
+
+# endif
 
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ntl)
 
+# ifdef NNT_USER_SPACE
+
 using ::std::auto_ptr;
+
+# endif
 
 template <>
 inline_impl data type_cast<data, ntl::string>(ntl::string const& str)
@@ -38,7 +46,7 @@ inline_impl data dup_cast<data, char>(char const* str)
 template <>
 inline_impl ntl::string type_cast<ntl::string, ntl::data>(ntl::data const& da)
 {
-    return ntl::string(da.c_str(), da.length());
+    return ntl::string((ntl::cstr_type)da.c_str(), da.length());
 }
 
 template <>
@@ -127,6 +135,8 @@ inline_impl usize length(ntl::data const& da)
 {
     return da.length();
 }
+
+# ifdef NNT_USER_SPACE
 
 template <>
 inline_impl ntl::string present_cast<ntl::string, ntl::data>(ntl::data const& da)
@@ -252,6 +262,8 @@ static void clear_destroy(ntl::list<TVal*>& con)
     con.clear_destroy();
 }
 
+# endif
+
 template <typename ValT>
 class counter
 {
@@ -366,6 +378,8 @@ public:
     uint count;
 
 };
+
+# ifdef NNT_USER_SPACE
 
 template <typename ValT>
 inline_impl void reserve(ntl::vector<ValT>& con, usize n)
@@ -500,6 +514,8 @@ inline_impl uint find_index(valT const& val, conT const& con)
         return -1;
     return ::std::distance(con.begin(), iter);
 }
+
+# endif
 
 template <typename T>
 class wrapper

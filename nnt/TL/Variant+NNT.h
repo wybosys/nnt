@@ -4,17 +4,20 @@
 
 # ifdef NNT_CXX
 
-# ifdef variant_t
-#   undef variant_t
-# endif
+# include "./Memory+NNT.h"
+# include "./Allocate+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 
 class variant_t
 {
-public:
-    
+protected:
+
     typedef variant_t self_type;
+    typedef ntl::Memory<> Mem;
+    typedef ntl::alloc::Heap<byte> Heap;
+
+public:        
     
     typedef enum {
         VT_UNKNOWN = 0,
@@ -31,11 +34,7 @@ public:
         VT_PCHAR = 11,
         VT_DATA = 12,        
         VT_BOOLEAN = 16,
-        
-# ifdef NNT_OBJC
         VT_ID = 13,
-# endif
-        
         VT_REFOBJ = 14,
         VT_POINTER = 15,
         
@@ -45,7 +44,8 @@ public:
     
 protected:
     
-    union {
+    union 
+    {
         signed int si;
         unsigned int ui;
         signed char sc;
@@ -62,9 +62,16 @@ protected:
         
 # ifdef NNT_OBJC
         id idobj;
+# else
+        void* idobj;
 # endif
         
+# ifdef NNT_USER_SPACE
         RefObject const* refobj;
+# else
+        void const* refobj;
+# endif
+
         void* ptr;
         
     } _v;
@@ -74,7 +81,7 @@ public:
     variant_t()
     : _rel(false), _sz(0), vt(VT_UNKNOWN)
     {
-        ::memset(&_v, 0, sizeof(_v));
+        Mem::Fill(&_v, sizeof(_v), 0);
     }
     
     explicit variant_t(bool v)
@@ -159,6 +166,8 @@ public:
     
 # endif
     
+# ifdef NNT_USER_SPACE
+
     explicit variant_t(RefObject const* v)
     : _rel(false), _sz(sizeof(void*)), vt(VT_REFOBJ)
     {
@@ -166,6 +175,8 @@ public:
             v->grab();
         _v.refobj = v;
     }
+
+# endif
     
     explicit variant_t(char const* str, core::_bool_copy cpy, usize len = -1)
     : vt(VT_PCHAR)
@@ -174,8 +185,8 @@ public:
         _sz = (len == -1) ? strlen(str) : len;
         if (cpy == core::copy)
         {
-            _v.ssr = (char const*)::malloc(_sz);
-            ::memcpy((void*)_v.ssr, str, _sz);
+            _v.ssr = (char const*)Heap::Alloc(_sz);
+            Heap::Copy((void*)_v.ssr, str, _sz);
         }
         else
         {
@@ -189,8 +200,8 @@ public:
         _rel = core::copy == cpy;
         if (cpy == core::copy)
         {
-            _v.data = ::malloc(_sz);
-            ::memcpy(_v.data, data, _sz);
+            _v.data = (void*)Heap::Alloc(_sz);
+            Heap::Copy(_v.data, data, _sz);
         }
         else
         {
@@ -211,11 +222,13 @@ public:
         vt = r.vt;
         if (_rel)
         {
-            _v.data = ::malloc(_sz);
-            ::memcpy(_v.data, r._v.data, _sz);
+            _v.data = (void*)Heap::Alloc(_sz);
+            Heap::Copy(_v.data, r._v.data, _sz);
         }
         else
+        {
             _v = r._v;
+        }
     }
     
     variant_t& operator = (variant_t const& r)
@@ -228,19 +241,23 @@ public:
         
         if (_rel)
         {
-            _v.data = ::malloc(_sz);
-            ::memcpy(_v.data, r._v.data, _sz);
+            _v.data = Heap::Alloc(_sz);
+            Heap::Copy(_v.data, r._v.data, _sz);
         }
         else 
         {
             _v = r._v;
         }
         
+# ifdef NNT_USER_SPACE
+
         if (vt == VT_REFOBJ)
         {
             if (_v.refobj)
                 _v.refobj->grab();
         }
+
+# endif
         
 # ifdef NNT_OBJC
        
@@ -267,25 +284,31 @@ public:
         _sz = 0;
         if (_rel)
         {
-            ::free(_v.data);
+            Heap::Free(_v.data);
             _rel = false;         
         }
         
+# ifdef NNT_USER_SPACE
+
         if (vt == VT_REFOBJ)
         {
             if (_v.refobj)
                 _v.refobj->drop();
         }
+
+# endif
         
 # ifdef NNT_OBJC
+
         if (vt == VT_ID)
         {
             [_v.idobj release];
         }
+
 # endif
      
         vt = VT_UNKNOWN;
-        ::memset(&_v, 0, sizeof(_v));
+        Heap::Fill(&_v, sizeof(_v), 0);
     }
     
     operator bool () const
@@ -540,6 +563,8 @@ public:
         _v.d = v;
         return *this;
     }
+
+# ifdef NNT_USER_SPACE
     
     operator RefObject* () const
     {
@@ -567,6 +592,8 @@ public:
         _v.refobj = v;
         return *this;
     }
+
+# endif
     
 # ifdef NNT_OBJC
     
@@ -632,6 +659,8 @@ public:
     
     operator core::string () const;
     
+# ifdef NNT_USER_SPACE
+
     variant_t& operator = (core::string const& str)
     {
         set_str(str.c_str(), core::copy, str.length());
@@ -692,7 +721,9 @@ public:
         
         vt = VT_PCHAR;
     }
-    
+
+# endif    
+
     void set_data(void const* data, usize len, core::_bool_copy cpy)
     {
         clear();
@@ -748,7 +779,11 @@ public:
         return (void*)&_v;
     }
     
+# ifdef NNT_USER_SPACE
+
     void stringize();
+
+# endif
     
     // get value.
     int toint() const;
@@ -811,6 +846,8 @@ static StmT& operator << (StmT& stm, variant_t const& var)
     return stm;
 }
 
+# ifdef NNT_USER_SPACE
+
 inline_impl void variant_t::stringize()
 {
     core::stringstream ss;
@@ -820,7 +857,11 @@ inline_impl void variant_t::stringize()
     this->set_str(str.c_str(), core::copy, str.length());
 }
 
+# endif
+
 NNT_BEGIN_NS(ntl)
+
+# ifdef NNT_USER_SPACE
 
 static string tostr(variant_t const& var)
 {
@@ -828,6 +869,8 @@ static string tostr(variant_t const& var)
     ss << var;
     return ss.str();
 }
+
+# endif
 
 static int toint(variant_t const& var)
 {
@@ -894,10 +937,14 @@ inline_impl variant_t dup_cast<variant_t, data>(data const& str)
 
 NNT_END_NS
 
+# ifdef NNT_USER_SPACE
+
 inline_impl variant_t::operator core::string () const
 {
     return core::tostr(*this);
 }
+
+# endif
 
 inline_impl int variant_t::toint() const
 {

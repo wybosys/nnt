@@ -552,6 +552,8 @@ public:
     
 };
 
+# ifdef NNT_USER_SPACE
+
 template <typename TIn>
 static core::string _type_cast_data_lebe(TIn const& inp)
 {
@@ -564,6 +566,8 @@ static core::string _type_cast_data_lebe(TIn const& inp)
     }
     return oss.str();   
 }
+
+# endif
 
 template <typename TVal>
 class _base_framedata
