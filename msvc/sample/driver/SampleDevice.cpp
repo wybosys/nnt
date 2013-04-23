@@ -4,6 +4,8 @@
 
 # ifdef NNT_USER_SPACE
 
+# include <nnt/Core/File+NNT.h>
+
 NNTAPP_BEGIN
 
 class App
@@ -13,7 +15,16 @@ public:
 
     void load()
     {
+        File fd;
+        if (!fd.open(core::DeviceUrl<>("NntSampleDriver"), 
+            mask_t().on<Io::read>().on<Io::write>()))
+        {
+            trace_msg("failed to open device.");
+            return;
+        }
 
+        trace_msg("success");
+        fd.close();
     }
 
 };

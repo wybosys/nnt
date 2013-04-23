@@ -21,6 +21,8 @@ public:
 
 };
 
+NNTCLASS(File);
+
 NNTDECL_PRIVATE_HEAD_CXX(File);
 
 class File

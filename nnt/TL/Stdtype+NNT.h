@@ -132,7 +132,7 @@ public:
     template <typename posT>
     bool checked() const
     {
-        return (0x1 << posT::VALUE) & _val;
+        return ((0x1 << posT::VALUE) & _val) != 0;
     }
 
     template <typename posT>

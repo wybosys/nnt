@@ -24,35 +24,55 @@ public:
 
 };
 
-template <typename strT, typename sysT = os_type>
+template <typename strT, typename sysT = os_type, typename spaceT = space_type>
 class FileUrl
     : public Url<strT, sysT>
+{
+    typedef Url<strT, sysT> super;
+};
+
+template <typename strT = ntl::string, typename sysT = os_type, typename spaceT = space_type>
+class DeviceUrl
+    : public FileUrl <strT, sysT, spaceT>
 {
 
 };
 
-# ifdef NNT_KERNEL_SPACE
-
 template <typename strT>
-class FileUrl <strT, os_windows>
-    : public Url<strT, os_windows>
+class DeviceUrl <strT, os_windows, space_user>
+    : public FileUrl<strT, os_windows, space_user>
 {
-
-    typedef Url<strT, os_windows> super;
+    typedef FileUrl<strT, os_windows, space_user> super;
 
 public:
 
     typedef typename super::string_type string_type;
 
-    FileUrl(string_type const& ph = "")
+    DeviceUrl(string_type const& ph)
+    {
+        this->scheme = "\\\\.\\";
+        this->path = ph;
+    }
+
+};
+
+template <typename strT>
+class DeviceUrl <strT, os_windows, space_kernel>
+    : public FileUrl<strT, os_windows, space_kernel>
+{
+    typedef FileUrl<strT, os_windows, space_kernel> super;
+
+public:
+
+    typedef typename super::string_type string_type;
+
+    DeviceUrl(string_type const& ph = "")
     {
         this->scheme = "\\??\\";
         this->path = ph;
     }
 
 };
-
-# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

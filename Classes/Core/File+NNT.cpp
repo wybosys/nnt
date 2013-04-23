@@ -68,6 +68,18 @@ bool File::open(url_type const& path, mask_t const& flag)
 
 # ifdef NNT_MSVC
 
+# ifdef NNT_USER_SPACE
+
+    HANDLE hdl = ::CreateFileA(file.c_str(),
+        opt<enum_t>(flag.checked<Io::read>())[GENERIC_READ] | opt<enum_t>(flag.checked<Io::write>())[GENERIC_WRITE],
+        opt<enum_t>(flag.checked<Io::read>())[FILE_SHARE_READ] | opt<enum_t>(flag.checked<Io::write>())[FILE_SHARE_WRITE] << opt<enum_t>::failed(0),
+        NULL,
+        opt<enum_t>(flag.checked<Io::read>())[OPEN_EXISTING] | opt<enum_t>(flag.checked<Io::write>() && flag.checked<Io::create>())[CREATE_ALWAYS],
+        FILE_ATTRIBUTE_NORMAL,
+        NULL);
+
+# endif
+
 # ifdef NNT_KERNEL_SPACE
 
     OBJECT_ATTRIBUTES attr_obj;

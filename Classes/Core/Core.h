@@ -894,8 +894,11 @@ inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8Str
 inline_impl void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
+    // print into debug view.
     ::OutputDebugStringA(msg);
     ::OutputDebugStringA("\n");
+    // print into console.
+    ::printf("%s\n", msg);
 # else
     KdPrint((msg));
 # endif
