@@ -375,13 +375,13 @@ public:
 
     void clear()
     {
-        while (!is_empty())
+        while (!empty())
         {
             pop();
         }
     }
 
-    bool is_empty() const
+    bool empty() const
     {
 # ifdef NNT_MSVC
         return ::IsListEmpty(*this);
@@ -391,35 +391,37 @@ public:
     void push_front(value_type const& val)
     {
 # ifdef NNT_MSVC
-        _entry* obj = _heap::New();
+        _entry* obj = _heap::Create();
         obj->val = val;
-        ::InsertHeadList(*this, obj->entry);
+        ::InsertHeadList(*this, &obj->entry);
 # endif
     }
 
     void push_back(value_type const& val)
     {
 # ifdef NNT_MSVC
-        _entry* obj = _heap::New();
+        _entry* obj = _heap::Create();
         obj->val = val;
-        ::InsertTailList(*this, obj->entry);
+        ::InsertTailList(*this, &obj->entry);
 # endif
     }
 
-    void pop()
+    value_type pop()
     {
 # ifdef NNT_MSVC
         PLIST_ENTRY pent = ::RemoveHeadList(*this);
         _entry* pobj = CONTAINING_RECORD(pent, _entry, entry);
-        _heap::Delete(pobj);
+        value_type ret = pobj->val;
+        _heap::Free(pobj);
+        return ret;
 # endif
     }
 
 # ifdef NNT_MSVC
 
-    operator LIST_ENTRY* () const
+    operator PLIST_ENTRY () const
     {
-        return (LIST_ENTRY*)&_lst;
+        return (PLIST_ENTRY)&_lst;
     }
 
 protected:

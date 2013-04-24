@@ -3,6 +3,7 @@
 # define __NNT_KERNEL_DRIVERAPP_5fb7c4756bb245dea76e8a3035d281a1_H_INCLUDED
 
 # include "./DriverObject.h"
+# include "./DriverFeature.h"
 
 # ifdef NNT_KERNEL_SPACE
 
@@ -24,11 +25,22 @@ public:
 # endif
 };
 
-# define NNT_DRIVER_MAIN __nnt_driver_main
+# define NNT_DRIVER_MAIN \
+__nnt_driver_main
+
+enum MemoryMode
+{
+    MEMORY_BUFFER,
+    MEMORY_MAP,
+};
+
+NNTDECL_PRIVATE_HEAD(App);
 
 class App
     : public ::nnt::Object
 {
+    NNTDECL_PRIVATE(App);
+
 public:
 
     App();
@@ -36,9 +48,11 @@ public:
 
     int main();
     int install();
+    void add_feature(Feature*);
 
     EntryObject eo;
     core::string name;
+    MemoryMode memory_mode;
 
 };
 

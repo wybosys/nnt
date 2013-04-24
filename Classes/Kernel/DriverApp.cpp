@@ -33,20 +33,49 @@ struct DriverExtension
 
 # endif
 
-App::App()
+NNTDECL_PRIVATE_BEGIN(App)
+
+void init()
 {
 
 }
 
-App::~App()
+void dealloc()
 {
 
+}
+
+void clear_features()
+{
+    while (!features.empty())
+    {
+        Feature* ftu = features.pop();
+        delete ftu;
+    }
+}
+
+typedef core::list<Feature*> features_type;
+features_type features;
+
+NNTDECL_PRIVATE_END
+
+App::App()
+{
+    NNTDECL_PRIVATE_CONSTRUCT(App);
+
+    memory_mode = MEMORY_BUFFER;
+}
+
+App::~App()
+{
+    NNTDECL_PRIVATE_DESTROY();
 }
 
 int App::install()
 {
 # ifdef NNT_MSVC
 
+    // create device.
     core::string str_devname = "\\Device\\" + name;
     NTSTATUS sta = ::IoCreateDevice(eo.pDriverObject,
         sizeof(DriverExtension),
@@ -64,6 +93,13 @@ int App::install()
     ext->strDevName = str_devname;
     ext->strSymName = "\\??\\" + name;
 
+    // set device's memory mode.
+    switch (memory_mode)
+    {
+    case MEMORY_BUFFER: eo.pDeviceObject->Flags |= DO_BUFFERED_IO; break;
+    case MEMORY_MAP: eo.pDeviceObject->Flags |= DO_DIRECT_IO; break;
+    }
+
     // create symbol link.
     sta = ::IoCreateSymbolicLink(ext->strSymName, ext->strDevName);
     if (!NT_SUCCESS(sta))
@@ -74,6 +110,16 @@ int App::install()
     }
 
     return STATUS_SUCCESS;
+
+# endif
+}
+
+void App::add_feature(Feature* fte)
+{
+# ifdef NNT_MSVC
+
+    eo.pDriverObject->MajorFunction[fte->irptype] = fte->dispatch;
+    d_ptr->features.push_back(fte);
 
 # endif
 }

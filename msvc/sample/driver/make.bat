@@ -15,6 +15,8 @@ build
 
 copy driver.inf ..\..\..\exchange\ /Y
 copy build\amd64\* ..\..\..\exchange\ /Y
+copy x64\Release\*.exe ..\..\..\exchange\ /Y
+copy x64\Release\*.dll ..\..\..\exchange\ /Y
 
 cd ..\..\..\exchange
 rem signtool sign /f ..\cert\root.pfx NntSampleDriver.sys

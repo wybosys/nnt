@@ -19,11 +19,15 @@ public:
         if (!fd.open(core::DeviceUrl<>("NntSampleDriver"), 
             mask_t().on<Io::read>().on<Io::write>()))
         {
-            trace_msg("failed to open device.");
+            printf("failed to open device.\n");
             return;
         }
 
-        trace_msg("success");
+        core::data da = core::type_cast<core::data, core::string>("ABC");
+        if (fd.write(da))
+            printf("writen data.\n");
+
+        printf("success.\n");
         fd.close();
     }
 
@@ -58,6 +62,12 @@ Sample::~Sample()
 int Sample::main()
 {
     NNTDEBUG_BREAK;
+
+    // bind feature.
+    add_feature(new driver::feature::Create);
+    add_feature(new driver::feature::Read);
+    add_feature(new driver::feature::Write);
+
     return 0;
 }
 

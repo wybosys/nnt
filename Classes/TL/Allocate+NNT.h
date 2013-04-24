@@ -128,25 +128,30 @@ public:
 
 # endif
 
+NNT_END_NS
+NNT_END_NS
+NNT_END_HEADER_CXX
+
 # if defined(NNT_MSVC) && defined(NNT_KERNEL_SPACE)
 
 // global new & delete operators.
 
-static void* __cdecl operator new(size_t sz, POOL_TYPE pt = PagedPool)
+static void* operator new(size_t sz)
+{
+    return ::ExAllocatePoolWithTag(PagedPool, sz, (LONG)"cxxn");
+}
+
+static void* operator new(size_t sz, POOL_TYPE pt)
 {
     return ::ExAllocatePoolWithTag(pt, sz, (LONG)"cxxn");
 }
 
-static void __cdecl operator delete(void* ptr)
+static void operator delete(void* ptr)
 {
     ::ExFreePoolWithTag(ptr, (LONG)"cxxn");
 }
 
 # endif
-
-NNT_END_NS
-NNT_END_NS
-NNT_END_HEADER_CXX
 
 # endif // cxx
 
