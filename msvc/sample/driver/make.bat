@@ -19,8 +19,8 @@ copy x64\Release\*.exe ..\..\..\exchange\ /Y
 copy x64\Release\*.dll ..\..\..\exchange\ /Y
 
 cd ..\..\..\exchange
-rem signtool sign /f ..\cert\root.pfx NntSampleDriver.sys
-rem Inf2cat /driver:.\ /os:7_X64
-rem signtool sign /f ..\cert\root.pfx driver.cat
+signtool sign /f ..\cert\root.pfx NntSampleDriver.sys
+Inf2cat /driver:.\ /os:7_X64
+signtool sign /f ..\cert\root.pfx driver.cat
 
 cd ..\msvc\sample\driver
