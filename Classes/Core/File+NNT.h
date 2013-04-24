@@ -41,6 +41,7 @@ public:
     void close();
 
     usize write(core::data const&);
+    usize read(core::data&);
 
 };
 

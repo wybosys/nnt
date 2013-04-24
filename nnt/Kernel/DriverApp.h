@@ -56,6 +56,16 @@ public:
 
 };
 
+# ifdef NNT_MSVC
+
+struct DriverExtension
+{
+    App* pApp;
+    core::string strDevName, strSymName;
+};
+
+# endif
+
 NNT_END_NS
 NNT_END_HEADER_CXX
 

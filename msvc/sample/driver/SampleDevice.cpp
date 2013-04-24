@@ -23,9 +23,17 @@ public:
             return;
         }
 
-        core::data da = core::type_cast<core::data, core::string>("ABC");
+        core::data da = core::dup_cast<core::data, core::string>("ABCDEFG");
         if (fd.write(da))
-            printf("writen data.\n");
+            printf("writen data %s.\n", da.c_str());
+        else
+            printf("failed to write data.\n");
+
+        da.fill(0);
+        if (fd.read(da))
+            printf("readed: %s\n.", da.c_str());
+        else
+            printf("failed to read data.\n");
 
         printf("success.\n");
         fd.close();
@@ -61,14 +69,45 @@ Sample::~Sample()
 
 int Sample::main()
 {
-    NNTDEBUG_BREAK;
+    //NNTDEBUG_BREAK;
 
     // bind feature.
     add_feature(new driver::feature::Create);
-    add_feature(new driver::feature::Read);
-    add_feature(new driver::feature::Write);
+    add_feature(new driver::feature::Close);
+    add_feature(new SampleWrite);
+    add_feature(new SampleRead);
 
     return 0;
+}
+
+SampleWrite::SampleWrite()
+{
+    pmp_impl(main);
+}
+
+void SampleWrite::main()
+{
+    NNTDEBUG_BREAK;
+
+    core::data da = data();
+    trace_msg(da.c_str());
+
+    success(da.length());
+}
+
+SampleRead::SampleRead()
+{
+    pmp_impl(main);
+}
+
+void SampleRead::main()
+{
+    NNTDEBUG_BREAK;
+
+    core::data da = data();
+    da.fill('a');
+
+    success(da.length());
 }
 
 NNTAPP_END

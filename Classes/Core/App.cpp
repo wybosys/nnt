@@ -117,8 +117,7 @@ void Console::_doload()
     }
     __except (msvc::ExceptionProcess::HandleUnknownException(GetExceptionInformation()))
     {
-        ::MessageBox(NULL, _T("Got an unhandle exception."), _T("FATAL"), MB_OK);
-
+        ::MessageBoxA(NULL, msvc::ExceptionProcess::ErrorMessage.c_str(), "FATAL", MB_OK);
     }
 # endif
 }

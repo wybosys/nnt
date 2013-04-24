@@ -91,7 +91,22 @@
 #   if defined(NNT_LIBRARY) && defined(NNT_USER_SPACE)
 #     include "stdafx.h"
 #   endif
+#   ifndef WINVER
+#     define WINVER 0x0500
+#   endif
+#   ifndef _WIN32_WINNT
+#     define _WIN32_WINNT 0x0500
+#   endif
+#   ifndef _WIN32_WINDOWS
+#     define _WIN32_WINDOWS 0x0410
+#   endif
+#   ifndef _WIN32_IE
+#     define _WIN32_IE 0x0700
+#   endif
 #   ifdef NNT_USER_SPACE
+#     ifndef WIN32_LEAN_AND_MEAN
+#       define WIN32_LEAN_AND_MEAN 1
+#     endif
 #     include <Windows.h>
 #   else // kernel space
 #     include <ntddk.h>
@@ -219,7 +234,7 @@ typedef ios_unknown ios_version;
 # ifdef NNT_KERNEL_SPACE
 
 #   define NNTKS_EXPRESS(exp) exp
-#   define NNTUS_EXPRESS(exp)
+#   define NNTUS_EXPRESS(exp) SPACE
 #   define NNTKUS_EXPRESS(ks, us) ks
 
 #   define NNTKS_PAGED_CODE code_seg("PAGE")
@@ -231,7 +246,7 @@ typedef ios_unknown ios_version;
 
 # else
 
-#   define NNTKS_EXPRESS(exp)
+#   define NNTKS_EXPRESS(exp) SPACE
 #   define NNTUS_EXPRESS(exp) exp
 #   define NNTKUS_EXPRESS(ks, us) us
 
@@ -244,6 +259,18 @@ typedef ios_unknown ios_version;
 # define NNT_STATIC_CONST_IMPL
 # define inline_impl inline
 # define template_impl
+
+# ifdef NNT_MSVC
+#   define NNT_MSVC_EXPRESS(exp) exp 
+# else
+#   define NNT_MSVC_EXPRESS(exp) SPACE
+# endif
+
+# ifdef NNT_GCC
+#   define NNT_GCC_EXPRESS(exp) exp
+# else
+#   define NNT_GCC_EXPRESS(exp) SPACE
+# endif
 
 typedef struct {} arch_unknown;
 typedef struct {} arch_x32;
@@ -382,9 +409,9 @@ NNTASM_END
 
 # ifdef NNT_DEBUG
 #	define NNTDEBUG_EXPRESS(express)    express
-#	define NNTRELEASE_EXPRESS(express)
+#	define NNTRELEASE_EXPRESS(express)  SPACE
 # else
-#	define NNTDEBUG_EXPRESS(express)
+#	define NNTDEBUG_EXPRESS(express)    SPACE
 #	define NNTRELEASE_EXPRESS(express)  express
 # endif
 
