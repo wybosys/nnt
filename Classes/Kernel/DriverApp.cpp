@@ -78,6 +78,7 @@ int App::install()
     if (!NT_SUCCESS(sta))
         return sta;
 
+    NNTDEBUG_BREAK;
     use<DriverExtension> ext = eo.pDeviceObject->DeviceExtension;
     ext->pApp = this;
     ext->strDevName = str_devname;
@@ -135,6 +136,8 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
         ::IoDeleteDevice(pdev);
         pdev = pdevnx;
     }
+
+    NNT_DRIVER_FREEAPP();
 }
 
 # endif

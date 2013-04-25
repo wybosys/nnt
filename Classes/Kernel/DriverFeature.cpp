@@ -64,6 +64,7 @@ static App* FeatureToApp(Feature* ftu)
 {
 # ifdef NNT_MSVC
 
+    NNTDEBUG_BREAK;
     use<driver::DriverExtension> ext = ftu->device->DeviceExtension;
     return ext->pApp;
 
