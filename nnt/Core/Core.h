@@ -539,7 +539,7 @@ typedef uint enum_t;
 #  define REAL_IS_DOUBLE  1
    typedef double real;
    typedef ulonglong uindex, usize, uinteger;
-   typedef long sindex, ssize, sinteger, integer;
+   typedef longlong sindex, ssize, sinteger, integer;
 #else
 #  define REAL_IS_FLOAT   1
    typedef float real;
