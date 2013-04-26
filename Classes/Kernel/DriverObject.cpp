@@ -2,12 +2,28 @@
 # include "Core.h"
 # include "DriverObject.h"
 
+# ifdef NNT_MSVC
+#   ifdef NNT_USER_SPACE
+#     pragma warning (push)
+#     pragma warning (disable: 4005)
+#     include <ntstatus.h>
+#     pragma warning (pop)
+#   endif
+#   ifndef NTSTATUS
+typedef LONG NTSTATUS;
+#   endif
+# endif
+
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(driver)
 
 Status::Status()
 {
+# ifdef NNT_MSVC
 
+    _val = STATUS_NOT_FOUND;
+
+# endif
 }
 
 Status::~Status()
@@ -29,6 +45,12 @@ bool Status::Success(int code)
 bool Status::Failed(int code)
 {
     return !Success(code);
+}
+
+void Status::success()
+{
+    _val = NNT_MSVC_EXPRESS(STATUS_SUCCESS)
+        ;
 }
 
 Memory::Memory(void* ptr, usize len)

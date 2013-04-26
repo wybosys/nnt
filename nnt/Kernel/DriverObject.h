@@ -12,10 +12,26 @@ public:
     Status();
     ~Status();
 
+    //! check value.
     static bool Success(int);
     static bool Failed(int);
 
+    //! get value.
+    operator ulong () const;
+
+    //! set error code.
+    void success();
+
+protected:
+
+    ulong _val;
+
 };
+
+inline_impl Status::operator ulong () const
+{
+    return _val;
+}
 
 class Memory
 {

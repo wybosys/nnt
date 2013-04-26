@@ -23,16 +23,6 @@ EntryObject::EntryObject(PDRIVER_OBJECT _0, PUNICODE_STRING _1)
 # endif
 }
 
-# ifdef NNT_MSVC
-
-struct DriverExtension
-{
-    App* pApp;
-    core::string strDevName, strSymName;
-};
-
-# endif
-
 NNTDECL_PRIVATE_BEGIN(App)
 
 void init()
@@ -88,6 +78,7 @@ int App::install()
     if (!NT_SUCCESS(sta))
         return sta;
 
+    NNTDEBUG_BREAK;
     use<DriverExtension> ext = eo.pDeviceObject->DeviceExtension;
     ext->pApp = this;
     ext->strDevName = str_devname;
@@ -130,6 +121,8 @@ DRIVER_UNLOAD UnloadDriver;
 
 VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 {
+    NNTDEBUG_BREAK;
+
     PDEVICE_OBJECT pdev = pDriverObject->DeviceObject;
     while (pdev != NULL)
     {
@@ -143,6 +136,8 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
         ::IoDeleteDevice(pdev);
         pdev = pdevnx;
     }
+
+    NNT_DRIVER_FREEAPP();
 }
 
 # endif
@@ -159,6 +154,9 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegist
     NNTDEBUG_BREAK;
 
     ::nnt::driver::EntryObject eo(pDriverObject, pRegisterPath);
+
+    // default dispatch.
+    pDriverObject->DriverUnload = ::nnt::driver::UnloadDriver;
 
     // call driver's main.
     return NNT_DRIVER_MAIN(eo);

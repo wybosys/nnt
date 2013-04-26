@@ -217,6 +217,13 @@ public:
     {        
         *this = r;
     }
+
+    _base_data(char const* str)
+        : _nrelease(false)
+    {
+        this->_da = (value_type*)str;
+        this->_dl = strlen(str);
+    }
     
     self_type& operator = (self_type const& r)
     {
@@ -250,6 +257,11 @@ public:
             this->_dl = 0;
             this->_nrelease = false;
         }
+    }
+
+    void fill(ubyte da)
+    {
+        heaper::Fill(this->_da, this->_dl, da);
     }
     
     void duplicate(void const* d, usize l)

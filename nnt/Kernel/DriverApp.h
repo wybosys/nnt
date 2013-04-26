@@ -25,9 +25,6 @@ public:
 # endif
 };
 
-# define NNT_DRIVER_MAIN \
-__nnt_driver_main
-
 enum MemoryMode
 {
     MEMORY_BUFFER,
@@ -56,26 +53,43 @@ public:
 
 };
 
+# ifdef NNT_MSVC
+
+struct DriverExtension
+{
+    App* pApp;
+    core::string strDevName, strSymName;
+};
+
+# endif
+
 NNT_END_NS
 NNT_END_HEADER_CXX
 
 # define NNTDECL_DRIVER_APP(app) \
     NNT_BEGIN_C \
+    static app* __nntapp_driver = NULL; \
     int NNT_DRIVER_MAIN(::nnt::driver::EntryObject& eo) \
 { \
-    app __nntapp_driver; \
-    __nntapp_driver.eo = eo; \
-    int sta = __nntapp_driver.install(); \
+    __nntapp_driver = new app(); \
+    __nntapp_driver->eo = eo; \
+    int sta = __nntapp_driver->install(); \
     if (::nnt::driver::Status::Failed(sta)) \
     return sta; \
-    sta = __nntapp_driver.main(); \
+    sta = __nntapp_driver->main(); \
     return sta; \
+} \
+    void NNT_DRIVER_FREEAPP() \
+{ \
+    delete __nntapp_driver; \
+    __nntapp_driver = NULL; \
 } \
     NNT_END_C
 
 NNT_BEGIN_HEADER_C
 
 NNT_EXTERN int NNT_DRIVER_MAIN(::nnt::driver::EntryObject&);
+NNT_EXTERN void NNT_DRIVER_FREEAPP();
 
 NNT_END_HEADER_C
 

@@ -70,13 +70,16 @@ bool File::open(url_type const& path, mask_t const& flag)
 
 # ifdef NNT_USER_SPACE
 
-    HANDLE hdl = ::CreateFileA(file.c_str(),
+    d_ptr->file = ::CreateFileA(file.c_str(),
         opt<enum_t>(flag.checked<Io::read>())[GENERIC_READ] | opt<enum_t>(flag.checked<Io::write>())[GENERIC_WRITE],
         opt<enum_t>(flag.checked<Io::read>())[FILE_SHARE_READ] | opt<enum_t>(flag.checked<Io::write>())[FILE_SHARE_WRITE] << opt<enum_t>::failed(0),
         NULL,
         opt<enum_t>(flag.checked<Io::read>())[OPEN_EXISTING] | opt<enum_t>(flag.checked<Io::write>() && flag.checked<Io::create>())[CREATE_ALWAYS],
         FILE_ATTRIBUTE_NORMAL,
         NULL);
+
+    if (d_ptr->file == INVALID_HANDLE_VALUE)
+        d_ptr->file = NULL;
 
 # endif
 
@@ -121,6 +124,19 @@ usize File::write(core::data const& da)
 
 # ifdef NNT_MSVC
 
+# ifdef NNT_USER_SPACE
+
+    DWORD writen;
+    ::WriteFile(d_ptr->file,
+        da.bytes(),
+        (DWORD)da.length(),
+        &writen,
+        NULL);
+
+    return writen;
+
+# endif
+
 # ifdef NNT_KERNEL_SPACE
 
     IO_STATUS_BLOCK sta;
@@ -135,6 +151,46 @@ usize File::write(core::data const& da)
         0);
 
     return sta.Information;
+
+# endif
+
+# endif
+
+    return 0;
+}
+
+usize File::read(core::data& da)
+{
+# ifdef NNT_MSVC
+
+# ifdef NNT_USER_SPACE
+
+    DWORD readed;
+    ::ReadFile(d_ptr->file,
+        da.bytes(),
+        (DWORD)da.length(),
+        &readed,
+        NULL);
+
+    da.set_length(readed);
+    return da.length();
+
+# endif
+
+# ifdef NNT_KERNEL_SPACE
+
+    IO_STATUS_BLOCK sta;
+    ::ZwReadFile(d_ptr->file,
+        NULL,
+        NULL,
+        NULL,
+        &sta,
+        da.bytes(),
+        da.length(),
+        0,
+        0);
+    da.set_length(sta.Information);
+    return da.length();
 
 # endif
 

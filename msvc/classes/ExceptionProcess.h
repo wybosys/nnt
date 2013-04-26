@@ -13,8 +13,11 @@ public:
     ~ExceptionProcess();
 
     static core::string Path;
+    static core::string ErrorMessage;
 
     static LONG WINAPI HandleUnknownException(struct _EXCEPTION_POINTERS*);
+
+    static core::string ExceptionToString(struct _EXCEPTION_POINTERS*);
 
 };
 
