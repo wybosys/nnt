@@ -123,11 +123,15 @@ NNT_BEGIN_NS(ntl)
 
 # ifdef NNT_MSVC
 typedef wchar_t const* cstr_type;
+# else
+typedef char const* cstr_type;
 # endif
 
 class string
 # ifdef NNT_MSVC
     : public uml::composition<string, UNICODE_STRING>
+# else
+    : public uml::composition<string, void*>
 # endif
 {
 public:

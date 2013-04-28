@@ -1,2 +1,13 @@
 
-ADD_SUBDIRECTORY (sysinfo)
+IF (${NNT_BUILD_KERNEL})
+
+  ADD_SUBDIRECTORY (driver)
+
+ENDIF ()
+
+IF (${NNT_BUILD_LIBRARY})
+
+  ADD_SUBDIRECTORY (sysinfo)
+
+ENDIF ()
+

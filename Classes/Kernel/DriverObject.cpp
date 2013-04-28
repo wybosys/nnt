@@ -49,7 +49,9 @@ bool Status::Failed(int code)
 
 void Status::success()
 {
-    _val = NNT_MSVC_EXPRESS(STATUS_SUCCESS)
+    _val =
+        NNT_MSVC_EXPRESS(STATUS_SUCCESS)
+        NNT_GCC_EXPRESS(0)
         ;
 }
 

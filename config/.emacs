@@ -103,9 +103,13 @@
 	(global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
 	(global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
 	(global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
+    ;; includes.
+	(semantic-add-system-include "/usr/src/include/")
+	(semantic-add-system-include "/usr/src/sys/")    
 	(setq 
 		semantic-c-takeover-hideif t
-		)
+        semantic-symref-tool "cscope"
+		)    
 )
 
 (defun my-cedet-keymap ()
@@ -116,6 +120,10 @@
 	(require 'cedet)
 	(my-cedet-setting)
 	(my-cedet-keymap)
+)
+
+(defun my-cedet-launch ()
+  (semanticdb-enable-cscope-databases)
 )
 
 ;; ecb
@@ -132,6 +140,7 @@
 	  (dotimes (i 2) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
 	  (dotimes (i 3) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
 	  )
+	(ecb-layout-switch "my-layout")
 )
 
 (unless (boundp 'x-max-tooltip-size)
@@ -144,10 +153,8 @@
 		ecb-tip-of-the-day nil
 		inhibit-startup-message t
 		ecb-auto-compatibility-check nil
-		ecb-version-check nil
+		ecb-version-check nil        
 		)
-	(semantic-add-system-include "/usr/src/include/")
-	(semantic-add-system-include "/usr/src/sys/")
 )
 
 (defun my-ecb-keys ()
@@ -162,7 +169,7 @@
 	(my-ecb-keys)
 	(ecb-activate)
 	(my-ecb-layouts)
-	(ecb-layout-switch "my-layout")
+    (my-cedet-launch)
 )
 
 ;; mydev
@@ -170,15 +177,7 @@
 	(interactive)
 	(my-ecb-setup)
 	)
-	
-(add-hook 'c-mode-common-hook 
-	'(lambda ()
-		(run-with-idle-timer 0.01 nil 
-			(lambda() 
-				(mydev))
-			))
-)
-	
+		
 ;; assist
 (defun my-assist ()
 	(require 'eassist)
@@ -201,14 +200,28 @@
 	            ("mm" . ("h"))))
 	(local-set-key "\M-o" 'eassist-switch-h-cpp)
 )
+
+;; cscope
+(defun my-cscope ()
+  (require 'xcscope)
+)
 	
 ;; c mode.
 (defun my-c-mode ()
 	(interactive)
 	(my-assist)	
+    (my-cscope)
 )
 
-(add-hook 'c-mode-common-hook 'my-c-mode)
+(add-hook 'c-mode-common-hook 
+          '(lambda ()
+             (my-c-mode)
+             (run-with-idle-timer 0.01 nil 
+                                  (lambda() 
+                                    (mydev))
+                                  ))
+)
+
 
 ;; undo mode.
 (defun my-undo ()
@@ -225,8 +238,10 @@
 )
 
 ;; global bind keys.
-(global-set-key (kbd "C-x C-<left>") 'my-switch-to-lastbuffer)
-(global-set-key (kbd "C-x C-<right>") 'other-window)
+(global-set-key (kbd "C-x <left>") 'my-switch-to-lastbuffer)
+(global-set-key (kbd "C-x <right>") 'other-window)
+(global-set-key (kbd "C-x C-<up>") 'scroll-other-window-down)
+(global-set-key (kbd "C-x C-<down>") 'scroll-other-window)
 (global-set-key (kbd "C-<tab>") 'my-switch-to-lastbuffer)
 (global-set-key (kbd "<mouse-1>") 'mouse-set-point)
 (global-set-key (kbd "<down-mouse-1>") 'mouse-drag-region)

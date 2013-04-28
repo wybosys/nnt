@@ -68,6 +68,8 @@ public:
 
 };
 
+# ifdef NNT_USER_SPACE
+
 template <typename valT, typename osT>
 class Heap <valT, osT, space_user>
     : public HeapMemory<valT, osT, space_user>
@@ -93,6 +95,8 @@ public:
 
 };
 
+# endif
+
 template <typename valT>
 class Heap <valT, os_mach, space_kernel>
 {
@@ -103,7 +107,7 @@ class Heap <valT, os_mach, space_kernel>
 
 template <typename valT>
 class Heap <valT, os_windows, space_kernel>
-    : public HeapMemory<valT, os_windows, space_kernel>
+    : public HeapMemory< valT, os_windows, space_kernel>
 {
 public:
 
@@ -127,6 +131,40 @@ public:
 };
 
 # endif
+
+# ifdef NNT_BSD
+
+NNT_BEGIN_HEADER_C
+MALLOC_DECLARE(NNT_MP_NTLA);
+NNT_END_HEADER_C
+
+# endif
+
+template <typename valT>
+class Heap <valT, os_bsd, space_kernel>
+    : public HeapMemory <valT, os_bsd, space_kernel>
+{
+ public:
+
+    typedef valT value_type;
+
+    static value_type* Create(usize count = 1)
+    {
+        return (value_type*)malloc(count * sizeof(value_type), NNT_MP_NTLA, M_NOWAIT); 
+    }
+
+    static value_type* Alloc(usize size)
+    {
+        
+    }
+
+    static void Free(void* ptr)
+    {
+        
+    }
+
+    
+};
 
 NNT_END_NS
 NNT_END_NS
