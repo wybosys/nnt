@@ -12,16 +12,16 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(driver)
 
+# ifdef NNT_MSVC
+    
 EntryObject::EntryObject(PDRIVER_OBJECT _0, PUNICODE_STRING _1)
-# ifdef NNT_MSVC
 : pDriverObject(_0), pDeviceObject(NULL)
-# endif
 {
-# ifdef NNT_MSVC
     if (_1 != NULL)
         strRegisterPath = core::string(*_1);
-# endif
 }
+
+# endif
 
 NNTDECL_PRIVATE_BEGIN(App)
 

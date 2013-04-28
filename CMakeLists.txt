@@ -11,13 +11,21 @@ INCLUDE (NNTDebug)
 
 # process.
 INCLUDE (CMakeDetermineSystem)
+TRACE ("Generating build system for ${CMAKE_SYSTEM_NAME}.")
 
 # on linux
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   INCLUDE (NNTLibrary)
   INCLUDE (NNTSample)
   ADD_SUBDIRECTORY (unix)
-ENDIF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+ENDIF ()
+
+# on bsd
+IF (${CMAKE_SYSTEM_NAME} MATCHES "BSD")
+  INCLUDE (NNTKernel)
+  INCLUDE (NNTSample)
+  ADD_SUBDIRECTORY (unix)
+ENDIF ()
 
 # on macos.
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
@@ -27,12 +35,12 @@ IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
     ADD_SUBDIRECTORY (unix)
   ELSE()
     ADD_SUBDIRECTORY (mac)
-  ENDIF (${CMAKE_BUILD_TOOL} MATCHES "gmake")
-ENDIF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+  ENDIF ()
+ENDIF ()
 
 # on windows.
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
   ADD_SUBDIRECTORY(msvc)
-ENDIF (${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+ENDIF ()
 
 # for cmake config file debug.

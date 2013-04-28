@@ -1,2 +1,20 @@
 
 SET (NNT_TRACE_CMAKE 1 CACHE BOOL "toggle trace debug")
+
+FUNCTION (TRACE msg)
+  IF (${NNT_TRACE_CMAKE})
+    MESSAGE (STATUS "${msg}")
+  ENDIF ()
+ENDFUNCTION ()
+
+FUNCTION (WARN msg)
+  IF (${NNT_TRACE_CMAKE})
+    MESSAGE (WARNING "${msg}")
+  ENDIF ()
+ENDFUNCTION ()
+
+FUNCTION (FATAL msg)
+  IF (${NNT_TRACE_CMAKE})
+     MESSAGE (FATAL_ERROR "${msg}")
+  ENDIF ()
+ENDFUNCTION ()

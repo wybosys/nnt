@@ -49,15 +49,15 @@
 #   include <TargetConditionals.h>
 # endif
 
-# if defined(__amd64) || defined(_M_X64)
-#   define NNT_X64 1
+# ifdef __FreeBSD__
+#   define NNT_BSD 1
 # endif
 
 # if defined(__i386) || defined(_M_IX86)
 #   define NNT_X32 1
 # endif
 
-# if (defined(__LP64__) && __LP64__) || defined(_M_IA64)
+# if (defined(__LP64__) && __LP64__) || defined(_M_IA64) || defined(__amd64) || defined(_M_X64) || (defined(_LP64) && _LP64)
 #   define NNT_X64 1
 # endif
 
@@ -76,6 +76,14 @@
 #   define NNT_KERNEL_SPACE 1
 # else
 #   define NNT_USER_SPACE 1
+# endif
+
+# ifdef NNT_KERNEL_SPACE
+#   ifdef NNT_BSD
+#     ifndef _KERNEL
+#       define _KERNEL 1
+#     endif
+#   endif
 # endif
 
 # if defined(_MSC_VER) && defined(WIN32)
@@ -281,6 +289,7 @@ typedef struct {} os_unknown;
 typedef struct {} os_windows;
 typedef struct {} os_unix;
 typedef struct {} os_mach;
+typedef struct {} os_bsd;
 
 typedef struct {} lang_unknown;
 typedef struct {} lang_objc;
@@ -307,6 +316,8 @@ typedef arch_x32 arch_type;
 typedef os_windows os_type;
 # elif defined(NNT_MACH)
 typedef os_mach os_type;
+# elif defined(NNT_BSD)
+typedef os_bsd os_type;
 # elif defined(NNT_UNIX)
 typedef os_unix os_type;
 # endif
@@ -1382,26 +1393,48 @@ NNT_END_HEADER_C
 #   endif
 # endif
 
-# ifdef NNT_UNIX
-#   include <unistd.h>
-#   include <pthread.h>
-#   include <sys/errno.h>
+# ifdef NNT_USER_SPACE
+
+#   include <stdlib.h>
+#   include <stdio.h>
+#   include <string.h>
+#   include <math.h>
+#   include <sys/types.h>
+#   include <signal.h>
+
+#   ifdef NNT_UNIX
+#     include <unistd.h>
+#     include <pthread.h>
+#     include <sys/errno.h>
+#   endif
+
 # endif
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <math.h>
-# include <sys/types.h>
-# include <signal.h>
+# ifdef NNT_KERNEL_SPACE
+
+#   ifdef NNT_BSD
+
+#     include <sys/types.h>
+#     include <sys/param.h>
+#     include <sys/queue.h>
+#     include <sys/module.h>
+#     include <sys/kernel.h>
+#     include <sys/systm.h>
+#     include <sys/conf.h>
+#     include <sys/uio.h>
+#     include <sys/malloc.h>
+
+#   endif
+
+# endif
 
 # ifdef NNT_CXX
 
 # ifdef NNT_USER_SPACE
-# include <string>
-# include <iostream>
-# include <iomanip>
-# include <algorithm>
+#   include <string>
+#   include <iostream>
+#   include <iomanip>
+#   include <algorithm>
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -1608,10 +1641,14 @@ NNT_END_HEADER_CXX
 # endif
 # endif
 
+# ifdef NNT_USER_SPACE
+
 inline_impl real rand01()
 {
     return (real)rand() / RAND_MAX;
 }
+
+# endif
 
 # ifndef YES
 #   define YES true

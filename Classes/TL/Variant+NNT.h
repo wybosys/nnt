@@ -734,8 +734,8 @@ public:
         {
             if (_sz)
             {
-                _v.data = ::malloc(_sz);
-                ::memcpy(_v.data, data, _sz);
+                _v.data = (void*)Heap::Alloc(_sz);
+                Heap::Copy(_v.data, data, _sz);
             }
         }
         else
@@ -876,15 +876,35 @@ static int toint(variant_t const& var)
 {
     int ret = 0;
     switch (var.vt)
-    {
+        {
         default: break;
-        case variant_t::VT_SIGNEDCHAR: case variant_t::VT_UNSIGNEDCHAR: ret = (int)(schar)var; break;
-        case variant_t::VT_SIGNEDSHORT: case variant_t::VT_UNSIGNEDSHORT: ret = (int)(short)var; break;
-        case variant_t::VT_SIGNEDINT: case variant_t::VT_UNSIGNEDINT: ret = (int)var; break;
-        case variant_t::VT_SIGNEDLONG: case variant_t::VT_UNSIGNEDLONG: ret = (int)(long)var; break;
-        case variant_t::VT_FLOAT: ret = (int)(float)var; break;
-        case variant_t::VT_DOUBLE: ret = (int)(double)var; break;
-        case variant_t::VT_PCHAR: ret = atoi((char const*)var); break;
+        case variant_t::VT_SIGNEDCHAR:
+        case variant_t::VT_UNSIGNEDCHAR:
+            ret = (int)(schar)var;
+            break;
+        case variant_t::VT_SIGNEDSHORT:
+        case variant_t::VT_UNSIGNEDSHORT:
+            ret = (int)(short)var;
+            break;
+        case variant_t::VT_SIGNEDINT:
+        case variant_t::VT_UNSIGNEDINT:
+            ret = (int)var;
+            break;
+        case variant_t::VT_SIGNEDLONG:
+        case variant_t::VT_UNSIGNEDLONG:
+            ret = (int)(long)var;
+            break;
+        case variant_t::VT_FLOAT:
+            ret = (int)(float)var;
+            break;
+        case variant_t::VT_DOUBLE:
+            ret = (int)(double)var;
+            break;
+# ifdef NNT_USER_SPACE
+        case variant_t::VT_PCHAR:
+            ret = atoi((char const*)var);
+            break;
+# endif
     }
     return ret;
 }
@@ -893,15 +913,35 @@ static float tofloat(variant_t const& var)
 {
     float ret = 0;
     switch (var.vt)
-    {
+        {
         default: break;
-        case variant_t::VT_SIGNEDCHAR: case variant_t::VT_UNSIGNEDCHAR: ret = (float)(schar)var; break;
-        case variant_t::VT_SIGNEDSHORT: case variant_t::VT_UNSIGNEDSHORT: ret = (float)(short)var; break;
-        case variant_t::VT_SIGNEDINT: case variant_t::VT_UNSIGNEDINT: ret = (float)(int)var; break;
-        case variant_t::VT_SIGNEDLONG: case variant_t::VT_UNSIGNEDLONG: ret = (float)(long)var; break;
-        case variant_t::VT_FLOAT: ret = (float)var; break;
-        case variant_t::VT_DOUBLE: ret = (float)(double)var; break;
-        case variant_t::VT_PCHAR: ret = (float)atof((char const*)var); break;
+        case variant_t::VT_SIGNEDCHAR:
+        case variant_t::VT_UNSIGNEDCHAR:
+            ret = (float)(schar)var;
+            break;
+        case variant_t::VT_SIGNEDSHORT:
+        case variant_t::VT_UNSIGNEDSHORT:
+            ret = (float)(short)var;
+            break;
+        case variant_t::VT_SIGNEDINT:
+        case variant_t::VT_UNSIGNEDINT:
+            ret = (float)(int)var;
+            break;
+        case variant_t::VT_SIGNEDLONG:
+        case variant_t::VT_UNSIGNEDLONG:
+            ret = (float)(long)var;
+            break;
+        case variant_t::VT_FLOAT:
+            ret = (float)var;
+            break;
+        case variant_t::VT_DOUBLE:
+            ret = (float)(double)var;
+            break;
+# ifdef NNT_USER_SPACE
+        case variant_t::VT_PCHAR:
+            ret = (float)atof((char const*)var);
+            break;
+# endif
     }
     return ret;
 }
@@ -910,15 +950,35 @@ static double todouble(variant_t const& var)
 {
     double ret = 0;
     switch (var.vt)
-    {
+        {
         default: break;
-        case variant_t::VT_SIGNEDCHAR: case variant_t::VT_UNSIGNEDCHAR: ret = (double)(schar)var; break;
-        case variant_t::VT_SIGNEDSHORT: case variant_t::VT_UNSIGNEDSHORT: ret = (double)(short)var; break;
-        case variant_t::VT_SIGNEDINT: case variant_t::VT_UNSIGNEDINT: ret = (double)(int)var; break;
-        case variant_t::VT_SIGNEDLONG: case variant_t::VT_UNSIGNEDLONG: ret = (double)(long)var; break;
-        case variant_t::VT_FLOAT: ret = (double)(float)var; break;
-        case variant_t::VT_DOUBLE: ret = (double)var; break;
-        case variant_t::VT_PCHAR: ret = atof((char const*)var); break;
+        case variant_t::VT_SIGNEDCHAR:
+        case variant_t::VT_UNSIGNEDCHAR:
+            ret = (double)(schar)var;
+            break;
+        case variant_t::VT_SIGNEDSHORT:
+        case variant_t::VT_UNSIGNEDSHORT:
+            ret = (double)(short)var;
+            break;
+        case variant_t::VT_SIGNEDINT:
+        case variant_t::VT_UNSIGNEDINT:
+            ret = (double)(int)var;
+            break;
+        case variant_t::VT_SIGNEDLONG:
+        case variant_t::VT_UNSIGNEDLONG:
+            ret = (double)(long)var;
+            break;
+        case variant_t::VT_FLOAT:
+            ret = (double)(float)var;
+            break;
+        case variant_t::VT_DOUBLE:
+            ret = (double)var;
+            break;
+# ifdef NNT_USER_SPACE
+        case variant_t::VT_PCHAR:
+            ret = atof((char const*)var);
+            break;
+# endif
     }
     return ret;
 }
