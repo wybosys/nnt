@@ -274,6 +274,12 @@ typedef ios_unknown ios_version;
 #   define NNT_MSVC_EXPRESS(exp) SPACE
 # endif
 
+# ifdef NNT_UNIX
+#   define NNT_UNIX_EXPRESS(exp) exp
+# else
+#   define NNT_UNIX_EXPRESS(exp) SPACE
+# endif
+    
 # ifdef NNT_GCC
 #   define NNT_GCC_EXPRESS(exp) exp
 # else

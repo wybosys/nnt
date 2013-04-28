@@ -96,6 +96,7 @@ def process_mode (des, src, mode):
                 str_inc = '# include "' + tmp_dir + '/' + file_name + '"'
                 fd = open(tmp_des, 'w')
                 fd.write(str_inc)
+                fd.write("\n") # for disable eof-line warning
                 fd.close()
             if (mode == '2'): #absolute mode.
                 dir_des = os.path.dirname(tmp_des)
@@ -103,6 +104,7 @@ def process_mode (des, src, mode):
                 str_inc = '# include "' + file_name + '"'
                 fd = open(tmp_des, 'w')
                 fd.write(str_inc)
+                fd.write("\n")
                 fd.close()
 
 process_mode(incdir, classdir, mode)

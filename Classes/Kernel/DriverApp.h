@@ -23,6 +23,16 @@ public:
     PDEVICE_OBJECT pDeviceObject;
 
 # endif
+
+# ifdef NNT_BSD
+
+    EntryObject();
+
+    module_t mod;
+    void* arg;
+    
+# endif
+    
 };
 
 enum MemoryMode
@@ -45,7 +55,9 @@ public:
 
     int main();
     int install();
-    void add_feature(Feature*);
+
+    //! add driver feature.
+    void add_feature(Feature*);  
 
     EntryObject eo;
     core::string name;
@@ -66,12 +78,22 @@ struct DriverExtension
 NNT_END_NS
 NNT_END_HEADER_CXX
 
-# define NNTDECL_DRIVER_APP(app) \
+# ifdef NNT_BSD
+#   define __NNTDECL_DRIVER_APP(name) \
+    NNT_EXTERN int nnt_driver_entry(module_t, int, void*); \
+    DEV_MODULE(name, nnt_driver_entry, NULL);
+# else
+#   define __NNTDECL_DRIVER_APP(name) SPACE
+# endif
+
+# define NNTDECL_DRIVER_APP(app, appname)               \
     NNT_BEGIN_C \
+    __NNTDECL_DRIVER_APP(appname); \
     static app* __nntapp_driver = NULL; \
     int NNT_DRIVER_MAIN(::nnt::driver::EntryObject& eo) \
 { \
     __nntapp_driver = new app(); \
+    __nntapp_driver->name = #appname; \
     __nntapp_driver->eo = eo; \
     int sta = __nntapp_driver->install(); \
     if (::nnt::driver::Status::Failed(sta)) \

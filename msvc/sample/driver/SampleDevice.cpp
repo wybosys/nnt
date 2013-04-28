@@ -53,13 +53,13 @@ int main(int argc, char* argv[])
 
 # ifdef NNT_KERNEL_SPACE
 
-NNTDECL_DRIVER_APP(::nntapp::Sample)
+NNTDECL_DRIVER_APP(::nntapp::Sample, NntSampleDriver);
 
 NNTAPP_BEGIN
 
 Sample::Sample()
 {
-    name = "NntSampleDriver";
+
 }
 
 Sample::~Sample()
@@ -72,7 +72,7 @@ int Sample::main()
     //NNTDEBUG_BREAK;
 
     // bind feature.
-    add_feature(new driver::feature::Create);
+    add_feature(new driver::feature::Open);
     add_feature(new driver::feature::Close);
     add_feature(new SampleWrite);
     add_feature(new SampleRead);

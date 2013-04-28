@@ -23,6 +23,14 @@ EntryObject::EntryObject(PDRIVER_OBJECT _0, PUNICODE_STRING _1)
 
 # endif
 
+# ifdef NNT_BSD
+
+EntryObject::EntryObject()
+{
+}
+
+# endif
+
 NNTDECL_PRIVATE_BEGIN(App)
 
 void init()
@@ -103,16 +111,25 @@ int App::install()
     return STATUS_SUCCESS;
 
 # endif
+
+# ifdef NNT_BSD
+
+    return 0;
+    
+# endif
+    
 }
 
 void App::add_feature(Feature* fte)
 {
-# ifdef NNT_MSVC
 
+# ifdef NNT_MSVC
+    
     eo.pDriverObject->MajorFunction[fte->irptype] = fte->dispatch;
     d_ptr->features.push_back(fte);
 
 # endif
+    
 }
 
 # ifdef NNT_MSVC
@@ -142,6 +159,21 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 
 # endif
 
+# ifdef NNT_BSD
+
+static cdev* __gs_device_object = NULL;
+
+static void unload_driver()
+{
+    if (__gs_device_object)
+    {
+        destroy_dev(__gs_device_object);
+        __gs_device_object = NULL;
+    }
+}
+
+# endif
+
 NNT_END_NS
 NNT_END_CXX
 
@@ -160,6 +192,38 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegist
 
     // call driver's main.
     return NNT_DRIVER_MAIN(eo);
+}
+
+# endif
+
+# ifdef NNT_BSD
+
+int nnt_driver_entry(module_t mod, int event, void* arg)
+{
+    NNTDEBUG_BREAK;
+
+    int error = 0;
+
+    ::nnt::driver::EntryObject eo;
+    eo.mod = mod;
+    eo.arg = arg;
+
+    switch (event)
+        {
+        case MOD_LOAD:
+            {
+                error = NNT_DRIVER_MAIN(eo);
+            } break;
+        case MOD_UNLOAD:
+            {
+                ::nnt::driver::unload_driver();
+            } break;
+        default:
+            error = EOPNOTSUPP;
+            break;
+        }
+    
+    return error;
 }
 
 # endif

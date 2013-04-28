@@ -8,9 +8,7 @@ NNTDECL_PRIVATE_BEGIN_CXX(File)
 
 void init()
 {
-# ifdef NNT_MSVC
     file = NULL;
-# endif
 }
 
 void dealloc()
@@ -20,9 +18,7 @@ void dealloc()
 
 bool is_opened() const
 {
-# ifdef NNT_MSVC
     return file != NULL;
-# endif
 }
 
 void close()
@@ -43,6 +39,12 @@ void close()
 # ifdef NNT_MSVC
 
 HANDLE file;
+
+# endif
+
+# ifdef NNT_UNIX
+
+void* file;
 
 # endif
 

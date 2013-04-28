@@ -12,6 +12,21 @@ NNT_BEGIN_NS(driver)
 
 class App;
 
+enum DriverFeatureType
+{
+    DFT_OPEN,
+    DFT_CLOSE,
+    DFT_READ,
+    DFT_WRITE,
+};
+
+# ifdef NNT_BSD
+
+typedef int (*driver_dispatch_t)(cdev*, int, int, thread*);
+# define _NNTDECL_DISPATCH(name) int name (cdev* dev, int oflags, int type, thread* thd)
+
+# endif
+
 class Feature
     : public Object
 {
@@ -27,6 +42,22 @@ public:
     PDEVICE_OBJECT device;
     PIRP irp;
 
+# endif
+
+# ifdef NNT_UNIX
+
+    ulong dftype;
+    driver_dispatch_t dispatch;
+
+# endif
+
+# ifdef NNT_BSD
+
+    cdev* device;
+    int oflags;
+    int devtype;
+    thread* thd;
+    
 # endif
 
     App* app;
@@ -49,6 +80,11 @@ public:
 
 };
 
+NNT_BEGIN_NS(feature)
+
+# define _NNT_DRIVER_DISP(name)                 \
+    disp_##name
+
 # ifdef NNT_MSVC
 
 template <ULONG IRP, PDRIVER_DISPATCH DISPATCH>
@@ -65,35 +101,57 @@ public:
 
 };
 
-NNT_BEGIN_NS(feature)
-
-# define _NNT_DRIVER_DISP(name) \
-    disp_##name
-
-# define _NNTDECL_DRIVER_DISP(name) \
-    DRIVER_DISPATCH _NNT_DRIVER_DISP(name); \
+# define _NNTDECL_DRIVER_DISP(name)                                 \
+    DRIVER_DISPATCH _NNT_DRIVER_DISP(name);                         \
     NTSTATUS _NNT_DRIVER_DISP(name) (PDEVICE_OBJECT dev, PIRP irp)
 
-NNT_EXTERN _NNTDECL_DRIVER_DISP(create);
+# endif
+
+# ifdef NNT_UNIX
+
+# define _NNTDECL_DRIVER_DISP(name) \
+    _NNTDECL_DISPATCH( _NNT_DRIVER_DISP(name) )
+
+template <uint Dft, driver_dispatch_t Dispatch>
+    class FeatureImpl
+    : public Feature
+{
+public:
+
+    FeatureImpl()
+    {
+        this->dftype = Dft;
+        this->dispatch = Dispatch;
+    }
+    
+};
+
+# endif
+
+NNT_EXTERN _NNTDECL_DRIVER_DISP(open);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(close);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(read);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(write);
 
-class Create
-    : public FeatureImpl<IRP_MJ_CREATE, _NNT_DRIVER_DISP(create)>
+class Open
+: public FeatureImpl<
+NNT_MSVC_EXPRESS(IRP_MJ_CREATE) NNT_UNIX_EXPRESS(DFT_OPEN),
+  _NNT_DRIVER_DISP(open)>
 {
 public:
 
-    Create();
+    Open();
 
     void main();
 
-    pmp_begin(Create);
+    pmp_begin(Open);
     pmp_end;
 };
 
 class Close
-    : public FeatureImpl<IRP_MJ_CLOSE, _NNT_DRIVER_DISP(close)>
+: public FeatureImpl<
+NNT_MSVC_EXPRESS(IRP_MJ_CLOSE) NNT_UNIX_EXPRESS(DFT_CLOSE),
+  _NNT_DRIVER_DISP(close)>
 {
 public:
 
@@ -106,7 +164,9 @@ public:
 };
 
 class Read
-    : public FeatureImpl<IRP_MJ_READ, _NNT_DRIVER_DISP(read)>
+: public FeatureImpl<
+NNT_MSVC_EXPRESS(IRP_MJ_READ) NNT_UNIX_EXPRESS(DFT_READ),
+  _NNT_DRIVER_DISP(read)>
 {
 public:
 
@@ -123,7 +183,9 @@ public:
 };
 
 class Write
-    : public FeatureImpl<IRP_MJ_WRITE, _NNT_DRIVER_DISP(write)>
+: public FeatureImpl<
+NNT_MSVC_EXPRESS(IRP_MJ_WRITE) NNT_UNIX_EXPRESS(DFT_WRITE),
+  _NNT_DRIVER_DISP(write)>
 {
 public:
 
@@ -140,8 +202,6 @@ public:
 };
 
 NNT_END_NS
-
-# endif
 
 # endif // kernel.
 

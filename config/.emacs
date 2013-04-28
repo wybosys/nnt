@@ -23,7 +23,6 @@
  '(column-number-mode t)
  '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
- '(ede-project-directories (quote ("/develop/nnt")))
  '(global-auto-revert-mode t)
  '(global-hl-line-mode 1)
  '(global-linum-mode 1)
@@ -34,7 +33,15 @@
  '(linum-format "%6d ")
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
- '(tab-width 4))
+ '(tab-width 4)
+ '(c-default-style 
+   '((c-mode . "stroustrup") 
+     (c++-mode . "stroustrup") 
+     (java-mode . "java") 
+     (awk-mode . "awk") 
+     (other . "gnu")
+     ))
+)
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
