@@ -9,9 +9,19 @@ NNT_BEGIN_NS(driver)
 # ifdef NNT_KERNEL_SPACE
 
 Feature::Feature()
+    
 # ifdef NNT_MSVC
-: irptype(0), dispatch(NULL), device(NULL), irp(NULL)
+    : irptype(0), dispatch(NULL), device(NULL), irp(NULL)
 # endif
+
+# ifdef NNT_UNIX
+    : dftype(0), dispatch(NULL)
+# endif
+
+# ifdef NNT_BSD
+    , device(NULL), oflags(0), devtype(0), thd(NULL)
+# endif
+    
 {
     app = NULL;
     proccessed = 0;
@@ -75,31 +85,44 @@ NNT_BEGIN_NS(feature)
 
 # ifdef NNT_MSVC
 
-# define _NNTIMPL_DRIVER_DISP(name) \
-    Feature* feature_##name = NULL; \
-    _NNTDECL_DRIVER_DISP(name) \
-{ \
-    feature_##name->device = dev; \
-    feature_##name->irp = irp; \
-    feature_##name->app = FeatureToApp(feature_##name); \
-    pmp_call(feature_##name, prepare, ()); \
-    pmp_call(feature_##name, main, ()); \
-    pmp_call(feature_##name, collect, ()); \
-    return feature_##name->status; \
-}
+# define _NNTIMPL_DRIVER_DISP(name)                                 \
+    Feature* feature_##name = NULL;                                 \
+    _NNTDECL_DRIVER_DISP(name)                                      \
+    {                                                               \
+        feature_##name->device = dev;                           \
+        feature_##name->irp = irp;                              \
+        feature_##name->app = FeatureToApp(feature_##name);     \
+        pmp_call(feature_##name, prepare, ());                  \
+        pmp_call(feature_##name, main, ());                     \
+        pmp_call(feature_##name, collect, ());                  \
+        return feature_##name->status;                          \
+    }
 
-_NNTIMPL_DRIVER_DISP(create);
+# endif
+
+# ifdef NNT_UNIX
+
+# define _NNTIMPL_DRIVER_DISP(name)             \
+    Feature* feature_##name = NULL;             \
+    _NNTDECL_DRIVER_DISP(name)                  \
+    {                                           \
+        return feature_##name->status;          \
+    }
+
+# endif
+
+_NNTIMPL_DRIVER_DISP(open);
 _NNTIMPL_DRIVER_DISP(close);
 _NNTIMPL_DRIVER_DISP(read);
 _NNTIMPL_DRIVER_DISP(write);
 
-Create::Create()
+Open::Open()
 {
-    feature_create = this;
+    feature_open = this;
     pmp_impl(main);
 }
 
-void Create::main()
+void Open::main()
 {
     success(0);
 }
@@ -188,8 +211,6 @@ core::data Write::data() const
 {
     return core::data((byte*)buffer + offset, length, core::assign);
 }
-
-# endif
 
 NNT_END_NS
 

@@ -262,48 +262,72 @@ NNT_BEGIN_NS(ntl)
 string::string()
 : _need_release(false)
 {
+# ifdef NNT_MSVC
+    
     ::RtlInitEmptyUnicodeString(&_obj, NULL, 0);
+    
+# endif
 }
 
 string::string(char const* str)
 : _need_release(true)
 {
+# ifdef NNT_MSVC
+    
     ANSI_STRING astr;
     ::RtlInitAnsiString(&astr, str);
     ::RtlAnsiStringToUnicodeString(&_obj, &astr, TRUE);
+
+# endif
 }
 
 string::string(wchar_t const* str)
 : _need_release(false)
 {
+# ifdef NNT_MSVC
+    
     ::RtlInitUnicodeString(&_obj, str);
+
+# endif
 }
 
 string::string(cstr_type ptr, usize len)
 : _need_release(true)
 {
+# ifdef NNT_MSVC
+    
     ::RtlInitEmptyUnicodeString(&_obj,
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, len, (ULONG)"str0"),
         len);
     ::RtlCopyMemory(_obj.Buffer, ptr, len);
+
+# endif
 }
 
 string::string(value_type const& r)
 : _need_release(true)
 {
+# ifdef NNT_MSVC
+    
     ::RtlInitEmptyUnicodeString(&_obj,
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r.Length, (ULONG)"str0"),
         r.Length);
     ::RtlCopyUnicodeString(&_obj, &r);
+
+# endif
 }
 
 string::string(string const& r)
 : _need_release(true)
 {
+# ifdef NNT_MSVC
+    
     ::RtlInitEmptyUnicodeString(&_obj, 
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"), 
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
+
+# endif
 }
 
 string::~string()
@@ -315,11 +339,15 @@ string& string::operator = (string const& r)
 {
     clear();
 
+# ifdef NNT_MSVC
+    
     ::RtlInitEmptyUnicodeString(&_obj,
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"),
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
     _need_release = true;
+
+# endif
 
     return *this;
 }
@@ -332,6 +360,8 @@ string string::operator + (string const& r) const
 
 string& string::operator += (string const& r)
 {
+# ifdef NNT_MSVC
+    
     UNICODE_STRING str = {0};
     str.Length = str.MaximumLength = _obj.Length + r->Length;
     str.Buffer = (PWCHAR)::ExAllocatePoolWithTag(PagedPool, str.MaximumLength, (ULONG)"str0");
@@ -348,11 +378,15 @@ string& string::operator += (string const& r)
     _obj = str;
     _need_release = true;
 
+# endif
+
     return *this;
 }
 
 void string::clear()
 {
+# ifdef NNT_MSVC
+    
     if (_need_release)
     {
         ::RtlFreeUnicodeString(&_obj);
@@ -360,11 +394,17 @@ void string::clear()
     }
 
     _obj.Length = 0;
+
+# endif
 }
 
 bool string::operator == (string const& r) const
 {
+# ifdef NNT_MSVC
+    
     return ::RtlEqualUnicodeString(*this, r, TRUE) != 0;
+
+# endif
 }
 
 bool string::operator != (string const& r) const
@@ -374,17 +414,29 @@ bool string::operator != (string const& r) const
 
 bool string::is_equal(string const& r, bool casesens) const
 {
+# ifdef NNT_MSVC
+    
     return ::RtlEqualUnicodeString(*this, r, casesens) != 0;
+
+# endif
 }
 
 bool string::empty() const
 {
+# ifdef NNT_MSVC
+    
     return _obj.Length == 0;
+
+# endif
 }
 
 usize string::size() const
 {
+# ifdef NNT_MSVC
+    
     return _obj.Length;
+
+# endif
 }
 
 usize string::length() const
@@ -394,7 +446,11 @@ usize string::length() const
 
 cstr_type string::c_str() const
 {
+# ifdef NNT_MSVC
+    
     return (cstr_type)_obj.Buffer;
+
+# endif
 }
 
 NNT_END_NS

@@ -1,12 +1,31 @@
 
-SOURCE (Algorithm+NNT.cpp)
-SOURCE (String+NNT.cpp)
-SOURCE (Regex+NNT.cpp)
-SOURCE (Variant+NNT.cpp)
+NNT_USE_LIBHEADERS ()
 
-SOURCESUB ("hardware/Assembly+NNT.cpp")
-SOURCESUB ("hardware/Cpu+NNT.cpp")
-SOURCESUB ("hardware/Device+NNT.cpp")
-SOURCESUB ("hardware/Hardware+NNT.cpp")
+IF (${NNT_BUILD_KERNEL})
 
-ADD_LIBRARY (NntTl STATIC ${CURRENT_SOURCES})
+  SOURCE (Allocate+NNT.cpp)
+  SOURCE (Memory+NNT.cpp)
+  SOURCE (String+NNT.cpp)
+  SOURCE (URL+NNT.cpp)
+  SOURCE (Data+NNT.cpp)
+
+  ADD_DEFINITIONS (${NNT_KERNEL_C_PREPROCESSORS})
+  ADD_LIBRARY (NntTl STATIC ${CURRENT_SOURCES})
+
+ENDIF ()
+
+IF (${NNT_BUILD_LIBRARY})
+
+  SOURCE (Algorithm+NNT.cpp)
+  SOURCE (String+NNT.cpp)
+  SOURCE (Regex+NNT.cpp)
+  SOURCE (Variant+NNT.cpp)
+
+  SOURCESUB ("hardware/Assembly+NNT.cpp")
+  SOURCESUB ("hardware/Cpu+NNT.cpp")
+  SOURCESUB ("hardware/Device+NNT.cpp")
+  SOURCESUB ("hardware/Hardware+NNT.cpp")
+
+  ADD_LIBRARY (NntTl STATIC ${CURRENT_SOURCES})
+
+ENDIF ()
