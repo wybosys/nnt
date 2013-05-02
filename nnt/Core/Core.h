@@ -1513,17 +1513,17 @@ typedef struct {} objc_type;
 # include "../TL/Variant+NNT.h"
 # include "../TL/Algorithm+NNT.h"
 
+# ifdef NNT_USER_SPACE
+
+// include unit test.
+# include "UnitTest.h"
+
 // ignore assert.
 # include <assert.h>
 # ifdef assert
 #   define NNT_ASSERT assert
 #   undef assert
 # endif
-
-# ifdef NNT_USER_SPACE
-
-// include unit test.
-# include "UnitTest.h"
 
 # endif
 

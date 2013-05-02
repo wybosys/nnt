@@ -822,7 +822,7 @@ template <typename StmT>
 static StmT& operator << (StmT& stm, variant_t const& var)
 {    
     switch (var.vt)
-    {        
+    {
         case variant_t::VT_UNKNOWN: break;
         case variant_t::VT_BOOLEAN: stm << (bool)var; break;
         case variant_t::VT_SIGNEDINT: stm << (signed int)var; break;

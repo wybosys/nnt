@@ -20,35 +20,27 @@
 
 # endif
 
-# if !defined(LIBNNT)
-
-#   ifdef NNT_CXX
-#     define NNTAPP_BEGIN namespace nntapp {
-#     define NNTAPP_END   }
-#     define NNTCAPP_BEGIN extern "C" {
-#     define NNTCAPP_END }
-#   else
-#     define NNTAPP_BEGIN
-#     define NNTAPP_END
-#     define NNTCAPP_BEGIN
-#     define NNTCAPP_END
-#   endif
+# ifdef NNT_CXX
+#   define NNTAPP_BEGIN namespace nntapp {
+#   define NNTAPP_END   }
+#   define NNTCAPP_BEGIN extern "C" {
+#   define NNTCAPP_END }
+# else
+#   define NNTAPP_BEGIN
+#   define NNTAPP_END
+#   define NNTCAPP_BEGIN
+#   define NNTCAPP_END
+# endif
 
 # ifdef NNT_OBJC
 #   define NNTAPP_BEGIN_OBJC
 #   define NNTAPP_END_OBJC
 # endif
 
-# ifdef NNT_CXX
-
 NNTAPP_BEGIN
 
 NNT_USINGCXXNAMESPACE;
 
 NNTAPP_END
-
-# endif
-
-# endif
 
 # endif
