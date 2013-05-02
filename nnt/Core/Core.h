@@ -895,127 +895,6 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 #   define NNTBIN_EXPRESS(exp) exp
 # endif
 
-# ifdef NNT_OBJC
-NNT_BEGIN_HEADER_C
-extern void _trace_obj         (NSString*, id);
-extern void _trace_int         (NSString*, int);
-extern void _trace_float       (NSString*, float);
-extern void _trace_msg         (NSString*);
-NNT_END_HEADER_C
-
-/*
-# ifdef NNT_CXX
-template <typename StrT>
-inline void _trace_msg(StrT const& str) { _trace_msg([NSString stringWithUTF8String:str.c_str()]); }
-inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8String:str]); }
-# endif
- */
-
-# endif
-
-# ifdef NNT_DEBUG
-#   ifdef NNT_OBJC
-#     define trace_rc(obj)       { NSLog(@ #obj "'s retain count is %d ." , [obj retainCount]); }
-#     define trace_obj(obj)      _trace_obj(@#obj, obj)
-#     define trace_int(val)      _trace_int(@#val, val)
-#     define trace_float(val)    _trace_float(@#val, val)
-#     define trace_msg(msg)      _trace_msg(msg)
-#     define trace_fmt(...)      _trace_msg([NSString stringWithFormat:__VA_ARGS__])
-#     define trace_if(exp, msg)  { if (exp) { trace_msg(@ #exp "=> " msg); } }
-#     define dthrow(ex)          @throw ex
-#     define dexpress(ex)        ex
-#   else // non obj-c.
-
-#     define trace_int(val)      printf("%d\n", val)
-#     define trace_float(val)    printf("%f\n", val)
-
-#     include <stdio.h>
-
-#     ifdef NNT_CXX
-
-#       ifdef NNT_MSVC
-
-inline_impl void trace_msg(char const* msg)
-{
-# ifdef NNT_USER_SPACE
-    // print into debug view.
-    ::OutputDebugStringA(msg);
-    ::OutputDebugStringA("\n");
-    // print into console.
-    ::printf("%s\n", msg);
-# else
-    KdPrint((msg));
-# endif
-}
-
-inline_impl void trace_msg(char* msg)
-{
-    trace_msg((char const*)msg);
-}
-
-template <typename T>
-inline_impl void trace_msg(T const& str)
-{
-    trace_msg(str.c_str());
-}
-
-#       else // none msvc.
-
-#       include <iostream>
-
-inline_impl void trace_msg(char const* msg)
-{
-    ::std::cout << msg << ::std::endl << ::std::flush;
-}
-
-inline_impl void trace_msg(char* msg)
-{
-    ::std::cout << msg << ::std::endl << ::std::flush;
-}
-
-template <typename T>
-inline_impl void trace_msg(T const& str)
-{
-    ::std::cout << str << ::std::endl << ::std::flush;
-}
-
-#       endif // msvc.
-
-#     else // non cxx.
-
-inline_impl void trace_msg(char const* msg) {
-    printf(msg, 0);
-    printf("\n");
-    fflush(stdout);
-}
-
-#     endif // cxx.
-
-//#     define trace_fmt(...)      
-#     define trace_if(exp, msg)  { if (exp) { trace_msg(#exp "=> " msg); } }
-#     define dthrow(ex)          { throw ex; }
-#     define dexpress(ex)        { ex; }
-#   endif // obj-c.
-# else // non-debug.
-#   define trace_rc(obj)       {SPACE}
-#   define trace_obj(obj)      {SPACE}
-#   define trace_int(val)      {SPACE}
-#   define trace_float(val)    {SPACE}
-#   define trace_msg(msg)      {SPACE}
-#   define trace_fmt(...)      {SPACE}
-#   define trace_if(exp, msg)  {SPACE}
-#   define dthrow(ex)          {SPACE}
-#   define dexpress(ex)        {SPACE}
-# endif // debug.
-
-# ifdef NNT_OBJC
-#   define dthrow_msg(title, msg) dthrow([NSException exceptionWithName:title reason:msg userInfo:nil]);
-# elif defined(NNT_CXX)
-#   define dthrow_msg(title, msg) dthrow(::nnt::exception::message(msg, title))
-# else
-#   define dthrow_msg(title, msg)
-# endif
-
 # define b00000001 1
 # define b00000010 2
 # define b00000100 4
@@ -1399,6 +1278,8 @@ NNT_END_HEADER_C
 #   endif
 # endif
 
+NNT_BEGIN_HEADER_C
+
 # ifdef NNT_USER_SPACE
 
 #   include <stdlib.h>
@@ -1434,6 +1315,8 @@ NNT_END_HEADER_C
 
 # endif
 
+NNT_END_HEADER_C
+
 # ifdef NNT_CXX
 
 # ifdef NNT_USER_SPACE
@@ -1445,10 +1328,7 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_HEADER_CXX
 
-//using namespace std;
-
-struct _ignore_null;
-typedef _ignore_null *ignore_null;
+typedef struct {} _ignore_null, *ignore_null;
 
 namespace cxx {}
 namespace ntl {}
@@ -1546,6 +1426,134 @@ typedef struct {} objc_type;
 #   import "Msgbox.h"
 #   import "Console+NNT.h"
 
+# endif
+
+# ifdef NNT_OBJC
+
+NNT_BEGIN_HEADER_OBJC
+
+extern void _trace_obj         (NSString*, id);
+extern void _trace_int         (NSString*, int);
+extern void _trace_float       (NSString*, float);
+extern void _trace_msg         (NSString*);
+
+NNT_END_HEADER_OBJC
+
+/*
+  # ifdef NNT_CXX
+  template <typename StrT>
+  inline void _trace_msg(StrT const& str) { _trace_msg([NSString stringWithUTF8String:str.c_str()]); }
+  inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8String:str]); }
+  # endif
+*/
+
+# endif
+
+# ifdef NNT_DEBUG
+
+#   ifdef NNT_OBJC
+
+#     define trace_rc(obj)       { NSLog(@ #obj "'s retain count is %d ." , [obj retainCount]); }
+#     define trace_obj(obj)      _trace_obj(@#obj, obj)
+#     define trace_int(val)      _trace_int(@#val, val)
+#     define trace_float(val)    _trace_float(@#val, val)
+#     define trace_msg(msg)      _trace_msg(msg)
+#     define trace_fmt(...)      _trace_msg([NSString stringWithFormat:__VA_ARGS__])
+#     define trace_if(exp, msg)  { if (exp) { trace_msg(@ #exp "=> " msg); } }
+#     define dthrow(ex)          @throw ex
+#     define dexpress(ex)        ex
+
+#   else // non obj-c.
+
+#     define trace_int(val)      printf("%d\n", val)
+#     define trace_float(val)    printf("%f\n", val)
+    
+#     ifdef NNT_CXX
+
+#       ifdef NNT_MSVC
+
+inline_impl void trace_msg(char const* msg)
+{
+# ifdef NNT_USER_SPACE
+    // print into debug view.
+    ::OutputDebugStringA(msg);
+    ::OutputDebugStringA("\n");
+    // print into console.
+    ::printf("%s\n", msg);
+# else
+    KdPrint((msg));
+# endif
+}
+
+inline_impl void trace_msg(char* msg)
+{
+    trace_msg((char const*)msg);
+}
+
+template <typename T>
+inline_impl void trace_msg(T const& str)
+{
+    trace_msg(str.c_str());
+}
+
+#       else // none msvc.
+
+inline_impl void trace_msg(char const* msg)
+{
+    ::std::cout << msg << ::std::endl << ::std::flush;
+}
+
+inline_impl void trace_msg(char* msg)
+{
+    ::std::cout << msg << ::std::endl << ::std::flush;
+}
+
+template <typename T>
+inline_impl void trace_msg(T const& str)
+{
+    ::std::cout << str << ::std::endl << ::std::flush;
+}
+
+#       endif // msvc.
+
+#     else // non cxx.
+
+inline_impl void trace_msg(char const* msg)
+{
+    printf(msg, 0);
+    printf("\n");
+    fflush(stdout);
+}
+
+#     endif
+
+//#     define trace_fmt(...)      
+#     define trace_if(exp, msg)  { if (exp) { trace_msg(#exp "=> " msg); } }
+#     define dthrow(ex)          { throw ex; }
+#     define dexpress(ex)        { ex; }
+
+#   endif
+
+# else // release
+
+#   define trace_rc(obj)       {SPACE}
+#   define trace_obj(obj)      {SPACE}
+#   define trace_int(val)      {SPACE}
+#   define trace_float(val)    {SPACE}
+#   define trace_msg(msg)      {SPACE}
+#   define trace_fmt(...)      {SPACE}
+#   define trace_if(exp, msg)  {SPACE}
+#   define dthrow(ex)          {SPACE}
+#   define dexpress(ex)        {SPACE}
+
+# endif // debug.
+
+# ifdef NNT_OBJC
+#   define dthrow_msg(title, msg) dthrow([NSException exceptionWithName:title reason:msg userInfo:nil]);
+# elif defined(NNT_CXX)
+#   define dthrow_msg(title, msg) dthrow(::nnt::exception::message(msg, title))
+# else
+#   define dthrow_msg(title, msg)
 # endif
 
 // hook

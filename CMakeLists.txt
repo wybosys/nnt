@@ -22,9 +22,9 @@ ENDIF ()
 
 # on bsd
 IF (${CMAKE_SYSTEM_NAME} MATCHES "BSD")
-  #INCLUDE (NNTKernel)
+  INCLUDE (NNTKernel)
   #INCLUDE (NNTSample)
-  #ADD_SUBDIRECTORY (unix)
+  ADD_SUBDIRECTORY (unix)
 ENDIF ()
 
 # on macos.
