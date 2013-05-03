@@ -823,25 +823,51 @@ static StmT& operator << (StmT& stm, variant_t const& var)
 {    
     switch (var.vt)
     {
-        case variant_t::VT_UNKNOWN: break;
-        case variant_t::VT_BOOLEAN: stm << (bool)var; break;
-        case variant_t::VT_SIGNEDINT: stm << (signed int)var; break;
-        case variant_t::VT_UNSIGNEDINT: stm << (unsigned int)var; break;
-        case variant_t::VT_SIGNEDCHAR: stm << (signed char)var; break;
-        case variant_t::VT_UNSIGNEDCHAR: stm << (unsigned int)var; break;
-        case variant_t::VT_SIGNEDLONG: stm << (signed long)var; break;
-        case variant_t::VT_UNSIGNEDLONG: stm << (unsigned long)var; break;
-        case variant_t::VT_SIGNEDSHORT: stm << (signed short)var; break;
-        case variant_t::VT_UNSIGNEDSHORT: stm << (unsigned short)var; break;
-        case variant_t::VT_FLOAT: stm << (float)var; break;
-        case variant_t::VT_DOUBLE: stm << (double)var; break;
-        case variant_t::VT_PCHAR: stm << core::string((char const*)var, var.size()); break;
-        case variant_t::VT_DATA: stm << core::string((char const*)var, var.size()); break;
-# ifdef NNT_OBJC
+        case variant_t::VT_UNKNOWN:
+            break;
+        case variant_t::VT_BOOLEAN:
+            stm << (bool)var;
+            break;
+        case variant_t::VT_SIGNEDINT:
+            stm << (signed int)var;
+            break;
+        case variant_t::VT_UNSIGNEDINT:
+            stm << (unsigned int)var;
+            break;
+        case variant_t::VT_SIGNEDCHAR:
+            stm << (signed char)var;
+            break;
+        case variant_t::VT_UNSIGNEDCHAR:
+            stm << (unsigned int)var;
+            break;
+        case variant_t::VT_SIGNEDLONG:
+            stm << (signed long)var;
+            break;
+        case variant_t::VT_UNSIGNEDLONG:
+            stm << (unsigned long)var;
+            break;
+        case variant_t::VT_SIGNEDSHORT:
+            stm << (signed short)var;
+            break;
+        case variant_t::VT_UNSIGNEDSHORT:
+            stm << (unsigned short)var;
+            break;
+        case variant_t::VT_FLOAT:
+            stm << (float)var;
+            break;
+        case variant_t::VT_DOUBLE:
+            stm << (double)var;
+            break;
+        case variant_t::VT_PCHAR:
+            stm << core::string((char const*)var, var.size());
+            break;
+        case variant_t::VT_DATA:
+            stm << core::string((char const*)var, var.size());
+            break;
         case variant_t::VT_ID: 
-# endif
-        case variant_t::VT_REFOBJ: break;
-        case variant_t::VT_POINTER: break;
+        case variant_t::VT_REFOBJ:
+        case variant_t::VT_POINTER:
+            break;
     };
     return stm;
 }

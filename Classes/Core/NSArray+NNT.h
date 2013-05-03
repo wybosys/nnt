@@ -307,9 +307,9 @@ protected:
             return obj;
         }
         
-        operator ::objc_type* ()
+        operator lang_objc* ()
         {
-            return (::objc_type*)obj;
+            return (lang_objc*)obj;
         }
         
     public:

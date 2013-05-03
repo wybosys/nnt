@@ -138,8 +138,6 @@ NNT_BEGIN_HEADER_C
 MALLOC_DECLARE(NNT_MP_NTLA);
 NNT_END_HEADER_C
 
-# endif
-
 template <typename valT>
 class Heap <valT, os_bsd, space_kernel>
     : public HeapMemory <valT, os_bsd, space_kernel>
@@ -164,6 +162,8 @@ class Heap <valT, os_bsd, space_kernel>
     }
     
 };
+
+# endif
 
 NNT_END_NS
 NNT_END_NS

@@ -1323,10 +1323,13 @@ NNT_END_HEADER_C
 # ifdef NNT_CXX
 
 # ifdef NNT_USER_SPACE
+
 #   include <string>
 #   include <iostream>
 #   include <iomanip>
 #   include <algorithm>
+#   include <exception>
+
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -1338,99 +1341,20 @@ namespace ntl {}
 namespace core { using namespace ntl; }
 
 # ifdef NNT_PURE_CXX
+
 using namespace cxx;
+
 # endif
 
 NNT_END_HEADER_CXX
 
-# endif
+# endif // cxx
 
-// include all base class.
-# include "./Object.h"
+// trace.
 
-// pre include objc's object for may inherited by C++ object.
-# ifdef NNT_OBJC
+# ifdef NNT_DEBUG
 
-#   ifdef NNT_TARGET_MAC
-#     import <Cocoa/Cocoa.h>
-#   endif
-
-#   define NSInfinite NSNotFound
-#   define discard assign
-
-#   import <Foundation/Foundation.h>
-#   import "./NSObject+NNT.h"
-#   import "./NSLock+NNT.h"
-
-# endif
-
-# ifndef autocollect
-#   define autocollect
-# endif
-
-// include C++ Base Classes.
-
-# include "../TL/Allocate+NNT.h"
-# include "../TL/Memory+NNT.h"
-# include "../TL/Stdtype+NNT.h"
-# include "../TL/Exception+NNT.h"
-# include "../TL/Operator+NNT.h"
-# include "../TL/Types+NNT.h"
-# include "../TL/Function+NNT.h"
-# include "../TL/Closure+NNT.h"
-# include "../TL/SmartPtr+NNT.h"
-
-# ifdef NNT_USER_SPACE
-
-# include "../TL/Vector+NNT.h"
-# include "../TL/Map+NNT.h"
-# include "../TL/Regex+NNT.h"
-
-# endif
-
-# include "../TL/String+NNT.h"
-# include "../TL/List+NNT.h"
-# include "../TL/Data+NNT.h"
-# include "../TL/Tuple+NNT.h"
-# include "../TL/Variant+NNT.h"
-# include "../TL/Algorithm+NNT.h"
-
-# ifdef NNT_USER_SPACE
-
-// include unit test.
-# include "UnitTest.h"
-
-// ignore assert.
-# include <assert.h>
-# ifdef assert
-#   define NNT_ASSERT assert
-#   undef assert
-# endif
-
-# endif
-
-# ifdef NNT_OBJC
-
-// include Objective-C Base Classes.
-#   import "NSString+NNT.h"
-#   import "NSNumber+NNT.h"
-#   import "NSArray+NNT.h"
-#   import "NSDictionary+NNT.h"
-#   import "NSData+NNT.h"
-#   import "NSSet+NNT.h"
-#   import "NSIndex+NNT.h"
-#   import "NSURL+NNT.h"
-#   import "NSURLConnection+NNT.h"
-#   import "NSDate+NNT.h"
-#   import "NSLocale+NNT.h"
-#   import "NSRunLoop+NNT.h"
-#   import "Time+NNT.h"
-#   import "Msgbox.h"
-#   import "Console+NNT.h"
-
-# endif
-
-# ifdef NNT_OBJC
+#   ifdef NNT_OBJC
 
 NNT_BEGIN_HEADER_OBJC
 
@@ -1440,20 +1364,6 @@ NNT_EXTERN void _trace_float       (NSString*, float);
 NNT_EXTERN void _trace_msg         (NSString*);
 
 NNT_END_HEADER_OBJC
-
-/*
-  # ifdef NNT_CXX
-  template <typename StrT>
-  inline void _trace_msg(StrT const& str) { _trace_msg([NSString stringWithUTF8String:str.c_str()]); }
-  inline void _trace_msg(char const* str) { _trace_msg([NSString stringWithUTF8String:str]); }
-  # endif
-*/
-
-# endif
-
-# ifdef NNT_DEBUG
-
-#   ifdef NNT_OBJC
 
 #     define trace_rc(obj)       { NSLog(@ #obj "'s retain count is %d ." , [obj retainCount]); }
 #     define trace_obj(obj)      _trace_obj(@#obj, obj)
@@ -1469,7 +1379,7 @@ NNT_END_HEADER_OBJC
 
 #     define trace_int(val)      printf("%d\n", val)
 #     define trace_float(val)    printf("%f\n", val)
-    
+
 #     ifdef NNT_CXX
 
 #       ifdef NNT_MSVC
@@ -1527,9 +1437,8 @@ inline_impl void trace_msg(char const* msg)
     fflush(stdout);
 }
 
-#     endif
+#     endif // cxx
 
-//#     define trace_fmt(...)      
 #     define trace_if(exp, msg)  { if (exp) { trace_msg(#exp "=> " msg); } }
 #     define dthrow(ex)          { throw ex; }
 #     define dexpress(ex)        { ex; }
@@ -1556,6 +1465,91 @@ inline_impl void trace_msg(char const* msg)
 #   define dthrow_msg(title, msg) dthrow(::nnt::exception::message(msg, title))
 # else
 #   define dthrow_msg(title, msg)
+# endif
+
+// include all base class.
+# include "./Object.h"
+
+// pre include objc's object for may inherited by C++ object.
+# ifdef NNT_OBJC
+
+#   ifdef NNT_TARGET_MAC
+#     import <Cocoa/Cocoa.h>
+#   endif
+
+#   define NSInfinite NSNotFound
+#   define discard assign
+
+#   import <Foundation/Foundation.h>
+#   import "./NSObject+NNT.h"
+#   import "./NSLock+NNT.h"
+
+# endif
+
+# ifndef autocollect
+#   define autocollect
+# endif
+
+// include C++ Base Classes.
+
+# include "../TL/Allocate+NNT.h"
+# include "../TL/Memory+NNT.h"
+# include "../TL/Stdtype+NNT.h"
+# include "../TL/Exception+NNT.h"
+# include "../TL/Operator+NNT.h"
+# include "../TL/Types+NNT.h"
+# include "../TL/Function+NNT.h"
+# include "../TL/Closure+NNT.h"
+# include "../TL/SmartPtr+NNT.h"
+
+# ifdef NNT_USER_SPACE
+
+# include "../TL/Vector+NNT.h"
+# include "../TL/Map+NNT.h"
+# include "../TL/Regex+NNT.h"
+
+# endif
+
+# include "../TL/String+NNT.h"
+# include "../TL/List+NNT.h"
+# include "../TL/Data+NNT.h"
+# include "../TL/Tuple+NNT.h"
+# include "../TL/Variant+NNT.h"
+# include "../TL/Algorithm+NNT.h"
+
+# ifdef NNT_USER_SPACE
+
+// ignore assert.
+# include <assert.h>
+# ifdef assert
+#   define NNT_ASSERT assert
+#   undef assert
+# endif
+
+// include unit test.
+# include "UnitTest.h"
+
+# endif
+
+# ifdef NNT_OBJC
+
+// include Objective-C Base Classes.
+#   import "NSString+NNT.h"
+#   import "NSNumber+NNT.h"
+#   import "NSArray+NNT.h"
+#   import "NSDictionary+NNT.h"
+#   import "NSData+NNT.h"
+#   import "NSSet+NNT.h"
+#   import "NSIndex+NNT.h"
+#   import "NSURL+NNT.h"
+#   import "NSURLConnection+NNT.h"
+#   import "NSDate+NNT.h"
+#   import "NSLocale+NNT.h"
+#   import "NSRunLoop+NNT.h"
+#   import "Time+NNT.h"
+#   import "Msgbox.h"
+#   import "Console+NNT.h"
+
 # endif
 
 // hook
