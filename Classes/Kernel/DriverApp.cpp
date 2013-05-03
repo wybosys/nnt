@@ -26,7 +26,10 @@ EntryObject::EntryObject(PDRIVER_OBJECT _0, PUNICODE_STRING _1)
 # ifdef NNT_BSD
 
 EntryObject::EntryObject()
+    : arg(NULL), dev(NULL), mod(0)
 {
+    memset(&devsw, 0, sizeof(devsw));
+    devsw.d_version = D_VERSION;
 }
 
 # endif
@@ -40,7 +43,7 @@ void init()
 
 void dealloc()
 {
-
+    clear_features();
 }
 
 void clear_features()
@@ -65,12 +68,19 @@ App::App()
 }
 
 App::~App()
-{
+{    
     NNTDECL_PRIVATE_DESTROY();
+}
+
+int App::main()
+{
+    return 0;
 }
 
 int App::install()
 {
+    NNTDEBUG_BREAK;
+   
 # ifdef NNT_MSVC
 
     // create device.
@@ -86,7 +96,6 @@ int App::install()
     if (!NT_SUCCESS(sta))
         return sta;
 
-    NNTDEBUG_BREAK;
     use<DriverExtension> ext = eo.pDeviceObject->DeviceExtension;
     ext->pApp = this;
     ext->strDevName = str_devname;
@@ -113,6 +122,10 @@ int App::install()
 # endif
 
 # ifdef NNT_BSD
+
+    eo.dev = make_dev(&eo.devsw, 0, UID_ROOT, GID_WHEEL, 0600, name.c_str(), NULL);
+
+    return eo.dev != NULL;
     
 # endif
     
@@ -125,6 +138,10 @@ void App::add_feature(Feature* fte)
     
     eo.pDriverObject->MajorFunction[fte->irptype] = fte->dispatch;
     d_ptr->features.push_back(fte);
+
+# endif
+
+# ifdef NNT_BSD
 
 # endif
     
@@ -159,15 +176,18 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 
 # ifdef NNT_BSD
 
-static cdev* __gs_device_object = NULL;
-
 static void unload_driver()
 {
-    if (__gs_device_object)
+    if (gs_nntapp)
     {
-        destroy_dev(__gs_device_object);
-        __gs_device_object = NULL;
+        cdev* devobj = gs_nntapp->eo.dev;
+        if (devobj)
+        {
+            destroy_dev(devobj);
+        }
     }
+
+    NNT_DRIVER_FREEAPP();
 }
 
 # endif

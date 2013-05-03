@@ -1414,18 +1414,24 @@ inline_impl void trace_msg(T const& str)
 
 inline_impl void trace_msg(char const* msg)
 {
+# ifdef NNT_USER_SPACE
     ::std::cout << msg << ::std::endl << ::std::flush;
+# endif
 }
 
 inline_impl void trace_msg(char* msg)
 {
+# ifdef NNT_USER_SPACE
     ::std::cout << msg << ::std::endl << ::std::flush;
+# endif
 }
 
 template <typename T>
 inline_impl void trace_msg(T const& str)
 {
+# ifdef NNT_USER_SPACE
     ::std::cout << str << ::std::endl << ::std::flush;
+# endif
 }
 
 #       endif // msvc.

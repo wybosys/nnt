@@ -10,6 +10,8 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
 
+NNTCLASS(App);
+
 class EntryObject
 {
 public:
@@ -30,6 +32,8 @@ public:
 
     module_t mod;
     void* arg;
+    cdevsw devsw;
+    cdev* dev;
     
 # endif
     
@@ -89,22 +93,22 @@ NNT_END_HEADER_CXX
 # define NNTDECL_DRIVER_APP(app, appname)               \
     NNT_BEGIN_C \
     __NNTDECL_DRIVER_APP(appname); \
-    static app* __nntapp_driver = NULL; \
+    ::nnt::driver::App* gs_nntapp = NULL;            \
     int NNT_DRIVER_MAIN(::nnt::driver::EntryObject& eo) \
 { \
-    __nntapp_driver = new app(); \
-    __nntapp_driver->name = #appname; \
-    __nntapp_driver->eo = eo; \
-    int sta = __nntapp_driver->install(); \
+    gs_nntapp = new app();                \
+    gs_nntapp->name = #appname;           \
+    gs_nntapp->eo = eo;                   \
+    int sta =  gs_nntapp->install();        \
     if (::nnt::driver::Status::Failed(sta)) \
     return sta; \
-    sta = __nntapp_driver->main(); \
+    sta =  gs_nntapp->main();                   \
     return sta; \
 } \
     void NNT_DRIVER_FREEAPP() \
 { \
-    delete __nntapp_driver; \
-    __nntapp_driver = NULL; \
+    delete gs_nntapp; \
+    gs_nntapp = NULL; \
 } \
     NNT_END_C
 
@@ -112,6 +116,7 @@ NNT_BEGIN_HEADER_C
 
 NNT_EXTERN int NNT_DRIVER_MAIN(::nnt::driver::EntryObject&);
 NNT_EXTERN void NNT_DRIVER_FREEAPP();
+NNT_EXTERN ::nnt::driver::App* gs_nntapp;
 
 NNT_END_HEADER_C
 

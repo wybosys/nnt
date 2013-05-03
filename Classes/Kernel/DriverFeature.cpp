@@ -80,6 +80,8 @@ static App* FeatureToApp(Feature* ftu)
     return ext->pApp;
 
 # endif
+
+    return NULL;
 }
 
 NNT_BEGIN_NS(feature)

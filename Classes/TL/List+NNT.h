@@ -351,11 +351,21 @@ protected:
     {
         LIST_ENTRY entry;
         ValT val;
-    };
-
-    typedef alloc::Heap<_entry> _heap;
+    };   
 
 # endif
+
+# ifdef NNT_BSD
+
+    struct _entry
+    {
+        STAILQ_ENTRY(_entry) entry;
+        ValT val;
+    };
+
+# endif
+
+    typedef alloc::Heap<_entry> _heap;
 
 public:
 
@@ -365,6 +375,11 @@ public:
     {
 # ifdef NNT_MSVC
         ::InitializeListHead(*this);
+# endif
+
+# ifdef NNT_BSD
+        memset(&_lst, 0, sizeof(_lst));
+        STAILQ_INIT(&_lst);
 # endif
     }
 
@@ -386,23 +401,37 @@ public:
 # ifdef NNT_MSVC
         return ::IsListEmpty(*this);
 # endif
+
+# ifdef NNT_BSD
+        return STAILQ_EMPTY(&_lst);
+# endif
     }
 
     void push_front(value_type const& val)
     {
-# ifdef NNT_MSVC
         _entry* obj = _heap::Create();
         obj->val = val;
+
+# ifdef NNT_MSVC
         ::InsertHeadList(*this, &obj->entry);
+# endif
+
+# ifdef NNT_BSD
+        STAILQ_INSERT_HEAD(&_lst, obj, _lst.entry);
 # endif
     }
 
     void push_back(value_type const& val)
     {
-# ifdef NNT_MSVC
         _entry* obj = _heap::Create();
         obj->val = val;
+
+# ifdef NNT_MSVC
         ::InsertTailList(*this, &obj->entry);
+# endif
+
+# ifdef NNT_BSD
+        STAILQ_INSERT_TAIL(&_lst, obj, _lst.entry);
 # endif
     }
 
@@ -411,6 +440,14 @@ public:
 # ifdef NNT_MSVC
         PLIST_ENTRY pent = ::RemoveHeadList(*this);
         _entry* pobj = CONTAINING_RECORD(pent, _entry, entry);
+        value_type ret = pobj->val;
+        _heap::Free(pobj);
+        return ret;
+# endif
+
+# ifdef NNT_BSD
+        _entry* pobj = STAILQ_FIRST(&_lst);
+        STAILQ_REMOVE_HEAD(&_lst, entry);
         value_type ret = pobj->val;
         _heap::Free(pobj);
         return ret;
@@ -427,6 +464,14 @@ public:
 protected:
 
     _entry _lst;
+
+# endif
+
+# ifdef NNT_BSD
+
+protected:
+
+    STAILQ_HEAD(_entryhead, _entry) _lst;
 
 # endif
 
