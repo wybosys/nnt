@@ -265,6 +265,11 @@ string::string()
 # ifdef NNT_MSVC
     
     ::RtlInitEmptyUnicodeString(&_obj, NULL, 0);
+
+# else
+
+    _obj = NULL;
+    _len = 0;
     
 # endif
 }
@@ -278,8 +283,16 @@ string::string(char const* str)
     ::RtlInitAnsiString(&astr, str);
     ::RtlAnsiStringToUnicodeString(&_obj, &astr, TRUE);
 
+# else
+
+    _len = strlen(str);
+    _obj = heap::Alloc(_len);
+    heap::Memory::Copy(_obj, str, _len);
+
 # endif
 }
+
+# ifdef _NNT_KERNEL_STRING_SUPPORT_UNICODE
 
 string::string(wchar_t const* str)
 : _need_release(false)
@@ -291,6 +304,8 @@ string::string(wchar_t const* str)
 # endif
 }
 
+# endif
+
 string::string(cstr_type ptr, usize len)
 : _need_release(true)
 {
@@ -300,6 +315,12 @@ string::string(cstr_type ptr, usize len)
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, len, (ULONG)"str0"),
         len);
     ::RtlCopyMemory(_obj.Buffer, ptr, len);
+
+# else
+
+    _len = len;
+    _obj = heap::Alloc(_len);
+    heap::Memory::Copy(_obj, ptr, _len);
 
 # endif
 }
@@ -314,6 +335,12 @@ string::string(value_type const& r)
         r.Length);
     ::RtlCopyUnicodeString(&_obj, &r);
 
+# else
+
+    _len = strlen((char const*)r);
+    _obj = heap::Alloc(_len);
+    heap::Memory::Copy(_obj, r, _len);
+
 # endif
 }
 
@@ -326,6 +353,12 @@ string::string(string const& r)
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"), 
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
+
+# else
+
+    _len = r._len;
+    _obj = heap::Alloc(_len);
+    heap::Memory::Copy(_obj, r._obj, _len);
 
 # endif
 }
@@ -345,6 +378,13 @@ string& string::operator = (string const& r)
         (PWCHAR)::ExAllocatePoolWithTag(PagedPool, r->Length, (ULONG)"str0"),
         r->Length);
     ::RtlCopyUnicodeString(&_obj, r);
+    _need_release = true;
+
+# else
+
+    _len = r._len;
+    _obj = heap::Alloc(_len);
+    heap::Memory::Copy(_obj, r._obj, _len);
     _need_release = true;
 
 # endif
@@ -378,6 +418,24 @@ string& string::operator += (string const& r)
     _obj = str;
     _need_release = true;
 
+# else
+
+    usize t_len = _len + r._len;
+    char* t_str = (char*)heap::Alloc(t_len);
+
+    if (_len)
+        heap::Memory::Copy(t_str, _obj, _len);
+    if (r._len)
+        heap::Memory::Copy(t_str + _len, r._obj, r._len);
+
+    // clear current memory.
+    clear();
+
+    // set.
+    _obj = t_str;
+    _len = t_len;
+    _need_release = true;
+
 # endif
 
     return *this;
@@ -395,6 +453,16 @@ void string::clear()
 
     _obj.Length = 0;
 
+# else
+
+    if (_need_release)
+    {
+        heap::Free(_obj);
+        _need_release = false;
+        _obj = NULL;
+        _len = 0;
+    }
+
 # endif
 }
 
@@ -404,6 +472,13 @@ bool string::operator == (string const& r) const
     
     return ::RtlEqualUnicodeString(*this, r, TRUE) != 0;
 
+# else
+
+    if (_len != r._len)
+        return false;
+    
+    return heap::Memory::Equal(_obj, r._obj, _len);
+
 # endif
 }
 
@@ -412,20 +487,24 @@ bool string::operator != (string const& r) const
     return !(*this == r);
 }
 
-bool string::is_equal(string const& r, bool casesens) const
-{
 # ifdef NNT_MSVC
-    
+
+bool string::is_equal(string const& r, bool casesens) const
+{    
     return ::RtlEqualUnicodeString(*this, r, casesens) != 0;
+}
 
 # endif
-}
 
 bool string::empty() const
 {
 # ifdef NNT_MSVC
     
     return _obj.Length == 0;
+
+# else
+
+    return _obj == NULL || _len == 0;
 
 # endif
 }
@@ -435,6 +514,10 @@ usize string::size() const
 # ifdef NNT_MSVC
     
     return _obj.Length;
+
+# else
+
+    return _len;
 
 # endif
 }
@@ -449,6 +532,10 @@ cstr_type string::c_str() const
 # ifdef NNT_MSVC
     
     return (cstr_type)_obj.Buffer;
+
+# else
+
+    return (cstr_type)_obj;
 
 # endif
 }

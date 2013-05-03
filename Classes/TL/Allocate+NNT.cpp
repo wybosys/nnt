@@ -14,7 +14,7 @@ NNT_BEGIN_C
     
 # ifdef NNT_BSD
 
-MALLOC_DEFINE(NNT_MP_NTLA, "ntl::alloc", "ntl::alloc");
+MALLOC_DEFINE(NNT_MP_NTLA, "::nnt::ntla", "::nnt::ntl::alloc::heap");
 
 # endif
 

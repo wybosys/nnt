@@ -40,6 +40,8 @@ bool Status::Success(int code)
     return SUCCEEDED(code);
 #   endif
 # endif
+
+    return code == 0;
 }
 
 bool Status::Failed(int code)

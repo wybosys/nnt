@@ -183,6 +183,36 @@ const _nullptr nullptr();
 #   define NNT_C_OBJC 1
 # endif
 
+# if defined(DEBUG) || defined(_DEBUG) || defined(DBG)
+#   define NNT_DEBUG 1
+# else
+#   ifndef NNT_DEBUG
+#     define NNT_RELEASE 1
+#   endif
+# endif
+
+# ifdef NNT_MSVC
+#   pragma warning (disable: 4996)
+#   pragma warning (disable: 4068)
+#   pragma warning (disable: 4273)
+#   pragma warning (disable: 4251)
+#   pragma warning (disable: 4275) // disable dll-interface warning.
+#   pragma warning (disable: 4819)
+# endif
+
+# ifdef NNT_GCC
+#   pragma GCC diagnostic ignored "-Wbind-to-temporary-copy"
+#   pragma GCC diagnostic ignored "-Wunused-function"
+#   pragma GCC diagnostic ignored "-Wreorder"
+#   ifdef NNT_DEBUG
+#     pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+#   endif
+# endif
+
+# if defined(__BLOCKS__)
+#   define NNT_BLOCKS 1
+# endif
+
 # ifdef TARGET_OS_IPHONE
 
 #   define NNT_IOS_MIN __IPHONE_OS_VERSION_MIN_REQUIRED
@@ -413,18 +443,6 @@ NNTASM_END
 #   define OBJCEXPRESS(exp) exp
 # else
 #   define OBJCEXPRESS(exp)
-# endif
-
-# if defined(__BLOCKS__)
-#   define NNT_BLOCKS
-# endif
-
-# if defined(DEBUG) || defined(_DEBUG) || defined(DBG)
-#   define NNT_DEBUG
-# else
-#   ifndef NNT_DEBUG
-#     define NNT_RELEASE
-#   endif
 # endif
 
 # ifdef NNT_DEBUG
@@ -1261,22 +1279,6 @@ NNT_END_HEADER_C
 #   define __IPHONE_OS_VERSION_MAX_ALLOWED __IPHONE_NA
 # endif
 
-# endif
-
-# ifdef NNT_MSVC
-#   pragma warning (disable: 4996)
-#   pragma warning (disable: 4068)
-#   pragma warning (disable: 4273)
-#   pragma warning (disable: 4251)
-#   pragma warning (disable: 4275) // disable dll-interface warning.
-#   pragma warning (disable: 4819)
-# endif
-
-# ifdef NNT_CLANG
-#   pragma GCC diagnostic ignored "-Wbind-to-temporary-copy"
-#   ifdef NNT_DEBUG
-#     pragma GCC diagnostic ignored "-Wshorten-64-to-32"
-#   endif
 # endif
 
 // global include

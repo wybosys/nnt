@@ -113,8 +113,6 @@ int App::install()
 # endif
 
 # ifdef NNT_BSD
-
-    return 0;
     
 # endif
     

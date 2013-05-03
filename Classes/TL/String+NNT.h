@@ -127,6 +127,10 @@ typedef wchar_t const* cstr_type;
 typedef char const* cstr_type;
 # endif
 
+# ifndef NNT_UNICODE
+#   define _NNT_KERNEL_STRING_SUPPORT_UNICODE
+# endif
+
 class string
 # ifdef NNT_MSVC
     : public uml::composition<string, UNICODE_STRING>
@@ -134,11 +138,19 @@ class string
     : public uml::composition<string, void*>
 # endif
 {
+protected:
+    
+    typedef alloc::Heap<byte> heap;
+    
 public:
 
     string();
     string(char const*);
+
+# ifdef  _NNT_KERNEL_STRING_SUPPORT_UNICODE
     string(wchar_t const*);
+# endif
+    
     string(cstr_type, usize);
     string(string const&);
     string(value_type const&);
@@ -150,7 +162,10 @@ public:
     bool operator == (string const&) const;
     bool operator != (string const&) const;
 
+# ifdef NNT_MSVC
     bool is_equal(string const&, bool casesens = true) const;
+# endif
+    
     void clear();
     bool empty() const;
     usize size() const;
@@ -160,6 +175,12 @@ public:
 protected:
 
     bool _need_release;
+
+# ifndef NNT_MSVC
+
+    usize _len;
+    
+# endif
 
 };
 

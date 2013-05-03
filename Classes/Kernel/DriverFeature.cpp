@@ -72,9 +72,10 @@ void Feature::success(usize len)
 
 static App* FeatureToApp(Feature* ftu)
 {
-# ifdef NNT_MSVC
-
     NNTDEBUG_BREAK;
+    
+# ifdef NNT_MSVC
+    
     use<driver::DriverExtension> ext = ftu->device->DeviceExtension;
     return ext->pApp;
 

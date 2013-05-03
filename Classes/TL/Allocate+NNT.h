@@ -153,12 +153,12 @@ class Heap <valT, os_bsd, space_kernel>
 
     static value_type* Alloc(usize size)
     {
-        
+        return (value_type*)malloc(size, NNT_MP_NTLA, M_NOWAIT);
     }
 
     static void Free(void* ptr)
     {
-        
+        free(ptr, NNT_MP_NTLA);
     }
     
 };
