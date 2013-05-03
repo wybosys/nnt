@@ -710,8 +710,8 @@ public:
         {
             if (_sz)
             {
-                _v.ssr = (char const*)::malloc(_sz);
-                ::memcpy((void*)_v.ssr, str, _sz);
+                _v.ssr = (char const*)Heap::Alloc(_sz);
+                Heap::Copy((void*)_v.ssr, str, _sz);
             }
         }
         else

@@ -4,13 +4,14 @@ WERROR =
 NNT_DIR = /develop/nnt
 NNT_HEADERS = -I${NNT_DIR} -I${NNT_DIR}/nnt/Core
 NNT_CFLAGS = -DLIBNNT -DKERNELNNT ${NNT_HEADERS}
-NNT_CXXFLAGS = 
+NNT_CXXFLAGS = -fno-exceptions -fno-rtti -fno-cxa-atexit
 
 CC = clang
 CXX = clang++
 CPP = clang++
 
 CFLAGS += ${NNT_CFLAGS}
+CXXFLAGS += ${NNT_CXXFLAGS}
 
 # extract nnt libs.
 NNT_LIBRARY = ${NNT_DIR}/lib/Build/*.a

@@ -363,11 +363,12 @@ NNTASM_BEGIN\
 exp \
 NNTASM_END
 
-# define NNT_BEGIN_CXX namespace nnt {
+# define NNT_NAMESPACE nnt
+# define NNT_BEGIN_CXX namespace NNT_NAMESPACE {
 # define NNT_END_CXX   }
 
 # ifdef NNT_CXX
-#   define NNT_USINGCXXNAMESPACE using namespace ::nnt;
+#   define NNT_USINGCXXNAMESPACE using namespace ::NNT_NAMESPACE;
 #	define NNT_BEGIN             NNT_BEGIN_CXX
 #	define NNT_END               NNT_END_CXX
 #	define NNT_BEGIN_HEADER_C    extern "C" {
@@ -399,6 +400,8 @@ NNTASM_END
 #   define NNT_END_C
 #   define NNT_NEED_CXX          error, must be built as c++ source file.
 # endif
+
+# define NNT_USINGNAMESPACE      NNT_USINGCXXNAMESPACE
 
 # ifdef NNT_CXX
 #   define CXXEXPRESS(exp) exp
@@ -1087,7 +1090,7 @@ typedef struct {
 } version_t;
 
 //! 0: equal, 1: greater, -1: lesser
-extern int VersionCmp(version_t const* l, version_t const* r);
+NNT_EXTERN int VersionCmp(version_t const* l, version_t const* r);
 
 # ifdef NNT_CXX
 
@@ -1260,8 +1263,6 @@ NNT_END_HEADER_C
 
 # endif
 
-// global include
-
 # ifdef NNT_MSVC
 #   pragma warning (disable: 4996)
 #   pragma warning (disable: 4068)
@@ -1277,6 +1278,8 @@ NNT_END_HEADER_C
 #     pragma GCC diagnostic ignored "-Wshorten-64-to-32"
 #   endif
 # endif
+
+// global include
 
 NNT_BEGIN_HEADER_C
 
@@ -1354,7 +1357,6 @@ NNT_END_HEADER_CXX
 
 #   define NSInfinite NSNotFound
 #   define discard assign
-typedef struct {} objc_type;
 
 #   import <Foundation/Foundation.h>
 #   import "./NSObject+NNT.h"
@@ -1432,10 +1434,10 @@ typedef struct {} objc_type;
 
 NNT_BEGIN_HEADER_OBJC
 
-extern void _trace_obj         (NSString*, id);
-extern void _trace_int         (NSString*, int);
-extern void _trace_float       (NSString*, float);
-extern void _trace_msg         (NSString*);
+NNT_EXTERN void _trace_obj         (NSString*, id);
+NNT_EXTERN void _trace_int         (NSString*, int);
+NNT_EXTERN void _trace_float       (NSString*, float);
+NNT_EXTERN void _trace_msg         (NSString*);
 
 NNT_END_HEADER_OBJC
 
