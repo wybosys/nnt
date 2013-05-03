@@ -162,7 +162,6 @@ class Heap <valT, os_bsd, space_kernel>
     {
         
     }
-
     
 };
 
@@ -170,9 +169,9 @@ NNT_END_NS
 NNT_END_NS
 NNT_END_HEADER_CXX
 
-# if defined(NNT_MSVC) && defined(NNT_KERNEL_SPACE)
+# ifdef NNT_KERNEL_SPACE
 
-// global new & delete operators.
+# ifdef NNT_MSVC
 
 static void* operator new(size_t sz)
 {
@@ -189,7 +188,25 @@ static void operator delete(void* ptr)
     ::ExFreePoolWithTag(ptr, (LONG)"cxxn");
 }
 
+# else
+
+inline void* operator new(size_t sz)
+{
+    NNT_USINGNAMESPACE;
+    typedef ntl::alloc::Heap<byte> heap;
+    return heap::Create(sz);
+}
+
+inline void operator delete(void* ptr)
+{
+    NNT_USINGNAMESPACE;
+    typedef ntl::alloc::Heap<byte> heap;
+    heap::Free(ptr);
+}
+
 # endif
+
+# endif // kernel space
 
 # endif // cxx
 

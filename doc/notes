@@ -7,6 +7,7 @@ map:
 
 use like:
     gcc -dM -E - < /dev/null
+    clang -dM -E -x c /dev/null
 to print all macros.
 
 git config --global core.excludesfile ignorefile

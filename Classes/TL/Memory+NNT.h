@@ -115,22 +115,23 @@ class Memory <os_bsd, space_kernel>
 
     static void Copy(void* des, void const* src, usize len)
     {
-        memcpy(des, src, len);
+        //memcpy(des, src, len);
     }
 
     static void Move(void* des, void const* src, usize len)
     {
-        memmove(des, src, len);
+        //memmove(des, src, len);
     }
 
     static void Fill(void* des, usize len, ubyte data)
     {
-        memset(des, data, len);
+        //memset(des, data, len);
     }
 
     static bool Equal(void const* des, void const* src, usize len)
     {
-        return memcmp(des, src, len) == 0;
+        //return memcmp(des, src, len) == 0;
+        return false;
     }
 
     

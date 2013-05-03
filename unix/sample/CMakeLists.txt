@@ -1,7 +1,7 @@
 
 IF (${NNT_BUILD_KERNEL})
 
-  ADD_SUBDIRECTORY (driver)
+  #ADD_SUBDIRECTORY (driver)
 
 ENDIF ()
 
