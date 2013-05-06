@@ -22,8 +22,11 @@ enum DriverFeatureType
 
 # ifdef NNT_BSD
 
-typedef int (*driver_dispatch_t)(cdev*, int, int, thread*);
-# define _NNTDECL_DISPATCH(name) int name (cdev* dev, int oflags, int type, thread* thd)
+# define driver_dispatch_params_t cdev* dev, int flag, int type, uio* io, thread* thd
+typedef int (*driver_dispatch_t)();
+
+# define _NNTDECL_DISPATCH(name) \
+    int name ()
 
 # endif
 
@@ -54,9 +57,10 @@ public:
 # ifdef NNT_BSD
 
     cdev* device;
-    int oflags;
+    int flag;
     int devtype;
     thread* thd;
+    uio* io;
     
 # endif
 
@@ -144,7 +148,7 @@ public:
 
     void main();
 
-    pmp_begin(Open);
+    pmp_inherit(Open);
     pmp_end;
 };
 
@@ -159,7 +163,7 @@ public:
 
     void main();
 
-    pmp_begin(Close);
+    pmp_inherit(Close);
     pmp_end;
 };
 
@@ -171,15 +175,18 @@ NNT_MSVC_EXPRESS(IRP_MJ_READ) NNT_UNIX_EXPRESS(DFT_READ),
 public:
 
     Read();
+    ~Read();
 
     ulong length, offset;
-    void* buffer;
+
+    NNT_MSVC_EXPRESS(void* buffer);
+    NNT_BSD_EXPRESS(core::data stm);
 
     void prepare();
     core::data data() const;
 
-    pmp_begin(Read);
-    pmp_end;
+    pmp_inherit(Read);
+    pmp_end;    
 };
 
 class Write
@@ -190,14 +197,17 @@ NNT_MSVC_EXPRESS(IRP_MJ_WRITE) NNT_UNIX_EXPRESS(DFT_WRITE),
 public:
 
     Write();
+    ~Write();
 
     ulong length, offset;
-    void* buffer;
+
+    NNT_MSVC_EXPRESS(void* buffer);
+    NNT_BSD_EXPRESS(core::data stm);
 
     void prepare();
     core::data data() const;
 
-    pmp_begin(Write);
+    pmp_inherit(Write);
     pmp_end;
 };
 

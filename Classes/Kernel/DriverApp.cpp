@@ -25,11 +25,65 @@ EntryObject::EntryObject(PDRIVER_OBJECT _0, PUNICODE_STRING _1)
 
 # ifdef NNT_BSD
 
+static Feature* feature_open = NULL;
+static Feature* feature_close = NULL;
+static Feature* feature_read = NULL;
+static Feature* feature_write = NULL;
+
+static int nnt_disp_open(cdev* dev, int oflags, int devtype, thread* thd)
+{
+    if (feature_open == NULL)
+        return 0;
+    feature_open->device = dev;
+    feature_open->flag = oflags;
+    feature_open->devtype = devtype;
+    feature_open->thd = thd;
+    feature_open->app = gs_nntapp;
+    return feature::_NNT_DRIVER_DISP(open)();
+}
+
+static int nnt_disp_close(cdev* dev, int fflags, int devtype, thread* thd)
+{
+    if (feature_close == NULL)
+        return 0;
+    feature_close->device = dev;
+    feature_close->flag = fflags;
+    feature_close->devtype = devtype;
+    feature_close->thd = thd;
+    feature_close->app = gs_nntapp;
+    return feature::_NNT_DRIVER_DISP(close)();
+}
+
+static int nnt_disp_read(cdev* dev, uio* io, int ioflag)
+{
+    if (feature_read == NULL)
+        return 0;
+    feature_read->device = dev;
+    feature_read->flag = ioflag;
+    feature_read->io = io;
+    return feature::_NNT_DRIVER_DISP(read)();
+}
+
+static int nnt_disp_write(cdev* dev, uio* io, int ioflag)
+{
+    if (feature_write == NULL)
+        return 0;
+    feature_write->device = dev;
+    feature_write->flag = ioflag;
+    feature_write->io = io;
+    return feature::_NNT_DRIVER_DISP(write)();
+}
+
 EntryObject::EntryObject()
     : arg(NULL), dev(NULL), mod(0)
 {
     memset(&devsw, 0, sizeof(devsw));
+    
     devsw.d_version = D_VERSION;
+    devsw.d_open = nnt_disp_open;
+    devsw.d_close = nnt_disp_close;
+    devsw.d_read = nnt_disp_read;
+    devsw.d_write = nnt_disp_write;
 }
 
 # endif
@@ -51,7 +105,7 @@ void clear_features()
     while (!features.empty())
     {
         Feature* ftu = features.pop();
-        delete ftu;
+        pmp_destroy(ftu);
     }
 }
 
@@ -74,6 +128,7 @@ App::~App()
 
 int App::main()
 {
+    trace_msg("fatal: wrong call to App::main()");
     return 0;
 }
 
@@ -122,7 +177,7 @@ int App::install()
 # endif
 
 # ifdef NNT_BSD
-
+   
     trace_msg("making device");
     eo.dev = make_dev(&eo.devsw,
                       0,
@@ -153,6 +208,28 @@ void App::add_feature(Feature* fte)
 
 # ifdef NNT_BSD
 
+    switch (fte->dftype)
+    {
+    case DFT_OPEN:
+    {
+        feature_open = fte;
+    } break;
+    case DFT_CLOSE:
+    {
+        feature_close = fte;
+    } break;
+    case DFT_READ:
+    {
+        feature_read = fte;
+    } break;
+    case DFT_WRITE:
+    {
+        feature_write = fte;
+    } break;
+    };
+
+    d_ptr->features.push_back(fte);
+    
 # endif
     
 }
@@ -198,6 +275,8 @@ static void unload_driver()
     }
 
     NNT_DRIVER_FREEAPP();
+
+    trace_msg("unloaded driver");
 }
 
 # endif

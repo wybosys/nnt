@@ -99,10 +99,13 @@ NNT_END_HEADER_CXX
     gs_nntapp = new app();                \
     gs_nntapp->name = #appname;           \
     gs_nntapp->eo = eo;                   \
-    int sta =  gs_nntapp->install();        \
+    int sta = ((app*)gs_nntapp)->install(); \
     if (::nnt::driver::Status::Failed(sta)) \
-    return sta; \
-    sta =  gs_nntapp->main();                   \
+    {                                       \
+        trace_msg("failed to install driver");  \
+        return sta;                             \
+    }                                           \
+    sta = ((app*)gs_nntapp)->main();            \
     return sta; \
 } \
     void NNT_DRIVER_FREEAPP() \

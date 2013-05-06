@@ -19,13 +19,14 @@ Feature::Feature()
 # endif
 
 # ifdef NNT_BSD
-    , device(NULL), oflags(0), devtype(0), thd(NULL)
+    , device(NULL), flag(0), devtype(0), thd(NULL), io(NULL)
 # endif
     
 {
     app = NULL;
     proccessed = 0;
 
+    pmp_impl_cd();
     pmp_impl(prepare);
     pmp_impl(collect);
     pmp_impl(main);
@@ -34,7 +35,7 @@ Feature::Feature()
 
 Feature::~Feature()
 {
-
+    trace_msg("destroy feature");
 }
 
 void Feature::prepare()
@@ -109,6 +110,9 @@ NNT_BEGIN_NS(feature)
     Feature* feature_##name = NULL;             \
     _NNTDECL_DRIVER_DISP(name)                  \
     {                                           \
+        pmp_call(feature_##name, prepare, ());  \
+        pmp_call(feature_##name, main, ());     \
+        pmp_call(feature_##name, collect, ());  \
         return feature_##name->status;          \
     }
 
@@ -122,30 +126,44 @@ _NNTIMPL_DRIVER_DISP(write);
 Open::Open()
 {
     feature_open = this;
+
+    pmp_impl_cd();
     pmp_impl(main);
 }
 
 void Open::main()
 {
     success(0);
+
+    trace_msg("successed open driver");
 }
 
 Close::Close()
 {
     feature_close = this;
+
+    pmp_impl_cd();
     pmp_impl(main);
 }
 
 void Close::main()
 {
     success(0);
+
+    trace_msg("successed close driver");
 }
 
 Read::Read()
 {
     feature_read = this;
 
+    pmp_impl_cd();
     pmp_impl(prepare);
+}
+
+Read::~Read()
+{
+    //trace_msg("destroy feature:read");
 }
 
 void Read::prepare()
@@ -171,18 +189,37 @@ void Read::prepare()
     }
 
 # endif
+
+# ifdef NNT_BSD
+
+    length = io->uio_resid;
+    offset = io->uio_offset;
+    stm = core::data(length);
+    uiomove(stm.bytes(), length, io);
+    
+# endif
 }
 
 core::data Read::data() const
 {
-    return core::data((byte*)buffer + offset, length, core::assign);
+# ifdef NNT_MSVC
+    return core::data((byte*)buffer, length, core::assign);
+# else
+    return stm;
+# endif
 }
 
 Write::Write()
 {
     feature_write = this;
 
+    pmp_impl_cd();
     pmp_impl(prepare);
+}
+
+Write::~Write()
+{
+    //trace_msg("destroy feature:write");
 }
 
 void Write::prepare()
@@ -208,11 +245,24 @@ void Write::prepare()
     }
 
 # endif
+
+# ifdef NNT_BSD
+
+    length = io->uio_resid;
+    offset = io->uio_offset;
+    stm = core::data(length);
+    uiomove(stm.bytes(), length, io);
+
+# endif
 }
 
 core::data Write::data() const
 {
-    return core::data((byte*)buffer + offset, length, core::assign);
+# ifdef NNT_MSVC
+    return core::data((byte*)buffer, length, core::assign);
+# else
+    return stm;
+# endif
 }
 
 NNT_END_NS

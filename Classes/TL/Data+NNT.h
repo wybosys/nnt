@@ -266,8 +266,10 @@ public:
     
     void duplicate(void const* d, usize l)
     {
+        // clear current data.
         this->clear();
 
+        // copy from source.
         this->_da = heaper::Alloc(l);
         heaper::Memory::Copy(this->_da, d, l);
         this->_dl = l;

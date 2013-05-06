@@ -23,7 +23,7 @@ NNT_BEGIN_NS(pmp)
 //   B();
 //   void run(int);
 //
-//   pmp_begin
+//   pmp_inherit
 //   pmp_end
 //  }
 //  A()
@@ -46,7 +46,13 @@ void _pmp_set(L& l, R r)
 }
 
 # define pmp_begin(cls) \
-    typedef cls _pmp_class_type;
+    typedef cls _pmp_class_type; \
+    pmp_function(void, _destroy_, ()); \
+    void _destroy_() { delete this; }
+
+# define pmp_inherit(cls)       \
+    typedef cls _pmp_class_type; \
+    void _destroy_() { delete this; }
 
 # define pmp_end
 
@@ -59,6 +65,12 @@ void _pmp_set(L& l, R r)
 
 # define pmp_impl(name) \
     ::nnt::ntl::pmp::_pmp_set(this->_pmp_func_##name, &_pmp_class_type::name);
+
+# define pmp_impl_cd() \
+    pmp_impl(_destroy_);
+
+# define pmp_destroy(obj) \
+    pmp_call(obj, _destroy_, ());
 
 NNT_END_NS
 NNT_END_NS

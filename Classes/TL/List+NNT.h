@@ -432,7 +432,7 @@ public:
 # endif
 
 # ifdef NNT_BSD
-        STAILQ_INSERT_TAIL(&_lst, obj, _lst.entry);
+        STAILQ_INSERT_TAIL(&_lst, obj, entry);
 # endif
     }
 

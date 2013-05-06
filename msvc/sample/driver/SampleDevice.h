@@ -29,7 +29,7 @@ public:
 
     void main();
 
-    pmp_begin(SampleWrite);
+    pmp_inherit(SampleWrite);
     pmp_end;
 };
 
@@ -42,7 +42,7 @@ public:
 
     void main();
 
-    pmp_begin(SampleRead);
+    pmp_inherit(SampleRead);
     pmp_end;
 };
 

@@ -69,8 +69,8 @@ Sample::~Sample()
 
 int Sample::main()
 {
-    //NNTDEBUG_BREAK;
-
+    trace_msg("register sample features");
+    
     // bind feature.
     add_feature(new driver::feature::Open);
     add_feature(new driver::feature::Close);
@@ -82,6 +82,7 @@ int Sample::main()
 
 SampleWrite::SampleWrite()
 {
+    pmp_impl_cd();
     pmp_impl(main);
 }
 
@@ -97,6 +98,7 @@ void SampleWrite::main()
 
 SampleRead::SampleRead()
 {
+    pmp_impl_cd();
     pmp_impl(main);
 }
 
