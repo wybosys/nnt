@@ -316,6 +316,12 @@ typedef ios_unknown ios_version;
 #   define NNT_GCC_EXPRESS(exp) SPACE
 # endif
 
+# ifdef NNT_BSD
+#   define NNT_BSD_EXPRESS(exp) exp
+# else
+#   define NNT_BSD_EXPRESS(exp) SPACE
+# endif
+
 typedef struct {} arch_unknown;
 typedef struct {} arch_x32;
 typedef struct {} arch_x64;
@@ -1416,22 +1422,20 @@ inline_impl void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
     ::std::cout << msg << ::std::endl << ::std::flush;
+# else
+    NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
 # endif
 }
 
 inline_impl void trace_msg(char* msg)
 {
-# ifdef NNT_USER_SPACE
-    ::std::cout << msg << ::std::endl << ::std::flush;
-# endif
+    trace_msg((char const*)msg);
 }
 
 template <typename T>
 inline_impl void trace_msg(T const& str)
 {
-# ifdef NNT_USER_SPACE
-    ::std::cout << str << ::std::endl << ::std::flush;
-# endif
+    trace_msg(str.c_str());
 }
 
 #       endif // msvc.
@@ -1440,9 +1444,13 @@ inline_impl void trace_msg(T const& str)
 
 inline_impl void trace_msg(char const* msg)
 {
+# ifdef NNT_USER_SPACE
     printf(msg, 0);
     printf("\n");
     fflush(stdout);
+# else
+    NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
+# endif
 }
 
 #     endif // cxx

@@ -276,7 +276,7 @@ string::string()
 
 string::string(char const* str)
 : _need_release(true)
-{
+{    
 # ifdef NNT_MSVC
     
     ANSI_STRING astr;
@@ -286,8 +286,9 @@ string::string(char const* str)
 # else
 
     _len = strlen(str);
-    _obj = heap::Alloc(_len);
+    _obj = heap::Alloc(_len + 1);
     heap::Memory::Copy(_obj, str, _len);
+    ((byte*)_obj)[_len] = 0;
 
 # endif
 }
@@ -319,8 +320,9 @@ string::string(cstr_type ptr, usize len)
 # else
 
     _len = len;
-    _obj = heap::Alloc(_len);
+    _obj = heap::Alloc(_len + 1);
     heap::Memory::Copy(_obj, ptr, _len);
+    ((byte*)_obj)[_len] = 0;
 
 # endif
 }
@@ -338,8 +340,9 @@ string::string(value_type const& r)
 # else
 
     _len = strlen((char const*)r);
-    _obj = heap::Alloc(_len);
+    _obj = heap::Alloc(_len + 1);
     heap::Memory::Copy(_obj, r, _len);
+    ((byte*)_obj)[_len] = 0;
 
 # endif
 }
@@ -357,8 +360,9 @@ string::string(string const& r)
 # else
 
     _len = r._len;
-    _obj = heap::Alloc(_len);
+    _obj = heap::Alloc(_len + 1);
     heap::Memory::Copy(_obj, r._obj, _len);
+    ((byte*)_obj)[_len] = 0;
 
 # endif
 }
@@ -381,10 +385,11 @@ string& string::operator = (string const& r)
     _need_release = true;
 
 # else
-
+    
     _len = r._len;
-    _obj = heap::Alloc(_len);
+    _obj = heap::Alloc(_len + 1);
     heap::Memory::Copy(_obj, r._obj, _len);
+    ((byte*)_obj)[_len] = 0;    
     _need_release = true;
 
 # endif
@@ -421,7 +426,7 @@ string& string::operator += (string const& r)
 # else
 
     usize t_len = _len + r._len;
-    char* t_str = (char*)heap::Alloc(t_len);
+    char* t_str = (char*)heap::Alloc(t_len + 1);
 
     if (_len)
         heap::Memory::Copy(t_str, _obj, _len);
@@ -434,6 +439,7 @@ string& string::operator += (string const& r)
     // set.
     _obj = t_str;
     _len = t_len;
+    ((byte*)_obj)[_len] = 0;
     _need_release = true;
 
 # endif
@@ -534,7 +540,7 @@ cstr_type string::c_str() const
     return (cstr_type)_obj.Buffer;
 
 # else
-
+   
     return (cstr_type)_obj;
 
 # endif

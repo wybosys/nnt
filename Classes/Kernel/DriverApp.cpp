@@ -123,9 +123,19 @@ int App::install()
 
 # ifdef NNT_BSD
 
-    eo.dev = make_dev(&eo.devsw, 0, UID_ROOT, GID_WHEEL, 0600, name.c_str(), NULL);
+    trace_msg("making device");
+    eo.dev = make_dev(&eo.devsw,
+                      0,
+                      UID_ROOT,
+                      GID_WHEEL,
+                      0600,
+                      name.c_str(),
+                      NULL);
 
-    return eo.dev != NULL;
+    if (eo.dev)
+        trace_msg("made device");
+
+    return TRIEXP(eo.dev != NULL, 0, -1);
     
 # endif
     

@@ -14,7 +14,7 @@ public:
 
     static void Copy(void* des, void const* src, usize len);
     static void Move(void* des, void const* src, usize len);
-    static void Fill(void* des, usize len, ubyte data);
+    static void Fill(void* des, usize len, int data);
     static bool Equal(void const* des, void const* src, usize len);
 
 };
@@ -61,7 +61,7 @@ public:
         memmove(des, src, len);
     }
 
-    static void Fill(void* des, usize len, ubyte data)
+    static void Fill(void* des, usize len, int data)
     {
         memset(des, data, len);
     }
@@ -93,7 +93,7 @@ public:
         ::RtlMoveMemory(des, src, len);
     }
 
-    static void Fill(void* des, usize len, ubyte data)
+    static void Fill(void* des, usize len, int data)
     {
         ::RtlFillMemory(des, len, data);
     }
@@ -115,23 +115,22 @@ class Memory <os_bsd, space_kernel>
 
     static void Copy(void* des, void const* src, usize len)
     {
-        //memcpy(des, src, len);
+        memcpy(des, src, len);
     }
 
     static void Move(void* des, void const* src, usize len)
     {
-        //memmove(des, src, len);
+        memmove(des, src, len);
     }
 
-    static void Fill(void* des, usize len, ubyte data)
+    static void Fill(void* des, usize len, int data)
     {
-        //memset(des, data, len);
+        memset(des, data, len);
     }
 
     static bool Equal(void const* des, void const* src, usize len)
     {
-        //return memcmp(des, src, len) == 0;
-        return false;
+        return memcmp(des, src, len) == 0;
     }
 
     

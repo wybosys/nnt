@@ -378,7 +378,8 @@ public:
 # endif
 
 # ifdef NNT_BSD
-        memset(&_lst, 0, sizeof(_lst));
+        _lst.stqh_first = NULL;
+        _lst.stqh_last = &_lst.stqh_first;
         STAILQ_INIT(&_lst);
 # endif
     }
