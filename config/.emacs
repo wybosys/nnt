@@ -245,8 +245,8 @@
 (add-hook 'after-init-hook 'my-undo)
 
 ;; auto compelete.
-(require 'auto-complete)
-(global-auto-complete-mode t)
+;(require 'auto-complete)
+;(global-auto-complete-mode t)
 
 ;; buffer
 (defun my-switch-to-lastbuffer ()
