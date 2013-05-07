@@ -136,6 +136,7 @@
 )
 
 (defun my-cedet-launch ()
+  (semantic-mode)
   (semanticdb-enable-cscope-databases)
 )
 
