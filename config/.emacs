@@ -7,10 +7,27 @@
 (setq stack-trace-on-error t)
 
 ;; package manager.
-(defun my-use-package (name)
-	(when (require (quote name) nil 'noerror)
-		package-install (symbol-name name))
+(when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
+  (make-directory "~/.emacs.d/lisps"))
+(add-to-list 'load-path "~/.emacs.d/lisps/")
+
+(when (not (require 'auto-install nil 'noerror))
+  (url-copy-file
+   "http://www.emacswiki.org/emacs/download/auto-install.el"
+   "~/.emacs.d/lisps/auto-install.el")
+  (byte-compile-file "~/.emacs.d/lisps/auto-install.el")
+  (require 'auto-install)  
 )
+;(auto-install-compatibility-setup)
+(add-to-list 'load-path "~/.emacs.d/auto-install/")
+(setq auto-install-save-confirm nil)
+
+(defun my-use-package (name url)
+  (when (not (require name nil 'noerror))
+    (setq auto-install-save-confirm nil)
+    (auto-install-from-url url)
+    )
+  )
 
 ;; guide setting.
 (custom-set-variables
@@ -229,14 +246,17 @@
                                   ))
 )
 
-
 ;; undo mode.
 (defun my-undo ()
-	(require 'undo-tree)
-	(undo-tree-mode)
+  (require 'undo-tree)
+  (undo-tree-mode)
 )
 
 (add-hook 'after-init-hook 'my-undo)
+
+;; auto compelete.
+(require 'auto-complete)
+(global-auto-complete-mode t)
 
 ;; buffer
 (defun my-switch-to-lastbuffer ()
