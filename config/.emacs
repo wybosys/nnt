@@ -7,6 +7,10 @@
 (setq stack-trace-on-error t)
 
 ;; package manager.
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
@@ -187,13 +191,13 @@
 )
 
 (defun my-ecb-setup ()
-	(my-cedet-setup)
-	(require 'ecb-autoloads)
-	(my-ecb-setting)
-	(my-ecb-keys)
-	(ecb-activate)
-	(my-ecb-layouts)
-    (my-cedet-launch)
+  (my-cedet-setup)
+  (require 'ecb-autoloads)
+  (my-ecb-setting)
+  (my-ecb-keys)
+  (ecb-activate)
+  (my-ecb-layouts)
+  (my-cedet-launch)
 )
 
 ;; mydev
@@ -232,9 +236,9 @@
 	
 ;; c mode.
 (defun my-c-mode ()
-	(interactive)
-	(my-assist)	
-    (my-cscope)
+  (interactive)
+  ;(my-assist)	
+  (my-cscope)
 )
 
 (add-hook 'c-mode-common-hook 
