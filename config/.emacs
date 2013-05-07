@@ -221,7 +221,7 @@
 
 ;; cscope
 (defun my-cscope ()
-  (require 'acscope)
+  (require 'ascope)
 )
 	
 ;; c mode.
