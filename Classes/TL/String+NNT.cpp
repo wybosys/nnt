@@ -287,7 +287,7 @@ string::string(char const* str)
 
     _len = strlen(str);
     _obj = heap::Alloc(_len + 1);
-    heap::Memory::Copy(_obj, str, _len);
+    heap::Mem::Copy(_obj, str, _len);
     ((byte*)_obj)[_len] = 0;
 
 # endif
@@ -321,7 +321,7 @@ string::string(cstr_type ptr, usize len)
 
     _len = len;
     _obj = heap::Alloc(_len + 1);
-    heap::Memory::Copy(_obj, ptr, _len);
+    heap::Mem::Copy(_obj, ptr, _len);
     ((byte*)_obj)[_len] = 0;
 
 # endif
@@ -341,7 +341,7 @@ string::string(value_type const& r)
 
     _len = strlen((char const*)r);
     _obj = heap::Alloc(_len + 1);
-    heap::Memory::Copy(_obj, r, _len);
+    heap::Mem::Copy(_obj, r, _len);
     ((byte*)_obj)[_len] = 0;
 
 # endif
@@ -361,7 +361,7 @@ string::string(string const& r)
 
     _len = r._len;
     _obj = heap::Alloc(_len + 1);
-    heap::Memory::Copy(_obj, r._obj, _len);
+    heap::Mem::Copy(_obj, r._obj, _len);
     ((byte*)_obj)[_len] = 0;
 
 # endif
@@ -388,7 +388,7 @@ string& string::operator = (string const& r)
     
     _len = r._len;
     _obj = heap::Alloc(_len + 1);
-    heap::Memory::Copy(_obj, r._obj, _len);
+    heap::Mem::Copy(_obj, r._obj, _len);
     ((byte*)_obj)[_len] = 0;    
     _need_release = true;
 
@@ -429,9 +429,9 @@ string& string::operator += (string const& r)
     char* t_str = (char*)heap::Alloc(t_len + 1);
 
     if (_len)
-        heap::Memory::Copy(t_str, _obj, _len);
+        heap::Mem::Copy(t_str, _obj, _len);
     if (r._len)
-        heap::Memory::Copy(t_str + _len, r._obj, r._len);
+        heap::Mem::Copy(t_str + _len, r._obj, r._len);
 
     // clear current memory.
     clear();
@@ -483,7 +483,7 @@ bool string::operator == (string const& r) const
     if (_len != r._len)
         return false;
     
-    return heap::Memory::Equal(_obj, r._obj, _len);
+    return heap::Mem::Equal(_obj, r._obj, _len);
 
 # endif
 }

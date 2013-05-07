@@ -174,8 +174,8 @@ public:
     _base_data(value_type const* d, usize l, usize ext)
     {      
         this->_da = heaper::Alloc(l + ext);
-        heaper::Memory::Copy(this->_da, d, l);
-        heaper::Memory::Fill(heaper::Memory::Offset(this->_da, l), ext, 0);
+        heaper::Mem::Copy(this->_da, d, l);
+        heaper::Mem::Fill(heaper::Mem::Offset(this->_da, l), ext, 0);
         this->_dl = l + ext;
         this->_nrelease = true;
     }
@@ -271,7 +271,7 @@ public:
 
         // copy from source.
         this->_da = heaper::Alloc(l);
-        heaper::Memory::Copy(this->_da, d, l);
+        heaper::Mem::Copy(this->_da, d, l);
         this->_dl = l;
         this->_nrelease = true;
     }
@@ -283,7 +283,7 @@ public:
             tgtsz = this->_dl;
         if (tgtsz == 0)
             return 0;
-        heaper::Memory::Copy(this->_da, d, tgtsz);
+        heaper::Mem::Copy(this->_da, d, tgtsz);
         return tgtsz;
     }
 
@@ -339,8 +339,8 @@ public:
         usize nsz = this->_dl + l;
         value_type* da = heaper::Alloc(nsz);
         if (_dl)
-            heaper::Memory::Copy(da, this->_da, this->_dl);
-        heaper::Memory::Copy(heaper::Memory::Offset(da, this->_dl), d, l);
+            heaper::Mem::Copy(da, this->_da, this->_dl);
+        heaper::Mem::Copy(heaper::Mem::Offset(da, this->_dl), d, l);
         
         // clear.
         this->clear();
@@ -385,14 +385,14 @@ public:
     {
         if (_dl != r._dl)
             return false;
-        return heaper::Memory::Equal(_da, r._da, _dl);
+        return heaper::Mem::Equal(_da, r._da, _dl);
     }
     
     bool operator != (self_type const& r) const
     {
         if (_dl != r._dl)
             return true;
-        return !heaper::Memory::Equal(_da, r._da, _dl);
+        return !heaper::Mem::Equal(_da, r._da, _dl);
     }
     
     iterator begin()
@@ -661,7 +661,7 @@ public:
 			tgtsz = spa;
 		if (tgtsz == 0)
 			return 0;
-        heaper::Memory::Copy(this->bytes(), d, tgtsz);
+        heaper::Mem::Copy(this->bytes(), d, tgtsz);
 		return tgtsz;
 	}
 
