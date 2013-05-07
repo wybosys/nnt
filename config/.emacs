@@ -14,7 +14,6 @@
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
-(add-to-list 'load-path "~/.emacs.d/auto-install/")
 
 (defun my-use-package (name url)
   (when (not (require name nil 'noerror))
@@ -111,19 +110,15 @@
 ;; cedet
 (defun my-cedet-setting ()
   ;; mode
-					;(semantic-load-enable-minimum-features)
-  (semantic-load-enable-code-helpers)
-					;(semantic-load-enable-guady-code-helpers)
-					;(semantic-load-enable-excessive-code-helpers)
-  (semantic-load-enable-semantic-debugging-helpers)
+  ;(semantic-load-enable-code-helpers)
   ;; global features.
-  (global-semantic-tag-folding-mode 1)
-  (global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
-  (global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
-  (global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
+  ;(global-semantic-tag-folding-mode 1)
+  ;(global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
+  ;(global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
+  ;(global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
   ;; includes.
-  (semantic-add-system-include "/usr/src/include/")
-  (semantic-add-system-include "/usr/src/sys/")    
+  ;(semantic-add-system-include "/usr/src/include/")
+  ;(semantic-add-system-include "/usr/src/sys/")    
   (setq 
    semantic-c-takeover-hideif t
    semantic-symref-tool "cscope"
@@ -227,7 +222,7 @@
 ;; c mode.
 (defun my-c-mode ()
   (interactive)
-  (my-assist)	
+  ;(my-assist)	
   (my-cscope)
 )
 
