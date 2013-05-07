@@ -107,6 +107,8 @@ public:
 
 # endif
 
+# ifdef NNT_BSD
+
 template <>
 class Memory <os_bsd, space_kernel>
     : public Pointer <os_bsd, space_kernel>
@@ -133,8 +135,40 @@ class Memory <os_bsd, space_kernel>
         return memcmp(des, src, len) == 0;
     }
 
+};
+
+# endif
+
+# ifdef NNT_LINUX
+
+template <>
+class Memory <os_linux, space_kernel>
+{
+public:
+
+    static void Copy(void* des, void const* src, usize len)
+    {
+        
+    }
+
+    static void Move(void* des, void const* src, usize len)
+    {
+        
+    }
+
+    static void Fill(void* des, usize len, int data)
+    {
+        
+    }
+
+    static bool Equal(void const* des, void const* src, usize len)
+    {
+        return false;
+    }
     
 };
+
+# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

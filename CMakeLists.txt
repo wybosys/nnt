@@ -16,6 +16,7 @@ TRACE ("Generating build system for ${CMAKE_SYSTEM_NAME}.")
 # on linux
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   INCLUDE (NNTLibrary)
+  INCLUDE (NNTKernel)
   INCLUDE (NNTSample)
   ADD_SUBDIRECTORY (unix)
 ENDIF ()

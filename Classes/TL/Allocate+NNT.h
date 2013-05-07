@@ -34,21 +34,21 @@ class HeapMemory
 public:
 
     typedef valT value_type;
-    typedef Memory<osT, spaceT> Memory;
+    typedef Memory<osT, spaceT> Mem;
 
     static void Copy(void* des, void const* src, usize count)
     {
-        Memory::Copy(des, src, count * sizeof(value_type));
+        Mem::Copy(des, src, count * sizeof(value_type));
     }
 
     static void Move(void* des, void const* src, usize count)
     {
-        Memory::Move(des, src, count * sizeof(value_type));
+        Mem::Move(des, src, count * sizeof(value_type));
     }
 
     static void Fill(void* des, usize count, ubyte da)
     {
-        Memory::Fill(des, count * sizeof(value_type), da);
+        Mem::Fill(des, count * sizeof(value_type), da);
     }
 
     static void* Offset(void* des, usize count)

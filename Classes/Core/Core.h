@@ -3,6 +3,7 @@
 # define __NNT_CORE_C4207797EACE47B4A2CC42B5539FBAD7_H_INCLUDED
 
 # ifdef __cplusplus
+
 #	define NNT_CXX
 #   define NNT_C_CXX
 #   define NNT_C_COMPATIABLE
@@ -15,19 +16,31 @@
 #      define NNT_CXX_11 1
 #   endif
 
-# if defined(_MSC_EXTENSIONS) && defined(NNT_CXX_99)
-#   if _MSC_EXTENSIONS == 1
-#     undef NNT_CXX_99
-#     define NNT_CXX_11 1
+#   if defined(_MSC_EXTENSIONS) && defined(NNT_CXX_99)
+#     if _MSC_EXTENSIONS == 1
+#       define NNT_CXX_EXP_11 1
+#     endif
 #   endif
-# endif
 
-# else
+#   ifdef __STDC_ISO_10646__
+#     define NNT_CXX_EXP_11 1
+#   endif
+
+#   ifdef NNT_CXX_EXP_11
+#     ifdef NNT_CXX_99
+#       undef NNT_CXX_99
+#       define NNT_CXX_11 1
+#     endif
+#   endif
+
+# else // c
+    
 #   define NNT_C
 #   define NNT_C_COMPATIABLE
 #   define CXX_EXPRESS(exp)
 #   define C_EXPRESS(exp) exp
-# endif
+
+# endif // c++
 
 # ifdef __llvm__
 #   define NNT_CC_LLVM 1
@@ -51,6 +64,14 @@
 
 # ifdef __FreeBSD__
 #   define NNT_BSD 1
+# endif
+
+# if defined(__linux__) || defined(__linux)
+#   define NNT_LINUX 1
+# endif
+
+# if defined(__unix__) || defined(__unix)
+#   define NNT_UNIX 1
 # endif
 
 # if defined(__i386) || defined(_M_IX86)
@@ -127,26 +148,6 @@
 #     include <afx.h>
 #     include <afxwin.h>
 #   endif
-# else
-// is unix like.
-#   define NNT_UNIX 1
-# endif
-
-# ifdef NNT_CXX
-#   ifdef NNT_CXX_99
-
-struct _nullptr
-{
-    template <typename T>
-    operator T* () const
-    {
-        return (T*)0;
-    }
-};
-
-const _nullptr nullptr();
-
-#   endif
 # endif
 
 # if defined(_UNICODE)
@@ -200,17 +201,37 @@ const _nullptr nullptr();
 #   pragma warning (disable: 4819)
 # endif
 
-# ifdef NNT_GCC
+# ifdef NNT_CLANG
 #   pragma GCC diagnostic ignored "-Wbind-to-temporary-copy"
-#   pragma GCC diagnostic ignored "-Wunused-function"
-#   pragma GCC diagnostic ignored "-Wreorder"
 #   ifdef NNT_DEBUG
 #     pragma GCC diagnostic ignored "-Wshorten-64-to-32"
 #   endif
 # endif
 
+# ifdef NNT_GCC
+#   pragma GCC diagnostic ignored "-Wunused-function"
+#   pragma GCC diagnostic ignored "-Wreorder"
+# endif
+
 # if defined(__BLOCKS__)
 #   define NNT_BLOCKS 1
+# endif
+    
+# ifdef NNT_CXX
+#   ifdef NNT_CXX_99
+
+struct _nullptr
+{
+    template <typename T>
+    operator T* () const
+    {
+        return (T*)0;
+    }
+};
+
+const _nullptr nullptr();
+
+#   endif
 # endif
 
 # ifdef TARGET_OS_IPHONE
@@ -332,6 +353,7 @@ typedef struct {} os_windows;
 typedef struct {} os_unix;
 typedef struct {} os_mach;
 typedef struct {} os_bsd;
+typedef struct {} os_linux;
 
 typedef struct {} lang_unknown;
 typedef struct {} lang_objc;
@@ -358,6 +380,8 @@ typedef arch_x32 arch_type;
 typedef os_windows os_type;
 # elif defined(NNT_MACH)
 typedef os_mach os_type;
+# elif defined(NNT_LINUX)
+typedef os_linux os_type;
 # elif defined(NNT_BSD)
 typedef os_bsd os_type;
 # elif defined(NNT_UNIX)
@@ -1483,6 +1507,22 @@ inline_impl void trace_msg(char const* msg)
 #   define dthrow_msg(title, msg)
 # endif
 
+# ifndef YES
+#   define YES true
+# endif
+
+# ifndef NO
+#   define NO false
+# endif
+
+# ifndef NULL
+#   define NULL 0
+# endif
+
+# ifndef nil
+#   define nil NULL
+# endif
+
 // include all base class.
 # include "./Object.h"
 
@@ -1674,18 +1714,6 @@ inline_impl real rand01()
     return (real)rand() / RAND_MAX;
 }
 
-# endif
-
-# ifndef YES
-#   define YES true
-# endif
-
-# ifndef NO
-#   define NO false
-# endif
-
-# ifndef nil
-#   define nil NULL
 # endif
 
 # ifndef MIN
