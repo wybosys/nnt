@@ -100,11 +100,19 @@
 # endif
 
 # ifdef NNT_KERNEL_SPACE
+
 #   ifdef NNT_BSD
 #     ifndef _KERNEL
 #       define _KERNEL 1
 #     endif
 #   endif
+
+#   ifdef NNT_LINUX
+#     ifndef __KERNEL__
+#       define __KERNEL__ 1
+#     endif
+#   endif
+
 # endif
 
 # if defined(_MSC_VER) && defined(WIN32)
