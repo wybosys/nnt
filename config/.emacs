@@ -14,17 +14,7 @@
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
-
-(when (not (require 'auto-install nil 'noerror))
-  (url-copy-file
-   "http://www.emacswiki.org/emacs/download/auto-install.el"
-   "~/.emacs.d/lisps/auto-install.el")
-  (byte-compile-file "~/.emacs.d/lisps/auto-install.el")
-  (require 'auto-install)  
-)
-;(auto-install-compatibility-setup)
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
-(setq auto-install-save-confirm nil)
 
 (defun my-use-package (name url)
   (when (not (require name nil 'noerror))
@@ -120,25 +110,25 @@
 
 ;; cedet
 (defun my-cedet-setting ()
-	;; mode
-	;(semantic-load-enable-minimum-features)
-	(semantic-load-enable-code-helpers)
-	;(semantic-load-enable-guady-code-helpers)
-	;(semantic-load-enable-excessive-code-helpers)
-	(semantic-load-enable-semantic-debugging-helpers)
-	;; global features.
-	(global-semantic-tag-folding-mode 1)
-	(global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
-	(global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
-	(global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
-    ;; includes.
-	(semantic-add-system-include "/usr/src/include/")
-	(semantic-add-system-include "/usr/src/sys/")    
-	(setq 
-		semantic-c-takeover-hideif t
-        semantic-symref-tool "cscope"
-		)    
-)
+  ;; mode
+					;(semantic-load-enable-minimum-features)
+  (semantic-load-enable-code-helpers)
+					;(semantic-load-enable-guady-code-helpers)
+					;(semantic-load-enable-excessive-code-helpers)
+  (semantic-load-enable-semantic-debugging-helpers)
+  ;; global features.
+  (global-semantic-tag-folding-mode 1)
+  (global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
+  (global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
+  (global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
+  ;; includes.
+  (semantic-add-system-include "/usr/src/include/")
+  (semantic-add-system-include "/usr/src/sys/")    
+  (setq 
+   semantic-c-takeover-hideif t
+   semantic-symref-tool "cscope"
+   )    
+  )
 
 (defun my-cedet-keymap ()
     (local-set-key (kbd "RET") 'newline-and-indent)
@@ -231,13 +221,13 @@
 
 ;; cscope
 (defun my-cscope ()
-  (require 'xcscope)
+  (require 'acscope)
 )
 	
 ;; c mode.
 (defun my-c-mode ()
   (interactive)
-  ;(my-assist)	
+  (my-assist)	
   (my-cscope)
 )
 
