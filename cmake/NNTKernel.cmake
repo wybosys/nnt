@@ -26,7 +26,8 @@ ENDIF ()
 # set build rules.
 SET (NNT_KERNEL_C_PREPROCESSORS -DLIBNNT -DKERNELNNT)
 SET (NNT_KERNELAPP_C_PREPROCESSORS -DKERNELNNT)
-SET (NNT_KERNEL_C_FLAGS "-fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -Wall")
+SET (NNT_KERNEL_C_FLAGS "-fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -Wall")
+SET (NNT_KERNEL_C_FLAGS "${NNT_KERNEL_C_FLAGS} -Wno-c++0x-compat")
 
 MACRO (NNT_KERNEL_CFLAGS)
   SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${NNT_KERNEL_C_FLAGS}") 

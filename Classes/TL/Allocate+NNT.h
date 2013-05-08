@@ -165,6 +165,35 @@ class Heap <valT, os_bsd, space_kernel>
 
 # endif
 
+# ifdef NNT_LINUX
+
+template <typename valT>
+class Heap <valT, os_linux, space_kernel>
+    : public HeapMemory <valT, os_linux, space_kernel>
+{
+ public:
+
+    typedef valT value_type;
+
+    static value_type* Create(usize count = 1)
+    {
+        return NULL;
+    }
+
+    static value_type* Alloc(usize size)
+    {
+        return NULL;
+    }
+
+    static void Free(void* ptr)
+    {
+        
+    }
+    
+};
+
+# endif
+
 NNT_END_NS
 NNT_END_NS
 NNT_END_HEADER_CXX

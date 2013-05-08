@@ -611,14 +611,22 @@ typedef unsigned long ulong;
 typedef uint enum_t;
 # endif
 
+# if defined(NNT_KERNEL_SPACE) && defined(NNT_GCC)
+#   define NNT_NO_FLOAT 1
+#   define NNT_FLOAT_EXPRESS(exp)
+# else
+#   define NNT_HAS_FLOAT 1
+#   define NNT_FLOAT_EXPRESS(exp)
+# endif
+
 #ifdef NNT_X64
 #  define REAL_IS_DOUBLE  1
-   typedef double real;
+NNT_FLOAT_EXPRESS(typedef double real);
    typedef ulonglong uindex, usize, uinteger;
    typedef longlong sindex, ssize, sinteger, integer;
 #else
 #  define REAL_IS_FLOAT   1
-   typedef float real;
+NNT_FLOAT_EXPRESS(typedef float real);
    typedef uint uindex, usize, uinteger;
    typedef int sindex, ssize, sinteger, integer;
 #endif
@@ -1323,13 +1331,16 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_HEADER_C
 
+# include <sys/types.h>
+# include <sys/param.h>
+# include <sys/queue.h>
+
 # ifdef NNT_USER_SPACE
 
 #   include <stdlib.h>
 #   include <stdio.h>
 #   include <string.h>
 #   include <math.h>
-#   include <sys/types.h>
 #   include <signal.h>
 
 #   ifdef NNT_UNIX
@@ -1344,15 +1355,21 @@ NNT_BEGIN_HEADER_C
 
 #   ifdef NNT_BSD
 
-#     include <sys/types.h>
-#     include <sys/param.h>
-#     include <sys/queue.h>
 #     include <sys/module.h>
 #     include <sys/kernel.h>
 #     include <sys/systm.h>
 #     include <sys/conf.h>
-#     include <sys/uio.h>
 #     include <sys/malloc.h>
+#     include <sys/uio.h>
+
+#   endif
+
+#   ifdef NNT_LINUX
+
+#     include <linux/types.h>
+//#     include <linux/module.h>
+#     include <linux/string.h>
+#     include <linux/uio.h>
 
 #   endif
 

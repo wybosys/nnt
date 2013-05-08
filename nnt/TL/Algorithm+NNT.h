@@ -79,6 +79,8 @@ inline_impl int type_cast<int, ntl::data>(ntl::data const& val)
     return *(int*)val.bytes();
 }
 
+# ifdef NNT_HAS_FLOAT
+
 template <>
 inline_impl data type_cast<data, float>(float const& val)
 {
@@ -102,6 +104,8 @@ inline_impl double type_cast<double, ntl::data>(ntl::data const& val)
 {
     return *(double*)val.bytes();
 }
+
+# endif
 
 template <typename TCon>
 inline_impl usize size(TCon const& con)

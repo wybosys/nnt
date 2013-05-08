@@ -355,7 +355,7 @@ protected:
 
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
 
     struct _entry
     {
@@ -374,13 +374,17 @@ public:
     list()
     {
 # ifdef NNT_MSVC
+        
         ::InitializeListHead(*this);
+        
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
+        
         _lst.stqh_first = NULL;
         _lst.stqh_last = &_lst.stqh_first;
         STAILQ_INIT(&_lst);
+        
 # endif
     }
 
@@ -400,11 +404,15 @@ public:
     bool empty() const
     {
 # ifdef NNT_MSVC
+        
         return ::IsListEmpty(*this);
+        
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
+        
         return STAILQ_EMPTY(&_lst);
+        
 # endif
     }
 
@@ -414,11 +422,15 @@ public:
         obj->val = val;
 
 # ifdef NNT_MSVC
+        
         ::InsertHeadList(*this, &obj->entry);
+        
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
+        
         STAILQ_INSERT_HEAD(&_lst, obj, _lst.entry);
+        
 # endif
     }
 
@@ -428,30 +440,38 @@ public:
         obj->val = val;
 
 # ifdef NNT_MSVC
+        
         ::InsertTailList(*this, &obj->entry);
+        
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
+        
         STAILQ_INSERT_TAIL(&_lst, obj, entry);
+        
 # endif
     }
 
     value_type pop()
     {
 # ifdef NNT_MSVC
+        
         PLIST_ENTRY pent = ::RemoveHeadList(*this);
         _entry* pobj = CONTAINING_RECORD(pent, _entry, entry);
         value_type ret = pobj->val;
         _heap::Free(pobj);
         return ret;
+        
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
+        
         _entry* pobj = STAILQ_FIRST(&_lst);
         STAILQ_REMOVE_HEAD(&_lst, entry);
         value_type ret = pobj->val;
         _heap::Free(pobj);
         return ret;
+        
 # endif
     }
 
@@ -468,7 +488,7 @@ protected:
 
 # endif
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
 
 protected:
 

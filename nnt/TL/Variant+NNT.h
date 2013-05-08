@@ -56,8 +56,12 @@ protected:
         unsigned long ul;
         char const* ssr;
         void* data;
+
+# ifdef NNT_HAS_FLOAT
         float f;
         double d;
+# endif
+        
         bool b;
         
 # ifdef NNT_OBJC
@@ -137,6 +141,8 @@ public:
     {
         _v.ul = v;
     }
+
+# ifdef NNT_HAS_FLOAT
     
     explicit variant_t(float v)
     : _rel(false), _sz(sizeof(float)), vt(VT_FLOAT)
@@ -149,6 +155,8 @@ public:
     {
         _v.d = v;
     }
+
+# endif
     
 # ifdef NNT_OBJC
     
@@ -182,7 +190,7 @@ public:
     : vt(VT_PCHAR)
     {
         _rel = core::copy == cpy;
-        _sz = (len == -1) ? strlen(str) : len;
+        _sz = ((int)len == -1) ? strlen(str) : len;
         if (cpy == core::copy)
         {
             _v.ssr = (char const*)Heap::Alloc(_sz);
@@ -517,6 +525,8 @@ public:
         _v.ul = v;
         return *this;
     }
+
+# ifdef NNT_HAS_FLOAT
     
     operator float () const
     {
@@ -563,6 +573,8 @@ public:
         _v.d = v;
         return *this;
     }
+
+# endif
 
 # ifdef NNT_USER_SPACE
     
@@ -787,8 +799,13 @@ public:
     
     // get value.
     int toint() const;
+
+# ifdef NNT_HAS_FLOAT
+    
     float tofloat() const;
     double todouble() const;
+
+# endif
     
     static variant_t const& Null()
     {
@@ -920,12 +937,14 @@ static int toint(variant_t const& var)
         case variant_t::VT_UNSIGNEDLONG:
             ret = (int)(long)var;
             break;
+# ifdef NNT_HAS_FLOAT
         case variant_t::VT_FLOAT:
             ret = (int)(float)var;
             break;
         case variant_t::VT_DOUBLE:
             ret = (int)(double)var;
             break;
+# endif
 # ifdef NNT_USER_SPACE
         case variant_t::VT_PCHAR:
             ret = atoi((char const*)var);
@@ -934,6 +953,8 @@ static int toint(variant_t const& var)
     }
     return ret;
 }
+
+# ifdef NNT_HAS_FLOAT
 
 static float tofloat(variant_t const& var)
 {
@@ -963,11 +984,9 @@ static float tofloat(variant_t const& var)
         case variant_t::VT_DOUBLE:
             ret = (float)(double)var;
             break;
-# ifdef NNT_USER_SPACE
         case variant_t::VT_PCHAR:
             ret = (float)atof((char const*)var);
             break;
-# endif
     }
     return ret;
 }
@@ -1000,14 +1019,14 @@ static double todouble(variant_t const& var)
         case variant_t::VT_DOUBLE:
             ret = (double)var;
             break;
-# ifdef NNT_USER_SPACE
         case variant_t::VT_PCHAR:
             ret = atof((char const*)var);
             break;
-# endif
     }
     return ret;
 }
+
+# endif
 
 template <>
 inline_impl variant_t dup_cast<variant_t, string>(string const& str)
@@ -1037,6 +1056,8 @@ inline_impl int variant_t::toint() const
     return core::toint(*this);
 }
 
+# ifdef NNT_HAS_FLOAT
+    
 inline_impl float variant_t::tofloat() const
 {
     return core::tofloat(*this);
@@ -1046,6 +1067,8 @@ inline_impl double variant_t::todouble() const
 {
     return core::todouble(*this);
 }
+
+# endif
 
 NNT_END_HEADER_CXX
 
