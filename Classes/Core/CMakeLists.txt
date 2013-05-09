@@ -3,6 +3,8 @@ NNT_USE_LIBHEADERS ()
 
 IF (${NNT_BUILD_KERNEL})
 
+  NNT_USE_KERNELHEADERS ()
+
   SOURCE (Object.cpp)
   SOURCE (Task+NNT.cpp)
   SOURCE (File+NNT.cpp)

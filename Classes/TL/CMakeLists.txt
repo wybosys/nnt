@@ -3,6 +3,8 @@ NNT_USE_LIBHEADERS ()
 
 IF (${NNT_BUILD_KERNEL})
 
+  NNT_USE_KERNELHEADERS ()
+
   SOURCE (Allocate+NNT.cpp)
   SOURCE (Memory+NNT.cpp)
   SOURCE (String+NNT.cpp)

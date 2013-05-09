@@ -3,6 +3,8 @@ NNT_USE_LIBHEADERS ()
 
 IF (${NNT_BUILD_KERNEL})
 
+  NNT_USE_KERNELHEADERS ()
+
   SOURCE (DriverApp.cpp)
   SOURCE (DriverObject.cpp)
   SOURCE (DriverFeature.cpp)

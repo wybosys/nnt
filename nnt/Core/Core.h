@@ -1009,12 +1009,12 @@ inline_impl void* ptr_offset(void* ptr, usize val)
 
 # if defined(NNT_C) && !defined(NNT_OBJC)
 typedef int bool;
-# ifndef true
-#   define true  1
-# endif
-# ifndef false
-#   define false 0
-# endif
+#   ifndef true
+#     define true  1
+#   endif
+#   ifndef false
+#     define false 0
+#   endif
 # endif
 
 # ifdef NNT_OBJC
@@ -1331,10 +1331,6 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_HEADER_C
 
-# include <sys/types.h>
-# include <sys/param.h>
-# include <sys/queue.h>
-
 # ifdef NNT_USER_SPACE
 
 #   include <stdlib.h>
@@ -1342,6 +1338,7 @@ NNT_BEGIN_HEADER_C
 #   include <string.h>
 #   include <math.h>
 #   include <signal.h>
+#   include <sys/types.h>
 
 #   ifdef NNT_UNIX
 #     include <unistd.h>
@@ -1355,6 +1352,9 @@ NNT_BEGIN_HEADER_C
 
 #   ifdef NNT_BSD
 
+#     include <sys/types.h>
+#     include <sys/param.h>
+#     include <sys/queue.h>
 #     include <sys/module.h>
 #     include <sys/kernel.h>
 #     include <sys/systm.h>
@@ -1366,10 +1366,9 @@ NNT_BEGIN_HEADER_C
 
 #   ifdef NNT_LINUX
 
-#     include <linux/types.h>
-//#     include <linux/module.h>
-#     include <linux/string.h>
-#     include <linux/uio.h>
+#     include <linux/init.h>
+#     include <linux/kernel.h>
+#     include <linux/module.h>
 
 #   endif
 

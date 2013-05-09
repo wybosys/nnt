@@ -13,6 +13,20 @@ MACRO (NNT_USE_HEADERS)
   INCLUDE_DIRECTORIES (AFTER "${PROJECT_SOURCE_DIR}")
 ENDMACRO ()
 
+SET (NNT_KERNEL_SRC "")
+
+IF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+  EXECUTE_PROCESS (COMMAND uname -r
+    OUTPUT_VARIABLE NNT_KERNEL_SRC)
+  STRING (REPLACE "\n" "" NNT_KERNEL_SRC ${NNT_KERNEL_SRC})
+  SET (NNT_KERNEL_SRC "/usr/src/kernels/${NNT_KERNEL_SRC}")
+ENDIF ()
+
+MACRO (NNT_USE_KERNELHEADERS)
+  INCLUDE_DIRECTORIES (BEFORE "${NNT_KERNEL_SRC}/include/")
+  INCLUDE_DIRECTORIES (AFTER "${NNT_KERNEL_SRC}/arch/x86/include")
+ENDMACRO ()
+
 MACRO (NNT_USE_LIBHEADERS)
   INCLUDE_DIRECTORIES (AFTER "${PROJECT_SOURCE_DIR}/Classes")
   INCLUDE_DIRECTORIES (AFTER "${PROJECT_SOURCE_DIR}/Classes/Core")
@@ -26,7 +40,7 @@ ENDIF ()
 # set build rules.
 SET (NNT_KERNEL_C_PREPROCESSORS -DLIBNNT -DKERNELNNT)
 SET (NNT_KERNELAPP_C_PREPROCESSORS -DKERNELNNT)
-SET (NNT_KERNEL_C_FLAGS "-fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -Wall")
+SET (NNT_KERNEL_C_FLAGS "-fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -fno-operator-names -Wall")
 SET (NNT_KERNEL_C_FLAGS "${NNT_KERNEL_C_FLAGS} -Wno-c++0x-compat")
 
 MACRO (NNT_KERNEL_CFLAGS)

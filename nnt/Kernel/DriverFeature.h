@@ -20,9 +20,8 @@ enum DriverFeatureType
     DFT_WRITE,
 };
 
-# ifdef NNT_BSD
+# ifdef NNT_UNIX
 
-# define driver_dispatch_params_t cdev* dev, int flag, int type, uio* io, thread* thd
 typedef int (*driver_dispatch_t)();
 
 # define _NNTDECL_DISPATCH(name) \
@@ -180,7 +179,7 @@ public:
     ulong length, offset;
 
     NNT_MSVC_EXPRESS(void* buffer);
-    NNT_BSD_EXPRESS(core::data stm);
+    NNT_UNIX_EXPRESS(core::data stm);
 
     void prepare();
     core::data data() const;
@@ -202,7 +201,7 @@ public:
     ulong length, offset;
 
     NNT_MSVC_EXPRESS(void* buffer);
-    NNT_BSD_EXPRESS(core::data stm);
+    NNT_UNIX_EXPRESS(core::data stm);
 
     void prepare();
     core::data data() const;
