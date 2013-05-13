@@ -1368,11 +1368,27 @@ NNT_BEGIN_HEADER_C
 
 #   ifdef NNT_LINUX
 
-//#     include <linux/init.h>
-//#     include <linux/kernel.h>
+#     ifdef NNT_CXX
+
+#       define new _cxx_ignore_new_for_c
+#       define private _cxx_ignore_private_for_c
+#       define namespace _cxx_ignore_namespace_for_c
+
+#     endif
+
+#     include <linux/init.h>
+#     include <linux/kernel.h>
 //#     include <linux/module.h>
 #     include <queue.h>
 #     include <linux/string.h>
+
+#     ifdef NNT_CXX
+
+#       undef new
+#       undef private
+#       undef namespace
+
+#     endif
 
 #   endif
 
