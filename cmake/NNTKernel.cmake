@@ -22,9 +22,10 @@ IF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   SET (NNT_KERNEL_SRC "/usr/src/kernels/${NNT_KERNEL_SRC}")
 ENDIF ()
 
-MACRO (NNT_USE_KERNELHEADERS)
+MACRO (NNT_USE_KERNELHEADERS) 
   INCLUDE_DIRECTORIES (BEFORE "${NNT_KERNEL_SRC}/include/")
-  INCLUDE_DIRECTORIES (AFTER "${NNT_KERNEL_SRC}/arch/x86/include")
+  INCLUDE_DIRECTORIES (AFTER "${NNT_KERNEL_SRC}/arch/x86/include/")
+  INCLUDE_DIRECTORIES (AFTER "/usr/include/sys")
 ENDMACRO ()
 
 MACRO (NNT_USE_LIBHEADERS)
@@ -40,7 +41,7 @@ ENDIF ()
 # set build rules.
 SET (NNT_KERNEL_C_PREPROCESSORS -DLIBNNT -DKERNELNNT)
 SET (NNT_KERNELAPP_C_PREPROCESSORS -DKERNELNNT)
-SET (NNT_KERNEL_C_FLAGS "-fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -fno-operator-names -Wall")
+SET (NNT_KERNEL_C_FLAGS "-nostdinc -fno-common -fno-omit-frame-pointer -mno-aes -mno-avx -mcmodel=kernel -mno-red-zone -mno-mmx -mno-sse -mno-sse2 -mno-3dnow -msoft-float -fno-asynchronous-unwind-tables -fstack-protector -fno-exceptions -fno-rtti -fno-builtin -ffreestanding -fno-operator-names -Wall")
 SET (NNT_KERNEL_C_FLAGS "${NNT_KERNEL_C_FLAGS} -Wno-c++0x-compat")
 
 MACRO (NNT_KERNEL_CFLAGS)

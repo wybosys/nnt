@@ -1,6 +1,12 @@
 
 # include <nnt/Foundation+NNT.h>
 
+# ifdef NNT_LINUX
+
+# include "Ext.h"
+
+# endif
+
 # ifdef NNT_CXX
 
 NNT_BEGIN_CXX
@@ -71,13 +77,13 @@ DEV_MODULE(Null, null_entry, NULL);
 
 static int __init null_init()
 {
-    printk(KERN_ALERT "nnt: init");
+    ext_init();
     return 0;
 }
 
 static void __exit null_exit()
 {
-    printk(KERN_ALERT "nnt: fin");
+    ext_fin();
 }
 
 module_init(null_init);

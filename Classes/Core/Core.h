@@ -1336,17 +1336,19 @@ NNT_BEGIN_HEADER_C
 #   include <stdlib.h>
 #   include <stdio.h>
 #   include <string.h>
-#   include <math.h>
+#   include <mathB.h>
 #   include <signal.h>
 #   include <sys/types.h>
 
 #   ifdef NNT_UNIX
+
 #     include <unistd.h>
 #     include <pthread.h>
 #     include <sys/errno.h>
+
 #   endif
 
-# endif
+# endif // us
 
 # ifdef NNT_KERNEL_SPACE
 
@@ -1366,13 +1368,15 @@ NNT_BEGIN_HEADER_C
 
 #   ifdef NNT_LINUX
 
-#     include <linux/init.h>
-#     include <linux/kernel.h>
-#     include <linux/module.h>
+//#     include <linux/init.h>
+//#     include <linux/kernel.h>
+//#     include <linux/module.h>
+#     include <queue.h>
+#     include <linux/string.h>
 
 #   endif
 
-# endif
+# endif // ks
 
 NNT_END_HEADER_C
 
