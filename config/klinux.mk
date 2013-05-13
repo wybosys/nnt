@@ -3,6 +3,8 @@ WORK_DIR := $(shell pwd)
 KERNEL_VER := $(shell uname -r)
 KERNEL_SRC_DIR = /usr/src/kernels/$(KERNEL_VER)
 KERNEL_MOD_DIR = /lib/modules/$(KERNEL_VER)
+NNT_DIR = /develop/nnt/
+NNT_LIB_DIR = $(NNT_DIR)/lib/Build
 
 ifeq (V,1)
 Q=

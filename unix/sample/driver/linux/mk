@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd /develop/nnt.build/
+make install
+
+cd -
+
+make clean
+make DEBUG=1
+cp *.ko /share
