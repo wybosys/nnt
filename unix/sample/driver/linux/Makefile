@@ -1,5 +1,8 @@
 
-SRC = common.cpp SampleDevice.cpp
-NAME = SampleDevice
+#SRC = common.cpp SampleDevice.cpp
+#NAME = SampleDevice
 
--include ../../../../config/klinux.mk
+SRC =
+NAME = sample
+
+include /develop/nnt/config/klinux.mk

@@ -1789,6 +1789,8 @@ NNT_END_HEADER_C
 
 # else // kernel space
 
+# ifdef NNT_CXX            
+             
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(cxx)
 
@@ -1821,5 +1823,7 @@ NNT_END_NS
 NNT_END_HEADER_CXX
 
 # endif // user space
+
+# endif // cxx
 
 # endif

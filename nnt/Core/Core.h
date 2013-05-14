@@ -418,11 +418,11 @@ typedef space_kernel space_type;
 typedef space_user space_type;
 # endif
 
-NNT_STATIC_CONST arch_type arch_object();
-NNT_STATIC_CONST os_type os_object();
-NNT_STATIC_CONST lang_type lang_object();
-NNT_STATIC_CONST compr_type compr_object();
-NNT_STATIC_CONST space_type space_object();
+NNT_STATIC_CONST arch_type arch_object(void);
+NNT_STATIC_CONST os_type os_object(void);
+NNT_STATIC_CONST lang_type lang_object(void);
+NNT_STATIC_CONST compr_type compr_object(void);
+NNT_STATIC_CONST space_type space_object(void);
 
 # define NNTASM_BEGIN __asm {
 # define NNTASM_END }
@@ -1007,7 +1007,8 @@ inline_impl void* ptr_offset(void* ptr, usize val)
     return (void*)((byte*)ptr + val);
 }
 
-# if defined(NNT_C) && !defined(NNT_OBJC)
+# if defined(NNT_C) && !defined(NNT_OBJC) && defined(NNT_USER_SPACE)
+
 typedef int bool;
 #   ifndef true
 #     define true  1
@@ -1015,11 +1016,14 @@ typedef int bool;
 #   ifndef false
 #     define false 0
 #   endif
+
 # endif
 
 # ifdef NNT_OBJC
+
 #   define OBJCMutable 1
 #   define OBJCNormal  0
+
 # endif
 
 //! @macro self_release auto release once after alloc
@@ -1048,7 +1052,7 @@ NNTAPI(void) sleep_second(ulonglong);
 NNTAPI(void) sleep_millisecond(ulonglong);
 NNTAPI(void) sleep_microsecond(ulonglong);
 NNTAPI(void) sleep_nanosecond(ulonglong);
-NNTAPI(ulong) timestamp();
+NNTAPI(ulong) timestamp(void);
 
 NNT_END_HEADER_C
 
@@ -1206,7 +1210,7 @@ NNT_STATIC_CONST version_t NNTVERSION = {NNT_VERSION_MAJOR, NNT_VERSION_MIN, NNT
 NNT_BEGIN_HEADER_C
 
 //! get version string.
-NNTAPI(char const*) NNTVersion();
+NNTAPI(char const*) NNTVersion(void);
 
 NNT_END_HEADER_C
 
