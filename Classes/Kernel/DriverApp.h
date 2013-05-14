@@ -2,6 +2,8 @@
 # ifndef __NNT_KERNEL_DRIVERAPP_5fb7c4756bb245dea76e8a3035d281a1_H_INCLUDED
 # define __NNT_KERNEL_DRIVERAPP_5fb7c4756bb245dea76e8a3035d281a1_H_INCLUDED
 
+# ifdef NNT_CXX
+
 # include "./DriverObject.h"
 # include "./DriverFeature.h"
 
@@ -124,5 +126,18 @@ NNT_EXTERN ::nnt::driver::App* gs_nntapp;
 NNT_END_HEADER_C
 
 # endif
+
+# endif // cxx
+
+NNT_BEGIN_HEADER_C
+
+# ifdef NNT_LINUX
+
+NNT_EXTERN int nnt_ckernel_init(void);
+NNT_EXTERN void nnt_ckernel_exit(void);
+
+# endif
+
+NNT_END_HEADER_C
 
 # endif

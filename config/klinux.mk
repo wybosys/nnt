@@ -65,6 +65,8 @@ nnt_sources: $(nnt_sources_target)
 
 PHONY += nnt_link
 nnt_link:
-	$(Q)$(LD) -r -m elf_x86_64 -T $(KERNEL_SRC_DIR)/scripts/module-common.lds --build-id -o $(NAME).ko $(NAME).o $(NAME).mod.o $(nnt_sources_target)
+	$(Q)if [ ! -d nntlib ] ; then mkdir nntlib; fi
+	$(Q)cd nntlib; find ${NNT_LIB_DIR} -name "*.a" -exec ar -x {} \;
+	$(Q)$(LD) -r -m elf_x86_64 -T $(KERNEL_SRC_DIR)/scripts/module-common.lds --build-id -o $(NAME).ko $(NAME).o $(NAME).mod.o $(nnt_sources_target) nntlib/*.o
 
 .PHONY: $(PHONY)

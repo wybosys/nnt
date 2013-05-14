@@ -351,6 +351,12 @@ typedef ios_unknown ios_version;
 #   define NNT_BSD_EXPRESS(exp) SPACE
 # endif
 
+# ifdef NNT_LINUX
+#   define NNT_LINUX_EXPRESS(exp) exp
+# else
+#   define NNT_LINUX_EXPRESS(exp) SPACE
+# endif
+
 typedef struct {} arch_unknown;
 typedef struct {} arch_x32;
 typedef struct {} arch_x64;
@@ -1496,6 +1502,7 @@ inline_impl void trace_msg(char const* msg)
     ::std::cout << msg << ::std::endl << ::std::flush;
 # else
     NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
+    NNT_LINUX_EXPRESS(printk(KERN_DEBUG "nnt: %s.\n", msg));
 # endif
 }
 

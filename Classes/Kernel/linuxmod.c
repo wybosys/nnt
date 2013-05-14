@@ -1,22 +1,23 @@
 
 # include <nnt/Core/Core.h>
+# include <nnt/Kernel/DriverApp.h>
 
 NNT_BEGIN_C
 
 # include <linux/module.h>
 
-static int __init null_init(void)
+static int __init nnt_redirect_init(void)
 {
-    return 0;
+    return nnt_ckernel_init();
 }
 
-static void __exit null_exit(void)
+static void __exit nnt_redirect_exit(void)
 {
-    
+    nnt_ckernel_exit();
 }
 
-module_init(null_init);
-module_exit(null_exit);
+module_init(nnt_redirect_init);
+module_exit(nnt_redirect_exit);
 
 MODULE_LICENSE("BSD");
 MODULE_AUTHOR("NNT"); //optional

@@ -335,6 +335,21 @@ int nnt_driver_entry(module_t mod, int event, void* arg)
 
 # endif
 
+# ifdef NNT_LINUX
+
+int nnt_ckernel_init()
+{
+    trace_msg("driver init");
+    return 0;
+}
+
+void nnt_ckernel_exit()
+{
+    trace_msg("driver exit");
+}
+
+# endif
+
 NNT_END_C
 
 # endif
