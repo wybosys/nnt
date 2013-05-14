@@ -12,6 +12,12 @@ ifneq ($(KERNELRELEASE),)
 	LINUXINCLUDE += -I${NNT_DIR} -I/usr/include/sys
 endif
 
+ifeq (V,1)
+Q=
+else
+Q=@
+endif
+
 ifdef DEBUG
 NNT_CFLAGS_DEBUG += -D_DEBUG -g
 endif
@@ -21,17 +27,13 @@ NNT_PREPROCESSOR_ALONE = -D__KERNEL__ -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_F
 NNT_CFLAGS_ALONE = -fno-strict-aliasing -fno-common -fno-delete-null-pointer-checks -O2 -m64 -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -fstack-protector  -pipe -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-overflow -fconserve-stack -pg $(NNT_CFLAGS_DEBUG)
 NNT_CXXFLAGS_ALONE = $(NNT_CFLAGS_ALONE) -fno-operator-names -fno-exceptions -fpermissive
 
-define NNT_LINK
-	@echo "successfully!"
-endef
-
 # source target
 %.cpp.o: %.cpp
 	$(Q)$(CXX) $(NNT_INCLUDE_ALONE) $(NNT_PREPROCESSOR_ALONE) $(NNT_CXXFLAGS_ALONE) -o $@ -c $< 1>/dev/null 2>/dev/null
 
 # nnt all
-nntall: nnt_prepare  all nnt_sources nnt_link
-	$(call NNT_LINK)
+nntall: nnt_prepare  all nnt_sources nnt_link nnt_check
+	$(Q)echo "completed."
 
 # default target
 all:
@@ -68,5 +70,11 @@ nnt_link:
 	$(Q)if [ ! -d nntlib ] ; then mkdir nntlib; fi
 	$(Q)cd nntlib; find ${NNT_LIB_DIR} -name "*.a" -exec ar -x {} \;
 	$(Q)$(LD) -r -m elf_x86_64 -T $(KERNEL_SRC_DIR)/scripts/module-common.lds --build-id -o $(NAME).ko $(NAME).o $(NAME).mod.o $(nnt_sources_target) nntlib/*.o
+
+PHONY += nnt_check
+nnt_check:
+	$(Q)undefs=`python $(NNT_DIR)/config/chkmod.py $(NAME).ko`; \
+	count=`echo $undefs | wc -l`; \
+	if [ $$count != 0 ]; then echo -e "\e[0;31;1m ERROR: undefine $$undefs ! \e[0m"; rm *.ko; fi
 
 .PHONY: $(PHONY)

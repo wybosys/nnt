@@ -340,7 +340,9 @@ int nnt_driver_entry(module_t mod, int event, void* arg)
 int nnt_ckernel_init()
 {
     trace_msg("driver init");
-    return 0;
+    ::nnt::driver::EntryObject eo;
+    int ret = NNT_DRIVER_MAIN(eo);
+    return ret;
 }
 
 void nnt_ckernel_exit()
