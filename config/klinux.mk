@@ -6,36 +6,31 @@ KERNEL_MOD_DIR = /lib/modules/$(KERNEL_VER)
 NNT_DIR = /develop/nnt/
 NNT_LIB_DIR = $(NNT_DIR)/lib/Build
 
-ifneq ($(KERNELRELEASE),)
-	obj-m := $(NAME).o
-	ccflags-y := -DLIBNNT -DKERNELNNT
-	LINUXINCLUDE += -I${NNT_DIR} -I/usr/include/sys
-endif
+obj-m := $(NAME).o
+ccflags-y := -DLIBNNT -DKERNELNNT
+LINUXINCLUDE += -I${NNT_DIR} -I/usr/include/sys
 
-ifeq (V,1)
+ifeq ($V,1)
 Q=
+STDIO=
 else
 Q=@
+STDIO= 1>/dev/null 2>/dev/null
 endif
 
 ifdef DEBUG
 NNT_CFLAGS_DEBUG += -D_DEBUG -g
 endif
 
-NNT_INCLUDE_ALONE = -I $(KERNEL_SRC_DIR)/include/ -I $(KERNEL_SRC_DIR)/arch/x86/include/ -isystem /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include -I$(KERNEL_SRC_DIR)/arch/x86/include -Iarch/x86/include/generated -Iinclude -include$(KERNEL_SRC_DIR)/include/linux/kconfig.h
+NNT_INCLUDE_ALONE = -I $(KERNEL_SRC_DIR)/include/ -I $(KERNEL_SRC_DIR)/arch/x86/include/ -isystem /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include -I$(KERNEL_SRC_DIR)/arch/x86/include -Iarch/x86/include/generated -Iinclude -include$(KERNEL_SRC_DIR)/include/linux/kconfig.h -I $(NNT_DIR) -I /usr/include/sys
 NNT_PREPROCESSOR_ALONE = -D__KERNEL__ -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_AVX=1 -DCC_HAVE_ASM_GOTO -DMODULE -DLIBNNT -DKERNELNNT
 NNT_CFLAGS_ALONE = -fno-strict-aliasing -fno-common -fno-delete-null-pointer-checks -O2 -m64 -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -fstack-protector  -pipe -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-overflow -fconserve-stack -pg $(NNT_CFLAGS_DEBUG)
 NNT_CXXFLAGS_ALONE = $(NNT_CFLAGS_ALONE) -fno-operator-names -fno-exceptions -fpermissive
 
-# source target
-%.cpp.o: %.cpp
-	$(Q)$(CXX) $(NNT_INCLUDE_ALONE) $(NNT_PREPROCESSOR_ALONE) $(NNT_CXXFLAGS_ALONE) -o $@ -c $< 1>/dev/null 2>/dev/null
-
 # nnt all
-nntall: nnt_prepare  all nnt_sources nnt_link nnt_check
+nntall: nnt_prepare all nnt_sources nnt_link nnt_check
 	$(Q)echo "completed."
 
-# default target
 all:
 	$(MAKE) -C $(KERNEL_MOD_DIR)/build M=$(WORK_DIR) modules
 
@@ -43,17 +38,22 @@ clean:
 	$(MAKE) -C $(KERNEL_MOD_DIR)/build M=$(WORK_DIR) clean	
 	$(RM) Module.markers modules.order
 
+# source target
+%.cpp.o: %.cpp
+	$(Q)$(CXX) $(NNT_INCLUDE_ALONE) $(NNT_PREPROCESSOR_ALONE) $(NNT_CXXFLAGS_ALONE) -o $@ -c $< $(STDIO)
+
+# search source target
 nnt_sources_target =
 
 define CPP_TARGET
 
+# add a source (cpp)
 nnt_sources_target += $(1).o
 
-$(1).o: $(1) FORCE
+endef 
 
-endef
-
-$(foreach i, $(SRC), $(eval $(call CPP_TARGET, $(i)))) 
+# search in SRC variable
+$(foreach i, $(SRC), $(eval $(call CPP_TARGET, $(i))))
 
 PHONY += FORCE
 FORCE:
@@ -74,7 +74,13 @@ nnt_link:
 PHONY += nnt_check
 nnt_check:
 	$(Q)undefs=`python $(NNT_DIR)/config/chkmod.py $(NAME).ko`; \
-	count=`echo $undefs | wc -l`; \
-	if [ $$count != 0 ]; then echo -e "\e[0;31;1m ERROR: undefine $$undefs ! \e[0m"; rm *.ko; fi
+	count=`echo -e $$undefs | wc -w`; \
+	if [ $$count -gt 0 ]; \
+	then \
+		echo -e "\e[0;31;1mERROR: undefine $$undefs ! \e[0m"; \
+		rm *.ko; \
+	else \
+		echo -e "\e[0;32;1mCHECK: passed. \e[0m"; \
+	fi
 
 .PHONY: $(PHONY)

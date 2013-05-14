@@ -16,5 +16,4 @@ for each in nms:
     if (sym not in ksyms):
         usyms.append(sym)
 
-for each in usyms:
-    print(each)
+print('\n'.join(usyms))
