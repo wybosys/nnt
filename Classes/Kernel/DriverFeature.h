@@ -63,6 +63,16 @@ public:
     
 # endif
 
+# ifdef NNT_LINUX
+
+    struct inode* inode;
+    struct file* file;
+    char* buf;
+    size_t count;
+    loff_t* pos;
+
+# endif
+
     App* app;
 
     void prepare();

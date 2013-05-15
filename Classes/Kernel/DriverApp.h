@@ -52,6 +52,9 @@ public:
 
     lnx::file_operations fops;
     int devno_major, devno_minor;
+    ::dev_class* devclass;
+    struct device* device;
+    core::string devclass_name;
     
 # endif
     

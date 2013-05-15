@@ -21,6 +21,7 @@ public:
 
     //! set error code.
     void success();
+    void fault();
 
 protected:
 

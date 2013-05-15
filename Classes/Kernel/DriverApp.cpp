@@ -90,28 +90,57 @@ EntryObject::EntryObject()
 
 # ifdef NNT_LINUX
 
+static Feature* feature_open = NULL;
+static Feature* feature_close = NULL;
+static Feature* feature_read = NULL;
+static Feature* feature_write = NULL;
+
 int nnt_disp_open(struct inode* inode, struct file* f)
 {
-    trace_msg("open");
-    return 0;
+    if (feature_open == NULL)
+        return 0;
+    feature_open->inode = inode;
+    feature_open->file = f;
+    feature_open->app = gs_nntapp;
+    return feature::_NNT_DRIVER_DISP(open)();
 }
 
 int nnt_disp_close(struct inode* inode, struct file* f)
 {
-    trace_msg("close");
-    return 0;
+    if (feature_close == NULL)
+        return 0;
+    feature_close->inode = inode;
+    feature_close->file = f;
+    feature_close->app = gs_nntapp;
+    return feature::_NNT_DRIVER_DISP(close)();
 }
 
 ssize_t nnt_disp_read(struct file* f, char __user* buf, size_t count, loff_t* pos)
 {
-    trace_msg("read");
-    return 1;
+    if (feature_read == NULL)
+        return 0;
+    feature_read->file = f;
+    feature_read->buf = buf;
+    feature_read->count = count;
+    feature_read->pos = pos;
+    feature_read->app = gs_nntapp;
+    if (Status::Failed(feature::_NNT_DRIVER_DISP(read)()))
+        return -EINVAL;
+    return feature_read->proccessed;
 }
 
 ssize_t nnt_disp_write(struct file* f, const char __user* buf, size_t count, loff_t* pos)
 {
-    trace_msg("write");
-    return 1;
+    if (feature_write == NULL)
+        return 0;
+    feature_write->file = f;
+    feature_write->buf = buf;
+    feature_write->count = count;
+    feature_write->pos = pos;
+    feature_write->app = gs_nntapp;
+    if (Status::Failed(feature::_NNT_DRIVER_DISP(write)()))
+        return -EINVAL;
+    return feature_write->proccessed;
 }
 
 EntryObject::EntryObject()
@@ -237,7 +266,7 @@ int App::install()
 
     // alloc device.
     dev_t dev;
-    int res;
+    int res = 0;
     if (eo.devno_major)
     {
         dev = MKDEV(eo.devno_major, eo.devno_minor);
@@ -273,6 +302,31 @@ int App::install()
         trace_msg("failed to add device");
         return res;
     }
+    else
+    {
+        trace_msg("device added");
+    }
+
+    // create dev port.
+    eo.devclass_name = name + "_Class";
+    eo.devclass = nnt_create_device_class(eo.fops->owner,
+                                          eo.devclass_name.c_str());
+    if (eo.devclass == NULL)
+    {
+        trace_msg("failed to create device class");
+        return -1;
+    }
+
+    eo.device = nnt_create_device(eo.devclass,
+                                  NULL,
+                                  dev,
+                                  NULL,
+                                  name.c_str());
+    if (eo.device == NULL)
+    {
+        trace_msg("failed to create device");
+        return -1;
+    }
 
     return res;
     
@@ -291,6 +345,32 @@ void App::add_feature(Feature* fte)
 # endif
 
 # ifdef NNT_BSD
+
+    switch (fte->dftype)
+    {
+    case DFT_OPEN:
+    {
+        feature_open = fte;
+    } break;
+    case DFT_CLOSE:
+    {
+        feature_close = fte;
+    } break;
+    case DFT_READ:
+    {
+        feature_read = fte;
+    } break;
+    case DFT_WRITE:
+    {
+        feature_write = fte;
+    } break;
+    };
+
+    d_ptr->features.push_back(fte);
+    
+# endif
+
+# ifdef NNT_LINUX
 
     switch (fte->dftype)
     {
@@ -369,6 +449,14 @@ static void unload_driver()
 
 static void unload_driver()
 {
+    if (gs_nntapp)
+    {
+        dev_t devno = MKDEV(gs_nntapp->eo.devno_major, gs_nntapp->eo.devno_minor);
+        nnt_destroy_device(gs_nntapp->eo.devclass, devno);
+        nnt_destroy_device_class(gs_nntapp->eo.devclass);
+        unregister_chrdev_region(devno, 1);
+    }
+    
     NNT_DRIVER_FREEAPP();
 
     trace_msg("unloaded driver");

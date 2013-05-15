@@ -21,6 +21,10 @@ Feature::Feature()
 # ifdef NNT_BSD
     , device(NULL), flag(0), devtype(0), thd(NULL), io(NULL)
 # endif
+
+# ifdef NNT_LINUX
+    , inode(NULL), file(NULL), buf(NULL), count(0), pos(NULL)
+# endif
     
 {
     app = NULL;
@@ -135,7 +139,7 @@ void Open::main()
 {
     success(0);
 
-    trace_msg("successed open driver");
+    trace_msg("open driver");
 }
 
 Close::Close()
@@ -150,7 +154,7 @@ void Close::main()
 {
     success(0);
 
-    trace_msg("successed close driver");
+    trace_msg("close driver");
 }
 
 Read::Read()
@@ -196,6 +200,17 @@ void Read::prepare()
     offset = io->uio_offset;
     stm = core::data(length);
     uiomove(stm.bytes(), length, io);
+    
+# endif
+
+# ifdef NNT_LINUX
+
+    length = count;
+    stm = core::data(length);
+    if (nnt_copy_to_user(buf, stm.bytes(), length))
+    {
+        status.fault();
+    }
     
 # endif
 }
@@ -252,6 +267,17 @@ void Write::prepare()
     offset = io->uio_offset;
     stm = core::data(length);
     uiomove(stm.bytes(), length, io);
+
+# endif
+
+# ifdef NNT_LINUX
+
+    length = count;
+    stm = core::data(length);
+    if (nnt_copy_from_user(stm.bytes(), buf, length))
+    {
+        status.fault();
+    }
 
 # endif
 }

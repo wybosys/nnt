@@ -91,7 +91,8 @@ void SampleWrite::main()
     NNTDEBUG_BREAK;
 
     core::data da = data();
-    trace_msg(da.c_str());
+    core::string str = core::type_cast<core::string>(da);
+    trace_msg(str);
 
     success(da.length());
 }

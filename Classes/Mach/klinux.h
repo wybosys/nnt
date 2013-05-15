@@ -8,18 +8,27 @@
 
 NNT_BEGIN_HEADER_C
 
+struct dev_class;
+
 // impl in nnt.
 NNT_EXTERN void* nnt_malloc(size_t);
 NNT_EXTERN void nnt_free(void*);
-NNT_EXTERN struct cdev* nnt_cdev_new();
+NNT_EXTERN struct cdev* nnt_cdev_new(void);
+NNT_EXTERN ulong nnt_copy_to_user(void*, void*, ulong);
+NNT_EXTERN ulong nnt_copy_from_user(void*, void*, ulong);
 
 // direct link in kernel.
 NNT_EXTERN int cdev_add(struct cdev * p, dev_t dev, unsigned count);
 NNT_EXTERN int alloc_chrdev_region(dev_t *, unsigned, unsigned, const char *);
 NNT_EXTERN int register_chrdev_region(dev_t, unsigned, const char *);
+NNT_EXTERN void unregister_chrdev_region(dev_t from, unsigned count);
 
 // impl in linuxmod.c
-NNT_EXTERN struct module* nnt_module_current();
+NNT_EXTERN struct module* nnt_module_current(void);
+NNT_EXTERN struct dev_class* nnt_create_device_class(struct module*, char const* name);
+NNT_EXTERN struct device* nnt_create_device(struct dev_class*, struct device* parent, dev_t devt, void* drvdata, char const* name);
+NNT_EXTERN void nnt_destroy_device(struct dev_class*, dev_t devt);
+NNT_EXTERN void nnt_destroy_device_class(struct dev_class*);
 
 struct nnt_file_operations {
     struct module *owner;

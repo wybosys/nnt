@@ -57,6 +57,14 @@ void Status::success()
         ;
 }
 
+void Status::fault()
+{
+    _val =
+        NNT_MSVC_EXPRESS(E_ERROR)
+        NNT_LINUX_EXPRESS(-EFAULT)
+        ;
+}
+
 Memory::Memory(void* ptr, usize len)
 : _ptr(ptr), _len(len)
 {

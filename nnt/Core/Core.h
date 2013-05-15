@@ -1408,9 +1408,10 @@ NNT_BEGIN_HEADER_C
 
 #     ifdef NNT_CXX
 
-#       define new _cxx_ignore_new_for_c
-#       define private _cxx_ignore_private_for_c
-#       define namespace _cxx_ignore_namespace_for_c
+#       define new _keyword_ignore_new_for_c
+#       define private _keyword_ignore_private_for_c
+#       define namespace _keyword_ignore_namespace_for_c
+#       define class _keyword_ignore_class_for_c
 
 #     endif
 
@@ -1424,16 +1425,20 @@ NNT_BEGIN_HEADER_C
 #       include <linux/gfp.h>
 #       include <linux/fs.h>
 #       include <linux/module.h>
+#       include <linux/device.h>
+#       include <asm-generic/uaccess.h>
 #     endif
 
 #     include <queue.h>
 #     include <linux/string.h>
+#     include <asm-generic/errno.h>
 
 #     ifdef NNT_CXX
 
 #       undef new
 #       undef private
 #       undef namespace
+#       undef class
 
 #     endif
 
