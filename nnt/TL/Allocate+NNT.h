@@ -2,6 +2,17 @@
 # ifndef __NNT_TL_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
 # define __NNT_TL_ALLOCATE_c14a9fb41a694a47a67874bad371520f_H_INCLUDED
 
+# ifdef NNT_LINUX
+
+NNT_BEGIN_HEADER_C
+
+NNT_EXTERN void* nnt_malloc(size_t);
+NNT_EXTERN void nnt_free(void*);
+
+NNT_END_HEADER_C
+
+# endif
+
 # ifdef NNT_CXX
 
 # include "Memory+NNT.h"
@@ -177,17 +188,17 @@ class Heap <valT, os_linux, space_kernel>
 
     static value_type* Create(usize count = 1)
     {
-        return NULL;
+        return (value_type*)nnt_malloc(count * sizeof(value_type));
     }
 
     static value_type* Alloc(usize size)
     {
-        return NULL;
+        return (value_type*)nnt_malloc(size);
     }
 
     static void Free(void* ptr)
     {
-        
+        nnt_free(ptr);
     }
     
 };

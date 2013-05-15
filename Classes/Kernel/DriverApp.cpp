@@ -88,6 +88,43 @@ EntryObject::EntryObject()
 
 # endif
 
+# ifdef NNT_LINUX
+
+int nnt_disp_open(struct inode* inode, struct file* f)
+{
+    trace_msg("open");
+    return 0;
+}
+
+int nnt_disp_close(struct inode* inode, struct file* f)
+{
+    trace_msg("close");
+    return 0;
+}
+
+ssize_t nnt_disp_read(struct file* f, char __user* buf, size_t count, loff_t* pos)
+{
+    trace_msg("read");
+    return 1;
+}
+
+ssize_t nnt_disp_write(struct file* f, const char __user* buf, size_t count, loff_t* pos)
+{
+    trace_msg("write");
+    return 1;
+}
+
+EntryObject::EntryObject()
+    : devno_major(0), devno_minor(0), dev(NULL)
+{
+    fops->read = nnt_disp_read;
+    fops->write = nnt_disp_write;
+    fops->open = nnt_disp_open;
+    fops->release = nnt_disp_close;
+}
+
+# endif
+
 NNTDECL_PRIVATE_BEGIN(App)
 
 void init()
@@ -193,6 +230,53 @@ int App::install()
     return TRIEXP(eo.dev != NULL, 0, -1);
     
 # endif
+
+# ifdef NNT_LINUX
+
+    trace_msg("making device");
+
+    // alloc device.
+    dev_t dev;
+    int res;
+    if (eo.devno_major)
+    {
+        dev = MKDEV(eo.devno_major, eo.devno_minor);
+        res = register_chrdev_region(dev, 1, name.c_str());
+    }
+    else
+    {
+        res = alloc_chrdev_region(&dev, 0, 1, name.c_str());
+    }
+    
+    eo.devno_major = MAJOR(dev);
+    eo.devno_minor = MINOR(dev);        
+
+    if (res < 0)
+    {
+        trace_msg("failed to made device");
+        return res;
+    }
+    else
+    {
+        trace_msg("made device");
+    }
+
+    // setup device.
+    eo.dev = nnt_cdev_new();
+    nnt_cdev_init(eo.dev, eo.fops);
+
+    // add dev.
+    res = cdev_add(eo.dev, dev, 1);
+
+    if (res < 0)
+    {
+        trace_msg("failed to add device");
+        return res;
+    }
+
+    return res;
+    
+# endif
     
 }
 
@@ -281,6 +365,17 @@ static void unload_driver()
 
 # endif
 
+# ifdef NNT_LINUX
+
+static void unload_driver()
+{
+    NNT_DRIVER_FREEAPP();
+
+    trace_msg("unloaded driver");
+}
+
+# endif
+
 NNT_END_NS
 NNT_END_CXX
 
@@ -291,6 +386,8 @@ NNT_BEGIN_C
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegisterPath)
 {
     NNTDEBUG_BREAK;
+
+    trace_msg("driver entry");
 
     ::nnt::driver::EntryObject eo(pDriverObject, pRegisterPath);
 
@@ -308,6 +405,8 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegist
 int nnt_driver_entry(module_t mod, int event, void* arg)
 {
     NNTDEBUG_BREAK;
+
+    trace_msg("driver entry");
 
     int error = 0;
 
@@ -339,15 +438,19 @@ int nnt_driver_entry(module_t mod, int event, void* arg)
 
 int nnt_ckernel_init()
 {
+    NNTDEBUG_BREAK;
+    
     trace_msg("driver init");
+    
     ::nnt::driver::EntryObject eo;
     int ret = NNT_DRIVER_MAIN(eo);
+    
     return ret;
 }
 
 void nnt_ckernel_exit()
 {
-    trace_msg("driver exit");
+    ::nnt::driver::unload_driver();
 }
 
 # endif

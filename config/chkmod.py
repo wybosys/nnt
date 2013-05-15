@@ -3,7 +3,7 @@
 import os
 import sys
 
-ksyms = ["mcount", "printk", "strlen"]
+ksyms = ["mcount", "printk", "strlen", "__kmalloc", "kfree", "memcmp", "memcpy", "memset", "alloc_chrdev_region", "register_chrdev_region", "cdev_add", "cdev_init", "kmalloc_caches", "kmem_cache_alloc_trace"]
 
 mod = sys.argv[1]
 nms = os.popen("nm -u " + mod).read().split('\n')

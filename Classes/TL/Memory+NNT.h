@@ -148,27 +148,51 @@ public:
 
     static void Copy(void* des, void const* src, usize len)
     {
-        
+        memcpy(des, src, len);
     }
 
     static void Move(void* des, void const* src, usize len)
     {
-        
+        memmove(des, src, len);
     }
 
     static void Fill(void* des, usize len, int data)
     {
-        
+        memset(des, data, len);
     }
 
     static bool Equal(void const* des, void const* src, usize len)
     {
-        return false;
+        return memcmp(des, src, len) == 0;
     }
     
 };
 
 # endif
+
+template <typename objT>
+inline size_t size(objT const&)
+{
+    return sizeof(objT);
+}
+
+template <typename objT>
+inline size_t size(objT const*)
+{
+    return sizeof(objT);
+}
+
+template <typename objT>
+inline void zero(objT& obj)
+{
+    Memory<>::Fill(&obj, sizeof(objT), 0);
+}
+
+template <typename objT>
+inline void zero(objT* obj)
+{
+    Memory<>::Fill(obj, sizeof(objT), 0);
+}
 
 NNT_END_NS
 NNT_END_HEADER_CXX

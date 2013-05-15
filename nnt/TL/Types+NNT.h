@@ -25,7 +25,7 @@ using std::pair;
 NNT_END_NS
 NNT_END_HEADER_CXX
 
-# endif
+# endif // user space
 
 NNT_BEGIN_HEADER_CXX
 

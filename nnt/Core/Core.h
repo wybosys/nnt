@@ -226,6 +226,7 @@
 # endif
     
 # ifdef NNT_CXX
+
 #   ifdef NNT_CXX_99
 
 struct _nullptr
@@ -237,9 +238,36 @@ struct _nullptr
     }
 };
 
-const _nullptr nullptr();
+const _nullptr nullptr = _nullptr();
 
 #   endif
+
+class _nullobj
+{
+public:
+
+    template <typename valT>
+        operator valT* () const
+    {
+        return (valT*)0;
+    }
+
+    template <typename valT>
+        operator valT const* () const
+    {
+        return (valT const*)0;
+    }
+
+    template <typename valT>
+        operator valT () const
+    {
+        return (valT)0;
+    }
+    
+};
+
+const _nullobj nullobj = _nullobj();
+
 # endif
 
 # ifdef TARGET_OS_IPHONE
@@ -1008,7 +1036,7 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 # define DT_1MON 2592000
 # define DT_1YEAR 946080000
 
-inline_impl void* ptr_offset(void* ptr, usize val)
+static void* ptr_offset(void* ptr, usize val)
 {
     return (void*)((byte*)ptr + val);
 }
@@ -1388,7 +1416,16 @@ NNT_BEGIN_HEADER_C
 
 #     include <linux/init.h>
 #     include <linux/kernel.h>
-//#     include <linux/module.h>
+#     include <linux/kdev_t.h>
+
+#     ifdef NNT_PURE_C
+#       include <linux/cdev.h>
+#       include <linux/slab.h>
+#       include <linux/gfp.h>
+#       include <linux/fs.h>
+#       include <linux/module.h>
+#     endif
+
 #     include <queue.h>
 #     include <linux/string.h>
 
@@ -1521,7 +1558,7 @@ inline_impl void trace_msg(T const& str)
 
 #     else // non cxx.
 
-inline_impl void trace_msg(char const* msg)
+static void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
     printf(msg, 0);
@@ -1529,6 +1566,7 @@ inline_impl void trace_msg(char const* msg)
     fflush(stdout);
 # else
     NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
+    NNT_LINUX_EXPRESS(printk(KERN_DEBUG "nnt: %s.\n", msg));
 # endif
 }
 

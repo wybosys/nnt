@@ -7,6 +7,10 @@
 # include "./DriverObject.h"
 # include "./DriverFeature.h"
 
+# ifdef NNT_LINUX
+#   include "../Mach/klinux.h"
+# endif
+
 # ifdef NNT_KERNEL_SPACE
 
 NNT_BEGIN_HEADER_CXX
@@ -30,12 +34,24 @@ public:
 
 # ifdef NNT_BSD
 
-    EntryObject();
-
     module_t mod;
     void* arg;
-    cdevsw devsw;
-    cdev* dev;
+    cdevsw devsw;   
+    
+# endif
+
+# ifdef NNT_UNIX
+
+    EntryObject();
+
+    struct cdev* dev;
+    
+# endif
+
+# ifdef NNT_LINUX
+
+    lnx::file_operations fops;
+    int devno_major, devno_minor;
     
 # endif
     

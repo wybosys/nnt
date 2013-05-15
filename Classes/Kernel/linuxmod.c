@@ -4,8 +4,6 @@
 
 NNT_BEGIN_C
 
-# include <linux/module.h>
-
 static int __init nnt_redirect_init(void)
 {
     return nnt_ckernel_init();
@@ -22,5 +20,10 @@ module_exit(nnt_redirect_exit);
 MODULE_LICENSE("BSD");
 MODULE_AUTHOR("NNT"); //optional
 MODULE_DESCRIPTION("NNT KERNEL DRIVER"); //optional
+
+struct module* nnt_module_current()
+{
+    return THIS_MODULE;
+}
 
 NNT_END_C
