@@ -233,36 +233,44 @@ typedef struct {} instance_type;
 typedef struct {} wrapper_type;
 typedef struct {} nonwrapper_type;
 
+const pointer_type pointer_o = pointer_type();
+const instance_type instance_o = instance_type();
+const wrapper_type wrapper_o = wrapper_type();
+const nonwrapper_type nonwrapper_o = nonwrapper_type();
+
 template <typename T>
 struct is_instance
 {
     enum { IS_INSTANCE = true };
-    typedef instance_type type;
+    typedef instance_type const& type;
 };
 
 template <typename T>
 struct is_instance<T*>
 {
     enum { IS_INSTANCE = false };
-    typedef pointer_type type;
+    typedef pointer_type const& type;
 };
 
 template <typename T>
 struct is_pointer
 {
-    enum { IS_POINTER = true };
-    typedef pointer_type type;
+    enum { IS_POINTER = false };
+    typedef instance_type const& type;
 };
 
 template <typename T>
 struct is_pointer<T*>
 {
-    enum { IS_POINTER = false };
-    typedef instance_type type;
+    enum { IS_POINTER = true };
+    typedef pointer_type const& type;
 };
 
 typedef struct {} equal_t;
 typedef struct {} unequal_t;
+
+const equal_t equal_o = equal_t();
+const unequal_t unequal_o = unequal_t();
 
 template <typename lT, typename rT>
 struct is_equal

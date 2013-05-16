@@ -171,13 +171,13 @@ public:
 # endif
 
 template <typename objT>
-inline size_t size(objT const&)
+inline size_t size_of(objT const&)
 {
     return sizeof(objT);
 }
 
 template <typename objT>
-inline size_t size(objT const*)
+inline size_t size_of(objT const*)
 {
     return sizeof(objT);
 }

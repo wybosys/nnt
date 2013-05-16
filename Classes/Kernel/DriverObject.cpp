@@ -60,7 +60,7 @@ void Status::success()
 void Status::fault()
 {
     _val =
-        NNT_MSVC_EXPRESS(E_ERROR)
+        NNT_MSVC_EXPRESS(STATUS_ABANDONED)
         NNT_LINUX_EXPRESS(-EFAULT)
         ;
 }

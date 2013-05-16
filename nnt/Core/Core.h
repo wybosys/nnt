@@ -645,12 +645,12 @@ typedef unsigned long ulong;
 typedef uint enum_t;
 # endif
 
-# if defined(NNT_KERNEL_SPACE) && defined(NNT_GCC)
+# if defined(NNT_KERNEL_SPACE)
 #   define NNT_NO_FLOAT 1
 #   define NNT_FLOAT_EXPRESS(exp)
 # else
 #   define NNT_HAS_FLOAT 1
-#   define NNT_FLOAT_EXPRESS(exp)
+#   define NNT_FLOAT_EXPRESS(exp) exp
 # endif
 
 #ifdef NNT_X64
@@ -1374,7 +1374,7 @@ NNT_BEGIN_HEADER_C
 #   include <stdlib.h>
 #   include <stdio.h>
 #   include <string.h>
-#   include <mathB.h>
+#   include <math.h>
 #   include <signal.h>
 #   include <sys/types.h>
 
@@ -1516,12 +1516,13 @@ inline_impl void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
     // print into debug view.
+    ::OutputDebugStringA("nnt: ");
     ::OutputDebugStringA(msg);
-    ::OutputDebugStringA("\n");
+    ::OutputDebugStringA(".\n");
     // print into console.
-    ::printf("%s\n", msg);
+    ::printf("nnt: %s.\n", msg);
 # else
-    KdPrint((msg));
+    KdPrint(("nnt: %s.\n", msg));
 # endif
 }
 
@@ -1531,9 +1532,9 @@ inline_impl void trace_msg(char* msg)
 }
 
 template <typename T>
-inline_impl void trace_msg(T const& str)
+inline_impl void trace_msg(T const& msg)
 {
-    trace_msg(str.c_str());
+    trace_msg((char const*)msg.c_str());
 }
 
 #       else // none msvc.
@@ -1683,7 +1684,7 @@ static void trace_msg(char const* msg)
 // include unit test.
 # include "UnitTest.h"
 
-# endif
+# endif // us
 
 # ifdef NNT_OBJC
 
@@ -1802,8 +1803,9 @@ inline_impl void Fini()
 
 NNT_END_HEADER_CXX
 
-# endif
-# endif
+# endif // cxx
+
+# endif // objc
 
 # ifdef NNT_USER_SPACE
 
