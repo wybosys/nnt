@@ -221,10 +221,16 @@
 #   pragma GCC diagnostic ignored "-Wreorder"
 # endif
 
-# if defined(__BLOCKS__)
+# ifdef __BLOCKS__
 #   define NNT_BLOCKS 1
 # endif
-    
+
+# ifdef NNT_MSVC
+#   define NNT_CONST_VAR(type, var) const type var();
+# else
+#   define NNT_CONST_VAR(type, var) const type var = type();
+# endif    
+
 # ifdef NNT_CXX
 
 #   ifdef NNT_CXX_99
@@ -238,7 +244,7 @@ struct _nullptr
     }
 };
 
-const _nullptr nullptr = _nullptr();
+NNT_CONST_VAR(_nullptr, nullptr);
 
 #   endif
 
@@ -266,7 +272,7 @@ public:
     
 };
 
-const _nullobj nullobj = _nullobj();
+NNT_CONST_VAR(_nullobj, nullobj);
 
 # endif
 

@@ -148,7 +148,7 @@ usize File::write(core::data const& da)
         NULL,
         &sta,
         da.bytes(),
-        da.length(),
+        (ULONG)da.length(),
         0,
         0);
 
@@ -188,7 +188,7 @@ usize File::read(core::data& da)
         NULL,
         &sta,
         da.bytes(),
-        da.length(),
+        (ULONG)da.length(),
         0,
         0);
     da.set_length(sta.Information);
