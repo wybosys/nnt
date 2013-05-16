@@ -226,9 +226,9 @@
 # endif
 
 # ifdef NNT_MSVC
-#   define NNT_CONST_VAR(type, var) const type var();
+#   define NNT_CONST_VAR(type, var) const type var
 # else
-#   define NNT_CONST_VAR(type, var) const type var = type();
+#   define NNT_CONST_VAR(type, var) const type var = type
 # endif    
 
 # ifdef NNT_CXX
@@ -244,7 +244,7 @@ struct _nullptr
     }
 };
 
-NNT_CONST_VAR(_nullptr, nullptr);
+NNT_CONST_VAR(_nullptr, nullptr)();
 
 #   endif
 
@@ -272,7 +272,7 @@ public:
     
 };
 
-NNT_CONST_VAR(_nullobj, nullobj);
+NNT_CONST_VAR(_nullobj, nullobj)();
 
 # endif
 

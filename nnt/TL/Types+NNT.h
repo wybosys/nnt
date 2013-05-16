@@ -233,10 +233,10 @@ typedef struct {} instance_type;
 typedef struct {} wrapper_type;
 typedef struct {} nonwrapper_type;
 
-NNT_CONST_VAR(pointer_type, pointer_o);
-NNT_CONST_VAR(instance_type, instance_o);
-NNT_CONST_VAR(wrapper_type, wrapper_o);
-NNT_CONST_VAR(nonwrapper_type, nonwrapper_o);
+NNT_CONST_VAR(pointer_type, pointer_o)();
+NNT_CONST_VAR(instance_type, instance_o)();
+NNT_CONST_VAR(wrapper_type, wrapper_o)();
+NNT_CONST_VAR(nonwrapper_type, nonwrapper_o)();
 
 template <typename T>
 struct is_instance
