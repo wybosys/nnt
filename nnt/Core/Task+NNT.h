@@ -210,16 +210,43 @@ NNT_END_HEADER_CXX
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(core)
 
-class Critical
+class Spinlock
 {
 public:
 
-    Critical();
-    ~Critical();
+    class Object
+    {
+    public:
 
+        Object(Spinlock*);
+
+        void lock();
+        void unlock();
+
+    protected:
+
+# ifdef NNT_MSVC
+        KIRQL _level;
+# endif
+
+        Spinlock* _lock;
+
+        friend class Spinlock;
+    };
+
+    Spinlock();
+    ~Spinlock();
+
+    Object use();
+
+protected:
+
+# ifdef NNT_MSVC
+    KSPIN_LOCK _obj;
+# endif
+
+    friend class Object;
 };
-
-# define NNT_AUTOCRITICAL ::nnt::core::Critical NNTAUTO_NAMED(critical)
 
 NNT_END_NS
 NNT_END_HEADER_CXX

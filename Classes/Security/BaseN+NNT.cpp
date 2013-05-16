@@ -43,7 +43,7 @@ void base64::encode(core::string const& l, core::string& r)
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
     BIO_push(bio, BIO_new(BIO_s_mem()));
-    BIO_write(bio, l.c_str(), l.size());
+    BIO_write(bio, l.c_str(), (int)l.size());
     if(BIO_flush(bio)) {};
     BUF_MEM* mem;
     BIO_get_mem_ptr(bio, &mem);    
@@ -66,7 +66,7 @@ core::string base64::encode(core::string const& str)
 void base64::decode(core::string const& l, core::string& r)
 {
     void* data = (void*)l.c_str();
-    uint ldata = l.size();
+    usize ldata = l.size();
     
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
@@ -98,7 +98,7 @@ void base64::decode(core::data const& l, core::string& r)
 void base64::decode(core::string const& l, core::data& r)
 {
     void* data = (void*)l.c_str();
-    uint ldata = l.size();
+    usize ldata = l.size();
     
     BIO* bio = BIO_new(BIO_f_base64());
     BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);

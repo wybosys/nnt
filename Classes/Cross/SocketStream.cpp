@@ -36,11 +36,11 @@ bool SocketStream::read(core::data&, core::Timeout const& tm)
 
 bool SocketStream::read_all(core::data& da, core::Timeout const& tm)
 {
-    uint framelen = da.length();
+    usize framelen = da.length();
     
     if (read(da, tm))
     {
-        uint lst_reader = da.length();
+        usize lst_reader = da.length();
     
         if (framelen == lst_reader)
         {

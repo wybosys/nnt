@@ -161,7 +161,10 @@ bool Bdb::connect(connection_info const& info)
 
 bool Bdb::put(core::data const& data, core::data const& key)
 {
-    return this->put((void*)data.bytes(), data.length(), (void*)key.bytes(), key.length());
+    return this->put((void*)data.bytes(), 
+        data.length(), 
+        (void*)key.bytes(), 
+        key.length());
 }
 
 bool Bdb::put(void* data, uint dlen, void* key, uint klen)

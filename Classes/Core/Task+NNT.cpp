@@ -393,21 +393,40 @@ void Task::resume()
 
 # else // kernel space.
 
-/*
-Critical::Critical()
+Spinlock::Spinlock()
+{
+
+}
+
+Spinlock::~Spinlock()
+{
+
+}
+
+Spinlock::Object::Object(Spinlock* _spin)
+: _lock(_spin)
+{
+
+}
+
+void Spinlock::Object::lock()
 {
 # ifdef NNT_MSVC
-    ::KeEnterCriticalRegion();
+    KeAcquireSpinLock(&_lock->_obj, &_level);
 # endif
 }
 
-Critical::~Critical()
+void Spinlock::Object::unlock()
 {
 # ifdef NNT_MSVC
-    ::KeLeaveCriticalRegion();
+    KeReleaseSpinLock(&_lock->_obj, _level);
 # endif
 }
-*/
+
+Spinlock::Object Spinlock::use()
+{
+    return Spinlock::Object(this);
+}
 
 # endif // user space.
 

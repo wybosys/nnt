@@ -233,10 +233,10 @@ typedef struct {} instance_type;
 typedef struct {} wrapper_type;
 typedef struct {} nonwrapper_type;
 
-NNT_CONST_VAR(pointer_type, pointer_o)();
-NNT_CONST_VAR(instance_type, instance_o)();
-NNT_CONST_VAR(wrapper_type, wrapper_o)();
-NNT_CONST_VAR(nonwrapper_type, nonwrapper_o)();
+NNT_CONST_VAR(pointer_type, pointer_o);
+NNT_CONST_VAR(instance_type, instance_o);
+NNT_CONST_VAR(wrapper_type, wrapper_o);
+NNT_CONST_VAR(nonwrapper_type, nonwrapper_o);
 
 template <typename T>
 struct is_instance
@@ -246,21 +246,21 @@ struct is_instance
 };
 
 template <typename T>
-struct is_instance<T*>
+struct is_instance <T*>
 {
     enum { IS_INSTANCE = false };
-    typedef pointer_type const& type;
+    typedef pointer_type const& diff;
 };
 
 template <typename T>
 struct is_pointer
 {
     enum { IS_POINTER = false };
-    typedef instance_type const& type;
+    typedef instance_type const& diff;
 };
 
 template <typename T>
-struct is_pointer<T*>
+struct is_pointer <T*>
 {
     enum { IS_POINTER = true };
     typedef pointer_type const& type;

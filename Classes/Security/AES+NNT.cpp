@@ -22,7 +22,14 @@ void aes::encrypt(core::data const& key, core::data const& in, core::vector<byte
         int nrounds = 5;
         unsigned char _key[32], _iv[32];
         
-        if (32 != EVP_BytesToKey(EVP_aes_256_cbc(), EVP_sha1(), (uchar*)&_gs_salt, (uchar*)key.bytes(), key.length(), nrounds, _key, _iv))
+        if (32 != EVP_BytesToKey(EVP_aes_256_cbc(), 
+            EVP_sha1(), 
+            (uchar*)&_gs_salt, 
+            (uchar*)key.bytes(), 
+            key.length(), 
+            nrounds, 
+            _key, 
+            _iv))
             return;
         
         EVP_CIPHER_CTX_init(&e);

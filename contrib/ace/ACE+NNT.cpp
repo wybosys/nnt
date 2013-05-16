@@ -39,7 +39,7 @@ int ReactorTask::open()
 {
 	return this->activate(
 		THR_NEW_LWP,
-		_threads.size(),
+		(int)_threads.size(),
 		0,
 		ACE_DEFAULT_THREAD_PRIORITY,  
 		-1,  
@@ -79,7 +79,7 @@ int ProactorTask::open()
 {
     return this->activate(
         THR_NEW_LWP,
-        _threads.size(),
+        (int)_threads.size(),
         0,
         ACE_DEFAULT_THREAD_PRIORITY,  
         -1,  

@@ -6,6 +6,28 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
 NNT_BEGIN_NS(sys)
 
+# ifdef NNT_KERNEL_SPACE
+
+class IrqLevel
+{
+public:
+
+    IrqLevel();
+
+    void higher();
+    void raise(ubyte);
+    void back();
+
+    static ubyte Current();
+    ubyte current;
+
+protected:
+
+    ubyte _next;
+
+};
+
+# endif
 
 NNT_END_NS
 NNT_END_NS

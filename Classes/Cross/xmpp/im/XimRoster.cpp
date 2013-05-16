@@ -71,7 +71,7 @@ void RosterQuery::resize_users(uint sz)
 bool RosterQuery::load(xmlnode_t const* node)
 {
     // resize.
-    this->resize_users(node->children.size());
+    this->resize_users((uint)node->children.size());
     
     // load.
     for (core::counter<xmlnode_t::nodes_type::const_iterator> iter = node->children.begin();

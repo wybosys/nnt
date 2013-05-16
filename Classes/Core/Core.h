@@ -132,7 +132,7 @@
 #     define WINVER 0x0500
 #   endif
 #   ifndef _WIN32_WINNT
-#     define _WIN32_WINNT 0x0500
+#     define _WIN32_WINNT 0x0501
 #   endif
 #   ifndef _WIN32_WINDOWS
 #     define _WIN32_WINDOWS 0x0410
@@ -207,6 +207,7 @@
 #   pragma warning (disable: 4251)
 #   pragma warning (disable: 4275) // disable dll-interface warning.
 #   pragma warning (disable: 4819)
+#   pragma warning (disable: 4244)
 # endif
 
 # ifdef NNT_CLANG
@@ -225,11 +226,7 @@
 #   define NNT_BLOCKS 1
 # endif
 
-# ifdef NNT_MSVC
-#   define NNT_CONST_VAR(type, var) const type var
-# else
-#   define NNT_CONST_VAR(type, var) const type var = type
-# endif    
+# define NNT_CONST_VAR(type, var) const type var
 
 # ifdef NNT_CXX
 
@@ -244,7 +241,7 @@ struct _nullptr
     }
 };
 
-NNT_CONST_VAR(_nullptr, nullptr)();
+NNT_CONST_VAR(_nullptr, nullptr);
 
 #   endif
 
@@ -272,7 +269,7 @@ public:
     
 };
 
-NNT_CONST_VAR(_nullobj, nullobj)();
+NNT_CONST_VAR(_nullobj, nullobj);
 
 # endif
 
@@ -472,8 +469,10 @@ exp \
 NNTASM_END
 
 # define NNT_NAMESPACE nnt
+namespace nnt {}
 # define NNT_BEGIN_CXX namespace NNT_NAMESPACE {
 # define NNT_END_CXX   }
+# define NNT_TYPE(type) ::NNT_NAMESPACE::type
 
 # ifdef NNT_CXX
 #   define NNT_USINGCXXNAMESPACE using namespace ::NNT_NAMESPACE;

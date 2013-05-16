@@ -127,7 +127,7 @@ NNT_END_HEADER_CXX
 
 NNT_BEGIN_HEADER_C
 
-NNTAPI(::nnt::store::test::Bdb*) UTBdb();
+NNTAPI(NNT_TYPE(store::test::Bdb*)) UTBdb();
 
 NNT_END_HEADER_C
 

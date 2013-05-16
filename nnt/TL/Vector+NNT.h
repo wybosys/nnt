@@ -247,15 +247,27 @@ public:
     }
     
     template <typename val2T>
-    void push_back(val2T const& r, typename is_instance<val2T>::type* trait = NULL)
+    void push_back(val2T const& r, typename is_instance<val2T>::type = instance_o)
     {
-        this->_push_back(r, trait);
+        this->_stl.push_back(new valT(r));
+    }
+
+    template <typename val2T>
+    void push_back(val2T const& r, typename is_pointer<val2T>::type = pointer_o)
+    {
+        this->_stl.push_back(r); 
+    }
+
+    template <typename val2T>
+    void push_front(val2T const& r, typename is_instance<val2T>::type = instance_o)
+    {
+        this->_stl.push_front(new valT(r));
     }
     
     template <typename val2T>
-    void push_front(val2T const& r, typename is_instance<val2T>::type* trait = NULL)
+    void push_front(val2T const& r, typename is_pointer<val2T>::type = pointer_o)
     {
-        this->_push_front(new valT(r));
+        this->_stl.push_front(r); 
     }
     
     template <typename iterT>
@@ -271,32 +283,6 @@ public:
         if (*iter)
             (*iter)->drop();
         this->_stl.erase(iter);
-    }
-    
-protected:
-    
-    template <typename val2T>
-    void _push_back(val2T const& r, instance_type*)
-    {
-        this->_stl.push_back(new valT(r));
-    }
-    
-    template <typename val2T>
-    void _push_back(val2T const& r, pointer_type*)
-    {
-        this->_stl.push_back(r);        
-    }
-    
-    template <typename val2T>
-    void _push_front(val2T const& r, instance_type*)
-    {
-        this->_stl.push_front(new valT(r));
-    }
-    
-    template <typename val2T>
-    void _push_front(val2T const& r, pointer_type*)
-    {
-        this->_stl.push_front(r);        
     }
     
 };
