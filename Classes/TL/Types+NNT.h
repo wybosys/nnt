@@ -233,10 +233,10 @@ typedef struct {} instance_type;
 typedef struct {} wrapper_type;
 typedef struct {} nonwrapper_type;
 
-const pointer_type pointer_o = pointer_type();
-const instance_type instance_o = instance_type();
-const wrapper_type wrapper_o = wrapper_type();
-const nonwrapper_type nonwrapper_o = nonwrapper_type();
+NNT_CONST_VAR(pointer_type, pointer_o);
+NNT_CONST_VAR(instance_type, instance_o);
+NNT_CONST_VAR(wrapper_type, wrapper_o);
+NNT_CONST_VAR(nonwrapper_type, nonwrapper_o);
 
 template <typename T>
 struct is_instance
@@ -268,9 +268,6 @@ struct is_pointer<T*>
 
 typedef struct {} equal_t;
 typedef struct {} unequal_t;
-
-const equal_t equal_o = equal_t();
-const unequal_t unequal_o = unequal_t();
 
 template <typename lT, typename rT>
 struct is_equal
