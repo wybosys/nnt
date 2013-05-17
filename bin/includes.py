@@ -6,7 +6,9 @@ import shutil
 
 print("generate include files")
 
-ignores = re.compile(r'.DS_Store|.svn|.git|_.+|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.s$|^.+\.asm$|^.+\.inc$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv.h$|^.+\.prv.hpp$|^.+\.res$|^.+\.txt$')
+whites = re.compile(r'^.+\.py$')
+blacks = re.compile(r'build|.DS_Store|.svn|.git|_.+|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.s$|^.+\.asm$|^.+\.inc$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv.h$|^.+\.prv.hpp$|^.+\.res$|^.+\.txt$|^.+\.pyc$|^.+\.log$|^.+\.err$|^.+\.wrn$|objchk.+')
+cheaders = re.compile(r'^.+\.h$|^.+\.hpp$|^.+\.hxx$')
 
 workdir = os.getcwd()
 if (re.compile(r'[\w/]+/bin$').match(workdir)):
@@ -76,36 +78,47 @@ def abs2rel(path, base = os.curdir):
 mode = raw_input('select mode (0 copy 1 link 2 absolute): ')
 
 def process_mode (des, src, mode):
-    for each in os.listdir(src):        
-        if (ignores.match(each)):
-            continue
-        tmp_src = src + '/' + each;
-        tmp_des = des + '/' + each;
+    for each in os.listdir(src):  
+        #print(each)
+        if (not whites.match(each)):
+            if (blacks.match(each)):
+                #print("ignored.")
+                continue
+        tmp_src = src + '/' + each
+        tmp_des = des + '/' + each
         if (os.path.isdir(tmp_src)):
             if (not os.path.exists(tmp_des)):
                 os.mkdir(tmp_des)
             process_mode(tmp_des, tmp_src, mode)
-        else:
+        else:            
+            if (os.path.exists(tmp_des)):
+                os.remove(tmp_des)
             if (mode == '0'): #copy mode
                 shutil.copy(tmp_src, tmp_des)
             if (mode == '1'): #link mode
                 dir_des = os.path.dirname(tmp_des)
                 dir_src = os.path.dirname(tmp_src)
                 file_name = os.path.basename(tmp_src)
-                tmp_dir = relpath(dir_des, dir_src) 
-                str_inc = '# include "' + tmp_dir + '/' + file_name + '"'
-                fd = open(tmp_des, 'w')
-                fd.write(str_inc)
-                fd.write("\n") # for disable eof-line warning
-                fd.close()
+                if (cheaders.match(each)):
+                    tmp_dir = relpath(dir_des, dir_src) 
+                    str_inc = '# include "' + tmp_dir + '/' + file_name + '"'
+                    fd = open(tmp_des, 'w')
+                    fd.write(str_inc)
+                    fd.write("\n") # for disable eof-line warning
+                    fd.close()
+                else:
+                    os.symlink(tmp_src, tmp_des)
             if (mode == '2'): #absolute mode.
                 dir_des = os.path.dirname(tmp_des)
                 file_name = os.path.abspath(tmp_src)
-                str_inc = '# include "' + file_name + '"'
-                fd = open(tmp_des, 'w')
-                fd.write(str_inc)
-                fd.write("\n")
-                fd.close()
+                if (cheaders.match(each)):
+                    str_inc = '# include "' + file_name + '"'
+                    fd = open(tmp_des, 'w')
+                    fd.write(str_inc)
+                    fd.write("\n")
+                    fd.close()
+                else:
+                    os.symlink(file_name, tmp_des)
 
 process_mode(incdir, classdir, mode)
 
