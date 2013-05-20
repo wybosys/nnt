@@ -3,13 +3,12 @@ import curses
 import traceback
 import core
 
-global window
+window = curses.initscr()
 
 class App(core.Object):
 
     def init(self):
         global window
-        window = curses.initscr()
         curses.start_color()
         curses.cbreak()
         window.keypad(True)
@@ -42,5 +41,5 @@ class App(core.Object):
         return window
 
 def trace_msg(msg):
-    if (nnt.Core.Config.DEBUG):
+    if (core.config.DEBUG):
         print(msg)

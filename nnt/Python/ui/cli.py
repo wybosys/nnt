@@ -1,13 +1,13 @@
 
 import curses
 import curses.panel
-import nnt
+import core, math
 
 class Dialog:
 
     def __init__(self, size = None, parent = None):
         if (parent == None):
-            f_new = nnt.core.cli.App.Window().subwin
+            f_new = core.cli.App.Window().subwin
         else:
             f_new = parent.derwin
         if (size == None):
