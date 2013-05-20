@@ -1,7 +1,7 @@
 
 import curses
 import curses.panel
-import core, math
+import core
 
 class Dialog:
 
