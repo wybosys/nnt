@@ -62,17 +62,21 @@
  ;; bk 005faf fg ffffff
  '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline")))))
 
+;; hl-line
+(set-face-background 'hl-line "color-255")
+
 ;; backups.
 (setq make-backup-files nil)
 (defvar backup-dir "~/.emacs.d/backups/")
 (setq backup-directory-alist (list (cons "." backup-dir)))
 
+;; ignores.
+(setq my-ignores '(".DS_Store" ".git" ".svn" ".cvs" ".ede\\'" "\\`~" "\\`#" ".pyc\\'" "\\`tmp" ".o\\'" "\\`_{1}" ".ropeproject" ".scc\\'" ".out\\'" ".files\\'" ".class\\'" ".symvers\\'" ".order\\'" ".properties\\'" ".dmp\\'" ".tmp\\'" ".ncb\\'" ".suo\\'" ".usr\\'" ".user\\'" ".xcuserdatad\\'" "build" "Debug" "Release" "Debug Static" "Release Static" ".cmd\\'"))
+
 ;; ido mode for fast open.
 (ido-mode 1)
-(add-to-list 'ido-ignore-files "\\.DS_Store")
-
-;; hl-line
-(set-face-background 'hl-line "#eee")
+(dolist (ignore my-ignores)
+  (add-to-list 'ido-ignore-files ignore))
 
 ;; uniquify buffer name
 (require 'uniquify)
