@@ -30,7 +30,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(c-basic-offset 4)
  '(column-number-mode t)
  '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
@@ -45,13 +44,6 @@
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tab-width 4)
- '(c-default-style 
-   '((c-mode . "stroustrup") 
-     (c++-mode . "stroustrup") 
-     (java-mode . "java") 
-     (awk-mode . "awk") 
-     (other . "gnu")
-     ))
 )
  
 (custom-set-faces
@@ -62,8 +54,43 @@
  ;; bk 005faf fg ffffff
  '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline")))))
 
+;; yes-or-no.
+(defun my-mumble-or-no-p (prompt)
+  "PROMPT user with a yes-or-no question, but only test for no."
+  (if (string= "no"
+               (downcase
+                (read-from-minibuffer
+                 (concat prompt "(yes[enter] or no) "))))
+      nil
+    t))
+(defalias 'yes-or-no-p 'my-mumble-or-no-p)
+
 ;; hl-line
 (set-face-background 'hl-line "color-255")
+
+;; hl-paren
+(defun my-hlparen ()
+  ; hl paren
+  (define-globalized-minor-mode global-highlight-parentheses-mode
+    highlight-parentheses-mode
+    (lambda ()
+      (highlight-parentheses-mode t)
+      ))
+  (global-highlight-parentheses-mode t)
+  (highlight-parentheses-mode)
+  ; rainbow
+  (global-rainbow-delimiters-mode t)
+  ; paren face
+  ;(set-face-background 'show-paren-match-face "black")
+  )
+(add-hook 'prog-mode-hook 'my-hlparen)
+
+;; yasnippet
+(defun my-yas ()
+  (require 'yasnippet)
+  (require 'yasnippet-bundle)
+)
+(add-hook 'after-init-hook 'my-yas)
 
 ;; backups.
 (setq make-backup-files nil)
@@ -101,7 +128,16 @@
 (require 'git nil 'noerror)
 (require 'vc-git)
 
-;; cmake
+;; python.
+(defun my-py-settings ()
+  (setq ropemacs-guess-project t)
+  (setq ropemacs-enable-autoimport t)
+  (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
+  (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"))
+)
+(add-hook 'python-mode-hook 'my-py-settings)
+
+;; cmake.
 (setq auto-mode-alist
       (append
        '(("CMakeLists\\.txt\\'" . cmake-mode))
@@ -114,24 +150,37 @@
 
 ;; cedet
 (defun my-cedet-setting ()
-  ;; mode
-  ;(semantic-load-enable-code-helpers)
-  ;; global features.
-  ;(global-semantic-tag-folding-mode 1)
-  ;(global-semantic-idle-scheduler-mode 1) ;The idle scheduler with automatically reparse buffers in idle time.
-  ;(global-semantic-idle-completions-mode 1) ;Display a tooltip with a list of possible completions near the cursor.
-  ;(global-semantic-idle-summary-mode 1) ;Display a tag summary of the lexical token under the cursor.
-  ;; includes.
-  ;(semantic-add-system-include "/usr/src/include/")
-  ;(semantic-add-system-include "/usr/src/sys/")    
   (setq 
    semantic-c-takeover-hideif t
    semantic-symref-tool "cscope"
    )    
   )
 
+(defun check-expansion ()
+    (save-excursion
+      (if (looking-at "\\_>") t
+        (backward-char 1)
+        (if (looking-at "\\.") t
+          (backward-char 1)
+          (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()  
+  (let ((yas/fallback-behavior 'return-nil))
+      (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
+
 (defun my-cedet-keymap ()
     (local-set-key (kbd "RET") 'newline-and-indent)
+    (local-set-key (kbd "TAB") 'tab-indent-or-complete)
 )
 
 (defun my-cedet-setup ()
@@ -227,8 +276,10 @@
 )
 	
 ;; c mode.
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (defun my-c-mode ()
   (interactive)
+  (setq c-basic-offset 4)
   (my-assist)	
   (my-cscope)
 )
@@ -241,6 +292,44 @@
                                     (mydev))
                                   ))
 )
+
+;; script style.
+(defconst my-c-style
+  '(
+    (c-tab-always-indent . t)
+    (c-comment-only-line-offset . 4)
+    (c-hanging-braces-alist     . ((substatement-open before)
+                                   (brace-list-open)
+                                   ))
+    (c-hanging-colons-alist     . ((member-init-intro before)
+                                   (inher-intro)
+                                   (case-label after)
+                                   (label after)
+                                   (access-label after)
+                                   ))
+    (c-cleanup-list             . (scope-operator
+                                   empty-defun-braces
+                                   defun-close-semi))
+    (c-offsets-alist            . ((arglist-close . c-lineup-arglist)
+                                   (substatement-open . 0)
+                                   (access-label      . -)
+                                   (case-label        . +)
+                                   (inline-open       . 0)
+                                   (block-open        . 0)
+                                   (knr-argdecl-intro . -)
+                                   (innamespace . 0)
+                                   ))
+    ;(c-echo-syntactic-information-p . t) // verbose while indent.
+    ) "My C script style.")
+(c-add-style "my-cstyle" my-c-style)
+
+(setq c-default-style 
+      '((c-mode . "my-cstyle") ;; stroustrup
+        (c++-mode . "my-cstyle") 
+        (java-mode . "java") 
+        (awk-mode . "awk") 
+        (other . "gnu")
+        ))
 
 ;; undo mode.
 (defun my-undo ()
