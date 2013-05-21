@@ -78,11 +78,11 @@
       ))
   (if (fboundp 'highlight-parentheses-mode)
       (global-highlight-parentheses-mode t)
-    (message "please install highlight-parentheses from elpa"))
+    (message "warning: please install highlight-parentheses from elpa."))
   ; rainbow
   (if (fboundp 'rainbow-delimiters-mode)
       (global-rainbow-delimiters-mode t)
-    (message "please install rainbow-delimiters from elpa"))
+    (message "warning: please install rainbow-delimiters from elpa."))
   ; paren face
   ;(set-face-background 'show-paren-match-face "black")
   )
