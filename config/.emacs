@@ -77,7 +77,6 @@
       (highlight-parentheses-mode t)
       ))
   (global-highlight-parentheses-mode t)
-  (highlight-parentheses-mode)
   ; rainbow
   (global-rainbow-delimiters-mode t)
   ; paren face
