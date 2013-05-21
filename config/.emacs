@@ -71,7 +71,7 @@
 ;; hl-paren
 (defun my-hlparen ()
   ; hl paren
-  (require 'highlight-parentheses 'noerror)
+  (require 'highlight-parentheses nil t)
   (define-globalized-minor-mode global-highlight-parentheses-mode
     highlight-parentheses-mode
     (lambda ()
@@ -81,7 +81,7 @@
       (global-highlight-parentheses-mode t)
     (message "warning: please install highlight-parentheses from elpa."))
   ; rainbow
-  (require 'rainbow-delimiters 'noerror)
+  (require 'rainbow-delimiters nil t)
   (if (fboundp 'rainbow-delimiters-mode)
       (global-rainbow-delimiters-mode t)
     (message "warning: please install rainbow-delimiters from elpa."))
