@@ -40,19 +40,19 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(initial-scratch-message "")
- '(linum-format "%6d ")
+ '(linum-format "%-5d")
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
- '(tab-width 4)
-)
+ '(tab-width 4))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; bk 005faf fg ffffff
- '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline")))))
+ '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
+ '(linum ((t (:inherit (shadow default) :background "color-255"))))
+ )
 
 ;; yes-or-no.
 (defun my-mumble-or-no-p (prompt)
@@ -65,7 +65,9 @@
     t))
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
 
-;; hl-line
+;; linum.
+
+;; hl-line.
 (set-face-background 'hl-line "color-255")
 
 ;; hl-paren
@@ -85,8 +87,6 @@
   (if (fboundp 'rainbow-delimiters-mode)
       (global-rainbow-delimiters-mode t)
     (message "warning: please install rainbow-delimiters from elpa."))
-  ; paren face
-  ;(set-face-background 'show-paren-match-face "black")
   )
 (add-hook 'prog-mode-hook 'my-hlparen)
 
