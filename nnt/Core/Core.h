@@ -322,11 +322,12 @@ typedef ios_unknown ios_version;
 
 # ifdef NNT_LIBRARY
 #   define APPNNT 1
-#   if defined(LIBNNT)
-#     define NNT_LIBRARY_STAIC 1
-#   else
-#     define NNT_LIBRARY_SHARED 1
-#   endif
+# endif
+
+# if defined(LIBNNT)
+#   define NNT_LIBRARY_STAIC 1
+# else
+#   define NNT_LIBRARY_SHARED 1
 # endif
 
 # ifdef NNT_KERNEL_SPACE

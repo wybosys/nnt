@@ -14,10 +14,14 @@ class App;
 
 enum DriverFeatureType
 {
+    DFT_NULL = -1,
+
     DFT_OPEN,
     DFT_CLOSE,
     DFT_READ,
     DFT_WRITE,
+
+    DFT_CALL = DFT_NULL,
 };
 
 # ifdef NNT_UNIX
@@ -145,6 +149,7 @@ NNT_EXTERN _NNTDECL_DRIVER_DISP(open);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(close);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(read);
 NNT_EXTERN _NNTDECL_DRIVER_DISP(write);
+NNT_EXTERN _NNTDECL_DRIVER_DISP(call);
 
 class Open
 : public FeatureImpl<
@@ -217,6 +222,18 @@ public:
     core::data data() const;
 
     pmp_inherit(Write);
+    pmp_end;
+};
+
+class Call
+    : public FeatureImpl<DFT_CALL, _NNT_DRIVER_DISP(call)>
+{
+public:
+
+    Call();
+    ~Call();
+
+    pmp_inherit(Call);
     pmp_end;
 };
 

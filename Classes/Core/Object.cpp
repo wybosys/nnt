@@ -34,7 +34,6 @@ long ::nnt::Object::__global_object_counter = 0;
 
 NNT_BEGIN_NS(cxx)
 
-// empty event object.
 eventobj_t null_eventobj;
 
 NNT_BEGIN_NS(impl)
@@ -67,7 +66,7 @@ public:
 
 TaskBackground::TaskBackground()
 {
-	
+	PASS;
 }
 
 TaskBackground::~TaskBackground()

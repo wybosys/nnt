@@ -62,7 +62,7 @@ void MainController::view_loaded()
     _client.setting.user = "fcy";
     _client.setting.passwd = "5811627";
     
-    _client.setting.address = cross::NetAddress("192.168.176.192:5222");
+    _client.setting.address = core::NetAddress("192.168.176.192:5222");
     _client.setting.mechanism = xmpp::cor::MECHANISM_PLAIN;
     _client.start();
     

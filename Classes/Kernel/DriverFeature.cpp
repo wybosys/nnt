@@ -126,6 +126,7 @@ _NNTIMPL_DRIVER_DISP(open);
 _NNTIMPL_DRIVER_DISP(close);
 _NNTIMPL_DRIVER_DISP(read);
 _NNTIMPL_DRIVER_DISP(write);
+_NNTIMPL_DRIVER_DISP(call);
 
 Open::Open()
 {
@@ -289,6 +290,18 @@ core::data Write::data() const
 # else
     return stm;
 # endif
+}
+
+Call::Call()
+{
+    feature_call = this;
+
+    pmp_impl_cd();
+}
+
+Call::~Call()
+{
+
 }
 
 NNT_END_NS

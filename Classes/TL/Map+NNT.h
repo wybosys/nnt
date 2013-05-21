@@ -4,6 +4,8 @@
 
 # ifdef NNT_CXX
 
+# ifdef NNT_USER_SPACE
+
 # include <map>
 
 # ifdef NNT_GCC
@@ -162,6 +164,16 @@ using ntl::multimap;
 NNT_END_NS
 
 NNT_END_HEADER_CXX
+
+# else // kernel space
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(ntl)
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
 
 # ifdef NNT_OBJC
 

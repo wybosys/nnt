@@ -82,7 +82,8 @@ public:
     int install();
 
     //! add driver feature.
-    void add_feature(Feature*);  
+    void add_feature(Feature*);
+    Feature* find_call(uinteger) const;
 
     EntryObject eo;
     core::string name;
