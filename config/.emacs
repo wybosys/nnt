@@ -76,9 +76,13 @@
     (lambda ()
       (highlight-parentheses-mode t)
       ))
-  (global-highlight-parentheses-mode t)
+  (if (fboundp 'highlight-parentheses-mode)
+      (global-highlight-parentheses-mode t)
+    (message "please install highlight-parentheses from elpa"))
   ; rainbow
-  (global-rainbow-delimiters-mode t)
+  (if (fboundp 'rainbow-delimiters-mode)
+      (global-rainbow-delimiters-mode t)
+    (message "please install rainbow-delimiters from elpa"))
   ; paren face
   ;(set-face-background 'show-paren-match-face "black")
   )
