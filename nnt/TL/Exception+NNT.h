@@ -16,20 +16,48 @@ NNT_BEGIN_NS(exception)
 
 # ifdef NNT_USER_SPACE
 
+class basic
+    : public ::std::exception
+{
+public:
+
+    basic() throw()
+        : line(0)
+    {
+        PASS;
+    }
+
+    ::std::string file;
+    ulong line;
+
+};
+
 class overdrop
-: public ::std::exception
+: public basic
 {
     
 };
 
 class earlydrop
-: public ::std::exception
+: public basic
 {
     
 };
 
+class overflow
+    : public basic
+{
+
+};
+
+class assert
+    : public basic
+{
+
+};
+
 class message
-: public ::std::exception
+: public basic
 {
 public:
     

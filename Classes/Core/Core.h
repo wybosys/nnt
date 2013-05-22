@@ -1682,8 +1682,32 @@ static void trace_msg(char const* msg)
 
 // ignore assert.
 # include <assert.h>
+
+static void nnt_assert(bool exp, char const* file, ulong line)
+{
+# ifdef NNT_CXX
+
+    if (!exp)
+    {
+        NNT_USINGNAMESPACE;
+        exception::assert exp;
+        exp.file = file;
+        exp.line = line;
+        throw exp;
+    }
+
+# endif
+
+    assert(exp);
+}
+
+# ifdef NNT_DEBUG
+#   define NNT_ASSERT(exp) nnt_assert((exp), __FILE__, __LINE__)
+# else
+#   define NNT_ASSERT(exp) {SPACE}
+# endif
+
 # ifdef assert
-#   define NNT_ASSERT assert
 #   undef assert
 # endif
 
