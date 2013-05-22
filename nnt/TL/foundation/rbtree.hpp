@@ -2,6 +2,8 @@
 # ifndef __NNT_FOUNDATION_RBTREE_f1ce72fe11644e45b73a597d598872d2_H_INCLUDED
 # define __NNT_FOUNDATION_RBTREE_f1ce72fe11644e45b73a597d598872d2_H_INCLUDED
 
+# include "./hash.hpp"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(foundation)
 
@@ -61,6 +63,7 @@ public:
     node_type* lookup(key_type const&) const;
     void leave();
     void adjust_leave(node_type*);
+    key_type const& key() const;
 
     value_type val;
     
@@ -80,7 +83,9 @@ NNT_END_NS
 
 template <typename keyT, typename valT> 
 class rbtree 
-{
+{    
+protected:
+
     typedef impl::rbnode<keyT, valT, rbtree<keyT, valT> > node_type;
     
 public:
@@ -92,8 +97,12 @@ public:
     ~rbtree();
 
     bool insert(key_type const&, value_type const&);
-    value_type* lookup(key_type const&) const;
+    node_type* lookup(key_type const&) const;
     bool remove(key_type const&);
+
+protected:
+
+    void remove(node_type&);
 
 protected:
 
@@ -526,6 +535,12 @@ template_impl void rbnode<_RBNODE_TPL_ARG>::adjust_leave(node_type* parent)
     }      
 }
 
+_RBNODE_TPL_DECL
+template_impl typename rbnode<_RBNODE_TPL_ARG>::key_type const& rbnode<_RBNODE_TPL_ARG>::key() const
+{
+    return _key;
+}
+
 NNT_END_NS
 
 _RBTREE_TPL_DECL
@@ -565,13 +580,12 @@ template_impl bool rbtree<_RBTREE_TPL_ARG>::insert(key_type const& key, value_ty
 }
 
 _RBTREE_TPL_DECL
-template_impl typename rbtree<_RBTREE_TPL_ARG>::value_type* rbtree<_RBTREE_TPL_ARG>::lookup(key_type const& key) const
+template_impl typename rbtree<_RBTREE_TPL_ARG>::node_type* rbtree<_RBTREE_TPL_ARG>::lookup(key_type const& key) const
 {
     if (NULL == _root)
         return NULL; 
 
-    node_type* node = _root->lookup(key);
-    return node ? &node->val : NULL;
+    return _root->lookup(key);
 }
 
 _RBTREE_TPL_DECL
@@ -588,6 +602,16 @@ template_impl bool rbtree<_RBTREE_TPL_ARG>::remove(key_type const& key)
     delete node;
 
     return true;
+}
+
+_RBTREE_TPL_DECL
+template_impl void rbtree<_RBTREE_TPL_ARG>::remove(node_type& node)
+{
+    if (_root == &node)
+        _root = NULL;
+
+    node.leave();
+    delete &node;
 }
 
 NNT_END_NS

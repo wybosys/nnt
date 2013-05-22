@@ -2,25 +2,43 @@
 # include "stdafx.h"
 # include <nnt/Foundation+NNT.h>
 
+# include <nnt/TL/foundation/iterator.hpp>
 # include <nnt/TL/foundation/rbtree.hpp>
 # include <nnt/TL/foundation/list.hpp>
 # include <nnt/TL/foundation/vector.hpp>
 # include <nnt/TL/foundation/string.hpp>
+# include <nnt/TL/foundation/map.hpp>
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-    typedef nnt::foundation::rbtree<int, float> tree_t;
+    NNT_USINGNAMESPACE;
 
-    tree_t obj;
+    typedef foundation::map<int, float> map_t;
 
-    for (int i = 0; i < 100; ++i)
+    map_t obj;
+
+    for (int i = 0; i < 10; ++i)
     {
-        obj.insert(i, i);
+        obj.insert(foundation::make_pair<map_t::value_type>(i, i));
     }
 
-    float val = *obj.lookup(50);
-    obj.remove(10);
-    obj.lookup(10);
+    map_t::iterator found = obj.find(5);
+    if (found != obj.end())
+    {
+        trace_msg("found!");
+    }
+
+    obj.erase(found);
+    found = obj.find(5);
+    if (found == obj.end())
+    {
+        trace_msg("removed");
+    }
+
+    //for (map_t::iterator iter = obj.begin(); iter != obj.end(); ++iter)
+    {
+
+    }
 
 	return 0;
 }
