@@ -169,25 +169,29 @@ void dealloc()
 
 void clear_features()
 {
-    while (!features.empty())
+    for (features_type::iterator iter = features.begin(); iter != features.end(); ++iter)
     {
-        Feature* ftu = features.pop();
+        Feature* ftu = *iter;
         pmp_destroy(ftu);
     }
+    features.clear();
 }
 
 void clear_calls()
 {
-    while (!calls.empty())
+    for (calls_type::iterator iter = calls.begin(); iter != calls.end(); ++iter)
     {
-        Feature* call = calls.pop();
-        pmp_destroy(call);
+        feature::Call* ftu = *iter;
+        pmp_destroy(ftu);
     }
+    calls.clear();
 }
 
 typedef core::list<Feature*> features_type;
 features_type features;
-features_type calls;
+
+typedef core::list<feature::Call*> calls_type;
+calls_type calls;
 
 NNTDECL_PRIVATE_END
 
@@ -357,9 +361,9 @@ void App::add_feature(Feature* fte)
             eo.pDriverObject->MajorFunction[fte->irptype] = fte->dispatch;            
             d_ptr->features.push_back(fte);
         } break;
-    case DFT_OPEN:
+    case DFT_CALL:
         {
-            d_ptr->calls.push_back(fte);
+            d_ptr->calls.push_back((feature::Call*)fte);
         } break;
     }
 
@@ -421,6 +425,12 @@ void App::add_feature(Feature* fte)
 
 Feature* App::find_call(uinteger code) const
 {
+    for (private_type::calls_type::iterator iter = d_ptr->calls.begin(); 
+        iter != d_ptr->calls.end(); 
+        ++iter)
+    {
+
+    }
     return NULL;
 }
 

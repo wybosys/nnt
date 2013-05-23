@@ -1,6 +1,6 @@
 
-# ifndef __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
-# define __NNT_WTL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
+# ifndef __NNT_TL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
+# define __NNT_TL_TYPES_E4EB5FF142A649B8AA7076512B7EA40A_H_INCLUDED
 
 # if defined(NNT_CXX)
 
@@ -169,10 +169,6 @@ typedef enum
 
 template <bool cond, typename A, typename B>
 struct triple_select
-{};
-
-template <typename A, typename B>
-struct triple_select<true, A, B>
 {
     typedef A type;
 };
@@ -186,14 +182,17 @@ struct triple_select<false, A, B>
 typedef struct {} true_type;
 typedef struct {} false_type;
 
-# define WTL_CLASS_HAS_FUNC(func, name) \
+NNT_CONST_VAR(true_type, true_o);
+NNT_CONST_VAR(false_type, false_o);
+
+# define NNT_TL_CLASS_HAS_FUNC(func, name) \
 template<typename T, typename Sign> \
 struct name { \
-template <typename U, U> struct type_check; \
-template <typename _1> static char &chk(type_check<Sign, &_1::func> *); \
-template <typename   > static long  &chk(...); \
-enum { value = sizeof(chk<T>(0)) == sizeof(char) }; \
-typedef typename triple_select<value, true_type, false_type>::type type; \
+    template <typename U, U> struct type_check; \
+    template <typename _1> static char &chk(type_check<Sign, &_1::func> *); \
+    template <typename   > static long  &chk(...); \
+    enum { value = sizeof(chk<T>(0)) == sizeof(char) }; \
+    typedef typename ntl::triple_select<value, ntl::true_type, ntl::false_type>::type type; \
 }
 
 template <typename T>
@@ -268,6 +267,9 @@ struct is_pointer <T*>
 
 typedef struct {} equal_t;
 typedef struct {} unequal_t;
+
+NNT_CONST_VAR(equal_t, equal_o);
+NNT_CONST_VAR(unequal_t, unequal_o);
 
 template <typename lT, typename rT>
 struct is_equal
@@ -436,6 +438,30 @@ struct mixin_type< NSObject* >
 };
 
 # endif
+
+template <typename T>
+inline T* as_pointer(T* o)
+{
+    return o;
+}
+
+template <typename T>
+inline T const* as_pointer(T const* o)
+{
+    return o;
+}
+
+template <typename T>
+inline T* as_pointer(T& o)
+{
+    return &o;
+}
+
+template <typename T>
+inline T const* as_pointer(T const& o)
+{
+    return &o;
+}
 
 template <typename typeT>
 class const_pointer
@@ -883,7 +909,7 @@ protected:
     
 };
 
-NNT_END_NS // wtl
+NNT_END_NS
 
 NNT_END_HEADER_CXX
 

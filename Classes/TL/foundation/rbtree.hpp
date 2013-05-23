@@ -42,6 +42,7 @@ public:
 
     void clear(Side);
     bool is_nil() const;
+    bool is_empty() const;
     void swap_color(node_type&);
     void set_black();
     void set_red();
@@ -150,6 +151,12 @@ _RBNODE_TPL_DECL
 template_impl bool rbnode<_RBNODE_TPL_ARG>::is_nil() const
 {
     return this == &Nil();
+}
+
+_RBNODE_TPL_DECL
+template_impl bool rbnode<_RBNODE_TPL_ARG>::is_empty() const
+{
+    return _link[SIDE_LEFT]->is_nil() && _link[SIDE_RIGHT]->is_nil();
 }
 
 _RBNODE_TPL_DECL

@@ -779,8 +779,8 @@ protected:
 class index
 {
     
-    WTL_CLASS_HAS_FUNC(size, has_size);
-    WTL_CLASS_HAS_FUNC(count, has_count);
+    NNT_TL_CLASS_HAS_FUNC(size, has_size);
+    NNT_TL_CLASS_HAS_FUNC(count, has_count);
     
 public:
 
@@ -855,6 +855,16 @@ static conT values(mapT const& map)
         ret.push_back(iter->second);
     }
     return ret;
+}
+
+template <typename T>
+inline void initial(T&)
+{}
+
+template <typename T>
+inline void initial(T*& ptr)
+{
+    ptr = NULL;
 }
 
 NNT_END_NS

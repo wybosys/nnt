@@ -8,6 +8,10 @@
 
 # include <list>
 
+# else
+
+# include "./foundation/list.hpp"
+
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -325,162 +329,10 @@ inline_impl list<ValueT>& operator << (list<ValueT>& left, ValueT right)
 
 # else // kernel space.
 
-template <typename ValT>
+template <typename valT>
 class list
+    : public foundation::list<valT>
 {
-
-protected:
-
-# ifdef NNT_MSVC
-
-    struct _entry
-    {
-        LIST_ENTRY entry;
-        ValT val;
-    };   
-
-# endif
-
-# ifdef NNT_UNIX
-
-    struct _entry
-    {
-        STAILQ_ENTRY(_entry) entry;
-        ValT val;
-    };
-
-# endif
-
-    typedef alloc::Heap<_entry> _heap;
-
-public:
-
-    typedef ValT value_type;
-
-    list()
-    {
-# ifdef NNT_MSVC
-        
-        ::InitializeListHead(*this);
-        
-# endif
-
-# ifdef NNT_UNIX
-        
-        _lst.stqh_first = NULL;
-        _lst.stqh_last = &_lst.stqh_first;
-        STAILQ_INIT(&_lst);
-        
-# endif
-    }
-
-    ~list()
-    {
-        this->clear();
-    }
-
-    void clear()
-    {
-        while (!empty())
-        {
-            pop();
-        }
-    }
-
-    bool empty() const
-    {
-# ifdef NNT_MSVC
-        
-        return ::IsListEmpty(*this);
-        
-# endif
-
-# ifdef NNT_UNIX
-        
-        return STAILQ_EMPTY(&_lst);
-        
-# endif
-    }
-
-    void push_front(value_type const& val)
-    {
-        _entry* obj = _heap::Create();
-        obj->val = val;
-
-# ifdef NNT_MSVC
-        
-        ::InsertHeadList(*this, &obj->entry);
-        
-# endif
-
-# ifdef NNT_UNIX
-        
-        STAILQ_INSERT_HEAD(&_lst, obj, _lst.entry);
-        
-# endif
-    }
-
-    void push_back(value_type const& val)
-    {
-        _entry* obj = _heap::Create();
-        obj->val = val;
-
-# ifdef NNT_MSVC
-        
-        ::InsertTailList(*this, &obj->entry);
-        
-# endif
-
-# ifdef NNT_UNIX
-        
-        STAILQ_INSERT_TAIL(&_lst, obj, entry);
-        
-# endif
-    }
-
-    value_type pop()
-    {
-# ifdef NNT_MSVC
-        
-        PLIST_ENTRY pent = ::RemoveHeadList(*this);
-        _entry* pobj = CONTAINING_RECORD(pent, _entry, entry);
-        value_type ret = pobj->val;
-        _heap::Free(pobj);
-        return ret;
-        
-# endif
-
-# ifdef NNT_UNIX
-        
-        _entry* pobj = STAILQ_FIRST(&_lst);
-        STAILQ_REMOVE_HEAD(&_lst, entry);
-        value_type ret = pobj->val;
-        _heap::Free(pobj);
-        return ret;
-        
-# endif
-    }
-
-# ifdef NNT_MSVC
-
-    operator PLIST_ENTRY () const
-    {
-        return (PLIST_ENTRY)&_lst;
-    }
-
-protected:
-
-    _entry _lst;
-
-# endif
-
-# ifdef NNT_UNIX
-
-protected:
-
-    STAILQ_HEAD(_entryhead, _entry) _lst;
-
-# endif
 
 };
 
