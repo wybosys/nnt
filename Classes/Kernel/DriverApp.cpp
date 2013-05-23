@@ -470,9 +470,11 @@ NTSTATUS CallDriver(IN PDEVICE_OBJECT pdev, PIRP pIrp)
     use<feature::Call> fcall = ext->pApp->find_call(code);
     if (fcall == NULL)
         return STATUS_NOT_IMPLEMENTED;
+
     fcall->iostack = stack;
     fcall->irp = pIrp;
     pmp_call(fcall, main, ());
+
     return fcall->status;
 }
 
