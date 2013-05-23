@@ -4,6 +4,7 @@
 
 # include "./DriverObject.h"
 # include "../TL/Class+NNT.h"
+# include "./DriverIO.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
@@ -233,7 +234,40 @@ public:
     Call();
     ~Call();
 
+    MemoryMode mm;
+    IoCode code;
+
+    void prepare();
+
+    core::data reader;
+    core::data writer;
+
     pmp_inherit(Call);
+    pmp_end;
+
+# ifdef NNT_WINDOWS
+
+    PIO_STACK_LOCATION iostack;
+
+# endif
+
+};
+
+template <ulong Fun, MemoryMode Mm = MEMORY_BUFFER>
+class CallIo
+    : public Call
+{
+public:
+
+    CallIo()
+    {
+        Call::mm = Mm;
+        Call::code = IoCode(Fun, Mm);        
+
+        pmp_impl_cd();
+    }
+
+    pmp_inherit(CallIo);
     pmp_end;
 };
 

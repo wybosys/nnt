@@ -77,6 +77,9 @@ int Sample::main()
     add_feature(new SampleWrite);
     add_feature(new SampleRead);
 
+    // bind function.
+    add_feature(new SampleFunction);
+
     return 0;
 }
 
@@ -111,6 +114,17 @@ void SampleRead::main()
     da.fill('a');
 
     success(da.length());
+}
+
+SampleFunction::SampleFunction()
+{
+    pmp_impl_cd();
+    pmp_impl(main);
+}
+
+void SampleFunction::main()
+{
+    NNTDEBUG_BREAK;
 }
 
 NNTAPP_END

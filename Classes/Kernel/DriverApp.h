@@ -60,12 +60,6 @@ public:
     
 };
 
-enum MemoryMode
-{
-    MEMORY_BUFFER,
-    MEMORY_MAP,
-};
-
 NNTDECL_PRIVATE_HEAD(App);
 
 class App

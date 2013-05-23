@@ -46,6 +46,19 @@ public:
     pmp_end;
 };
 
+class SampleFunction
+    : public driver::feature::CallIo<1>
+{
+public:
+
+    SampleFunction();
+
+    void main();
+
+    pmp_inherit(SampleFunction);
+    pmp_end;
+};
+
 NNTAPP_END
 
 # endif

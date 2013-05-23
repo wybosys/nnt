@@ -293,15 +293,41 @@ core::data Write::data() const
 }
 
 Call::Call()
+: mm(MEMORY_BUFFER), code(-1)
 {
-    feature_call = this;
-
     pmp_impl_cd();
+    pmp_impl(prepare);
 }
 
 Call::~Call()
 {
 
+}
+
+void Call::prepare()
+{
+# ifdef NNT_WINDOWS
+
+    LONG sz_reader = iostack->Parameters.DeviceIoControl.InputBufferLength;
+    ULONG sz_writer = iostack->Parameters.DeviceIoControl.OutputBufferLength;
+    PVOID buf_reader = NULL;
+    PVOID buf_writer = NULL;
+
+    if (MASK_CHECK(MEMORY_BUFFER, mm))
+    {
+        buf_reader = irp->AssociatedIrp.SystemBuffer;
+        buf_writer = irp->AssociatedIrp.SystemBuffer;
+    }
+    else if (MASK_CHECK(MEMORY_MAP, mm))
+    {
+        buf_reader = irp->AssociatedIrp.SystemBuffer;
+        buf_writer = MmGetSystemAddressForMdlSafe(irp->MdlAddress, NormalPagePriority);
+    }
+
+    reader = core::data((byte*)buf_reader, (usize)sz_reader, core::assign);
+    writer = core::data((byte*)buf_writer, (usize)sz_writer, core::assign);
+
+# endif
 }
 
 NNT_END_NS

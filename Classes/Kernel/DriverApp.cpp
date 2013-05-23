@@ -429,7 +429,9 @@ Feature* App::find_call(uinteger code) const
         iter != d_ptr->calls.end(); 
         ++iter)
     {
-
+        feature::Call* call = *iter;
+        if (call->code == code)
+            return call;
     }
     return NULL;
 }
@@ -458,17 +460,20 @@ VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
     NNT_DRIVER_FREEAPP();
 }
 
-DRIVER_STARTIO CallDriver;
-VOID CallDriver(IN PDEVICE_OBJECT pdev, PIRP pIrp)
+NTSTATUS CallDriver(IN PDEVICE_OBJECT pdev, PIRP pIrp)
 {
+    NNTDEBUG_BREAK;
+
     use<DriverExtension> ext = pdev->DeviceExtension;
     PIO_STACK_LOCATION stack = IoGetCurrentIrpStackLocation(pIrp);
     ULONG const code = stack->Parameters.DeviceIoControl.IoControlCode;
     use<feature::Call> fcall = ext->pApp->find_call(code);
     if (fcall == NULL)
-        return;
+        return STATUS_NOT_IMPLEMENTED;
+    fcall->iostack = stack;
     fcall->irp = pIrp;
     pmp_call(fcall, main, ());
+    return fcall->status;
 }
 
 # endif
@@ -529,7 +534,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObject, IN PUNICODE_STRING pRegist
 
     // default dispatch.
     pDriverObject->DriverUnload = ::nnt::driver::UnloadDriver;
-    pDriverObject->DriverStartIo = ::nnt::driver::CallDriver;
+    pDriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = ::nnt::driver::CallDriver;
 
     // call driver's main.
     return NNT_DRIVER_MAIN(eo);

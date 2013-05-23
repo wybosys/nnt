@@ -5,6 +5,17 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
 
+enum MemoryMode
+{
+    MEMORY_BUFFER,
+    MEMORY_MAP,
+
+    MEMORY_IN = 0x1000,
+    MEMORY_OUT = 0x2000,
+    MEMORY_INOUT = MEMORY_IN | MEMORY_OUT,
+    MEMORY_MAPIO = MEMORY_MAP | MEMORY_INOUT,
+};
+
 class Status
 {
 public:
