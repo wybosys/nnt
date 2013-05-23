@@ -167,8 +167,12 @@ NNT_END_HEADER_CXX
 
 # else // kernel space
 
+# include "./foundation/map.hpp"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
+
+using foundation::map;
 
 NNT_END_NS
 NNT_END_HEADER_CXX
