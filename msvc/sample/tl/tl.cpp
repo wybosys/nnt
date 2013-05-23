@@ -85,9 +85,9 @@ int _tmain(int argc, _TCHAR* argv[])
             trace_msg("removed");
         }
 
-        for (map_t::iterator iter = obj.begin(); iter != obj.end(); ++iter)
-        {
-        }
+        core::vector<float> values = obj.all_values<core::vector<float> >();
+        core::vector<int> keys = obj.all_values<core::vector<int> >();
+
     }
 
 	return 0;

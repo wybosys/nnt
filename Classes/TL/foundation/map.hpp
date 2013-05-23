@@ -20,40 +20,24 @@ public:
     typedef pair<keyT, valT> value_type;
 
     class iterator
-        : public basic_iterator<iterator, typename rbtree_type::node_type*>,
-        public value_type
+        : public basic_iterator<iterator, typename rbtree_type::node_type*>        
     {
     public:
 
-        iterator()
-            : _root(NULL)
+        value_type* operator -> ()
         {
-            obj = NULL;
-        }
-
-        void update()
-        {
-            if (obj == NULL)
-                return;
-
-            this->first = obj->key();
-            this->second = obj->val;
-
-            if (_root == NULL)
+            if (this->obj != NULL)
             {
-                _root = obj;
+                _pair.first = this->obj->key();
+                _pair.second = this->obj->val;
             }
+
+            return &_pair;
         }
 
-        iterator& operator ++ ()
-        {
-            update();
-            return *this;
-        }
+    public:
 
-    protected:
-
-        object_type _root;
+        value_type _pair;
 
     };
 
@@ -71,7 +55,6 @@ public:
     {
         iterator ret;
         ret.obj = super::lookup(key);
-        ret.update();
         return ret;
     }
 
@@ -79,7 +62,6 @@ public:
     {
         iterator ret;
         ret.obj = super::_root;
-        ret.update();
         return ret;
     }
 
@@ -97,6 +79,34 @@ public:
     void clear()
     {
         super::remove(*super::_root);
+    }
+
+    template <typename conT>
+    void all_keys(conT& c) const
+    {
+        super::all_keys(c);
+    }
+
+    template <typename conT>
+    conT all_keys() const
+    {
+        conT t;
+        all_keys(t);
+        return t;
+    }
+
+    template <typename conT>
+    void all_values(conT& c) const
+    {
+        super::all_values(c);
+    }
+
+    template <typename conT>
+    conT all_values() const
+    {
+        conT t;
+        all_values(t);
+        return t;
     }
 
 };

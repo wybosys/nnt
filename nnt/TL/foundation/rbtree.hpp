@@ -66,6 +66,12 @@ public:
     void adjust_leave(node_type*);
     key_type const& key() const;
 
+    template <typename conT>
+    void all_keys(conT&) const;
+
+    template <typename conT>
+    void all_values(conT&) const;
+
     value_type val;
     
 private:
@@ -100,6 +106,12 @@ public:
     bool insert(key_type const&, value_type const&);
     node_type* lookup(key_type const&) const;
     bool remove(key_type const&);
+
+    template <typename conT>
+    void all_keys(conT&) const;
+
+    template <typename conT>
+    void all_values(conT&) const;
 
 protected:
 
@@ -548,6 +560,32 @@ template_impl typename rbnode<_RBNODE_TPL_ARG>::key_type const& rbnode<_RBNODE_T
     return _key;
 }
 
+_RBNODE_TPL_DECL
+template <typename conT>
+template_impl void rbnode<_RBNODE_TPL_ARG>::all_keys(conT& c) const
+{
+    if (is_nil())
+        return;
+    c.push_back(_key);
+    if (_link[SIDE_LEFT]->is_nil() == false)
+        _link[SIDE_LEFT]->all_keys(c);
+    if (_link[SIDE_RIGHT]->is_nil() == false)
+        _link[SIDE_RIGHT]->all_keys(c);
+}
+
+_RBNODE_TPL_DECL
+template <typename conT>
+template_impl void rbnode<_RBNODE_TPL_ARG>::all_values(conT& c) const
+{
+    if (is_nil())
+        return;
+    c.push_back(val);
+    if (_link[SIDE_LEFT]->is_nil() == false)
+        _link[SIDE_LEFT]->all_values(c);
+    if (_link[SIDE_RIGHT]->is_nil() == false)
+        _link[SIDE_RIGHT]->all_values(c);
+}
+
 NNT_END_NS
 
 _RBTREE_TPL_DECL
@@ -619,6 +657,24 @@ template_impl void rbtree<_RBTREE_TPL_ARG>::remove(node_type& node)
 
     node.leave();
     delete &node;
+}
+
+_RBTREE_TPL_DECL
+template <typename conT>
+template_impl void rbtree<_RBTREE_TPL_ARG>::all_keys(conT& con) const
+{
+    if (_root == NULL)
+        return;
+    _root->all_keys(con);
+}
+
+_RBTREE_TPL_DECL
+template <typename conT>
+template_impl void rbtree<_RBTREE_TPL_ARG>::all_values(conT& con) const
+{
+    if (_root == NULL)
+        return;
+    _root->all_values(con);
 }
 
 NNT_END_NS

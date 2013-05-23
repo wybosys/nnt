@@ -33,6 +33,30 @@ public:
         _vals = NULL;
     }
 
+    void reserve(usize sz)
+    {
+        if (_capacity >= val)
+            return;
+
+        if (_vals == NULL)
+        {
+            if (sz)
+                _vals = new value_type[sz];
+            else
+                _vals = new value_type;
+        }
+        else
+        {
+            value_type* nvals = new value_type[sz];
+            for (uint i = 0; i < _cnt; ++i)
+                nvals[i] = _vals[i];
+            clear();
+            _vals = nvals;
+        }
+
+        _capacity = sz;
+    }
+
     void push_back(value_type const& val)
     {
         bool extend = false;
