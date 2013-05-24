@@ -58,7 +58,22 @@ Device::device_t Device::handle() const
     return NULL;
 }
 
+Device::queue_t Device::queue() const
+{
+# ifdef NNT_MACH
+    return (queue_t)&d_ptr->queue;
 # endif
+    
+    return NULL;
+}
+
+# endif
+
+Device& Device::Current()
+{
+    static Device current = Device();
+    return current;
+}
 
 NNT_END_NS
 NNT_END_CXX

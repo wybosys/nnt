@@ -13,6 +13,7 @@ class Info
 {
 public:
     
+    Info();
     Info(Device const&);
     
     core::string name() const;

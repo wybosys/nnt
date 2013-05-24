@@ -5,6 +5,12 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(opencl)
 
+Info::Info()
+: _dev(Device::Current())
+{
+    
+}
+
 Info::Info(Device const& dev)
 : _dev(dev)
 {

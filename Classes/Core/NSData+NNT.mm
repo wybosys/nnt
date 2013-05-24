@@ -3,7 +3,6 @@
 # import "NSData+NNT.h"
 # import <zlib.h>
 # include <CommonCrypto/CommonDigest.h>
-# import "coretypes.h"
 
 NNT_BEGIN_OBJC
 
@@ -89,7 +88,7 @@ NNT_BEGIN_OBJC
 }
 
 - (uint)coreType {
-    return CoreTypeData;
+    return NNTCoreTypeData;
 }
 
 @end

@@ -1,7 +1,6 @@
 
 # import "Core.h"
 # import "AbstractCache.h"
-# import "coretypes.h"
 
 NNT_BEGIN_OBJC
 
@@ -201,11 +200,11 @@ static AbstractCache *__gs_defaultCache = nil;
             trace_msg(msg);
 # endif
         } break;
-        case CoreTypeArray: ret = [CacheItemArray class]; break;
-        case CoreTypePair: ret = [CacheItemPair class]; break;
-        case CoreTypeDictionary: ret = [CacheItemDictionary class]; break;
-        case CoreTypeString: ret = [CacheItemString class]; break;
-        case CoreTypeData: ret = [CacheItemData class]; break;
+        case NNTCoreTypeArray: ret = [CacheItemArray class]; break;
+        case NNTCoreTypePair: ret = [CacheItemPair class]; break;
+        case NNTCoreTypeDictionary: ret = [CacheItemDictionary class]; break;
+        case NNTCoreTypeString: ret = [CacheItemString class]; break;
+        case NNTCoreTypeData: ret = [CacheItemData class]; break;
     }
     return ret;
 }
@@ -214,7 +213,7 @@ static AbstractCache *__gs_defaultCache = nil;
     BOOL ret = YES;
     switch ([obj coreType]) {
         default: break;
-        case CoreTypePointer: ret = NO; break;
+        case NNTCoreTypePointer: ret = NO; break;
     }
     return ret;
 }

@@ -10,7 +10,6 @@
 #   import <Google/GTMBase64.h>
 # endif
 
-# import "coretypes.h"
 # import "Task+NNT.h"
 
 NNT_BEGIN_OBJC
@@ -347,7 +346,7 @@ NSData* base64_decode_data(NSData* data) {
 }
 
 - (uint)coreType {
-    return CoreTypePointer;
+    return NNTCoreTypePointer;
 }
 
 - (void*)object {

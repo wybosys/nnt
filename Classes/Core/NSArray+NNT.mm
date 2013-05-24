@@ -1,7 +1,6 @@
 
 # import "Core.h"
 # import "NSArray+NNT.h"
-# import "coretypes.h"
 
 NNT_BEGIN_OBJC
 
@@ -143,7 +142,7 @@ NNT_BEGIN_OBJC
 }
 
 - (uint)coreType {
-    return CoreTypeArray;
+    return NNTCoreTypeArray;
 }
 
 - (NSArray*)uniqueArray {

@@ -18,12 +18,18 @@ public:
     Device();
     ~Device();
     
+    static Device& Current();
+    
 public:
     
     typedef struct {} *device_t;
+    typedef struct {} *queue_t;
     
     //! get device handler.
     device_t handle() const;
+    
+    //! get device's queue.
+    queue_t queue() const;
     
 };
 
