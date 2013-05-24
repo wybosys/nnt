@@ -19,6 +19,7 @@
 		1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F1174F46F700C26C42 /* OCLFunction.h */; };
 		1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F4174F4AA100C26C42 /* OCLMath.h */; };
 		1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F6174F4D7800C26C42 /* CoreTypes.h */; };
+		1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1614B0F8174F6AC000C26C42 /* CUDA.framework */; };
 		161738311609711E00F1EA6E /* UcKernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617382F1609711E00F1EA6E /* UcKernel.cpp */; };
 		161738321609711E00F1EA6E /* UcKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738301609711E00F1EA6E /* UcKernel.h */; };
 		161738361609720200F1EA6E /* UcWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161738341609720200F1EA6E /* UcWindow.cpp */; };
@@ -1009,6 +1010,7 @@
 		1614B0F1174F46F700C26C42 /* OCLFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLFunction.h; path = ../Classes/HGC/OCLFunction.h; sourceTree = "<group>"; };
 		1614B0F4174F4AA100C26C42 /* OCLMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLMath.h; path = ../Classes/HGC/OCLMath.h; sourceTree = "<group>"; };
 		1614B0F6174F4D7800C26C42 /* CoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreTypes.h; path = ../Classes/Core/CoreTypes.h; sourceTree = "<group>"; };
+		1614B0F8174F6AC000C26C42 /* CUDA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CUDA.framework; path = /Library/Frameworks/CUDA.framework; sourceTree = "<absolute>"; };
 		1617382F1609711E00F1EA6E /* UcKernel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcKernel.cpp; sourceTree = "<group>"; };
 		161738301609711E00F1EA6E /* UcKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcKernel.h; sourceTree = "<group>"; };
 		161738341609720200F1EA6E /* UcWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcWindow.cpp; sourceTree = "<group>"; };
@@ -1975,6 +1977,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
 				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
 				167D00E6170967D200B94D5E /* CoreMedia.framework in Frameworks */,
@@ -2588,6 +2591,7 @@
 			children = (
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
+				1614B0F8174F6AC000C26C42 /* CUDA.framework */,
 				1614B0CA174F11C200C26C42 /* OpenCL.framework */,
 				167D00E91709681D00B94D5E /* AVFoundation.framework */,
 				167D00E5170967D100B94D5E /* CoreMedia.framework */,
