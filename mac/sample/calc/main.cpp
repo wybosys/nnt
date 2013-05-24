@@ -1,9 +1,7 @@
 
 # include <nnt/Foundation+NNT.h>
 
-# include <nnt/HGC/OCLDevice.h>
 # include <nnt/HGC/OCLInfo.h>
-# include <nnt/HGC/OCLFunction.h>
 # include <nnt/HGC/OCLMath.h>
 
 int main(int argc, const char * argv[])
