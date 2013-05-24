@@ -2,7 +2,6 @@
 # import "Core.h"
 # import "NSObject+NNT.h"
 # import <objc/runtime.h>
-# import "coretypes.h"
 
 NNT_BEGIN_OBJC
 
@@ -705,7 +704,7 @@ trace_msg(msg); \
 }
 
 - (uint)coreType {
-    return CoreTypeObject;
+    return NNTCoreTypeObject;
 }
 
 - (NNTValueType)valueType {

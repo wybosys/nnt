@@ -3,7 +3,6 @@
 # import "FileCache.h"
 # import "Directory+NNT.h"
 //# import <Google/GDataXMLNode.h>
-# import "coretypes.h"
 # import "XmlParser.h"
 
 NNT_BEGIN_OBJC
@@ -131,11 +130,11 @@ NNT_BEGIN_OBJC
             trace_msg(msg);
 # endif
         } break;
-        case CoreTypeArray: ret = [CacheItemArrayFileCache class]; break;
-        case CoreTypePair: ret = [CacheItemPairFileCache class]; break;
-        case CoreTypeDictionary: ret = [CacheItemDictionaryFileCache class]; break;
-        case CoreTypeString: ret = [CacheItemStringFileCache class]; break;
-        case CoreTypeData: ret = [CacheItemDataFileCache class]; break;
+        case NNTCoreTypeArray: ret = [CacheItemArrayFileCache class]; break;
+        case NNTCoreTypePair: ret = [CacheItemPairFileCache class]; break;
+        case NNTCoreTypeDictionary: ret = [CacheItemDictionaryFileCache class]; break;
+        case NNTCoreTypeString: ret = [CacheItemStringFileCache class]; break;
+        case NNTCoreTypeData: ret = [CacheItemDataFileCache class]; break;
     }
     return ret;
 }

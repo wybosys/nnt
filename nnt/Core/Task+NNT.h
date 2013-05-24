@@ -24,7 +24,9 @@ NNT_END_HEADER_OBJC
 # ifdef NNT_USER_SPACE
 
 # ifdef NNT_UNIX
+
 #   include <semaphore.h>
+
 # endif
 
 NNT_BEGIN_HEADER_CXX 

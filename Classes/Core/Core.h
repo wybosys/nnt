@@ -33,10 +33,16 @@
 #     endif
 #   endif
 
-# else // c
+# elif defined(__OPENCL_C__) && __OPENCL_C__
+
+#   define NNT_C_OPENCL 1
+#   define CXX_EXPRESS(exp)
+#   define C_EXPRESS(exp)
+
+# else
     
-#   define NNT_C
-#   define NNT_C_COMPATIABLE
+#   define NNT_C 1
+#   define NNT_C_COMPATIABLE 1
 #   define CXX_EXPRESS(exp)
 #   define C_EXPRESS(exp) exp
 
@@ -58,8 +64,19 @@
 # endif
 
 # ifdef __APPLE__
-#   define NNT_MACH 1
+
 #   include <TargetConditionals.h>
+
+#   if defined(TARGET_OS_MAC) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
+
+#     define NNT_MACH 1
+
+#   endif
+
+#   ifndef __unix__
+#     define __unix__ 1
+#   endif
+
 # endif
 
 # ifdef __FreeBSD__
@@ -74,19 +91,26 @@
 #   define NNT_UNIX 1
 # endif
 
-# if defined(__i386) || defined(_M_IX86)
-#   define NNT_X32 1
-# endif
-
 # if (defined(__LP64__) && __LP64__) || defined(_M_IA64) || defined(__amd64) || defined(_M_X64) || (defined(_LP64) && _LP64)
 #   define NNT_X64 1
 # endif
 
-# ifdef __arm
-#   define NNT_ARM 1
-# ifndef NNT_X32
+# if defined(__i386) || defined(_M_IX86) || (defined(__POINTER_WIDTH__) && __POINTER_WIDTH__ == 32)
 #   define NNT_X32 1
 # endif
+
+# ifdef __arm
+
+#   define NNT_ARM 1
+
+#   ifndef NNT_X32
+#     define NNT_X32 1
+#   endif
+
+# endif
+
+# ifdef __OPENCL__
+#   define NNT_OPENCL 1
 # endif
 
 # if defined(LIBNNT) || defined(DLLNNT)
@@ -94,9 +118,19 @@
 # endif
 
 # ifdef KERNELNNT
+
 #   define NNT_KERNEL_SPACE 1
+#   define NNT_CPU_SPACE 1
+
+# elif defined(NNT_C_OPENCL)
+
+#   define NNT_GPU_SPACE 1
+
 # else
+
 #   define NNT_USER_SPACE 1
+#   define NNT_CPU_SPACE 1
+
 # endif
 
 # ifdef NNT_KERNEL_SPACE
@@ -200,6 +234,34 @@
 #   endif
 # endif
 
+# ifdef NNT_MACH
+
+#   if TARGET_IPHONE_SIMULATOR
+#     define NNT_SIMULATOR 1
+#   else
+#     define NNT_DEVICE 1
+#   endif
+
+#   if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+#     define NNT_TARGET_IOS 1
+#   elif TARGET_OS_MAC
+#     define NNT_TARGET_MAC 1
+#   endif
+
+# endif
+
+# ifdef NNT_TARGET_MAC
+
+#   ifndef NNT_OPENCL
+#     define NNT_OPENCL 1
+#   endif
+
+#   ifdef NNT_USER_SPACE
+#     include <OpenCL/opencl.h>
+#   endif
+
+# endif
+
 # ifdef NNT_MSVC
 #   pragma warning (disable: 4996)
 #   pragma warning (disable: 4068)
@@ -226,7 +288,29 @@
 #   define NNT_BLOCKS 1
 # endif
 
-# define NNT_CONST_VAR(type, var) const type var
+# ifdef NNT_C_OPENCL
+#   define NNT_CONST __constant
+#   define NNT_GLOBAL __global
+#   define NNT_LOCAL __local
+//#   define NNT_PRIVATE __private
+#   define NNT_STATIC static
+# else
+#   define NNT_CONST const
+#   define NNT_GLOBAL
+#   define NNT_LOCAL
+//#   define NNT_PRIVATE
+#   define NNT_STATIC static
+# endif
+
+# ifdef NNT_CXX
+
+#   define NNT_CONST_VAR(type, var) NNT_CONST type var = type ()
+
+# else
+
+#   define NNT_CONST_VAR(type, var) NNT_CONST type var
+
+# endif
 
 # ifdef NNT_CXX
 
@@ -354,7 +438,7 @@ typedef ios_unknown ios_version;
 # define NNT_INLINE inline
 # define NNT_STATIC static
 # define NNT_STATIC_IMPL
-# define NNT_STATIC_CONST static const
+# define NNT_STATIC_CONST NNT_STATIC NNT_CONST
 # define NNT_STATIC_CONST_IMPL
 # define inline_impl inline
 # define template_impl
@@ -405,6 +489,7 @@ typedef struct {} lang_unknown;
 typedef struct {} lang_objc;
 typedef struct {} lang_c;
 typedef struct {} lang_cxx;
+typedef struct {} lang_opencl;
 
 typedef struct {} compr_unknown;
 typedef struct {} compr_gcc;
@@ -413,6 +498,7 @@ typedef struct {} compr_clang;
 
 typedef struct {} space_kernel;
 typedef struct {} space_user;
+typedef struct {} space_gpu;
 
 # ifdef NNT_X64
 typedef arch_x64 arch_type;
@@ -438,6 +524,8 @@ typedef os_unix os_type;
 typedef lang_objc lang_type;
 # elif defined(NNT_CXX)
 typedef lang_cxx lang_type;
+# elif defined(NNT_C_OPENCL)
+typedef lang_opencl lang_type;
 # elif defined(NNT_C)
 typedef lang_c lang_type;
 # endif
@@ -452,15 +540,20 @@ typedef compr_clang compr_type;
 
 # ifdef NNT_KERNEL_SPACE
 typedef space_kernel space_type;
+# elif defined(NNT_GPU_SPACE)
+typedef space_gpu space_type;
 # else
 typedef space_user space_type;
 # endif
 
-NNT_STATIC_CONST arch_type arch_object(void);
-NNT_STATIC_CONST os_type os_object(void);
-NNT_STATIC_CONST lang_type lang_object(void);
-NNT_STATIC_CONST compr_type compr_object(void);
-NNT_STATIC_CONST space_type space_object(void);
+NNT_CONST_VAR(arch_type, arch_object);
+NNT_CONST_VAR(lang_type, lang_object);
+NNT_CONST_VAR(compr_type, compr_object);
+NNT_CONST_VAR(space_type, space_object);
+
+# ifdef NNT_CPU_SPACE
+NNT_CONST_VAR(os_type, os_object);
+# endif
 
 # define NNTASM_BEGIN __asm {
 # define NNTASM_END }
@@ -470,7 +563,11 @@ exp \
 NNTASM_END
 
 # define NNT_NAMESPACE nnt
+
+# ifdef NNT_CXX
 namespace nnt {}
+# endif
+
 # define NNT_BEGIN_CXX namespace NNT_NAMESPACE {
 # define NNT_END_CXX   }
 # define NNT_TYPE(type) ::NNT_NAMESPACE::type
@@ -848,29 +945,19 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # ifdef NNT_MACH
 
-# if defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR
+# ifdef NNT_SIMULATOR
 #    define NNTSIM_EXPRESS(exp) exp
-#    define NNT_SIMULATOR
 # else
 #    define NNTSIM_EXPRESS(exp) SPACE
-#    define NNT_DEVICE
-# endif
-
-# if (defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR) || (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE)
-#    define NNTOS_EXPRESS(exp) exp
-# else
-#    define NNTOS_EXPRESS(exp) SPACE
 # endif
 
 # if TARGET_OS_IPHONE
-#    define NNT_TARGET_IOS 1
 #    define IOSEXPRESS(exp) exp
 #    define MACEXPRESS(exp) SPACE
 #    define MAC_IOS_SELECT(mac, ios) ios
 #    define NNT_ISPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #    define NNT_ISPHONE !NNT_ISPAD
 # elif TARGET_OS_MAC
-#    define NNT_TARGET_MAC 1
 #    define IOSEXPRESS(exp) SPACE
 #    define MACEXPRESS(exp) exp
 #    define MAC_IOS_SELECT(mac, ios) mac
@@ -1049,7 +1136,10 @@ static void* ptr_offset(void* ptr, usize val)
 
 # if defined(NNT_C) && !defined(NNT_OBJC) && defined(NNT_USER_SPACE)
 
+#   ifndef bool
 typedef int bool;
+#   endif
+
 #   ifndef true
 #     define true  1
 #   endif
@@ -1173,23 +1263,6 @@ typedef struct _short_b4 {
     int _3:4;
 } short_b4;
 
-typedef enum _NNTValueType {
-    NNTValueTypeUnknown,
-    NNTValueTypeInt,
-    NNTValueTypeUInt,
-    NNTValueTypeShort,
-    NNTValueTypeUShort,
-    NNTValueTypeChar,
-    NNTValueTypeUChar,
-    NNTValueTypeLong,
-    NNTValueTypeULong,
-    NNTValueTypeLongLong,
-    NNTValueTypeULongLong,
-    NNTValueTypeString,
-    NNTValueTypeFloat,
-    NNTValueTypeDouble,
-} NNTValueType;
-
 typedef struct {
     uint major;
     uint minor;
@@ -1245,7 +1318,9 @@ NNT_OPERATOR_IMPL(version_t);
 # define NNT_VERSION_VALUE          ((NNT_VERSION_MAJOR << 16 & 0xff0000) | (NNT_VERSION_MIN << 8 & 0xff00) | (NNT_VERSION_FIX & 0xff))
 # define NNT_CODENAME_STR           NNTMACRO_TOSTR(NNT_CODENAME)
 
+# ifdef NNT_CPU_SPACE
 NNT_STATIC_CONST version_t NNTVERSION = {NNT_VERSION_MAJOR, NNT_VERSION_MIN, NNT_VERSION_FIX, NNT_VERSION_STR};
+# endif
 
 NNT_BEGIN_HEADER_C
 
@@ -1629,6 +1704,7 @@ static void trace_msg(char const* msg)
 # endif
 
 // include all base class.
+# include "./CoreTypes.h"
 # include "./Object.h"
 
 // pre include objc's object for may inherited by C++ object.

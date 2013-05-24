@@ -1,7 +1,6 @@
 
 # import "Core.h"
 # import "Tuple+NNT.h"
-# import "../Core/coretypes.h"
 
 # ifdef NNT_OBJC
 
@@ -91,7 +90,7 @@ NNT_BEGIN_OBJC
 
 //! coretype.
 - (uint)coreType {
-    return CoreTypePair;
+    return NNTCoreTypePair;
 }
 
 @end

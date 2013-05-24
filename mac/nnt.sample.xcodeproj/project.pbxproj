@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		160FB0A91544E9AC00D3A8FB /* Directory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */; };
 		1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1614B0CA174F11C200C26C42 /* OpenCL.framework */; };
+		1614B0E5174F17C700C26C42 /* math.cl in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0E4174F17C700C26C42 /* math.cl */; };
+		1614B0E8174F1BA600C26C42 /* OCLInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0E6174F1BA600C26C42 /* OCLInfo.cpp */; };
+		1614B0E9174F1BA600C26C42 /* OCLInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0E7174F1BA600C26C42 /* OCLInfo.h */; };
+		1614B0EC174F1D8900C26C42 /* OCLDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */; };
+		1614B0ED174F1D8900C26C42 /* OCLDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0EB174F1D8900C26C42 /* OCLDevice.h */; };
+		1614B0EF174F44F700C26C42 /* OCLMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0EE174F44F700C26C42 /* OCLMath.cpp */; };
+		1614B0F2174F46F700C26C42 /* OCLFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0F0174F46F700C26C42 /* OCLFunction.cpp */; };
+		1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F1174F46F700C26C42 /* OCLFunction.h */; };
+		1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F4174F4AA100C26C42 /* OCLMath.h */; };
+		1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F6174F4D7800C26C42 /* CoreTypes.h */; };
 		161738311609711E00F1EA6E /* UcKernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617382F1609711E00F1EA6E /* UcKernel.cpp */; };
 		161738321609711E00F1EA6E /* UcKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738301609711E00F1EA6E /* UcKernel.h */; };
 		161738361609720200F1EA6E /* UcWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161738341609720200F1EA6E /* UcWindow.cpp */; };
@@ -174,7 +184,6 @@
 		1648F87B158727BD00A47990 /* StyleStringParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F875158727BD00A47990 /* StyleStringParser.mm */; };
 		1648F87C158727BD00A47990 /* SVGParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1648F876158727BD00A47990 /* SVGParser.cpp */; };
 		1648F87D158727BD00A47990 /* SVGParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F877158727BD00A47990 /* SVGParser.h */; };
-		1648F88C1587287900A47990 /* coretypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F87E1587287800A47990 /* coretypes.h */; };
 		1648F88D1587287900A47990 /* NSDate+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F87F1587287800A47990 /* NSDate+NNT.h */; };
 		1648F88E1587287900A47990 /* NSDate+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8801587287800A47990 /* NSDate+NNT.mm */; };
 		1648F88F1587287900A47990 /* NSIndex+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8811587287800A47990 /* NSIndex+NNT.h */; };
@@ -990,6 +999,16 @@
 /* Begin PBXFileReference section */
 		160FB0A81544E9AC00D3A8FB /* Directory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Directory+NNT.cpp"; path = "../Classes/Core/Directory+NNT.cpp"; sourceTree = "<group>"; };
 		1614B0CA174F11C200C26C42 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = /System/Library/Frameworks/OpenCL.framework; sourceTree = "<absolute>"; };
+		1614B0E4174F17C700C26C42 /* math.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; name = math.cl; path = ../Classes/HGC/math.cl; sourceTree = "<group>"; };
+		1614B0E6174F1BA600C26C42 /* OCLInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OCLInfo.cpp; path = ../Classes/HGC/OCLInfo.cpp; sourceTree = "<group>"; };
+		1614B0E7174F1BA600C26C42 /* OCLInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLInfo.h; path = ../Classes/HGC/OCLInfo.h; sourceTree = "<group>"; };
+		1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OCLDevice.cpp; path = ../Classes/HGC/OCLDevice.cpp; sourceTree = "<group>"; };
+		1614B0EB174F1D8900C26C42 /* OCLDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLDevice.h; path = ../Classes/HGC/OCLDevice.h; sourceTree = "<group>"; };
+		1614B0EE174F44F700C26C42 /* OCLMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OCLMath.cpp; path = ../Classes/HGC/OCLMath.cpp; sourceTree = "<group>"; };
+		1614B0F0174F46F700C26C42 /* OCLFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OCLFunction.cpp; path = ../Classes/HGC/OCLFunction.cpp; sourceTree = "<group>"; };
+		1614B0F1174F46F700C26C42 /* OCLFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLFunction.h; path = ../Classes/HGC/OCLFunction.h; sourceTree = "<group>"; };
+		1614B0F4174F4AA100C26C42 /* OCLMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLMath.h; path = ../Classes/HGC/OCLMath.h; sourceTree = "<group>"; };
+		1614B0F6174F4D7800C26C42 /* CoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreTypes.h; path = ../Classes/Core/CoreTypes.h; sourceTree = "<group>"; };
 		1617382F1609711E00F1EA6E /* UcKernel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcKernel.cpp; sourceTree = "<group>"; };
 		161738301609711E00F1EA6E /* UcKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcKernel.h; sourceTree = "<group>"; };
 		161738341609720200F1EA6E /* UcWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcWindow.cpp; sourceTree = "<group>"; };
@@ -1155,7 +1174,6 @@
 		1648F875158727BD00A47990 /* StyleStringParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StyleStringParser.mm; sourceTree = "<group>"; };
 		1648F876158727BD00A47990 /* SVGParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SVGParser.cpp; sourceTree = "<group>"; };
 		1648F877158727BD00A47990 /* SVGParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGParser.h; sourceTree = "<group>"; };
-		1648F87E1587287800A47990 /* coretypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = coretypes.h; path = ../Classes/Core/coretypes.h; sourceTree = "<group>"; };
 		1648F87F1587287800A47990 /* NSDate+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+NNT.h"; path = "../Classes/Core/NSDate+NNT.h"; sourceTree = "<group>"; };
 		1648F8801587287800A47990 /* NSDate+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSDate+NNT.mm"; path = "../Classes/Core/NSDate+NNT.mm"; sourceTree = "<group>"; };
 		1648F8811587287800A47990 /* NSIndex+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSIndex+NNT.h"; path = "../Classes/Core/NSIndex+NNT.h"; sourceTree = "<group>"; };
@@ -2001,6 +2019,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1614B0E3174F17B400C26C42 /* HGC */ = {
+			isa = PBXGroup;
+			children = (
+				1614B0F0174F46F700C26C42 /* OCLFunction.cpp */,
+				1614B0F1174F46F700C26C42 /* OCLFunction.h */,
+				1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */,
+				1614B0EB174F1D8900C26C42 /* OCLDevice.h */,
+				1614B0E6174F1BA600C26C42 /* OCLInfo.cpp */,
+				1614B0E7174F1BA600C26C42 /* OCLInfo.h */,
+				1614B0EE174F44F700C26C42 /* OCLMath.cpp */,
+				1614B0F4174F4AA100C26C42 /* OCLMath.h */,
+				1614B0E4174F17C700C26C42 /* math.cl */,
+			);
+			name = HGC;
+			sourceTree = "<group>";
+		};
 		1617382E1609711E00F1EA6E /* Cross */ = {
 			isa = PBXGroup;
 			children = (
@@ -2638,6 +2672,7 @@
 				167EBA9914F368670012570E /* Cross */,
 				16FE6652152704F90095521B /* Engine */,
 				16F98CF0149EE19800240965 /* Graphic */,
+				1614B0E3174F17B400C26C42 /* HGC */,
 				167D010F1709726500B94D5E /* Mach */,
 				16FE664C152704A70095521B /* Math */,
 				167EBABD14F3699C0012570E /* Model */,
@@ -2668,6 +2703,7 @@
 				169DD1481457A4B5000A9889 /* ColorPalette.h */,
 				169DD1491457A4B5000A9889 /* ColorPalette.cpp */,
 				169DD14A1457A4B5000A9889 /* Core.h */,
+				1614B0F6174F4D7800C26C42 /* CoreTypes.h */,
 				169DD14B1457A4B5000A9889 /* Core.mm */,
 				16AC3B5915088B9F007AC666 /* Core.cpp */,
 				169DD14C1457A4B5000A9889 /* Directory+NNT.h */,
@@ -2701,7 +2737,6 @@
 				169DD1671457A4B5000A9889 /* NSObject+NNT.mm */,
 				169DD1681457A4B5000A9889 /* NSString+NNT.h */,
 				16A44A00149F14C600DF7F82 /* NSString+NNT.mm */,
-				1648F87E1587287800A47990 /* coretypes.h */,
 				1648F87F1587287800A47990 /* NSDate+NNT.h */,
 				1648F8801587287800A47990 /* NSDate+NNT.mm */,
 				1648F8811587287800A47990 /* NSIndex+NNT.h */,
@@ -3843,7 +3878,6 @@
 				1648F878158727BD00A47990 /* GifParser.h in Headers */,
 				1648F87A158727BD00A47990 /* StyleStringParser.h in Headers */,
 				1648F87D158727BD00A47990 /* SVGParser.h in Headers */,
-				1648F88C1587287900A47990 /* coretypes.h in Headers */,
 				1648F88D1587287900A47990 /* NSDate+NNT.h in Headers */,
 				1648F88F1587287900A47990 /* NSIndex+NNT.h in Headers */,
 				1648F8911587287900A47990 /* NSOperation+NNT.h in Headers */,
@@ -3987,6 +4021,11 @@
 				1630A7FC171BFC1400B318A9 /* CmdArguments.h in Headers */,
 				1630A7FE171BFC1400B318A9 /* NetAddress.h in Headers */,
 				1630A802171BFC2500B318A9 /* SOAPObject.h in Headers */,
+				1614B0E9174F1BA600C26C42 /* OCLInfo.h in Headers */,
+				1614B0ED174F1D8900C26C42 /* OCLDevice.h in Headers */,
+				1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */,
+				1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */,
+				1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4022,7 +4061,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 169DD10C1457A239000A9889 /* Build configuration list for PBXProject "nnt" */;
+			buildConfigurationList = 169DD10C1457A239000A9889 /* Build configuration list for PBXProject "nnt.sample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -4476,6 +4515,11 @@
 				1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */,
 				1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */,
 				1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */,
+				1614B0E5174F17C700C26C42 /* math.cl in Sources */,
+				1614B0E8174F1BA600C26C42 /* OCLInfo.cpp in Sources */,
+				1614B0EC174F1D8900C26C42 /* OCLDevice.cpp in Sources */,
+				1614B0EF174F44F700C26C42 /* OCLMath.cpp in Sources */,
+				1614B0F2174F46F700C26C42 /* OCLFunction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4609,7 +4653,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		169DD10C1457A239000A9889 /* Build configuration list for PBXProject "nnt" */ = {
+		169DD10C1457A239000A9889 /* Build configuration list for PBXProject "nnt.sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				169DD1261457A239000A9889 /* Debug */,

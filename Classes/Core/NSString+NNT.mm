@@ -14,8 +14,6 @@ NNT_END_HEADER_OBJC
 #   import <Google/GTMBase64.h>
 # endif
 
-# import "coretypes.h"
-
 NNT_BEGIN_OBJC
 
 NSStringEncoding NSGB18030Encoding = 0x80000632;
@@ -198,7 +196,7 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
 }
 
 - (uint)coreType {
-    return CoreTypeString;
+    return NNTCoreTypeString;
 }
 
 - (NNTValueType)valueType {

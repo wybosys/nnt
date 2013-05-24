@@ -1,7 +1,6 @@
 
 # import "Core.h"
 # import "NSDictionary+NNT.h"
-# import "coretypes.h"
 
 NNT_BEGIN_OBJC
 
@@ -92,7 +91,7 @@ NNT_BEGIN_OBJC
 }
 
 - (uint)coreType {
-    return CoreTypeDictionary;
+    return NNTCoreTypeDictionary;
 }
 
 - (NSArray*)pairArray {
