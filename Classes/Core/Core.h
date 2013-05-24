@@ -58,8 +58,19 @@
 # endif
 
 # ifdef __APPLE__
-#   define NNT_MACH 1
+
 #   include <TargetConditionals.h>
+
+#   if defined(TARGET_OS_MAC) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
+
+#     define NNT_MACH 1
+
+#   endif
+
+#   ifndef __unix__
+#     define __unix__ 1
+#   endif
+
 # endif
 
 # ifdef __FreeBSD__
@@ -83,10 +94,13 @@
 # endif
 
 # ifdef __arm
+
 #   define NNT_ARM 1
-# ifndef NNT_X32
-#   define NNT_X32 1
-# endif
+
+#   ifndef NNT_X32
+#     define NNT_X32 1
+#   endif
+
 # endif
 
 # if defined(LIBNNT) || defined(DLLNNT)
@@ -200,6 +214,29 @@
 #   endif
 # endif
 
+# ifdef NNT_MACH
+
+#   if TARGET_IPHONE_SIMULATOR
+#     define NNT_SIMULATOR 1
+#   else
+#     define NNT_DEVICE 1
+#   endif
+
+#   if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+#     define NNT_TARGET_IOS 1
+#   elif TARGET_OS_MAC
+#     define NNT_TARGET_MAC 1
+#   endif
+
+# endif
+
+# ifdef NNT_TARGET_MAC
+
+#   define NNT_OPENCL 1
+#   include <OpenCL/opencl.h>
+
+# endif
+
 # ifdef NNT_MSVC
 #   pragma warning (disable: 4996)
 #   pragma warning (disable: 4068)
@@ -226,7 +263,11 @@
 #   define NNT_BLOCKS 1
 # endif
 
-# define NNT_CONST_VAR(type, var) const type var
+# if defined(NNT_MSVC)
+#   define NNT_CONST_VAR(type, var, arg) const type var
+# else
+#   define NNT_CONST_VAR(type, var, arg) const type var = type arg
+# endif
 
 # ifdef NNT_CXX
 
@@ -241,7 +282,7 @@ struct _nullptr
     }
 };
 
-NNT_CONST_VAR(_nullptr, nullptr);
+NNT_CONST_VAR(_nullptr, nullptr, ());
 
 #   endif
 
@@ -269,7 +310,7 @@ public:
     
 };
 
-NNT_CONST_VAR(_nullobj, nullobj);
+NNT_CONST_VAR(_nullobj, nullobj, ());
 
 # endif
 
@@ -470,7 +511,11 @@ exp \
 NNTASM_END
 
 # define NNT_NAMESPACE nnt
+
+# ifdef NNT_CXX
 namespace nnt {}
+# endif
+
 # define NNT_BEGIN_CXX namespace NNT_NAMESPACE {
 # define NNT_END_CXX   }
 # define NNT_TYPE(type) ::NNT_NAMESPACE::type
@@ -848,29 +893,19 @@ private: static void* operator new (size_t); static void* operator new[] (size_t
 
 # ifdef NNT_MACH
 
-# if defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR
+# ifdef NNT_SIMULATOR
 #    define NNTSIM_EXPRESS(exp) exp
-#    define NNT_SIMULATOR
 # else
 #    define NNTSIM_EXPRESS(exp) SPACE
-#    define NNT_DEVICE
-# endif
-
-# if (defined(TARGET_IPHONE_SIMULATOR) && TARGET_IPHONE_SIMULATOR) || (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE)
-#    define NNTOS_EXPRESS(exp) exp
-# else
-#    define NNTOS_EXPRESS(exp) SPACE
 # endif
 
 # if TARGET_OS_IPHONE
-#    define NNT_TARGET_IOS 1
 #    define IOSEXPRESS(exp) exp
 #    define MACEXPRESS(exp) SPACE
 #    define MAC_IOS_SELECT(mac, ios) ios
 #    define NNT_ISPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #    define NNT_ISPHONE !NNT_ISPAD
 # elif TARGET_OS_MAC
-#    define NNT_TARGET_MAC 1
 #    define IOSEXPRESS(exp) SPACE
 #    define MACEXPRESS(exp) exp
 #    define MAC_IOS_SELECT(mac, ios) mac
@@ -1049,7 +1084,10 @@ static void* ptr_offset(void* ptr, usize val)
 
 # if defined(NNT_C) && !defined(NNT_OBJC) && defined(NNT_USER_SPACE)
 
+#   ifndef bool
 typedef int bool;
+#   endif
+
 #   ifndef true
 #     define true  1
 #   endif

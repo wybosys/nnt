@@ -26,6 +26,11 @@ public:
     {
         PASS;
     }
+    
+    virtual ~basic() throw()
+    {
+        PASS;
+    }
 
     ::std::string file;
     ulong line;
