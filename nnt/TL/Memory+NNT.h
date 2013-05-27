@@ -170,6 +170,34 @@ public:
 
 # endif
 
+template <typename osT>
+class Memory <osT, space_gpu>
+{
+public:
+    
+    static void Copy(void* des, void const* src, usize len)
+    {
+        MUSTIMPLEMENT;
+    }
+    
+    static void Move(void* des, void const* src, usize len)
+    {
+        MUSTIMPLEMENT;
+    }
+    
+    static void Fill(void* des, usize len, int data)
+    {
+        MUSTIMPLEMENT;
+    }
+    
+    static bool Equal(void const* des, void const* src, usize len)
+    {
+        MUSTIMPLEMENT;
+        return false;
+    }
+    
+};
+
 template <typename objT>
 inline size_t size_of(objT const&)
 {

@@ -39,14 +39,19 @@
 #   define CXX_EXPRESS(exp)
 #   define C_EXPRESS(exp)
 
-# else
+# else // c.
     
 #   define NNT_C 1
 #   define NNT_C_COMPATIABLE 1
 #   define CXX_EXPRESS(exp)
 #   define C_EXPRESS(exp) exp
 
-# endif // c++
+# endif // detect c or c++.
+
+# ifdef __CUDACC__
+#   define NNT_NVIDIA 1
+#   define NNT_CC_CUDA 1
+# endif
 
 # ifdef __llvm__
 #   define NNT_CC_LLVM 1
@@ -117,19 +122,24 @@
 #   define NNT_LIBRARY 1
 # endif
 
+// for runtime space.
+// in kernel.
 # ifdef KERNELNNT
 
 #   define NNT_KERNEL_SPACE 1
 #   define NNT_CPU_SPACE 1
 
-# elif defined(NNT_C_OPENCL)
+// in gpu compiler.
+# elif defined(NNT_C_OPENCL) || defined(NNT_CC_CUDA)
 
 #   define NNT_GPU_SPACE 1
 
+// other.
 # else
 
 #   define NNT_USER_SPACE 1
 #   define NNT_CPU_SPACE 1
+#   define NNT_STL 1
 
 # endif
 
@@ -288,28 +298,40 @@
 #   define NNT_BLOCKS 1
 # endif
 
-# ifdef NNT_C_OPENCL
+# if defined(NNT_C_OPENCL)
 #   define NNT_CONST __constant
 #   define NNT_GLOBAL __global
 #   define NNT_LOCAL __local
-//#   define NNT_PRIVATE __private
+#   define NNT_SHARED
+#   define NNT_HOST
+#   define NNT_STATIC static
+# elif defined(NNT_CC_CUDA)
+#   define NNT_CONST __constant__
+#   define NNT_GLOBAL __global__
+#   define NNT_LOCAL __device__
+#   define NNT_SHARED __shared__
+#   define NNT_HOST __host__
 #   define NNT_STATIC static
 # else
 #   define NNT_CONST const
 #   define NNT_GLOBAL
 #   define NNT_LOCAL
-//#   define NNT_PRIVATE
+#   define NNT_SHARED
+#   define NNT_HOST
 #   define NNT_STATIC static
 # endif
 
+# define NNT_CONST_VAR_CXX(type, var) NNT_CONST type var = type ()
+# define NNT_CONST_VAR_C(type, var) NNT_CONST type var
+
 # ifdef NNT_CXX
-
-#   define NNT_CONST_VAR(type, var) NNT_CONST type var = type ()
-
+#   ifdef NNT_CC_CUDA
+#     define NNT_CONST_VAR(type, var) __constant__ type var;
+#   else
+#     define NNT_CONST_VAR NNT_CONST_VAR_CXX
+#   endif
 # else
-
-#   define NNT_CONST_VAR(type, var) NNT_CONST type var
-
+#   define NNT_CONST_VAR NNT_CONST_VAR_C
 # endif
 
 # ifdef NNT_CXX
@@ -484,12 +506,18 @@ typedef struct {} os_unix;
 typedef struct {} os_mach;
 typedef struct {} os_bsd;
 typedef struct {} os_linux;
+typedef struct {} osgpu_nvidia;
+typedef struct {} osgpu_amd;
+typedef struct {} osgpu_intel;
+typedef struct {} osgpu_opengl;
+typedef struct {} osgpu_directx;
 
 typedef struct {} lang_unknown;
 typedef struct {} lang_objc;
 typedef struct {} lang_c;
 typedef struct {} lang_cxx;
 typedef struct {} lang_opencl;
+typedef struct {} lang_cuda;
 
 typedef struct {} compr_unknown;
 typedef struct {} compr_gcc;
@@ -510,6 +538,8 @@ typedef arch_x32 arch_type;
 
 # ifdef NNT_WINDOWS
 typedef os_windows os_type;
+# elif defined(NNT_NVIDIA)
+typedef osgpu_nvidia os_type;
 # elif defined(NNT_MACH)
 typedef os_mach os_type;
 # elif defined(NNT_LINUX)
@@ -526,6 +556,8 @@ typedef lang_objc lang_type;
 typedef lang_cxx lang_type;
 # elif defined(NNT_C_OPENCL)
 typedef lang_opencl lang_type;
+# elif defined(NNT_CC_CUDA)
+typedef lang_cuda lang_type;
 # elif defined(NNT_C)
 typedef lang_c lang_type;
 # endif
@@ -631,6 +663,7 @@ namespace nnt {}
 # define SPACE
 # define TODO(express) {SPACE}
 # define PASS {SPACE}
+# define MUSTIMPLEMENT {SPACE}
 
 # define NNTMACRO_SELF(val)                    val
 # define _NNTMACRO_TOSTR(val)                  #val

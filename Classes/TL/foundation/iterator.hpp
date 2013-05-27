@@ -5,6 +5,16 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(foundation)
 
+template <typename T>
+inline void initial(T&)
+{}
+
+template <typename T>
+inline void initial(T*& ptr)
+{
+    ptr = NULL;
+}
+
 template <typename lT, typename rT>
 class pair
 {
@@ -138,7 +148,7 @@ public:
 
     basic_iterator()
     {
-        ntl::initial(obj);
+        initial(obj);
     }
 
     static implT Instance(objT const& o)
