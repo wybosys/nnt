@@ -888,6 +888,8 @@
 		16F66893175330C20082F548 /* Allocate+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F66891175330C20082F548 /* Allocate+NNT.h */; };
 		16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F66894175330D00082F548 /* Memory+NNT.cpp */; };
 		16F66897175330D00082F548 /* Memory+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F66895175330D00082F548 /* Memory+NNT.h */; };
+		16F6689B17533BD00082F548 /* math.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16F6689817533A850082F548 /* math.cu */; };
+		16F668B3175340A80082F548 /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F668B2175340A80082F548 /* libcudart.dylib */; };
 		16F92EEE1521689800D09C5D /* Shell+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F92EEC1521689800D09C5D /* Shell+NNT.cpp */; };
 		16F92EEF1521689800D09C5D /* Shell+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F92EED1521689800D09C5D /* Shell+NNT.h */; };
 		16F98D23149EE19800240965 /* NGTextLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF1149EE19800240965 /* NGTextLayer.h */; };
@@ -1004,6 +1006,17 @@
 				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o",
 			);
 			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nYASM_MACH=macho64\nelse\nYASM_MACH=macho32\nfi\n\n/opt/local/bin/yasm -w -f ${YASM_MACH} -d ${YASM_MACH} -rnasm -pgas -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+		};
+		16F6689A17533A980082F548 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.cu";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o",
+			);
+			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nMACH=-m64\nexport PATH=${PATH}:../bin/mac/64\nelse\nMACH=\nfi\n\nexport PATH=${PATH}:../bin/mac\n\n/Developer/NVIDIA/CUDA-5.0/bin/nvcc -G -g -O0 ${MACH} -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o -c ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
 		};
 /* End PBXBuildRule section */
 
@@ -1897,6 +1910,8 @@
 		16F66891175330C20082F548 /* Allocate+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Allocate+NNT.h"; path = "../Classes/TL/Allocate+NNT.h"; sourceTree = "<group>"; };
 		16F66894175330D00082F548 /* Memory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Memory+NNT.cpp"; path = "../Classes/TL/Memory+NNT.cpp"; sourceTree = "<group>"; };
 		16F66895175330D00082F548 /* Memory+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Memory+NNT.h"; path = "../Classes/TL/Memory+NNT.h"; sourceTree = "<group>"; };
+		16F6689817533A850082F548 /* math.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = math.cu; path = ../Classes/HGC/math.cu; sourceTree = "<group>"; };
+		16F668B2175340A80082F548 /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../lib/Mac/libcudart.dylib; sourceTree = "<group>"; };
 		16F92EEC1521689800D09C5D /* Shell+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Shell+NNT.cpp"; path = "../Classes/Core/Shell+NNT.cpp"; sourceTree = "<group>"; };
 		16F92EED1521689800D09C5D /* Shell+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shell+NNT.h"; path = "../Classes/Core/Shell+NNT.h"; sourceTree = "<group>"; };
 		16F98CF1149EE19800240965 /* NGTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTextLayer.h; sourceTree = "<group>"; };
@@ -1997,6 +2012,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F668B3175340A80082F548 /* libcudart.dylib in Frameworks */,
 				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
 				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
@@ -2060,6 +2076,7 @@
 				1614B0EE174F44F700C26C42 /* OCLMath.cpp */,
 				1614B0F4174F4AA100C26C42 /* OCLMath.h */,
 				1614B0E4174F17C700C26C42 /* math.cl */,
+				16F6689817533A850082F548 /* math.cu */,
 			);
 			name = HGC;
 			sourceTree = "<group>";
@@ -2621,6 +2638,7 @@
 			children = (
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
+				16F668B2175340A80082F548 /* libcudart.dylib */,
 				1614B0F8174F6AC000C26C42 /* CUDA.framework */,
 				1614B0CA174F11C200C26C42 /* OpenCL.framework */,
 				167D00E91709681D00B94D5E /* AVFoundation.framework */,
@@ -4083,6 +4101,7 @@
 				16D3D1A8153D22B0003A33CE /* ShellScript */,
 			);
 			buildRules = (
+				16F6689A17533A980082F548 /* PBXBuildRule */,
 				167D011C1709749600B94D5E /* PBXBuildRule */,
 				167D011A1709742A00B94D5E /* PBXBuildRule */,
 			);
@@ -4152,6 +4171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F6689B17533BD00082F548 /* math.cu in Sources */,
 				169DD1251457A239000A9889 /* nnt.mm in Sources */,
 				169DD17C1457A4B5000A9889 /* AbstractCache.mm in Sources */,
 				169DD1821457A4B5000A9889 /* BdbCache.mm in Sources */,
@@ -4653,6 +4673,7 @@
 					"\"$(SRCROOT)/../lib/Mac\"",
 					/opt/local/lib,
 					/opt/local/lib/oracle,
+					"\"/Developer/NVIDIA/CUDA-5.0/lib\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4686,6 +4707,7 @@
 					"\"$(SRCROOT)/../lib/Mac\"",
 					/opt/local/lib,
 					/opt/local/lib/oracle,
+					"\"/Developer/NVIDIA/CUDA-5.0/lib\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
