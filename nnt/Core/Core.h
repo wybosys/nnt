@@ -256,8 +256,8 @@
 #     define NNT_OPENCL 1
 #   endif
 
-#   ifdef NNT_USER_SPACE
-#     include <OpenCL/opencl.h>
+#   ifndef NNT_CUDA
+#     define NNT_CUDA 1
 #   endif
 
 # endif

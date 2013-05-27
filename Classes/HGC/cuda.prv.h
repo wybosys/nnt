@@ -1,0 +1,15 @@
+
+# ifndef __NNT_CUDA_PRV_ECDBD34203F54E7A9270A040BBE7C609_H_INCLUDED
+# define __NNT_CUDA_PRV_ECDBD34203F54E7A9270A040BBE7C609_H_INCLUDED
+
+# ifdef NNT_CUDA
+
+#   ifdef NNT_MACH
+
+#     include <CUDA/cuda.h>
+
+#   endif
+
+# endif
+
+# endif

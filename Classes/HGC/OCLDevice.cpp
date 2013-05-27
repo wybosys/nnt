@@ -1,6 +1,7 @@
 
 # include "Core.h"
 # include "OCLDevice.h"
+# include "opencl.prv.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(opencl)

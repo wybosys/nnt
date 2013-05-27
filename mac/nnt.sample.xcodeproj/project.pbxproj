@@ -878,6 +878,16 @@
 		16F2AF631532D76E0047DB0B /* NSImageView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF611532D76D0047DB0B /* NSImageView+NNT.mm */; };
 		16F2AF691532F6CF0047DB0B /* NSImage+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF671532F6CD0047DB0B /* NSImage+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF6A1532F6CF0047DB0B /* NSImage+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF681532F6CE0047DB0B /* NSImage+NNT.mm */; };
+		16F6688617530E190082F548 /* CudaDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F6688417530E190082F548 /* CudaDevice.cpp */; };
+		16F6688717530E190082F548 /* CudaDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F6688517530E190082F548 /* CudaDevice.h */; };
+		16F6688A17530F5E0082F548 /* CudaInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F6688817530F5E0082F548 /* CudaInfo.cpp */; };
+		16F6688B17530F5E0082F548 /* CudaInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F6688917530F5E0082F548 /* CudaInfo.h */; };
+		16F6688D17530FDB0082F548 /* opencl.prv.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F6688C17530FDB0082F548 /* opencl.prv.h */; };
+		16F6688F1753137F0082F548 /* cuda.prv.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F6688E1753137F0082F548 /* cuda.prv.h */; };
+		16F66892175330C20082F548 /* Allocate+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F66890175330C20082F548 /* Allocate+NNT.cpp */; };
+		16F66893175330C20082F548 /* Allocate+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F66891175330C20082F548 /* Allocate+NNT.h */; };
+		16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F66894175330D00082F548 /* Memory+NNT.cpp */; };
+		16F66897175330D00082F548 /* Memory+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F66895175330D00082F548 /* Memory+NNT.h */; };
 		16F92EEE1521689800D09C5D /* Shell+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F92EEC1521689800D09C5D /* Shell+NNT.cpp */; };
 		16F92EEF1521689800D09C5D /* Shell+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F92EED1521689800D09C5D /* Shell+NNT.h */; };
 		16F98D23149EE19800240965 /* NGTextLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF1149EE19800240965 /* NGTextLayer.h */; };
@@ -1877,6 +1887,16 @@
 		16F2AF611532D76D0047DB0B /* NSImageView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSImageView+NNT.mm"; path = "../Classes/UIKit/NSImageView+NNT.mm"; sourceTree = "<group>"; };
 		16F2AF671532F6CD0047DB0B /* NSImage+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+NNT.h"; path = "../Classes/UIKit/NSImage+NNT.h"; sourceTree = "<group>"; };
 		16F2AF681532F6CE0047DB0B /* NSImage+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSImage+NNT.mm"; path = "../Classes/UIKit/NSImage+NNT.mm"; sourceTree = "<group>"; };
+		16F6688417530E190082F548 /* CudaDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CudaDevice.cpp; path = ../Classes/HGC/CudaDevice.cpp; sourceTree = "<group>"; };
+		16F6688517530E190082F548 /* CudaDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaDevice.h; path = ../Classes/HGC/CudaDevice.h; sourceTree = "<group>"; };
+		16F6688817530F5E0082F548 /* CudaInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CudaInfo.cpp; path = ../Classes/HGC/CudaInfo.cpp; sourceTree = "<group>"; };
+		16F6688917530F5E0082F548 /* CudaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaInfo.h; path = ../Classes/HGC/CudaInfo.h; sourceTree = "<group>"; };
+		16F6688C17530FDB0082F548 /* opencl.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = opencl.prv.h; path = ../Classes/HGC/opencl.prv.h; sourceTree = "<group>"; };
+		16F6688E1753137F0082F548 /* cuda.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cuda.prv.h; path = ../Classes/HGC/cuda.prv.h; sourceTree = "<group>"; };
+		16F66890175330C20082F548 /* Allocate+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Allocate+NNT.cpp"; path = "../Classes/TL/Allocate+NNT.cpp"; sourceTree = "<group>"; };
+		16F66891175330C20082F548 /* Allocate+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Allocate+NNT.h"; path = "../Classes/TL/Allocate+NNT.h"; sourceTree = "<group>"; };
+		16F66894175330D00082F548 /* Memory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Memory+NNT.cpp"; path = "../Classes/TL/Memory+NNT.cpp"; sourceTree = "<group>"; };
+		16F66895175330D00082F548 /* Memory+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Memory+NNT.h"; path = "../Classes/TL/Memory+NNT.h"; sourceTree = "<group>"; };
 		16F92EEC1521689800D09C5D /* Shell+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Shell+NNT.cpp"; path = "../Classes/Core/Shell+NNT.cpp"; sourceTree = "<group>"; };
 		16F92EED1521689800D09C5D /* Shell+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shell+NNT.h"; path = "../Classes/Core/Shell+NNT.h"; sourceTree = "<group>"; };
 		16F98CF1149EE19800240965 /* NGTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTextLayer.h; sourceTree = "<group>"; };
@@ -2025,6 +2045,12 @@
 		1614B0E3174F17B400C26C42 /* HGC */ = {
 			isa = PBXGroup;
 			children = (
+				16F6688E1753137F0082F548 /* cuda.prv.h */,
+				16F6688817530F5E0082F548 /* CudaInfo.cpp */,
+				16F6688917530F5E0082F548 /* CudaInfo.h */,
+				16F6688417530E190082F548 /* CudaDevice.cpp */,
+				16F6688517530E190082F548 /* CudaDevice.h */,
+				16F6688C17530FDB0082F548 /* opencl.prv.h */,
 				1614B0F0174F46F700C26C42 /* OCLFunction.cpp */,
 				1614B0F1174F46F700C26C42 /* OCLFunction.h */,
 				1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */,
@@ -2378,6 +2404,8 @@
 				167D004817095C8300B94D5E /* hardware */,
 				167D003C17095C8300B94D5E /* Algorithm+NNT.cpp */,
 				167D003D17095C8300B94D5E /* Algorithm+NNT.h */,
+				16F66890175330C20082F548 /* Allocate+NNT.cpp */,
+				16F66891175330C20082F548 /* Allocate+NNT.h */,
 				167D003E17095C8300B94D5E /* Bimap+NNT.cpp */,
 				167D003F17095C8300B94D5E /* Bimap+NNT.h */,
 				167D004017095C8300B94D5E /* Closure+NNT.cpp */,
@@ -2396,6 +2424,8 @@
 				167D005617095C8300B94D5E /* Map+NNT.cpp */,
 				167D005717095C8300B94D5E /* Map+NNT.h */,
 				167D005817095C8300B94D5E /* Map+NNT.mm */,
+				16F66894175330D00082F548 /* Memory+NNT.cpp */,
+				16F66895175330D00082F548 /* Memory+NNT.h */,
 				167D005917095C8300B94D5E /* MSCOM+NNT.cpp */,
 				167D005A17095C8300B94D5E /* MSCOM+NNT.h */,
 				167D005B17095C8300B94D5E /* Operator+NNT.cpp */,
@@ -4030,6 +4060,12 @@
 				1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */,
 				1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */,
 				1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */,
+				16F6688717530E190082F548 /* CudaDevice.h in Headers */,
+				16F6688B17530F5E0082F548 /* CudaInfo.h in Headers */,
+				16F6688D17530FDB0082F548 /* opencl.prv.h in Headers */,
+				16F6688F1753137F0082F548 /* cuda.prv.h in Headers */,
+				16F66893175330C20082F548 /* Allocate+NNT.h in Headers */,
+				16F66897175330D00082F548 /* Memory+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4524,6 +4560,10 @@
 				1614B0EC174F1D8900C26C42 /* OCLDevice.cpp in Sources */,
 				1614B0EF174F44F700C26C42 /* OCLMath.cpp in Sources */,
 				1614B0F2174F46F700C26C42 /* OCLFunction.cpp in Sources */,
+				16F6688617530E190082F548 /* CudaDevice.cpp in Sources */,
+				16F6688A17530F5E0082F548 /* CudaInfo.cpp in Sources */,
+				16F66892175330C20082F548 /* Allocate+NNT.cpp in Sources */,
+				16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

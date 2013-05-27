@@ -51,6 +51,7 @@ class Dimension
 public:
     
     Dimension();
+    ~Dimension();
     
     uinteger dim;
     uinteger offset[3];
@@ -69,11 +70,7 @@ public:
     
 protected:
     
-# ifdef NNT_OPENCL
-    
-    cl_ndrange _ndr;
-    
-# endif
+    void* _ndr;
     
 };
 
