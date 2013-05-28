@@ -289,7 +289,7 @@
 #   endif
 # endif
 
-# ifdef NNT_GCC
+# if defined(NNT_GCC) && !defined(NNT_CC_CUDA)
 #   pragma GCC diagnostic ignored "-Wunused-function"
 #   pragma GCC diagnostic ignored "-Wreorder"
 # endif
@@ -299,27 +299,42 @@
 # endif
 
 # if defined(NNT_C_OPENCL)
-#   define NNT_CONST __constant
-#   define NNT_GLOBAL __global
-#   define NNT_LOCAL __local
-#   define NNT_SHARED
-#   define NNT_HOST
-#   define NNT_STATIC static
+#   define NNT__CONST __constant
+#   define NNT__GLOBAL __global
+#   define NNT__LOCAL __local
+#   define NNT__SHARED
+#   define NNT__HOST
+#   define NNT__DEVICE
+#   define NNT__STATIC static
 # elif defined(NNT_CC_CUDA)
-#   define NNT_CONST __constant__
-#   define NNT_GLOBAL __global__
-#   define NNT_LOCAL __device__
-#   define NNT_SHARED __shared__
-#   define NNT_HOST __host__
-#   define NNT_STATIC static
+#   define NNT__CONST __constant__
+#   define NNT__GLOBAL __global__
+#   define NNT__LOCAL
+#   define NNT__SHARED __shared__
+#   define NNT__HOST __host__
+#   define NNT__DEVICE __device__
+#   define NNT__STATIC static
 # else
-#   define NNT_CONST const
-#   define NNT_GLOBAL
-#   define NNT_LOCAL
-#   define NNT_SHARED
-#   define NNT_HOST
-#   define NNT_STATIC static
+#   define NNT__CONST const
+#   define NNT__GLOBAL
+#   define NNT__LOCAL
+#   define NNT__SHARED
+#   define NNT__HOST
+#   define NNT__DEVICE
+#   define NNT__STATIC static
 # endif
+
+# define NNT_CONST NNT__CONST
+# define NNT_STATIC NNT__STATIC
+
+# ifdef NNT_CC_CUDA
+#   define NNT_LOCAL NNT__DEVICE
+# else
+#   define NNT_LOCAL NNT__LOCAL
+# endif
+
+# define NNT_HOST NNT__HOST
+# define NNT_GLOBAL NNT__GLOBAL
 
 # define NNT_CONST_VAR_CXX(type, var) NNT_CONST type var = type ()
 # define NNT_CONST_VAR_C(type, var) NNT_CONST type var
@@ -458,7 +473,6 @@ typedef ios_unknown ios_version;
 # endif
 
 # define NNT_INLINE inline
-# define NNT_STATIC static
 # define NNT_STATIC_IMPL
 # define NNT_STATIC_CONST NNT_STATIC NNT_CONST
 # define NNT_STATIC_CONST_IMPL
@@ -1502,6 +1516,12 @@ NNT_BEGIN_HEADER_C
 
 # endif // us
 
+# ifdef NNT_CC_CUDA
+
+#   include <cstdio>
+
+# endif
+
 # ifdef NNT_KERNEL_SPACE
 
 #   ifdef NNT_BSD
@@ -1965,6 +1985,20 @@ inline_impl real rand01()
 
 # if !NNT_USE_OPENCV
 # undef NNT_USE_OPENCV
+# endif
+
+# ifdef NNT_CUDA
+
+NNT_BEGIN_HEADER_C
+
+typedef struct _cu_ndrange
+{
+    uint dim;
+    uint count[3];
+} cu_ndrange;
+
+NNT_END_HEADER_C
+
 # endif
 
 # endif

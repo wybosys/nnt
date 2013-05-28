@@ -4,7 +4,15 @@
 
 # ifdef NNT_CUDA
 
-#   ifdef NNT_MACH
+#   ifdef NNT_CC_CUDA
+
+#     include "../../3rd/cuda/cuda.h"
+#     include "./CudaFunction.h"
+
+#     define NNT_BEGIN_CUDA NNT_BEGIN_HEADER_CXX NNT_BEGIN_NS(cuda)
+#     define NNT_END_CUDA NNT_END_HEADER_CXX NNT_END_NS
+
+#   elif defined(NNT_MACH)
 
 #     include <CUDA/cuda.h>
 
