@@ -820,6 +820,8 @@ protected:
 
 };
 
+# ifdef NNT_STL
+
 template <typename StmT>
 inline_impl StmT& operator << (StmT& stm, variant_t const* var)
 {
@@ -881,15 +883,14 @@ static StmT& operator << (StmT& stm, variant_t const& var)
         case variant_t::VT_DATA:
             stm << core::string((char const*)var, var.size());
             break;
-        case variant_t::VT_ID: 
+        case variant_t::VT_ID:
         case variant_t::VT_REFOBJ:
         case variant_t::VT_POINTER:
             break;
     };
+
     return stm;
 }
-
-# ifdef NNT_USER_SPACE
 
 inline_impl void variant_t::stringize()
 {

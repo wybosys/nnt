@@ -21,7 +21,8 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ntl)
 NNT_BEGIN_NS(alloc)
 
-template <typename valT, typename osT = os_type, typename spaceT = space_type>
+template <typename valT,
+typename osT = os_type, typename spaceT = space_type>
 class Heap
 {
 public:
@@ -204,6 +205,31 @@ class Heap <valT, os_linux, space_kernel>
 };
 
 # endif
+
+template <typename valT, typename osT>
+class Heap <valT, osT, space_gpu>
+: public HeapMemory<valT, osT, space_gpu>
+{
+public:
+    
+    typedef valT value_type;
+    
+    static value_type* Create(usize count = 1)
+    {
+        return NULL;
+    }
+    
+    static value_type* Alloc(usize size)
+    {
+        return NULL;
+    }
+    
+    static void Free(void* ptr)
+    {
+        PASS;
+    }
+    
+};
 
 NNT_END_NS
 NNT_END_NS

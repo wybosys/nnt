@@ -11,216 +11,112 @@
 		1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1614B0CA174F11C200C26C42 /* OpenCL.framework */; };
 		1614B0E5174F17C700C26C42 /* math.cl in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0E4174F17C700C26C42 /* math.cl */; };
 		1614B0E8174F1BA600C26C42 /* OCLInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0E6174F1BA600C26C42 /* OCLInfo.cpp */; };
-		1614B0E9174F1BA600C26C42 /* OCLInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0E7174F1BA600C26C42 /* OCLInfo.h */; };
 		1614B0EC174F1D8900C26C42 /* OCLDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */; };
-		1614B0ED174F1D8900C26C42 /* OCLDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0EB174F1D8900C26C42 /* OCLDevice.h */; };
 		1614B0EF174F44F700C26C42 /* OCLMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0EE174F44F700C26C42 /* OCLMath.cpp */; };
 		1614B0F2174F46F700C26C42 /* OCLFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1614B0F0174F46F700C26C42 /* OCLFunction.cpp */; };
-		1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F1174F46F700C26C42 /* OCLFunction.h */; };
-		1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F4174F4AA100C26C42 /* OCLMath.h */; };
-		1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 1614B0F6174F4D7800C26C42 /* CoreTypes.h */; };
+		1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1614B0F8174F6AC000C26C42 /* CUDA.framework */; };
 		161738311609711E00F1EA6E /* UcKernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617382F1609711E00F1EA6E /* UcKernel.cpp */; };
-		161738321609711E00F1EA6E /* UcKernel.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738301609711E00F1EA6E /* UcKernel.h */; };
 		161738361609720200F1EA6E /* UcWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161738341609720200F1EA6E /* UcWindow.cpp */; };
-		161738371609720200F1EA6E /* UcWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 161738351609720200F1EA6E /* UcWindow.h */; };
-		16173839160972C300F1EA6E /* UIKit+Cross.h in Headers */ = {isa = PBXBuildFile; fileRef = 16173838160972C300F1EA6E /* UIKit+Cross.h */; };
 		16173846160978BE00F1EA6E /* UcController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16173842160978BE00F1EA6E /* UcController.cpp */; };
-		16173847160978BE00F1EA6E /* UcController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16173843160978BE00F1EA6E /* UcController.h */; };
 		16173848160978BE00F1EA6E /* UcView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16173844160978BE00F1EA6E /* UcView.cpp */; };
-		16173849160978BE00F1EA6E /* UcView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16173845160978BE00F1EA6E /* UcView.h */; };
-		1617385216098F5800F1EA6E /* FlateBP.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617384A16098F5700F1EA6E /* FlateBP.h */; };
 		1617385316098F5800F1EA6E /* FlateBP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617384B16098F5700F1EA6E /* FlateBP.cpp */; };
-		1617385416098F5800F1EA6E /* Linear.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617384C16098F5700F1EA6E /* Linear.h */; };
 		1617385516098F5800F1EA6E /* Linear.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1617384D16098F5700F1EA6E /* Linear.mm */; };
-		1617385616098F5800F1EA6E /* MathGeo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617384E16098F5700F1EA6E /* MathGeo.h */; };
 		1617385716098F5800F1EA6E /* MathGeo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617384F16098F5700F1EA6E /* MathGeo.cpp */; };
-		161E2120152D8DB20031D976 /* NSButton+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161E211E152D8DB20031D976 /* NSButton+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		161E2121152D8DB20031D976 /* NSTextField+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161E211F152D8DB20031D976 /* NSTextField+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		161E2128152E7E1C0031D976 /* NSTableView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161E2127152E7E1C0031D976 /* NSTableView+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		161E212B152E7FDB0031D976 /* NSControl+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161E2129152E7FDB0031D976 /* NSControl+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		161E212C152E7FDB0031D976 /* NSControl+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E212A152E7FDB0031D976 /* NSControl+NNT.mm */; };
 		1620EF5D160991B300592F83 /* LePoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EF57160991B300592F83 /* LePoint.cpp */; };
-		1620EF5E160991B300592F83 /* LePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EF58160991B300592F83 /* LePoint.h */; };
 		1620EF5F160991B300592F83 /* LeRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EF59160991B300592F83 /* LeRect.cpp */; };
-		1620EF60160991B300592F83 /* LeRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EF5A160991B300592F83 /* LeRect.h */; };
 		1620EF61160991B300592F83 /* LeSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EF5B160991B300592F83 /* LeSize.cpp */; };
-		1620EF62160991B300592F83 /* LeSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EF5C160991B300592F83 /* LeSize.h */; };
 		1620F00B1609BF6700592F83 /* XmppAuth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EF9D1609BF6700592F83 /* XmppAuth.cpp */; };
-		1620F00C1609BF6700592F83 /* XmppAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EF9E1609BF6700592F83 /* XmppAuth.h */; };
 		1620F00D1609BF6700592F83 /* XmppBind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EF9F1609BF6700592F83 /* XmppBind.cpp */; };
-		1620F00E1609BF6700592F83 /* XmppBind.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFA01609BF6700592F83 /* XmppBind.h */; };
 		1620F00F1609BF6700592F83 /* XmppChallenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFA11609BF6700592F83 /* XmppChallenge.cpp */; };
-		1620F0101609BF6700592F83 /* XmppChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFA21609BF6700592F83 /* XmppChallenge.h */; };
 		1620F0111609BF6700592F83 /* XmppClose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFA31609BF6700592F83 /* XmppClose.cpp */; };
-		1620F0121609BF6700592F83 /* XmppClose.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFA41609BF6700592F83 /* XmppClose.h */; };
 		1620F0131609BF6700592F83 /* XmppCompression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFA51609BF6700592F83 /* XmppCompression.cpp */; };
-		1620F0141609BF6700592F83 /* XmppCompression.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFA61609BF6700592F83 /* XmppCompression.h */; };
 		1620F0151609BF6700592F83 /* XmppCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFA71609BF6700592F83 /* XmppCore.cpp */; };
-		1620F0161609BF6700592F83 /* XmppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFA81609BF6700592F83 /* XmppCore.h */; };
 		1620F0171609BF6700592F83 /* XmppFailure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFA91609BF6700592F83 /* XmppFailure.cpp */; };
-		1620F0181609BF6700592F83 /* XmppFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFAA1609BF6700592F83 /* XmppFailure.h */; };
 		1620F0191609BF6700592F83 /* XmppFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFAB1609BF6700592F83 /* XmppFeatures.cpp */; };
-		1620F01A1609BF6700592F83 /* XmppFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFAC1609BF6700592F83 /* XmppFeatures.h */; };
 		1620F01B1609BF6700592F83 /* XmppIQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFAD1609BF6700592F83 /* XmppIQ.cpp */; };
-		1620F01C1609BF6700592F83 /* XmppIQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFAE1609BF6700592F83 /* XmppIQ.h */; };
 		1620F01D1609BF6700592F83 /* XmppJID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFAF1609BF6700592F83 /* XmppJID.cpp */; };
-		1620F01E1609BF6700592F83 /* XmppJID.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFB01609BF6700592F83 /* XmppJID.h */; };
 		1620F01F1609BF6700592F83 /* XmppPubsub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFB11609BF6700592F83 /* XmppPubsub.cpp */; };
-		1620F0201609BF6700592F83 /* XmppPubsub.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFB21609BF6700592F83 /* XmppPubsub.h */; };
 		1620F0211609BF6700592F83 /* XmppResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFB31609BF6700592F83 /* XmppResponse.cpp */; };
-		1620F0221609BF6700592F83 /* XmppResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFB41609BF6700592F83 /* XmppResponse.h */; };
 		1620F0231609BF6700592F83 /* XmppSasl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFB51609BF6700592F83 /* XmppSasl.cpp */; };
-		1620F0241609BF6700592F83 /* XmppSasl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFB61609BF6700592F83 /* XmppSasl.h */; };
 		1620F0251609BF6700592F83 /* XmppSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFB71609BF6700592F83 /* XmppSession.cpp */; };
-		1620F0261609BF6700592F83 /* XmppSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFB81609BF6700592F83 /* XmppSession.h */; };
 		1620F0271609BF6700592F83 /* XmppStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFB91609BF6700592F83 /* XmppStream.cpp */; };
-		1620F0281609BF6700592F83 /* XmppStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFBA1609BF6700592F83 /* XmppStream.h */; };
 		1620F0291609BF6700592F83 /* XmppSuccess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFBB1609BF6700592F83 /* XmppSuccess.cpp */; };
-		1620F02A1609BF6700592F83 /* XmppSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFBC1609BF6700592F83 /* XmppSuccess.h */; };
 		1620F02B1609BF6700592F83 /* XimActive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFBE1609BF6700592F83 /* XimActive.cpp */; };
-		1620F02C1609BF6700592F83 /* XimActive.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFBF1609BF6700592F83 /* XimActive.h */; };
 		1620F02D1609BF6700592F83 /* XimAvatar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFC01609BF6700592F83 /* XimAvatar.cpp */; };
-		1620F02E1609BF6700592F83 /* XimAvatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFC11609BF6700592F83 /* XimAvatar.h */; };
 		1620F02F1609BF6700592F83 /* XimComposing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFC21609BF6700592F83 /* XimComposing.cpp */; };
-		1620F0301609BF6700592F83 /* XimComposing.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFC31609BF6700592F83 /* XimComposing.h */; };
 		1620F0311609BF6700592F83 /* XimContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFC41609BF6700592F83 /* XimContact.cpp */; };
-		1620F0321609BF6700592F83 /* XimContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFC51609BF6700592F83 /* XimContact.h */; };
 		1620F0331609BF6700592F83 /* XimIM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFC61609BF6700592F83 /* XimIM.cpp */; };
-		1620F0341609BF6700592F83 /* XimIM.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFC71609BF6700592F83 /* XimIM.h */; };
 		1620F0351609BF6700592F83 /* XimMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFC81609BF6700592F83 /* XimMessage.cpp */; };
-		1620F0361609BF6700592F83 /* XimMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFC91609BF6700592F83 /* XimMessage.h */; };
 		1620F0371609BF6700592F83 /* XimPresence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFCA1609BF6700592F83 /* XimPresence.cpp */; };
-		1620F0381609BF6700592F83 /* XimPresence.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFCB1609BF6700592F83 /* XimPresence.h */; };
 		1620F0391609BF6700592F83 /* XimPriority.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFCC1609BF6700592F83 /* XimPriority.cpp */; };
-		1620F03A1609BF6700592F83 /* XimPriority.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFCD1609BF6700592F83 /* XimPriority.h */; };
 		1620F03B1609BF6700592F83 /* XimRoster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFCE1609BF6700592F83 /* XimRoster.cpp */; };
-		1620F03C1609BF6700592F83 /* XimRoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFCF1609BF6700592F83 /* XimRoster.h */; };
 		1620F03D1609BF6700592F83 /* XimShow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFD01609BF6700592F83 /* XimShow.cpp */; };
-		1620F03E1609BF6700592F83 /* XimShow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFD11609BF6700592F83 /* XimShow.h */; };
 		1620F03F1609BF6700592F83 /* XimUser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFD21609BF6700592F83 /* XimUser.cpp */; };
-		1620F0401609BF6700592F83 /* XimUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFD31609BF6700592F83 /* XimUser.h */; };
 		1620F0411609BF6700592F83 /* XimXPhoto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFD41609BF6700592F83 /* XimXPhoto.cpp */; };
-		1620F0421609BF6700592F83 /* XimXPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFD51609BF6700592F83 /* XimXPhoto.h */; };
 		1620F0431609BF6700592F83 /* XepAvatar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFD71609BF6700592F83 /* XepAvatar.cpp */; };
-		1620F0441609BF6700592F83 /* XepAvatar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFD81609BF6700592F83 /* XepAvatar.h */; };
 		1620F0451609BF6700592F83 /* XepBitsOfBinary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFD91609BF6700592F83 /* XepBitsOfBinary.cpp */; };
-		1620F0461609BF6700592F83 /* XepBitsOfBinary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFDA1609BF6700592F83 /* XepBitsOfBinary.h */; };
 		1620F0471609BF6700592F83 /* XepCAPTCHA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFDB1609BF6700592F83 /* XepCAPTCHA.cpp */; };
-		1620F0481609BF6700592F83 /* XepCAPTCHA.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFDC1609BF6700592F83 /* XepCAPTCHA.h */; };
 		1620F0491609BF6700592F83 /* XepCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFDD1609BF6700592F83 /* XepCore.cpp */; };
-		1620F04A1609BF6700592F83 /* XepCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFDE1609BF6700592F83 /* XepCore.h */; };
 		1620F04B1609BF6700592F83 /* XepField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFDF1609BF6700592F83 /* XepField.cpp */; };
-		1620F04C1609BF6700592F83 /* XepField.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFE01609BF6700592F83 /* XepField.h */; };
 		1620F04D1609BF6700592F83 /* XepMUC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFE11609BF6700592F83 /* XepMUC.cpp */; };
-		1620F04E1609BF6700592F83 /* XepMUC.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFE21609BF6700592F83 /* XepMUC.h */; };
 		1620F04F1609BF6700592F83 /* XepOfflineMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFE31609BF6700592F83 /* XepOfflineMessage.cpp */; };
-		1620F0501609BF6700592F83 /* XepOfflineMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFE41609BF6700592F83 /* XepOfflineMessage.h */; };
 		1620F0511609BF6700592F83 /* XepPing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFE51609BF6700592F83 /* XepPing.cpp */; };
-		1620F0521609BF6700592F83 /* XepPing.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFE61609BF6700592F83 /* XepPing.h */; };
 		1620F0531609BF6700592F83 /* XepServiceDiscovery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFE71609BF6700592F83 /* XepServiceDiscovery.cpp */; };
-		1620F0541609BF6700592F83 /* XepServiceDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFE81609BF6700592F83 /* XepServiceDiscovery.h */; };
 		1620F0551609BF6700592F83 /* XepSubject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFE91609BF6700592F83 /* XepSubject.cpp */; };
-		1620F0561609BF6700592F83 /* XepSubject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFEA1609BF6700592F83 /* XepSubject.h */; };
 		1620F0571609BF6700592F83 /* XepVCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFEB1609BF6700592F83 /* XepVCard.cpp */; };
-		1620F0581609BF6700592F83 /* XepVCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFEC1609BF6700592F83 /* XepVCard.h */; };
 		1620F0591609BF6700592F83 /* XepVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFED1609BF6700592F83 /* XepVersion.cpp */; };
-		1620F05A1609BF6700592F83 /* XepVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFEE1609BF6700592F83 /* XepVersion.h */; };
 		1620F05B1609BF6700592F83 /* XepXHtmlIm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFEF1609BF6700592F83 /* XepXHtmlIm.cpp */; };
-		1620F05C1609BF6700592F83 /* XepXHtmlIm.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFF01609BF6700592F83 /* XepXHtmlIm.h */; };
 		1620F05D1609BF6700592F83 /* XmppBlackholeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFF11609BF6700592F83 /* XmppBlackholeFactory.cpp */; };
-		1620F05E1609BF6700592F83 /* XmppBlackholeFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFF21609BF6700592F83 /* XmppBlackholeFactory.h */; };
 		1620F05F1609BF6700592F83 /* XmppChallengeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFF31609BF6700592F83 /* XmppChallengeFactory.cpp */; };
-		1620F0601609BF6700592F83 /* XmppChallengeFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFF41609BF6700592F83 /* XmppChallengeFactory.h */; };
 		1620F0611609BF6700592F83 /* XmppClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFF51609BF6700592F83 /* XmppClient.cpp */; };
-		1620F0621609BF6700592F83 /* XmppClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFF61609BF6700592F83 /* XmppClient.h */; };
 		1620F0631609BF6700592F83 /* XmppClientor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFF71609BF6700592F83 /* XmppClientor.cpp */; };
-		1620F0641609BF6700592F83 /* XmppClientor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFF81609BF6700592F83 /* XmppClientor.h */; };
 		1620F0651609BF6700592F83 /* XmppIMClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFF91609BF6700592F83 /* XmppIMClient.cpp */; };
-		1620F0661609BF6700592F83 /* XmppIMClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFFA1609BF6700592F83 /* XmppIMClient.h */; };
 		1620F0671609BF6700592F83 /* XmppIMClientor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFFB1609BF6700592F83 /* XmppIMClientor.cpp */; };
-		1620F0681609BF6700592F83 /* XmppIMClientor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFFC1609BF6700592F83 /* XmppIMClientor.h */; };
 		1620F0691609BF6700592F83 /* XmppInfoqueryFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFFD1609BF6700592F83 /* XmppInfoqueryFactory.cpp */; };
-		1620F06A1609BF6700592F83 /* XmppInfoqueryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620EFFE1609BF6700592F83 /* XmppInfoqueryFactory.h */; };
 		1620F06B1609BF6700592F83 /* XmppMessageFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620EFFF1609BF6700592F83 /* XmppMessageFactory.cpp */; };
-		1620F06C1609BF6700592F83 /* XmppMessageFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F0001609BF6700592F83 /* XmppMessageFactory.h */; };
 		1620F06D1609BF6700592F83 /* XmppObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0011609BF6700592F83 /* XmppObject.cpp */; };
-		1620F06E1609BF6700592F83 /* XmppObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F0021609BF6700592F83 /* XmppObject.h */; };
 		1620F06F1609BF6700592F83 /* XmppPresenceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0031609BF6700592F83 /* XmppPresenceFactory.cpp */; };
-		1620F0701609BF6700592F83 /* XmppPresenceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F0041609BF6700592F83 /* XmppPresenceFactory.h */; };
 		1620F0711609BF6800592F83 /* XmppResponseFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0051609BF6700592F83 /* XmppResponseFactory.cpp */; };
-		1620F0721609BF6800592F83 /* XmppResponseFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F0061609BF6700592F83 /* XmppResponseFactory.h */; };
 		1620F0731609BF6800592F83 /* XmppStreamFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0071609BF6700592F83 /* XmppStreamFactory.cpp */; };
-		1620F0741609BF6800592F83 /* XmppStreamFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F0081609BF6700592F83 /* XmppStreamFactory.h */; };
 		1620F0751609BF6800592F83 /* XmppSuccessFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0091609BF6700592F83 /* XmppSuccessFactory.cpp */; };
-		1620F0761609BF6800592F83 /* XmppSuccessFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F00A1609BF6700592F83 /* XmppSuccessFactory.h */; };
 		1620F07D1609BF9800592F83 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1620F0791609BF9800592F83 /* StateMachine.cpp */; };
-		1620F07E1609BF9800592F83 /* StateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F07A1609BF9800592F83 /* StateMachine.h */; };
-		1620F07F1609BF9800592F83 /* Workflow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1620F07B1609BF9800592F83 /* Workflow.h */; };
 		1620F0801609BF9800592F83 /* Workflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1620F07C1609BF9800592F83 /* Workflow.m */; };
-		1622410B1588687E0073B178 /* NSMessageBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 162241091588687E0073B178 /* NSMessageBox.h */; };
 		1622410C1588687E0073B178 /* NSMessageBox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1622410A1588687E0073B178 /* NSMessageBox.mm */; };
 		1627644814F5E49F00DC935B /* Security+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1627644614F5E49F00DC935B /* Security+NNT.cpp */; };
-		1627644914F5E49F00DC935B /* Security+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1627644714F5E49F00DC935B /* Security+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		162BA6CE150DE59300F33E1D /* libxerces-c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 162BA6CD150DE59300F33E1D /* libxerces-c.a */; };
-		162BA6D6150DF0F600F33E1D /* AlphabetFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 162BA6D4150DF0F600F33E1D /* AlphabetFlow.h */; };
 		162BA6D7150DF0F600F33E1D /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D5150DF0F600F33E1D /* AlphabetFlow.m */; };
 		162BA6D9150DF15600F33E1D /* AlphabetFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */; };
 		1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */; };
-		1630A7FC171BFC1400B318A9 /* CmdArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A7F8171BFC1400B318A9 /* CmdArguments.h */; };
 		1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F9171BFC1400B318A9 /* NetAddress.cpp */; };
-		1630A7FE171BFC1400B318A9 /* NetAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A7FA171BFC1400B318A9 /* NetAddress.h */; };
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
-		1630A802171BFC2500B318A9 /* SOAPObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1630A800171BFC2500B318A9 /* SOAPObject.h */; };
 		1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */; };
-		1638EABC150F13E0000B8C35 /* SOAPParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1638EABA150F13E0000B8C35 /* SOAPParser.h */; settings = {ATTRIBUTES = (); }; };
-		1638EABF150F1DC9000B8C35 /* ObjectDL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1638EABE150F1DC9000B8C35 /* ObjectDL.h */; settings = {ATTRIBUTES = (); }; };
 		1638EAC1150F2076000B8C35 /* ObjectDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAC0150F2076000B8C35 /* ObjectDL.cpp */; };
-		16444E621560FACC006BB97C /* JuiceSVG.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16444E5F1560FACC006BB97C /* JuiceSVG.hpp */; };
-		1648F870158727AF00A47990 /* HtmlObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F86E158727AF00A47990 /* HtmlObjParser.h */; };
 		1648F871158727AF00A47990 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F86F158727AF00A47990 /* HtmlObjParser.mm */; };
-		1648F878158727BD00A47990 /* GifParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F872158727BD00A47990 /* GifParser.h */; };
 		1648F879158727BD00A47990 /* GifParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648F873158727BD00A47990 /* GifParser.m */; };
-		1648F87A158727BD00A47990 /* StyleStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F874158727BD00A47990 /* StyleStringParser.h */; };
 		1648F87B158727BD00A47990 /* StyleStringParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F875158727BD00A47990 /* StyleStringParser.mm */; };
 		1648F87C158727BD00A47990 /* SVGParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1648F876158727BD00A47990 /* SVGParser.cpp */; };
-		1648F87D158727BD00A47990 /* SVGParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F877158727BD00A47990 /* SVGParser.h */; };
-		1648F88D1587287900A47990 /* NSDate+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F87F1587287800A47990 /* NSDate+NNT.h */; };
 		1648F88E1587287900A47990 /* NSDate+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8801587287800A47990 /* NSDate+NNT.mm */; };
-		1648F88F1587287900A47990 /* NSIndex+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8811587287800A47990 /* NSIndex+NNT.h */; };
 		1648F8901587287900A47990 /* NSIndex+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8821587287900A47990 /* NSIndex+NNT.mm */; };
-		1648F8911587287900A47990 /* NSOperation+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8831587287900A47990 /* NSOperation+NNT.h */; };
 		1648F8921587287900A47990 /* NSOperation+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8841587287900A47990 /* NSOperation+NNT.m */; };
-		1648F8931587287900A47990 /* NSPreference+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8851587287900A47990 /* NSPreference+NNT.h */; };
 		1648F8941587287900A47990 /* NSPreference+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8861587287900A47990 /* NSPreference+NNT.mm */; };
-		1648F8951587287900A47990 /* NSRegexLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8871587287900A47990 /* NSRegexLibrary.h */; };
 		1648F8961587287900A47990 /* NSRegexLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648F8881587287900A47990 /* NSRegexLibrary.m */; };
-		1648F8971587287900A47990 /* NSSet+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F8891587287900A47990 /* NSSet+NNT.h */; };
 		1648F8981587287900A47990 /* NSSet+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F88A1587287900A47990 /* NSSet+NNT.mm */; };
-		1648F8991587287900A47990 /* NSStyleString.h in Headers */ = {isa = PBXBuildFile; fileRef = 1648F88B1587287900A47990 /* NSStyleString.h */; };
 		1648F89B1587288600A47990 /* NSStyleString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F89A1587288600A47990 /* NSStyleString.mm */; };
 		1648F89D1587299100A47990 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648F89C1587299100A47990 /* libgif.a */; };
 		164EFDB214F4D456005FEDD8 /* Bdb+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164EFDB114F4D456005FEDD8 /* Bdb+NNT.cpp */; };
 		164F23A41457D5C300396C42 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 164F23A31457D5C300396C42 /* libsqlite3.dylib */; };
-		164F24011457E2A300396C42 /* UITheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 164F23FF1457E2A300396C42 /* UITheme.h */; settings = {ATTRIBUTES = (); }; };
 		164F24021457E2A300396C42 /* UITheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 164F24001457E2A300396C42 /* UITheme.mm */; };
 		16567ACE1509E6FE00ED2545 /* libpq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16567ACD1509E6FE00ED2545 /* libpq.a */; };
 		16567AD01509F4D600ED2545 /* DBMSqlAbstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16567ACF1509F4D500ED2545 /* DBMSqlAbstract.cpp */; };
-		165ACD9714F1D9F1007C0559 /* Resource+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 165ACD9514F1D9F1007C0559 /* Resource+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		165ACD9814F1D9F1007C0559 /* Resource+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 165ACD9614F1D9F1007C0559 /* Resource+NNT.mm */; };
-		165ACD9B14F1DB14007C0559 /* Console+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 165ACD9914F1DB14007C0559 /* Console+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		165ACD9C14F1DB14007C0559 /* Console+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 165ACD9A14F1DB14007C0559 /* Console+NNT.mm */; };
 		165E557314F3912F00D35087 /* SocketServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165E557114F3912F00D35087 /* SocketServer.cpp */; };
-		165E557414F3912F00D35087 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 165E557214F3912F00D35087 /* SocketServer.h */; settings = {ATTRIBUTES = (); }; };
 		16624CB61505D7C000AFED23 /* CSSParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16624CB41505D7C000AFED23 /* CSSParser.cpp */; };
-		16624CB71505D7C000AFED23 /* CSSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16624CB51505D7C000AFED23 /* CSSParser.h */; settings = {ATTRIBUTES = (); }; };
 		1664FF9A14F48D410073A9E9 /* UnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1664FF9814F48D410073A9E9 /* UnitTest.cpp */; };
-		1664FF9B14F48D410073A9E9 /* UnitTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1664FF9914F48D410073A9E9 /* UnitTest.h */; };
 		166B1C7A1519C3E20000B257 /* Archive7Z.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C741519C3E20000B257 /* Archive7Z.cpp */; };
-		166B1C7B1519C3E20000B257 /* Archive7Z.h in Headers */ = {isa = PBXBuildFile; fileRef = 166B1C751519C3E20000B257 /* Archive7Z.h */; settings = {ATTRIBUTES = (); }; };
 		166B1C7C1519C3E20000B257 /* ArchiveRAR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C761519C3E20000B257 /* ArchiveRAR.cpp */; };
-		166B1C7D1519C3E20000B257 /* ArchiveRAR.h in Headers */ = {isa = PBXBuildFile; fileRef = 166B1C771519C3E20000B257 /* ArchiveRAR.h */; settings = {ATTRIBUTES = (); }; };
 		166B1C7E1519C3E20000B257 /* ArchiveZip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C781519C3E20000B257 /* ArchiveZip.cpp */; };
-		166B1C7F1519C3E20000B257 /* ArchiveZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 166B1C791519C3E20000B257 /* ArchiveZip.h */; settings = {ATTRIBUTES = (); }; };
 		166B1C8D1519D4790000B257 /* zip_open.c in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C8C1519D4790000B257 /* zip_open.c */; };
 		166B1C8F1519D4A20000B257 /* zip_new.c in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C8E1519D4A20000B257 /* zip_new.c */; };
 		166B1C921519D4BA0000B257 /* zip_close.c in Sources */ = {isa = PBXBuildFile; fileRef = 166B1C901519D4BA0000B257 /* zip_close.c */; };
@@ -295,88 +191,50 @@
 		166B1D1C1519D7130000B257 /* zip_unchange_archive.c in Sources */ = {isa = PBXBuildFile; fileRef = 166B1CF91519D7130000B257 /* zip_unchange_archive.c */; };
 		166B1D1D1519D7130000B257 /* zip_unchange.c in Sources */ = {isa = PBXBuildFile; fileRef = 166B1CFA1519D7130000B257 /* zip_unchange.c */; };
 		1675ACF51515D0010046A630 /* Filesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1675ACF31515D0010046A630 /* Filesystem.cpp */; };
-		1675ACF61515D0010046A630 /* Filesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1675ACF41515D0010046A630 /* Filesystem.h */; settings = {ATTRIBUTES = (); }; };
 		1675ACFA1515D1850046A630 /* FsSamba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1675ACF81515D1850046A630 /* FsSamba.cpp */; };
-		1675ACFB1515D1850046A630 /* FsSamba.h in Headers */ = {isa = PBXBuildFile; fileRef = 1675ACF91515D1850046A630 /* FsSamba.h */; settings = {ATTRIBUTES = (); }; };
 		1675ACFD1515D53D0046A630 /* libsmbclient.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1675ACFC1515D53D0046A630 /* libsmbclient.dylib */; };
 		16763A071512DD3300021D40 /* Sqlite+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16763A061512DD3300021D40 /* Sqlite+NNT.cpp */; };
 		167D006F17095C8300B94D5E /* Algorithm+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D003C17095C8300B94D5E /* Algorithm+NNT.cpp */; };
-		167D007017095C8300B94D5E /* Algorithm+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D003D17095C8300B94D5E /* Algorithm+NNT.h */; };
 		167D007117095C8300B94D5E /* Bimap+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D003E17095C8300B94D5E /* Bimap+NNT.cpp */; };
-		167D007217095C8300B94D5E /* Bimap+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D003F17095C8300B94D5E /* Bimap+NNT.h */; };
 		167D007317095C8300B94D5E /* Closure+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004017095C8300B94D5E /* Closure+NNT.cpp */; };
-		167D007417095C8300B94D5E /* Closure+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004117095C8300B94D5E /* Closure+NNT.h */; };
 		167D007517095C8300B94D5E /* Data+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004217095C8300B94D5E /* Data+NNT.cpp */; };
-		167D007617095C8300B94D5E /* Data+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004317095C8300B94D5E /* Data+NNT.h */; };
 		167D007717095C8300B94D5E /* Exception+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004417095C8300B94D5E /* Exception+NNT.cpp */; };
-		167D007817095C8300B94D5E /* Exception+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004517095C8300B94D5E /* Exception+NNT.h */; };
 		167D007917095C8300B94D5E /* Function+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004617095C8300B94D5E /* Function+NNT.cpp */; };
-		167D007A17095C8300B94D5E /* Function+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004717095C8300B94D5E /* Function+NNT.h */; };
 		167D007B17095C8300B94D5E /* Assembly+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004917095C8300B94D5E /* Assembly+NNT.cpp */; };
-		167D007C17095C8300B94D5E /* Assembly+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004A17095C8300B94D5E /* Assembly+NNT.h */; };
 		167D007D17095C8300B94D5E /* Cpu+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004B17095C8300B94D5E /* Cpu+NNT.cpp */; };
-		167D007E17095C8300B94D5E /* Cpu+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004C17095C8300B94D5E /* Cpu+NNT.h */; };
 		167D007F17095C8300B94D5E /* Device+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004D17095C8300B94D5E /* Device+NNT.cpp */; };
-		167D008017095C8300B94D5E /* Device+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D004E17095C8300B94D5E /* Device+NNT.h */; };
 		167D008117095C8300B94D5E /* Hardware+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D004F17095C8300B94D5E /* Hardware+NNT.cpp */; };
-		167D008217095C8300B94D5E /* Hardware+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005017095C8300B94D5E /* Hardware+NNT.h */; };
 		167D008317095C8300B94D5E /* Interface+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005117095C8300B94D5E /* Interface+NNT.cpp */; };
-		167D008417095C8300B94D5E /* Interface+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005217095C8300B94D5E /* Interface+NNT.h */; };
 		167D008517095C8300B94D5E /* List+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005317095C8300B94D5E /* List+NNT.cpp */; };
-		167D008617095C8300B94D5E /* List+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005417095C8300B94D5E /* List+NNT.h */; };
 		167D008717095C8300B94D5E /* List+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D005517095C8300B94D5E /* List+NNT.mm */; };
 		167D008817095C8300B94D5E /* Map+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005617095C8300B94D5E /* Map+NNT.cpp */; };
-		167D008917095C8300B94D5E /* Map+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005717095C8300B94D5E /* Map+NNT.h */; };
 		167D008A17095C8300B94D5E /* Map+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D005817095C8300B94D5E /* Map+NNT.mm */; };
 		167D008B17095C8300B94D5E /* MSCOM+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005917095C8300B94D5E /* MSCOM+NNT.cpp */; };
-		167D008C17095C8300B94D5E /* MSCOM+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005A17095C8300B94D5E /* MSCOM+NNT.h */; };
 		167D008D17095C8300B94D5E /* Operator+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005B17095C8300B94D5E /* Operator+NNT.cpp */; };
-		167D008E17095C8300B94D5E /* Operator+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005C17095C8300B94D5E /* Operator+NNT.h */; };
 		167D008F17095C8300B94D5E /* Regex+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005D17095C8300B94D5E /* Regex+NNT.cpp */; };
-		167D009017095C8300B94D5E /* Regex+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D005E17095C8300B94D5E /* Regex+NNT.h */; };
 		167D009117095C8300B94D5E /* SmartPtr+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D005F17095C8300B94D5E /* SmartPtr+NNT.cpp */; };
-		167D009217095C8300B94D5E /* SmartPtr+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006017095C8300B94D5E /* SmartPtr+NNT.h */; };
 		167D009317095C8300B94D5E /* String+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D006117095C8300B94D5E /* String+NNT.cpp */; };
-		167D009417095C8300B94D5E /* String+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006217095C8300B94D5E /* String+NNT.h */; };
 		167D009517095C8300B94D5E /* String+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D006317095C8300B94D5E /* String+NNT.mm */; };
 		167D009617095C8300B94D5E /* System+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D006417095C8300B94D5E /* System+NNT.cpp */; };
-		167D009717095C8300B94D5E /* System+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006517095C8300B94D5E /* System+NNT.h */; };
-		167D009817095C8300B94D5E /* Tuple+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006617095C8300B94D5E /* Tuple+NNT.h */; };
 		167D009917095C8300B94D5E /* Tuple+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D006717095C8300B94D5E /* Tuple+NNT.mm */; };
 		167D009A17095C8300B94D5E /* Types+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D006817095C8300B94D5E /* Types+NNT.cpp */; };
-		167D009B17095C8300B94D5E /* Types+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006917095C8300B94D5E /* Types+NNT.h */; };
 		167D009C17095C8300B94D5E /* Variant+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D006A17095C8300B94D5E /* Variant+NNT.cpp */; };
-		167D009D17095C8300B94D5E /* Variant+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006B17095C8300B94D5E /* Variant+NNT.h */; };
 		167D009E17095C8300B94D5E /* Vector+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D006C17095C8300B94D5E /* Vector+NNT.cpp */; };
-		167D009F17095C8300B94D5E /* Vector+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D006D17095C8300B94D5E /* Vector+NNT.h */; };
 		167D00A017095C8300B94D5E /* Vector+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D006E17095C8300B94D5E /* Vector+NNT.mm */; };
 		167D00AB1709600000B94D5E /* EC+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A11709600000B94D5E /* EC+NNT.cpp */; };
-		167D00AC1709600000B94D5E /* EC+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00A21709600000B94D5E /* EC+NNT.h */; };
 		167D00AD1709600000B94D5E /* MDN+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A31709600000B94D5E /* MDN+NNT.mm */; };
 		167D00AE1709600000B94D5E /* Openssl+NNT.p.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A41709600000B94D5E /* Openssl+NNT.p.cpp */; };
-		167D00AF1709600000B94D5E /* Openssl+NNT.p.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00A51709600000B94D5E /* Openssl+NNT.p.h */; };
-		167D00B01709600000B94D5E /* SecSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00A61709600000B94D5E /* SecSignature.h */; };
 		167D00B11709600000B94D5E /* SecSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A71709600000B94D5E /* SecSignature.m */; };
 		167D00B21709600000B94D5E /* SHA+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00A81709600000B94D5E /* SHA+NNT.cpp */; };
-		167D00B31709600000B94D5E /* SHA+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00A91709600000B94D5E /* SHA+NNT.h */; };
 		167D00B41709600000B94D5E /* UUID+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00AA1709600000B94D5E /* UUID+NNT.mm */; };
 		167D00C51709614200B94D5E /* CSVParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00B71709614100B94D5E /* CSVParser.cpp */; };
-		167D00C61709614200B94D5E /* CSVParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00B81709614100B94D5E /* CSVParser.h */; };
 		167D00C71709614200B94D5E /* HttpParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00B91709614100B94D5E /* HttpParser.cpp */; };
-		167D00C81709614200B94D5E /* HttpParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00BA1709614100B94D5E /* HttpParser.h */; };
-		167D00C91709614200B94D5E /* RegexObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00BB1709614100B94D5E /* RegexObjParser.h */; };
 		167D00CA1709614200B94D5E /* RegexObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00BC1709614100B94D5E /* RegexObjParser.mm */; };
 		167D00CB1709614200B94D5E /* RSSParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00BD1709614100B94D5E /* RSSParser.cpp */; };
-		167D00CC1709614200B94D5E /* RSSParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00BE1709614100B94D5E /* RSSParser.h */; };
-		167D00CD1709614200B94D5E /* TextObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00BF1709614100B94D5E /* TextObjParser.h */; };
 		167D00CE1709614200B94D5E /* TextObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00C01709614100B94D5E /* TextObjParser.mm */; };
 		167D00CF1709614200B94D5E /* XmlParserUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00C11709614100B94D5E /* XmlParserUtil.cpp */; };
-		167D00D01709614200B94D5E /* XmlParserUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00C21709614100B94D5E /* XmlParserUtil.h */; };
-		167D00D51709616100B94D5E /* AEMInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00D11709616100B94D5E /* AEMInformation.h */; };
 		167D00D61709616100B94D5E /* AEMInformation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00D21709616100B94D5E /* AEMInformation.mm */; };
-		167D00D71709616100B94D5E /* AppInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00D31709616100B94D5E /* AppInformation.h */; };
 		167D00D81709616100B94D5E /* AppInformation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00D41709616100B94D5E /* AppInformation.mm */; };
-		167D00DB1709632300B94D5E /* AEModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D00D91709632300B94D5E /* AEModel.h */; };
 		167D00DC1709632300B94D5E /* AEModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167D00DA1709632300B94D5E /* AEModel.mm */; };
 		167D00DE1709672900B94D5E /* libQtCore.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00DD1709672700B94D5E /* libQtCore.4.dylib */; };
 		167D00E01709674100B94D5E /* libQtGui.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D00DF1709673F00B94D5E /* libQtGui.4.dylib */; };
@@ -389,422 +247,133 @@
 		167D00F1170968E300B94D5E /* HttpRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00F0170968E300B94D5E /* HttpRequest.cpp */; };
 		167D00F31709694200B94D5E /* NullRpc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D00F21709694200B94D5E /* NullRpc.cpp */; };
 		167D01141709729000B94D5E /* cpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167D01101709729000B94D5E /* cpu.cpp */; };
-		167D01151709729000B94D5E /* cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01111709729000B94D5E /* cpu.h */; };
-		167D01161709729000B94D5E /* mcore.h in Headers */ = {isa = PBXBuildFile; fileRef = 167D01121709729000B94D5E /* mcore.h */; };
 		167D01171709729100B94D5E /* mcore.inc in Sources */ = {isa = PBXBuildFile; fileRef = 167D01131709729000B94D5E /* mcore.inc */; };
 		167D0119170973FC00B94D5E /* cpu_.s in Sources */ = {isa = PBXBuildFile; fileRef = 167D0118170973FC00B94D5E /* cpu_.s */; };
-		167EBAAB14F368670012570E /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9A14F368670012570E /* FtpServer.h */; };
 		167EBAAC14F368670012570E /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9B14F368670012570E /* FtpServer.m */; };
-		167EBAAD14F368680012570E /* HttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9C14F368670012570E /* HttpRequest.h */; };
 		167EBAAE14F368680012570E /* HttpRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBA9D14F368670012570E /* HttpRequest.mm */; };
-		167EBAAF14F368680012570E /* IRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9E14F368670012570E /* IRpc.h */; };
-		167EBAB014F368680012570E /* JsonRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBA9F14F368670012570E /* JsonRpc.h */; };
 		167EBAB114F368680012570E /* JsonRpc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAA014F368670012570E /* JsonRpc.mm */; };
-		167EBAB214F368680012570E /* LighttpdServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAA114F368670012570E /* LighttpdServer.h */; };
 		167EBAB314F368680012570E /* LighttpdServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAA214F368670012570E /* LighttpdServer.cpp */; };
-		167EBAB414F368680012570E /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAA314F368670012570E /* Network.h */; };
 		167EBAB514F368680012570E /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAA414F368670012570E /* Network.m */; };
-		167EBAB614F368680012570E /* NullRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAA514F368670012570E /* NullRpc.h */; };
 		167EBAB714F368680012570E /* NullRpc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAA614F368670012570E /* NullRpc.mm */; };
-		167EBAB814F368680012570E /* SocketRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAA714F368670012570E /* SocketRequest.h */; };
 		167EBAB914F368680012570E /* SocketRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAA814F368670012570E /* SocketRequest.mm */; };
-		167EBABA14F368680012570E /* XmlRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAA914F368670012570E /* XmlRpc.h */; };
 		167EBABB14F368680012570E /* XmlRpc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAAA14F368670012570E /* XmlRpc.mm */; };
-		167EBAC814F3699C0012570E /* MChart2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBABE14F3699C0012570E /* MChart2D.h */; };
 		167EBAC914F3699C0012570E /* MChart2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBABF14F3699C0012570E /* MChart2D.m */; };
-		167EBACA14F3699C0012570E /* MChartRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAC014F3699C0012570E /* MChartRecord.h */; };
 		167EBACB14F3699C0012570E /* MChartRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAC114F3699C0012570E /* MChartRecord.m */; };
-		167EBACC14F3699C0012570E /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAC214F3699C0012570E /* Model.h */; };
 		167EBACD14F3699C0012570E /* Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAC314F3699C0012570E /* Model.mm */; };
-		167EBACE14F3699C0012570E /* MTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAC414F3699C0012570E /* MTable.h */; };
 		167EBACF14F3699C0012570E /* MTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAC514F3699C0012570E /* MTable.m */; };
-		167EBAD014F3699C0012570E /* MURLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAC614F3699C0012570E /* MURLModel.h */; };
 		167EBAD114F3699C0012570E /* MURLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAC714F3699C0012570E /* MURLModel.m */; };
-		167EBADB14F369B10012570E /* Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAD314F369B10012570E /* Context.h */; };
 		167EBADC14F369B10012570E /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAD414F369B10012570E /* Context.m */; };
-		167EBADD14F369B10012570E /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAD514F369B10012570E /* Preferences.h */; };
 		167EBADE14F369B10012570E /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAD614F369B10012570E /* Preferences.m */; };
-		167EBADF14F369B10012570E /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAD714F369B10012570E /* Server.h */; };
 		167EBAE014F369B10012570E /* Server.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167EBAD814F369B10012570E /* Server.mm */; };
-		167EBAE114F369B10012570E /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBAD914F369B10012570E /* User.h */; };
 		167EBAE214F369B10012570E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBADA14F369B10012570E /* User.m */; };
-		167EBB6014F36A030012570E /* IVTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBB5714F36A030012570E /* IVTable.h */; };
-		167EBB6114F36A030012570E /* VHtml.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBB5814F36A030012570E /* VHtml.h */; };
 		167EBB6214F36A030012570E /* VHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5914F36A030012570E /* VHtml.m */; };
-		167EBB6314F36A030012570E /* VHtmlChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBB5A14F36A030012570E /* VHtmlChart.h */; };
 		167EBB6414F36A030012570E /* VHtmlChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5B14F36A030012570E /* VHtmlChart.m */; };
-		167EBB6514F36A030012570E /* VHtmlTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 167EBB5C14F36A030012570E /* VHtmlTable.h */; };
 		167EBB6614F36A030012570E /* VHtmlTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5D14F36A030012570E /* VHtmlTable.m */; };
 		167EBB6714F36A030012570E /* VHtmlTable_bg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 167EBB5E14F36A030012570E /* VHtmlTable_bg.gif */; };
 		167EBB6814F36A030012570E /* VHtmlTable_CSS.css in Resources */ = {isa = PBXBuildFile; fileRef = 167EBB5F14F36A030012570E /* VHtmlTable_CSS.css */; };
 		167EBB6A14F36AE50012570E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EBB6914F36AE50012570E /* SystemConfiguration.framework */; };
-		168B118A1542580800D9325A /* JuiceOpenGLDarwinDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11861542580800D9325A /* JuiceOpenGLDarwinDriver.hpp */; };
-		168B118B1542580800D9325A /* JuiceOpenGLES1.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11871542580800D9325A /* JuiceOpenGLES1.hpp */; };
-		168B118C1542580800D9325A /* JuiceOpenGLES2.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11881542580800D9325A /* JuiceOpenGLES2.hpp */; };
-		168B118D1542580800D9325A /* JuiceOpenGLPCDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11891542580800D9325A /* JuiceOpenGLPCDriver.hpp */; };
-		168B11C2154279BC00D9325A /* JuiceCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168B11C1154279BC00D9325A /* JuiceCamera.hpp */; };
 		168F22A815200C9900095E80 /* gil.prv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F22A615200C9900095E80 /* gil.prv.cpp */; };
-		168F22A915200C9900095E80 /* gil.prv.h in Headers */ = {isa = PBXBuildFile; fileRef = 168F22A715200C9900095E80 /* gil.prv.h */; };
-		168F22BC1520344300095E80 /* NSFileConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 168F22BA1520344300095E80 /* NSFileConnection.h */; };
 		168F22BD1520344300095E80 /* NSFileConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F22BB1520344300095E80 /* NSFileConnection.m */; };
 		168F22C21520691500095E80 /* DBMS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F22C11520691500095E80 /* DBMS.cpp */; };
-		169A5574154A9C1700A10895 /* JuiceLight.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 169A5573154A9C1700A10895 /* JuiceLight.hpp */; };
 		169DD1171457A239000A9889 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169DD1161457A239000A9889 /* Cocoa.framework */; };
 		169DD1211457A239000A9889 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 169DD11F1457A239000A9889 /* InfoPlist.strings */; };
 		169DD1251457A239000A9889 /* nnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1241457A239000A9889 /* nnt.mm */; };
-		169DD17B1457A4B5000A9889 /* AbstractCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD13F1457A4B5000A9889 /* AbstractCache.h */; settings = {ATTRIBUTES = (); }; };
 		169DD17C1457A4B5000A9889 /* AbstractCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1401457A4B5000A9889 /* AbstractCache.mm */; };
-		169DD1811457A4B5000A9889 /* BdbCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1451457A4B5000A9889 /* BdbCache.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1821457A4B5000A9889 /* BdbCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1461457A4B5000A9889 /* BdbCache.mm */; };
-		169DD1831457A4B5000A9889 /* Boost+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1471457A4B5000A9889 /* Boost+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		169DD1841457A4B5000A9889 /* ColorPalette.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1481457A4B5000A9889 /* ColorPalette.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1851457A4B5000A9889 /* ColorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1491457A4B5000A9889 /* ColorPalette.cpp */; };
-		169DD1861457A4B5000A9889 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD14A1457A4B5000A9889 /* Core.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1871457A4B5000A9889 /* Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD14B1457A4B5000A9889 /* Core.mm */; };
-		169DD1881457A4B5000A9889 /* Directory+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD14C1457A4B5000A9889 /* Directory+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1891457A4B5000A9889 /* Directory+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD14D1457A4B5000A9889 /* Directory+NNT.mm */; };
-		169DD18A1457A4B5000A9889 /* FileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD14E1457A4B5000A9889 /* FileCache.h */; settings = {ATTRIBUTES = (); }; };
 		169DD18B1457A4B5000A9889 /* FileCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD14F1457A4B5000A9889 /* FileCache.mm */; };
-		169DD18C1457A4B5000A9889 /* Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1501457A4B5000A9889 /* Layout.h */; settings = {ATTRIBUTES = (); }; };
 		169DD18D1457A4B5000A9889 /* Layout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1511457A4B5000A9889 /* Layout.mm */; };
-		169DD1901457A4B5000A9889 /* Mach+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1541457A4B5000A9889 /* Mach+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1911457A4B5000A9889 /* Mach+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1551457A4B5000A9889 /* Mach+NNT.m */; };
-		169DD1941457A4B5000A9889 /* MemCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1581457A4B5000A9889 /* MemCache.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1951457A4B5000A9889 /* MemCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1591457A4B5000A9889 /* MemCache.m */; };
 		169DD1961457A4B5000A9889 /* Msgbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD15A1457A4B5000A9889 /* Msgbox.mm */; };
-		169DD1971457A4B5000A9889 /* NSArray+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD15B1457A4B5000A9889 /* NSArray+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1981457A4B5000A9889 /* NSArray+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD15C1457A4B5000A9889 /* NSArray+NNT.mm */; };
-		169DD1991457A4B5000A9889 /* NSData+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD15D1457A4B5000A9889 /* NSData+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD19A1457A4B5000A9889 /* NSData+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD15E1457A4B5000A9889 /* NSData+NNT.mm */; };
-		169DD19B1457A4B5000A9889 /* NSDictionary+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD15F1457A4B5000A9889 /* NSDictionary+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD19C1457A4B5000A9889 /* NSDictionary+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1601457A4B5000A9889 /* NSDictionary+NNT.mm */; };
-		169DD19D1457A4B5000A9889 /* NSLock+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1611457A4B5000A9889 /* NSLock+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD19E1457A4B5000A9889 /* NSLock+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1621457A4B5000A9889 /* NSLock+NNT.m */; };
-		169DD19F1457A4B5000A9889 /* NSNumber+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1631457A4B5000A9889 /* NSNumber+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1A01457A4B5000A9889 /* NSNumber+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1641457A4B5000A9889 /* NSNumber+NNT.mm */; };
-		169DD1A11457A4B5000A9889 /* NSObject+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1651457A4B5000A9889 /* NSObject+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1A31457A4B5000A9889 /* NSObject+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1671457A4B5000A9889 /* NSObject+NNT.mm */; };
-		169DD1A41457A4B5000A9889 /* NSString+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1681457A4B5000A9889 /* NSString+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		169DD1A61457A4B5000A9889 /* Time+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD16A1457A4B5000A9889 /* Time+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1A71457A4B5000A9889 /* Time+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD16B1457A4B5000A9889 /* Time+NNT.m */; };
-		169DD1A81457A4B5000A9889 /* NSURL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD16C1457A4B5000A9889 /* NSURL+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1A91457A4B5000A9889 /* NSURL+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD16D1457A4B5000A9889 /* NSURL+NNT.mm */; };
-		169DD1AA1457A4B5000A9889 /* NSURLConnection+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD16E1457A4B5000A9889 /* NSURLConnection+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1AB1457A4B5000A9889 /* NSURLConnection+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD16F1457A4B5000A9889 /* NSURLConnection+NNT.m */; };
-		169DD1AC1457A4B5000A9889 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1701457A4B5000A9889 /* Object.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1AD1457A4B5000A9889 /* Object.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD1711457A4B5000A9889 /* Object.mm */; };
-		169DD1B41457A4B5000A9889 /* Cache+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1781457A4B5000A9889 /* Cache+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		169DD1B51457A4B5000A9889 /* Event+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD1791457A4B5000A9889 /* Event+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD1B61457A4B5000A9889 /* Event+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD17A1457A4B5000A9889 /* Event+NNT.mm */; };
-		169DD2151457CF17000A9889 /* Execution+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD2131457CF17000A9889 /* Execution+NNT.h */; settings = {ATTRIBUTES = (); }; };
-		169DD2161457CF17000A9889 /* Foundation+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD2141457CF17000A9889 /* Foundation+NNT.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		169DD2291457D52E000A9889 /* DBMS.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD2181457D52E000A9889 /* DBMS.h */; settings = {ATTRIBUTES = (); }; };
 		169DD22A1457D52E000A9889 /* DBMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD2191457D52E000A9889 /* DBMS.m */; };
-		169DD22B1457D52E000A9889 /* DBMSNoSqlAbstract.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD21A1457D52E000A9889 /* DBMSNoSqlAbstract.h */; settings = {ATTRIBUTES = (); }; };
 		169DD22C1457D52E000A9889 /* DBMSNoSqlAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD21B1457D52E000A9889 /* DBMSNoSqlAbstract.m */; };
-		169DD22D1457D52E000A9889 /* DBMSqlAbstract.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD21C1457D52E000A9889 /* DBMSqlAbstract.h */; settings = {ATTRIBUTES = (); }; };
 		169DD22E1457D52E000A9889 /* DBMSqlAbstract.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD21D1457D52E000A9889 /* DBMSqlAbstract.m */; };
-		169DD22F1457D52E000A9889 /* DBMSqlite.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD21E1457D52E000A9889 /* DBMSqlite.h */; settings = {ATTRIBUTES = (); }; };
-		169DD2301457D52E000A9889 /* Bdb+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD21F1457D52E000A9889 /* Bdb+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD2311457D52E000A9889 /* Bdb+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD2201457D52E000A9889 /* Bdb+NNT.m */; };
-		169DD2381457D52E000A9889 /* Sqlite+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DD2271457D52E000A9889 /* Sqlite+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		169DD2391457D52E000A9889 /* Sqlite+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD2281457D52E000A9889 /* Sqlite+NNT.mm */; };
-		16A4498E149EEE3200DF7F82 /* NSFont+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A4498C149EEE3200DF7F82 /* NSFont+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16A4498F149EEE3200DF7F82 /* NSFont+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A4498D149EEE3200DF7F82 /* NSFont+NNT.m */; };
 		16A449F0149F133800DF7F82 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449EF149F133800DF7F82 /* libxml2.dylib */; };
 		16A449F3149F137300DF7F82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449F2149F137300DF7F82 /* QuartzCore.framework */; };
 		16A449F5149F138000DF7F82 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449F4149F138000DF7F82 /* Quartz.framework */; };
-		16A449FA149F13EB00DF7F82 /* App.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A449F8149F13EB00DF7F82 /* App.h */; settings = {ATTRIBUTES = (); }; };
 		16A449FB149F13EB00DF7F82 /* App.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A449F9149F13EB00DF7F82 /* App.mm */; };
-		16A449FE149F140200DF7F82 /* UIObject+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A449FC149F140200DF7F82 /* UIObject+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16A449FF149F140200DF7F82 /* UIObject+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A449FD149F140200DF7F82 /* UIObject+NNT.mm */; };
 		16A44A01149F14C600DF7F82 /* NSString+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A00149F14C600DF7F82 /* NSString+NNT.mm */; };
-		16A44A75149F158B00DF7F82 /* CHMObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A5E149F158B00DF7F82 /* CHMObjParser.h */; };
 		16A44A76149F158B00DF7F82 /* CHMObjParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A5F149F158B00DF7F82 /* CHMObjParser.m */; };
 		16A44A77149F158B00DF7F82 /* CHMParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A60149F158B00DF7F82 /* CHMParser.c */; };
-		16A44A78149F158B00DF7F82 /* CHMParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A61149F158B00DF7F82 /* CHMParser.h */; };
-		16A44A79149F158B00DF7F82 /* GRMustacheWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A62149F158B00DF7F82 /* GRMustacheWrapper.h */; };
 		16A44A7A149F158B00DF7F82 /* GRMustacheWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A63149F158B00DF7F82 /* GRMustacheWrapper.m */; };
-		16A44A7B149F158B00DF7F82 /* HTMLNode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A64149F158B00DF7F82 /* HTMLNode+NNT.h */; };
 		16A44A7C149F158B00DF7F82 /* HTMLNode+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A65149F158B00DF7F82 /* HTMLNode+NNT.m */; };
-		16A44A7D149F158B00DF7F82 /* HtmlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A66149F158B00DF7F82 /* HtmlParser.h */; };
 		16A44A7E149F158B00DF7F82 /* HtmlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A67149F158B00DF7F82 /* HtmlParser.cpp */; };
-		16A44A82149F158B00DF7F82 /* JsonObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A6B149F158B00DF7F82 /* JsonObjParser.h */; };
 		16A44A83149F158B00DF7F82 /* JsonObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A6C149F158B00DF7F82 /* JsonObjParser.mm */; };
-		16A44A84149F158B00DF7F82 /* MustacheParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A6D149F158B00DF7F82 /* MustacheParser.h */; };
 		16A44A85149F158B00DF7F82 /* MustacheParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A6E149F158B00DF7F82 /* MustacheParser.m */; };
-		16A44A86149F158B00DF7F82 /* NullObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A6F149F158B00DF7F82 /* NullObjParser.h */; };
 		16A44A87149F158B00DF7F82 /* NullObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A70149F158B00DF7F82 /* NullObjParser.mm */; };
-		16A44A88149F158B00DF7F82 /* XmlObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A71149F158B00DF7F82 /* XmlObjParser.h */; };
 		16A44A89149F158B00DF7F82 /* XmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A72149F158B00DF7F82 /* XmlObjParser.mm */; };
-		16A44A8A149F158B00DF7F82 /* XmlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44A73149F158B00DF7F82 /* XmlParser.h */; settings = {ATTRIBUTES = (); }; };
 		16A44A8B149F158B00DF7F82 /* XmlParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44A74149F158B00DF7F82 /* XmlParser.mm */; };
 		16A44AE8149F15E800DF7F82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A44AE7149F15E800DF7F82 /* libz.dylib */; };
 		16A44AEC149F164F00DF7F82 /* lzx.c in Sources */ = {isa = PBXBuildFile; fileRef = 16A44AEA149F164F00DF7F82 /* lzx.c */; };
-		16A44AED149F164F00DF7F82 /* lzx.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44AEB149F164F00DF7F82 /* lzx.h */; };
-		16A44D26149F1BF200DF7F82 /* UIKit+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44D24149F1BF200DF7F82 /* UIKit+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16A44D2A149F1C1A00DF7F82 /* UIKit+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A44D29149F1C1A00DF7F82 /* UIKit+NNT.m */; };
-		16A44FBF149F2F3B00DF7F82 /* NSWindow+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44FBB149F2F3B00DF7F82 /* NSWindow+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16A44FC0149F2F3B00DF7F82 /* NSWindow+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44FBC149F2F3B00DF7F82 /* NSWindow+NNT.mm */; };
-		16A44FC1149F2F3B00DF7F82 /* NSWindowController+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44FBD149F2F3B00DF7F82 /* NSWindowController+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16A44FC2149F2F3B00DF7F82 /* NSWindowController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A44FBE149F2F3B00DF7F82 /* NSWindowController+NNT.mm */; };
-		16A44FC5149F332E00DF7F82 /* Msgbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A44FC4149F332E00DF7F82 /* Msgbox.h */; settings = {ATTRIBUTES = (); }; };
 		16AC3B5715088AA6007AC666 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B5615088AA6007AC666 /* App.cpp */; };
 		16AC3B5A15088B9F007AC666 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B5915088B9F007AC666 /* Core.cpp */; };
 		16AC3B5D15089A23007AC666 /* PropertyTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B5B15089A23007AC666 /* PropertyTree.cpp */; };
-		16AC3B5E15089A23007AC666 /* PropertyTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AC3B5C15089A23007AC666 /* PropertyTree.h */; settings = {ATTRIBUTES = (); }; };
 		16AC3B601508A92F007AC666 /* libmysqlclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC3B5F1508A92F007AC666 /* libmysqlclient.a */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
-		16BA0A0B1547C9570069968D /* DBMSOdbc.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BA0A091547C9570069968D /* DBMSOdbc.h */; };
-		16C44CBE14A02D6100775B19 /* NSView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C44CBA14A02D6100775B19 /* NSView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
-		16C44CC014A02D6100775B19 /* NSViewController+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C44CBC14A02D6100775B19 /* NSViewController+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16C44CC114A02D6100775B19 /* NSViewController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBD14A02D6100775B19 /* NSViewController+NNT.mm */; };
 		16CCEB391592FEF600A16A3C /* ACE+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB371592FEF600A16A3C /* ACE+NNT.cpp */; };
-		16CCEB3A1592FEF600A16A3C /* ACE+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CCEB381592FEF600A16A3C /* ACE+NNT.h */; };
 		16CCEB411592FF3200A16A3C /* SocketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB3D1592FF3200A16A3C /* SocketStream.cpp */; };
-		16CCEB421592FF3200A16A3C /* SocketStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CCEB3E1592FF3200A16A3C /* SocketStream.h */; };
 		16CCEB481592FF4F00A16A3C /* LIBXERCESC+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB441592FF4F00A16A3C /* LIBXERCESC+NNT.cpp */; };
-		16CCEB491592FF4F00A16A3C /* LIBXERCESC+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CCEB451592FF4F00A16A3C /* LIBXERCESC+NNT.h */; };
 		16CCEB4A1592FF4F00A16A3C /* LIBXML+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB461592FF4F00A16A3C /* LIBXML+NNT.cpp */; };
-		16CCEB4B1592FF4F00A16A3C /* LIBXML+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CCEB471592FF4F00A16A3C /* LIBXML+NNT.h */; };
 		16D2DD011524345200E72C06 /* libicuuc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D2DD001524345200E72C06 /* libicuuc.a */; };
 		16D2DD051524347500E72C06 /* libicudata.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D2DD041524347500E72C06 /* libicudata.a */; };
 		16D2DD0D1524356500E72C06 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D2DD0C1524356500E72C06 /* libicucore.dylib */; };
-		16D3CEF115381D06003A33CE /* NSJuiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D3CEEF15381D06003A33CE /* NSJuiceController.h */; settings = {ATTRIBUTES = (); }; };
 		16D3CEF215381D06003A33CE /* NSJuiceController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D3CEF015381D06003A33CE /* NSJuiceController.mm */; };
 		16D3CEF515381E53003A33CE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3CEF415381E53003A33CE /* OpenGL.framework */; };
 		16D3CEF715381E56003A33CE /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3CEF615381E56003A33CE /* AGL.framework */; };
 		16D3CEF915381E60003A33CE /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3CEF815381E60003A33CE /* GLUT.framework */; };
-		16D3CF8B153BD000003A33CE /* JuiceTriangleMesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16D3CF8A153BD000003A33CE /* JuiceTriangleMesh.hpp */; settings = {ATTRIBUTES = (); }; };
-		16D3CF8D153C0147003A33CE /* JuiceMesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16D3CF8C153C0147003A33CE /* JuiceMesh.hpp */; settings = {ATTRIBUTES = (); }; };
-		16D3CF8F153C235A003A33CE /* Juice3DMax.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16D3CF8E153C235A003A33CE /* Juice3DMax.hpp */; settings = {ATTRIBUTES = (); }; };
-		16D3D026153D0848003A33CE /* JuiceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D3D025153D0848003A33CE /* JuiceImpl.h */; settings = {ATTRIBUTES = (); }; };
-		16D3D1AC153D6067003A33CE /* JuiceSpirit.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16D3D1AB153D6066003A33CE /* JuiceSpirit.hpp */; };
 		16D3D1AE153E4973003A33CE /* Time+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D1AD153E4973003A33CE /* Time+NNT.cpp */; };
-		16D3D242153E9BCB003A33CE /* JuiceAlgo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16D3D241153E9BCA003A33CE /* JuiceAlgo.hpp */; };
 		16D3D2D8153EC3AF003A33CE /* Configuration+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D2D7153EC3AF003A33CE /* Configuration+NNT.cpp */; };
 		16D3D2DB153FB2F8003A33CE /* Logger+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D2D9153FB2F7003A33CE /* Logger+NNT.cpp */; };
-		16D3D2DC153FB2F8003A33CE /* Logger+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D3D2DA153FB2F7003A33CE /* Logger+NNT.h */; };
 		16D3D2E1153FB7E0003A33CE /* liblog4cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D3D2E0153FB7DE003A33CE /* liblog4cpp.a */; };
 		16D3D2E415401718003A33CE /* Task+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D2E215401715003A33CE /* Task+NNT.cpp */; };
-		16D3D2E515401718003A33CE /* Task+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D3D2E315401716003A33CE /* Task+NNT.h */; };
-		16DA0554154BDE4C0046D072 /* JuiceGlslLibrary.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16DA0552154BDE4C0046D072 /* JuiceGlslLibrary.hpp */; };
-		16DA0555154BDE4C0046D072 /* JuiceTexture.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16DA0553154BDE4C0046D072 /* JuiceTexture.hpp */; };
 		16DCDAF116087ADE00E7308E /* QtApplication+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DCDAEF16087ADE00E7308E /* QtApplication+NNT.cpp */; };
-		16DCDAF216087ADE00E7308E /* QtApplication+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DCDAF016087ADE00E7308E /* QtApplication+NNT.h */; };
 		16DCE94B1509A246003C48F9 /* libsybdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DCE94A1509A246003C48F9 /* libsybdb.a */; };
 		16DCE94E1509A260003C48F9 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DCE94D1509A260003C48F9 /* libiconv.dylib */; };
-		16DD15231504719D0053958F /* db.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DE61504719C0053958F /* db.h */; };
-		16DD15241504719D0053958F /* db_cxx.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DE71504719C0053958F /* db_cxx.h */; };
-		16DD15251504719D0053958F /* dbsql.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DE81504719C0053958F /* dbsql.h */; };
-		16DD15261504719D0053958F /* AdditionalMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DEA1504719C0053958F /* AdditionalMessage.h */; };
-		16DD15271504719D0053958F /* Asserter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DEB1504719C0053958F /* Asserter.h */; };
-		16DD15281504719D0053958F /* BriefTestProgressListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DEC1504719C0053958F /* BriefTestProgressListener.h */; };
-		16DD15291504719D0053958F /* CompilerOutputter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DED1504719C0053958F /* CompilerOutputter.h */; };
-		16DD152A1504719D0053958F /* config-bcb5.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DEF1504719C0053958F /* config-bcb5.h */; };
-		16DD152B1504719D0053958F /* config-evc4.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF01504719C0053958F /* config-evc4.h */; };
-		16DD152C1504719D0053958F /* config-mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF11504719C0053958F /* config-mac.h */; };
-		16DD152D1504719D0053958F /* config-msvc6.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF21504719C0053958F /* config-msvc6.h */; };
-		16DD152E1504719D0053958F /* CppUnitApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF31504719C0053958F /* CppUnitApi.h */; };
-		16DD152F1504719D0053958F /* SelectDllLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF41504719C0053958F /* SelectDllLoader.h */; };
-		16DD15301504719D0053958F /* SourcePrefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF51504719C0053958F /* SourcePrefix.h */; };
-		16DD15311504719D0053958F /* config-auto.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF61504719C0053958F /* config-auto.h */; };
-		16DD15321504719D0053958F /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF71504719C0053958F /* Exception.h */; };
-		16DD15331504719D0053958F /* AutoRegisterSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DF91504719C0053958F /* AutoRegisterSuite.h */; };
-		16DD15341504719D0053958F /* ExceptionTestCaseDecorator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFA1504719C0053958F /* ExceptionTestCaseDecorator.h */; };
-		16DD15351504719D0053958F /* HelperMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFB1504719C0053958F /* HelperMacros.h */; };
-		16DD15361504719D0053958F /* Orthodox.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFC1504719C0053958F /* Orthodox.h */; };
-		16DD15371504719D0053958F /* RepeatedTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFD1504719C0053958F /* RepeatedTest.h */; };
-		16DD15381504719D0053958F /* TestCaseDecorator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFE1504719C0053958F /* TestCaseDecorator.h */; };
-		16DD15391504719D0053958F /* TestDecorator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0DFF1504719C0053958F /* TestDecorator.h */; };
-		16DD153A1504719D0053958F /* TestFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E001504719C0053958F /* TestFactory.h */; };
-		16DD153B1504719D0053958F /* TestFactoryRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E011504719C0053958F /* TestFactoryRegistry.h */; };
-		16DD153C1504719D0053958F /* TestFixtureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E021504719C0053958F /* TestFixtureFactory.h */; };
-		16DD153D1504719D0053958F /* TestNamer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E031504719C0053958F /* TestNamer.h */; };
-		16DD153E1504719D0053958F /* TestSetUp.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E041504719C0053958F /* TestSetUp.h */; };
-		16DD153F1504719D0053958F /* TestSuiteBuilderContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E051504719C0053958F /* TestSuiteBuilderContext.h */; };
-		16DD15401504719D0053958F /* TestSuiteFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E061504719C0053958F /* TestSuiteFactory.h */; };
-		16DD15411504719D0053958F /* TypeInfoHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E071504719C0053958F /* TypeInfoHelper.h */; };
-		16DD15421504719D0053958F /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E081504719C0053958F /* Message.h */; };
-		16DD15431504719D0053958F /* Outputter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E091504719C0053958F /* Outputter.h */; };
-		16DD15441504719D0053958F /* DynamicLibraryManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E0B1504719C0053958F /* DynamicLibraryManager.h */; };
-		16DD15451504719D0053958F /* DynamicLibraryManagerException.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E0C1504719C0053958F /* DynamicLibraryManagerException.h */; };
-		16DD15461504719D0053958F /* PlugInManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E0D1504719C0053958F /* PlugInManager.h */; };
-		16DD15471504719D0053958F /* PlugInParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E0E1504719C0053958F /* PlugInParameters.h */; };
-		16DD15481504719D0053958F /* TestPlugIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E0F1504719C0053958F /* TestPlugIn.h */; };
-		16DD15491504719D0053958F /* TestPlugInDefaultImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E101504719C0053958F /* TestPlugInDefaultImpl.h */; };
-		16DD154A1504719D0053958F /* CppUnitDeque.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E121504719C0053958F /* CppUnitDeque.h */; };
-		16DD154B1504719D0053958F /* CppUnitMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E131504719C0053958F /* CppUnitMap.h */; };
-		16DD154C1504719D0053958F /* CppUnitSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E141504719C0053958F /* CppUnitSet.h */; };
-		16DD154D1504719D0053958F /* CppUnitStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E151504719C0053958F /* CppUnitStack.h */; };
-		16DD154E1504719D0053958F /* CppUnitVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E161504719C0053958F /* CppUnitVector.h */; };
-		16DD154F1504719D0053958F /* FloatingPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E171504719C0053958F /* FloatingPoint.h */; };
-		16DD15501504719D0053958F /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E181504719C0053958F /* Stream.h */; };
-		16DD15511504719D0053958F /* Portability.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E191504719C0053958F /* Portability.h */; };
-		16DD15521504719D0053958F /* Protector.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1A1504719C0053958F /* Protector.h */; };
-		16DD15531504719D0053958F /* SourceLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1B1504719C0053958F /* SourceLine.h */; };
-		16DD15541504719D0053958F /* SynchronizedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1C1504719C0053958F /* SynchronizedObject.h */; };
-		16DD15551504719D0053958F /* Test.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1D1504719C0053958F /* Test.h */; };
-		16DD15561504719D0053958F /* TestAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1E1504719C0053958F /* TestAssert.h */; };
-		16DD15571504719D0053958F /* TestCaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E1F1504719C0053958F /* TestCaller.h */; };
-		16DD15581504719D0053958F /* TestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E201504719C0053958F /* TestCase.h */; };
-		16DD15591504719D0053958F /* TestComposite.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E211504719C0053958F /* TestComposite.h */; };
-		16DD155A1504719D0053958F /* TestFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E221504719C0053958F /* TestFailure.h */; };
-		16DD155B1504719D0053958F /* TestFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E231504719C0053958F /* TestFixture.h */; };
-		16DD155C1504719D0053958F /* TestLeaf.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E241504719C0053958F /* TestLeaf.h */; };
-		16DD155D1504719D0053958F /* TestListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E251504719C0053958F /* TestListener.h */; };
-		16DD155E1504719D0053958F /* TestPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E261504719C0053958F /* TestPath.h */; };
-		16DD155F1504719D0053958F /* TestResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E271504719C0053958F /* TestResult.h */; };
-		16DD15601504719D0053958F /* TestResultCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E281504719C0053958F /* TestResultCollector.h */; };
-		16DD15611504719D0053958F /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E291504719C0053958F /* TestRunner.h */; };
-		16DD15621504719D0053958F /* TestSuccessListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2A1504719C0053958F /* TestSuccessListener.h */; };
-		16DD15631504719D0053958F /* TestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2B1504719C0053958F /* TestSuite.h */; };
-		16DD15641504719D0053958F /* TextOutputter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2C1504719C0053958F /* TextOutputter.h */; };
-		16DD15651504719D0053958F /* TextTestProgressListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2D1504719C0053958F /* TextTestProgressListener.h */; };
-		16DD15661504719D0053958F /* TextTestResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2E1504719C0053958F /* TextTestResult.h */; };
-		16DD15671504719D0053958F /* TextTestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E2F1504719C0053958F /* TextTestRunner.h */; };
-		16DD15681504719D0053958F /* Algorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E311504719C0053958F /* Algorithm.h */; };
-		16DD15691504719D0053958F /* StringTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E321504719C0053958F /* StringTools.h */; };
-		16DD156A1504719D0053958F /* XmlDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E331504719C0053958F /* XmlDocument.h */; };
-		16DD156B1504719D0053958F /* XmlElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E341504719C0053958F /* XmlElement.h */; };
-		16DD156C1504719D0053958F /* MfcTestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E371504719C0053958F /* MfcTestRunner.h */; };
-		16DD156D1504719D0053958F /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E381504719C0053958F /* TestRunner.h */; };
-		16DD156E1504719D0053958F /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E3A1504719C0053958F /* Config.h */; };
-		16DD156F1504719D0053958F /* QtTestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E3B1504719C0053958F /* QtTestRunner.h */; };
-		16DD15701504719D0053958F /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E3C1504719C0053958F /* TestRunner.h */; };
-		16DD15711504719D0053958F /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E3E1504719C0053958F /* TestRunner.h */; };
-		16DD15721504719D0053958F /* TextTestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E3F1504719C0053958F /* TextTestRunner.h */; };
-		16DD15731504719D0053958F /* XmlOutputter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E401504719C0053958F /* XmlOutputter.h */; };
-		16DD15741504719D0053958F /* XmlOutputterHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E411504719C0053958F /* XmlOutputterHook.h */; };
-		16DD15751504719D0053958F /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E431504719C0053958F /* GDataXMLNode.h */; };
 		16DD15761504719D0053958F /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E441504719C0053958F /* GDataXMLNode.m */; };
-		16DD15771504719D0053958F /* GTMBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E451504719C0053958F /* GTMBase64.h */; };
 		16DD15781504719D0053958F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E461504719C0053958F /* GTMBase64.m */; };
-		16DD15791504719D0053958F /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E471504719C0053958F /* GTMDefines.h */; };
-		16DD157A1504719D0053958F /* HTMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E491504719C0053958F /* HTMLNode.h */; };
 		16DD157B1504719D0053958F /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E4A1504719C0053958F /* HTMLNode.m */; };
-		16DD157C1504719D0053958F /* HTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E4B1504719C0053958F /* HTMLParser.h */; };
 		16DD157D1504719D0053958F /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E4C1504719C0053958F /* HTMLParser.m */; };
-		16DD157E1504719D0053958F /* GRBoolean.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E4E1504719C0053958F /* GRBoolean.h */; };
 		16DD157F1504719D0053958F /* GRBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E4F1504719C0053958F /* GRBoolean.m */; };
-		16DD15801504719D0053958F /* GRMustache.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E501504719C0053958F /* GRMustache.h */; };
 		16DD15811504719D0053958F /* GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E511504719C0053958F /* GRMustache.m */; };
-		16DD15821504719D0053958F /* GRMustache_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E521504719C0053958F /* GRMustache_private.h */; };
 		16DD15831504719D0053958F /* GRMustacheBundleTemplateLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E531504719C0053958F /* GRMustacheBundleTemplateLoader.m */; };
-		16DD15841504719D0053958F /* GRMustacheBundleTemplateLoader_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E541504719C0053958F /* GRMustacheBundleTemplateLoader_private.h */; };
-		16DD15851504719D0053958F /* GRMustacheConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E551504719C0053958F /* GRMustacheConfiguration.h */; };
 		16DD15861504719D0053958F /* GRMustacheConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E561504719C0053958F /* GRMustacheConfiguration.m */; };
-		16DD15871504719D0053958F /* GRMustacheContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E571504719C0053958F /* GRMustacheContext.h */; };
 		16DD15881504719D0053958F /* GRMustacheContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E581504719C0053958F /* GRMustacheContext.m */; };
-		16DD15891504719D0053958F /* GRMustacheContext_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E591504719C0053958F /* GRMustacheContext_private.h */; };
 		16DD158A1504719D0053958F /* GRMustacheDirectoryTemplateLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E5A1504719C0053958F /* GRMustacheDirectoryTemplateLoader.m */; };
-		16DD158B1504719D0053958F /* GRMustacheDirectoryTemplateLoader_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E5B1504719C0053958F /* GRMustacheDirectoryTemplateLoader_private.h */; };
-		16DD158C1504719D0053958F /* GRMustacheEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E5C1504719C0053958F /* GRMustacheEnvironment.h */; };
-		16DD158D1504719D0053958F /* GRMustacheError.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E5D1504719C0053958F /* GRMustacheError.h */; };
 		16DD158E1504719D0053958F /* GRMustacheError.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E5E1504719C0053958F /* GRMustacheError.m */; };
-		16DD158F1504719D0053958F /* GRMustacheLambda.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E5F1504719C0053958F /* GRMustacheLambda.h */; };
 		16DD15901504719D0053958F /* GRMustacheLambda.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E601504719C0053958F /* GRMustacheLambda.m */; };
-		16DD15911504719D0053958F /* GRMustacheLambda_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E611504719C0053958F /* GRMustacheLambda_private.h */; };
-		16DD15921504719D0053958F /* GRMustacheRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E621504719C0053958F /* GRMustacheRendering.h */; };
 		16DD15931504719D0053958F /* GRMustacheRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E631504719C0053958F /* GRMustacheRendering.m */; };
-		16DD15941504719D0053958F /* GRMustacheRendering_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E641504719C0053958F /* GRMustacheRendering_private.h */; };
-		16DD15951504719D0053958F /* GRMustacheSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E651504719C0053958F /* GRMustacheSection.h */; };
 		16DD15961504719D0053958F /* GRMustacheSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E661504719C0053958F /* GRMustacheSection.m */; };
-		16DD15971504719D0053958F /* GRMustacheSection_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E671504719C0053958F /* GRMustacheSection_private.h */; };
-		16DD15981504719D0053958F /* GRMustacheTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E681504719C0053958F /* GRMustacheTemplate.h */; };
 		16DD15991504719D0053958F /* GRMustacheTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E691504719C0053958F /* GRMustacheTemplate.m */; };
-		16DD159A1504719D0053958F /* GRMustacheTemplate_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E6A1504719C0053958F /* GRMustacheTemplate_private.h */; };
-		16DD159B1504719D0053958F /* GRMustacheTemplateLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E6B1504719C0053958F /* GRMustacheTemplateLoader.h */; };
 		16DD159C1504719D0053958F /* GRMustacheTemplateLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E6C1504719C0053958F /* GRMustacheTemplateLoader.m */; };
-		16DD159D1504719D0053958F /* GRMustacheTemplateLoader_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E6D1504719C0053958F /* GRMustacheTemplateLoader_private.h */; };
-		16DD159E1504719D0053958F /* GRMustacheTemplateLoader_protected.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E6E1504719C0053958F /* GRMustacheTemplateLoader_protected.h */; };
 		16DD159F1504719D0053958F /* GRMustacheTemplateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E6F1504719C0053958F /* GRMustacheTemplateParser.m */; };
-		16DD15A01504719D0053958F /* GRMustacheTemplateParser_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E701504719C0053958F /* GRMustacheTemplateParser_private.h */; };
 		16DD15A11504719D0053958F /* GRMustacheTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E711504719C0053958F /* GRMustacheTextElement.m */; };
-		16DD15A21504719D0053958F /* GRMustacheTextElement_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E721504719C0053958F /* GRMustacheTextElement_private.h */; };
 		16DD15A31504719D0053958F /* GRMustacheToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E731504719C0053958F /* GRMustacheToken.m */; };
-		16DD15A41504719D0053958F /* GRMustacheToken_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E741504719C0053958F /* GRMustacheToken_private.h */; };
 		16DD15A51504719D0053958F /* GRMustacheTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E751504719C0053958F /* GRMustacheTokenizer.m */; };
-		16DD15A61504719D0053958F /* GRMustacheTokenizer_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E761504719C0053958F /* GRMustacheTokenizer_private.h */; };
 		16DD15A71504719D0053958F /* GRMustacheVariableElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E771504719C0053958F /* GRMustacheVariableElement.m */; };
-		16DD15A81504719D0053958F /* GRMustacheVariableElement_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E781504719C0053958F /* GRMustacheVariableElement_private.h */; };
-		16DD15A91504719D0053958F /* GRMustacheVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E791504719C0053958F /* GRMustacheVersion.h */; };
 		16DD15AA1504719D0053958F /* GRMustacheVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD0E7A1504719C0053958F /* GRMustacheVersion.m */; };
-		16DD15AB1504719D0053958F /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E7C1504719C0053958F /* aes.h */; };
-		16DD15AC1504719D0053958F /* asn1.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E7D1504719C0053958F /* asn1.h */; };
-		16DD15AD1504719D0053958F /* asn1_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E7E1504719C0053958F /* asn1_mac.h */; };
-		16DD15AE1504719D0053958F /* asn1t.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E7F1504719C0053958F /* asn1t.h */; };
-		16DD15AF1504719D0053958F /* bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E801504719C0053958F /* bio.h */; };
-		16DD15B01504719D0053958F /* blowfish.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E811504719C0053958F /* blowfish.h */; };
-		16DD15B11504719D0053958F /* bn.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E821504719C0053958F /* bn.h */; };
-		16DD15B21504719D0053958F /* buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E831504719C0053958F /* buffer.h */; };
-		16DD15B31504719D0053958F /* camellia.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E841504719C0053958F /* camellia.h */; };
-		16DD15B41504719D0053958F /* cast.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E851504719C0053958F /* cast.h */; };
-		16DD15B51504719D0053958F /* cms.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E861504719C0053958F /* cms.h */; };
-		16DD15B61504719D0053958F /* comp.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E871504719C0053958F /* comp.h */; };
-		16DD15B71504719D0053958F /* conf.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E881504719C0053958F /* conf.h */; };
-		16DD15B81504719D0053958F /* conf_api.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E891504719C0053958F /* conf_api.h */; };
-		16DD15B91504719D0053958F /* crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8A1504719C0053958F /* crypto.h */; };
-		16DD15BA1504719D0053958F /* des.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8B1504719C0053958F /* des.h */; };
-		16DD15BB1504719D0053958F /* des_old.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8C1504719C0053958F /* des_old.h */; };
-		16DD15BC1504719D0053958F /* dh.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8D1504719C0053958F /* dh.h */; };
-		16DD15BD1504719D0053958F /* dsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8E1504719C0053958F /* dsa.h */; };
-		16DD15BE1504719D0053958F /* dso.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E8F1504719C0053958F /* dso.h */; };
-		16DD15BF1504719D0053958F /* dtls1.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E901504719C0053958F /* dtls1.h */; };
-		16DD15C01504719D0053958F /* e_os2.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E911504719C0053958F /* e_os2.h */; };
-		16DD15C11504719D0053958F /* ebcdic.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E921504719C0053958F /* ebcdic.h */; };
-		16DD15C21504719D0053958F /* ec.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E931504719C0053958F /* ec.h */; };
-		16DD15C31504719D0053958F /* ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E941504719C0053958F /* ecdh.h */; };
-		16DD15C41504719D0053958F /* ecdsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E951504719C0053958F /* ecdsa.h */; };
-		16DD15C51504719D0053958F /* engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E961504719C0053958F /* engine.h */; };
-		16DD15C61504719D0053958F /* err.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E971504719C0053958F /* err.h */; };
-		16DD15C71504719D0053958F /* evp.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E981504719C0053958F /* evp.h */; };
-		16DD15C81504719D0053958F /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E991504719C0053958F /* hmac.h */; };
-		16DD15C91504719D0053958F /* idea.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9A1504719C0053958F /* idea.h */; };
-		16DD15CA1504719D0053958F /* krb5_asn.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9B1504719C0053958F /* krb5_asn.h */; };
-		16DD15CB1504719D0053958F /* kssl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9C1504719C0053958F /* kssl.h */; };
-		16DD15CC1504719D0053958F /* lhash.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9D1504719C0053958F /* lhash.h */; };
-		16DD15CD1504719D0053958F /* md4.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9E1504719C0053958F /* md4.h */; };
-		16DD15CE1504719D0053958F /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0E9F1504719C0053958F /* md5.h */; };
-		16DD15CF1504719D0053958F /* mdc2.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA01504719C0053958F /* mdc2.h */; };
-		16DD15D01504719D0053958F /* modes.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA11504719C0053958F /* modes.h */; };
-		16DD15D11504719D0053958F /* obj_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA21504719C0053958F /* obj_mac.h */; };
-		16DD15D21504719D0053958F /* objects.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA31504719C0053958F /* objects.h */; };
-		16DD15D31504719D0053958F /* ocsp.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA41504719C0053958F /* ocsp.h */; };
-		16DD15D41504719D0053958F /* opensslconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA51504719C0053958F /* opensslconf.h */; };
-		16DD15D51504719D0053958F /* opensslv.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA61504719C0053958F /* opensslv.h */; };
-		16DD15D61504719D0053958F /* ossl_typ.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA71504719C0053958F /* ossl_typ.h */; };
-		16DD15D71504719D0053958F /* pem.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA81504719C0053958F /* pem.h */; };
-		16DD15D81504719D0053958F /* pem2.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EA91504719C0053958F /* pem2.h */; };
-		16DD15D91504719D0053958F /* pkcs12.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAA1504719C0053958F /* pkcs12.h */; };
-		16DD15DA1504719D0053958F /* pkcs7.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAB1504719C0053958F /* pkcs7.h */; };
-		16DD15DB1504719D0053958F /* pqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAC1504719C0053958F /* pqueue.h */; };
-		16DD15DC1504719D0053958F /* rand.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAD1504719C0053958F /* rand.h */; };
-		16DD15DD1504719D0053958F /* rc2.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAE1504719C0053958F /* rc2.h */; };
-		16DD15DE1504719D0053958F /* rc4.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EAF1504719C0053958F /* rc4.h */; };
-		16DD15DF1504719D0053958F /* ripemd.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB01504719C0053958F /* ripemd.h */; };
-		16DD15E01504719D0053958F /* rsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB11504719C0053958F /* rsa.h */; };
-		16DD15E11504719D0053958F /* safestack.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB21504719C0053958F /* safestack.h */; };
-		16DD15E21504719D0053958F /* seed.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB31504719C0053958F /* seed.h */; };
-		16DD15E31504719D0053958F /* sha.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB41504719C0053958F /* sha.h */; };
-		16DD15E41504719D0053958F /* ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB51504719C0053958F /* ssl.h */; };
-		16DD15E51504719D0053958F /* ssl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB61504719C0053958F /* ssl2.h */; };
-		16DD15E61504719D0053958F /* ssl23.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB71504719C0053958F /* ssl23.h */; };
-		16DD15E71504719D0053958F /* ssl3.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB81504719C0053958F /* ssl3.h */; };
-		16DD15E81504719D0053958F /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EB91504719C0053958F /* stack.h */; };
-		16DD15E91504719D0053958F /* symhacks.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBA1504719C0053958F /* symhacks.h */; };
-		16DD15EA1504719D0053958F /* tls1.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBB1504719C0053958F /* tls1.h */; };
-		16DD15EB1504719D0053958F /* ts.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBC1504719C0053958F /* ts.h */; };
-		16DD15EC1504719D0053958F /* txt_db.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBD1504719C0053958F /* txt_db.h */; };
-		16DD15ED1504719D0053958F /* ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBE1504719C0053958F /* ui.h */; };
-		16DD15EE1504719D0053958F /* ui_compat.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EBF1504719C0053958F /* ui_compat.h */; };
-		16DD15EF1504719D0053958F /* whrlpool.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EC01504719C0053958F /* whrlpool.h */; };
-		16DD15F01504719D0053958F /* x509.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EC11504719C0053958F /* x509.h */; };
-		16DD15F11504719D0053958F /* x509_vfy.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EC21504719C0053958F /* x509_vfy.h */; };
-		16DD15F21504719D0053958F /* x509v3.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EC31504719C0053958F /* x509v3.h */; };
-		16DD15F31504719D0053958F /* uuid.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD0EC51504719C0053958F /* uuid.h */; };
-		16DD17E9150471C30053958F /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD17E7150471C30053958F /* RegexKitLite.h */; };
 		16DD17EA150471C30053958F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD17E8150471C30053958F /* RegexKitLite.m */; };
 		16DD17F6150472380053958F /* libboost_regex-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD17EC150472380053958F /* libboost_regex-mt.a */; };
 		16DD17F7150472380053958F /* libcppunit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD17ED150472380053958F /* libcppunit.a */; };
@@ -812,164 +381,92 @@
 		16DD17F9150472380053958F /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD17EF150472380053958F /* libdb.a */; };
 		16DD17FA150472380053958F /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD17F0150472380053958F /* libssl.a */; };
 		16DD17FB150472380053958F /* libuuid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD17F1150472380053958F /* libuuid.a */; };
-		16DD180B1504726C0053958F /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18001504726C0053958F /* JSON.h */; };
-		16DD180C1504726C0053958F /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18011504726C0053958F /* NSObject+SBJSON.h */; };
 		16DD180D1504726C0053958F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD18021504726C0053958F /* NSObject+SBJSON.m */; };
-		16DD180E1504726C0053958F /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18031504726C0053958F /* NSString+SBJSON.h */; };
 		16DD180F1504726C0053958F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD18041504726C0053958F /* NSString+SBJSON.m */; };
-		16DD18101504726C0053958F /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18051504726C0053958F /* SBJsonBase.h */; };
 		16DD18111504726C0053958F /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD18061504726C0053958F /* SBJsonBase.m */; };
-		16DD18121504726C0053958F /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18071504726C0053958F /* SBJsonParser.h */; };
 		16DD18131504726C0053958F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD18081504726C0053958F /* SBJsonParser.m */; };
-		16DD18141504726C0053958F /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DD18091504726C0053958F /* SBJsonWriter.h */; };
 		16DD18151504726C0053958F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD180A1504726C0053958F /* SBJsonWriter.m */; };
 		16DD1C2C150494000053958F /* libACE.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD1C2B150494000053958F /* libACE.dylib */; };
 		16E009E416085C0B00B35D3F /* Mime+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */; };
-		16E009E516085C0B00B35D3F /* Mime+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E0096B16085C0B00B35D3F /* Mime+NNT.h */; };
 		16E009E616085C0B00B35D3F /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096C16085C0B00B35D3F /* Mime+NNT.mm */; };
-		16E009E716085C0B00B35D3F /* NSHttpCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E0096D16085C0B00B35D3F /* NSHttpCache.h */; };
 		16E009E816085C0B00B35D3F /* NSHttpCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096E16085C0B00B35D3F /* NSHttpCache.mm */; };
-		16E009E916085C0B00B35D3F /* OperationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E0096F16085C0B00B35D3F /* OperationRequest.h */; };
 		16E009EA16085C0B00B35D3F /* OperationRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0097016085C0B00B35D3F /* OperationRequest.mm */; };
 		16E009EC16085C0B00B35D3F /* VCard+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0097216085C0B00B35D3F /* VCard+NNT.cpp */; };
-		16E009ED16085C0B00B35D3F /* VCard+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E0097316085C0B00B35D3F /* VCard+NNT.h */; };
-		16E00A5F16085CF100B35D3F /* MItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A5B16085CF100B35D3F /* MItem.h */; };
 		16E00A6016085CF100B35D3F /* MItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A5C16085CF100B35D3F /* MItem.mm */; };
-		16E00A6116085CF100B35D3F /* MOpeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A5D16085CF100B35D3F /* MOpeModel.h */; };
 		16E00A6216085CF100B35D3F /* MOpeModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A5E16085CF100B35D3F /* MOpeModel.mm */; };
 		16E00A641608616900B35D3F /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A631608616900B35D3F /* Object.cpp */; };
 		16E00A671608676700B35D3F /* SocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A651608676700B35D3F /* SocketClient.cpp */; };
-		16E00A681608676700B35D3F /* SocketClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A661608676700B35D3F /* SocketClient.h */; };
 		16E00A6C1608695700B35D3F /* BehaviourSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A6A1608695700B35D3F /* BehaviourSys.cpp */; };
-		16E00A6D1608695700B35D3F /* BehaviourSys.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A6B1608695700B35D3F /* BehaviourSys.h */; };
-		16E00A7A1608696600B35D3F /* AudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A6F1608696600B35D3F /* AudioPlayer.h */; };
 		16E00A7B1608696600B35D3F /* AudioPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A701608696600B35D3F /* AudioPlayer.mm */; };
 		16E00A7C1608696600B35D3F /* EmojiCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A711608696600B35D3F /* EmojiCodec.cpp */; };
-		16E00A7D1608696600B35D3F /* EmojiCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A721608696600B35D3F /* EmojiCodec.h */; };
-		16E00A811608696600B35D3F /* SystemAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A761608696600B35D3F /* SystemAudio.h */; };
 		16E00A821608696600B35D3F /* SystemAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A771608696600B35D3F /* SystemAudio.mm */; };
-		16E00A831608696600B35D3F /* URLCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E00A781608696600B35D3F /* URLCodec.h */; };
 		16E00A841608696600B35D3F /* URLCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A791608696600B35D3F /* URLCodec.mm */; };
 		16E00A86160869C100B35D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E00A85160869C000B35D3F /* AudioToolbox.framework */; };
 		16E00A881608708400B35D3F /* EmojiCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E00A871608708400B35D3F /* EmojiCodec.mm */; };
 		16E4E6D015070D8900B6B7E8 /* XmlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6CF15070D8900B6B7E8 /* XmlParser.cpp */; };
 		16E4E6D91507130C00B6B7E8 /* Char+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6D61507130C00B6B7E8 /* Char+NNT.cpp */; };
-		16E4E6DA1507130C00B6B7E8 /* Char+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E4E6D71507130C00B6B7E8 /* Char+NNT.h */; };
 		16E4E6DB1507130C00B6B7E8 /* Char+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6D81507130C00B6B7E8 /* Char+NNT.mm */; };
 		16E4E6E815074EBC00B6B7E8 /* MySql+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6DE15074EBB00B6B7E8 /* MySql+NNT.cpp */; };
-		16E4E6E915074EBC00B6B7E8 /* MySql+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E4E6DF15074EBB00B6B7E8 /* MySql+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16E4E6EA15074EBC00B6B7E8 /* PostgreSql+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E015074EBB00B6B7E8 /* PostgreSql+NNT.cpp */; };
-		16E4E6EB15074EBC00B6B7E8 /* PostgreSql+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E4E6E115074EBB00B6B7E8 /* PostgreSql+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16E4E6EE15074EBC00B6B7E8 /* SqlServer+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E415074EBC00B6B7E8 /* SqlServer+NNT.cpp */; };
-		16E4E6EF15074EBC00B6B7E8 /* SqlServer+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E4E6E515074EBC00B6B7E8 /* SqlServer+NNT.h */; settings = {ATTRIBUTES = (); }; };
+		16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16ED7D8F17544FAF0029A62E /* CudaFunction.cu */; };
+		16ED7D9217544FAF0029A62E /* CudaFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D9017544FAF0029A62E /* CudaFunction.h */; };
+		16ED7D941754535E0029A62E /* CudaMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D931754535E0029A62E /* CudaMath.h */; };
+		16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
+		16ED7D971754663F0029A62E /* libcudart.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
 		16F2AF2515327A2C0047DB0B /* NSTableView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */; };
-		16F2AF2C153284D70047DB0B /* NSScrollView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF2B153284D60047DB0B /* NSScrollView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF2E153285590047DB0B /* NSScrollView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */; };
 		16F2AF33153289AE0047DB0B /* NSButton+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF32153289AE0047DB0B /* NSButton+NNT.mm */; };
 		16F2AF3615328A0A0047DB0B /* NSTextField+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF3515328A0A0047DB0B /* NSTextField+NNT.mm */; };
-		16F2AF39153293580047DB0B /* NSListView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF37153293570047DB0B /* NSListView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF3A153293580047DB0B /* NSListView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF38153293570047DB0B /* NSListView+NNT.mm */; };
-		16F2AF3D1532A9500047DB0B /* NSTabView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF3B1532A9500047DB0B /* NSTabView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF3E1532A9500047DB0B /* NSTabView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF3C1532A9500047DB0B /* NSTabView+NNT.mm */; };
-		16F2AF561532BE460047DB0B /* NSTextView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF541532BE450047DB0B /* NSTextView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF571532BE460047DB0B /* NSTextView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF551532BE460047DB0B /* NSTextView+NNT.mm */; };
-		16F2AF621532D76E0047DB0B /* NSImageView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF601532D76D0047DB0B /* NSImageView+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF631532D76E0047DB0B /* NSImageView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF611532D76D0047DB0B /* NSImageView+NNT.mm */; };
-		16F2AF691532F6CF0047DB0B /* NSImage+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F2AF671532F6CD0047DB0B /* NSImage+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F2AF6A1532F6CF0047DB0B /* NSImage+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF681532F6CE0047DB0B /* NSImage+NNT.mm */; };
+		16F6688617530E190082F548 /* CudaDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F6688417530E190082F548 /* CudaDevice.cpp */; };
+		16F6688A17530F5E0082F548 /* CudaInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F6688817530F5E0082F548 /* CudaInfo.cpp */; };
+		16F66892175330C20082F548 /* Allocate+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F66890175330C20082F548 /* Allocate+NNT.cpp */; };
+		16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F66894175330D00082F548 /* Memory+NNT.cpp */; };
+		16F6689B17533BD00082F548 /* math.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16F6689817533A850082F548 /* math.cu */; };
 		16F92EEE1521689800D09C5D /* Shell+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F92EEC1521689800D09C5D /* Shell+NNT.cpp */; };
-		16F92EEF1521689800D09C5D /* Shell+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F92EED1521689800D09C5D /* Shell+NNT.h */; };
-		16F98D23149EE19800240965 /* NGTextLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF1149EE19800240965 /* NGTextLayer.h */; };
 		16F98D24149EE19800240965 /* NGTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CF2149EE19800240965 /* NGTextLayer.m */; };
-		16F98D25149EE19800240965 /* NGAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF3149EE19800240965 /* NGAnimation.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D26149EE19800240965 /* NGAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CF4149EE19800240965 /* NGAnimation.m */; };
-		16F98D27149EE19800240965 /* NGShadow.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF5149EE19800240965 /* NGShadow.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D28149EE19800240965 /* NGShadow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CF6149EE19800240965 /* NGShadow.mm */; };
-		16F98D29149EE19800240965 /* Graphic+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CF7149EE19800240965 /* Graphic+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D2A149EE19800240965 /* Graphic+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CF8149EE19800240965 /* Graphic+NNT.m */; };
-		16F98D2D149EE19800240965 /* NGActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CFB149EE19800240965 /* NGActivityIndicator.h */; };
 		16F98D2E149EE19800240965 /* NGActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CFC149EE19800240965 /* NGActivityIndicator.m */; };
-		16F98D2F149EE19800240965 /* NGArrowIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CFD149EE19800240965 /* NGArrowIndicator.h */; };
 		16F98D30149EE19800240965 /* NGArrowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98CFE149EE19800240965 /* NGArrowIndicator.m */; };
-		16F98D31149EE19800240965 /* NGBadgeIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98CFF149EE19800240965 /* NGBadgeIndicator.h */; };
 		16F98D32149EE19800240965 /* NGBadgeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D00149EE19800240965 /* NGBadgeIndicator.m */; };
-		16F98D33149EE19800240965 /* NGLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D01149EE19800240965 /* NGLayer.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D34149EE19800240965 /* NGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D02149EE19800240965 /* NGLayer.mm */; };
-		16F98D35149EE19800240965 /* NGLayerTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D03149EE19800240965 /* NGLayerTheme.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D36149EE19800240965 /* NGLayerTheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D04149EE19800240965 /* NGLayerTheme.mm */; };
-		16F98D37149EE19800240965 /* NGBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D05149EE19800240965 /* NGBase.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D38149EE19800240965 /* NGBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D06149EE19800240965 /* NGBase.mm */; };
-		16F98D39149EE19800240965 /* NGColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D07149EE19800240965 /* NGColor.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D3A149EE19800240965 /* NGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D08149EE19800240965 /* NGColor.m */; };
-		16F98D3B149EE19800240965 /* NGColorSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D09149EE19800240965 /* NGColorSpace.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D3C149EE19800240965 /* NGColorSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D0A149EE19800240965 /* NGColorSpace.m */; };
-		16F98D3D149EE19800240965 /* NGContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D0B149EE19800240965 /* NGContext.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D3E149EE19800240965 /* NGContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D0C149EE19800240965 /* NGContext.m */; };
-		16F98D3F149EE19800240965 /* ng_ctypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D0D149EE19800240965 /* ng_ctypes.h */; };
-		16F98D40149EE19800240965 /* NGDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D0E149EE19800240965 /* NGDefines.h */; settings = {ATTRIBUTES = (); }; };
-		16F98D41149EE19800240965 /* NGFill.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D0F149EE19800240965 /* NGFill.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D42149EE19800240965 /* NGFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D10149EE19800240965 /* NGFill.m */; };
-		16F98D43149EE19800240965 /* NGFillColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D11149EE19800240965 /* NGFillColor.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D44149EE19800240965 /* NGFillColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D12149EE19800240965 /* NGFillColor.m */; };
-		16F98D45149EE19800240965 /* NGFillGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D13149EE19800240965 /* NGFillGradient.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D46149EE19800240965 /* NGFillGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D14149EE19800240965 /* NGFillGradient.m */; };
-		16F98D47149EE19800240965 /* NGFillImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D15149EE19800240965 /* NGFillImage.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D48149EE19800240965 /* NGFillImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D16149EE19800240965 /* NGFillImage.m */; };
-		16F98D49149EE19800240965 /* NGGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D17149EE19800240965 /* NGGradient.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D4A149EE19800240965 /* NGGradient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D18149EE19800240965 /* NGGradient.mm */; };
-		16F98D4B149EE19800240965 /* NGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D19149EE19800240965 /* NGImage.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D4C149EE19800240965 /* NGImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D1A149EE19800240965 /* NGImage.mm */; };
-		16F98D4D149EE19800240965 /* NGImageTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D1B149EE19800240965 /* NGImageTransition.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D4E149EE19800240965 /* NGImageTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D1C149EE19800240965 /* NGImageTransition.m */; };
-		16F98D4F149EE19800240965 /* NGLineStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D1D149EE19800240965 /* NGLineStyle.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D50149EE19800240965 /* NGLineStyle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D1E149EE19800240965 /* NGLineStyle.mm */; };
-		16F98D51149EE19800240965 /* NGTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D1F149EE19800240965 /* NGTextStyle.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D52149EE19800240965 /* NGTextStyle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D20149EE19800240965 /* NGTextStyle.mm */; };
-		16F98D53149EE19800240965 /* NGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D21149EE19800240965 /* NGUtils.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D54149EE19800240965 /* NGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D22149EE19800240965 /* NGUtils.m */; };
-		16F98D5B149EE1E000240965 /* Configuration+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F98D55149EE1E000240965 /* Configuration+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16F98D5C149EE1E000240965 /* Configuration+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F98D56149EE1E000240965 /* Configuration+NNT.mm */; };
 		16F9AC8A159C6023000433D3 /* HttpServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC84159C6023000433D3 /* HttpServer.cpp */; };
-		16F9AC8B159C6023000433D3 /* HttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F9AC85159C6023000433D3 /* HttpServer.h */; };
 		16F9AC8C159C6023000433D3 /* SmtpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC86159C6023000433D3 /* SmtpClient.cpp */; };
-		16F9AC8D159C6023000433D3 /* SmtpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F9AC87159C6023000433D3 /* SmtpClient.h */; };
-		16F9AC8E159C6023000433D3 /* SqliteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F9AC88159C6023000433D3 /* SqliteRequest.h */; };
 		16F9AC8F159C6023000433D3 /* SqliteRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC89159C6023000433D3 /* SqliteRequest.mm */; };
 		16F9AC91159C608A000433D3 /* libesmtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F9AC90159C608A000433D3 /* libesmtp.a */; };
 		16F9AC94159C60DB000433D3 /* EmailContent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F9AC92159C60DB000433D3 /* EmailContent.cpp */; };
-		16F9AC95159C60DB000433D3 /* EmailContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F9AC93159C60DB000433D3 /* EmailContent.h */; };
 		16FCA39715C7857900047537 /* AES+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA38B15C7857900047537 /* AES+NNT.cpp */; };
-		16FCA39815C7857900047537 /* AES+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA38C15C7857900047537 /* AES+NNT.h */; };
 		16FCA39915C7857900047537 /* BaseN+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA38D15C7857900047537 /* BaseN+NNT.cpp */; };
-		16FCA39A15C7857900047537 /* BaseN+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA38E15C7857900047537 /* BaseN+NNT.h */; };
 		16FCA39B15C7857900047537 /* DES+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA38F15C7857900047537 /* DES+NNT.cpp */; };
-		16FCA39C15C7857900047537 /* DES+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA39015C7857900047537 /* DES+NNT.h */; };
 		16FCA39D15C7857900047537 /* MDN+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA39115C7857900047537 /* MDN+NNT.cpp */; };
-		16FCA39E15C7857900047537 /* MDN+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA39215C7857900047537 /* MDN+NNT.h */; };
 		16FCA39F15C7857900047537 /* RSA+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA39315C7857900047537 /* RSA+NNT.cpp */; };
-		16FCA3A015C7857900047537 /* RSA+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA39415C7857900047537 /* RSA+NNT.h */; };
 		16FCA3A115C7857900047537 /* UUID+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FCA39515C7857900047537 /* UUID+NNT.cpp */; };
-		16FCA3A215C7857900047537 /* UUID+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FCA39615C7857900047537 /* UUID+NNT.h */; };
-		16FE6650152704BF0095521B /* Math+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FE664E152704BF0095521B /* Math+NNT.h */; settings = {ATTRIBUTES = (); }; };
 		16FE6651152704BF0095521B /* Math+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FE664F152704BF0095521B /* Math+NNT.cpp */; };
 		16FE6673152705170095521B /* JuiceBox2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16FE6662152705170095521B /* JuiceBox2d.cpp */; };
-		16FE6674152705170095521B /* JuiceBox2d.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FE6663152705170095521B /* JuiceBox2d.h */; settings = {ATTRIBUTES = (); }; };
-		16FE6676152705170095521B /* Juice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE6665152705170095521B /* Juice.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE6679152705260095521B /* OpenGL_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 16FE6678152705260095521B /* OpenGL_Internal.h */; };
 		16FE667B1527058D0095521B /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FE667A1527058D0095521B /* libBox2D.a */; };
-		16FE66FC15270CC00095521B /* JuiceCLI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66EF15270CC00095521B /* JuiceCLI.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE66FD15270CC00095521B /* JuiceCococaDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F015270CC00095521B /* JuiceCococaDriver.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE66FE15270CC00095521B /* JuiceContainer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F115270CC00095521B /* JuiceContainer.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE66FF15270CC00095521B /* JuiceCore.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F215270CC00095521B /* JuiceCore.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670015270CC00095521B /* JuiceDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F315270CC00095521B /* JuiceDriver.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670115270CC00095521B /* JuiceEntity.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F415270CC00095521B /* JuiceEntity.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670215270CC00095521B /* JuiceInteractive.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F515270CC00095521B /* JuiceInteractive.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670315270CC00095521B /* JuiceObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F615270CC00095521B /* JuiceObject.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670415270CC00095521B /* JuiceOpenGLDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F715270CC00095521B /* JuiceOpenGLDriver.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670515270CC00095521B /* JuicePhysics.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F815270CC00095521B /* JuicePhysics.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670615270CC00095521B /* JuiceScreenManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66F915270CC00095521B /* JuiceScreenManager.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670715270CC00095521B /* JuiceTree.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66FA15270CC00095521B /* JuiceTree.hpp */; settings = {ATTRIBUTES = (); }; };
-		16FE670815270CC00095521B /* JuiceTypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16FE66FB15270CC00095521B /* JuiceTypes.hpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -979,6 +476,7 @@
 			filePatterns = "*.inc";
 			fileType = pattern.proxy;
 			isEditable = 1;
+			name = "INC as header file";
 			outputFiles = (
 			);
 			script = "#!/bin/bash\necho \"skip: ${INPUT_FILE_PATH}\"";
@@ -989,10 +487,23 @@
 			filePatterns = "*.s";
 			fileType = pattern.proxy;
 			isEditable = 1;
+			name = "ASM AT&T";
 			outputFiles = (
-				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o",
+				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o",
 			);
-			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nYASM_MACH=macho64\nelse\nYASM_MACH=macho32\nfi\n\n/opt/local/bin/yasm -w -f ${YASM_MACH} -d ${YASM_MACH} -rnasm -pgas -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.o ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nYASM_MACH=macho64\nelse\nYASM_MACH=macho32\nfi\n\n/opt/local/bin/yasm -w -f ${YASM_MACH} -d ${YASM_MACH} -rnasm -pgas -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+		};
+		16F6689A17533A980082F548 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.cu";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			name = CUDA;
+			outputFiles = (
+				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o",
+			);
+			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nMACH=-m64\nexport PATH=${PATH}:../bin/mac/64\nelse\nMACH=\nfi\n\nexport PATH=${PATH}:../bin/mac\nexport CUDA_DIR=`../bin/cuda-find.py`\n\n${CUDA_DIR}/bin/nvcc -G -g -O0 ${MACH} -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o -c ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
 		};
 /* End PBXBuildRule section */
 
@@ -1009,6 +520,7 @@
 		1614B0F1174F46F700C26C42 /* OCLFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLFunction.h; path = ../Classes/HGC/OCLFunction.h; sourceTree = "<group>"; };
 		1614B0F4174F4AA100C26C42 /* OCLMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCLMath.h; path = ../Classes/HGC/OCLMath.h; sourceTree = "<group>"; };
 		1614B0F6174F4D7800C26C42 /* CoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreTypes.h; path = ../Classes/Core/CoreTypes.h; sourceTree = "<group>"; };
+		1614B0F8174F6AC000C26C42 /* CUDA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CUDA.framework; path = /Library/Frameworks/CUDA.framework; sourceTree = "<absolute>"; };
 		1617382F1609711E00F1EA6E /* UcKernel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcKernel.cpp; sourceTree = "<group>"; };
 		161738301609711E00F1EA6E /* UcKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcKernel.h; sourceTree = "<group>"; };
 		161738341609720200F1EA6E /* UcWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UcWindow.cpp; sourceTree = "<group>"; };
@@ -1860,6 +1372,10 @@
 		16E4E6E115074EBB00B6B7E8 /* PostgreSql+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PostgreSql+NNT.h"; path = "../Classes/Store/PostgreSql+NNT.h"; sourceTree = "<group>"; };
 		16E4E6E415074EBC00B6B7E8 /* SqlServer+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "SqlServer+NNT.cpp"; path = "../Classes/Store/SqlServer+NNT.cpp"; sourceTree = "<group>"; };
 		16E4E6E515074EBC00B6B7E8 /* SqlServer+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SqlServer+NNT.h"; path = "../Classes/Store/SqlServer+NNT.h"; sourceTree = "<group>"; };
+		16ED7D8F17544FAF0029A62E /* CudaFunction.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CudaFunction.cu; path = ../Classes/HGC/CudaFunction.cu; sourceTree = "<group>"; };
+		16ED7D9017544FAF0029A62E /* CudaFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaFunction.h; path = ../Classes/HGC/CudaFunction.h; sourceTree = "<group>"; };
+		16ED7D931754535E0029A62E /* CudaMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaMath.h; path = ../Classes/HGC/CudaMath.h; sourceTree = "<group>"; };
+		16ED7D951754662F0029A62E /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../lib/Mac/libcudart.dylib; sourceTree = "<group>"; };
 		16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSTableView+NNT.mm"; path = "../Classes/UIKit/NSTableView+NNT.mm"; sourceTree = "<group>"; };
 		16F2AF2B153284D60047DB0B /* NSScrollView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScrollView+NNT.h"; path = "../Classes/UIKit/NSScrollView+NNT.h"; sourceTree = "<group>"; };
 		16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSScrollView+NNT.mm"; path = "../Classes/UIKit/NSScrollView+NNT.mm"; sourceTree = "<group>"; };
@@ -1875,6 +1391,17 @@
 		16F2AF611532D76D0047DB0B /* NSImageView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSImageView+NNT.mm"; path = "../Classes/UIKit/NSImageView+NNT.mm"; sourceTree = "<group>"; };
 		16F2AF671532F6CD0047DB0B /* NSImage+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+NNT.h"; path = "../Classes/UIKit/NSImage+NNT.h"; sourceTree = "<group>"; };
 		16F2AF681532F6CE0047DB0B /* NSImage+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSImage+NNT.mm"; path = "../Classes/UIKit/NSImage+NNT.mm"; sourceTree = "<group>"; };
+		16F6688417530E190082F548 /* CudaDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CudaDevice.cpp; path = ../Classes/HGC/CudaDevice.cpp; sourceTree = "<group>"; };
+		16F6688517530E190082F548 /* CudaDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaDevice.h; path = ../Classes/HGC/CudaDevice.h; sourceTree = "<group>"; };
+		16F6688817530F5E0082F548 /* CudaInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CudaInfo.cpp; path = ../Classes/HGC/CudaInfo.cpp; sourceTree = "<group>"; };
+		16F6688917530F5E0082F548 /* CudaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaInfo.h; path = ../Classes/HGC/CudaInfo.h; sourceTree = "<group>"; };
+		16F6688C17530FDB0082F548 /* opencl.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = opencl.prv.h; path = ../Classes/HGC/opencl.prv.h; sourceTree = "<group>"; };
+		16F6688E1753137F0082F548 /* cuda.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cuda.prv.h; path = ../Classes/HGC/cuda.prv.h; sourceTree = "<group>"; };
+		16F66890175330C20082F548 /* Allocate+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Allocate+NNT.cpp"; path = "../Classes/TL/Allocate+NNT.cpp"; sourceTree = "<group>"; };
+		16F66891175330C20082F548 /* Allocate+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Allocate+NNT.h"; path = "../Classes/TL/Allocate+NNT.h"; sourceTree = "<group>"; };
+		16F66894175330D00082F548 /* Memory+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Memory+NNT.cpp"; path = "../Classes/TL/Memory+NNT.cpp"; sourceTree = "<group>"; };
+		16F66895175330D00082F548 /* Memory+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Memory+NNT.h"; path = "../Classes/TL/Memory+NNT.h"; sourceTree = "<group>"; };
+		16F6689817533A850082F548 /* math.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = math.cu; path = ../Classes/HGC/math.cu; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		16F92EEC1521689800D09C5D /* Shell+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Shell+NNT.cpp"; path = "../Classes/Core/Shell+NNT.cpp"; sourceTree = "<group>"; };
 		16F92EED1521689800D09C5D /* Shell+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Shell+NNT.h"; path = "../Classes/Core/Shell+NNT.h"; sourceTree = "<group>"; };
 		16F98CF1149EE19800240965 /* NGTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTextLayer.h; sourceTree = "<group>"; };
@@ -1975,6 +1502,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */,
+				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
 				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
 				167D00E6170967D200B94D5E /* CoreMedia.framework in Frameworks */,
@@ -2022,6 +1551,16 @@
 		1614B0E3174F17B400C26C42 /* HGC */ = {
 			isa = PBXGroup;
 			children = (
+				16F6688E1753137F0082F548 /* cuda.prv.h */,
+				16F6688817530F5E0082F548 /* CudaInfo.cpp */,
+				16F6688917530F5E0082F548 /* CudaInfo.h */,
+				16F6688417530E190082F548 /* CudaDevice.cpp */,
+				16F6688517530E190082F548 /* CudaDevice.h */,
+				16ED7D8F17544FAF0029A62E /* CudaFunction.cu */,
+				16ED7D9017544FAF0029A62E /* CudaFunction.h */,
+				16ED7D931754535E0029A62E /* CudaMath.h */,
+				16F6689817533A850082F548 /* math.cu */,
+				16F6688C17530FDB0082F548 /* opencl.prv.h */,
 				1614B0F0174F46F700C26C42 /* OCLFunction.cpp */,
 				1614B0F1174F46F700C26C42 /* OCLFunction.h */,
 				1614B0EA174F1D8900C26C42 /* OCLDevice.cpp */,
@@ -2375,6 +1914,8 @@
 				167D004817095C8300B94D5E /* hardware */,
 				167D003C17095C8300B94D5E /* Algorithm+NNT.cpp */,
 				167D003D17095C8300B94D5E /* Algorithm+NNT.h */,
+				16F66890175330C20082F548 /* Allocate+NNT.cpp */,
+				16F66891175330C20082F548 /* Allocate+NNT.h */,
 				167D003E17095C8300B94D5E /* Bimap+NNT.cpp */,
 				167D003F17095C8300B94D5E /* Bimap+NNT.h */,
 				167D004017095C8300B94D5E /* Closure+NNT.cpp */,
@@ -2393,6 +1934,8 @@
 				167D005617095C8300B94D5E /* Map+NNT.cpp */,
 				167D005717095C8300B94D5E /* Map+NNT.h */,
 				167D005817095C8300B94D5E /* Map+NNT.mm */,
+				16F66894175330D00082F548 /* Memory+NNT.cpp */,
+				16F66895175330D00082F548 /* Memory+NNT.h */,
 				167D005917095C8300B94D5E /* MSCOM+NNT.cpp */,
 				167D005A17095C8300B94D5E /* MSCOM+NNT.h */,
 				167D005B17095C8300B94D5E /* Operator+NNT.cpp */,
@@ -2586,8 +2129,10 @@
 		169DD1151457A239000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16ED7D951754662F0029A62E /* libcudart.dylib */,
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
+				1614B0F8174F6AC000C26C42 /* CUDA.framework */,
 				1614B0CA174F11C200C26C42 /* OpenCL.framework */,
 				167D00E91709681D00B94D5E /* AVFoundation.framework */,
 				167D00E5170967D100B94D5E /* CoreMedia.framework */,
@@ -3512,520 +3057,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169DD2161457CF17000A9889 /* Foundation+NNT.h in Headers */,
-				169DD1831457A4B5000A9889 /* Boost+NNT.h in Headers */,
-				164F24011457E2A300396C42 /* UITheme.h in Headers */,
-				16D3CF8F153C235A003A33CE /* Juice3DMax.hpp in Headers */,
-				165ACD9714F1D9F1007C0559 /* Resource+NNT.h in Headers */,
-				16F2AF2C153284D70047DB0B /* NSScrollView+NNT.h in Headers */,
-				16FE66FF15270CC00095521B /* JuiceCore.hpp in Headers */,
-				16FE6674152705170095521B /* JuiceBox2d.h in Headers */,
-				16FE670115270CC00095521B /* JuiceEntity.hpp in Headers */,
-				16D3D026153D0848003A33CE /* JuiceImpl.h in Headers */,
-				16FE670315270CC00095521B /* JuiceObject.hpp in Headers */,
-				16FE670015270CC00095521B /* JuiceDriver.hpp in Headers */,
-				16FE670515270CC00095521B /* JuicePhysics.hpp in Headers */,
-				16FE670615270CC00095521B /* JuiceScreenManager.hpp in Headers */,
-				16D3CF8D153C0147003A33CE /* JuiceMesh.hpp in Headers */,
-				16FE670715270CC00095521B /* JuiceTree.hpp in Headers */,
-				16D3CF8B153BD000003A33CE /* JuiceTriangleMesh.hpp in Headers */,
-				16FE670815270CC00095521B /* JuiceTypes.hpp in Headers */,
-				16FE670415270CC00095521B /* JuiceOpenGLDriver.hpp in Headers */,
-				16FE66FD15270CC00095521B /* JuiceCococaDriver.hpp in Headers */,
-				16FE670215270CC00095521B /* JuiceInteractive.hpp in Headers */,
-				16FE66FE15270CC00095521B /* JuiceContainer.hpp in Headers */,
-				16F2AF561532BE460047DB0B /* NSTextView+NNT.h in Headers */,
-				16FE66FC15270CC00095521B /* JuiceCLI.hpp in Headers */,
-				169DD1811457A4B5000A9889 /* BdbCache.h in Headers */,
-				16F2AF691532F6CF0047DB0B /* NSImage+NNT.h in Headers */,
-				16F2AF621532D76E0047DB0B /* NSImageView+NNT.h in Headers */,
-				16FE6650152704BF0095521B /* Math+NNT.h in Headers */,
-				16FE6676152705170095521B /* Juice.hpp in Headers */,
-				161E2128152E7E1C0031D976 /* NSTableView+NNT.h in Headers */,
-				16F2AF3D1532A9500047DB0B /* NSTabView+NNT.h in Headers */,
-				161E2121152D8DB20031D976 /* NSTextField+NNT.h in Headers */,
-				161E212B152E7FDB0031D976 /* NSControl+NNT.h in Headers */,
-				161E2120152D8DB20031D976 /* NSButton+NNT.h in Headers */,
-				16F98D5B149EE1E000240965 /* Configuration+NNT.h in Headers */,
-				16F2AF39153293580047DB0B /* NSListView+NNT.h in Headers */,
-				16624CB71505D7C000AFED23 /* CSSParser.h in Headers */,
-				169DD2291457D52E000A9889 /* DBMS.h in Headers */,
-				169DD22F1457D52E000A9889 /* DBMSqlite.h in Headers */,
-				166B1C7D1519C3E20000B257 /* ArchiveRAR.h in Headers */,
-				166B1C7F1519C3E20000B257 /* ArchiveZip.h in Headers */,
-				166B1C7B1519C3E20000B257 /* Archive7Z.h in Headers */,
-				169DD22B1457D52E000A9889 /* DBMSNoSqlAbstract.h in Headers */,
-				169DD22D1457D52E000A9889 /* DBMSqlAbstract.h in Headers */,
-				16AC3B5E15089A23007AC666 /* PropertyTree.h in Headers */,
-				169DD1841457A4B5000A9889 /* ColorPalette.h in Headers */,
-				169DD1AC1457A4B5000A9889 /* Object.h in Headers */,
-				165E557414F3912F00D35087 /* SocketServer.h in Headers */,
-				16A44A8A149F158B00DF7F82 /* XmlParser.h in Headers */,
-				1638EABC150F13E0000B8C35 /* SOAPParser.h in Headers */,
-				1638EABF150F1DC9000B8C35 /* ObjectDL.h in Headers */,
-				169DD1B41457A4B5000A9889 /* Cache+NNT.h in Headers */,
-				169DD1B51457A4B5000A9889 /* Event+NNT.h in Headers */,
-				169DD18A1457A4B5000A9889 /* FileCache.h in Headers */,
-				1627644914F5E49F00DC935B /* Security+NNT.h in Headers */,
-				169DD18C1457A4B5000A9889 /* Layout.h in Headers */,
-				169DD1901457A4B5000A9889 /* Mach+NNT.h in Headers */,
-				169DD1941457A4B5000A9889 /* MemCache.h in Headers */,
-				169DD1971457A4B5000A9889 /* NSArray+NNT.h in Headers */,
-				169DD1991457A4B5000A9889 /* NSData+NNT.h in Headers */,
-				169DD19B1457A4B5000A9889 /* NSDictionary+NNT.h in Headers */,
-				169DD19D1457A4B5000A9889 /* NSLock+NNT.h in Headers */,
-				169DD19F1457A4B5000A9889 /* NSNumber+NNT.h in Headers */,
-				169DD1A11457A4B5000A9889 /* NSObject+NNT.h in Headers */,
-				16F98D35149EE19800240965 /* NGLayerTheme.h in Headers */,
-				16A449FA149F13EB00DF7F82 /* App.h in Headers */,
-				16F98D33149EE19800240965 /* NGLayer.h in Headers */,
-				16F98D25149EE19800240965 /* NGAnimation.h in Headers */,
-				16F98D27149EE19800240965 /* NGShadow.h in Headers */,
-				16F98D3D149EE19800240965 /* NGContext.h in Headers */,
-				169DD1A41457A4B5000A9889 /* NSString+NNT.h in Headers */,
-				16A4498E149EEE3200DF7F82 /* NSFont+NNT.h in Headers */,
-				16C44CBE14A02D6100775B19 /* NSView+NNT.h in Headers */,
-				169DD2151457CF17000A9889 /* Execution+NNT.h in Headers */,
-				16F98D4D149EE19800240965 /* NGImageTransition.h in Headers */,
-				169DD1A61457A4B5000A9889 /* Time+NNT.h in Headers */,
-				16F98D39149EE19800240965 /* NGColor.h in Headers */,
-				16F98D41149EE19800240965 /* NGFill.h in Headers */,
-				165ACD9B14F1DB14007C0559 /* Console+NNT.h in Headers */,
-				16F98D40149EE19800240965 /* NGDefines.h in Headers */,
-				16D3CEF115381D06003A33CE /* NSJuiceController.h in Headers */,
-				16F98D43149EE19800240965 /* NGFillColor.h in Headers */,
-				16F98D45149EE19800240965 /* NGFillGradient.h in Headers */,
-				16F98D47149EE19800240965 /* NGFillImage.h in Headers */,
-				16F98D3B149EE19800240965 /* NGColorSpace.h in Headers */,
-				16C44CC014A02D6100775B19 /* NSViewController+NNT.h in Headers */,
-				16F98D37149EE19800240965 /* NGBase.h in Headers */,
-				16F98D4B149EE19800240965 /* NGImage.h in Headers */,
-				16F98D49149EE19800240965 /* NGGradient.h in Headers */,
-				16F98D51149EE19800240965 /* NGTextStyle.h in Headers */,
-				16F98D53149EE19800240965 /* NGUtils.h in Headers */,
-				16F98D4F149EE19800240965 /* NGLineStyle.h in Headers */,
-				169DD1A81457A4B5000A9889 /* NSURL+NNT.h in Headers */,
-				169DD1AA1457A4B5000A9889 /* NSURLConnection+NNT.h in Headers */,
-				16E4E6E915074EBC00B6B7E8 /* MySql+NNT.h in Headers */,
-				169DD1881457A4B5000A9889 /* Directory+NNT.h in Headers */,
-				169DD1861457A4B5000A9889 /* Core.h in Headers */,
-				169DD17B1457A4B5000A9889 /* AbstractCache.h in Headers */,
-				16A44D26149F1BF200DF7F82 /* UIKit+NNT.h in Headers */,
-				16F98D29149EE19800240965 /* Graphic+NNT.h in Headers */,
-				169DD2381457D52E000A9889 /* Sqlite+NNT.h in Headers */,
-				16A449FE149F140200DF7F82 /* UIObject+NNT.h in Headers */,
-				169DD2301457D52E000A9889 /* Bdb+NNT.h in Headers */,
-				16E4E6EF15074EBC00B6B7E8 /* SqlServer+NNT.h in Headers */,
-				1675ACFB1515D1850046A630 /* FsSamba.h in Headers */,
-				1675ACF61515D0010046A630 /* Filesystem.h in Headers */,
-				16E4E6EB15074EBC00B6B7E8 /* PostgreSql+NNT.h in Headers */,
-				16A44FBF149F2F3B00DF7F82 /* NSWindow+NNT.h in Headers */,
-				16A44FC1149F2F3B00DF7F82 /* NSWindowController+NNT.h in Headers */,
-				16A44FC5149F332E00DF7F82 /* Msgbox.h in Headers */,
-				16F98D23149EE19800240965 /* NGTextLayer.h in Headers */,
-				16F98D2D149EE19800240965 /* NGActivityIndicator.h in Headers */,
-				16F98D2F149EE19800240965 /* NGArrowIndicator.h in Headers */,
-				16F98D31149EE19800240965 /* NGBadgeIndicator.h in Headers */,
-				16F98D3F149EE19800240965 /* ng_ctypes.h in Headers */,
-				16A44A75149F158B00DF7F82 /* CHMObjParser.h in Headers */,
-				16A44A78149F158B00DF7F82 /* CHMParser.h in Headers */,
-				16A44A79149F158B00DF7F82 /* GRMustacheWrapper.h in Headers */,
-				16A44A7B149F158B00DF7F82 /* HTMLNode+NNT.h in Headers */,
-				16A44A7D149F158B00DF7F82 /* HtmlParser.h in Headers */,
-				16A44A82149F158B00DF7F82 /* JsonObjParser.h in Headers */,
-				16A44A84149F158B00DF7F82 /* MustacheParser.h in Headers */,
-				16A44A86149F158B00DF7F82 /* NullObjParser.h in Headers */,
-				16A44A88149F158B00DF7F82 /* XmlObjParser.h in Headers */,
-				16A44AED149F164F00DF7F82 /* lzx.h in Headers */,
-				167EBAAB14F368670012570E /* FtpServer.h in Headers */,
-				167EBAAD14F368680012570E /* HttpRequest.h in Headers */,
-				167EBAAF14F368680012570E /* IRpc.h in Headers */,
-				167EBAB014F368680012570E /* JsonRpc.h in Headers */,
-				167EBAB214F368680012570E /* LighttpdServer.h in Headers */,
-				167EBAB414F368680012570E /* Network.h in Headers */,
-				167EBAB614F368680012570E /* NullRpc.h in Headers */,
-				167EBAB814F368680012570E /* SocketRequest.h in Headers */,
-				167EBABA14F368680012570E /* XmlRpc.h in Headers */,
-				167EBAC814F3699C0012570E /* MChart2D.h in Headers */,
-				167EBACA14F3699C0012570E /* MChartRecord.h in Headers */,
-				167EBACC14F3699C0012570E /* Model.h in Headers */,
-				167EBACE14F3699C0012570E /* MTable.h in Headers */,
-				167EBAD014F3699C0012570E /* MURLModel.h in Headers */,
-				167EBADB14F369B10012570E /* Context.h in Headers */,
-				167EBADD14F369B10012570E /* Preferences.h in Headers */,
-				167EBADF14F369B10012570E /* Server.h in Headers */,
-				167EBAE114F369B10012570E /* User.h in Headers */,
-				167EBB6014F36A030012570E /* IVTable.h in Headers */,
-				167EBB6114F36A030012570E /* VHtml.h in Headers */,
-				167EBB6314F36A030012570E /* VHtmlChart.h in Headers */,
-				167EBB6514F36A030012570E /* VHtmlTable.h in Headers */,
-				1664FF9B14F48D410073A9E9 /* UnitTest.h in Headers */,
-				16DD15231504719D0053958F /* db.h in Headers */,
-				16DD15241504719D0053958F /* db_cxx.h in Headers */,
-				16DD15251504719D0053958F /* dbsql.h in Headers */,
-				16DD15261504719D0053958F /* AdditionalMessage.h in Headers */,
-				16DD15271504719D0053958F /* Asserter.h in Headers */,
-				16DD15281504719D0053958F /* BriefTestProgressListener.h in Headers */,
-				16DD15291504719D0053958F /* CompilerOutputter.h in Headers */,
-				16DD152A1504719D0053958F /* config-bcb5.h in Headers */,
-				16DD152B1504719D0053958F /* config-evc4.h in Headers */,
-				16DD152C1504719D0053958F /* config-mac.h in Headers */,
-				16DD152D1504719D0053958F /* config-msvc6.h in Headers */,
-				16DD152E1504719D0053958F /* CppUnitApi.h in Headers */,
-				16DD152F1504719D0053958F /* SelectDllLoader.h in Headers */,
-				16DD15301504719D0053958F /* SourcePrefix.h in Headers */,
-				16DD15311504719D0053958F /* config-auto.h in Headers */,
-				16DD15321504719D0053958F /* Exception.h in Headers */,
-				16DD15331504719D0053958F /* AutoRegisterSuite.h in Headers */,
-				16DD15341504719D0053958F /* ExceptionTestCaseDecorator.h in Headers */,
-				16DD15351504719D0053958F /* HelperMacros.h in Headers */,
-				16DD15361504719D0053958F /* Orthodox.h in Headers */,
-				16DD15371504719D0053958F /* RepeatedTest.h in Headers */,
-				16DD15381504719D0053958F /* TestCaseDecorator.h in Headers */,
-				16DD15391504719D0053958F /* TestDecorator.h in Headers */,
-				16DD153A1504719D0053958F /* TestFactory.h in Headers */,
-				16DD153B1504719D0053958F /* TestFactoryRegistry.h in Headers */,
-				16DD153C1504719D0053958F /* TestFixtureFactory.h in Headers */,
-				16DD153D1504719D0053958F /* TestNamer.h in Headers */,
-				16DD153E1504719D0053958F /* TestSetUp.h in Headers */,
-				16DD153F1504719D0053958F /* TestSuiteBuilderContext.h in Headers */,
-				16DD15401504719D0053958F /* TestSuiteFactory.h in Headers */,
-				16DD15411504719D0053958F /* TypeInfoHelper.h in Headers */,
-				16DD15421504719D0053958F /* Message.h in Headers */,
-				16DD15431504719D0053958F /* Outputter.h in Headers */,
-				16DD15441504719D0053958F /* DynamicLibraryManager.h in Headers */,
-				16DD15451504719D0053958F /* DynamicLibraryManagerException.h in Headers */,
-				16DD15461504719D0053958F /* PlugInManager.h in Headers */,
-				16DD15471504719D0053958F /* PlugInParameters.h in Headers */,
-				16DD15481504719D0053958F /* TestPlugIn.h in Headers */,
-				16DD15491504719D0053958F /* TestPlugInDefaultImpl.h in Headers */,
-				16DD154A1504719D0053958F /* CppUnitDeque.h in Headers */,
-				16DD154B1504719D0053958F /* CppUnitMap.h in Headers */,
-				16DD154C1504719D0053958F /* CppUnitSet.h in Headers */,
-				16DD154D1504719D0053958F /* CppUnitStack.h in Headers */,
-				16DD154E1504719D0053958F /* CppUnitVector.h in Headers */,
-				16DD154F1504719D0053958F /* FloatingPoint.h in Headers */,
-				16DD15501504719D0053958F /* Stream.h in Headers */,
-				16DD15511504719D0053958F /* Portability.h in Headers */,
-				16DD15521504719D0053958F /* Protector.h in Headers */,
-				16DD15531504719D0053958F /* SourceLine.h in Headers */,
-				16DD15541504719D0053958F /* SynchronizedObject.h in Headers */,
-				16DD15551504719D0053958F /* Test.h in Headers */,
-				16DD15561504719D0053958F /* TestAssert.h in Headers */,
-				16DD15571504719D0053958F /* TestCaller.h in Headers */,
-				16DD15581504719D0053958F /* TestCase.h in Headers */,
-				16DD15591504719D0053958F /* TestComposite.h in Headers */,
-				16DD155A1504719D0053958F /* TestFailure.h in Headers */,
-				16DD155B1504719D0053958F /* TestFixture.h in Headers */,
-				16DD155C1504719D0053958F /* TestLeaf.h in Headers */,
-				16DD155D1504719D0053958F /* TestListener.h in Headers */,
-				16DD155E1504719D0053958F /* TestPath.h in Headers */,
-				16DD155F1504719D0053958F /* TestResult.h in Headers */,
-				16DD15601504719D0053958F /* TestResultCollector.h in Headers */,
-				16DD15611504719D0053958F /* TestRunner.h in Headers */,
-				16DD15621504719D0053958F /* TestSuccessListener.h in Headers */,
-				16DD15631504719D0053958F /* TestSuite.h in Headers */,
-				16DD15641504719D0053958F /* TextOutputter.h in Headers */,
-				16DD15651504719D0053958F /* TextTestProgressListener.h in Headers */,
-				16DD15661504719D0053958F /* TextTestResult.h in Headers */,
-				16DD15671504719D0053958F /* TextTestRunner.h in Headers */,
-				16DD15681504719D0053958F /* Algorithm.h in Headers */,
-				16DD15691504719D0053958F /* StringTools.h in Headers */,
-				16DD156A1504719D0053958F /* XmlDocument.h in Headers */,
-				16DD156B1504719D0053958F /* XmlElement.h in Headers */,
-				16DD156C1504719D0053958F /* MfcTestRunner.h in Headers */,
-				16DD156D1504719D0053958F /* TestRunner.h in Headers */,
-				16DD156E1504719D0053958F /* Config.h in Headers */,
-				16DD156F1504719D0053958F /* QtTestRunner.h in Headers */,
-				16DD15701504719D0053958F /* TestRunner.h in Headers */,
-				16DD15711504719D0053958F /* TestRunner.h in Headers */,
-				16DD15721504719D0053958F /* TextTestRunner.h in Headers */,
-				16DD15731504719D0053958F /* XmlOutputter.h in Headers */,
-				16DD15741504719D0053958F /* XmlOutputterHook.h in Headers */,
-				16DD15751504719D0053958F /* GDataXMLNode.h in Headers */,
-				16DD15771504719D0053958F /* GTMBase64.h in Headers */,
-				16DD15791504719D0053958F /* GTMDefines.h in Headers */,
-				16DD157A1504719D0053958F /* HTMLNode.h in Headers */,
-				16DD157C1504719D0053958F /* HTMLParser.h in Headers */,
-				16DD157E1504719D0053958F /* GRBoolean.h in Headers */,
-				16DD15801504719D0053958F /* GRMustache.h in Headers */,
-				16DD15821504719D0053958F /* GRMustache_private.h in Headers */,
-				16DD15841504719D0053958F /* GRMustacheBundleTemplateLoader_private.h in Headers */,
-				16DD15851504719D0053958F /* GRMustacheConfiguration.h in Headers */,
-				16DD15871504719D0053958F /* GRMustacheContext.h in Headers */,
-				16DD15891504719D0053958F /* GRMustacheContext_private.h in Headers */,
-				16DD158B1504719D0053958F /* GRMustacheDirectoryTemplateLoader_private.h in Headers */,
-				16DD158C1504719D0053958F /* GRMustacheEnvironment.h in Headers */,
-				16DD158D1504719D0053958F /* GRMustacheError.h in Headers */,
-				16DD158F1504719D0053958F /* GRMustacheLambda.h in Headers */,
-				16DD15911504719D0053958F /* GRMustacheLambda_private.h in Headers */,
-				16DD15921504719D0053958F /* GRMustacheRendering.h in Headers */,
-				16DD15941504719D0053958F /* GRMustacheRendering_private.h in Headers */,
-				16DD15951504719D0053958F /* GRMustacheSection.h in Headers */,
-				16DD15971504719D0053958F /* GRMustacheSection_private.h in Headers */,
-				16DD15981504719D0053958F /* GRMustacheTemplate.h in Headers */,
-				16DD159A1504719D0053958F /* GRMustacheTemplate_private.h in Headers */,
-				16DD159B1504719D0053958F /* GRMustacheTemplateLoader.h in Headers */,
-				16DD159D1504719D0053958F /* GRMustacheTemplateLoader_private.h in Headers */,
-				16DD159E1504719D0053958F /* GRMustacheTemplateLoader_protected.h in Headers */,
-				16DD15A01504719D0053958F /* GRMustacheTemplateParser_private.h in Headers */,
-				16DD15A21504719D0053958F /* GRMustacheTextElement_private.h in Headers */,
-				16DD15A41504719D0053958F /* GRMustacheToken_private.h in Headers */,
-				16DD15A61504719D0053958F /* GRMustacheTokenizer_private.h in Headers */,
-				16DD15A81504719D0053958F /* GRMustacheVariableElement_private.h in Headers */,
-				16DD15A91504719D0053958F /* GRMustacheVersion.h in Headers */,
-				16DD15AB1504719D0053958F /* aes.h in Headers */,
-				16DD15AC1504719D0053958F /* asn1.h in Headers */,
-				16DD15AD1504719D0053958F /* asn1_mac.h in Headers */,
-				16DD15AE1504719D0053958F /* asn1t.h in Headers */,
-				16DD15AF1504719D0053958F /* bio.h in Headers */,
-				16DD15B01504719D0053958F /* blowfish.h in Headers */,
-				16DD15B11504719D0053958F /* bn.h in Headers */,
-				16DD15B21504719D0053958F /* buffer.h in Headers */,
-				16DD15B31504719D0053958F /* camellia.h in Headers */,
-				16DD15B41504719D0053958F /* cast.h in Headers */,
-				16DD15B51504719D0053958F /* cms.h in Headers */,
-				16DD15B61504719D0053958F /* comp.h in Headers */,
-				16DD15B71504719D0053958F /* conf.h in Headers */,
-				16DD15B81504719D0053958F /* conf_api.h in Headers */,
-				16DD15B91504719D0053958F /* crypto.h in Headers */,
-				16DD15BA1504719D0053958F /* des.h in Headers */,
-				16DD15BB1504719D0053958F /* des_old.h in Headers */,
-				16DD15BC1504719D0053958F /* dh.h in Headers */,
-				16DD15BD1504719D0053958F /* dsa.h in Headers */,
-				16DD15BE1504719D0053958F /* dso.h in Headers */,
-				16DD15BF1504719D0053958F /* dtls1.h in Headers */,
-				16DD15C01504719D0053958F /* e_os2.h in Headers */,
-				16DD15C11504719D0053958F /* ebcdic.h in Headers */,
-				16DD15C21504719D0053958F /* ec.h in Headers */,
-				16DD15C31504719D0053958F /* ecdh.h in Headers */,
-				16DD15C41504719D0053958F /* ecdsa.h in Headers */,
-				16DD15C51504719D0053958F /* engine.h in Headers */,
-				16DD15C61504719D0053958F /* err.h in Headers */,
-				16DD15C71504719D0053958F /* evp.h in Headers */,
-				16DD15C81504719D0053958F /* hmac.h in Headers */,
-				16DD15C91504719D0053958F /* idea.h in Headers */,
-				16DD15CA1504719D0053958F /* krb5_asn.h in Headers */,
-				16DD15CB1504719D0053958F /* kssl.h in Headers */,
-				16DD15CC1504719D0053958F /* lhash.h in Headers */,
-				16DD15CD1504719D0053958F /* md4.h in Headers */,
-				16DD15CE1504719D0053958F /* md5.h in Headers */,
-				16DD15CF1504719D0053958F /* mdc2.h in Headers */,
-				16DD15D01504719D0053958F /* modes.h in Headers */,
-				16DD15D11504719D0053958F /* obj_mac.h in Headers */,
-				16DD15D21504719D0053958F /* objects.h in Headers */,
-				16DD15D31504719D0053958F /* ocsp.h in Headers */,
-				16DD15D41504719D0053958F /* opensslconf.h in Headers */,
-				16DD15D51504719D0053958F /* opensslv.h in Headers */,
-				16DD15D61504719D0053958F /* ossl_typ.h in Headers */,
-				16DD15D71504719D0053958F /* pem.h in Headers */,
-				16DD15D81504719D0053958F /* pem2.h in Headers */,
-				16DD15D91504719D0053958F /* pkcs12.h in Headers */,
-				16DD15DA1504719D0053958F /* pkcs7.h in Headers */,
-				16DD15DB1504719D0053958F /* pqueue.h in Headers */,
-				16DD15DC1504719D0053958F /* rand.h in Headers */,
-				16DD15DD1504719D0053958F /* rc2.h in Headers */,
-				16DD15DE1504719D0053958F /* rc4.h in Headers */,
-				16DD15DF1504719D0053958F /* ripemd.h in Headers */,
-				16DD15E01504719D0053958F /* rsa.h in Headers */,
-				16DD15E11504719D0053958F /* safestack.h in Headers */,
-				16DD15E21504719D0053958F /* seed.h in Headers */,
-				16DD15E31504719D0053958F /* sha.h in Headers */,
-				16DD15E41504719D0053958F /* ssl.h in Headers */,
-				16DD15E51504719D0053958F /* ssl2.h in Headers */,
-				16DD15E61504719D0053958F /* ssl23.h in Headers */,
-				16DD15E71504719D0053958F /* ssl3.h in Headers */,
-				16DD15E81504719D0053958F /* stack.h in Headers */,
-				16DD15E91504719D0053958F /* symhacks.h in Headers */,
-				16DD15EA1504719D0053958F /* tls1.h in Headers */,
-				16DD15EB1504719D0053958F /* ts.h in Headers */,
-				16DD15EC1504719D0053958F /* txt_db.h in Headers */,
-				16DD15ED1504719D0053958F /* ui.h in Headers */,
-				16DD15EE1504719D0053958F /* ui_compat.h in Headers */,
-				16DD15EF1504719D0053958F /* whrlpool.h in Headers */,
-				16DD15F01504719D0053958F /* x509.h in Headers */,
-				16DD15F11504719D0053958F /* x509_vfy.h in Headers */,
-				16DD15F21504719D0053958F /* x509v3.h in Headers */,
-				16DD15F31504719D0053958F /* uuid.h in Headers */,
-				16DD17E9150471C30053958F /* RegexKitLite.h in Headers */,
-				16DD180B1504726C0053958F /* JSON.h in Headers */,
-				16DD180C1504726C0053958F /* NSObject+SBJSON.h in Headers */,
-				16DD180E1504726C0053958F /* NSString+SBJSON.h in Headers */,
-				16DD18101504726C0053958F /* SBJsonBase.h in Headers */,
-				16DD18121504726C0053958F /* SBJsonParser.h in Headers */,
-				16DD18141504726C0053958F /* SBJsonWriter.h in Headers */,
-				16E4E6DA1507130C00B6B7E8 /* Char+NNT.h in Headers */,
-				162BA6D6150DF0F600F33E1D /* AlphabetFlow.h in Headers */,
-				168F22A915200C9900095E80 /* gil.prv.h in Headers */,
-				168F22BC1520344300095E80 /* NSFileConnection.h in Headers */,
-				16F92EEF1521689800D09C5D /* Shell+NNT.h in Headers */,
-				16FE6679152705260095521B /* OpenGL_Internal.h in Headers */,
-				16D3D1AC153D6067003A33CE /* JuiceSpirit.hpp in Headers */,
-				16D3D242153E9BCB003A33CE /* JuiceAlgo.hpp in Headers */,
-				16D3D2DC153FB2F8003A33CE /* Logger+NNT.h in Headers */,
-				16D3D2E515401718003A33CE /* Task+NNT.h in Headers */,
-				168B118A1542580800D9325A /* JuiceOpenGLDarwinDriver.hpp in Headers */,
-				168B118B1542580800D9325A /* JuiceOpenGLES1.hpp in Headers */,
-				168B118C1542580800D9325A /* JuiceOpenGLES2.hpp in Headers */,
-				168B118D1542580800D9325A /* JuiceOpenGLPCDriver.hpp in Headers */,
-				168B11C2154279BC00D9325A /* JuiceCamera.hpp in Headers */,
-				16BA0A0B1547C9570069968D /* DBMSOdbc.h in Headers */,
-				169A5574154A9C1700A10895 /* JuiceLight.hpp in Headers */,
-				16DA0554154BDE4C0046D072 /* JuiceGlslLibrary.hpp in Headers */,
-				16DA0555154BDE4C0046D072 /* JuiceTexture.hpp in Headers */,
-				16444E621560FACC006BB97C /* JuiceSVG.hpp in Headers */,
-				1648F870158727AF00A47990 /* HtmlObjParser.h in Headers */,
-				1648F878158727BD00A47990 /* GifParser.h in Headers */,
-				1648F87A158727BD00A47990 /* StyleStringParser.h in Headers */,
-				1648F87D158727BD00A47990 /* SVGParser.h in Headers */,
-				1648F88D1587287900A47990 /* NSDate+NNT.h in Headers */,
-				1648F88F1587287900A47990 /* NSIndex+NNT.h in Headers */,
-				1648F8911587287900A47990 /* NSOperation+NNT.h in Headers */,
-				1648F8931587287900A47990 /* NSPreference+NNT.h in Headers */,
-				1648F8951587287900A47990 /* NSRegexLibrary.h in Headers */,
-				1648F8971587287900A47990 /* NSSet+NNT.h in Headers */,
-				1648F8991587287900A47990 /* NSStyleString.h in Headers */,
-				1622410B1588687E0073B178 /* NSMessageBox.h in Headers */,
-				16CCEB3A1592FEF600A16A3C /* ACE+NNT.h in Headers */,
-				16CCEB421592FF3200A16A3C /* SocketStream.h in Headers */,
-				16CCEB491592FF4F00A16A3C /* LIBXERCESC+NNT.h in Headers */,
-				16CCEB4B1592FF4F00A16A3C /* LIBXML+NNT.h in Headers */,
-				16F9AC8B159C6023000433D3 /* HttpServer.h in Headers */,
-				16F9AC8D159C6023000433D3 /* SmtpClient.h in Headers */,
-				16F9AC8E159C6023000433D3 /* SqliteRequest.h in Headers */,
-				16F9AC95159C60DB000433D3 /* EmailContent.h in Headers */,
-				16FCA39815C7857900047537 /* AES+NNT.h in Headers */,
-				16FCA39A15C7857900047537 /* BaseN+NNT.h in Headers */,
-				16FCA39C15C7857900047537 /* DES+NNT.h in Headers */,
-				16FCA39E15C7857900047537 /* MDN+NNT.h in Headers */,
-				16FCA3A015C7857900047537 /* RSA+NNT.h in Headers */,
-				16FCA3A215C7857900047537 /* UUID+NNT.h in Headers */,
-				16E009E516085C0B00B35D3F /* Mime+NNT.h in Headers */,
-				16E009E716085C0B00B35D3F /* NSHttpCache.h in Headers */,
-				16E009E916085C0B00B35D3F /* OperationRequest.h in Headers */,
-				16E009ED16085C0B00B35D3F /* VCard+NNT.h in Headers */,
-				16E00A5F16085CF100B35D3F /* MItem.h in Headers */,
-				16E00A6116085CF100B35D3F /* MOpeModel.h in Headers */,
-				16E00A681608676700B35D3F /* SocketClient.h in Headers */,
-				16E00A6D1608695700B35D3F /* BehaviourSys.h in Headers */,
-				16E00A7A1608696600B35D3F /* AudioPlayer.h in Headers */,
-				16E00A7D1608696600B35D3F /* EmojiCodec.h in Headers */,
-				16E00A811608696600B35D3F /* SystemAudio.h in Headers */,
-				16E00A831608696600B35D3F /* URLCodec.h in Headers */,
-				16DCDAF216087ADE00E7308E /* QtApplication+NNT.h in Headers */,
-				161738321609711E00F1EA6E /* UcKernel.h in Headers */,
-				161738371609720200F1EA6E /* UcWindow.h in Headers */,
-				16173839160972C300F1EA6E /* UIKit+Cross.h in Headers */,
-				16173847160978BE00F1EA6E /* UcController.h in Headers */,
-				16173849160978BE00F1EA6E /* UcView.h in Headers */,
-				1617385216098F5800F1EA6E /* FlateBP.h in Headers */,
-				1617385416098F5800F1EA6E /* Linear.h in Headers */,
-				1617385616098F5800F1EA6E /* MathGeo.h in Headers */,
-				1620EF5E160991B300592F83 /* LePoint.h in Headers */,
-				1620EF60160991B300592F83 /* LeRect.h in Headers */,
-				1620EF62160991B300592F83 /* LeSize.h in Headers */,
-				1620F00C1609BF6700592F83 /* XmppAuth.h in Headers */,
-				1620F00E1609BF6700592F83 /* XmppBind.h in Headers */,
-				1620F0101609BF6700592F83 /* XmppChallenge.h in Headers */,
-				1620F0121609BF6700592F83 /* XmppClose.h in Headers */,
-				1620F0141609BF6700592F83 /* XmppCompression.h in Headers */,
-				1620F0161609BF6700592F83 /* XmppCore.h in Headers */,
-				1620F0181609BF6700592F83 /* XmppFailure.h in Headers */,
-				1620F01A1609BF6700592F83 /* XmppFeatures.h in Headers */,
-				1620F01C1609BF6700592F83 /* XmppIQ.h in Headers */,
-				1620F01E1609BF6700592F83 /* XmppJID.h in Headers */,
-				1620F0201609BF6700592F83 /* XmppPubsub.h in Headers */,
-				1620F0221609BF6700592F83 /* XmppResponse.h in Headers */,
-				1620F0241609BF6700592F83 /* XmppSasl.h in Headers */,
-				1620F0261609BF6700592F83 /* XmppSession.h in Headers */,
-				1620F0281609BF6700592F83 /* XmppStream.h in Headers */,
-				1620F02A1609BF6700592F83 /* XmppSuccess.h in Headers */,
-				1620F02C1609BF6700592F83 /* XimActive.h in Headers */,
-				1620F02E1609BF6700592F83 /* XimAvatar.h in Headers */,
-				1620F0301609BF6700592F83 /* XimComposing.h in Headers */,
-				1620F0321609BF6700592F83 /* XimContact.h in Headers */,
-				1620F0341609BF6700592F83 /* XimIM.h in Headers */,
-				1620F0361609BF6700592F83 /* XimMessage.h in Headers */,
-				1620F0381609BF6700592F83 /* XimPresence.h in Headers */,
-				1620F03A1609BF6700592F83 /* XimPriority.h in Headers */,
-				1620F03C1609BF6700592F83 /* XimRoster.h in Headers */,
-				1620F03E1609BF6700592F83 /* XimShow.h in Headers */,
-				1620F0401609BF6700592F83 /* XimUser.h in Headers */,
-				1620F0421609BF6700592F83 /* XimXPhoto.h in Headers */,
-				1620F0441609BF6700592F83 /* XepAvatar.h in Headers */,
-				1620F0461609BF6700592F83 /* XepBitsOfBinary.h in Headers */,
-				1620F0481609BF6700592F83 /* XepCAPTCHA.h in Headers */,
-				1620F04A1609BF6700592F83 /* XepCore.h in Headers */,
-				1620F04C1609BF6700592F83 /* XepField.h in Headers */,
-				1620F04E1609BF6700592F83 /* XepMUC.h in Headers */,
-				1620F0501609BF6700592F83 /* XepOfflineMessage.h in Headers */,
-				1620F0521609BF6700592F83 /* XepPing.h in Headers */,
-				1620F0541609BF6700592F83 /* XepServiceDiscovery.h in Headers */,
-				1620F0561609BF6700592F83 /* XepSubject.h in Headers */,
-				1620F0581609BF6700592F83 /* XepVCard.h in Headers */,
-				1620F05A1609BF6700592F83 /* XepVersion.h in Headers */,
-				1620F05C1609BF6700592F83 /* XepXHtmlIm.h in Headers */,
-				1620F05E1609BF6700592F83 /* XmppBlackholeFactory.h in Headers */,
-				1620F0601609BF6700592F83 /* XmppChallengeFactory.h in Headers */,
-				1620F0621609BF6700592F83 /* XmppClient.h in Headers */,
-				1620F0641609BF6700592F83 /* XmppClientor.h in Headers */,
-				1620F0661609BF6700592F83 /* XmppIMClient.h in Headers */,
-				1620F0681609BF6700592F83 /* XmppIMClientor.h in Headers */,
-				1620F06A1609BF6700592F83 /* XmppInfoqueryFactory.h in Headers */,
-				1620F06C1609BF6700592F83 /* XmppMessageFactory.h in Headers */,
-				1620F06E1609BF6700592F83 /* XmppObject.h in Headers */,
-				1620F0701609BF6700592F83 /* XmppPresenceFactory.h in Headers */,
-				1620F0721609BF6800592F83 /* XmppResponseFactory.h in Headers */,
-				1620F0741609BF6800592F83 /* XmppStreamFactory.h in Headers */,
-				1620F0761609BF6800592F83 /* XmppSuccessFactory.h in Headers */,
-				1620F07E1609BF9800592F83 /* StateMachine.h in Headers */,
-				1620F07F1609BF9800592F83 /* Workflow.h in Headers */,
-				167D007017095C8300B94D5E /* Algorithm+NNT.h in Headers */,
-				167D007217095C8300B94D5E /* Bimap+NNT.h in Headers */,
-				167D007417095C8300B94D5E /* Closure+NNT.h in Headers */,
-				167D007617095C8300B94D5E /* Data+NNT.h in Headers */,
-				167D007817095C8300B94D5E /* Exception+NNT.h in Headers */,
-				167D007A17095C8300B94D5E /* Function+NNT.h in Headers */,
-				167D007C17095C8300B94D5E /* Assembly+NNT.h in Headers */,
-				167D007E17095C8300B94D5E /* Cpu+NNT.h in Headers */,
-				167D008017095C8300B94D5E /* Device+NNT.h in Headers */,
-				167D008217095C8300B94D5E /* Hardware+NNT.h in Headers */,
-				167D008417095C8300B94D5E /* Interface+NNT.h in Headers */,
-				167D008617095C8300B94D5E /* List+NNT.h in Headers */,
-				167D008917095C8300B94D5E /* Map+NNT.h in Headers */,
-				167D008C17095C8300B94D5E /* MSCOM+NNT.h in Headers */,
-				167D008E17095C8300B94D5E /* Operator+NNT.h in Headers */,
-				167D009017095C8300B94D5E /* Regex+NNT.h in Headers */,
-				167D009217095C8300B94D5E /* SmartPtr+NNT.h in Headers */,
-				167D009417095C8300B94D5E /* String+NNT.h in Headers */,
-				167D009717095C8300B94D5E /* System+NNT.h in Headers */,
-				167D009817095C8300B94D5E /* Tuple+NNT.h in Headers */,
-				167D009B17095C8300B94D5E /* Types+NNT.h in Headers */,
-				167D009D17095C8300B94D5E /* Variant+NNT.h in Headers */,
-				167D009F17095C8300B94D5E /* Vector+NNT.h in Headers */,
-				167D00AC1709600000B94D5E /* EC+NNT.h in Headers */,
-				167D00AF1709600000B94D5E /* Openssl+NNT.p.h in Headers */,
-				167D00B01709600000B94D5E /* SecSignature.h in Headers */,
-				167D00B31709600000B94D5E /* SHA+NNT.h in Headers */,
-				167D00C61709614200B94D5E /* CSVParser.h in Headers */,
-				167D00C81709614200B94D5E /* HttpParser.h in Headers */,
-				167D00C91709614200B94D5E /* RegexObjParser.h in Headers */,
-				167D00CC1709614200B94D5E /* RSSParser.h in Headers */,
-				167D00CD1709614200B94D5E /* TextObjParser.h in Headers */,
-				167D00D01709614200B94D5E /* XmlParserUtil.h in Headers */,
-				167D00D51709616100B94D5E /* AEMInformation.h in Headers */,
-				167D00D71709616100B94D5E /* AppInformation.h in Headers */,
-				167D00DB1709632300B94D5E /* AEModel.h in Headers */,
-				167D01151709729000B94D5E /* cpu.h in Headers */,
-				167D01161709729000B94D5E /* mcore.h in Headers */,
-				1630A7FC171BFC1400B318A9 /* CmdArguments.h in Headers */,
-				1630A7FE171BFC1400B318A9 /* NetAddress.h in Headers */,
-				1630A802171BFC2500B318A9 /* SOAPObject.h in Headers */,
-				1614B0E9174F1BA600C26C42 /* OCLInfo.h in Headers */,
-				1614B0ED174F1D8900C26C42 /* OCLDevice.h in Headers */,
-				1614B0F3174F46F700C26C42 /* OCLFunction.h in Headers */,
-				1614B0F5174F4AA100C26C42 /* OCLMath.h in Headers */,
-				1614B0F7174F4D7900C26C42 /* CoreTypes.h in Headers */,
+				16ED7D9217544FAF0029A62E /* CudaFunction.h in Headers */,
+				16ED7D941754535E0029A62E /* CudaMath.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4040,9 +3073,11 @@
 				169DD10F1457A239000A9889 /* Frameworks */,
 				169DD1101457A239000A9889 /* Headers */,
 				169DD1111457A239000A9889 /* Resources */,
-				16D3D1A8153D22B0003A33CE /* ShellScript */,
+				16D3D1A8153D22B0003A33CE /* Make Framework Header Files */,
+				1679E642175442A8002DCE6D /* Modify Framework Binary */,
 			);
 			buildRules = (
+				16F6689A17533A980082F548 /* PBXBuildRule */,
 				167D011C1709749600B94D5E /* PBXBuildRule */,
 				167D011A1709742A00B94D5E /* PBXBuildRule */,
 			);
@@ -4083,6 +3118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16ED7D971754663F0029A62E /* libcudart.dylib in Resources */,
 				169DD1211457A239000A9889 /* InfoPlist.strings in Resources */,
 				167EBB6714F36A030012570E /* VHtmlTable_bg.gif in Resources */,
 				167EBB6814F36A030012570E /* VHtmlTable_CSS.css in Resources */,
@@ -4092,13 +3128,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16D3D1A8153D22B0003A33CE /* ShellScript */ = {
+		1679E642175442A8002DCE6D /* Modify Framework Binary */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Modify Framework Binary";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change @rpath/libcudart.dylib @loader_path/Resources/libcudart.dylib $TARGET_BUILD_DIR/$EXECUTABLE_PATH";
+		};
+		16D3D1A8153D22B0003A33CE /* Make Framework Header Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Make Framework Header Files";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4112,6 +3163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F6689B17533BD00082F548 /* math.cu in Sources */,
 				169DD1251457A239000A9889 /* nnt.mm in Sources */,
 				169DD17C1457A4B5000A9889 /* AbstractCache.mm in Sources */,
 				169DD1821457A4B5000A9889 /* BdbCache.mm in Sources */,
@@ -4520,6 +3572,11 @@
 				1614B0EC174F1D8900C26C42 /* OCLDevice.cpp in Sources */,
 				1614B0EF174F44F700C26C42 /* OCLMath.cpp in Sources */,
 				1614B0F2174F46F700C26C42 /* OCLFunction.cpp in Sources */,
+				16F6688617530E190082F548 /* CudaDevice.cpp in Sources */,
+				16F6688A17530F5E0082F548 /* CudaInfo.cpp in Sources */,
+				16F66892175330C20082F548 /* Allocate+NNT.cpp in Sources */,
+				16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */,
+				16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

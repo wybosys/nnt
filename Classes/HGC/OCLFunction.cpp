@@ -1,6 +1,7 @@
 
 # include "Core.h"
 # include "OCLFunction.h"
+# include "opencl.prv.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(opencl)
@@ -81,7 +82,19 @@ Dimension::Dimension()
     count[0] = count[1] = count[2] = 0;
     
 # ifdef NNT_OPENCL
-    memset(&_ndr, 0, sizeof(_ndr));
+    
+    _ndr = malloc(sizeof(cl_ndrange));
+    memset(_ndr, 0, sizeof(cl_ndrange));
+    
+# endif
+}
+
+Dimension::~Dimension()
+{
+# ifdef NNT_OPENCL
+    
+    free(_ndr);
+    
 # endif
 }
 
@@ -89,39 +102,40 @@ Dimension::operator range_t () const
 {
 # ifdef NNT_OPENCL
     
-    cl_ndrange& ndr = ntl::down_const(_ndr);
-    ndr.work_dim = dim;
-    ndr.global_work_offset[0] = offset[0];
-    ndr.global_work_offset[1] = offset[1];
-    ndr.global_work_offset[2] = offset[2];
-    ndr.global_work_size[0] = count[0];
-    ndr.global_work_size[1] = count[1];
-    ndr.global_work_size[2] = count[2];
+    use<cl_ndrange> ndr = _ndr;
+    ndr->work_dim = dim;
+    ndr->global_work_offset[0] = offset[0];
+    ndr->global_work_offset[1] = offset[1];
+    ndr->global_work_offset[2] = offset[2];
+    ndr->global_work_size[0] = count[0];
+    ndr->global_work_size[1] = count[1];
+    ndr->global_work_size[2] = count[2];
     
 # endif
     
-    return (range_t)&_ndr;
+    return (range_t)_ndr;
 }
 
 void Dimension::update(Function const& func)
 {
 # ifdef NNT_OPENCL
     
+    use<cl_ndrange> ndr = _ndr;
     usize wgs = func.wgs();
-    _ndr.local_work_size[0] = count[0] / wgs;
-    if (_ndr.local_work_size[0] == 0)
-        _ndr.local_work_size[0] = 1;
+    ndr->local_work_size[0] = count[0] / wgs;
+    if (ndr->local_work_size[0] == 0)
+        ndr->local_work_size[0] = 1;
     if (count[1])
     {
-        _ndr.local_work_size[1] = count[1] / wgs;
-        if (_ndr.local_work_size[1] == 0)
-            _ndr.local_work_size[1] = 1;
+        ndr->local_work_size[1] = count[1] / wgs;
+        if (ndr->local_work_size[1] == 0)
+            ndr->local_work_size[1] = 1;
     }
     if (count[2])
     {
-        _ndr.local_work_size[2] = count[2] / wgs;
-        if (_ndr.local_work_size[2] == 0)
-            _ndr.local_work_size[2] = 1;
+        ndr->local_work_size[2] = count[2] / wgs;
+        if (ndr->local_work_size[2] == 0)
+            ndr->local_work_size[2] = 1;
     }
     
 # endif

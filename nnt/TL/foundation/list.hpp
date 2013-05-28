@@ -140,7 +140,7 @@ public:
 
         value_type& operator * ()
         {
-            return obj->val;
+            return this->obj->val;
         }
 
     };
@@ -152,7 +152,7 @@ public:
 
         value_type const& operator * () const
         {
-            return obj->val;
+            return this->obj->val;
         }
 
     };
