@@ -5,8 +5,6 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(driver)
 
-# ifdef NNT_KERNEL_SPACE
-
 IoCode::IoCode()
 : _mm(MEMORY_BUFFER), _function(0)
 {
@@ -45,7 +43,10 @@ void IoCode::_update()
 # endif
 }
 
-# endif
+MemoryMode IoCode::mm() const
+{
+    return _mm;
+}
 
 NNT_END_NS
 NNT_END_CXX

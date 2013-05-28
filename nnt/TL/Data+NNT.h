@@ -365,6 +365,13 @@ public:
     {
         return (byte*)(byte const*)_da;
     }
+
+    byte* bytes_or_null() const
+    {
+        if (length() == 0)
+            return NULL;
+        return bytes();
+    }
     
     char const* c_str() const
     {

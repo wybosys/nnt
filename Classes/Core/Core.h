@@ -189,6 +189,7 @@
 #       define WIN32_LEAN_AND_MEAN 1
 #     endif
 #     include <Windows.h>
+#     include <winioctl.h>
 #   else // kernel space
 #     include <ntddk.h>
 #   endif // user space
@@ -340,8 +341,10 @@
 # define NNT_CONST_VAR_C(type, var) NNT_CONST type var
 
 # ifdef NNT_CXX
-#   ifdef NNT_CC_CUDA
+#   if defined(NNT_CC_CUDA)
 #     define NNT_CONST_VAR(type, var) __constant__ type var;
+#   elif defined(NNT_KERNEL_SPACE)
+#     define NNT_CONST_VAR NNT_CONST_VAR_C
 #   else
 #     define NNT_CONST_VAR NNT_CONST_VAR_CXX
 #   endif
@@ -1959,6 +1962,27 @@ inline_impl void Fini()
 {
     NNT::Fini();
 }
+
+NNTCLASS(Syserr);
+
+class Syserr
+{
+
+public:
+
+    Syserr();
+    ~Syserr();
+
+    core::string to_string() const;
+    void flush();
+
+    static Syserr const& Sys();
+
+protected:
+
+    ulong _errno;
+
+};
 
 NNT_END_HEADER_CXX
 

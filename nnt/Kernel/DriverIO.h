@@ -7,7 +7,7 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(driver)
 
-# ifdef NNT_KERNEL_SPACE
+NNTCLASS(IoCode);
 
 class IoCode
 {
@@ -19,6 +19,8 @@ public:
 
     operator ulong () const;
 
+    MemoryMode mm() const;
+
 protected:    
 
     void _update();
@@ -28,8 +30,6 @@ protected:
     ulong _code;
 
 };
-
-# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

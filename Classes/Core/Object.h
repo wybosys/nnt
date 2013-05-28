@@ -620,6 +620,53 @@ protected:
 
 };
 
+class Handle
+{
+public:
+
+# ifdef NNT_MSVC
+
+    typedef HANDLE handle_type;
+
+# else
+
+    typedef uinteger handle_type;
+
+# endif
+
+    Handle(handle_type h = NULL)
+        : _hdl(h)
+    {
+
+    }
+
+    operator handle_type () const
+    {
+        return _hdl;
+    }
+
+    Handle& operator = (Handle const& r)
+    {
+        _hdl = r._hdl;
+        return *this;
+    }
+
+    bool operator == (Handle const& r) const
+    {
+        return _hdl == r._hdl;
+    }
+
+    bool operator != (Handle const& r) const
+    {
+        return _hdl != r._hdl;
+    }
+
+protected:
+
+    handle_type _hdl;
+
+};
+
 NNT_END_HEADER_CXX
 
 # endif

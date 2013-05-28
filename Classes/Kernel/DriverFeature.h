@@ -85,6 +85,7 @@ public:
     void main();
     void complete();
     void success(usize);
+    void invoke();
 
     Status status;
     usize proccessed;
@@ -274,6 +275,33 @@ public:
 NNT_END_NS
 
 # endif // kernel.
+
+# ifdef NNT_USER_SPACE
+
+NNT_BEGIN_NS(feature)
+
+template <ulong Fun, MemoryMode Mm = MEMORY_BUFFER>
+class CallIo
+{
+public:
+
+    CallIo()
+    {
+        code = IoCode(Fun, Mm);
+    }
+
+    operator ulong () const
+    {
+        return (ulong)code;
+    }
+
+    IoCode code;
+
+};
+
+NNT_END_NS
+
+# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

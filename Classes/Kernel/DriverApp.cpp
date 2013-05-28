@@ -351,6 +351,7 @@ int App::install()
 
 void App::add_feature(Feature* fte)
 {
+    NNTDEBUG_BREAK;
 
 # ifdef NNT_MSVC
     
@@ -425,6 +426,8 @@ void App::add_feature(Feature* fte)
 
 Feature* App::find_call(uinteger code) const
 {
+    NNTDEBUG_BREAK;
+
     for (private_type::calls_type::iterator iter = d_ptr->calls.begin(); 
         iter != d_ptr->calls.end(); 
         ++iter)
@@ -433,6 +436,8 @@ Feature* App::find_call(uinteger code) const
         if (call->code == code)
             return call;
     }
+
+    trace_msg("failed to find Io Call");
     return NULL;
 }
 
@@ -441,8 +446,6 @@ Feature* App::find_call(uinteger code) const
 DRIVER_UNLOAD UnloadDriver;
 VOID UnloadDriver(IN PDRIVER_OBJECT pDriverObject)
 {
-    NNTDEBUG_BREAK;
-
     PDEVICE_OBJECT pdev = pDriverObject->DeviceObject;
     while (pdev != NULL)
     {
@@ -473,7 +476,7 @@ NTSTATUS CallDriver(IN PDEVICE_OBJECT pdev, PIRP pIrp)
 
     fcall->iostack = stack;
     fcall->irp = pIrp;
-    pmp_call(fcall, main, ());
+    fcall->invoke();
 
     return fcall->status;
 }

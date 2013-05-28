@@ -42,6 +42,81 @@ void NNT::Fini()
 	trace_msg("NNT[CXX] Toolkit End.");
 }
 
+Syserr::Syserr()
+{
+    flush();
+}
+
+Syserr::~Syserr()
+{
+
+}
+
+core::string Syserr::to_string() const
+{
+    core::string ret;
+
+# ifdef NNT_MSVC
+
+    CHAR pszErrMSG[256];
+    DWORD dwError = _errno;
+
+    // Use the default system locale since we look for Windows messages.  
+    // Note: this MAKELANGID combination has 0 as value  
+    DWORD systemLocale = MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL);  
+    // Get the error code's textual description  
+    BOOL fOk = FormatMessageA(  
+        FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL, 
+        dwError, 
+        systemLocale,   
+        pszErrMSG,
+        256, 
+        NULL);  
+
+    if (!fOk)  
+    {  
+        // Is it a network-related error?  
+        HMODULE hDll = LoadLibraryEx(TEXT("netmsg.dll"), NULL,   
+            DONT_RESOLVE_DLL_REFERENCES);  
+
+        if (hDll != NULL)  
+        {  
+            fOk = FormatMessageA(  
+                FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_IGNORE_INSERTS,
+                hDll, 
+                dwError, 
+                systemLocale,  
+                pszErrMSG,
+                0,
+                NULL);  
+            FreeLibrary(hDll);  
+        }  
+    }
+
+    ret = pszErrMSG;
+
+# endif
+
+    return ret;
+}
+
+void Syserr::flush()
+{
+# ifdef NNT_MSVC
+
+    _errno = GetLastError();
+
+# endif
+}
+
+Syserr const& Syserr::Sys()
+{
+    static Syserr obj = Syserr();
+    obj.flush();
+    return obj;
+}
+
 NNT_END_CXX
 
 NNT_BEGIN_C

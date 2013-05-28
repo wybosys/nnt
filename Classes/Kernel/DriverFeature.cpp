@@ -72,12 +72,20 @@ void Feature::success(usize len)
 {
     proccessed = len;
     status.success();
-    complete();
+
+    pmp_call(this, complete, ());
+}
+
+void Feature::invoke()
+{
+    pmp_call(this, prepare, ());
+    pmp_call(this, main, ());
+    pmp_call(this, collect, ());
 }
 
 static App* FeatureToApp(Feature* ftu)
 {
-    NNTDEBUG_BREAK;
+    //NNTDEBUG_BREAK;
     
 # ifdef NNT_MSVC
     

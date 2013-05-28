@@ -8,6 +8,13 @@
 
 NNTAPP_BEGIN
 
+struct CA
+{
+    int a;
+    float b;
+    core::string s;
+};
+
 class App
     : public cross::Console
 {
@@ -19,7 +26,7 @@ public:
         if (!fd.open(core::DeviceUrl<>("NntSampleDriver"), 
             mask_t().on<Io::read>().on<Io::write>()))
         {
-            printf("failed to open device.\n");
+            printf("failed to open device.\n error: %s.\n", Syserr::Sys().to_string().c_str());           
             return;
         }
 
@@ -31,9 +38,21 @@ public:
 
         da.fill(0);
         if (fd.read(da))
-            printf("readed: %s\n.", da.c_str());
+            printf("readed: %s.\n", da.c_str());
         else
             printf("failed to read data.\n");
+
+        FileIo io(fd);
+        if (io.control(driver::feature::CallIo<1>()))
+        {
+            printf("success invoke ioctl.\n");
+            printf("receive: %s.\n", io.receive.bytes());
+        }
+        else
+        {
+            printf("failed invoke ioctl.\n");
+            printf("error: %s.\n", Syserr::Sys().to_string().c_str());
+        }
 
         printf("success.\n");
         fd.close();
@@ -125,6 +144,10 @@ SampleFunction::SampleFunction()
 void SampleFunction::main()
 {
     NNTDEBUG_BREAK;
+
+    writer.fill('c');
+
+    success(writer.length());
 }
 
 NNTAPP_END

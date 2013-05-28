@@ -34,6 +34,12 @@ public:
 
     typedef core::FileUrl<core::string> url_type;
 
+# ifdef NNT_MSVC
+    typedef HANDLE handle_type;
+# else
+    typedef void* handle_type;
+# endif
+
 	File();
 	~File();
 
@@ -42,6 +48,30 @@ public:
 
     usize write(core::data const&);
     usize read(core::data&);
+
+    handle_type handle() const;
+
+};
+
+NNTCLASS(FileIo);
+
+class FileIo
+    : public cxx::Object<>
+{
+public:
+
+    enum {BUFFER_LEN = 256};
+
+    FileIo(File&);
+    ~FileIo();
+
+    bool control(ulong);
+
+    core::data send, receive;
+
+protected:
+
+    File& _file;
 
 };
 

@@ -36,17 +36,7 @@ void close()
 # endif
 }
 
-# ifdef NNT_MSVC
-
-HANDLE file;
-
-# endif
-
-# ifdef NNT_UNIX
-
-void* file;
-
-# endif
+owner_type::handle_type file;
 
 NNTDECL_PRIVATE_END_CXX
 
@@ -77,7 +67,7 @@ bool File::open(url_type const& path, mask_t const& flag)
         opt<enum_t>(flag.checked<Io::read>())[FILE_SHARE_READ] | opt<enum_t>(flag.checked<Io::write>())[FILE_SHARE_WRITE] << opt<enum_t>::failed(0),
         NULL,
         opt<enum_t>(flag.checked<Io::read>())[OPEN_EXISTING] | opt<enum_t>(flag.checked<Io::write>() && flag.checked<Io::create>())[CREATE_ALWAYS],
-        FILE_ATTRIBUTE_NORMAL,
+        NULL,
         NULL);
 
     if (d_ptr->file == INVALID_HANDLE_VALUE)
@@ -199,6 +189,45 @@ usize File::read(core::data& da)
 # endif
 
     return 0;
+}
+
+File::handle_type File::handle() const
+{
+    return d_ptr->file;
+}
+
+FileIo::FileIo(File& f)
+: _file(f)
+{
+    receive.resize(BUFFER_LEN);
+}
+
+FileIo::~FileIo()
+{
+
+}
+
+bool FileIo::control(ulong code)
+{
+    bool ret = false;
+
+# ifdef NNT_MSVC
+
+# ifdef NNT_USER_SPACE
+
+    ULONG received;
+    ret = DeviceIoControl(_file.handle(),
+        code,
+        send.bytes_or_null(), send.length(),
+        receive.bytes_or_null(), receive.length(),
+        &received,
+        NULL) == TRUE;
+
+# endif
+
+# endif
+
+    return ret;
 }
 
 NNT_END_CXX
