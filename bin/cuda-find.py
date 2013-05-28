@@ -17,7 +17,7 @@ def find_macos(base):
         ver = vers[0]
         allver.append(ver)
     allver = sorted(allver)
-    return base + "CUDA-" + allver[0]
+    return base + "CUDA-" + allver[-1]
 
 def main():
     dir = find_macos("/Developer/NVIDIA/")
