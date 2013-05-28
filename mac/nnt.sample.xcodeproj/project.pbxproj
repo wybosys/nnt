@@ -476,6 +476,7 @@
 			filePatterns = "*.inc";
 			fileType = pattern.proxy;
 			isEditable = 1;
+			name = "INC as header file";
 			outputFiles = (
 			);
 			script = "#!/bin/bash\necho \"skip: ${INPUT_FILE_PATH}\"";
@@ -486,6 +487,7 @@
 			filePatterns = "*.s";
 			fileType = pattern.proxy;
 			isEditable = 1;
+			name = "ASM AT&T";
 			outputFiles = (
 				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o",
 			);
@@ -497,6 +499,7 @@
 			filePatterns = "*.cu";
 			fileType = pattern.proxy;
 			isEditable = 1;
+			name = CUDA;
 			outputFiles = (
 				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o",
 			);
