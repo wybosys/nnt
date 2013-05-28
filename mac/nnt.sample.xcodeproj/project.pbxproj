@@ -409,11 +409,11 @@
 		16E4E6E815074EBC00B6B7E8 /* MySql+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6DE15074EBB00B6B7E8 /* MySql+NNT.cpp */; };
 		16E4E6EA15074EBC00B6B7E8 /* PostgreSql+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E015074EBB00B6B7E8 /* PostgreSql+NNT.cpp */; };
 		16E4E6EE15074EBC00B6B7E8 /* SqlServer+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E415074EBC00B6B7E8 /* SqlServer+NNT.cpp */; };
-		16ED7D8D175445640029A62E /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED7D8C175445640029A62E /* libcudart.dylib */; };
-		16ED7D8E175445750029A62E /* libcudart.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 16ED7D8C175445640029A62E /* libcudart.dylib */; };
 		16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16ED7D8F17544FAF0029A62E /* CudaFunction.cu */; };
 		16ED7D9217544FAF0029A62E /* CudaFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D9017544FAF0029A62E /* CudaFunction.h */; };
 		16ED7D941754535E0029A62E /* CudaMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D931754535E0029A62E /* CudaMath.h */; };
+		16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
+		16ED7D971754663F0029A62E /* libcudart.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
 		16F2AF2515327A2C0047DB0B /* NSTableView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */; };
 		16F2AF2E153285590047DB0B /* NSScrollView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */; };
 		16F2AF33153289AE0047DB0B /* NSButton+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF32153289AE0047DB0B /* NSButton+NNT.mm */; };
@@ -500,7 +500,7 @@
 			outputFiles = (
 				"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o",
 			);
-			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nMACH=-m64\nexport PATH=${PATH}:../bin/mac/64\nelse\nMACH=\nfi\n\nexport PATH=${PATH}:../bin/mac\n\n/Developer/NVIDIA/CUDA-5.0/bin/nvcc -G -g -O0 ${MACH} -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o -c ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
+			script = "#!/bin/bash\nif [ \"${CURRENT_ARCH}\" == \"x86_64\" ]\nthen\nMACH=-m64\nexport PATH=${PATH}:../bin/mac/64\nelse\nMACH=\nfi\n\nexport PATH=${PATH}:../bin/mac\nexport CUDA_DIR=`../bin/cuda-find.py`\n\n${CUDA_DIR}/bin/nvcc -G -g -O0 ${MACH} -o ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/${INPUT_FILE_NAME}.o -c ${INPUT_FILE_DIR}/${INPUT_FILE_NAME}\n";
 		};
 /* End PBXBuildRule section */
 
@@ -1369,10 +1369,10 @@
 		16E4E6E115074EBB00B6B7E8 /* PostgreSql+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PostgreSql+NNT.h"; path = "../Classes/Store/PostgreSql+NNT.h"; sourceTree = "<group>"; };
 		16E4E6E415074EBC00B6B7E8 /* SqlServer+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "SqlServer+NNT.cpp"; path = "../Classes/Store/SqlServer+NNT.cpp"; sourceTree = "<group>"; };
 		16E4E6E515074EBC00B6B7E8 /* SqlServer+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SqlServer+NNT.h"; path = "../Classes/Store/SqlServer+NNT.h"; sourceTree = "<group>"; };
-		16ED7D8C175445640029A62E /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = "/Developer/NVIDIA/CUDA-5.0/lib/libcudart.dylib"; sourceTree = "<absolute>"; };
 		16ED7D8F17544FAF0029A62E /* CudaFunction.cu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CudaFunction.cu; path = ../Classes/HGC/CudaFunction.cu; sourceTree = "<group>"; };
 		16ED7D9017544FAF0029A62E /* CudaFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaFunction.h; path = ../Classes/HGC/CudaFunction.h; sourceTree = "<group>"; };
 		16ED7D931754535E0029A62E /* CudaMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaMath.h; path = ../Classes/HGC/CudaMath.h; sourceTree = "<group>"; };
+		16ED7D951754662F0029A62E /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../lib/Mac/libcudart.dylib; sourceTree = "<group>"; };
 		16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSTableView+NNT.mm"; path = "../Classes/UIKit/NSTableView+NNT.mm"; sourceTree = "<group>"; };
 		16F2AF2B153284D60047DB0B /* NSScrollView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScrollView+NNT.h"; path = "../Classes/UIKit/NSScrollView+NNT.h"; sourceTree = "<group>"; };
 		16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSScrollView+NNT.mm"; path = "../Classes/UIKit/NSScrollView+NNT.mm"; sourceTree = "<group>"; };
@@ -1499,7 +1499,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED7D8D175445640029A62E /* libcudart.dylib in Frameworks */,
+				16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */,
 				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
 				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
@@ -2126,7 +2126,7 @@
 		169DD1151457A239000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16ED7D8C175445640029A62E /* libcudart.dylib */,
+				16ED7D951754662F0029A62E /* libcudart.dylib */,
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
 				1614B0F8174F6AC000C26C42 /* CUDA.framework */,
@@ -3115,7 +3115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED7D8E175445750029A62E /* libcudart.dylib in Resources */,
+				16ED7D971754663F0029A62E /* libcudart.dylib in Resources */,
 				169DD1211457A239000A9889 /* InfoPlist.strings in Resources */,
 				167EBB6714F36A030012570E /* VHtmlTable_bg.gif in Resources */,
 				167EBB6814F36A030012570E /* VHtmlTable_CSS.css in Resources */,
