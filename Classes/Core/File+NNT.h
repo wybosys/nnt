@@ -12,12 +12,12 @@ class Io
 {
 public:
 
-    typedef ntl::position_t<0> read;
-    typedef ntl::position_t<1> write;
-    typedef ntl::position_t<2> create;
-    typedef ntl::position_t<3> close;
-    typedef ntl::position_t<4> binary;
-    typedef ntl::position_t<5> append;
+    typedef ntl::mpl::position<0> read;
+    typedef ntl::mpl::position<1> write;
+    typedef ntl::mpl::position<2> create;
+    typedef ntl::mpl::position<3> close;
+    typedef ntl::mpl::position<4> binary;
+    typedef ntl::mpl::position<5> append;
 
 };
 

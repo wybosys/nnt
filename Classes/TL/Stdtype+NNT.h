@@ -205,31 +205,51 @@ protected:
 
 NNT_END_NS
 
+NNT_BEGIN_NS(mpl)
+
 template <ubyte valT>
-class position_t
+class position
 {
 public:
 
     enum { VALUE = valT };
-
-    template <typename posT>
-    position_t operator + (posT const& r) const
-    {
-        return VALUE + posT::VALUE;
-    }
-
-    template <typename posT>
-    position_t operator - (posT const& r) const
-    {
-        return VALUE - posT::VALUE;
-    }
 
     operator ubyte () const
     {
         return VALUE;
     }
 
+    template <typename R>
+    struct add
+    {
+        typedef position<VALUE + R::VALUE> type;
+        enum { VALUE = type::VALUE };
+    };
+
+    template <typename R>
+    struct sub
+    {
+        typedef position<VALUE - R::VALUE> type;
+        enum { VALUE = type::VALUE };
+    };
+
+    template <typename R>
+    struct mul
+    {
+        typedef position<VALUE * R::VALUE> type;
+        enum { VALUE = type::VALUE };
+    };
+
+    template <typename R>
+    struct div
+    {
+        typedef position<VALUE / R::VALUE> type;
+        enum { VALUE = type::VALUE };
+    };
+
 };
+
+NNT_END_NS
 
 NNT_END_NS
 
