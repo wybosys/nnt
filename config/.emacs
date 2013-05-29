@@ -45,14 +45,16 @@
  '(show-paren-mode t)
  '(tab-width 4))
  
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
- '(linum ((t (:inherit (shadow default) :background "color-255"))))
- )
+(ignore-errors
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
+   '(linum ((t (:inherit (shadow default) :background "color-255"))))
+   )
+  )
 
 ;; yes-or-no.
 (defun my-mumble-or-no-p (prompt)
@@ -64,8 +66,6 @@
       nil
     t))
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
-
-;; linum.
 
 ;; hl-line.
 (set-face-background 'hl-line "color-255")
@@ -94,8 +94,18 @@
 (defun my-yas ()
   (require 'yasnippet)
   (require 'yasnippet-bundle)
-)
+  )
 (add-hook 'after-init-hook 'my-yas)
+
+;; icicles.
+(defun my-icicle ()
+  (require 'icicles)
+  (icy-mode 1)
+  (add-hook 'icicle-ido-like-mode-hook
+            (lambda () (setq icicle-default-value
+                             (if icicle-ido-like-mode t 'insert-end))))
+  )
+(add-hook 'after-init-hook 'my-icicle)
 
 ;; backups.
 (setq make-backup-files nil)
@@ -109,6 +119,14 @@
 (ido-mode 1)
 (dolist (ignore my-ignores)
   (add-to-list 'ido-ignore-files ignore))
+
+;; session.
+(defun my-session ()
+  (require 'session)
+  (require 'desktop)
+  (session-initialize)
+)
+(add-hook 'after-init-hook 'my-session)
 
 ;; uniquify buffer name
 (require 'uniquify)
@@ -196,7 +214,6 @@
 
 (defun my-cedet-launch ()
   (semantic-mode)
-  (semanticdb-enable-cscope-databases)
 )
 
 ;; ecb
@@ -298,6 +315,30 @@
                                   ))
 )
 
+;; verilog
+(autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
+(add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
+(setq verilog-indent-level             3
+      verilog-indent-level-module      3
+      verilog-indent-level-declaration 3
+      verilog-indent-level-behavioral  3
+      verilog-indent-level-directive   1
+      verilog-case-indent              2
+      verilog-auto-newline             t
+      verilog-auto-indent-on-newline   t
+      verilog-tab-always-indent        t
+      verilog-auto-endcomments         t
+      verilog-minimum-comment-distance 40
+      verilog-indent-begin-after-if    t
+      verilog-auto-lineup              'declarations
+      verilog-highlight-p1800-keywords nil
+      verilog-linter             "my_lint_shell_command"
+      )
+
+;; php
+(autoload 'php-mode "php-mode" "PHP mode" t)
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+
 ;; script style.
 (defconst my-c-style
   '(
@@ -325,7 +366,9 @@
                                    (innamespace . 0)
                                    ))
     ;(c-echo-syntactic-information-p . t) // verbose while indent.
-    ) "My C script style.")
+    ) 
+  "My C script style."
+  )
 (c-add-style "my-cstyle" my-c-style)
 
 (setq c-default-style 
@@ -366,3 +409,4 @@
 (global-set-key (kbd "C-<up>") 'backward-paragraph)
 (global-set-key (kbd "<end>") 'bookmark-set)
 (global-set-key (kbd "<home>") 'bookmark-jump)
+(global-set-key (kbd "C-x C-f") 'ido-find-file)
