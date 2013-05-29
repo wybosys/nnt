@@ -9,7 +9,9 @@
 ;; package manager.
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("tromey" . "http://tromey.com/elpa/")
+                         ))
 
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
@@ -44,6 +46,9 @@
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tab-width 4))
+
+;; package manager.
+;; todo
 
 ;; in-gui or not-gui.
 (defun my-maximum ()
@@ -120,6 +125,7 @@
 (add-hook 'prog-mode-hook 'my-hlparen)
 
 ;; yasnippet
+(setq my-yas-c-comment '())
 (defun my-yas ()
   (require 'yasnippet)
   (require 'yasnippet-bundle)
@@ -333,7 +339,9 @@
   (setq c-basic-offset 4)
   (my-assist)	
   (my-cscope)
-)
+  ;; add yas template.
+  (yas/define-snippets 'c-mode my-yas-c-comment 'cc-mode)
+  )
 
 (add-hook 'c-mode-common-hook 
           '(lambda ()
