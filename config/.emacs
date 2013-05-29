@@ -46,7 +46,32 @@
  '(tab-width 4))
 
 ;; in-gui or not-gui.
+(defun my-maximum ()
+  (interactive)
+  (if (eq window-system 'x)
+      (progn
+        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+        (sit-for 0.1)
+        )
+    (if (eq window-system 'w32)
+        (w32-send-sys-command #xf030)
+      (if (eq window-system 'ns)
+          )
+      )
+    )
+  )
+
 (defun my-gui ()
+  (custom-set-faces
+   '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
+   '(linum ((t (:inherit (shadow default) :background "gray96"))))
+   ) 
+  ;; hl-line.
+  (set-face-background 'hl-line "gray96")
+  ;; other
+  ;(add-hook 'window-setup-hook 'my-maximum)
+  (my-maximum)
   )
 
 (defun my-cli ()
@@ -54,6 +79,8 @@
    '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
    '(linum ((t (:inherit (shadow default) :background "color-255"))))
    )
+  ;; hl-line.
+  (set-face-background 'hl-line "color-255")
   )
 
 (if (not window-system)
@@ -71,9 +98,6 @@
       nil
     t))
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
-
-;; hl-line.
-(set-face-background 'hl-line "color-255")
 
 ;; hl-paren
 (defun my-hlparen ()
