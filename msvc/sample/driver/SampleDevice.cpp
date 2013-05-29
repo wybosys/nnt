@@ -8,13 +8,6 @@
 
 NNTAPP_BEGIN
 
-struct CA
-{
-    int a;
-    float b;
-    core::string s;
-};
-
 class App
     : public cross::Console
 {

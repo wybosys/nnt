@@ -1,0 +1,21 @@
+make cer and pvk
+
+makecert -sv kernel.pvk -a sha1 -eku 1.3.6.1.5.5.7.3.3 -r -ss Root -l 2048 -sr localMachine -n CN="wybosys" kernel.cer
+
+szOID_PKIX_KP "1.3.6.1.5.5.7.3"
+szOID_PKIX_KP_SERVER_AUTH "1.3.6.1.5.5.7.3.1"
+szOID_PKIX_KP_CLIENT_AUTH "1.3.6.1.5.5.7.3.2"
+szOID_PKIX_KP_CODE_SIGNING "1.3.6.1.5.5.7.3.3"
+szOID_PKIX_KP_EMAIL_PROTECTION "1.3.6.1.5.5.7.3.4"
+
+convert cer to spc
+
+cert2spc kernel.cer kernel.spc
+
+build pfx from pvk
+
+pvk2pfx -pvk kernel.pvk -spc kernel.spc -pfx kernel.pfx
+
+install kernel.cer into MMC->Certifiers->Root
+
+try driver

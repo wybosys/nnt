@@ -28,12 +28,19 @@ void close()
 
 # ifdef NNT_MSVC
 
+# ifdef NNT_USER_SPACE
+
+    ::CloseHandle(file);
+
+# endif
+
 # ifdef NNT_KERNEL_SPACE
     ::ZwClose(file);
-    file = NULL;
 # endif
 
 # endif
+
+    file = NULL;
 }
 
 owner_type::handle_type file;

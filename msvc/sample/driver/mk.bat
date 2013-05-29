@@ -13,14 +13,11 @@ cd ..\..\msvc\sample\driver
 rem C:\WinDDK\7600.16385.1\tools\Chkinf\chkinf.bat driver.inf
 build
 
-copy driver.inf ..\..\..\exchange\ /Y
-copy build\amd64\* ..\..\..\exchange\ /Y
-copy x64\Release\*.exe ..\..\..\exchange\ /Y
-copy x64\Release\*.dll ..\..\..\exchange\ /Y
+copy driver.inf \\localhost\shared\ /Y
+copy build\amd64\* \\localhost\shared\ /Y
+copy x64\Release\*.exe \\localhost\shared\ /Y
+copy x64\Release\*.dll \\localhost\shared\ /Y
 
-cd ..\..\..\exchange
-rem signtool sign /f ..\cert\root.pfx NntSampleDriver.sys
-rem Inf2cat /driver:.\ /os:7_X64
-rem signtool sign /f ..\cert\root.pfx driver.cat
-
-cd ..\msvc\sample\driver
+Inf2cat /driver:\\localhost\shared\ /os:7_X64
+signtool sign /f ..\..\..\cert\win\kernel.pfx \\localhost\shared\driver.cat
+signtool sign /f ..\..\..\cert\win\kernel.pfx \\localhost\shared\NntSampleDriver.sys
