@@ -249,12 +249,23 @@
 
 ;; python.
 (defun my-py-settings ()
+  (elpa-require 'python-mode)
+  (elpa-require 'python-magic)
+  (elpa-require 'python-pylint)
+  (elpa-require 'ipython)
   (setq ropemacs-guess-project t)
   (setq ropemacs-enable-autoimport t)
   (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"))
 )
 (add-hook 'python-mode-hook 'my-py-settings)
+
+;; javascript.
+(defun my-js-settings ()
+  (elpa-require 'js2-mode)
+  (js2-mode)
+  )
+(add-hook 'js-mode-hook 'my-js-settings)
 
 ;; cmake.
 (mi-use-package-url "cmake-mode.el" "http://www.cmake.org/CMakeDocs/cmake-mode.el")
@@ -377,7 +388,8 @@
 ;; heander to source.
 (defun my-h2s ()
   (elpa-require 'cl-lib)
-  (mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
+  ;(mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
+  (mi-require-url 'eassist "eassist.el" "https://raw.github.com/emacsmirror/cedet/master/contrib/eassist.el")
   (setq eassist-header-switches
 	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
 	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
