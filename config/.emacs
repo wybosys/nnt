@@ -77,17 +77,18 @@
             (detect-coding-region (point-min) (point-max) t) 'dos))
           (setq data-begin (point))
           (setq data-end (point-max))
-          (with-current-buffer (get-buffer-create "x-mi-download")
+          (with-current-buffer (get-buffer-create (concat name "-mi-download"))
             (insert-buffer-substring file-buffer-name data-begin data-end)
             (setq buffer-file-name file)
-            (save-buffer) 
+            (save-buffer)           
             (kill-buffer)
             )
-	      ;(buffer-substring (point) (point-max))
-	      (goto-char (point-min))	      
           (kill-buffer)
 	      )
-	    ))))
+	    )
+      (byte-compile-file file)
+      )
+    ))
 
 ;; guide setting.
 (custom-set-variables
@@ -165,20 +166,19 @@
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
 
 ;; hl-paren
-(defun my-hlparen ()
+(defun my-hlparen ()  
   ; hl paren
-  (when (ai-require-url 
-	 'highlight-parentheses 
-	 "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
-    (define-globalized-minor-mode global-highlight-parentheses-mode
-      highlight-parentheses-mode
-      (lambda ()
-	(highlight-parentheses-mode t)
-	))
+  (mi-use-package-url "highlight-parentheses.el" "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
+  (define-globalized-minor-mode global-highlight-parentheses-mode
+    highlight-parentheses-mode
+    (lambda ()
+      (highlight-parentheses-mode t)
+      )
     (global-highlight-parentheses-mode t)
     )
   ; rainbow
-  (elpa-require 'rainbow-delimiters)
+  (mi-use-package-url "rainbow-delimiters.el" "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
+  (require 'rainbow-delimiters)
   (global-rainbow-delimiters-mode t)
   )
 (add-hook 'prog-mode-hook 'my-hlparen)
