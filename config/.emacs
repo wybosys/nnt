@@ -92,7 +92,7 @@
 
 (defun mi-require-url (module name url)
   (mi-use-package-url name url)
-  (require module))
+  (require module nil 'noerror))
 
 ;; guide setting.
 (custom-set-variables
@@ -140,7 +140,6 @@
   ;; hl-line.
   (set-face-background 'hl-line "gray96")
   ;; other
-  ;(add-hook 'window-setup-hook 'my-maximum)
   (my-maximum)
   )
 
@@ -370,10 +369,10 @@
 	(my-ecb-setup)
 	)
 		
-;; assist
-(defun my-assist ()
+;; heander to source.
+(defun my-h2s ()
   (elpa-require 'cl-lib)
-  (mi-require-url 'eassist "eassist.el" "https://raw.github.com/emacsmirror/cedet/master/contrib/eassist.el")
+  (mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
   (setq eassist-header-switches
 	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
 	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
@@ -405,7 +404,7 @@
 (defun my-c-mode ()
   (interactive)
   (setq c-basic-offset 4)
-  (my-assist)	
+  (my-h2s)	
   (my-cscope)
   ;; add yas template.
   (yas/define-snippets 'c-mode my-yas-c-comment 'cc-mode)
