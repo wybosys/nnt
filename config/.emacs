@@ -51,6 +51,44 @@
   (require module nil 'noerror)
   )
 
+(defun ai-try-require-url (module url)
+  (if (featurep module) nil
+    (elpa-require 'auto-install)
+    (setq auto-install-use-wget nil)
+    (setq auto-install-save-confirm nil)
+    (auto-install-from-url url)    
+    )
+  )
+
+(defun mi-use-package-url (name url)
+  (let ((file (concat "~/.emacs.d/lisps/" name))
+	 (url-request-method "GET")
+	 (url-request-extra-headers nil)
+	 (url-mime-accept-string "*/*")
+	 )
+    (unless (file-exists-p file)
+      (let ((file-buffer-name (url-retrieve-synchronously url)))
+	    (with-current-buffer file-buffer-name
+	      (set-buffer-multibyte t)
+          (goto-char (search-forward "\n\n"))
+	      (decode-coding-region
+	       (point) (point-max)
+	       (coding-system-change-eol-conversion
+            (detect-coding-region (point-min) (point-max) t) 'dos))
+          (setq data-begin (point))
+          (setq data-end (point-max))
+          (with-current-buffer (get-buffer-create "x-mi-download")
+            (insert-buffer-substring file-buffer-name data-begin data-end)
+            (setq buffer-file-name file)
+            (save-buffer) 
+            (kill-buffer)
+            )
+	      ;(buffer-substring (point) (point-max))
+	      (goto-char (point-min))	      
+          (kill-buffer)
+	      )
+	    ))))
+
 ;; guide setting.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -218,6 +256,7 @@
 (add-hook 'python-mode-hook 'my-py-settings)
 
 ;; cmake.
+(mi-use-package-url "cmake-mode.el" "http://www.cmake.org/CMakeDocs/cmake-mode.el")
 (setq auto-mode-alist
       (append
        '(("CMakeLists\\.txt\\'" . cmake-mode))
