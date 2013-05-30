@@ -18,11 +18,37 @@
 (add-to-list 'load-path "~/.emacs.d/lisps/")
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
 
-(defun my-use-package (name url)
-  (when (not (require name nil 'noerror))
+;; package manager.
+(defun elpa-require (module &optional package)
+  (if (require module nil 'noerror) nil
+    (require 'package)
+    (unless package-archive-contents
+      (package-refresh-contents))
+    (if (eq package nil)
+        (package-install module)
+      (package-install package))
+    (message "module installed")
+    (require module)
+    )
+  )
+
+;; may case os-x crash. 
+;(defun ai-require-file (module file)
+;  (if (require module nil 'noerror) nil
+;    (elpa-require 'auto-install)    
+;    (auto-install-from-emacswiki file)
+;    (require module)
+;    )
+;  )
+
+(defun ai-require-url (module url)
+  (if (require module nil 'noerror) nil
+    (elpa-require 'auto-install)
+    (setq auto-install-use-wget nil)
     (setq auto-install-save-confirm nil)
     (auto-install-from-url url)
     )
+  (require module nil 'noerror)
   )
 
 ;; guide setting.
@@ -46,9 +72,6 @@
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t)
  '(tab-width 4))
-
-;; package manager.
-;; todo
 
 ;; in-gui or not-gui.
 (defun my-maximum ()
@@ -106,34 +129,33 @@
 ;; hl-paren
 (defun my-hlparen ()
   ; hl paren
-  (require 'highlight-parentheses nil t)
-  (define-globalized-minor-mode global-highlight-parentheses-mode
-    highlight-parentheses-mode
-    (lambda ()
-      (highlight-parentheses-mode t)
-      ))
-  (if (fboundp 'highlight-parentheses-mode)
-      (global-highlight-parentheses-mode t)
-    (message "warning: please install highlight-parentheses from elpa."))
+  (when (ai-require-url 
+	 'highlight-parentheses 
+	 "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
+    (define-globalized-minor-mode global-highlight-parentheses-mode
+      highlight-parentheses-mode
+      (lambda ()
+	(highlight-parentheses-mode t)
+	))
+    (global-highlight-parentheses-mode t)
+    )
   ; rainbow
-  (require 'rainbow-delimiters nil t)
-  (if (fboundp 'rainbow-delimiters-mode)
-      (global-rainbow-delimiters-mode t)
-    (message "warning: please install rainbow-delimiters from elpa."))
+  (elpa-require 'rainbow-delimiters)
+  (global-rainbow-delimiters-mode t)
   )
 (add-hook 'prog-mode-hook 'my-hlparen)
 
 ;; yasnippet
 (setq my-yas-c-comment '())
 (defun my-yas ()
-  (require 'yasnippet)
-  (require 'yasnippet-bundle)
+  (elpa-require 'yasnippet)
+  (elpa-require 'yasnippet-bundle)
   )
 (add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
-  (require 'icicles)
+  (elpa-require 'icicles)
   (icy-mode 1)
   (add-hook 'icicle-ido-like-mode-hook
             (lambda () (setq icicle-default-value
@@ -156,7 +178,8 @@
 
 ;; session.
 (defun my-session ()
-  (require 'session)
+  (elpa-require 'session)
+  (elpa-require 'desktop)
   (require 'desktop)
   (session-initialize)
 )
@@ -203,7 +226,11 @@
 (autoload 'cmake-mode "cmake-mode.el" t)
 
 ;; company.
-(add-hook 'after-init-hook 'global-company-mode)
+(defun my-company ()
+  (elpa-require 'company)
+  (global-company-mode)
+)
+(add-hook 'after-init-hook 'my-company)
 
 ;; cedet
 (defun my-cedet-setting ()
@@ -288,7 +315,7 @@
 
 (defun my-ecb-setup ()
   (my-cedet-setup)
-  (require 'ecb-autoloads)
+  (elpa-require 'ecb-autoloads 'ecb)
   (my-ecb-setting)
   (my-ecb-keys)
   (ecb-activate)
@@ -304,8 +331,8 @@
 		
 ;; assist
 (defun my-assist ()
-  (require 'cl-lib)
-  (require 'eassist)
+  (elpa-require 'cl-lib)
+  (ai-require-url 'eassist "http://www.emacswiki.org/emacs/download/eassist.el")
   (setq eassist-header-switches
 	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
 	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
@@ -328,7 +355,7 @@
 
 ;; cscope
 (defun my-cscope ()
-  (require 'ascope)
+  (elpa-require 'ascope)
 )
 	
 ;; c mode.
@@ -417,7 +444,7 @@
 
 ;; undo mode.
 (defun my-undo ()
-  (require 'undo-tree)
+  (elpa-require 'undo-tree)
   (undo-tree-mode)
 )
 
