@@ -265,6 +265,11 @@
        auto-mode-alist))
 (autoload 'cmake-mode "cmake-mode.el" t)
 
+;; yaml.
+(mi-use-package-url "yaml-mode.el" "https://raw.github.com/yoshiki/yaml-mode/master/yaml-mode.el")
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+(autoload 'yaml-mode "yaml-mode.el")
+
 ;; company.
 (defun my-company ()
   (elpa-require 'company)
