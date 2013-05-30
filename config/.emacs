@@ -90,6 +90,10 @@
       )
     ))
 
+(defun mi-require-url (module name url)
+  (mi-use-package-url name url)
+  (require module))
+
 ;; guide setting.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -168,17 +172,15 @@
 ;; hl-paren
 (defun my-hlparen ()  
   ; hl paren
-  (mi-use-package-url "highlight-parentheses.el" "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
+  (mi-require-url 'highlight-parentheses "highlight-parentheses.el" "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
   (define-globalized-minor-mode global-highlight-parentheses-mode
     highlight-parentheses-mode
     (lambda ()
       (highlight-parentheses-mode t)
-      )
-    (global-highlight-parentheses-mode t)
-    )
+      ))
+  (global-highlight-parentheses-mode t)
   ; rainbow
-  (mi-use-package-url "rainbow-delimiters.el" "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
-  (require 'rainbow-delimiters)
+  (mi-require-url 'rainbow-delimiters "rainbow-delimiters.el" "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
   (global-rainbow-delimiters-mode t)
   )
 (add-hook 'prog-mode-hook 'my-hlparen)
@@ -371,7 +373,7 @@
 ;; assist
 (defun my-assist ()
   (elpa-require 'cl-lib)
-  (ai-require-url 'eassist "http://www.emacswiki.org/emacs/download/eassist.el")
+  (mi-require-url 'eassist "eassist.el" "https://raw.github.com/emacsmirror/cedet/master/contrib/eassist.el")
   (setq eassist-header-switches
 	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
 	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
@@ -388,7 +390,8 @@
 	  ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
 	  ("c" . ("h"))
 	  ("m" . ("h"))
-	  ("mm" . ("h"))))
+	  ("mm" . ("h"))
+      ))
   (local-set-key "\M-o" 'eassist-switch-h-cpp)
   )
 
