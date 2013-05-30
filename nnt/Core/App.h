@@ -417,11 +417,35 @@ protected:
     
 };
 
-NNT_END_NS
+NNT_END_NS // cross
 
 # endif
 
 NNT_END_HEADER_CXX
+
+# ifdef NNTAPP_GUI
+
+extern int NNT_MAIN(int, char**);
+
+# endif
+
+# if defined(NNTAPP_GUI) && defined(NNT_MSVC)
+
+# include "../UIKit/Cross/UcKernel.h"
+
+extern "C" int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int windowStyle)
+{
+    NNT_USINGNAMESPACE;
+    ui::uc::msvc::BackgroundWindow bw;
+    bw.cmd = lpCmdLine;
+    bw.hcurrent = hInstance;
+    bw.hprevious = hPrevInstance;
+    bw.ws = windowStyle;
+    bw.entry = NNT_MAIN;
+    return bw.main();
+}
+
+# endif
 
 # endif
 

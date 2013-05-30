@@ -69,12 +69,12 @@ public:
         PASS;
     }
     
-    inline void* object() const
+    void* object() const
     {
         return (void*)_obj;
     }
     
-    inline void set_object(void* obj)
+    void set_object(void* obj)
     {
         this->destroy();
         this->_obj = obj;
@@ -88,24 +88,24 @@ public:
 protected:
     
     template <typename tyT>
-    inline tyT* _as() const
+    tyT* _as() const
     {
         return (tyT*)_obj;
     }
     
-    inline implT* _impl() const
+    implT* _impl() const
     {
         return (implT*)this;
     }
     
     template <typename tyT>
-    inline void _create()
+    void _create()
     {
         _obj = new tyT();
     }
 
     template <typename tyT>
-    inline void _destroy()
+    void _destroy()
     {
         if (_obj)
         {
@@ -117,6 +117,33 @@ protected:
     void* _obj;
     
 };
+
+# ifdef NNT_MSVC
+
+NNT_BEGIN_NS(msvc)
+
+NNTCLASS(BackgroundWindow);
+
+class BackgroundWindow
+{
+public:
+
+    BackgroundWindow();
+    ~BackgroundWindow();
+
+    int main();
+
+    LPSTR cmd;
+    HINSTANCE hprevious, hcurrent;
+    int ws;
+
+    int (*entry)(int, char**);
+
+};
+
+NNT_END_NS
+
+# endif
 
 UC_END_HEADER
 

@@ -6,9 +6,11 @@
 # include "Task+NNT.h"
 
 # ifdef NNT_MSVC
+
 #   include <lmcons.h>
 #   include <direct.h>
 #   include "../msvc/classes/ExceptionProcess.h"
+
 # endif
 
 # ifdef NNT_UNIX
@@ -152,6 +154,6 @@ IArguments* Console::arguments()
     return (IArguments*)_cmd;
 }
 
-NNT_END_NS
+NNT_END_NS // cross
 
 NNT_END_CXX

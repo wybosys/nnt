@@ -159,6 +159,12 @@
 
 # endif
 
+// only show predefines in library. will define in the app.
+# if 0
+#   define NNTAPP_GUI 1
+#   define NNTAPP_CONSOLE 1
+# endif
+
 # if defined(_MSC_VER) && defined(WIN32)
 #   ifdef _MFC_VER
 #     define NNT_MFC 1 
@@ -169,7 +175,7 @@
 #   if defined(_USRDLL) && !defined(NNT_LIBRARY)
 #     define NNT_LIBRARY 1
 #   endif
-#   if defined(NNT_LIBRARY) && defined(NNT_USER_SPACE)
+#   if defined(NNT_LIBRARY) && defined(NNT_USER_SPACE) && !defined(NNT_NOSTDAFX)
 #     include "stdafx.h"
 #   endif
 #   ifndef WINVER
