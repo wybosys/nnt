@@ -166,7 +166,16 @@
                  (concat prompt "(yes[enter] or no) "))))
       nil
     t))
+(defun my-mumble-or-n-p (prompt)
+  "PROMPT user with a y-or-n question, but only test for no."
+  (if (string= "n"
+               (downcase
+                (read-from-minibuffer
+                 (concat prompt "(y[enter] or n) "))))
+      nil
+    t))
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
+(defalias 'y-or-n-p 'my-mumble-or-n-p)
 
 ;; hl-paren
 (defun my-hlparen ()  
