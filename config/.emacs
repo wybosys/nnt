@@ -9,19 +9,90 @@
 ;; package manager.
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("tromey" . "http://tromey.com/elpa/")
+                         ))
 
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
 
-(defun my-use-package (name url)
-  (when (not (require name nil 'noerror))
+;; package manager.
+(defun elpa-require (module &optional package)
+  (if (require module nil 'noerror) nil
+    (require 'package)
+    (unless package-archive-contents
+      (package-refresh-contents))
+    (if (eq package nil)
+        (package-install module)
+      (package-install package))
+    (message "module installed")
+    (require module)
+    )
+  )
+
+;; may case os-x crash. 
+;(defun ai-require-file (module file)
+;  (if (require module nil 'noerror) nil
+;    (elpa-require 'auto-install)    
+;    (auto-install-from-emacswiki file)
+;    (require module)
+;    )
+;  )
+
+(defun ai-require-url (module url)
+  (if (require module nil 'noerror) nil
+    (elpa-require 'auto-install)
+    (setq auto-install-use-wget nil)
     (setq auto-install-save-confirm nil)
     (auto-install-from-url url)
     )
+  (require module nil 'noerror)
   )
+
+(defun ai-try-require-url (module url)
+  (if (featurep module) nil
+    (elpa-require 'auto-install)
+    (setq auto-install-use-wget nil)
+    (setq auto-install-save-confirm nil)
+    (auto-install-from-url url)    
+    )
+  )
+
+(defun mi-use-package-url (name url)
+  (let ((file (concat "~/.emacs.d/lisps/" name))
+	 (url-request-method "GET")
+	 (url-request-extra-headers nil)
+	 (url-mime-accept-string "*/*")
+	 )
+    (unless (file-exists-p file)
+      (let ((file-buffer-name (url-retrieve-synchronously url)))
+	    (with-current-buffer file-buffer-name
+	      (set-buffer-multibyte t)
+          (goto-char (search-forward "\n\n"))
+	      (decode-coding-region
+	       (point) (point-max)
+	       (coding-system-change-eol-conversion
+            (detect-coding-region (point-min) (point-max) t) 'dos))
+          (setq data-begin (point))
+          (setq data-end (point-max))
+          (with-current-buffer (get-buffer-create (concat name "-mi-download"))
+            (insert-buffer-substring file-buffer-name data-begin data-end)
+            (setq buffer-file-name file)
+            (save-buffer)           
+            (kill-buffer)
+            )
+          (kill-buffer)
+	      )
+	    )
+      (byte-compile-file file)
+      )
+    ))
+
+(defun mi-require-url (module name url)
+  (mi-use-package-url name url)
+  (require module nil 'noerror))
 
 ;; guide setting.
 (custom-set-variables
@@ -48,18 +119,17 @@
 ;; in-gui or not-gui.
 (defun my-maximum ()
   (interactive)
-  (if (eq window-system 'x)
-      (progn
-        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-        (sit-for 0.1)
-        )
-    (if (eq window-system 'w32)
-        (w32-send-sys-command #xf030)
-      (if (eq window-system 'ns)
-          )
+  (cond ((eq window-system 'x)
+         (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+         (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+         (sit-for 0.1)
+         )
+        ((eq window-system 'w32)
+         (w32-send-sys-command #xf030)
+         )
+        ((eq window-system 'ns)
+         )
       )
-    )
   )
 
 (defun my-gui ()
@@ -70,7 +140,6 @@
   ;; hl-line.
   (set-face-background 'hl-line "gray96")
   ;; other
-  ;(add-hook 'window-setup-hook 'my-maximum)
   (my-maximum)
   )
 
@@ -100,35 +169,32 @@
 (defalias 'yes-or-no-p 'my-mumble-or-no-p)
 
 ;; hl-paren
-(defun my-hlparen ()
+(defun my-hlparen ()  
   ; hl paren
-  (require 'highlight-parentheses nil t)
+  (mi-require-url 'highlight-parentheses "highlight-parentheses.el" "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
   (define-globalized-minor-mode global-highlight-parentheses-mode
     highlight-parentheses-mode
     (lambda ()
       (highlight-parentheses-mode t)
       ))
-  (if (fboundp 'highlight-parentheses-mode)
-      (global-highlight-parentheses-mode t)
-    (message "warning: please install highlight-parentheses from elpa."))
+  (global-highlight-parentheses-mode t)
   ; rainbow
-  (require 'rainbow-delimiters nil t)
-  (if (fboundp 'rainbow-delimiters-mode)
-      (global-rainbow-delimiters-mode t)
-    (message "warning: please install rainbow-delimiters from elpa."))
+  (mi-require-url 'rainbow-delimiters "rainbow-delimiters.el" "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
+  (global-rainbow-delimiters-mode t)
   )
 (add-hook 'prog-mode-hook 'my-hlparen)
 
 ;; yasnippet
+(setq my-yas-c-comment '())
 (defun my-yas ()
-  (require 'yasnippet)
-  (require 'yasnippet-bundle)
+  (elpa-require 'yasnippet)
+  (elpa-require 'yasnippet-bundle)
   )
 (add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
-  (require 'icicles)
+  (elpa-require 'icicles)
   (icy-mode 1)
   (add-hook 'icicle-ido-like-mode-hook
             (lambda () (setq icicle-default-value
@@ -151,7 +217,8 @@
 
 ;; session.
 (defun my-session ()
-  (require 'session)
+  (elpa-require 'session)
+  (elpa-require 'desktop)
   (require 'desktop)
   (session-initialize)
 )
@@ -190,6 +257,7 @@
 (add-hook 'python-mode-hook 'my-py-settings)
 
 ;; cmake.
+(mi-use-package-url "cmake-mode.el" "http://www.cmake.org/CMakeDocs/cmake-mode.el")
 (setq auto-mode-alist
       (append
        '(("CMakeLists\\.txt\\'" . cmake-mode))
@@ -197,8 +265,17 @@
        auto-mode-alist))
 (autoload 'cmake-mode "cmake-mode.el" t)
 
+;; yaml.
+(mi-use-package-url "yaml-mode.el" "https://raw.github.com/yoshiki/yaml-mode/master/yaml-mode.el")
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+(autoload 'yaml-mode "yaml-mode.el")
+
 ;; company.
-(add-hook 'after-init-hook 'global-company-mode)
+(defun my-company ()
+  (elpa-require 'company)
+  (global-company-mode)
+)
+(add-hook 'after-init-hook 'my-company)
 
 ;; cedet
 (defun my-cedet-setting ()
@@ -283,7 +360,7 @@
 
 (defun my-ecb-setup ()
   (my-cedet-setup)
-  (require 'ecb-autoloads)
+  (elpa-require 'ecb-autoloads 'ecb)
   (my-ecb-setting)
   (my-ecb-keys)
   (ecb-activate)
@@ -297,10 +374,10 @@
 	(my-ecb-setup)
 	)
 		
-;; assist
-(defun my-assist ()
-  (require 'cl-lib)
-  (require 'eassist)
+;; heander to source.
+(defun my-h2s ()
+  (elpa-require 'cl-lib)
+  (mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
   (setq eassist-header-switches
 	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
 	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
@@ -317,13 +394,14 @@
 	  ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
 	  ("c" . ("h"))
 	  ("m" . ("h"))
-	  ("mm" . ("h"))))
+	  ("mm" . ("h"))
+      ))
   (local-set-key "\M-o" 'eassist-switch-h-cpp)
   )
 
 ;; cscope
 (defun my-cscope ()
-  (require 'ascope)
+  (elpa-require 'ascope)
 )
 	
 ;; c mode.
@@ -331,9 +409,11 @@
 (defun my-c-mode ()
   (interactive)
   (setq c-basic-offset 4)
-  (my-assist)	
+  (my-h2s)	
   (my-cscope)
-)
+  ;; add yas template.
+  (yas/define-snippets 'c-mode my-yas-c-comment 'cc-mode)
+  )
 
 (add-hook 'c-mode-common-hook 
           '(lambda ()
@@ -410,7 +490,7 @@
 
 ;; undo mode.
 (defun my-undo ()
-  (require 'undo-tree)
+  (elpa-require 'undo-tree)
   (undo-tree-mode)
 )
 
