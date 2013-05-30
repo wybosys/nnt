@@ -7,12 +7,6 @@
 (setq stack-trace-on-error t)
 
 ;; package manager.
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("tromey" . "http://tromey.com/elpa/")
-                         ))
-
 (when (not (file-accessible-directory-p "~/.emacs.d/lisps"))
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
@@ -22,6 +16,12 @@
 (defun elpa-require (module &optional package)
   (if (require module nil 'noerror) nil
     (require 'package)
+    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                             ("marmalade" . "http://marmalade-repo.org/packages/")
+                             ("melpa" . "http://melpa.milkbox.net/packages/")
+                             ("tromey" . "http://tromey.com/elpa/")
+                             ))    
+    (package-initialize)
     (unless package-archive-contents
       (package-refresh-contents))
     (if (eq package nil)
@@ -258,10 +258,10 @@
 
 ;; python.
 (defun my-py-settings ()
-  (elpa-require 'python-mode)
+  ;(elpa-require 'python-mode)
   (elpa-require 'python-magic)
   (elpa-require 'python-pylint)
-  (elpa-require 'ipython)
+  ;(elpa-require 'ipython)
   (setq ropemacs-guess-project t)
   (setq ropemacs-enable-autoimport t)
   (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
@@ -283,12 +283,26 @@
        '(("CMakeLists\\.txt\\'" . cmake-mode))
        '(("\\.cmake\\'" . cmake-mode))
        auto-mode-alist))
-(autoload 'cmake-mode "cmake-mode.el" t)
+(autoload 'cmake-mode "cmake-mode" t)
 
 ;; yaml.
 (mi-use-package-url "yaml-mode.el" "https://raw.github.com/yoshiki/yaml-mode/master/yaml-mode.el")
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(autoload 'yaml-mode "yaml-mode.el")
+(autoload 'yaml-mode "yaml-mode")
+
+;; qt.
+(mi-use-package-url "qml-mode.el" "https://raw.github.com/emacsmirror/qml-mode/master/qml-mode.el")
+(mi-use-package-url "qt-pro.el" "http://www.tolchz.net/wp-content/uploads/2008/01/qt-pro.el")
+(add-to-list 'auto-mode-alist '("\\.pr[io]$" . qt-pro-mode))
+(add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+(autoload 'qt-pro-mode "qt-pro")
+(autoload 'qml-mode "qml-mode")
+
+;; lua.
+(mi-use-package-url "lua-mode.el" "https://raw.github.com/immerrr/lua-mode/master/lua-mode.el")
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 ;; company.
 (defun my-company ()
