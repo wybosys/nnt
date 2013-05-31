@@ -6,7 +6,7 @@
 
 NNT_BEGIN_HEADER_OBJC
 
-@interface UIProgressControl : UIControl {
+@interface UIProgressControl : NNTUIControl {
     UIProgressView* _progressView;
     
     float _max, _value;
