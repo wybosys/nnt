@@ -86,5 +86,13 @@ URL URL::Bundle(ns::String const& path)
     return ret;
 }
 
+ns::String HttpUrlReform(ns::String const& str)
+{
+    static const ns::Regex re(@"^\\s*http://\\S+");
+    if (!re.match(str))
+        return @"http://" + str;
+    return str;
+}
+
 NNT_END_NS
 NNT_END_CXX

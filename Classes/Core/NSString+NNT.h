@@ -407,28 +407,30 @@ public:
         return _regex;
     }
     
-    bool match(String const& str, bool full = true)
+    bool match(String const& str, bool full = true) const
     {
         return [str matchedByRegex:_regex full:full] == YES;
     }
     
-    NSArray* grep(String const& str)
+    NSArray* grep(String const& str) const
     {
         return [str componentsMatchedByRegex:_regex];
     }
     
-    NSArray* capture(String const& str)
+    NSArray* capture(String const& str) const
     {
         return [str captureComponentsMatchedByRegex:_regex];
     }
     
-    NSArray* captures(String const& str)
+    NSArray* captures(String const& str) const
     {
         return [str arrayOfCaptureComponentsMatchedByRegex:_regex];
     }
     
 protected:
+    
     String _regex;
+    
 };
 
 NNT_END_NS

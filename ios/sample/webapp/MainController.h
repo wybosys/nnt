@@ -12,6 +12,7 @@ public:
     MainView();
     void layout_subviews();
     
+    ui::TextField url;
     ui::WebController web;
     
 };
@@ -29,6 +30,9 @@ public:
     ~MainController();
     
     void view_loaded();
+    void act_goto(EventObj&);
+    
+    ns::String url;
     
 };
 

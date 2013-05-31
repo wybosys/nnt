@@ -8,12 +8,20 @@ NNTAPP_BEGIN
 
 MainView::MainView()
 {
+    add_sub(url);
     add_sub(web);
+    
+    url.set_background(ui::Color::White());
 }
 
 void MainView::layout_subviews()
 {
-    web.view().set_frame(bounds());
+    layout::vbox lyt(bounds());
+    layout::linear lnr(lyt);
+    lnr << (pixel)30 << (flex)1;
+    
+    url.set_frame(lyt << lnr);
+    web.view().set_frame(lyt << lnr);
 }
 
 NNTDECL_PRIVATE_BEGIN_CXX(MainController)
@@ -45,6 +53,8 @@ NNTDECL_PRIVATE_END_CXX
 MainController::MainController()
 {
     NNTDECL_PRIVATE_CONSTRUCT(MainController);
+    
+    url = @"http://localhost:18888";
 }
 
 MainController::~MainController()
@@ -54,7 +64,15 @@ MainController::~MainController()
 
 void MainController::view_loaded()
 {
-    view().web.view().load(ns::URLRequest(@"http://localhost:18888"));
+    view().url.set_text(url);
+    view().url.connect(kSignalValueChanged, _action(_class::act_goto), this);
+    view().web.view().load(ns::URLRequest(url));
+}
+
+void MainController::act_goto(EventObj& evt)
+{
+    ns::String str = evt.result();
+    view().web.view().load(ns::URLRequest(ns::HttpUrlReform(str)));
 }
 
 NNTAPP_END

@@ -177,6 +177,11 @@ public:
         return [this->_self isFileURL];
     }
     
+    ns::String scheme() const
+    {
+        return this->_self.scheme;
+    }
+    
 };
 
 NNT_EXTERN URL const null_url;
@@ -225,6 +230,8 @@ public:
     }
     
 };
+    
+extern ns::String HttpUrlReform(ns::String const&);
 
 NNT_END_NS
     
