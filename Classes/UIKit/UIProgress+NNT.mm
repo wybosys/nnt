@@ -23,6 +23,10 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalValueChanged)
+NNTEVENT_END
+
 - (UIProgressView*)progressView {
     if (_progressView == nil) {
         _progressView = [[UIProgressView alloc] initWithProgressViewStyle:progressViewStyle];
@@ -43,7 +47,11 @@ NNT_BEGIN_OBJC
 }
 
 - (void)setProgress:(float)val {
+    if (self.progress == val)
+        return;
+    
     [self progressView].progress = val;
+    [self emit:kSignalValueChanged];
 }
 
 - (void)setMax:(float)max {

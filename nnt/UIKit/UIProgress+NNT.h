@@ -23,6 +23,8 @@ NNT_BEGIN_HEADER_OBJC
 
 @end
 
+NNT_EXTERN signal_t kSignalValueChanged;
+
 _CXXCONTROL_DECL(UIProgressControl);
 
 NNT_END_HEADER_OBJC
