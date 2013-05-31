@@ -72,6 +72,7 @@ MainController::MainController()
     NNTDECL_PRIVATE_CONSTRUCT(MainController);
     
     url = @"http://localhost:18888";
+    //url = @"http://www.163.com";
 }
 
 MainController::~MainController()
