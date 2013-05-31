@@ -1376,6 +1376,8 @@
 		16D8AAF815369EF50007EB8D /* ICRCameraController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D8AAF615369EF50007EB8D /* ICRCameraController.mm */; };
 		16DA257A15F0999700110F42 /* EmojiCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DA257815F0999700110F42 /* EmojiCodec.h */; };
 		16DA257B15F0999700110F42 /* EmojiCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DA257915F0999700110F42 /* EmojiCodec.cpp */; };
+		16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DABF001758968C00B303E9 /* UIProgress+NNT.h */; };
+		16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DABF011758968D00B303E9 /* UIProgress+NNT.mm */; };
 		16DB8C5F1443F58F00E85F90 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB8C5E1443F58F00E85F90 /* ImageIO.framework */; };
 		16DB8C821444136B00E85F90 /* AlphabetFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DB8C801444136B00E85F90 /* AlphabetFlow.h */; };
 		16DB8C841444136B00E85F90 /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB8C811444136B00E85F90 /* AlphabetFlow.m */; };
@@ -2965,6 +2967,8 @@
 		16D8AAF615369EF50007EB8D /* ICRCameraController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ICRCameraController.mm; sourceTree = "<group>"; };
 		16DA257815F0999700110F42 /* EmojiCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiCodec.h; sourceTree = "<group>"; };
 		16DA257915F0999700110F42 /* EmojiCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiCodec.cpp; sourceTree = "<group>"; };
+		16DABF001758968C00B303E9 /* UIProgress+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgress+NNT.h"; sourceTree = "<group>"; };
+		16DABF011758968D00B303E9 /* UIProgress+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIProgress+NNT.mm"; sourceTree = "<group>"; };
 		16DB8C5A1443F52D00E85F90 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		16DB8C5E1443F58F00E85F90 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		16DB8C801444136B00E85F90 /* AlphabetFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetFlow.h; sourceTree = "<group>"; };
@@ -4982,6 +4986,8 @@
 				16C2D99614457F5D00CA6EDF /* UIPickerView+NNT.mm */,
 				16D01878147B9BB400B0A489 /* UIPickerControl.h */,
 				16D01879147B9BB500B0A489 /* UIPickerControl.mm */,
+				16DABF001758968C00B303E9 /* UIProgress+NNT.h */,
+				16DABF011758968D00B303E9 /* UIProgress+NNT.mm */,
 				166C17AA146A23E800914C1E /* UIRatingControl.h */,
 				166C17AB146A23E800914C1E /* UIRatingControl.m */,
 				16C2D99714457F5D00CA6EDF /* UIScreen+NNT.h */,
@@ -6214,6 +6220,7 @@
 				16FBADCC172631D70041C5C4 /* Memory+NNT.h in Headers */,
 				16FBADD2172631E80041C5C4 /* Stdtype+NNT.h in Headers */,
 				16FBADD4172631E80041C5C4 /* URL+NNT.h in Headers */,
+				16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7104,6 +7111,7 @@
 				16FBADCB172631D70041C5C4 /* Memory+NNT.cpp in Sources */,
 				16FBADD1172631E80041C5C4 /* Stdtype+NNT.cpp in Sources */,
 				16FBADD3172631E80041C5C4 /* URL+NNT.cpp in Sources */,
+				16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

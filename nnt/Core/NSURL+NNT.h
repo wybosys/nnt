@@ -199,6 +199,12 @@ public:
         PASS;
     }
     
+    URLRequest(objc_type* obj)
+    : super(obj)
+    {
+        PASS;
+    }
+    
     URLRequest(ns::URL const& url)
     : super(nil)
     {
@@ -227,6 +233,26 @@ public:
         self_type obj;
         obj.set_cache(NSURLRequestReloadIgnoringLocalCacheData);
         return obj;
+    }
+    
+    ns::String http_method() const
+    {
+        return this->_self.HTTPMethod;
+    }
+    
+    NSData* http_body() const
+    {
+        return this->_self.HTTPBody;
+    }
+    
+    ns::Dictionary http_headerfields() const
+    {
+        return this->_self.allHTTPHeaderFields;
+    }
+    
+    ns::String http_headerfield(ns::String const& key) const
+    {
+        return [this->_self valueForHTTPHeaderField:key];
     }
     
 };

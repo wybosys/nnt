@@ -73,6 +73,9 @@ typedef uint UIWebViewFilterType;
 //! content.
 @property (nonatomic, readonly) NSString* content;
 
+//! the back url request.
+@property(nonatomic,readonly,retain) NSURLRequest *request;
+
 //! other.
 @property (nonatomic, assign) BOOL blockLink;
 
@@ -108,9 +111,15 @@ typedef uint UIWebViewFilterType;
 @property (nonatomic, assign) id<UIWebViewDelegate> delegate;
 @property (nonatomic, assign) UIDataDetectorTypes dataDetectorTypes;
 
+//! has risk for publish.
+@property (nonatomic, readonly) int resourceCount, resourceCompletedCount;
+
 @end
 
 NNTDECL_CATEGORY(UIWebView, NNT);
+
+//! signal while start load.
+NNT_EXTERN signal_t kSignalLoadStart;
 
 //! signal while finish load.
 NNT_EXTERN signal_t kSignalLoadFinish;
@@ -126,6 +135,12 @@ NNT_EXTERN signal_t kSignalWebCallback;
 
 //! signal while meet a action.
 NNT_EXTERN signal_t kSignalWebAction;
+
+//! signal load progress.
+NNT_EXTERN signal_t kSignalProgressAdded;
+NNT_EXTERN signal_t kSignalProgressStep;
+NNT_EXTERN signal_t kSignalProgressOneFailed;
+NNT_EXTERN signal_t kSignalProgressOneSuccess;
 
 # ifdef NNT_CXX
 
@@ -253,6 +268,21 @@ public:
     UIDataDetectorTypes detector_types() const
     {
         return this->_self.dataDetectorTypes;
+    }
+    
+    ns::URLRequest request() const
+    {
+        return (ns::URLRequest::objc_type*)this->_self.request;
+    }
+    
+    int resource_count() const
+    {
+        return this->_self.resourceCount;
+    }
+    
+    int resource_completed() const
+    {
+        return this->_self.resourceCompletedCount;
     }
     
 };

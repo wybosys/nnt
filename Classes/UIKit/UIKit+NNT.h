@@ -77,6 +77,7 @@
 # import "UIActionSheet+NNT.h"
 # import "UISearchDisplayController+NNT.h"
 # import "UIPopoverController+NNT.h"
+# import "UIProgress+NNT.h"
 
 # import "UIDialog.h"
 # import "UIWaiting.h"
