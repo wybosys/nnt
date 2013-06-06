@@ -12,6 +12,11 @@ public:
     MainView();
     void layout_subviews();
     
+    void act_web_begin();
+    void act_web_step();
+    
+    ui::TextField url;
+    ui::ProgressControl progress;
     ui::WebController web;
     
 };
@@ -29,6 +34,9 @@ public:
     ~MainController();
     
     void view_loaded();
+    void act_goto(EventObj&);
+    
+    ns::String url;
     
 };
 

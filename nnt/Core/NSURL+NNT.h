@@ -177,6 +177,11 @@ public:
         return [this->_self isFileURL];
     }
     
+    ns::String scheme() const
+    {
+        return this->_self.scheme;
+    }
+    
 };
 
 NNT_EXTERN URL const null_url;
@@ -190,6 +195,12 @@ class URLRequest
 public:
     
     URLRequest()
+    {
+        PASS;
+    }
+    
+    URLRequest(objc_type* obj)
+    : super(obj)
     {
         PASS;
     }
@@ -224,7 +235,29 @@ public:
         return obj;
     }
     
+    ns::String http_method() const
+    {
+        return this->_self.HTTPMethod;
+    }
+    
+    NSData* http_body() const
+    {
+        return this->_self.HTTPBody;
+    }
+    
+    ns::Dictionary http_headerfields() const
+    {
+        return this->_self.allHTTPHeaderFields;
+    }
+    
+    ns::String http_headerfield(ns::String const& key) const
+    {
+        return [this->_self valueForHTTPHeaderField:key];
+    }
+    
 };
+    
+extern ns::String HttpUrlReform(ns::String const&);
 
 NNT_END_NS
     

@@ -851,6 +851,7 @@
 		169F876C16F84C770008AAC9 /* ImageCodecReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodecReader.h; sourceTree = "<group>"; };
 		169F876E16F84C770008AAC9 /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		169F876F16F84C770008AAC9 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
+		16DABF04175898B200B303E9 /* UIProgress+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgress+NNT.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -876,7 +877,6 @@
 		169368B116F1A0D10021909E = {
 			isa = PBXGroup;
 			children = (
-				1657723B170C3586001585BD /* libboost_regex.a */,
 				169F841816F84C760008AAC9 /* nnt */,
 				169368C316F1A0D10021909E /* webapp */,
 				169368BC16F1A0D10021909E /* Frameworks */,
@@ -895,6 +895,7 @@
 		169368BC16F1A0D10021909E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1657723B170C3586001585BD /* libboost_regex.a */,
 				169F841616F84C4B0008AAC9 /* libnnt.a */,
 				16936C6C16F1A1830021909E /* libdb.a */,
 				16936C6A16F1A17A0021909E /* libicucore.dylib */,
@@ -2210,6 +2211,7 @@
 				169F875516F84C770008AAC9 /* UIWebController.h */,
 				169F875616F84C770008AAC9 /* UIWebView+NNT.h */,
 				169F875716F84C770008AAC9 /* UIWindow+NNT.h */,
+				16DABF04175898B200B303E9 /* UIProgress+NNT.h */,
 				169F875816F84C770008AAC9 /* WSIExecution+Chart.h */,
 			);
 			path = UIKit;

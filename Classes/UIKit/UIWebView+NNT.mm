@@ -5,11 +5,74 @@
 
 NNT_BEGIN_OBJC
 
+signal_t kSignalLoadStart = @"::nnt::ui::load::start";
 signal_t kSignalLoadFinish = @"::nnt::ui::load::finish";
 signal_t kSignalLoadError = @"::nnt::ui::load::error";
 signal_t kSignalLinkClicked = @"::nnt::ui::link::clicked";
 signal_t kSignalWebCallback = @"::nnt::ui::web::callback";
 signal_t kSignalWebAction = @"::nnt::ui::web::action";
+
+signal_t kSignalProgressAdded = @"::nnt::progress::added";
+signal_t kSignalProgressStep = @"::nnt::progress::step";
+signal_t kSignalProgressOneFailed = @"::nnt::progress::one::failed";
+signal_t kSignalProgressOneSuccess = @"::nnt::progress::one::success";
+
+@interface UIWebView (Risk)
+
+- (id)webView:(id)view identifierForInitialRequest:(id)initialRequest fromDataSource:(id)dataSource;
+- (void)webView:(id)view resource:(id)resource didFinishLoadingFromDataSource:(id)dataSource;
+- (void)webView:(id)view resource:(id)resource didFailLoadingWithError:(id)error fromDataSource:(id)dataSource;
+
+@end
+
+@protocol RiskUIWebView <NSObject>
+
+@optional
+
+- (void)riskWebView:(id)view identifierForInitialRequest:(id)initialRequest fromDataSource:(id)dataSource;
+- (void)riskWebView:(id)view resource:(id)resource didFinishLoadingFromDataSource:(id)dataSource;
+- (void)riskWebView:(id)view resource:(id)resource didFailLoadingWithError:(id)error fromDataSource:(id)dataSource;
+
+@end
+
+@interface RiskUIWebView : UIWebView {
+    int _resourceCount, _resourceCompletedCount;
+    id _riskDelegate;
+}
+
+@property (nonatomic, assign) int resourceCount, resourceCompletedCount;
+@property (nonatomic, assign) id riskDelegate;
+
+@end
+
+@implementation RiskUIWebView
+
+@synthesize resourceCount = _resourceCount, resourceCompletedCount = _resourceCompletedCount;
+@synthesize riskDelegate = _riskDelegate;
+
+- (id)webView:(id)view identifierForInitialRequest:(id)initialRequest fromDataSource:(id)dataSource {
+    [super webView:view identifierForInitialRequest:initialRequest fromDataSource:dataSource];
+    id ret = [NSNumber numberWithInt:_resourceCount++];
+    if ([_riskDelegate respondsToSelector:@selector(riskWebView:identifierForInitialRequest:fromDataSource:)])
+        [_riskDelegate riskWebView:view identifierForInitialRequest:initialRequest fromDataSource:dataSource];
+    return ret;
+}
+
+- (void)webView:(id)view resource:(id)resource didFailLoadingWithError:(id)error fromDataSource:(id)dataSource {
+    [super webView:view resource:resource didFailLoadingWithError:error fromDataSource:dataSource];
+    _resourceCompletedCount++;
+    if ([_riskDelegate respondsToSelector:@selector(riskWebView:resource:didFailLoadingWithError:fromDataSource:)])
+        [_riskDelegate riskWebView:view resource:resource didFailLoadingWithError:error fromDataSource:dataSource];
+}
+
+- (void)webView:(id)view resource:(id)resource didFinishLoadingFromDataSource:(id)dataSource {
+    [super webView:view resource:resource didFinishLoadingFromDataSource:dataSource];
+    _resourceCompletedCount++;
+    if ([_riskDelegate respondsToSelector:@selector(riskWebView:resource:didFinishLoadingFromDataSource:)])
+        [_riskDelegate riskWebView:view resource:resource didFinishLoadingFromDataSource:dataSource];
+}
+
+@end
 
 @implementation UIWebView (NNT)
 
@@ -57,17 +120,25 @@ signal_t kSignalWebAction = @"::nnt::ui::web::action";
 @synthesize additionalJavascript;
 @dynamic content;
 @synthesize blockLink;
+@dynamic request;
+@dynamic resourceCount, resourceCompletedCount;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    _webView = [[UIWebView alloc] initWithZero];
+    _webView = [[RiskUIWebView alloc] initWithZero];
     _webView.delegate = self;
     [self addSubview:_webView];
     safe_release(_webView);
     
     blockLink = NO;
     _isEnableCallback = NO;
+    
+    // bind risk.
+    if ([_webView isKindOfClass:[RiskUIWebView class]]) {
+        RiskUIWebView* web = (RiskUIWebView*)_webView;
+        web.riskDelegate = self;
+    }
     
     return self;
 }
@@ -96,12 +167,21 @@ signal_t kSignalWebAction = @"::nnt::ui::web::action";
     [self loadHTMLString:string baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 }
 
+- (NSURLRequest*)request {
+    return _webView.request;
+}
+
 NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalLoadStart)
 NNTEVENT_SIGNAL(kSignalLoadFinish)
 NNTEVENT_SIGNAL(kSignalLoadError)
 NNTEVENT_SIGNAL(kSignalLinkClicked)
 NNTEVENT_SIGNAL(kSignalWebCallback)
 NNTEVENT_SIGNAL(kSignalWebAction)
+NNTEVENT_SIGNAL(kSignalProgressAdded)
+NNTEVENT_SIGNAL(kSignalProgressStep)
+NNTEVENT_SIGNAL(kSignalProgressOneFailed)
+NNTEVENT_SIGNAL(kSignalProgressOneSuccess)
 NNTEVENT_END
 
 - (NSMutableArray*)additionalJavascript {
@@ -213,7 +293,12 @@ NNTEVENT_END
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    PASS;
+    if ([webView isKindOfClass:[RiskUIWebView class]]) {
+        RiskUIWebView* web = (RiskUIWebView*)webView;
+        web.resourceCount = web.resourceCompletedCount = 0;
+    }
+    
+    [self emit:kSignalLoadStart];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -256,6 +341,34 @@ NNTEVENT_END
             }
         }
     }
+}
+
+# pragma mark risk.
+
+- (void)riskWebView:(id)view identifierForInitialRequest:(id)initialRequest fromDataSource:(id)dataSource {
+    [self emit:kSignalProgressAdded result:dataSource data:initialRequest];
+}
+
+- (void)riskWebView:(id)view resource:(id)resource didFinishLoadingFromDataSource:(id)dataSource {
+    [self emit:kSignalProgressOneSuccess result:dataSource data:resource];
+    [self emit:kSignalProgressStep result:dataSource data:resource];
+}
+
+- (void)riskWebView:(id)view resource:(id)resource didFailLoadingWithError:(id)error fromDataSource:(id)dataSource {
+    [self emit:kSignalProgressOneFailed result:error data:dataSource];
+    [self emit:kSignalProgressStep result:dataSource data:resource];
+}
+
+- (int)resourceCount {
+    if ([_webView isKindOfClass:[RiskUIWebView class]])
+        return ((RiskUIWebView*)_webView).resourceCount;
+    return 0;
+}
+
+- (int)resourceCompletedCount {
+    if ([_webView isKindOfClass:[RiskUIWebView class]])
+        return ((RiskUIWebView*)_webView).resourceCompletedCount;
+    return 0;
 }
 
 # pragma mark redirect.
