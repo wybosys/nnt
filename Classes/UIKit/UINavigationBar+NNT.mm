@@ -7,7 +7,6 @@
 NNT_BEGIN_CXX
 
 // objc swizzle.
-
 class Swizzle_UINavigationBar
 {
 public:
@@ -24,6 +23,7 @@ public:
     }
     
     objc_swizzle_t obj;
+    
 };
 
 static Swizzle_UINavigationBar __gs_swizzle_UINavigationBar;
