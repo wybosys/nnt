@@ -14,15 +14,15 @@ public:
     Swizzle_UINavigationBar()
     {
         // init.
-        obj.cls = [UINavigationBar class];
-        obj.default_impl = class_getImplementation(obj.cls, @selector(layoutSubviews));
-        obj.next_impl = class_getImplementation(obj.cls, @selector(layoutSubviewsAndUpdateTabbar));
+        layout.cls = [UINavigationBar class];
+        layout.default_impl = class_getImplementation(layout.cls, @selector(layoutSubviews));
+        layout.next_impl = class_getImplementation(layout.cls, @selector(layoutSubviewsAndUpdateTabbar));
         
         // replace method.
-        class_swizzleMethod(obj.cls, @selector(layoutSubviews), @selector(layoutSubviewsAndUpdateTabbar));
+        class_swizzleMethod(layout.cls, @selector(layoutSubviews), @selector(layoutSubviewsAndUpdateTabbar));
     }
     
-    objc_swizzle_t obj;
+    objc_swizzle_t layout;
     
 };
 
@@ -81,7 +81,7 @@ NNT_BEGIN_OBJC
  */
 
 - (void)layoutSubviewsAndUpdateTabbar {
-    (::nnt::__gs_swizzle_UINavigationBar.obj.default_impl)(self, nil);
+    (::nnt::__gs_swizzle_UINavigationBar.layout.default_impl)(self, nil);
     
     [self updateTabBar];
 }
