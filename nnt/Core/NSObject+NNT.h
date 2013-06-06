@@ -1008,7 +1008,7 @@ public:
         if (_obj == v)
             return;
         
-        emit(kSignalPropertyValueChanging, id_object_getor(&v), &v);
+        emit(kSignalPropertyValueChanging, id_object_getor(&v), (void*)&v);
         if (!_changable)
         {
             _changable = true;
@@ -1016,7 +1016,7 @@ public:
         }
         
         _obj = v;
-        emit(kSignalPropertyValueChanged, id_object_getor(&this->_obj), &this->_obj);
+        emit(kSignalPropertyValueChanged, id_object_getor(&this->_obj), (void*)&this->_obj);
     }
     
     void veto()
