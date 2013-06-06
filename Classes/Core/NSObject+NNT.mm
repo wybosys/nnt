@@ -5,6 +5,9 @@
 
 NNT_BEGIN_OBJC
 
+signal_t kSignalPropertyValueChanged = @"::nnt::property::value::changed";
+signal_t kSignalPropertyValueChanging = @"::nnt::property::value::changing";
+
 # define USE_EXCEPTION 0
 # if !USE_EXCEPTION
 #   undef USE_EXCEPTION

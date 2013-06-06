@@ -38,6 +38,13 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 
 # endif
 
+typedef enum {
+    NNTSlotThreadModeMain,
+    NNTSlotThreadModeBackground,
+    NNTSlotThreadCurrent,
+    NNTSlotThreadSame = NNTSlotThreadCurrent,
+} NNTSlotThreadMode;
+
 @interface NNTSlot : NSObject < NSCopying > {
     
     //! selector.
@@ -87,11 +94,8 @@ typedef void (^slot_block_callback)(NNTEventObj*);
     
 # endif
     
-    //! callback in main thread.
-    BOOL _inMainThread;
-    
-    //! callback in backgrond thread.
-    BOOL _inBackgroundThread;
+    //! callback mode.
+    NNTSlotThreadMode _threadMode;
     
     //! fixsender. default is NO.
     BOOL _fixsender;
@@ -99,6 +103,12 @@ typedef void (^slot_block_callback)(NNTEventObj*);
     //! frequency limit for call. default is 0, for no limit.
     real _frequency;
     BOOL _waitFrequency;
+    
+    //! how many slots runing at the same time.
+    int _running;
+    
+    //! how many slots can run in the same time. default is -1, no limit.
+    utiny _parallel;
     
     //! period.
     NSDatePeriod *_period;
@@ -110,7 +120,7 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 @property (nonatomic, assign) void *sender;
 @property (nonatomic, retain) id result;
 @property (nonatomic, assign) void* data;
-@property (nonatomic, assign) int shotcount;
+@property (atomic, assign) int shotcount;
 @property (nonatomic, assign) NNTSignal *signal;
 @property (nonatomic, assign) BOOL veto;
 @property (nonatomic, assign) slot_function_callback function;
@@ -119,6 +129,8 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 @property (nonatomic, assign) real frequency;
 @property (nonatomic, readonly) BOOL waitFrequency;
 @property (nonatomic, retain) NSDatePeriod* period;
+@property (atomic, assign) int running;
+@property (nonatomic, assign) utiny parallel;
 
 # ifdef NNT_CXX
 
@@ -134,7 +146,7 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 # endif
 
 @property (nonatomic, assign) real delay;
-@property (nonatomic, assign) BOOL inMainThread, inBackgroundThread;
+@property (nonatomic, assign) NNTSlotThreadMode threadMode;
 
 //! grab.
 - (void)grab;
@@ -146,13 +158,13 @@ typedef void (^slot_block_callback)(NNTEventObj*);
 - (void)oneshot;
 
 //! mainthread.
-- (id)mainThread;
+- (NNTSlot*)mainThread;
 
 //! background.
-- (id)backgroundThread;
+- (NNTSlot*)backgroundThread;
 
 //! same thread.
-- (id)sameThread;
+- (NNTSlot*)sameThread;
 
 @end
 
@@ -160,7 +172,7 @@ typedef void (^slot_block_callback)(NNTEventObj*);
     NNTSlot *_slot, *_origin;
 }
 
-@property (nonatomic, readonly) NNTSlot* slot;
+@property (nonatomic, readonly) NNTSlot *slot, *origin;
 
 - (id)initWithSlot:(NNTSlot*)slot;
 
@@ -209,20 +221,22 @@ public:
         PASS;
     }
     
-    void mainthread()
+    Slot& mainthread()
     {
-        _slot.inMainThread = YES;
+        [_slot mainThread];
+        return *this;
     }
     
-    void background()
+    Slot& background()
     {
-        _slot.inMainThread = NO;
-        _slot.inBackgroundThread = YES;
+        [_slot backgroundThread];
+        return *this;
     }
     
-    void veto()
+    Slot& veto()
     {
         _slot.veto = YES;
+        return *this;
     }
     
     int shotcount() const
@@ -235,14 +249,27 @@ public:
         _slot.shotcount = cnt;
     }
     
-    void oneshot()
+    Slot& oneshot()
     {
         [_slot oneshot];
+        return *this;
     }
     
-    void set_period(NSDatePeriod *obj)
+    Slot& set_period(NSDatePeriod *obj)
     {
         _slot.period = obj;
+        return *this;
+    }
+    
+    Slot& set_parallel(utiny count)
+    {
+        _slot.parallel = count;
+        return *this;
+    }
+    
+    utiny parallel() const
+    {
+        return _slot.parallel;
     }
     
 protected:

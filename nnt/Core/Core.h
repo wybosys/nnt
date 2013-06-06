@@ -766,6 +766,14 @@ typedef unsigned int udword;
 typedef unsigned char uchar;
 # endif
 
+# ifndef UTINY_DEFINED
+typedef unsigned char utiny;
+# endif
+
+# ifndef TINY_DEFINED
+typedef char tiny;
+#endif
+
 # ifndef UBYTE_DEFINED
 typedef unsigned char ubyte;
 # endif

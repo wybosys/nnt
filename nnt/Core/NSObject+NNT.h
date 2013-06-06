@@ -191,6 +191,9 @@ NNT_MAINTHREAD_END \
 
 @end
 
+NNT_EXTERN signal_t kSignalPropertyValueChanged;
+NNT_EXTERN signal_t kSignalPropertyValueChanging;
+
 NNT_EXTERN id class_callMethod(Class cls, SEL sel, ...);
 NNT_EXTERN BOOL class_existMethod(Class cls, SEL sel);
 NNT_EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
@@ -960,6 +963,126 @@ protected:
     {
         return [_self retainCount];
     }
+    
+};
+
+inline id id_object_getor(id o, id r = nil)
+{
+    return o;
+}
+
+inline id id_object_getor(void*, id r = nil)
+{
+    return r;
+}
+
+inline id id_object_getor(void const*, id r = nil)
+{
+    return r;
+}
+
+template <typename valT>
+class property
+: protected ns::Object<>
+{
+    
+    typedef ns::Object<> signal_super;
+    
+public:
+    
+    property()
+    {
+        this->register_signal(kSignalPropertyValueChanged);
+        this->register_signal(kSignalPropertyValueChanging);
+    }
+    
+    property<valT>& operator = (valT const& v)
+    {
+        set(v);
+        return *this;
+    }
+    
+    void set(valT const& v)
+    {
+        if (_obj == v)
+            return;
+        
+        emit(kSignalPropertyValueChanging, id_object_getor(&v), &this->_obj);
+        _obj = v;
+        emit(kSignalPropertyValueChanged, id_object_getor(&this->_obj), &this->_obj);
+    }
+    
+    
+    valT const& get() const
+    {
+        return _obj;
+    }
+    
+    operator valT const& () const
+    {
+        return _obj;
+    }
+    
+    ns::Slot connect_changed(objevent_func act, ::nnt::Object* tgt = NULL, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanged, act, tgt, delay);
+    }
+    
+    ns::Slot connect_changing(objevent_func act, ::nnt::Object* tgt = NULL, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanging, act, tgt, delay);
+    }
+    
+# ifdef NNT_BLOCKS
+    
+    ns::Slot connect_changed(void (^block)(NNTEventObj*), real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanged, block, delay);
+    }
+    
+    ns::Slot connect_changing(void (^block)(NNTEventObj*), real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanging, block, delay);
+    }
+    
+# endif
+    
+    ns::Slot connect_changed(void (*act)(NNTEventObj*), real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanged, act, delay);
+    }
+    
+    ns::Slot connect_changing(void (*act)(NNTEventObj*), real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanging, act, delay);
+    }
+    
+    ns::Slot connect_changed(SEL sel, id obj = nil, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanged, sel, obj, delay);
+    }
+    
+    ns::Slot connect_changing(SEL sel, id obj = nil, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanging, sel, obj, delay);
+    }
+    
+    ns::Slot connect_changed(id signal2, id obj = nil, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanged, signal2, obj, delay);
+    }
+    
+    ns::Slot connect_changing(id signal2, id obj = nil, real delay = 0)
+    {
+        return connect(kSignalPropertyValueChanging, signal2, obj, delay);
+    }
+    
+    using signal_super::connect;
+    using signal_super::disconnect;
+    
+protected:
+    
+    valT _obj;
     
 };
 

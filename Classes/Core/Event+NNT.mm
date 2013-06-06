@@ -16,20 +16,19 @@ shotcount = _shotcount,
 signal = _signal,
 veto = _veto,
 redirect = _redirect,
+running = _running,
+parallel = _parallel,
 
 # ifdef NNT_BLOCKS
 block = _block,
 # endif
 
-# ifdef NNT_CXX
 cxx_target = _cxx_target,
 cxx_action = _cxx_action,
-# endif
 
 function = _function,
 delay = _delay,
-inMainThread = _inMainThread,
-inBackgroundThread = _inBackgroundThread,
+threadMode = _threadMode,
 fixsender = _fixsender,
 frequency = _frequency,
 waitFrequency = _waitFrequency,
@@ -44,10 +43,11 @@ period = _period
     _delay = 0;
     _data = NULL;
     _fixsender = NO;
-    _inMainThread = YES;
-    _inBackgroundThread = NO;
+    _threadMode = NNTSlotThreadModeMain,
     _frequency = 0;
     _waitFrequency = NO;
+    _running = 0;
+    _parallel = -1;
     
     return self;
 }
@@ -78,8 +78,7 @@ period = _period
     slot.data = _data;
     slot.cxx_target = _cxx_target;
     slot.cxx_action = _cxx_action;
-    slot.inMainThread = _inMainThread;
-    slot.inBackgroundThread = _inBackgroundThread;
+    slot.threadMode = _threadMode,
     slot.fixsender = _fixsender;
     slot.frequency = _frequency;
     slot.period = _period;
@@ -102,20 +101,18 @@ period = _period
     _shotcount = 1;
 }
 
-- (id)mainThread {
-    _inMainThread = YES;
-    _inBackgroundThread = NO;
+- (NNTSlot*)mainThread {
+    _threadMode = NNTSlotThreadModeMain;
     return self;
 }
 
-- (id)backgroundThread {
-    _inMainThread = NO;
-    _inBackgroundThread = YES;
+- (NNTSlot*)backgroundThread {
+    _threadMode = NNTSlotThreadModeBackground;
     return self;
 }
 
-- (id)sameThread {
-    _inMainThread = _inBackgroundThread = NO;
+- (NNTSlot*)sameThread {
+    _threadMode = NNTSlotThreadSame;
     return self;
 }
 
@@ -215,8 +212,6 @@ period = _period
     return slot;
 }
 
-# ifdef NNT_CXX
-
 - (NNTSlot*)register_action:(::nnt::objevent_func)action target:(::nnt::Object*)target delay:(real)delay {
     NNTSlot *slot = [[NNTSlot alloc] init];    
     slot.cxx_target = target;
@@ -226,8 +221,6 @@ period = _period
     [slot release];
     return slot;
 }
-
-# endif
 
 - (NSUInteger)indexOfSlot:(NNTSlot*)slot {
     return [_slots indexOfObject:slot];
@@ -271,8 +264,6 @@ period = _period
     [_lock unlock];
 }
 
-# ifdef NNT_CXX
-
 - (void)remove_action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     [_lock lock];
     
@@ -303,8 +294,6 @@ period = _period
     [_lock unlock];
 }
 
-# endif
-
 - (void)emit:(void*)obj result:(id)result {
     [self emit:obj result:result data:0];
 }
@@ -333,11 +322,11 @@ period = _period
     [_lock unlock];
     
     for (NNTSlot *each in slots) {
-        BOOL could_call = YES;
+        BOOL callable = YES;
         
         if (each.shotcount != -1) {
             if (each.shotcount == 0)
-                could_call = NO;
+                callable = NO;
             else if (--each.shotcount == 0) {
                 if (need_removes == nil)
                     need_removes = [[NSMutableArray alloc] init];
@@ -347,21 +336,29 @@ period = _period
         }
                 
         // period check.
-        if (could_call && each.period && !each.period.isDuring)
-            could_call = NO;
+        if (callable && each.period && !each.period.isDuring)
+            callable = NO;
         
         // for next.
-        if (could_call && each.veto)
-            could_call = NO;
+        if (callable && each.veto)
+            callable = NO;
         
         // frenquency limit.
-        if (could_call && each.waitFrequency == YES)
-            could_call = NO;
+        if (callable && each.waitFrequency == YES)
+            callable = NO;
+        
+        // parallel limit.
+        if (callable && each.parallel != -1 && each.running >= each.parallel)
+            callable = NO;
         
         // if callable?
-        if (could_call == NO)
+        if (callable == NO)
             continue;
         
+        // increase running, decrease while exit.
+        ++each.running;
+        
+        // alloc tmp event object.
         NNTEventObj* evtobj = [[NNTEventObj alloc] initWithSlot:each];
         
         evtobj.slot.result = result;
@@ -383,10 +380,10 @@ period = _period
             
             // function slot.
             else if (each.function) {
-                if (each.inMainThread) {
+                if (each.threadMode == NNTSlotThreadModeMain) {
                     [self performSelectorOnMainThread:@selector(func_invoke_function:) withObject:evtobj waitUntilDone:YES];
                 } else {
-                    (*each.function)(evtobj);
+                    [self func_invoke_function:evtobj];
                 }
             }
             
@@ -395,50 +392,39 @@ period = _period
                 [each.handler emit:each.redirect result:result data:data];
             }
             
-            // c++ object target.
-# ifdef NNT_CXX
-            
+            // c++ action.
             else if (each.cxx_target) {
-                if (each.inMainThread) {
-                    [self performSelectorOnMainThread:@selector(func_invoke_objevent:) withObject:evtobj waitUntilDone:YES];
-                } else if (each.inBackgroundThread) {
-                    [self performSelectorInBackground:@selector(func_invoke_objevent:) withObject:evtobj];
+                if (each.threadMode == NNTSlotThreadModeMain) {
+                    [self performSelectorOnMainThread:@selector(func_invoke_cxxaction:) withObject:evtobj waitUntilDone:YES];
+                } else if (each.threadMode == NNTSlotThreadModeBackground) {
+                    [self performSelectorInBackground:@selector(func_invoke_cxxaction:) withObject:evtobj];
                 } else {
-                    ::nnt::objevent_func func = each.cxx_action;
-                    ::nnt::EventObj evt(evtobj);
-                    (each.cxx_target->*func)(evt);
+                    [self func_invoke_cxxaction:evtobj];
                 }
             }
             
-# endif
-            
             // print debug message.
             else {
-# ifdef NNT_DEBUG
                 
                 if ([each.handler respondsToSelector:each.sel]) {
-                    if (each.inMainThread) {
-                        [each.handler performSelectorOnMainThread:each.sel withObject:evtobj waitUntilDone:YES];
-                    } else if (each.inBackgroundThread) {
-                        [each.handler performSelectorInBackground:each.sel withObject:evtobj];
+                    if (each.threadMode == NNTSlotThreadModeMain) {
+                        [self performSelectorOnMainThread:@selector(func_invoke_selector:) withObject:evtobj waitUntilDone:YES];
+                    } else if (each.threadMode == NNTSlotThreadModeBackground) {
+                        [self performSelectorInBackground:@selector(func_invoke_selector:) withObject:evtobj];
                     } else {
-                        [each.handler performSelector:each.sel withObject:evtobj];
+                        [self performSelector:@selector(func_invoke_selector:) withObject:evtobj];
                     }
-                } else {
+                }
+                
+# ifdef NNT_DEBUG
+                
+                else {
                     NSString* str = [NSString stringWithFormat:@"selector is not found, the handler is [%@], the selector is [%@].",
                                      NSStringFromClass([each.handler class]),
                                      NSStringFromSelector(each.sel)];
                     dthrow([NSException exceptionWithName:@"signals/slots" reason:str userInfo:nil]);
                 }
                 
-# else
-                if (each.inMainThread) {
-                    [each.handler performSelectorOnMainThread:each.sel withObject:evtobj waitUntilDone:YES];
-                } else if (each.inBackgroundThread) {
-                    [each.handler performSelectorInBackground:each.sel withObject:evtobj];
-                } else {
-                    [each.handler performSelector:each.sel withObject:evtobj];
-                }
 # endif
             }
             
@@ -460,14 +446,10 @@ period = _period
                 [self performSelector:@selector(func_invoke_function:) withObject:evtobj afterDelay:each.delay];
             }
             
-            // c++
-# ifdef NNT_CXX
-            
+            // cxx callback.
             else if (each.cxx_target) {
-                [self performSelector:@selector(func_invoke_objevent:) withObject:evtobj afterDelay:each.delay];
+                [self performSelector:@selector(func_invoke_cxxaction:) withObject:evtobj afterDelay:each.delay];
             }
-            
-# endif
             
             // redirect signal to other object.
             else if (each.redirect) {
@@ -476,14 +458,19 @@ period = _period
             
             // goto main thread.
             else {
-                if (each.inMainThread) {
-                    [each.handler performSelectorOnMainThread:each.sel withObject:evtobj waitUntilDone:YES];
-                } else if (each.inBackgroundThread) {
-                    [each.handler performSelectorInBackground:each.sel withObject:evtobj];
-                } else {
-                    [each.handler performSelector:each.sel withObject:evtobj afterDelay:each.delay];
+                
+                if ([each.handler respondsToSelector:each.sel]) {
+                    if (each.threadMode == NNTSlotThreadModeMain) {
+                        [self performSelectorOnMainThread:@selector(func_invoke_selector:) withObject:evtobj waitUntilDone:YES];
+                    } else if (each.threadMode == NNTSlotThreadModeBackground) {
+                        [self performSelectorInBackground:@selector(func_invoke_selector:) withObject:evtobj];
+                    } else {
+                        [self performSelector:@selector(func_invoke_selector:) withObject:evtobj afterDelay:each.delay];
+                    }
                 }
+                
             }
+            
         }
         // end slot call.
         
@@ -492,6 +479,7 @@ period = _period
             [each startFrequencyLimit];
         }
         
+        // free tmp event object.
         safe_release(evtobj);
     }
 
@@ -505,33 +493,39 @@ period = _period
     [self release];
 }
 
+- (void)func_invoke_selector:(NNTEventObj*)obj {
+    [obj.slot.handler performSelector:obj.slot.sel withObject:obj];
+    --obj.origin.running;
+}
+
 # ifdef NNT_BLOCKS
 
 - (void)func_invoke_block:(NNTEventObj*)obj {
     (obj.slot.block)(obj);
+    --obj.origin.running;
 }
 
 # endif
 
 - (void)func_invoke_function:(NNTEventObj*)obj {
     (*obj.slot.function)(obj);
+    --obj.origin.running;
 }
 
 - (void)func_invoke_redirect:(NNTEventObj*)obj {
     [obj.handler emit:obj.redirect
                result:obj.result
                  data:obj.data];
+    --obj.origin.running;
 }
 
-# ifdef NNT_CXX
-
-- (void)func_invoke_objevent:(NNTEventObj*)obj {
+- (void)func_invoke_cxxaction:(NNTEventObj*)obj {
     ::nnt::objevent_func func = obj.slot.cxx_action;
     ::nnt::EventObj evt(obj);
+    
     (obj.slot.cxx_target->*func)(evt);
+    --obj.origin.running;
 }
-
-# endif
 
 - (NSUInteger)count {
     return _slots.count;
@@ -721,8 +715,6 @@ static int __gs_signal_enable = 1;
 
 # endif
 
-# ifdef NNT_CXX
-
 - (NNTSlot*)_connect:(signal_t)sig action:(::nnt::objevent_func)action target:(::nnt::Object*)target {
     return [self _connect:sig action:action target:target delay:0];
 }
@@ -741,8 +733,6 @@ static int __gs_signal_enable = 1;
     }
     return [signal register_action:action target:target delay:delay];
 }
-
-# endif
 
 - (NNTSlot*)_connect:(signal_t)sig func:(slot_function_callback)func {
     return [self _connect:sig func:func delay:0];
@@ -828,8 +818,6 @@ static int __gs_signal_enable = 1;
     NNT_SYNCHRONIZED_END
 }
 
-# ifdef NNT_CXX
-
 - (void)_disconnect:(id)name target:(::nnt::Object*)target action:(::nnt::objevent_func)action {
     NNT_SYNCHRONIZED(self)
     
@@ -862,8 +850,6 @@ static int __gs_signal_enable = 1;
     NNT_SYNCHRONIZED_END
 }
 
-# endif
-
 - (void)_redirect:(NNTEvent*)evt {
     if (_redirects == nil) {
         _redirects = [[NSMutableArray alloc] init];
@@ -886,7 +872,7 @@ static int __gs_signal_enable = 1;
 
 @implementation NNTEventObj
 
-@synthesize slot = _slot;
+@synthesize slot = _slot, origin = _origin;
 
 @dynamic
 sel,
