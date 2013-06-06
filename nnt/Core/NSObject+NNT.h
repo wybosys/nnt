@@ -993,8 +993,8 @@ public:
     property()
     : _changable(true)
     {
-        this->register_signal(kSignalPropertyValueChanged);
-        this->register_signal(kSignalPropertyValueChanging);
+        register_signal(kSignalPropertyValueChanged);
+        register_signal(kSignalPropertyValueChanging);
     }
     
     property<valT>& operator = (valT const& v)
@@ -1008,7 +1008,7 @@ public:
         if (_obj == v)
             return;
         
-        emit(kSignalPropertyValueChanging, id_object_getor(&v), &this->_obj);
+        emit(kSignalPropertyValueChanging, id_object_getor(&v), &v);
         if (!_changable)
         {
             _changable = true;
