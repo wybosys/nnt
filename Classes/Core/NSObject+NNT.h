@@ -991,6 +991,7 @@ class property
 public:
     
     property()
+    : _changable(true)
     {
         this->register_signal(kSignalPropertyValueChanged);
         this->register_signal(kSignalPropertyValueChanging);
@@ -1008,10 +1009,20 @@ public:
             return;
         
         emit(kSignalPropertyValueChanging, id_object_getor(&v), &this->_obj);
+        if (!_changable)
+        {
+            _changable = true;
+            return;
+        }
+        
         _obj = v;
         emit(kSignalPropertyValueChanged, id_object_getor(&this->_obj), &this->_obj);
     }
     
+    void veto()
+    {
+        _changable = false;
+    }
     
     valT const& get() const
     {
@@ -1083,6 +1094,7 @@ public:
 protected:
     
     valT _obj;
+    volatile bool _changable;
     
 };
 
