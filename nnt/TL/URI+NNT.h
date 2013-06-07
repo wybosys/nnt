@@ -150,6 +150,11 @@ public:
     
     string_type const& filename() const
     {
+        if (components.size() == 0)
+        {
+            static const string_type fn_null;
+            return fn_null;
+        }
         return *components.rbegin();
     }
     
