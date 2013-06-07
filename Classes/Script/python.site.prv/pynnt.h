@@ -4,7 +4,7 @@
 
 NNT_BEGIN_HEADER_C
 
-# include "../../../3rd/python/Include/Python.h"
+# include <python/Include/Python.h>
 
 NNT_END_HEADER_C
 

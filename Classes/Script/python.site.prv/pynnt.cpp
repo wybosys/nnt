@@ -1,13 +1,13 @@
 
-# import "Core.h"
-# import "pynnt.h"
+# include "Core.h"
+# include "pynnt.h"
 
-# import "Boost+NNT.h"
+# include "../../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
 
 NNT_BEGIN_HEADER_C
 
-# import "../../../3rd/python/Include/frameobject.h"
+# include <python/Include/frameobject.h>
 
 NNT_END_HEADER_C
 
@@ -139,5 +139,18 @@ NNT_BEGIN_CXX
     
     return ret_str;
 }
+
+NNT_BEGIN_NS(script)
+
+# ifdef NNT_WINDOWS
+
+core::string GetPythonLibraryPath()
+{
+    return "python";
+}
+
+# endif
+
+NNT_END_NS
 
 NNT_END_CXX

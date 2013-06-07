@@ -31,6 +31,8 @@
 
 #if !defined(LUA_ANSI) && defined(_WIN32)
 #define LUA_WIN
+#pragma warning (disable:4996)
+#pragma warning (disable:4334)
 #endif
 
 #if defined(LUA_USE_LINUX)
