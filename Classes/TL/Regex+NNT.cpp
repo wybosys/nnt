@@ -66,6 +66,12 @@ regex::~regex()
     delete (::boost::regex*)_re;
 }
 
+bool regex::match(const string &str) const
+{
+    ::boost::smatch what;
+    return ::boost::regex_match(str, what, *(::boost::regex*)_re, ::boost::match_default);
+}
+
 bool regex::grep(string const& str, vector<string>& result) const
 {
     ::boost::smatch what;

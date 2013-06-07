@@ -3,24 +3,20 @@
 # import "Python+NNT.h"
 
 NNT_BEGIN_HEADER_C
+
 # import "../../3rd/python/Include/Python.h"
+
 NNT_END_HEADER_C
 
 // load module.
-# import "_python.site/nnt.modules.h"
-# import "_python.site/pynnt.h"
+# import "python.site.prv/nnt.modules.h"
+# import "python.site.prv/pynnt.h"
 
 NNT_BEGIN_OBJC
 
-@interface NNTPythonPrivate : NSObject
+NNTDECL_PRIVATE_BEGIN(NNTPython, NSObject)
 
-@property (nonatomic, assign) NNTPython* d_owner;
-
-@end
-
-@implementation NNTPythonPrivate
-
-@synthesize d_owner;
+NNTDECL_PRIVATE_IMPL(NNTPython)
 
 - (id)init {
     self = [super init];
@@ -44,7 +40,7 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
-@end
+NNTDECL_PRIVATE_END
 
 @implementation NNTPython
 
@@ -77,3 +73,15 @@ NNT_BEGIN_OBJC
 @end
 
 NNT_END_OBJC
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(script)
+
+core::string GetPythonLibraryPath()
+{
+    ns::String str = ns::URL::Bundle("python.bundle");
+    return core::type_cast<core::string>(str);
+}
+
+NNT_END_NS
+NNT_END_CXX

@@ -27,7 +27,9 @@ class _list
 public:
     
     typedef typename stl_type::const_iterator const_iterator;
+    typedef typename stl_type::const_reverse_iterator const_reverse_iterator;
     typedef typename stl_type::iterator iterator;
+    typedef typename stl_type::reverse_iterator reverse_iterator;
     typedef valT value_type;
     typedef typename stl_type::size_type size_type;
     typedef typename stl_type::reference reference;
@@ -38,9 +40,19 @@ public:
         return _stl.begin();
     }
     
+    const_reverse_iterator rbegin() const
+    {
+        return _stl.rbegin();
+    }
+    
     iterator begin()
     {
         return _stl.begin();
+    }
+    
+    reverse_iterator rbegin()
+    {
+        return _stl.rbegin();
     }
     
     const_iterator end() const
@@ -48,9 +60,19 @@ public:
         return _stl.end();
     }
     
+    const_reverse_iterator rend() const
+    {
+        return _stl.rend();
+    }
+    
     iterator end()
     {
         return _stl.end();
+    }
+    
+    reverse_iterator rend()
+    {
+        return _stl.rend();
     }
     
     void push_back(value_type const& r)

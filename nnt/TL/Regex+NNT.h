@@ -24,7 +24,7 @@ public:
     regex(string const& re);
     ~regex();
     
-public:
+    bool match(string const&) const;
     
     bool grep(string const& str, regex_matched_t& result) const;
     regex_matched_t grep(string const& str) const;

@@ -3,6 +3,7 @@
 # include "MainController.h"
 # include "HttpServer.h"
 # include "HttpParser.h"
+# include "URI+NNT.h"
 
 NNTAPP_BEGIN
 
@@ -71,7 +72,8 @@ MainController::MainController()
 {
     NNTDECL_PRIVATE_CONSTRUCT(MainController);
     
-    url = @"http://localhost:18888";
+    //url = @"http://localhost:18888";
+    url = @"http://localhost:18888/helloworld.py";
     //url = @"http://www.163.com";
 }
 
@@ -83,7 +85,7 @@ MainController::~MainController()
 void MainController::view_loaded()
 {
     view().url.set_text(url);
-    view().url.connect(kSignalValueChanged, _action(_class::act_goto), this);
+    view().url.connect(kSignalEditingReturn, _action(_class::act_goto), this);
     view().web.view().load(ns::URLRequest(url));
 }
 

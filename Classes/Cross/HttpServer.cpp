@@ -2,6 +2,8 @@
 # include "Core.h"
 # include "HttpServer.h"
 # include "../../contrib/mongoose/mongoose.h"
+# include "../Script/PythonWebServer.h"
+# include "../Parser/HttpParser.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
@@ -28,6 +30,24 @@ int HttpConnection::read(core::data& da)
         return 0;
     use<mg_connection> cnt = connection;
     return mg_read(cnt, da.bytes(), da.length());
+}
+
+void HttpConnection::update()
+{
+    use<mg_request_info> req = request;
+    
+    // get http info.
+    uri = req->uri;
+    method = req->request_method;
+    version = req->http_version;
+    
+    // get header fields.
+    headers.clear();
+    for (int i = 0; i < req->num_headers; ++i)
+    {
+        mg_request_info::mg_header const& hdr = req->http_headers[i];
+        headers.insert(core::make_pair<core::string, core::string>(hdr.name, hdr.value));
+    }
 }
 
 NNTDECL_PRIVATE_BEGIN(HttpServer)
@@ -85,12 +105,34 @@ void stop()
 static int begin_request(mg_connection* cnt)
 {
     mg_request_info const* req = mg_get_request_info(cnt);
+    
+    // create http object.
     use<HttpServer> serv = req->user_data;
-    HttpConnection evt;
-    evt.connection = cnt;
-    evt.request = req;
-    evt.server = serv;
-    serv->emit(kSignalNewConnection, eventobj_t::Data(&evt));
+    HttpConnection http;
+    http.connection = cnt;
+    http.request = req;
+    http.server = serv;
+    http.update();
+    
+    // dispatch.
+    core::string const& req_file = http.uri.filename();
+    static const core::regex re_python("^\\S+.py$");
+    if (re_python.match(req_file))
+    {
+        python::FileRequest pyreq;
+        pyreq.uri = http.uri;
+        pyreq.method = http.method;
+        if (pyreq.process())
+        {
+            parser::Http11Response resp;
+            resp.data.append(pyreq.stream);
+            http.write(resp.full());
+        }
+    }
+    
+    // send signal.
+    serv->emit(kSignalNewConnection, eventobj_t::Data(&http));
+    
     return 1;
 }
 
