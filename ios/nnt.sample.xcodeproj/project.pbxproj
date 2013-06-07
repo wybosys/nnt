@@ -1479,6 +1479,13 @@
 		16F0E61616BA4D0A0068A20A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F0E61516BA4D090068A20A /* Accounts.framework */; };
 		16F0E62216BA52AB0068A20A /* iOSPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F0E62016BA52AA0068A20A /* iOSPrinter.h */; };
 		16F0E62316BA52AB0068A20A /* iOSPrinter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F0E62116BA52AA0068A20A /* iOSPrinter.mm */; };
+		16F18F051761723A00F76029 /* mongoose.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F021761723A00F76029 /* mongoose.h */; };
+		16F18F0E17617AA800F76029 /* Class+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0817617AA800F76029 /* Class+NNT.cpp */; };
+		16F18F0F17617AA800F76029 /* Class+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0917617AA800F76029 /* Class+NNT.h */; };
+		16F18F1017617AA800F76029 /* Unicode+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */; };
+		16F18F1117617AA800F76029 /* Unicode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0B17617AA800F76029 /* Unicode+NNT.h */; };
+		16F18F1217617AA800F76029 /* URI+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0C17617AA800F76029 /* URI+NNT.cpp */; };
+		16F18F1317617AA800F76029 /* URI+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0D17617AA800F76029 /* URI+NNT.h */; };
 		16F2384A149843F700E7F082 /* Contact+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F23848149843F700E7F082 /* Contact+NNT.h */; };
 		16F2384B149843F700E7F082 /* Contact+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F23849149843F700E7F082 /* Contact+NNT.mm */; };
 		16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* nnt_prefix.pch */; };
@@ -3071,6 +3078,13 @@
 		16F0E61516BA4D090068A20A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		16F0E62016BA52AA0068A20A /* iOSPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSPrinter.h; sourceTree = "<group>"; };
 		16F0E62116BA52AA0068A20A /* iOSPrinter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSPrinter.mm; sourceTree = "<group>"; };
+		16F18F021761723A00F76029 /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mongoose.h; path = ../contrib/mongoose/mongoose.h; sourceTree = "<group>"; };
+		16F18F0817617AA800F76029 /* Class+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Class+NNT.cpp"; path = "TL/Class+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0917617AA800F76029 /* Class+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Class+NNT.h"; path = "TL/Class+NNT.h"; sourceTree = "<group>"; };
+		16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Unicode+NNT.cpp"; path = "TL/Unicode+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0B17617AA800F76029 /* Unicode+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Unicode+NNT.h"; path = "TL/Unicode+NNT.h"; sourceTree = "<group>"; };
+		16F18F0C17617AA800F76029 /* URI+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "URI+NNT.cpp"; path = "TL/URI+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0D17617AA800F76029 /* URI+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "URI+NNT.h"; path = "TL/URI+NNT.h"; sourceTree = "<group>"; };
 		16F23848149843F700E7F082 /* Contact+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contact+NNT.h"; path = "Trail/Contact+NNT.h"; sourceTree = "<group>"; };
 		16F23849149843F700E7F082 /* Contact+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Contact+NNT.mm"; path = "Trail/Contact+NNT.mm"; sourceTree = "<group>"; };
 		16F32C1713A60C52003B9987 /* nnt_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt_prefix.pch; sourceTree = "<group>"; };
@@ -4620,6 +4634,12 @@
 				169F83DD16F8478E0008AAC9 /* Vector+NNT.cpp */,
 				169F83DE16F8478E0008AAC9 /* Vector+NNT.h */,
 				169F83DF16F8478E0008AAC9 /* Vector+NNT.mm */,
+				16F18F0817617AA800F76029 /* Class+NNT.cpp */,
+				16F18F0917617AA800F76029 /* Class+NNT.h */,
+				16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */,
+				16F18F0B17617AA800F76029 /* Unicode+NNT.h */,
+				16F18F0C17617AA800F76029 /* URI+NNT.cpp */,
+				16F18F0D17617AA800F76029 /* URI+NNT.h */,
 			);
 			name = TL;
 			sourceTree = "<group>";
@@ -4741,6 +4761,7 @@
 		16AC1CEE16F2D07F00316206 /* mongoose */ = {
 			isa = PBXGroup;
 			children = (
+				16F18F021761723A00F76029 /* mongoose.h */,
 				16AC1CEF16F2D08E00316206 /* mongoose.c */,
 			);
 			name = mongoose;
@@ -6221,6 +6242,10 @@
 				16FBADD2172631E80041C5C4 /* Stdtype+NNT.h in Headers */,
 				16FBADD4172631E80041C5C4 /* URL+NNT.h in Headers */,
 				16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */,
+				16F18F051761723A00F76029 /* mongoose.h in Headers */,
+				16F18F0F17617AA800F76029 /* Class+NNT.h in Headers */,
+				16F18F1117617AA800F76029 /* Unicode+NNT.h in Headers */,
+				16F18F1317617AA800F76029 /* URI+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7112,6 +7137,9 @@
 				16FBADD1172631E80041C5C4 /* Stdtype+NNT.cpp in Sources */,
 				16FBADD3172631E80041C5C4 /* URL+NNT.cpp in Sources */,
 				16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */,
+				16F18F0E17617AA800F76029 /* Class+NNT.cpp in Sources */,
+				16F18F1017617AA800F76029 /* Unicode+NNT.cpp in Sources */,
+				16F18F1217617AA800F76029 /* URI+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

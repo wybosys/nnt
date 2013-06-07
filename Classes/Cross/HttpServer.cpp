@@ -30,6 +30,24 @@ int HttpConnection::read(core::data& da)
     return mg_read(cnt, da.bytes(), da.length());
 }
 
+void HttpConnection::update()
+{
+    use<mg_request_info> req = request;
+    
+    // get http info.
+    uri = req->uri;
+    method = req->request_method;
+    version = req->http_version;
+    
+    // get header fields.
+    headers.clear();
+    for (int i = 0; i < req->num_headers; ++i)
+    {
+        mg_request_info::mg_header const& hdr = req->http_headers[i];
+        headers.insert(core::make_pair<core::string, core::string>(hdr.name, hdr.value));
+    }
+}
+
 NNTDECL_PRIVATE_BEGIN(HttpServer)
 
 void init()
@@ -85,12 +103,18 @@ void stop()
 static int begin_request(mg_connection* cnt)
 {
     mg_request_info const* req = mg_get_request_info(cnt);
+    
+    // create http object.
     use<HttpServer> serv = req->user_data;
-    HttpConnection evt;
-    evt.connection = cnt;
-    evt.request = req;
-    evt.server = serv;
-    serv->emit(kSignalNewConnection, eventobj_t::Data(&evt));
+    HttpConnection http;
+    http.connection = cnt;
+    http.request = req;
+    http.server = serv;
+    http.update();
+    
+    // send signal.
+    serv->emit(kSignalNewConnection, eventobj_t::Data(&http));
+    
     return 1;
 }
 
