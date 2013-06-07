@@ -1485,7 +1485,12 @@
 		16F192DF1761AAA600F76029 /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192D91761AAA600F76029 /* nnt.modules.h */; };
 		16F192E01761AAA600F76029 /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F192DA1761AAA600F76029 /* nnt.modules.m */; };
 		16F192E11761AAA600F76029 /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192DB1761AAA600F76029 /* pynnt.h */; };
-		16F192E21761AAA600F76029 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F192DC1761AAA600F76029 /* pynnt.mm */; };
+		16F192E21761AAA600F76029 /* pynnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192DC1761AAA600F76029 /* pynnt.cpp */; };
+		16F192E51761ACDA00F76029 /* PythonWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E31761ACDA00F76029 /* PythonWebServer.cpp */; };
+		16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192E41761ACDA00F76029 /* PythonWebServer.h */; };
+		16F192E81761ADA400F76029 /* PythonWebServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E71761ADA400F76029 /* PythonWebServer.mm */; };
+		16F192EA1761AF2200F76029 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E91761AF2200F76029 /* pynnt.mm */; };
+		16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192EB1761B29F00F76029 /* Python+NNT.cpp */; };
 		16F2384A149843F700E7F082 /* Contact+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F23848149843F700E7F082 /* Contact+NNT.h */; };
 		16F2384B149843F700E7F082 /* Contact+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F23849149843F700E7F082 /* Contact+NNT.mm */; };
 		16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* nnt_prefix.pch */; };
@@ -3084,7 +3089,12 @@
 		16F192D91761AAA600F76029 /* nnt.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.modules.h; sourceTree = "<group>"; };
 		16F192DA1761AAA600F76029 /* nnt.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.modules.m; sourceTree = "<group>"; };
 		16F192DB1761AAA600F76029 /* pynnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pynnt.h; sourceTree = "<group>"; };
-		16F192DC1761AAA600F76029 /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
+		16F192DC1761AAA600F76029 /* pynnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pynnt.cpp; sourceTree = "<group>"; };
+		16F192E31761ACDA00F76029 /* PythonWebServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PythonWebServer.cpp; sourceTree = "<group>"; };
+		16F192E41761ACDA00F76029 /* PythonWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PythonWebServer.h; sourceTree = "<group>"; };
+		16F192E71761ADA400F76029 /* PythonWebServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PythonWebServer.mm; sourceTree = "<group>"; };
+		16F192E91761AF2200F76029 /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
+		16F192EB1761B29F00F76029 /* Python+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Python+NNT.cpp"; sourceTree = "<group>"; };
 		16F23848149843F700E7F082 /* Contact+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contact+NNT.h"; path = "Trail/Contact+NNT.h"; sourceTree = "<group>"; };
 		16F23849149843F700E7F082 /* Contact+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Contact+NNT.mm"; path = "Trail/Contact+NNT.mm"; sourceTree = "<group>"; };
 		16F32C1713A60C52003B9987 /* nnt_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt_prefix.pch; sourceTree = "<group>"; };
@@ -3547,6 +3557,10 @@
 				16ADF2AD1602CE1C008B242B /* Lua+NNT.cpp */,
 				16D0DAC11490BC56002F309D /* Python+NNT.h */,
 				16D0DAC21490BC56002F309D /* Python+NNT.mm */,
+				16F192EB1761B29F00F76029 /* Python+NNT.cpp */,
+				16F192E71761ADA400F76029 /* PythonWebServer.mm */,
+				16F192E31761ACDA00F76029 /* PythonWebServer.cpp */,
+				16F192E41761ACDA00F76029 /* PythonWebServer.h */,
 				16A5F13414A1D77100503290 /* TinyScheme+NNT.h */,
 				16A5F13514A1D77100503290 /* TinyScheme+NNT.m */,
 				16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */,
@@ -5381,7 +5395,8 @@
 				16F192D91761AAA600F76029 /* nnt.modules.h */,
 				16F192DA1761AAA600F76029 /* nnt.modules.m */,
 				16F192DB1761AAA600F76029 /* pynnt.h */,
-				16F192DC1761AAA600F76029 /* pynnt.mm */,
+				16F192DC1761AAA600F76029 /* pynnt.cpp */,
+				16F192E91761AF2200F76029 /* pynnt.mm */,
 			);
 			path = python.site.prv;
 			sourceTree = "<group>";
@@ -6246,6 +6261,7 @@
 				16F192DD1761AAA600F76029 /* nnt.core.h in Headers */,
 				16F192DF1761AAA600F76029 /* nnt.modules.h in Headers */,
 				16F192E11761AAA600F76029 /* pynnt.h in Headers */,
+				16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7139,7 +7155,11 @@
 				16F18F1217617AA800F76029 /* URI+NNT.cpp in Sources */,
 				16F192DE1761AAA600F76029 /* nnt.core.m in Sources */,
 				16F192E01761AAA600F76029 /* nnt.modules.m in Sources */,
-				16F192E21761AAA600F76029 /* pynnt.mm in Sources */,
+				16F192E21761AAA600F76029 /* pynnt.cpp in Sources */,
+				16F192E51761ACDA00F76029 /* PythonWebServer.cpp in Sources */,
+				16F192E81761ADA400F76029 /* PythonWebServer.mm in Sources */,
+				16F192EA1761AF2200F76029 /* pynnt.mm in Sources */,
+				16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

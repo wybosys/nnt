@@ -3,7 +3,9 @@
 # import "Python+NNT.h"
 
 NNT_BEGIN_HEADER_C
+
 # import "../../3rd/python/Include/Python.h"
+
 NNT_END_HEADER_C
 
 // load module.
@@ -71,3 +73,15 @@ NNTDECL_PRIVATE_END
 @end
 
 NNT_END_OBJC
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(script)
+
+core::string GetPythonLibraryPath()
+{
+    ns::String str = ns::URL::Bundle("python.bundle");
+    return core::type_cast<core::string>(str);
+}
+
+NNT_END_NS
+NNT_END_CXX

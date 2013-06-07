@@ -2,6 +2,8 @@
 # include "Core.h"
 # include "HttpServer.h"
 # include "../../contrib/mongoose/mongoose.h"
+# include "../Script/PythonWebServer.h"
+# include "../Parser/HttpParser.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
@@ -117,7 +119,15 @@ static int begin_request(mg_connection* cnt)
     static const core::regex re_python("^\\S+.py$");
     if (re_python.match(req_file))
     {
-
+        python::FileRequest pyreq;
+        pyreq.uri = http.uri;
+        pyreq.method = http.method;
+        if (pyreq.process())
+        {
+            parser::Http11Response resp;
+            resp.data.append(pyreq.stream);
+            http.write(resp.full());
+        }
     }
     
     // send signal.

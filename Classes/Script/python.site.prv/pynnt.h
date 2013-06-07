@@ -15,6 +15,8 @@ NNT_BEGIN_HEADER_CXX
 NNT_EXTERN ::nnt::core::string PyNNT_ToString(PyObject* obj);
 NNT_EXTERN ::nnt::core::string PyNNT_ErrorMessage();
 
+# define pystr(str) (char*)(str)
+
 NNT_END_HEADER_CXX
 
 # endif
