@@ -3,13 +3,14 @@
 // are changed infrequently
 //
 
-#pragma once
+#ifndef _STDAFX
+#define _STDAFX
 
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
 
-
+#endif
 
 // TODO: reference additional headers your program requires here
