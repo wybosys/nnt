@@ -148,6 +148,11 @@ public:
         }
     }
     
+    string_type const& filename() const
+    {
+        return *components.rbegin();
+    }
+    
     operator string_type () const
     {
         return combine();

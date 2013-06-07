@@ -112,6 +112,14 @@ static int begin_request(mg_connection* cnt)
     http.server = serv;
     http.update();
     
+    // dispatch.
+    core::string const& req_file = http.uri.filename();
+    static const core::regex re_python("^\\S+.py$");
+    if (re_python.match(req_file))
+    {
+
+    }
+    
     // send signal.
     serv->emit(kSignalNewConnection, eventobj_t::Data(&http));
     
