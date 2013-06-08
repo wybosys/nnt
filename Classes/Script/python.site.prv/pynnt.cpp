@@ -13,7 +13,7 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_CXX
 
-::nnt::core::string PyNNT_ToString(PyObject* __obj) 
+::nnt::core::string PyNnt_ToString(PyObject* __obj)
 {
     ::nnt::core::string r_str;
     
@@ -27,7 +27,7 @@ NNT_BEGIN_CXX
 	else if (PyUnicode_Check(__obj))
 	{
 		PyObject* p_mbcs = PyUnicode_AsASCIIString(__obj);
-		r_str = PyNNT_ToString(p_mbcs);
+		r_str = PyNnt_ToString(p_mbcs);
 		Py_CLEAR(p_mbcs);
 	}
 	else if (PyTuple_Check(__obj))
@@ -36,12 +36,12 @@ NNT_BEGIN_CXX
 		if (t_s)
 		{
 			PyObject* p_obj = PyTuple_GetItem(__obj, 0);
-			r_str = PyNNT_ToString(p_obj);
+			r_str = PyNnt_ToString(p_obj);
 		}
 		for (Py_ssize_t t_i = 1; t_i < t_s; ++t_i)
 		{
 			PyObject* p_obj = PyTuple_GetItem(__obj, t_i);
-			r_str += "," + PyNNT_ToString(p_obj);
+			r_str += "," + PyNnt_ToString(p_obj);
 		}
 	}
 	else if (PyList_Check(__obj))
@@ -50,12 +50,12 @@ NNT_BEGIN_CXX
 		if (t_s)
 		{
 			PyObject* p_obj = PyList_GetItem(__obj, 0);
-			r_str = PyNNT_ToString(p_obj);
+			r_str = PyNnt_ToString(p_obj);
 		}
 		for (Py_ssize_t t_i = 1; t_i < t_s; ++t_i)
 		{
 			PyObject* p_obj = PyList_GetItem(__obj, t_i);
-			r_str += "," + PyNNT_ToString(p_obj);
+			r_str += "," + PyNnt_ToString(p_obj);
 		}
 	}
 	else if (PyLong_Check(__obj))
@@ -78,7 +78,7 @@ NNT_BEGIN_CXX
 	return r_str;
 }
 
-::nnt::core::string PyNNT_ErrorMessage()
+::nnt::core::string PyNnt_ErrorMessage()
 {
     ::nnt::core::string ret_str = "";
     
@@ -100,13 +100,13 @@ NNT_BEGIN_CXX
 	if (p_type)
 	{
 		PyObject* p_str = PyObject_Str(p_type);
-		ret_str += "ERROR TYPE: \n\t" + PyNNT_ToString(p_str) + "\n";
+		ret_str += "ERROR TYPE: \n\t" + PyNnt_ToString(p_str) + "\n";
 		Py_CLEAR(p_str);
 	}
     
 	if (p_value)
 	{
-		ret_str += "ERROR MESSAGE: \n\t" + PyNNT_ToString(p_value) + "\n";
+		ret_str += "ERROR MESSAGE: \n\t" + PyNnt_ToString(p_value) + "\n";
 	}
     
 	if (p_traceback)
@@ -119,8 +119,8 @@ NNT_BEGIN_CXX
 		{
 			PyCodeObject* p_code = p_tk->tb_frame->f_code;
             
-			ret_str += "\tname: " + PyNNT_ToString(p_code->co_name) + "\n";            
-			ret_str += "\tfilename: " + PyNNT_ToString(p_code->co_filename) + "\n";            
+			ret_str += "\tname: " + PyNnt_ToString(p_code->co_name) + "\n";
+			ret_str += "\tfilename: " + PyNnt_ToString(p_code->co_filename) + "\n";
 			ret_str += "\tlinenum: " + ::boost::lexical_cast< ::nnt::core::string>(p_tk->tb_lineno) + "\n";
             
 			p_tk = p_tk->tb_next;

@@ -10,13 +10,10 @@ static PyMethodDef gs_methods[] = {
     {0, 0, 0, 0}
 };
 
-void PyNnt_LoadModules()
+void PyNnt_LoadModules_c()
 {
     PyObject* m = Py_InitModule("nnt", gs_methods);
-
     PyNnt_LoadCoreModule(m);
-
-    Py_DECREF(m);
 }
 
 NNT_END_C

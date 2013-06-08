@@ -17,7 +17,7 @@ static PyMethodDef _methods[] = {
 
 static PyObject *_exception = nil;
 
-void PyNNT_LoadModules() {
+void PyNnt_LoadModules_objc() {
     PyObject* m = Py_InitModule("nnt", _methods);
     
     if (m == NULL)
@@ -29,7 +29,7 @@ void PyNNT_LoadModules() {
     
     // load modules.
     // load core module.
-    PyNNT_LoadCoreModule(m);
+    PyNnt_LoadCoreModule(m);
 }
 
 NNT_END_OBJC

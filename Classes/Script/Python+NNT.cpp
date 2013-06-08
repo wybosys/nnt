@@ -13,7 +13,9 @@ static void PyNnt_InitSite()
     PyObject *m;
     m = PyImport_ImportModule("site");
     if (m)
+    {
         Py_DECREF(m);
+    }
 }
 
 static int PyNnt_Profile(PyObject* obj, PyFrameObject* frame, int what, PyObject* arg)

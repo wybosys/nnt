@@ -24,7 +24,7 @@ static PyMethodDef _methods[] = {
 
 static PyObject *_exception = nil;
 
-PyMODINIT_FUNC PyNNT_LoadCoreModule(PyObject* nnt) {    
+void PyNnt_LoadCoreModule(PyObject* nnt) {
     PyObject* m = Py_InitModule("nnt.core", _methods);
     if (m == NULL)
         return;

@@ -26,7 +26,7 @@ NNTDECL_PRIVATE_IMPL(NNTPython)
     Py_SetProgramName((char*)"PyNNT");
     
     // load modules.
-    PyNNT_LoadModules();
+    PyNnt_LoadModules();
     
     return self;
 }
@@ -67,7 +67,7 @@ NNTDECL_PRIVATE_END
 }
 
 - (NSString*)errorMessage {
-    return PyNNT_ErrorMessage();
+    return PyNnt_ErrorMessage();
 }
 
 @end

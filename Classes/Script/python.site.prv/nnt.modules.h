@@ -4,7 +4,18 @@
 
 NNT_BEGIN_HEADER_C
 
-NNT_EXTERN void PyNnt_LoadModules();
+NNT_EXTERN void PyNnt_LoadModules_c();
+NNT_EXTERN void PyNnt_LoadModules_objc();
+
+# ifdef NNT_OBJC
+
+# define PyNnt_LoadModules PyNnt_LoadModules_objc
+
+# else
+
+# define PyNnt_LoadModules PyNnt_LoadModules_c
+
+# endif
 
 NNT_END_HEADER_C
 

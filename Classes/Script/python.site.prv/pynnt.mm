@@ -4,9 +4,9 @@
 
 NNT_BEGIN_OBJC
 
-NSString* PyNNT_ErrorMessage()
+NSString* PyNnt_ErrorMessage()
 {
-    ::nnt::core::string msg = ::nnt::PyNNT_ErrorMessage();
+    ::nnt::core::string msg = ::nnt::PyNnt_ErrorMessage();
     return [NSString stringWithUTF8String:msg.c_str()];
 }
 

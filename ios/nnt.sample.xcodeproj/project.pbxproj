@@ -1058,6 +1058,8 @@
 		16BA174613BAF81A00BB6A5F /* CHMObjParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA174313BAF81A00BB6A5F /* CHMObjParser.m */; };
 		16BA175C13BB24C400BB6A5F /* HTMLNode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BA175A13BB24C300BB6A5F /* HTMLNode+NNT.h */; };
 		16BA175E13BB24C400BB6A5F /* HTMLNode+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA175B13BB24C400BB6A5F /* HTMLNode+NNT.m */; };
+		16BA95231763159700A9D491 /* nnt.core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95211763159700A9D491 /* nnt.core.cpp */; };
+		16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95221763159700A9D491 /* nnt.modules.cpp */; };
 		16BB8E5A16DC59C0007DFFE8 /* AdmobService.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BB8E5816DC59C0007DFFE8 /* AdmobService.h */; };
 		16BB8E5B16DC59C0007DFFE8 /* AdmobService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */; };
 		16BD80EF157C95B300EE4CC6 /* SmtpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */; };
@@ -2658,6 +2660,8 @@
 		16BA174313BAF81A00BB6A5F /* CHMObjParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMObjParser.m; sourceTree = "<group>"; };
 		16BA175A13BB24C300BB6A5F /* HTMLNode+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTMLNode+NNT.h"; sourceTree = "<group>"; };
 		16BA175B13BB24C400BB6A5F /* HTMLNode+NNT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTMLNode+NNT.m"; sourceTree = "<group>"; };
+		16BA95211763159700A9D491 /* nnt.core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.core.cpp; sourceTree = "<group>"; };
+		16BA95221763159700A9D491 /* nnt.modules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.modules.cpp; sourceTree = "<group>"; };
 		16BB8E5816DC59C0007DFFE8 /* AdmobService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmobService.h; sourceTree = "<group>"; };
 		16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdmobService.mm; sourceTree = "<group>"; };
 		16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmtpClient.cpp; sourceTree = "<group>"; };
@@ -5392,8 +5396,10 @@
 			children = (
 				16F192D71761AAA600F76029 /* nnt.core.h */,
 				16F192D81761AAA600F76029 /* nnt.core.m */,
+				16BA95211763159700A9D491 /* nnt.core.cpp */,
 				16F192D91761AAA600F76029 /* nnt.modules.h */,
 				16F192DA1761AAA600F76029 /* nnt.modules.m */,
+				16BA95221763159700A9D491 /* nnt.modules.cpp */,
 				16F192DB1761AAA600F76029 /* pynnt.h */,
 				16F192DC1761AAA600F76029 /* pynnt.cpp */,
 				16F192E91761AF2200F76029 /* pynnt.mm */,
@@ -7160,6 +7166,8 @@
 				16F192E81761ADA400F76029 /* PythonWebServer.mm in Sources */,
 				16F192EA1761AF2200F76029 /* pynnt.mm in Sources */,
 				16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */,
+				16BA95231763159700A9D491 /* nnt.core.cpp in Sources */,
+				16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
