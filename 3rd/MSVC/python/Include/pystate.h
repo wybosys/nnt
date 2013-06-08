@@ -95,6 +95,9 @@ typedef struct _ts {
     PyObject *async_exc; /* Asynchronous exception to raise */
     long thread_id; /* Thread id where this tstate was created */
 
+    int trash_delete_nesting;
+    PyObject *trash_delete_later;
+
     /* XXX signal handlers should also be here */
 
 } PyThreadState;
@@ -111,7 +114,6 @@ PyAPI_FUNC(void) PyThreadState_Clear(PyThreadState *);
 PyAPI_FUNC(void) PyThreadState_Delete(PyThreadState *);
 #ifdef WITH_THREAD
 PyAPI_FUNC(void) PyThreadState_DeleteCurrent(void);
-PyAPI_FUNC(void) _PyGILState_Reinit(void);
 #endif
 
 PyAPI_FUNC(PyThreadState *) PyThreadState_Get(void);
@@ -169,7 +171,7 @@ PyAPI_FUNC(void) PyGILState_Release(PyGILState_STATE);
 
 /* Helper/diagnostic function - get the current thread state for
    this thread.  May return NULL if no GILState API has been used
-   on the current thread.  Note the main thread always has such a
+   on the current thread.  Note that the main thread always has such a
    thread-state, even if no auto-thread-state call has been made
    on the main thread.
 */
