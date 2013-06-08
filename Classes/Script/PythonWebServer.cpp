@@ -65,7 +65,13 @@ FileRequest::~FileRequest()
 
 bool FileRequest::process()
 {
-    return py().run_file(uri);
+    if (!py().run_file(uri))
+        return false;
+
+    py().stdio.flush();
+    stream.append(py().stdio.out());
+
+    return true;
 }
 
 NNT_END_NS

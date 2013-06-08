@@ -4,7 +4,11 @@
 # include "python.site.prv/pynnt.h"
 # include "python.site.prv/nnt.modules.h"
 
+NNT_USINGCXXNAMESPACE;
+
 NNT_BEGIN_C
+
+NNT_EXTERN core::string pynnt_stdout_buffer;
 
 NNTVAR_USE(int) Py_NoSiteFlag;
 
@@ -62,6 +66,17 @@ public:
     }
 
 };
+
+void Stdio::flush()
+{
+    _out = pynnt_stdout_buffer;
+    pynnt_stdout_buffer.clear();
+}
+
+core::string const& Stdio::out() const
+{
+    return _out;
+}
 
 NNTDECL_PRIVATE_BEGIN_CXX(Python)
 
