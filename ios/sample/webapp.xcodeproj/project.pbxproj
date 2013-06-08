@@ -31,6 +31,7 @@
 		16936C6D16F1A1830021909E /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16936C6C16F1A1830021909E /* libdb.a */; };
 		16936C7016F1A1BF0021909E /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16936C6F16F1A1BF0021909E /* MainController.mm */; };
 		169F841716F84C4B0008AAC9 /* libnnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F841616F84C4B0008AAC9 /* libnnt.a */; };
+		16BA951E1761C33400A9D491 /* libpython.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BA951D1761C33400A9D491 /* libpython.a */; };
 		16F192B017617B1500F76029 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F1517617B1300F76029 /* __init__.py */; };
 		16F192B117617B1500F76029 /* __init__.pyc in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F1617617B1400F76029 /* __init__.pyc */; };
 		16F192B217617B1500F76029 /* sources in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F5E17617B1400F76029 /* sources */; };
@@ -89,6 +90,7 @@
 		16936C6E16F1A1BF0021909E /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		16936C6F16F1A1BF0021909E /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainController.mm; sourceTree = "<group>"; };
 		169F841616F84C4B0008AAC9 /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		16BA951D1761C33400A9D491 /* libpython.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpython.a; path = ../../lib/iOS/libpython.a; sourceTree = "<group>"; };
 		16F18F1517617B1300F76029 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
 		16F18F1617617B1400F76029 /* __init__.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = __init__.pyc; sourceTree = "<group>"; };
 		16F18F1817617B1400F76029 /* AIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAction.h; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BA951E1761C33400A9D491 /* libpython.a in Frameworks */,
 				1657723C170C3586001585BD /* libboost_regex.a in Frameworks */,
 				169F841716F84C4B0008AAC9 /* libnnt.a in Frameworks */,
 				16936C6D16F1A1830021909E /* libdb.a in Frameworks */,
@@ -978,12 +981,12 @@
 		169368BC16F1A0D10021909E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16BA951D1761C33400A9D491 /* libpython.a */,
 				1657723B170C3586001585BD /* libboost_regex.a */,
 				169F841616F84C4B0008AAC9 /* libnnt.a */,
 				16936C6C16F1A1830021909E /* libdb.a */,
 				16936C6A16F1A17A0021909E /* libicucore.dylib */,
 				16936C6816F1A1770021909E /* libxml2.dylib */,
-				16936C6416F1A16D0021909E /* QuartzCore.framework */,
 				16936C6216F1A1600021909E /* Default-Landscape~ipad.png */,
 				16936C6016F1A15D0021909E /* Default-Landscape@2x~ipad.png */,
 				16936C5E16F1A1550021909E /* Default-Portrait@2x~ipad.png */,
@@ -995,6 +998,7 @@
 				16936C5216F1A1420021909E /* Default@2x.png */,
 				16936C5016F1A13D0021909E /* logo@114.png */,
 				16936C4E16F1A13B0021909E /* logo@57.png */,
+				16936C6416F1A16D0021909E /* QuartzCore.framework */,
 				169368BD16F1A0D10021909E /* UIKit.framework */,
 				169368BF16F1A0D10021909E /* Foundation.framework */,
 				169368C116F1A0D10021909E /* CoreGraphics.framework */,
