@@ -14,7 +14,10 @@ class HttpConfig
 {
 public:
 
+    HttpConfig();
+
     core::NetAddress addr;
+    core::uri document;
 
     bool is_correct() const;
 

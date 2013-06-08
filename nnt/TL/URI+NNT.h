@@ -182,6 +182,42 @@ public:
         }        
         return ret;
     }
+
+    void append(uri const& u)
+    {
+        slice = u.slice;
+        for (typename components_type::const_iterator uiter = u.components.begin();
+            uiter != u.components.end();
+            ++uiter)
+        {
+            string_type const& ucu = *uiter;
+            if (ucu == ".")
+            {
+                continue;
+            }
+            else if (ucu == "..")
+            {
+                if (components.size())
+                    components.erase(--components.end());
+            }
+            else
+            {
+                components.push_back(ucu);
+            }
+        }
+    }
+
+    uri& operator += (uri const& s)
+    {
+        append(s);
+        return *this;
+    }
+
+    uri operator + (uri const& s) const
+    {
+        uri ret = *this;
+        return ret += s;
+    }
     
     string_type scheme, slice;    
     components_type components;

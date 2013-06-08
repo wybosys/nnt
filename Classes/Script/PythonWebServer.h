@@ -5,6 +5,9 @@
 # include "../TL/URI+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
+
+NNTDECL_EXTERN_CLASS_NS(script, Python);
+
 NNT_BEGIN_NS(python)
 
 NNTDECL_PRIVATE_HEAD_CXX(HttpRequest);
@@ -19,7 +22,8 @@ public:
     ~HttpRequest();
     
     bool process();
-    
+    script::Python& py();
+
     core::string method;
     core::uri uri;
     core::data stream;

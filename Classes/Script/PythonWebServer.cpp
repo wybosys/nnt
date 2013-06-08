@@ -38,6 +38,11 @@ bool HttpRequest::process()
     return false;
 }
 
+script::Python& HttpRequest::py()
+{
+    return d_ptr->py;
+}
+
 WebRequest::WebRequest()
 {
     
@@ -60,7 +65,7 @@ FileRequest::~FileRequest()
 
 bool FileRequest::process()
 {
-    return true;
+    return py().run_file(uri);
 }
 
 NNT_END_NS

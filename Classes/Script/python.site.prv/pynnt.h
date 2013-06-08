@@ -5,6 +5,7 @@
 NNT_BEGIN_HEADER_C
 
 # include <python/Include/Python.h>
+# include <python/Include/frameobject.h>
 
 NNT_END_HEADER_C
 
@@ -12,8 +13,8 @@ NNT_END_HEADER_C
 
 NNT_BEGIN_HEADER_CXX
 
-NNT_EXTERN ::nnt::core::string PyNNT_ToString(PyObject* obj);
-NNT_EXTERN ::nnt::core::string PyNNT_ErrorMessage();
+NNT_EXTERN ::nnt::core::string PyNnt_ToString(PyObject* obj);
+NNT_EXTERN ::nnt::core::string PyNnt_ErrorMessage();
 
 # define pystr(str) (char*)(str)
 

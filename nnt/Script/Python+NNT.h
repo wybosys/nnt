@@ -24,6 +24,8 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
+# include "../TL/URI+NNT.h"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(script)
 
@@ -39,7 +41,9 @@ public:
     
     Python();
     ~Python();
-    
+
+    bool run_file(core::uri const&);
+
 };
 
 NNT_END_NS

@@ -1,5 +1,4 @@
 
-# include "stdafx.h"
 # include <nnt/Foundation+NNT.h>
 # include <nnt/Cross/HttpServer.h>
 # include <nnt/Parser/HttpParser.h>
@@ -36,11 +35,10 @@ public:
 
 NNTAPP_END
 
-int _tmain(int argc, _TCHAR* argv[])
-{
-    ::nntapp::Web web;
-    web.start();
+::nntapp::Web web;
 
-    getchar();
-	return 0;
+int NNT_MAIN(int, char**)
+{
+    web.start();
+    return 0;
 }

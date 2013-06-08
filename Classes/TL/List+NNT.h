@@ -84,6 +84,16 @@ public:
     {
         _stl.push_front(r);
     }
+
+    iterator erase(const_iterator _Where)
+    {
+        return _stl.erase(_Where);
+    }
+
+    iterator erase(const_iterator _First, const_iterator _Last)
+    {
+        return _stl.erase(_First, _Last);
+    }
     
     size_type size() const
     {
@@ -129,6 +139,8 @@ public:
     {
         return _stl.back();
     }
+
+
     
     operator stl_type& ()
     {

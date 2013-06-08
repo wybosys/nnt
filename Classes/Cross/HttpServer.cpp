@@ -1,12 +1,18 @@
 
 # include "Core.h"
 # include "HttpServer.h"
+# include "../Core/App.h"
 # include "../../contrib/mongoose/mongoose.h"
 # include "../Script/PythonWebServer.h"
 # include "../Parser/HttpParser.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
+
+HttpConfig::HttpConfig()
+{
+    document = Environment::workingDirectory() + "/htdocs";
+}
 
 bool HttpConfig::is_correct() const
 {
@@ -120,7 +126,7 @@ static int begin_request(mg_connection* cnt)
     if (re_python.match(req_file))
     {
         python::FileRequest pyreq;
-        pyreq.uri = http.uri;
+        pyreq.uri = serv->config.document + http.uri;
         pyreq.method = http.method;
         if (pyreq.process())
         {
