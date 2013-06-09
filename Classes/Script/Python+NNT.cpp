@@ -70,6 +70,11 @@ public:
 
 };
 
+void UsePython()
+{
+    static const PyNnt_Environment py_env;
+}
+
 void Stdio::flush()
 {
     _out = python::pynnt_stdout_buffer;
@@ -85,7 +90,7 @@ NNTDECL_PRIVATE_BEGIN_CXX(Python)
 
 void init()
 {
-    static const PyNnt_Environment py_env;
+    UsePython();
 }
 
 void dealloc()

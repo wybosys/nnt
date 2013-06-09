@@ -46,6 +46,8 @@ protected:
 
 };
 
+NNTAPI(void) UsePython();
+
 class Python
 {
     NNTDECL_PRIVATE_CXX(Python);

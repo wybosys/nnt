@@ -5,6 +5,7 @@
 # include "../../contrib/mongoose/mongoose.h"
 # include "../Script/PythonWebServer.h"
 # include "../Parser/HttpParser.h"
+# include "../Script/Python+NNT.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
@@ -195,6 +196,9 @@ NNTDECL_PRIVATE_END
 HttpServer::HttpServer()
 {
     NNTDECL_PRIVATE_CONSTRUCT(HttpServer);
+
+    // use python as default script interpreter.
+    script::UsePython();
 }
 
 HttpServer::~HttpServer()
