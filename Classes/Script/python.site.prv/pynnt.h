@@ -4,6 +4,8 @@
 
 NNT_BEGIN_HEADER_C
 
+# define NNT_PYHEADERS 1
+
 # include <python/Include/Python.h>
 # include <python/Include/frameobject.h>
 

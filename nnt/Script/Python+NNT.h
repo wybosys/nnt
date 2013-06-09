@@ -33,6 +33,19 @@ NNT_EXTERN core::string GetPythonLibraryPath();
 
 NNTDECL_PRIVATE_HEAD_CXX(Python);
 
+class Stdio
+{
+public:
+
+    void flush();
+    core::string const& out() const;
+
+protected:
+
+    core::string _out;
+
+};
+
 class Python
 {
     NNTDECL_PRIVATE_CXX(Python);
@@ -43,6 +56,8 @@ public:
     ~Python();
 
     bool run_file(core::uri const&);
+
+    Stdio stdio;
 
 };
 

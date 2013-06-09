@@ -4,11 +4,7 @@
 # include "python.site.prv/pynnt.h"
 # include "python.site.prv/nnt.modules.h"
 
-NNT_USINGCXXNAMESPACE;
-
 NNT_BEGIN_C
-
-NNT_EXTERN core::string pynnt_stdout_buffer;
 
 NNTVAR_USE(int) Py_NoSiteFlag;
 
@@ -35,6 +31,13 @@ static int PyNnt_Trace(PyObject* obj, PyFrameObject* frame, int what, PyObject* 
 NNT_END_C
 
 NNT_BEGIN_CXX
+
+NNT_BEGIN_NS(python)
+
+NNT_EXTERN core::string pynnt_stdout_buffer;
+
+NNT_END_NS
+
 NNT_BEGIN_NS(script)
 
 class PyNnt_Environment
@@ -69,8 +72,8 @@ public:
 
 void Stdio::flush()
 {
-    _out = pynnt_stdout_buffer;
-    pynnt_stdout_buffer.clear();
+    _out = python::pynnt_stdout_buffer;
+    python::pynnt_stdout_buffer.clear();
 }
 
 core::string const& Stdio::out() const
