@@ -34,12 +34,6 @@
 		16BA951E1761C33400A9D491 /* libpython.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BA951D1761C33400A9D491 /* libpython.a */; };
 		16F192B017617B1500F76029 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F1517617B1300F76029 /* __init__.py */; };
 		16F192B117617B1500F76029 /* __init__.pyc in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F1617617B1400F76029 /* __init__.pyc */; };
-		16F192B217617B1500F76029 /* sources in Resources */ = {isa = PBXBuildFile; fileRef = 16F18F5E17617B1400F76029 /* sources */; };
-		16F192B317617B1500F76029 /* sources in Resources */ = {isa = PBXBuildFile; fileRef = 16F1902117617B1400F76029 /* sources */; };
-		16F192B417617B1500F76029 /* config.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917017617B1400F76029 /* config.py */; };
-		16F192B517617B1500F76029 /* globalnames in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917117617B1500F76029 /* globalnames */; };
-		16F192B617617B1500F76029 /* history in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917217617B1500F76029 /* history */; };
-		16F192B717617B1500F76029 /* objectdb in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917317617B1500F76029 /* objectdb */; };
 		16F192B817617B1500F76029 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917417617B1500F76029 /* __init__.py */; };
 		16F192B917617B1500F76029 /* __init__.pyc in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917517617B1500F76029 /* __init__.pyc */; };
 		16F192BA17617B1500F76029 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F1917717617B1500F76029 /* __init__.py */; };
@@ -57,7 +51,6 @@
 		16F192C617617B1500F76029 /* __init__.pyc in Resources */ = {isa = PBXBuildFile; fileRef = 16F1918517617B1500F76029 /* __init__.pyc */; };
 		16F192C717617B1500F76029 /* cli.py in Resources */ = {isa = PBXBuildFile; fileRef = 16F1918617617B1500F76029 /* cli.py */; };
 		16F192C817617B1500F76029 /* cli.pyc in Resources */ = {isa = PBXBuildFile; fileRef = 16F1918717617B1500F76029 /* cli.pyc */; };
-		16F192C917617B1500F76029 /* sources in Resources */ = {isa = PBXBuildFile; fileRef = 16F191D917617B1500F76029 /* sources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,7 +152,6 @@
 		16F18F5B17617B1400F76029 /* ObjectDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectDL.h; sourceTree = "<group>"; };
 		16F18F5C17617B1400F76029 /* Resource+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Resource+NNT.h"; sourceTree = "<group>"; };
 		16F18F5D17617B1400F76029 /* Shell+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Shell+NNT.h"; sourceTree = "<group>"; };
-		16F18F5E17617B1400F76029 /* sources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sources; sourceTree = "<group>"; };
 		16F18F5F17617B1400F76029 /* Task+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Task+NNT.h"; sourceTree = "<group>"; };
 		16F18F6017617B1400F76029 /* Time+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Time+NNT.h"; sourceTree = "<group>"; };
 		16F18F6117617B1400F76029 /* UnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTest.h; sourceTree = "<group>"; };
@@ -338,7 +330,6 @@
 		16F1901E17617B1400F76029 /* DriverFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverFeature.h; sourceTree = "<group>"; };
 		16F1901F17617B1400F76029 /* DriverIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverIO.h; sourceTree = "<group>"; };
 		16F1902017617B1400F76029 /* DriverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverObject.h; sourceTree = "<group>"; };
-		16F1902117617B1400F76029 /* sources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sources; sourceTree = "<group>"; };
 		16F1902317617B1400F76029 /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
 		16F1902417617B1400F76029 /* klinux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = klinux.h; sourceTree = "<group>"; };
 		16F1902517617B1400F76029 /* mcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcore.h; sourceTree = "<group>"; };
@@ -636,10 +627,6 @@
 		16F1916A17617B1400F76029 /* PayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUtils.h; sourceTree = "<group>"; };
 		16F1916B17617B1400F76029 /* UnipayApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnipayApi.h; sourceTree = "<group>"; };
 		16F1916D17617B1400F76029 /* ApnsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsObject.h; sourceTree = "<group>"; };
-		16F1917017617B1400F76029 /* config.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = config.py; sourceTree = "<group>"; };
-		16F1917117617B1500F76029 /* globalnames */ = {isa = PBXFileReference; lastKnownFileType = file; path = globalnames; sourceTree = "<group>"; };
-		16F1917217617B1500F76029 /* history */ = {isa = PBXFileReference; lastKnownFileType = file; path = history; sourceTree = "<group>"; };
-		16F1917317617B1500F76029 /* objectdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = objectdb; sourceTree = "<group>"; };
 		16F1917417617B1500F76029 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
 		16F1917517617B1500F76029 /* __init__.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = __init__.pyc; sourceTree = "<group>"; };
 		16F1917717617B1500F76029 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
@@ -729,7 +716,6 @@
 		16F191D617617B1500F76029 /* Operator+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Operator+NNT.h"; sourceTree = "<group>"; };
 		16F191D717617B1500F76029 /* Regex+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Regex+NNT.h"; sourceTree = "<group>"; };
 		16F191D817617B1500F76029 /* SmartPtr+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SmartPtr+NNT.h"; sourceTree = "<group>"; };
-		16F191D917617B1500F76029 /* sources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sources; sourceTree = "<group>"; };
 		16F191DA17617B1500F76029 /* Stdtype+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stdtype+NNT.h"; sourceTree = "<group>"; };
 		16F191DB17617B1500F76029 /* String+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "String+NNT.h"; sourceTree = "<group>"; };
 		16F191DC17617B1500F76029 /* System+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System+NNT.h"; sourceTree = "<group>"; };
@@ -1171,7 +1157,6 @@
 				16F18F5B17617B1400F76029 /* ObjectDL.h */,
 				16F18F5C17617B1400F76029 /* Resource+NNT.h */,
 				16F18F5D17617B1400F76029 /* Shell+NNT.h */,
-				16F18F5E17617B1400F76029 /* sources */,
 				16F18F5F17617B1400F76029 /* Task+NNT.h */,
 				16F18F6017617B1400F76029 /* Time+NNT.h */,
 				16F18F6117617B1400F76029 /* UnitTest.h */,
@@ -1469,7 +1454,6 @@
 				16F1901E17617B1400F76029 /* DriverFeature.h */,
 				16F1901F17617B1400F76029 /* DriverIO.h */,
 				16F1902017617B1400F76029 /* DriverObject.h */,
-				16F1902117617B1400F76029 /* sources */,
 			);
 			path = Kernel;
 			sourceTree = "<group>";
@@ -2047,7 +2031,6 @@
 		16F1916E17617B1400F76029 /* python */ = {
 			isa = PBXGroup;
 			children = (
-				16F1916F17617B1400F76029 /* .ropeproject */,
 				16F1917417617B1500F76029 /* __init__.py */,
 				16F1917517617B1500F76029 /* __init__.pyc */,
 				16F1917617617B1500F76029 /* core */,
@@ -2055,17 +2038,6 @@
 				16F1918317617B1500F76029 /* ui */,
 			);
 			path = python;
-			sourceTree = "<group>";
-		};
-		16F1916F17617B1400F76029 /* .ropeproject */ = {
-			isa = PBXGroup;
-			children = (
-				16F1917017617B1400F76029 /* config.py */,
-				16F1917117617B1500F76029 /* globalnames */,
-				16F1917217617B1500F76029 /* history */,
-				16F1917317617B1500F76029 /* objectdb */,
-			);
-			path = .ropeproject;
 			sourceTree = "<group>";
 		};
 		16F1917617617B1500F76029 /* core */ = {
@@ -2211,7 +2183,6 @@
 				16F191D617617B1500F76029 /* Operator+NNT.h */,
 				16F191D717617B1500F76029 /* Regex+NNT.h */,
 				16F191D817617B1500F76029 /* SmartPtr+NNT.h */,
-				16F191D917617B1500F76029 /* sources */,
 				16F191DA17617B1500F76029 /* Stdtype+NNT.h */,
 				16F191DB17617B1500F76029 /* String+NNT.h */,
 				16F191DC17617B1500F76029 /* System+NNT.h */,
@@ -2564,12 +2535,6 @@
 				16936C6316F1A1600021909E /* Default-Landscape~ipad.png in Resources */,
 				16F192B017617B1500F76029 /* __init__.py in Resources */,
 				16F192B117617B1500F76029 /* __init__.pyc in Resources */,
-				16F192B217617B1500F76029 /* sources in Resources */,
-				16F192B317617B1500F76029 /* sources in Resources */,
-				16F192B417617B1500F76029 /* config.py in Resources */,
-				16F192B517617B1500F76029 /* globalnames in Resources */,
-				16F192B617617B1500F76029 /* history in Resources */,
-				16F192B717617B1500F76029 /* objectdb in Resources */,
 				16F192B817617B1500F76029 /* __init__.py in Resources */,
 				16F192B917617B1500F76029 /* __init__.pyc in Resources */,
 				16F192BA17617B1500F76029 /* __init__.py in Resources */,
@@ -2587,7 +2552,6 @@
 				16F192C617617B1500F76029 /* __init__.pyc in Resources */,
 				16F192C717617B1500F76029 /* cli.py in Resources */,
 				16F192C817617B1500F76029 /* cli.pyc in Resources */,
-				16F192C917617B1500F76029 /* sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
