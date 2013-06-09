@@ -10,11 +10,29 @@ NNT_BEGIN_NS(core)
 
 # define PO(o) ((PyObject*)o)
 
+Object::~Object()
+{
+    if (_deref)
+    {
+        Py_DECREF(_obj);
+    }
+}
+
 char const* Argument::to_str() const
 {
     char const* buf = NULL;
     PyArg_ParseTuple(py(), "s", &buf);
     return buf;
+}
+
+Value::Value(char const* s)
+{
+    _obj = Py_BuildValue("s", s);
+}
+
+Value::Value(ntl::string const& s)
+{
+    _obj = Py_BuildValue("s", s.c_str());
 }
 
 NNT_END_NS
@@ -74,6 +92,7 @@ core::Object _Method::success()
 }
 
 Module::Module(ntl::string const& name)
+: _name(name)
 {
     _n = PyString_FromString(name.c_str());
     static PyMethodDef methods[] = {{0, 0, 0, 0}};
@@ -100,6 +119,18 @@ bool Module::add(_Method::pydef_t _def)
 
     Py_DECREF(v);
     return true;
+}
+
+void Module::add(Module& m)
+{
+    ntl::string name = m.name();
+    usize pos = name.find_last_of('.');
+    if (pos != ntl::string::npos)
+    {
+        name = name.substr(pos + 1);
+    }
+
+    PyModule_AddObject(_module, name.c_str(), m);
 }
 
 void System::Set(ntl::string const& name, core::Object& obj)

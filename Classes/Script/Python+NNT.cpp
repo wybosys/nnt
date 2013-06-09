@@ -119,7 +119,19 @@ bool Python::run_file(core::uri const& file)
     core::string fn = file.filename();
     int sta = PyRun_SimpleFile(fp, fn.c_str());
     fclose(fp);
-    return sta == 0;
+    bool ret = sta == 0;
+
+# ifdef NNT_DEBUG
+
+    if (!ret)
+    {
+        core::string msg = PyNnt_ErrorMessage();
+        trace_msg(msg);
+    }
+
+# endif
+
+    return ret;
 }
 
 NNT_END_NS

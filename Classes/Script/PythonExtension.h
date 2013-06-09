@@ -9,15 +9,27 @@ NNT_BEGIN_NS(python)
 
 NNT_BEGIN_NS(core)
 
+# ifdef NNT_PYHEADERS
+#   define PYNNT_TYPE(out, in) in
+# else
+#   define PYNNT_TYPE(out, in) out
+# endif
+
+NNTCLASS(Object);
+
 class Object
 {
 public:
 
-    Object(void* o = NULL)
-        : _obj(o)
+    typedef PYNNT_TYPE(void*, PyObject*) rawobject_type;
+
+    Object(rawobject_type o = NULL)
+        : _obj(o), _deref(false)
     {
 
     }
+
+    ~Object();
 
     bool is_null() const
     {
@@ -45,7 +57,8 @@ public:
 
 protected:
 
-    void* _obj;
+    rawobject_type _obj;
+    bool _deref;
 
 };
 
@@ -56,13 +69,25 @@ class Argument
 {
 public:
 
-    Argument(void* o)
+    Argument(rawobject_type o)
         : Object(o)
     {
 
     }
 
     char const* to_str() const;
+
+};
+
+NNTCLASS(Value);
+
+class Value
+    : public Object
+{
+public:
+
+    Value(char const*);
+    Value(ntl::string const&);
 
 };
 
@@ -122,12 +147,14 @@ public:
 
     static void* _imp_method(void* o, void* a)
     {
-        return implT::method(o, a);
+        return implT::method((core::Object::rawobject_type)o, (core::Object::rawobject_type)a);
     }
 
     static core::Object method(core::Object const&, core::Argument const&);
 
 };
+
+# define PYNNT_METHOD() static ::nnt::python::core::Object method(::nnt::python::core::Object const&, ::nnt::python::core::Argument const& args)
 
 NNTCLASS(Module);
 
@@ -139,7 +166,7 @@ public:
     ~Module();
 
     template <typename methT>
-    bool add(methT& mth)
+    bool add(methT& mth, typename methT::pydef_t = NULL)
     {
         mth.update();
         return add(mth.def());
@@ -152,8 +179,25 @@ public:
         return _module;
     }
 
+# ifdef NNT_PYHEADERS
+
+    operator PyObject* ()
+    {
+        return _module;
+    }
+
+# endif
+
+    void add(Module&);
+
+    ntl::string const& name() const
+    {
+        return _name;
+    }
+
 protected:
 
+    ntl::string _name;
     core::Object _n, _module, _d;
 
 };
