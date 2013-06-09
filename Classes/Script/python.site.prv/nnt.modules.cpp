@@ -25,7 +25,7 @@ void PyNnt_LoadModules_c()
     if (m == NULL)
         return;
 
-    pynnt_error = PyErr_NewException("nnt.error", NULL, NULL);
+    pynnt_error = PyErr_NewException(pystr("nnt.error"), NULL, NULL);
     Py_INCREF(pynnt_error);
     PyModule_AddObject(m, "error", pynnt_error);
 

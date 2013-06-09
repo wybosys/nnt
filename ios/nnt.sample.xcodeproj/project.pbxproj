@@ -1374,6 +1374,8 @@
 		16DA257B15F0999700110F42 /* EmojiCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DA257915F0999700110F42 /* EmojiCodec.cpp */; };
 		16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DABF001758968C00B303E9 /* UIProgress+NNT.h */; };
 		16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DABF011758968D00B303E9 /* UIProgress+NNT.mm */; };
+		16DB7D7B176456BA00F36A7E /* PythonExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DB7D79176456BA00F36A7E /* PythonExtension.cpp */; };
+		16DB7D7C176456BA00F36A7E /* PythonExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DB7D7A176456BA00F36A7E /* PythonExtension.h */; };
 		16DB8C5F1443F58F00E85F90 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB8C5E1443F58F00E85F90 /* ImageIO.framework */; };
 		16DB8C821444136B00E85F90 /* AlphabetFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DB8C801444136B00E85F90 /* AlphabetFlow.h */; };
 		16DB8C841444136B00E85F90 /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB8C811444136B00E85F90 /* AlphabetFlow.m */; };
@@ -2979,6 +2981,8 @@
 		16DA257915F0999700110F42 /* EmojiCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiCodec.cpp; sourceTree = "<group>"; };
 		16DABF001758968C00B303E9 /* UIProgress+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgress+NNT.h"; sourceTree = "<group>"; };
 		16DABF011758968D00B303E9 /* UIProgress+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIProgress+NNT.mm"; sourceTree = "<group>"; };
+		16DB7D79176456BA00F36A7E /* PythonExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PythonExtension.cpp; sourceTree = "<group>"; };
+		16DB7D7A176456BA00F36A7E /* PythonExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PythonExtension.h; sourceTree = "<group>"; };
 		16DB8C5A1443F52D00E85F90 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		16DB8C5E1443F58F00E85F90 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		16DB8C801444136B00E85F90 /* AlphabetFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetFlow.h; sourceTree = "<group>"; };
@@ -3562,6 +3566,8 @@
 				16D0DAC11490BC56002F309D /* Python+NNT.h */,
 				16D0DAC21490BC56002F309D /* Python+NNT.mm */,
 				16F192EB1761B29F00F76029 /* Python+NNT.cpp */,
+				16DB7D79176456BA00F36A7E /* PythonExtension.cpp */,
+				16DB7D7A176456BA00F36A7E /* PythonExtension.h */,
 				16F192E71761ADA400F76029 /* PythonWebServer.mm */,
 				16F192E31761ACDA00F76029 /* PythonWebServer.cpp */,
 				16F192E41761ACDA00F76029 /* PythonWebServer.h */,
@@ -6268,6 +6274,7 @@
 				16F192DF1761AAA600F76029 /* nnt.modules.h in Headers */,
 				16F192E11761AAA600F76029 /* pynnt.h in Headers */,
 				16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */,
+				16DB7D7C176456BA00F36A7E /* PythonExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7168,6 +7175,7 @@
 				16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */,
 				16BA95231763159700A9D491 /* nnt.core.cpp in Sources */,
 				16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */,
+				16DB7D7B176456BA00F36A7E /* PythonExtension.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
