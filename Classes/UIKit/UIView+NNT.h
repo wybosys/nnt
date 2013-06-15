@@ -368,6 +368,37 @@ NNT_BEGIN_NS(ui)
 class HovTearView;
 class VecTearView;
 
+class ViewsArray
+{
+public:
+    
+    ViewsArray()
+    {
+        PASS;
+    }
+    
+    ViewsArray(NSArray* r)
+    : arr(r)
+    {
+        PASS;
+    }
+    
+    ViewsArray(ViewsArray const& r)
+    : arr(r.arr)
+    {
+        PASS;
+    }
+    
+    void* operator [] (uindex idx) const
+    {
+        id obj = arr[idx];
+        return [obj object];
+    }
+    
+    ns::Array arr;
+    
+};
+
 template <typename implT, 
 typename viewT = _cxx_uiview_wrapper,
 typename interT = IView
@@ -460,9 +491,9 @@ public:
     }
     
     template <typename gesT>
-    void set_gesture(gesT const& eff)
+    void set_gesture(gesT const& ges)
     {
-        ntl::const_pointer<gesT> ptr(eff);
+        ntl::const_pointer<gesT> ptr(ges);
         [this->_self addGestureRecognizer:*ptr];
     }
     
@@ -514,6 +545,11 @@ public:
             [UIView setAnimationsEnabled:YES];
             this->_self.frame = rc;            
         }
+    }
+    
+    ViewsArray views() const
+    {
+        return this->_self.subviews;
     }
     
     bool visible() const

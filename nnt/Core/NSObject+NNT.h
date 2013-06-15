@@ -269,6 +269,9 @@ _nnt_objcxx_wrapper_##cls
 @property (nonatomic, assign) ::nnt::IObject* _cxxobj;
 @end
 
+# define NNT_OBJCXX_ISTYPE(obj) ([obj conformsToProtocol:@protocol(NNT_OBJCXX_WRAPPER(object))] == YES)
+# define NNT_OBJCXX_TYPE(obj) ((id<NNT_OBJCXX_WRAPPER(object)>)obj)
+
 # else
 
 # define NNTDECL_OBJCXX_WRAPPER(cls) \
@@ -284,6 +287,8 @@ NNTIMPL_OBJCXX_WRAPPER_END
 
 # define NNTIMPL_OBJCXX_WRAPPER_BEGIN(cls)
 # define NNTIMPL_OBJCXX_WRAPPER_END
+
+# define NNT_OBJCXX_ISTYPE(obj) NO
 
 # endif
 

@@ -48,6 +48,9 @@
 
 # endif // detect c or c++.
 
+# define NNT_CXX_EXPRESS CXX_EXPRESS
+# define NNT_C_EXPRESS C_EXPRESS
+
 # ifdef __CUDACC__
 #   define NNT_NVIDIA 1
 #   define NNT_CC_CUDA 1

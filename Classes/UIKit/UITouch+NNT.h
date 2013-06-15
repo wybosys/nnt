@@ -4,12 +4,17 @@
 
 NNT_BEGIN_HEADER_OBJC
 
+@interface UIEvent (NNT)
+
+@end
+
 @interface UITouch (NNT)
 
 - (CGPoint)offset;
 
 @end
 
+NNTDECL_CATEGORY(UIEvent, NNT);
 NNTDECL_CATEGORY(UITouch, NNT);
 
 NNT_END_HEADER_OBJC
@@ -18,6 +23,27 @@ NNT_END_HEADER_OBJC
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(ui)
+
+class Event
+: public ns::Object<UIEvent>
+{
+    typedef ns::Object<UIEvent> super;
+    
+public:
+    
+    Event(UIEvent* t)
+    : super(t)
+    {
+        PASS;
+    }
+    
+    Event(id t)
+    : super(t)
+    {
+        PASS;
+    }
+    
+};
 
 class Touch
 : public ns::Object<UITouch>

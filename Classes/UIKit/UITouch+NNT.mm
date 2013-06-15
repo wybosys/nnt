@@ -16,4 +16,11 @@ NNT_BEGIN_OBJC
 
 NNTIMPL_CATEGORY(UITouch, NNT);
 
+@implementation UIEvent (NNT)
+
+
+@end
+
+NNTIMPL_CATEGORY(UIEvent, NNT);
+
 NNT_END_OBJC

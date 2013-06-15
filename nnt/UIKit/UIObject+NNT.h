@@ -188,11 +188,11 @@ const TextAlignment<Left> TextAlignmentLeft;
 const TextAlignment<Right> TextAlignmentRight;
 const TextAlignment<Center> TextAlignmentCenter;
 
-template <typename implT, typename objT>
+template <typename implT, typename objT, typename interT = RefObject>
 class Object
-: public ::nnt::ns::Object<objT, RefObject>
+: public ::nnt::ns::Object<objT, interT>
 {
-    typedef ::nnt::ns::Object<objT, RefObject> super, object_type;
+    typedef ::nnt::ns::Object<objT, interT> super, object_type;
     typedef Object<implT, objT> self_type;
     
 protected:

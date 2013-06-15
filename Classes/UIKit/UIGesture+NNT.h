@@ -4,6 +4,14 @@
 
 NNT_BEGIN_HEADER_OBJC
 
+@interface NNTUIGestureRecognizer : UIGestureRecognizer {
+    NNTOBJECT_DECL;
+}
+
+NNTOBJECT_PROP;
+
+@end
+
 @interface NNTUISwipeGestureRecognizer : UISwipeGestureRecognizer {
     NNTOBJECT_DECL;
 }
@@ -52,7 +60,13 @@ NNTOBJECT_PROP;
 
 @end
 
+NNT_EXTERN signal_t kSignalGestureBegin;
+NNT_EXTERN signal_t kSignalGestureChanged;
+NNT_EXTERN signal_t kSignalGestureEnd;
 NNT_EXTERN signal_t kSignalGestureActive;
+NNT_EXTERN signal_t kSignalGestureCancel;
+
+NNTDECL_OBJCXX_WRAPPER(NNTUIGestureRecognizer);
 
 NNT_END_HEADER_OBJC
 
@@ -64,16 +78,63 @@ NNT_BEGIN_NS(gesture)
 
 NNT_BEGIN_NS(tpl)
 
-template <typename implT, typename gesT>
+class IGesture
+: public RefObject
+{
+public:
+    
+    virtual void touches_begin(ns::Set const&, ui::Event const&)
+    {
+        PASS;
+    }
+    
+    virtual void touches_end(ns::Set const&, ui::Event const&)
+    {
+        PASS;
+    }
+    
+    virtual void touches_moved(ns::Set const&, ui::Event const&)
+    {
+        PASS;
+    }
+    
+    virtual void touches_cancel(ns::Set const&, ui::Event const&)
+    {
+        PASS;
+    }
+    
+    virtual void reset()
+    {
+        PASS;
+    }
+    
+};
+
+template <typename implT, typename gesT = NNT_OBJCXX_WRAPPER(NNTUIGestureRecognizer)>
 class Gesture
-: public Object<implT, gesT>
+: public Object<implT, gesT, IGesture>
 {
 public:
     
     Gesture()
     {
-        PASS;
+        this->_self = [[gesT alloc] init];
+        
+        if (NNT_OBJCXX_ISTYPE(this->_self))
+        {
+            NNT_OBJCXX_TYPE(this->_self)._cxxobj = this;
+        }
     }
+    
+    ~Gesture()
+    {
+        if (NNT_OBJCXX_ISTYPE(this->_self))
+        {
+            NNT_OBJCXX_TYPE(this->_self)._cxxobj = NULL;
+        }
+    }
+    
+protected:
     
 };
 
@@ -89,12 +150,12 @@ public:
         PASS;
     }
     
-    void set(UISwipeGestureRecognizerDirection dir)
+    void set_direction(UISwipeGestureRecognizerDirection dir)
     {
         this->_self.direction = dir;
     }
     
-    void set(Fingers const& fg = finger::_1)
+    void set_requiredtouches(Fingers const& fg = finger::_1)
     {
         this->_self.numberOfTouchesRequired = fg;
     }
@@ -110,6 +171,16 @@ public:
     {
         PASS;
     }
+
+    void set_requiredtaps(uint v)
+    {
+        this->_self.numberOfTapsRequired = v;
+    }
+    
+    void set_requiredtouches(uint v)
+    {
+        this->_self.numberOfTouchesRequired = v;
+    }
     
 };
 
@@ -121,6 +192,16 @@ public:
     Pinch()
     {
         PASS;
+    }
+    
+    void set_scale(real v)
+    {
+        this->_self.scale = v;
+    }
+    
+    real velocity() const
+    {
+        return this->_self.velocity;
     }
     
 };
@@ -135,6 +216,16 @@ public:
         PASS;
     }
     
+    void set_minimum(Fingers const& fg)
+    {
+        this->_self.minimumNumberOfTouches = fg;
+    }
+    
+    void set_maximum(Fingers const& fg)
+    {
+        this->_self.maximumNumberOfTouches = fg;
+    }
+    
 };
 
 class Rotation
@@ -147,6 +238,21 @@ public:
         PASS;
     }
     
+    void set_rotation(cg::Angle const& v)
+    {
+        this->_self.rotation = v.rad();
+    }
+    
+    cg::Angle rotation() const
+    {
+        return cg::Angle::Rad(this->_self.rotation);
+    }
+    
+    real velocity() const
+    {
+        return this->_self.velocity;
+    }
+        
 };
 
 class LongPress
@@ -157,6 +263,26 @@ public:
     LongPress()
     {
         PASS;
+    }
+    
+    void set_requiredtaps(uint v)
+    {
+        this->_self.numberOfTapsRequired = v;
+    }
+    
+    void set_requiredtouches(uint v)
+    {
+        this->_self.numberOfTouchesRequired = v;
+    }
+    
+    void set_duration(ns::TimeInterval ti)
+    {
+        this->_self.minimumPressDuration = ti;
+    }
+    
+    void set_precision(real pr)
+    {
+        this->_self.allowableMovement = pr;
     }
     
 };
