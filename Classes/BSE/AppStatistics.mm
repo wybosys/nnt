@@ -16,7 +16,6 @@ NNTDECL_PRIVATE_IMPL(AppStatistics)
     self = [super init];
     
     //mc = [[MobClick alloc] init];
-    [MobClick startWithAppkey:d_owner.appid];
     
     return self;
 }
@@ -24,6 +23,19 @@ NNTDECL_PRIVATE_IMPL(AppStatistics)
 - (void)dealloc {
     //safe_release(mc);
     [super dealloc];
+}
+
+- (void)start {
+    
+    [MobClick startWithAppkey:d_owner.appid];
+    [MobClick setCrashReportEnabled:YES];
+    [MobClick startSession:nil];
+    
+# ifdef NNT_DEBUG
+    
+    [MobClick setLogEnabled:YES];
+    
+# endif
 }
 
 NNTDECL_PRIVATE_END
@@ -39,6 +51,7 @@ NNTDECL_PRIVATE_END
     NNTDECL_PRIVATE_INIT(AppStatistics);
     
     self.appid = @"51bb01ec56240b683f004886";
+    [d_ptr start];
     
     return self;
 }
