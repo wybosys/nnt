@@ -483,6 +483,10 @@
 (autoload 'php-mode "php-mode" "PHP mode" t)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
+;; objc
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . objc-mode))
+
 ;; script style.
 (defconst my-c-style
   '(
