@@ -6,8 +6,7 @@ NNTAPP_BEGIN
 
 void App::load()
 {
-    NSObject* obj = [[NSObject alloc] init];
-    [obj crash];
+    set_root(ctlr);
 }
 
 NNTAPP_END

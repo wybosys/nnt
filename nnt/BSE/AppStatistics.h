@@ -4,8 +4,12 @@
 
 NNT_BEGIN_HEADER_OBJC
 
+NNTDECL_PRIVATE_HEAD(AppStatistics);
+
 @interface AppStatistics : NNTObject {
     NSString *_appid;
+    
+    NNTDECL_PRIVATE(AppStatistics);
 }
 
 @property (nonatomic, copy) NSString *appid;

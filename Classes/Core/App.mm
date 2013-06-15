@@ -28,6 +28,8 @@
 #   import MAC_IOS_SELECT("./null.prv.h", "DTraceLogoSwitch.h")
 # endif
 
+# import "AppStatistics.h"
+
 NNT_BEGIN_CXX
 
 static Application* __cxxgs_app = NULL;
@@ -123,19 +125,26 @@ NNTDECL_PRIVATE_BEGIN(NNTApplication, NNTObject)
 MACEXPRESS(<NSWindowDelegate>)
 {
     BSEAppInformation* _bse_appinfo;
+    int _countNetworkActivityIndicator;
+    BOOL _appIsActivity;
+    AppStatistics* _appstat;
 }
 
 @property (nonatomic, assign) int countNetworkActivityIndicator;
 @property (nonatomic, assign) BOOL appIsActivity;
+@property (nonatomic, retain) AppStatistics* appStat;
 
 NNTDECL_PRIVATE_IMPL(NNTApplication)
 
-@synthesize countNetworkActivityIndicator;
-@synthesize appIsActivity;
+@synthesize countNetworkActivityIndicator = _countNetworkActivityIndicator;
+@synthesize appIsActivity = _appIsActivity;
+@synthesize appStat = _appstat;
 
 - (id)init {
     self = [super init];
-    countNetworkActivityIndicator = 0;
+    
+    _countNetworkActivityIndicator = 0;
+    _appIsActivity = NO;
     
     // init bse.
     _bse_appinfo = [[BSEAppInformation alloc] init];
@@ -145,7 +154,9 @@ NNTDECL_PRIVATE_IMPL(NNTApplication)
 }
 
 - (void)dealloc {
+    
     safe_release(_bse_appinfo);
+    safe_release(_appstat);
     
     [super dealloc];
 }
@@ -592,6 +603,7 @@ void LoadTheme(NSString*) {
 - (NSString*)applicationName {
     if (_applicationName)
         return _applicationName;
+    
     NSString *str = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleNameKey];
     if (str == nil) {
         [NNTObject refobjCopy:&_applicationName ref:@""];
@@ -619,11 +631,19 @@ void LoadTheme(NSString*) {
 
 # ifdef NNT_TARGET_IOS
 
+- (void)enableStatistics {
+    //AppStatistics* as = [[AppStatistics alloc] init];
+    //d_ptr.appStat = as;
+    //safe_release(as);
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     trace_msg(@"application: terminating.");
     
 # ifdef NNT_DEBUG
+    
     [Msgbox warn:@"Application Terminating !"];
+    
 # endif
 }
 
@@ -631,7 +651,9 @@ void LoadTheme(NSString*) {
     trace_msg(@"application: memory warning!");
     
 # ifdef NNT_DEBUG
+    
     [Msgbox warn:@"memory is not enough, please reboot your device or close unused apps !"];
+    
 # endif
     
     [self emit:kSignalMemoryWarning];
@@ -719,20 +741,28 @@ NSString *kOpenUrlApp = @"app";
 - (BOOL)application:
 
 # ifdef NNT_iOS_4
+
 (UIApplication *)application 
-            openURL:(NSURL *)url 
-  sourceApplication:(NSString *)sourceApplication 
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
+
 # else
+
 (UIApplication *)application
 handleOpenURL:(NSURL *)url
+
 # endif
+
 {
 # ifdef NNT_iOS_4
+    
 # else
+    
     id sourceApplication = @"";
     id annotation = @"";
     id application = nil;
+    
 # endif
     
     trace_fmt(@"URL: %@\nSOURCE: %@\n", [url absoluteString], sourceApplication);
@@ -994,6 +1024,11 @@ void Application::enable_filecache()
 void Application::enable_icloud()
 {
     [__gs_app enableICloud];
+}
+
+void Application::enable_statistics()
+{
+    //[__gs_app enableStatistics];
 }
 
 void Application::_do_set_root(MAC_IOS_SELECT(NSViewController, UIViewController)* ctlr)

@@ -93,7 +93,11 @@ MACEXPRESS(NSApplicationDelegate)
 
 @property (nonatomic, assign) UIView* initialView;
 
+//! if app is activity.
 - (BOOL)isActivity;
+
+//! start app statistics.
+- (void)enableStatistics;
 
 # endif
 
@@ -232,6 +236,9 @@ public:
     
     //! enable icloud store.
     void enable_icloud();
+    
+    //! enable app statistics.
+    void enable_statistics();
     
     //! set controller.
     template <typename ctlrT>

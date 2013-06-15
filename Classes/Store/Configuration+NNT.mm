@@ -2,6 +2,7 @@
 # import "Core.h"
 # import "Configuration+NNT.h"
 # import "Bdb+NNT.h"
+# import "NSArray+NNT.h"
 
 NNT_BEGIN_OBJC
 

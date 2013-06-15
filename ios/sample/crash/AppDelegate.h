@@ -2,6 +2,8 @@
 # ifndef _APP
 # define _APP
 
+# include "MainController.h"
+
 NNTAPP_BEGIN
 
 class App
@@ -10,6 +12,8 @@ class App
 public:
     
     void load();
+    
+    MainController ctlr;
     
 };
 
