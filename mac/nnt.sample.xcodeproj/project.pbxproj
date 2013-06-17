@@ -347,6 +347,24 @@
 		16B09D45176EC8E500B39F81 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D3C176EC8E500B39F81 /* pynnt.mm */; };
 		16B09D49176EC97300B39F81 /* PythonWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D46176EC97200B39F81 /* PythonWebServer.cpp */; };
 		16B09D4B176EC97300B39F81 /* PythonWebServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D48176EC97300B39F81 /* PythonWebServer.mm */; };
+		16B09D56176ED8F600B39F81 /* AudioVideoBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D52176ED8F600B39F81 /* AudioVideoBridging.framework */; };
+		16B09D57176ED8F600B39F81 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D53176ED8F600B39F81 /* CoreVideo.framework */; };
+		16B09D58176ED8F600B39F81 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D54176ED8F600B39F81 /* VideoDecodeAcceleration.framework */; };
+		16B09D59176ED8F600B39F81 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D55176ED8F600B39F81 /* VideoToolbox.framework */; };
+		16B09D5C176ED90200B39F81 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D5A176ED90200B39F81 /* AudioToolbox.framework */; };
+		16B09D5D176ED90200B39F81 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D5B176ED90200B39F81 /* CoreAudioKit.framework */; };
+		16B09D5F176ED91400B39F81 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D5E176ED91400B39F81 /* OpenAL.framework */; };
+		16B09D63176EDA6B00B39F81 /* MicDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D60176EDA6B00B39F81 /* MicDevice.cpp */; };
+		16B09D65176EDA6B00B39F81 /* MicDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D62176EDA6B00B39F81 /* MicDevice.mm */; };
+		16B09D67176EDBBB00B39F81 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D66176EDBBB00B39F81 /* QTKit.framework */; };
+		16B09D6B176EDCDE00B39F81 /* Error+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D69176EDCDE00B39F81 /* Error+NNT.mm */; };
+		16B09D7C176EE1EC00B39F81 /* CAAudioFileFormats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D6D176EE1EC00B39F81 /* CAAudioFileFormats.cpp */; };
+		16B09D7E176EE1EC00B39F81 /* CABufferList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D6F176EE1EC00B39F81 /* CABufferList.cpp */; };
+		16B09D85176EE1EC00B39F81 /* CAPThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D76176EE1EC00B39F81 /* CAPThread.cpp */; };
+		16B09D87176EE1EC00B39F81 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D78176EE1EC00B39F81 /* CAStreamBasicDescription.cpp */; };
+		16B09D89176EE1EC00B39F81 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D7A176EE1EC00B39F81 /* CAXException.cpp */; };
+		16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D8C176EE28200B39F81 /* MicRecorder.mm */; };
+		16B09D96176EE37100B39F81 /* AudioFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D94176EE37100B39F81 /* AudioFile.mm */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
 		16C44CC114A02D6100775B19 /* NSViewController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBD14A02D6100775B19 /* NSViewController+NNT.mm */; };
@@ -1108,6 +1126,38 @@
 		16B09D46176EC97200B39F81 /* PythonWebServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonWebServer.cpp; path = ../Classes/Script/PythonWebServer.cpp; sourceTree = "<group>"; };
 		16B09D47176EC97200B39F81 /* PythonWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PythonWebServer.h; path = ../Classes/Script/PythonWebServer.h; sourceTree = "<group>"; };
 		16B09D48176EC97300B39F81 /* PythonWebServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PythonWebServer.mm; path = ../Classes/Script/PythonWebServer.mm; sourceTree = "<group>"; };
+		16B09D52176ED8F600B39F81 /* AudioVideoBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioVideoBridging.framework; path = /System/Library/Frameworks/AudioVideoBridging.framework; sourceTree = "<absolute>"; };
+		16B09D53176ED8F600B39F81 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		16B09D54176ED8F600B39F81 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = /System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = "<absolute>"; };
+		16B09D55176ED8F600B39F81 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = /System/Library/Frameworks/VideoToolbox.framework; sourceTree = "<absolute>"; };
+		16B09D5A176ED90200B39F81 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		16B09D5B176ED90200B39F81 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = /System/Library/Frameworks/CoreAudioKit.framework; sourceTree = "<absolute>"; };
+		16B09D5E176ED91400B39F81 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = /System/Library/Frameworks/OpenAL.framework; sourceTree = "<absolute>"; };
+		16B09D60176EDA6B00B39F81 /* MicDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MicDevice.cpp; path = ../Classes/Drivers/MicDevice.cpp; sourceTree = "<group>"; };
+		16B09D61176EDA6B00B39F81 /* MicDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicDevice.h; path = ../Classes/Drivers/MicDevice.h; sourceTree = "<group>"; };
+		16B09D62176EDA6B00B39F81 /* MicDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MicDevice.mm; path = ../Classes/Drivers/MicDevice.mm; sourceTree = "<group>"; };
+		16B09D66176EDBBB00B39F81 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		16B09D68176EDCDE00B39F81 /* Error+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Error+NNT.h"; path = "../Classes/Core/Error+NNT.h"; sourceTree = "<group>"; };
+		16B09D69176EDCDE00B39F81 /* Error+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Error+NNT.mm"; path = "../Classes/Core/Error+NNT.mm"; sourceTree = "<group>"; };
+		16B09D6D176EE1EC00B39F81 /* CAAudioFileFormats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioFileFormats.cpp; sourceTree = "<group>"; };
+		16B09D6E176EE1EC00B39F81 /* CAAudioFileFormats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAudioFileFormats.h; sourceTree = "<group>"; };
+		16B09D6F176EE1EC00B39F81 /* CABufferList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CABufferList.cpp; sourceTree = "<group>"; };
+		16B09D70176EE1EC00B39F81 /* CABufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABufferList.h; sourceTree = "<group>"; };
+		16B09D71176EE1EC00B39F81 /* CAByteOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAByteOrder.h; sourceTree = "<group>"; };
+		16B09D72176EE1EC00B39F81 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		16B09D73176EE1EC00B39F81 /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		16B09D74176EE1EC00B39F81 /* CAException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAException.h; sourceTree = "<group>"; };
+		16B09D75176EE1EC00B39F81 /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		16B09D76176EE1EC00B39F81 /* CAPThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAPThread.cpp; sourceTree = "<group>"; };
+		16B09D77176EE1EC00B39F81 /* CAPThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPThread.h; sourceTree = "<group>"; };
+		16B09D78176EE1EC00B39F81 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		16B09D79176EE1EC00B39F81 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		16B09D7A176EE1EC00B39F81 /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		16B09D7B176EE1EC00B39F81 /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		16B09D8B176EE28200B39F81 /* MicRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicRecorder.h; sourceTree = "<group>"; };
+		16B09D8C176EE28200B39F81 /* MicRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MicRecorder.mm; sourceTree = "<group>"; };
+		16B09D93176EE37100B39F81 /* AudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFile.h; sourceTree = "<group>"; };
+		16B09D94176EE37100B39F81 /* AudioFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFile.mm; sourceTree = "<group>"; };
 		16BA0A081547C9570069968D /* DBMSOdbc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBMSOdbc.cpp; path = ../Classes/Store/DBMSOdbc.cpp; sourceTree = "<group>"; };
 		16BA0A091547C9570069968D /* DBMSOdbc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMSOdbc.h; path = ../Classes/Store/DBMSOdbc.h; sourceTree = "<group>"; };
 		16C44CBA14A02D6100775B19 /* NSView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+NNT.h"; path = "../Classes/UIKit/NSView+NNT.h"; sourceTree = "<group>"; };
@@ -1546,14 +1596,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B09D67176EDBBB00B39F81 /* QTKit.framework in Frameworks */,
+				167D00E4170967CB00B94D5E /* CoreAudio.framework in Frameworks */,
+				16B09D5F176ED91400B39F81 /* OpenAL.framework in Frameworks */,
+				16B09D5C176ED90200B39F81 /* AudioToolbox.framework in Frameworks */,
+				16B09D5D176ED90200B39F81 /* CoreAudioKit.framework in Frameworks */,
+				167D00E2170967AE00B94D5E /* AudioUnit.framework in Frameworks */,
+				16B09D56176ED8F600B39F81 /* AudioVideoBridging.framework in Frameworks */,
+				16B09D57176ED8F600B39F81 /* CoreVideo.framework in Frameworks */,
+				16B09D58176ED8F600B39F81 /* VideoDecodeAcceleration.framework in Frameworks */,
+				16B09D59176ED8F600B39F81 /* VideoToolbox.framework in Frameworks */,
+				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
 				16B09D32176EC8B100B39F81 /* libpython.dylib in Frameworks */,
 				16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */,
 				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
-				167D00EA1709681E00B94D5E /* AVFoundation.framework in Frameworks */,
 				167D00E6170967D200B94D5E /* CoreMedia.framework in Frameworks */,
-				167D00E4170967CB00B94D5E /* CoreAudio.framework in Frameworks */,
-				167D00E2170967AE00B94D5E /* AudioUnit.framework in Frameworks */,
 				167D00E01709674100B94D5E /* libQtGui.4.dylib in Frameworks */,
 				167D00DE1709672900B94D5E /* libQtCore.4.dylib in Frameworks */,
 				16E00A86160869C100B35D3F /* AudioToolbox.framework in Frameworks */,
@@ -2178,6 +2236,14 @@
 				16ED7D951754662F0029A62E /* libcudart.dylib */,
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
+				16B09D66176EDBBB00B39F81 /* QTKit.framework */,
+				16B09D5E176ED91400B39F81 /* OpenAL.framework */,
+				16B09D5A176ED90200B39F81 /* AudioToolbox.framework */,
+				16B09D5B176ED90200B39F81 /* CoreAudioKit.framework */,
+				16B09D52176ED8F600B39F81 /* AudioVideoBridging.framework */,
+				16B09D53176ED8F600B39F81 /* CoreVideo.framework */,
+				16B09D54176ED8F600B39F81 /* VideoDecodeAcceleration.framework */,
+				16B09D55176ED8F600B39F81 /* VideoToolbox.framework */,
 				1614B0F8174F6AC000C26C42 /* CUDA.framework */,
 				1614B0CA174F11C200C26C42 /* OpenCL.framework */,
 				167D00E91709681D00B94D5E /* AVFoundation.framework */,
@@ -2350,6 +2416,8 @@
 				169DD16F1457A4B5000A9889 /* NSURLConnection+NNT.m */,
 				168F22BA1520344300095E80 /* NSFileConnection.h */,
 				168F22BB1520344300095E80 /* NSFileConnection.m */,
+				16B09D68176EDCDE00B39F81 /* Error+NNT.h */,
+				16B09D69176EDCDE00B39F81 /* Error+NNT.mm */,
 				169DD1701457A4B5000A9889 /* Object.h */,
 				169DD1711457A4B5000A9889 /* Object.mm */,
 				16E00A631608616900B35D3F /* Object.cpp */,
@@ -2505,6 +2573,10 @@
 		16B09CF4176EAFF100B39F81 /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
+				16B09D6C176EE1EC00B39F81 /* apple.prv */,
+				16B09D60176EDA6B00B39F81 /* MicDevice.cpp */,
+				16B09D61176EDA6B00B39F81 /* MicDevice.h */,
+				16B09D62176EDA6B00B39F81 /* MicDevice.mm */,
 				16B09D01176EB56C00B39F81 /* AudioDevice.cpp */,
 				16B09D02176EB56C00B39F81 /* AudioDevice.h */,
 				16B09D03176EB56C00B39F81 /* AudioDevice.mm */,
@@ -2549,6 +2621,29 @@
 			);
 			name = python.site.prv;
 			path = ../Classes/Script/python.site.prv;
+			sourceTree = "<group>";
+		};
+		16B09D6C176EE1EC00B39F81 /* apple.prv */ = {
+			isa = PBXGroup;
+			children = (
+				16B09D6D176EE1EC00B39F81 /* CAAudioFileFormats.cpp */,
+				16B09D6E176EE1EC00B39F81 /* CAAudioFileFormats.h */,
+				16B09D6F176EE1EC00B39F81 /* CABufferList.cpp */,
+				16B09D70176EE1EC00B39F81 /* CABufferList.h */,
+				16B09D71176EE1EC00B39F81 /* CAByteOrder.h */,
+				16B09D72176EE1EC00B39F81 /* CADebugMacros.h */,
+				16B09D73176EE1EC00B39F81 /* CADebugPrintf.h */,
+				16B09D74176EE1EC00B39F81 /* CAException.h */,
+				16B09D75176EE1EC00B39F81 /* CAMath.h */,
+				16B09D76176EE1EC00B39F81 /* CAPThread.cpp */,
+				16B09D77176EE1EC00B39F81 /* CAPThread.h */,
+				16B09D78176EE1EC00B39F81 /* CAStreamBasicDescription.cpp */,
+				16B09D79176EE1EC00B39F81 /* CAStreamBasicDescription.h */,
+				16B09D7A176EE1EC00B39F81 /* CAXException.cpp */,
+				16B09D7B176EE1EC00B39F81 /* CAXException.h */,
+			);
+			name = apple.prv;
+			path = ../Classes/Drivers/apple.prv;
 			sourceTree = "<group>";
 		};
 		16CCEB361592FEF600A16A3C /* ace */ = {
@@ -2997,6 +3092,10 @@
 				16E00A771608696600B35D3F /* SystemAudio.mm */,
 				16E00A781608696600B35D3F /* URLCodec.h */,
 				16E00A791608696600B35D3F /* URLCodec.mm */,
+				16B09D8B176EE28200B39F81 /* MicRecorder.h */,
+				16B09D8C176EE28200B39F81 /* MicRecorder.mm */,
+				16B09D93176EE37100B39F81 /* AudioFile.h */,
+				16B09D94176EE37100B39F81 /* AudioFile.mm */,
 			);
 			name = Codec;
 			path = ../Classes/Codec;
@@ -3690,6 +3789,16 @@
 				16B09D45176EC8E500B39F81 /* pynnt.mm in Sources */,
 				16B09D49176EC97300B39F81 /* PythonWebServer.cpp in Sources */,
 				16B09D4B176EC97300B39F81 /* PythonWebServer.mm in Sources */,
+				16B09D63176EDA6B00B39F81 /* MicDevice.cpp in Sources */,
+				16B09D65176EDA6B00B39F81 /* MicDevice.mm in Sources */,
+				16B09D6B176EDCDE00B39F81 /* Error+NNT.mm in Sources */,
+				16B09D7C176EE1EC00B39F81 /* CAAudioFileFormats.cpp in Sources */,
+				16B09D7E176EE1EC00B39F81 /* CABufferList.cpp in Sources */,
+				16B09D85176EE1EC00B39F81 /* CAPThread.cpp in Sources */,
+				16B09D87176EE1EC00B39F81 /* CAStreamBasicDescription.cpp in Sources */,
+				16B09D89176EE1EC00B39F81 /* CAXException.cpp in Sources */,
+				16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */,
+				16B09D96176EE37100B39F81 /* AudioFile.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

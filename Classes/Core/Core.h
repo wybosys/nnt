@@ -1886,6 +1886,8 @@ static void nnt_assert(bool exp, char const* file, ulong line)
 
 # endif
 
+# include "Error+NNT.h"
+
 // hook
 # ifdef NNT_OBJC
 

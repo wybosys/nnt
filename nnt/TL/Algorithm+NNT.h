@@ -616,6 +616,7 @@ public:
     
     typedef ActionT action_type;
     typedef typename T::value_type value_type;
+    typedef T type;
     
     initializer(value_type const& _0)
     {

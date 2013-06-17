@@ -724,8 +724,6 @@ public:
         [wrapper release];
     }
     
-public:
-    
     void emit(id signal, id result = 0, void* data = 0)
     {
         [_self emit:signal result:result data:data sender:this];
@@ -936,6 +934,12 @@ public:
     void replace(objc_type* obj)
     {
         _set(obj);
+    }
+    
+    template <typename cfT>
+    cfT cf() const
+    {
+        return (cfT)_self;
     }
     
 protected:

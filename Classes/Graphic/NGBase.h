@@ -467,7 +467,7 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
-# include "Math+NNT.h"
+# include "../Math/Math+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(cg)
