@@ -897,7 +897,7 @@ public:
         return argu[idx];
     }
     
-    CmdArguments argu;
+    cmd::Arguments argu;
     
 };
 

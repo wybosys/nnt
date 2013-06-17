@@ -134,8 +134,6 @@ public:
         }
     }
     
-protected:
-    
 };
 
 NNT_END_NS

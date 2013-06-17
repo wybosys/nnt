@@ -4,6 +4,7 @@
 # include "../../Core/App.h"
 # include "../../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
+# include "Python+NNT.h"
 
 NNT_BEGIN_HEADER_C
 
@@ -144,7 +145,7 @@ NNT_BEGIN_NS(script)
 
 # ifndef NNT_TARGET_IOS
 
-core::string GetPythonLibraryPath()
+core::string GetPythonLibraryPath(void)
 {
     return Environment::workingDirectory() + "/python";
 }

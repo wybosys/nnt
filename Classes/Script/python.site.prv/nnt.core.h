@@ -4,6 +4,8 @@
 
 NNT_BEGIN_HEADER_C
 
+NNT_EXTERN void PyNnt_LoadCoreModule_objc(PyObject*);
+
 NNT_EXTERN void PyNnt_LoadCoreModule(PyObject*);
 
 NNT_END_HEADER_C

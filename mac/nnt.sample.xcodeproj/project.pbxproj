@@ -330,6 +330,31 @@
 		16AC3B5A15088B9F007AC666 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B5915088B9F007AC666 /* Core.cpp */; };
 		16AC3B5D15089A23007AC666 /* PropertyTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16AC3B5B15089A23007AC666 /* PropertyTree.cpp */; };
 		16AC3B601508A92F007AC666 /* libmysqlclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AC3B5F1508A92F007AC666 /* libmysqlclient.a */; };
+		16B09CF8176EB00A00B39F81 /* VoiceObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09CF5176EB00A00B39F81 /* VoiceObject.cpp */; };
+		16B09CFA176EB00A00B39F81 /* VoiceObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09CF7176EB00A00B39F81 /* VoiceObject.mm */; };
+		16B09CFE176EB30100B39F81 /* AudioObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09CFB176EB30100B39F81 /* AudioObject.cpp */; };
+		16B09D00176EB30100B39F81 /* AudioObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09CFD176EB30100B39F81 /* AudioObject.mm */; };
+		16B09D04176EB56C00B39F81 /* AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D01176EB56C00B39F81 /* AudioDevice.cpp */; };
+		16B09D06176EB56C00B39F81 /* AudioDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D03176EB56C00B39F81 /* AudioDevice.mm */; };
+		16B09D25176EBEA100B39F81 /* AppStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D23176EBEA100B39F81 /* AppStatistics.mm */; };
+		16B09D2C176EC89800B39F81 /* Python+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D27176EC89800B39F81 /* Python+NNT.cpp */; };
+		16B09D2D176EC89800B39F81 /* Python+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D28176EC89800B39F81 /* Python+NNT.h */; };
+		16B09D2E176EC89800B39F81 /* Python+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D29176EC89800B39F81 /* Python+NNT.mm */; };
+		16B09D2F176EC89800B39F81 /* PythonExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D2A176EC89800B39F81 /* PythonExtension.cpp */; };
+		16B09D30176EC89800B39F81 /* PythonExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D2B176EC89800B39F81 /* PythonExtension.h */; };
+		16B09D32176EC8B100B39F81 /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D31176EC8B100B39F81 /* libpython.dylib */; };
+		16B09D3D176EC8E500B39F81 /* nnt.core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D34176EC8E500B39F81 /* nnt.core.cpp */; };
+		16B09D3E176EC8E500B39F81 /* nnt.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D35176EC8E500B39F81 /* nnt.core.h */; };
+		16B09D3F176EC8E500B39F81 /* nnt.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D36176EC8E500B39F81 /* nnt.core.m */; };
+		16B09D40176EC8E500B39F81 /* nnt.modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D37176EC8E500B39F81 /* nnt.modules.cpp */; };
+		16B09D41176EC8E500B39F81 /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D38176EC8E500B39F81 /* nnt.modules.h */; };
+		16B09D42176EC8E500B39F81 /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D39176EC8E500B39F81 /* nnt.modules.m */; };
+		16B09D43176EC8E500B39F81 /* pynnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D3A176EC8E500B39F81 /* pynnt.cpp */; };
+		16B09D44176EC8E500B39F81 /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D3B176EC8E500B39F81 /* pynnt.h */; };
+		16B09D45176EC8E500B39F81 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D3C176EC8E500B39F81 /* pynnt.mm */; };
+		16B09D49176EC97300B39F81 /* PythonWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D46176EC97200B39F81 /* PythonWebServer.cpp */; };
+		16B09D4A176EC97300B39F81 /* PythonWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D47176EC97200B39F81 /* PythonWebServer.h */; };
+		16B09D4B176EC97300B39F81 /* PythonWebServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D48176EC97300B39F81 /* PythonWebServer.mm */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
 		16C44CC114A02D6100775B19 /* NSViewController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBD14A02D6100775B19 /* NSViewController+NNT.mm */; };
@@ -410,8 +435,6 @@
 		16E4E6EA15074EBC00B6B7E8 /* PostgreSql+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E015074EBB00B6B7E8 /* PostgreSql+NNT.cpp */; };
 		16E4E6EE15074EBC00B6B7E8 /* SqlServer+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E4E6E415074EBC00B6B7E8 /* SqlServer+NNT.cpp */; };
 		16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16ED7D8F17544FAF0029A62E /* CudaFunction.cu */; };
-		16ED7D9217544FAF0029A62E /* CudaFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D9017544FAF0029A62E /* CudaFunction.h */; };
-		16ED7D941754535E0029A62E /* CudaMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 16ED7D931754535E0029A62E /* CudaMath.h */; };
 		16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
 		16ED7D971754663F0029A62E /* libcudart.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
 		16F2AF2515327A2C0047DB0B /* NSTableView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */; };
@@ -1064,6 +1087,35 @@
 		16AC3B5B15089A23007AC666 /* PropertyTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PropertyTree.cpp; sourceTree = "<group>"; };
 		16AC3B5C15089A23007AC666 /* PropertyTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyTree.h; sourceTree = "<group>"; };
 		16AC3B5F1508A92F007AC666 /* libmysqlclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysqlclient.a; path = ../lib/Mac/libmysqlclient.a; sourceTree = "<group>"; };
+		16B09CF5176EB00A00B39F81 /* VoiceObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VoiceObject.cpp; path = ../Classes/Drivers/VoiceObject.cpp; sourceTree = "<group>"; };
+		16B09CF6176EB00A00B39F81 /* VoiceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoiceObject.h; path = ../Classes/Drivers/VoiceObject.h; sourceTree = "<group>"; };
+		16B09CF7176EB00A00B39F81 /* VoiceObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VoiceObject.mm; path = ../Classes/Drivers/VoiceObject.mm; sourceTree = "<group>"; };
+		16B09CFB176EB30100B39F81 /* AudioObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioObject.cpp; path = ../Classes/Drivers/AudioObject.cpp; sourceTree = "<group>"; };
+		16B09CFC176EB30100B39F81 /* AudioObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioObject.h; path = ../Classes/Drivers/AudioObject.h; sourceTree = "<group>"; };
+		16B09CFD176EB30100B39F81 /* AudioObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioObject.mm; path = ../Classes/Drivers/AudioObject.mm; sourceTree = "<group>"; };
+		16B09D01176EB56C00B39F81 /* AudioDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDevice.cpp; path = ../Classes/Drivers/AudioDevice.cpp; sourceTree = "<group>"; };
+		16B09D02176EB56C00B39F81 /* AudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDevice.h; path = ../Classes/Drivers/AudioDevice.h; sourceTree = "<group>"; };
+		16B09D03176EB56C00B39F81 /* AudioDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioDevice.mm; path = ../Classes/Drivers/AudioDevice.mm; sourceTree = "<group>"; };
+		16B09D22176EBEA100B39F81 /* AppStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStatistics.h; sourceTree = "<group>"; };
+		16B09D23176EBEA100B39F81 /* AppStatistics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppStatistics.mm; sourceTree = "<group>"; };
+		16B09D27176EC89800B39F81 /* Python+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Python+NNT.cpp"; path = "../Classes/Script/Python+NNT.cpp"; sourceTree = "<group>"; };
+		16B09D28176EC89800B39F81 /* Python+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Python+NNT.h"; path = "../Classes/Script/Python+NNT.h"; sourceTree = "<group>"; };
+		16B09D29176EC89800B39F81 /* Python+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Python+NNT.mm"; path = "../Classes/Script/Python+NNT.mm"; sourceTree = "<group>"; };
+		16B09D2A176EC89800B39F81 /* PythonExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonExtension.cpp; path = ../Classes/Script/PythonExtension.cpp; sourceTree = "<group>"; };
+		16B09D2B176EC89800B39F81 /* PythonExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PythonExtension.h; path = ../Classes/Script/PythonExtension.h; sourceTree = "<group>"; };
+		16B09D31176EC8B100B39F81 /* libpython.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython.dylib; path = /usr/lib/libpython.dylib; sourceTree = "<absolute>"; };
+		16B09D34176EC8E500B39F81 /* nnt.core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.core.cpp; sourceTree = "<group>"; };
+		16B09D35176EC8E500B39F81 /* nnt.core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.core.h; sourceTree = "<group>"; };
+		16B09D36176EC8E500B39F81 /* nnt.core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.core.m; sourceTree = "<group>"; };
+		16B09D37176EC8E500B39F81 /* nnt.modules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.modules.cpp; sourceTree = "<group>"; };
+		16B09D38176EC8E500B39F81 /* nnt.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.modules.h; sourceTree = "<group>"; };
+		16B09D39176EC8E500B39F81 /* nnt.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.modules.m; sourceTree = "<group>"; };
+		16B09D3A176EC8E500B39F81 /* pynnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pynnt.cpp; sourceTree = "<group>"; };
+		16B09D3B176EC8E500B39F81 /* pynnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pynnt.h; sourceTree = "<group>"; };
+		16B09D3C176EC8E500B39F81 /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
+		16B09D46176EC97200B39F81 /* PythonWebServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PythonWebServer.cpp; path = ../Classes/Script/PythonWebServer.cpp; sourceTree = "<group>"; };
+		16B09D47176EC97200B39F81 /* PythonWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PythonWebServer.h; path = ../Classes/Script/PythonWebServer.h; sourceTree = "<group>"; };
+		16B09D48176EC97300B39F81 /* PythonWebServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PythonWebServer.mm; path = ../Classes/Script/PythonWebServer.mm; sourceTree = "<group>"; };
 		16BA0A081547C9570069968D /* DBMSOdbc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBMSOdbc.cpp; path = ../Classes/Store/DBMSOdbc.cpp; sourceTree = "<group>"; };
 		16BA0A091547C9570069968D /* DBMSOdbc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMSOdbc.h; path = ../Classes/Store/DBMSOdbc.h; sourceTree = "<group>"; };
 		16C44CBA14A02D6100775B19 /* NSView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+NNT.h"; path = "../Classes/UIKit/NSView+NNT.h"; sourceTree = "<group>"; };
@@ -1502,6 +1554,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B09D32176EC8B100B39F81 /* libpython.dylib in Frameworks */,
 				16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */,
 				1614B0F9174F6AC000C26C42 /* CUDA.framework in Frameworks */,
 				1614B0CB174F11C200C26C42 /* OpenCL.framework in Frameworks */,
@@ -2129,6 +2182,7 @@
 		169DD1151457A239000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16B09D31176EC8B100B39F81 /* libpython.dylib */,
 				16ED7D951754662F0029A62E /* libcudart.dylib */,
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
 				167D00DD1709672700B94D5E /* libQtCore.4.dylib */,
@@ -2215,6 +2269,7 @@
 				169DD13E1457A4A2000A9889 /* Core */,
 				167EBAD214F369B10012570E /* Context */,
 				167EBA9914F368670012570E /* Cross */,
+				16B09CF4176EAFF100B39F81 /* Drivers */,
 				16FE6652152704F90095521B /* Engine */,
 				16F98CF0149EE19800240965 /* Graphic */,
 				1614B0E3174F17B400C26C42 /* HGC */,
@@ -2223,6 +2278,7 @@
 				167EBABD14F3699C0012570E /* Model */,
 				16A44A5D149F158B00DF7F82 /* Parser */,
 				16DCDAEE16087ADE00E7308E /* Qt */,
+				16B09D26176EC87B00B39F81 /* Script */,
 				1627642C14F5E40D00DC935B /* Security */,
 				169DD2171457D510000A9889 /* Store */,
 				167D003B17095C7100B94D5E /* TL */,
@@ -2452,6 +2508,55 @@
 			);
 			name = lzx;
 			path = ../3rd/lzx;
+			sourceTree = "<group>";
+		};
+		16B09CF4176EAFF100B39F81 /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				16B09D01176EB56C00B39F81 /* AudioDevice.cpp */,
+				16B09D02176EB56C00B39F81 /* AudioDevice.h */,
+				16B09D03176EB56C00B39F81 /* AudioDevice.mm */,
+				16B09CFB176EB30100B39F81 /* AudioObject.cpp */,
+				16B09CFC176EB30100B39F81 /* AudioObject.h */,
+				16B09CFD176EB30100B39F81 /* AudioObject.mm */,
+				16B09CF5176EB00A00B39F81 /* VoiceObject.cpp */,
+				16B09CF6176EB00A00B39F81 /* VoiceObject.h */,
+				16B09CF7176EB00A00B39F81 /* VoiceObject.mm */,
+			);
+			name = Drivers;
+			sourceTree = "<group>";
+		};
+		16B09D26176EC87B00B39F81 /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				16B09D33176EC8E500B39F81 /* python.site.prv */,
+				16B09D27176EC89800B39F81 /* Python+NNT.cpp */,
+				16B09D28176EC89800B39F81 /* Python+NNT.h */,
+				16B09D29176EC89800B39F81 /* Python+NNT.mm */,
+				16B09D2A176EC89800B39F81 /* PythonExtension.cpp */,
+				16B09D2B176EC89800B39F81 /* PythonExtension.h */,
+				16B09D46176EC97200B39F81 /* PythonWebServer.cpp */,
+				16B09D47176EC97200B39F81 /* PythonWebServer.h */,
+				16B09D48176EC97300B39F81 /* PythonWebServer.mm */,
+			);
+			name = Script;
+			sourceTree = "<group>";
+		};
+		16B09D33176EC8E500B39F81 /* python.site.prv */ = {
+			isa = PBXGroup;
+			children = (
+				16B09D34176EC8E500B39F81 /* nnt.core.cpp */,
+				16B09D35176EC8E500B39F81 /* nnt.core.h */,
+				16B09D36176EC8E500B39F81 /* nnt.core.m */,
+				16B09D37176EC8E500B39F81 /* nnt.modules.cpp */,
+				16B09D38176EC8E500B39F81 /* nnt.modules.h */,
+				16B09D39176EC8E500B39F81 /* nnt.modules.m */,
+				16B09D3A176EC8E500B39F81 /* pynnt.cpp */,
+				16B09D3B176EC8E500B39F81 /* pynnt.h */,
+				16B09D3C176EC8E500B39F81 /* pynnt.mm */,
+			);
+			name = python.site.prv;
+			path = ../Classes/Script/python.site.prv;
 			sourceTree = "<group>";
 		};
 		16CCEB361592FEF600A16A3C /* ace */ = {
@@ -2875,6 +2980,8 @@
 		16E00A691608695700B35D3F /* BSE */ = {
 			isa = PBXGroup;
 			children = (
+				16B09D22176EBEA100B39F81 /* AppStatistics.h */,
+				16B09D23176EBEA100B39F81 /* AppStatistics.mm */,
 				167D00D11709616100B94D5E /* AEMInformation.h */,
 				167D00D21709616100B94D5E /* AEMInformation.mm */,
 				167D00D31709616100B94D5E /* AppInformation.h */,
@@ -3057,8 +3164,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16ED7D9217544FAF0029A62E /* CudaFunction.h in Headers */,
-				16ED7D941754535E0029A62E /* CudaMath.h in Headers */,
+				16B09D2D176EC89800B39F81 /* Python+NNT.h in Headers */,
+				16B09D30176EC89800B39F81 /* PythonExtension.h in Headers */,
+				16B09D3E176EC8E500B39F81 /* nnt.core.h in Headers */,
+				16B09D41176EC8E500B39F81 /* nnt.modules.h in Headers */,
+				16B09D44176EC8E500B39F81 /* pynnt.h in Headers */,
+				16B09D4A176EC97300B39F81 /* PythonWebServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,7 +3205,7 @@
 		169DD1091457A239000A9889 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 169DD10C1457A239000A9889 /* Build configuration list for PBXProject "nnt.sample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3577,6 +3688,24 @@
 				16F66892175330C20082F548 /* Allocate+NNT.cpp in Sources */,
 				16F66896175330D00082F548 /* Memory+NNT.cpp in Sources */,
 				16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */,
+				16B09CF8176EB00A00B39F81 /* VoiceObject.cpp in Sources */,
+				16B09CFA176EB00A00B39F81 /* VoiceObject.mm in Sources */,
+				16B09CFE176EB30100B39F81 /* AudioObject.cpp in Sources */,
+				16B09D00176EB30100B39F81 /* AudioObject.mm in Sources */,
+				16B09D04176EB56C00B39F81 /* AudioDevice.cpp in Sources */,
+				16B09D06176EB56C00B39F81 /* AudioDevice.mm in Sources */,
+				16B09D25176EBEA100B39F81 /* AppStatistics.mm in Sources */,
+				16B09D2C176EC89800B39F81 /* Python+NNT.cpp in Sources */,
+				16B09D2E176EC89800B39F81 /* Python+NNT.mm in Sources */,
+				16B09D2F176EC89800B39F81 /* PythonExtension.cpp in Sources */,
+				16B09D3D176EC8E500B39F81 /* nnt.core.cpp in Sources */,
+				16B09D3F176EC8E500B39F81 /* nnt.core.m in Sources */,
+				16B09D40176EC8E500B39F81 /* nnt.modules.cpp in Sources */,
+				16B09D42176EC8E500B39F81 /* nnt.modules.m in Sources */,
+				16B09D43176EC8E500B39F81 /* pynnt.cpp in Sources */,
+				16B09D45176EC8E500B39F81 /* pynnt.mm in Sources */,
+				16B09D49176EC97300B39F81 /* PythonWebServer.cpp in Sources */,
+				16B09D4B176EC97300B39F81 /* PythonWebServer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3646,6 +3775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -3678,6 +3808,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;

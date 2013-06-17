@@ -3,14 +3,18 @@
 # define __NNT_CMDARGUMENTS_8d75c9578a2944b8b50e8f054bba511a_H_INCLUDED
 
 NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cmd)
 
-class CmdArguments
+class Arguments
 {
 public:
 
-    CmdArguments(int argc = 0, char* argv[] = NULL);
+    Arguments(int argc = 0, char* argv[] = NULL);
+    Arguments(core::string const&);
+    ~Arguments();
 
     void set(int argc, char* argv[]);
+    void set(core::string const&);
     void clear();
 
     usize size() const;
@@ -21,6 +25,7 @@ public:
 
 };
 
+NNT_END_NS
 NNT_END_HEADER_CXX
 
 # endif

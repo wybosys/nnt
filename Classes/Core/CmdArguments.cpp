@@ -1,21 +1,33 @@
 
 # include "Core.h"
 # include "CmdArguments.h"
+# include <boost/algorithm/string.hpp>
 
 NNT_BEGIN_CXX
+NNT_BEGIN_NS(cmd)
 
-CmdArguments::CmdArguments(int argc /* = 0 */, char* argv[] /* = NULL */)
+Arguments::Arguments(int argc /* = 0 */, char* argv[] /* = NULL */)
 {
     set(argc, argv);
 }
 
-void CmdArguments::clear()
+Arguments::Arguments(core::string const& str)
+{
+    set(str);
+}
+
+Arguments::~Arguments()
+{
+    
+}
+
+void Arguments::clear()
 {
     cmd.clear();
     arguments.clear();
 }
 
-void CmdArguments::set(int argc, char* argv[])
+void Arguments::set(int argc, char* argv[])
 {
     clear();
 
@@ -26,14 +38,26 @@ void CmdArguments::set(int argc, char* argv[])
         arguments.push_back(argv[i]);
 }
 
-usize CmdArguments::size() const
+void Arguments::set(core::string const& str)
+{
+    clear();
+    
+    cmd = str;
+    
+    using namespace ::boost::algorithm;
+    
+    split< ::std::vector<core::string> >(arguments, str, is_any_of(" "));
+}
+
+usize Arguments::size() const
 {
     return arguments.size();
 }
 
-core::string& CmdArguments::operator [] (int idx)
+core::string& Arguments::operator [] (int idx)
 {
     return arguments[idx];
 }
 
+NNT_END_NS
 NNT_END_CXX

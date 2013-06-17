@@ -77,11 +77,15 @@ NNT_END_OBJC
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(script)
 
+# ifdef NNT_TARGET_IOS
+
 core::string GetPythonLibraryPath()
 {
     ns::String str = ns::URL::Bundle("python.bundle");
     return core::type_cast<core::string>(str);
 }
+
+# endif
 
 NNT_END_NS
 NNT_END_CXX

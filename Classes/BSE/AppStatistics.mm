@@ -1,7 +1,12 @@
 
 # include "Core.h"
 # include "AppStatistics.h"
+
+# ifdef NNT_TARGET_IOS
+
 # include "umeng/MobClick.h"
+
+# endif
 
 NNT_BEGIN_OBJC
 
@@ -26,6 +31,8 @@ NNTDECL_PRIVATE_IMPL(AppStatistics)
 }
 
 - (void)start {
+
+# ifdef NNT_TARGET_IOS
     
     [MobClick startWithAppkey:d_owner.appid];
     [MobClick setCrashReportEnabled:YES];
@@ -34,6 +41,8 @@ NNTDECL_PRIVATE_IMPL(AppStatistics)
 # ifdef NNT_DEBUG
     
     [MobClick setLogEnabled:YES];
+    
+# endif
     
 # endif
 }
