@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16B09D14176EB9C000B39F81 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D13176EB9C000B39F81 /* main.cpp */; };
 		16B09D16176EB9C000B39F81 /* audio.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B09D15176EB9C000B39F81 /* audio.1 */; };
+		16B09D4F176ED1BA00B39F81 /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D4E176ED1BA00B39F81 /* nnt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		16B09D10176EB9C000B39F81 /* audio */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = audio; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B09D13176EB9C000B39F81 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		16B09D15176EB9C000B39F81 /* audio.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = audio.1; sourceTree = "<group>"; };
+		16B09D4E176ED1BA00B39F81 /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nnt.framework; path = "../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug/nnt.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B09D4F176ED1BA00B39F81 /* nnt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 		16B09D07176EB9C000B39F81 = {
 			isa = PBXGroup;
 			children = (
+				16B09D4E176ED1BA00B39F81 /* nnt.framework */,
 				16B09D12176EB9C000B39F81 /* audio */,
 				16B09D11176EB9C000B39F81 /* Products */,
 			);
@@ -184,6 +188,10 @@
 		16B09D1A176EB9C000B39F81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -191,6 +199,10 @@
 		16B09D1B176EB9C000B39F81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -214,6 +226,7 @@
 				16B09D1B176EB9C000B39F81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
