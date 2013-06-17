@@ -338,22 +338,16 @@
 		16B09D06176EB56C00B39F81 /* AudioDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D03176EB56C00B39F81 /* AudioDevice.mm */; };
 		16B09D25176EBEA100B39F81 /* AppStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D23176EBEA100B39F81 /* AppStatistics.mm */; };
 		16B09D2C176EC89800B39F81 /* Python+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D27176EC89800B39F81 /* Python+NNT.cpp */; };
-		16B09D2D176EC89800B39F81 /* Python+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D28176EC89800B39F81 /* Python+NNT.h */; };
 		16B09D2E176EC89800B39F81 /* Python+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D29176EC89800B39F81 /* Python+NNT.mm */; };
 		16B09D2F176EC89800B39F81 /* PythonExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D2A176EC89800B39F81 /* PythonExtension.cpp */; };
-		16B09D30176EC89800B39F81 /* PythonExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D2B176EC89800B39F81 /* PythonExtension.h */; };
 		16B09D32176EC8B100B39F81 /* libpython.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D31176EC8B100B39F81 /* libpython.dylib */; };
 		16B09D3D176EC8E500B39F81 /* nnt.core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D34176EC8E500B39F81 /* nnt.core.cpp */; };
-		16B09D3E176EC8E500B39F81 /* nnt.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D35176EC8E500B39F81 /* nnt.core.h */; };
 		16B09D3F176EC8E500B39F81 /* nnt.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D36176EC8E500B39F81 /* nnt.core.m */; };
 		16B09D40176EC8E500B39F81 /* nnt.modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D37176EC8E500B39F81 /* nnt.modules.cpp */; };
-		16B09D41176EC8E500B39F81 /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D38176EC8E500B39F81 /* nnt.modules.h */; };
 		16B09D42176EC8E500B39F81 /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D39176EC8E500B39F81 /* nnt.modules.m */; };
 		16B09D43176EC8E500B39F81 /* pynnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D3A176EC8E500B39F81 /* pynnt.cpp */; };
-		16B09D44176EC8E500B39F81 /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D3B176EC8E500B39F81 /* pynnt.h */; };
 		16B09D45176EC8E500B39F81 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D3C176EC8E500B39F81 /* pynnt.mm */; };
 		16B09D49176EC97300B39F81 /* PythonWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D46176EC97200B39F81 /* PythonWebServer.cpp */; };
-		16B09D4A176EC97300B39F81 /* PythonWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16B09D47176EC97200B39F81 /* PythonWebServer.h */; };
 		16B09D4B176EC97300B39F81 /* PythonWebServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D48176EC97300B39F81 /* PythonWebServer.mm */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
@@ -3164,12 +3158,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B09D2D176EC89800B39F81 /* Python+NNT.h in Headers */,
-				16B09D30176EC89800B39F81 /* PythonExtension.h in Headers */,
-				16B09D3E176EC8E500B39F81 /* nnt.core.h in Headers */,
-				16B09D41176EC8E500B39F81 /* nnt.modules.h in Headers */,
-				16B09D44176EC8E500B39F81 /* pynnt.h in Headers */,
-				16B09D4A176EC97300B39F81 /* PythonWebServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
