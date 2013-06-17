@@ -3249,7 +3249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if ! [ -d $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers ]; then mkdir $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers; fi; cp -r $PWD/../nnt/* $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers/;";
+			shellScript = "if ! [ -d $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers ]; then\n   mkdir $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers\nfi\n\nif ! [ -L $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Headers ]; then\n   ln -s $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Headers\nfi\n\ncp -r $PWD/../nnt/* $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Headers/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
