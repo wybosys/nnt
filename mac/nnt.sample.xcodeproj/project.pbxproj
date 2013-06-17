@@ -92,6 +92,18 @@
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
 		1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */; };
 		1638EAC1150F2076000B8C35 /* ObjectDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAC0150F2076000B8C35 /* ObjectDL.cpp */; };
+		164093C6176F00010032E1FF /* cluster.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093B9176F00010032E1FF /* cluster.c */; };
+		164093C8176F00010032E1FF /* FFT2.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093BB176F00010032E1FF /* FFT2.c */; };
+		164093CB176F00010032E1FF /* gmm.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093BE176F00010032E1FF /* gmm.c */; };
+		164093CE176F00010032E1FF /* mfcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093C1176F00010032E1FF /* mfcc.c */; };
+		164093D1176F00010032E1FF /* voiceIdentify.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093C4176F00010032E1FF /* voiceIdentify.c */; };
+		164093D5176F021D0032E1FF /* VoicePrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093D3176F021D0032E1FF /* VoicePrint.cpp */; };
+		164093D9176F064C0032E1FF /* WavParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093D7176F064C0032E1FF /* WavParser.cpp */; };
+		164093DA176F064C0032E1FF /* WavParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093D8176F064C0032E1FF /* WavParser.h */; };
+		164093DD176F06810032E1FF /* RiffParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093DB176F06810032E1FF /* RiffParser.cpp */; };
+		164093DE176F06810032E1FF /* RiffParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093DC176F06810032E1FF /* RiffParser.h */; };
+		164093E5176F0C1E0032E1FF /* File+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093E3176F0C1E0032E1FF /* File+NNT.cpp */; };
+		164093E6176F0C1E0032E1FF /* File+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093E4176F0C1E0032E1FF /* File+NNT.h */; };
 		1648F871158727AF00A47990 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F86F158727AF00A47990 /* HtmlObjParser.mm */; };
 		1648F879158727BD00A47990 /* GifParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648F873158727BD00A47990 /* GifParser.m */; };
 		1648F87B158727BD00A47990 /* StyleStringParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F875158727BD00A47990 /* StyleStringParser.mm */; };
@@ -710,6 +722,19 @@
 		1638EABA150F13E0000B8C35 /* SOAPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPParser.h; sourceTree = "<group>"; };
 		1638EABE150F1DC9000B8C35 /* ObjectDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectDL.h; path = ../Classes/Core/ObjectDL.h; sourceTree = "<group>"; };
 		1638EAC0150F2076000B8C35 /* ObjectDL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectDL.cpp; path = ../Classes/Core/ObjectDL.cpp; sourceTree = "<group>"; };
+		164093B9176F00010032E1FF /* cluster.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cluster.c; sourceTree = "<group>"; };
+		164093BB176F00010032E1FF /* FFT2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FFT2.c; sourceTree = "<group>"; };
+		164093BE176F00010032E1FF /* gmm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gmm.c; sourceTree = "<group>"; };
+		164093C1176F00010032E1FF /* mfcc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mfcc.c; sourceTree = "<group>"; };
+		164093C4176F00010032E1FF /* voiceIdentify.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = voiceIdentify.c; sourceTree = "<group>"; };
+		164093D3176F021D0032E1FF /* VoicePrint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VoicePrint.cpp; sourceTree = "<group>"; };
+		164093D4176F021D0032E1FF /* VoicePrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePrint.h; sourceTree = "<group>"; };
+		164093D7176F064C0032E1FF /* WavParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WavParser.cpp; sourceTree = "<group>"; };
+		164093D8176F064C0032E1FF /* WavParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavParser.h; sourceTree = "<group>"; };
+		164093DB176F06810032E1FF /* RiffParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RiffParser.cpp; sourceTree = "<group>"; };
+		164093DC176F06810032E1FF /* RiffParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiffParser.h; sourceTree = "<group>"; };
+		164093E3176F0C1E0032E1FF /* File+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "File+NNT.cpp"; path = "../Classes/Core/File+NNT.cpp"; sourceTree = "<group>"; };
+		164093E4176F0C1E0032E1FF /* File+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "File+NNT.h"; path = "../Classes/Core/File+NNT.h"; sourceTree = "<group>"; };
 		16444E5F1560FACC006BB97C /* JuiceSVG.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceSVG.hpp; sourceTree = "<group>"; };
 		1648F86E158727AF00A47990 /* HtmlObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlObjParser.h; sourceTree = "<group>"; };
 		1648F86F158727AF00A47990 /* HtmlObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HtmlObjParser.mm; sourceTree = "<group>"; };
@@ -1886,6 +1911,27 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		164093B7176EFFF20032E1FF /* openvp */ = {
+			isa = PBXGroup;
+			children = (
+				164093B8176F00010032E1FF /* voice_id */,
+			);
+			name = openvp;
+			sourceTree = "<group>";
+		};
+		164093B8176F00010032E1FF /* voice_id */ = {
+			isa = PBXGroup;
+			children = (
+				164093B9176F00010032E1FF /* cluster.c */,
+				164093BB176F00010032E1FF /* FFT2.c */,
+				164093BE176F00010032E1FF /* gmm.c */,
+				164093C1176F00010032E1FF /* mfcc.c */,
+				164093C4176F00010032E1FF /* voiceIdentify.c */,
+			);
+			name = voice_id;
+			path = ../contrib/openvp/voice_id;
+			sourceTree = "<group>";
+		};
 		164F23BB1457DDE400396C42 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -2372,6 +2418,8 @@
 				169DD14F1457A4B5000A9889 /* FileCache.mm */,
 				1675ACF31515D0010046A630 /* Filesystem.cpp */,
 				1675ACF41515D0010046A630 /* Filesystem.h */,
+				164093E3176F0C1E0032E1FF /* File+NNT.cpp */,
+				164093E4176F0C1E0032E1FF /* File+NNT.h */,
 				1675ACF81515D1850046A630 /* FsSamba.cpp */,
 				1675ACF91515D1850046A630 /* FsSamba.h */,
 				169DD1501457A4B5000A9889 /* Layout.h */,
@@ -2506,6 +2554,10 @@
 		16A44A5D149F158B00DF7F82 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				164093DB176F06810032E1FF /* RiffParser.cpp */,
+				164093DC176F06810032E1FF /* RiffParser.h */,
+				164093D7176F064C0032E1FF /* WavParser.cpp */,
+				164093D8176F064C0032E1FF /* WavParser.h */,
 				167D00B71709614100B94D5E /* CSVParser.cpp */,
 				167D00B81709614100B94D5E /* CSVParser.h */,
 				167D00B91709614100B94D5E /* HttpParser.cpp */,
@@ -3027,6 +3079,7 @@
 		16DD17E5150471B10053958F /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				164093B7176EFFF20032E1FF /* openvp */,
 				167D00ED1709686B00B94D5E /* mongoose */,
 				16CCEB431592FF4F00A16A3C /* libxml */,
 				16CCEB361592FEF600A16A3C /* ace */,
@@ -3096,6 +3149,8 @@
 				16B09D8C176EE28200B39F81 /* MicRecorder.mm */,
 				16B09D93176EE37100B39F81 /* AudioFile.h */,
 				16B09D94176EE37100B39F81 /* AudioFile.mm */,
+				164093D3176F021D0032E1FF /* VoicePrint.cpp */,
+				164093D4176F021D0032E1FF /* VoicePrint.h */,
 			);
 			name = Codec;
 			path = ../Classes/Codec;
@@ -3255,6 +3310,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164093DA176F064C0032E1FF /* WavParser.h in Headers */,
+				164093DE176F06810032E1FF /* RiffParser.h in Headers */,
+				164093E6176F0C1E0032E1FF /* File+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3799,6 +3857,15 @@
 				16B09D89176EE1EC00B39F81 /* CAXException.cpp in Sources */,
 				16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */,
 				16B09D96176EE37100B39F81 /* AudioFile.mm in Sources */,
+				164093C6176F00010032E1FF /* cluster.c in Sources */,
+				164093C8176F00010032E1FF /* FFT2.c in Sources */,
+				164093CB176F00010032E1FF /* gmm.c in Sources */,
+				164093CE176F00010032E1FF /* mfcc.c in Sources */,
+				164093D1176F00010032E1FF /* voiceIdentify.c in Sources */,
+				164093D5176F021D0032E1FF /* VoicePrint.cpp in Sources */,
+				164093D9176F064C0032E1FF /* WavParser.cpp in Sources */,
+				164093DD176F06810032E1FF /* RiffParser.cpp in Sources */,
+				164093E5176F0C1E0032E1FF /* File+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

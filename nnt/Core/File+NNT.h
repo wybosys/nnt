@@ -11,15 +11,24 @@ NNT_BEGIN_HEADER_CXX
 class Io
 {
 public:
-
+    
     typedef ntl::mpl::position<0> read;
     typedef ntl::mpl::position<1> write;
     typedef ntl::mpl::position<2> create;
     typedef ntl::mpl::position<3> close;
     typedef ntl::mpl::position<4> binary;
     typedef ntl::mpl::position<5> append;
-
+    
+    enum seek
+    {
+        seek_cur = 0,
+        seek_end = 1,
+        seek_set = 2,
+    };
+    
 };
+
+NNT_BEGIN_NS(core)
 
 NNTCLASS(File);
 
@@ -37,7 +46,7 @@ public:
 # ifdef NNT_MSVC
     typedef HANDLE handle_type;
 # else
-    typedef void* handle_type;
+    typedef FILE* handle_type;
 # endif
 
 	File();
@@ -48,6 +57,9 @@ public:
 
     usize write(core::data const&);
     usize read(core::data&);
+    usize position() const;
+    void seek(offset, Io::seek);
+    usize length() const;
 
     handle_type handle() const;
 
@@ -75,6 +87,7 @@ protected:
 
 };
 
+NNT_END_NS
 NNT_END_HEADER_CXX
 
 # endif

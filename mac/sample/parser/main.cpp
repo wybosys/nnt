@@ -1,14 +1,18 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNt.h>
+# include <nnt/Parser/XmlParser.h>
+# include <nnt/Parser/SOAPParser.h>
+# include <nnt/Core/ObjectDL.h>
+# include <nnt/Parser/SoapObject.h>
+# include <nnt/Core/Resource+NNt.h>
+# include <nnt/Parser/RiffParser.h>
+# include <nnt/Parser/WavParser.h>
+# include <nnt/Core/File+NNT.h>
 
-# include <wsi/Parser/XmlParser.h>
-# include <wsi/Parser/SOAPParser.h>
-# include <wsi/Core/ObjectDL.h>
-# include <wsi/Cross/SoapObject.h>
-# include <wsi/Core/WSIResource.h>
+NNT_USINGCXXNAMESPACE;
 
 class Stock
-: public ::wsi::soap::Object
+: public soap::Object
 {
 public:
     
@@ -18,22 +22,18 @@ public:
     
     SOAPDECL_METHOD(GetStockPrice)
     {
-        ::wsi::lang::Field* fid = returns["Price"];
-        fid->value = ::wsi::variant_t(66.6);
+        lang::Field* fid = returns["Price"];
+        fid->value = variant_t(66.6);
         return 0;
     }
     
 };
 
-int main (int argc, const char * argv[])
+void test_soap()
 {
-    ::wsi::lang::Namespace* nm = ::wsi::soap::getNamespace();
-    nm->classes["Stock"] = Stock::Class();
-    
-    if (1)
     {
-        wsi::parser::XmlDocument xml;
-        wsi::core::string str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \
+        parser::XmlDocument xml;
+        core::string str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \
         <!--  Copyright w3school.com.cn --> \
         <note> \
         <to time=\"2012-3-1\">George</to> \
@@ -45,31 +45,8 @@ int main (int argc, const char * argv[])
         trace_msg(xml.to_string());
     }
     
-    if (1)
     {
-        wsi::parser::XmlDocument xml;
-        wsi::core::string str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \
-        <note><test>xx</test></note> ";
-        xml.parse_string(str);
-        trace_msg(xml.root()->to_string(false));
-    }
-    
-    if (1)
-    {
-        wsi::parser::XmlDocument xml;
-        if (xml.parse_file("test.xml")) 
-        {
-            trace_msg(xml.to_string());
-        }
-        else
-        {
-            trace_msg("failed to open xml.");
-        }
-    }
-    
-    if (1)
-    {
-        wsi::core::string str = "<?xml version=\"1.0\"?>\
+        core::string str = "<?xml version=\"1.0\"?>\
         <soap:Envelope\
         xmlns:soap=\"http://www.w3.org/2001/12/soap-envelope\"\
         soap:encodingStyle=\"http://www.w3.org/2001/12/soap-encoding\">\
@@ -80,14 +57,59 @@ int main (int argc, const char * argv[])
         </soap:Body>\
         </soap:Envelope>";
         
-        wsi::parser::SoapDocument soap;
+        parser::SoapDocument soap;
         soap.parse_string(str);
         trace_msg(soap.to_string());
         
-        wsi::soap::Invoker invoker(soap);        
+        soap::Invoker invoker(soap);
         invoker.invoke();
-        trace_msg(soap.to_string());        
+        trace_msg(soap.to_string());
     }
+}
+
+void test_xml()
+{
+    {
+        parser::XmlDocument xml;
+        core::string str = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \
+        <note><test>xx</test></note> ";
+        xml.parse_string(str);
+        trace_msg(xml.root()->to_string(false));
+    }
+    
+    {
+        parser::XmlDocument xml;
+        if (xml.parse_file("test.xml"))
+        {
+            trace_msg(xml.to_string());
+        }
+        else
+        {
+            trace_msg("failed to open xml.");
+        }
+    }
+}
+
+void test_wav()
+{
+    core::File fd;
+    fd.open(core::FileUrl<>("word.wav"), mask_t().on<Io::read>());
+    core::data da(fd.length());
+    fd.read(da);
+    fd.close();
+    
+    parser::Wav wv;
+    wv.parse(da);
+}
+
+int main (int argc, const char * argv[])
+{
+    lang::Namespace* nm = soap::getNamespace();
+    nm->classes["Stock"] = Stock::Class();
+    
+    if (1) test_soap();
+    if (1) test_xml();
+    if (1) test_wav();
     
     return 0;
 }

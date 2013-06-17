@@ -1,0 +1,28 @@
+
+# ifndef __NNT_VOICEPRINT_054E3B6DF8FD4E7A9AFA4B8AE7861F37_H_INCLUDED
+# define __NNT_VOICEPRINT_054E3B6DF8FD4E7A9AFA4B8AE7861F37_H_INCLUDED
+
+# ifdef NNT_CXX
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(vp)
+
+NNTDECL_PRIVATE_HEAD_CXX(Digest);
+
+class Digest
+{
+    NNTDECL_PRIVATE_CXX(Digest);
+    
+public:
+    
+    Digest();
+    ~Digest();
+    
+};
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
+
+# endif

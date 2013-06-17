@@ -19,6 +19,26 @@ using ::std::auto_ptr;
 
 # endif
 
+class offsets
+{
+public:
+    
+    template <typename valT, typename ptrT>
+    static valT pop(ptrT *& ptr)
+    {
+        return *((valT*&)ptr)++;
+    }
+    
+    template <typename ptrT>
+    static ptrT* preoff(ptrT *& ptr, usize off)
+    {
+        ptrT* ret = ptr;
+        ((byte*&)ptr) += off;
+        return ret;
+    }
+    
+};
+
 template <>
 inline_impl data type_cast<data, ntl::string>(ntl::string const& str)
 {

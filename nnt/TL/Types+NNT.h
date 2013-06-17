@@ -117,6 +117,24 @@ public:
             return opt(_val & r, true);
         return opt(r, true);
     }
+    
+    opt operator + (opt const& r) const
+    {
+        if (_flag && !r._flag)
+            return opt(_val, true);
+        if (r._flag && !_flag)
+            return opt(r._val, true);
+        if (_flag && r._flag)
+            return opt(_val + r._val, true);
+        return opt(false);
+    }
+    
+    opt operator + (valT const& r) const
+    {
+        if (_flag)
+            return opt(_val + r, true);
+        return opt(r, true);
+    }
 
     opt operator << (failed const& r) const
     {

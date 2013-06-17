@@ -24,11 +24,21 @@ public:
 
 };
 
-template <typename strT, typename sysT = os_type, typename spaceT = space_type>
+template <typename strT = ntl::string, typename sysT = os_type, typename spaceT = space_type>
 class FileUrl
     : public Url<strT, sysT>
 {
     typedef Url<strT, sysT> super;
+    
+public:
+    
+    typedef typename super::string_type string_type;
+    
+    FileUrl(string_type const& s)
+    {
+        this->path = s;
+    }
+    
 };
 
 template <typename strT = ntl::string, typename sysT = os_type, typename spaceT = space_type>

@@ -3,6 +3,7 @@
 # include "File+NNT.h"
 
 NNT_BEGIN_CXX
+NNT_BEGIN_NS(core)
 
 NNTDECL_PRIVATE_BEGIN_CXX(File)
 
@@ -37,6 +38,10 @@ void close()
 # ifdef NNT_KERNEL_SPACE
     ::ZwClose(file);
 # endif
+    
+# else
+    
+    ::fclose(file);
 
 # endif
 
@@ -107,6 +112,14 @@ bool File::open(url_type const& path, mask_t const& flag)
         );
 
 # endif
+    
+# else
+    
+    core::string mode = opt<core::string>(flag.checked<Io::read>())["r"] + opt<core::string>(flag.checked<Io::write>())["w"] +
+    opt<core::string>(flag.checked<Io::append>())["a"] +
+    opt<core::string>(flag.checked<Io::create>())["+"] +
+    opt<core::string>(flag.checked<Io::binary>())["b"];
+    d_ptr->file = fopen(file.c_str(), mode.c_str());
 
 # endif
 
@@ -152,6 +165,10 @@ usize File::write(core::data const& da)
     return sta.Information;
 
 # endif
+    
+# else
+    
+    return fwrite(da.bytes(), sizeof(byte), da.length(), d_ptr->file);
 
 # endif
 
@@ -192,10 +209,57 @@ usize File::read(core::data& da)
     return da.length();
 
 # endif
+    
+# else
+    
+    ssize_t readed = fread(da.bytes(), sizeof(byte), da.length(), d_ptr->file);
+    da.set_length(readed);
+    return readed;
 
 # endif
 
     return 0;
+}
+
+usize File::position() const
+{
+# ifdef NNT_MSVC
+    
+# else
+    
+    return ftell(d_ptr->file);
+    
+# endif
+    
+    return 0;
+}
+
+void File::seek(offset off, Io::seek m)
+{
+# ifdef NNT_MSVC
+    
+# else
+    
+    int md;
+    switch (m)
+    {
+        case Io::seek_cur: md = SEEK_CUR; break;
+        case Io::seek_end: md = SEEK_END; break;
+        case Io::seek_set: md = SEEK_SET; break;
+    }
+    
+    fseek(d_ptr->file, off, md);
+
+# endif
+}
+
+usize File::length() const
+{
+    usize pos = position();
+    down_const(this)->seek(0, Io::seek_end);
+    usize ret = position();
+    down_const(this)->seek(pos, Io::seek_set);
+    return ret;
 }
 
 File::handle_type File::handle() const
@@ -237,4 +301,5 @@ bool FileIo::control(ulong code)
     return ret;
 }
 
+NNT_END_NS
 NNT_END_CXX

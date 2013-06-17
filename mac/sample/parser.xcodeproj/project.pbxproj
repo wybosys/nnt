@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		162BA6B9150DE19D00F33E1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162BA6B8150DE19D00F33E1D /* Foundation.framework */; };
+		164093E0176F0A370032E1FF /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 164093DF176F0A370032E1FF /* nnt.framework */; };
+		164093E2176F0B670032E1FF /* word.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 164093E1176F0B470032E1FF /* word.wav */; };
 		16D3D2D1153EAC3D003A33CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16D3D2D0153EAC3D003A33CE /* main.cpp */; };
 		16D3D2D2153EAC8E003A33CE /* test.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16D3D2CE153EAB1D003A33CE /* test.xml */; };
 /* End PBXBuildFile section */
@@ -20,6 +21,7 @@
 			dstSubfolderSpec = 6;
 			files = (
 				16D3D2D2153EAC8E003A33CE /* test.xml in CopyFiles */,
+				164093E2176F0B670032E1FF /* word.wav in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -27,9 +29,10 @@
 
 /* Begin PBXFileReference section */
 		162BA6B4150DE19D00F33E1D /* parser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = parser; sourceTree = BUILT_PRODUCTS_DIR; };
-		162BA6B8150DE19D00F33E1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		162BA6BE150DE19D00F33E1D /* parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "parser-Prefix.pch"; sourceTree = "<group>"; };
 		162BA6BF150DE19D00F33E1D /* parser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = parser.1; sourceTree = "<group>"; };
+		164093DF176F0A370032E1FF /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nnt.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug/nnt.framework"; sourceTree = "<absolute>"; };
+		164093E1176F0B470032E1FF /* word.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = word.wav; path = ../../../data/word.wav; sourceTree = "<group>"; };
 		16D3D2CE153EAB1D003A33CE /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		16D3D2D0153EAC3D003A33CE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				162BA6B9150DE19D00F33E1D /* Foundation.framework in Frameworks */,
+				164093E0176F0A370032E1FF /* nnt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +69,7 @@
 		162BA6B7150DE19D00F33E1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				162BA6B8150DE19D00F33E1D /* Foundation.framework */,
+				164093DF176F0A370032E1FF /* nnt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -75,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				16D3D2D0153EAC3D003A33CE /* main.cpp */,
+				164093E1176F0B470032E1FF /* word.wav */,
 				16D3D2CE153EAB1D003A33CE /* test.xml */,
 				162BA6BF150DE19D00F33E1D /* parser.1 */,
 				162BA6BD150DE19D00F33E1D /* Supporting Files */,
@@ -198,6 +202,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "parser/parser-Prefix.pch";
@@ -211,6 +216,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-cbtkincitxowbqahtdcgjukvsdjx/Build/Products/Debug\"",
+					"\"/Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "parser/parser-Prefix.pch";

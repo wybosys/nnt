@@ -835,6 +835,9 @@ NNT_FLOAT_EXPRESS(typedef float real);
    typedef int sindex, ssize, sinteger, integer;
 #endif
 
+typedef longlong offset;
+typedef ulonglong uoffset;
+
 # define MCOMMA ,
 # define MDOT .
 # define MSEMICOLON ;
