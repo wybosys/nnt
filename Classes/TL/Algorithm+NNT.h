@@ -37,6 +37,13 @@ public:
         return ret;
     }
     
+    template <typename ptrT>
+    static ptrT* offset(ptrT *& ptr, usize off)
+    {
+        ((byte*&)ptr) += off;
+        return ptr;
+    }
+    
 };
 
 template <>

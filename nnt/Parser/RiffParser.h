@@ -6,10 +6,29 @@ NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(parser)
 
 class Riff
+: public cxx::Object<>
 {
 public:
     
+    class Identity
+    {
+    public:
+        
+        Identity(char const*);
+        
+        operator dword () const
+        {
+            return _idr;
+        }
+        
+    protected:
+        
+        dword _idr;
+        
+    };
+    
     class Chunk
+    : public VirObject
     {
     public:
         
@@ -18,19 +37,25 @@ public:
         
         void clear();
         void remove();
-        Chunk* add();
         
         Chunk* prev;
         Chunk* next;
         
-        dword idr;
+        virtual bool read(void**);
+        virtual void fill(void*, usize);
+        virtual Chunk* create() const;
+        
+        dword idr, type;
         core::data data;
+        Chunk* child;
+        
     };
     
     Riff();
     ~Riff();
     
-    bool parse(core::data const&);
+    virtual bool parse(core::data const&);
+    virtual Chunk* create_chunk() const;
     
     Chunk root;
     

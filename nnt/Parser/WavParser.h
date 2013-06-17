@@ -15,6 +15,17 @@ public:
     Wav();
     ~Wav();
     
+    virtual bool parse(core::data const&);
+    virtual Chunk* create_chunk() const;
+    
+    uint tag;
+    uint channel;
+    uint sample_rate;
+    uint abps; // avg bytes per second.
+    uint align;
+    uint bps; // bits per sample.
+    uint additions;
+    
 };
 
 NNT_END_NS
