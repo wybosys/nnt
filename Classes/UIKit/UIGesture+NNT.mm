@@ -65,7 +65,7 @@ NNTOBJECT_IMPL_NOSIGNALS;
 NNTUI_GESTURE_INITSIGNAL;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
+    //[super touchesBegan:touches withEvent:event];
 
     if (NNT_OBJCXX_ISTYPE(self)) {
         ((ui::gesture::tpl::IGesture*)NNT_OBJCXX_TYPE(self))->touches_begin(ns::Set(touches), ui::Event(event));
@@ -73,7 +73,7 @@ NNTUI_GESTURE_INITSIGNAL;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesMoved:touches withEvent:event];
+    //[super touchesMoved:touches withEvent:event];
     
     if (NNT_OBJCXX_ISTYPE(self)) {
         ((ui::gesture::tpl::IGesture*)NNT_OBJCXX_TYPE(self))->touches_moved(ns::Set(touches), ui::Event(event));
@@ -81,7 +81,7 @@ NNTUI_GESTURE_INITSIGNAL;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesEnded:touches withEvent:event];
+    //[super touchesEnded:touches withEvent:event];
     
     if (NNT_OBJCXX_ISTYPE(self)) {
         ((ui::gesture::tpl::IGesture*)NNT_OBJCXX_TYPE(self))->touches_end(ns::Set(touches), ui::Event(event));
@@ -91,7 +91,7 @@ NNTUI_GESTURE_INITSIGNAL;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesCancelled:touches withEvent:event];
+    //[super touchesCancelled:touches withEvent:event];
     
     if (NNT_OBJCXX_ISTYPE(self)) {
         ((ui::gesture::tpl::IGesture*)NNT_OBJCXX_TYPE(self))->touches_cancel(ns::Set(touches), ui::Event(event));

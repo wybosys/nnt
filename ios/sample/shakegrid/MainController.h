@@ -4,8 +4,6 @@
 
 NNTAPP_BEGIN
 
-using namespace ::wsi;
-
 class ShakeGrid
 : public ui::Grid
 {
