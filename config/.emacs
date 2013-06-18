@@ -539,6 +539,9 @@
 ;(require 'auto-complete)
 ;(global-auto-complete-mode t)
 
+;; hex mode.
+(add-to-list 'auto-mode-alist '("\\.wav\\'" . hexl-mode))
+
 ;; buffer
 (defun my-switch-to-lastbuffer ()
 	(interactive)
