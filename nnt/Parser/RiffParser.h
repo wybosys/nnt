@@ -42,6 +42,7 @@ public:
         Chunk* next;
         
         virtual bool read(void**);
+        virtual bool save();
         virtual void fill(void*, usize);
         virtual Chunk* create() const;
         
@@ -55,6 +56,7 @@ public:
     ~Riff();
     
     virtual bool parse(core::data const&);
+    virtual bool save(core::data&) const;
     virtual Chunk* create_chunk() const;
     
     Chunk root;

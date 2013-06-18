@@ -95,6 +95,26 @@ public:
     {
         return _obj;
     }
+    
+    value_type* operator ++ ()
+    {
+        return ++_obj;
+    }
+    
+    value_type* operator ++ (int)
+    {
+        return _obj++;
+    }
+    
+    value_type* operator -- ()
+    {
+        return --_obj;
+    }
+    
+    value_type* operator -- (int)
+    {
+        return _obj--;
+    }
 
 protected:
 

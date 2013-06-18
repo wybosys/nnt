@@ -267,6 +267,29 @@ File::handle_type File::handle() const
     return d_ptr->file;
 }
 
+bool File::ReadAll(url_type const& path, core::data &da)
+{
+    File f;
+    if (!f.open(path, mask_t().on<Io::read>()))
+        return false;
+    da.resize(f.length());
+    f.read(da);
+    f.close();
+    return true;
+}
+
+bool File::SaveAll(url_type const& path, core::data const& da)
+{
+    File f;
+    if (!f.open(path, mask_t().on<Io::write>().on<Io::create>()))
+        return false;
+    f.write(da);
+    f.close();
+    return true;
+}
+
+// fileio
+
 FileIo::FileIo(File& f)
 : _file(f)
 {

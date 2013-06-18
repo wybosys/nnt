@@ -16,15 +16,43 @@ public:
     ~Wav();
     
     virtual bool parse(core::data const&);
+    virtual bool save(core::data&) const;
     virtual Chunk* create_chunk() const;
     
-    uint tag;
-    uint channel;
-    uint sample_rate;
-    uint abps; // avg bytes per second.
-    uint align;
-    uint bps; // bits per sample.
-    uint additions;
+    uint channel() const
+    {
+        return _channel;
+    }
+    
+    uint sample_rate() const
+    {
+        return _sample_rate;
+    }
+    
+    uint avg_bps() const
+    {
+        return _abps;
+    }
+    
+    uint bps() const
+    {
+        return _bps;
+    }
+    
+    static bool is_data(Chunk const*);
+    
+    void set_channel(uint);
+    void set_bps(uint);
+    
+protected:
+    
+    uint _tag;
+    uint _channel;
+    uint _sample_rate;
+    uint _abps; // avg bytes per second.
+    uint _align;
+    uint _bps; // bits per sample.
+    uint _additions;
     
 };
 

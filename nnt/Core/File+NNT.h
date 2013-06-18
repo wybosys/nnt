@@ -61,8 +61,13 @@ public:
     void seek(offset, Io::seek);
     usize length() const;
 
+    //! return in-os file handle.
     handle_type handle() const;
-
+    
+    //! control contents from file.
+    static bool ReadAll(url_type const& path, core::data&);
+    static bool SaveAll(url_type const& path, core::data const&);
+    
 };
 
 NNTCLASS(FileIo);

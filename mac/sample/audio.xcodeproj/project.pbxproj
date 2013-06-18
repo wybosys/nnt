@@ -7,29 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1601083D176FFB470072A434 /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1601083C176FFB470072A434 /* nnt.framework */; };
+		163F0296176FF914003F2E77 /* word.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163F0294176FF90A003F2E77 /* word.wav */; };
+		163F0297176FF917003F2E77 /* word1.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 163F0295176FF90A003F2E77 /* word1.wav */; };
 		16B09D14176EB9C000B39F81 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D13176EB9C000B39F81 /* main.mm */; };
-		16B09D16176EB9C000B39F81 /* audio.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16B09D15176EB9C000B39F81 /* audio.1 */; };
-		16B09D51176ED43F00B39F81 /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B09D50176ED43F00B39F81 /* nnt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		16B09D0E176EB9C000B39F81 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
 			files = (
-				16B09D16176EB9C000B39F81 /* audio.1 in CopyFiles */,
+				163F0296176FF914003F2E77 /* word.wav in CopyFiles */,
+				163F0297176FF917003F2E77 /* word1.wav in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1601083C176FFB470072A434 /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nnt.framework; path = "../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug/nnt.framework"; sourceTree = "<group>"; };
+		163F0294176FF90A003F2E77 /* word.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = word.wav; path = ../../../data/word.wav; sourceTree = "<group>"; };
+		163F0295176FF90A003F2E77 /* word1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = word1.wav; path = ../../../data/word1.wav; sourceTree = "<group>"; };
 		16B09D10176EB9C000B39F81 /* audio */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = audio; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B09D13176EB9C000B39F81 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		16B09D15176EB9C000B39F81 /* audio.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = audio.1; sourceTree = "<group>"; };
-		16B09D50176ED43F00B39F81 /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nnt.framework; path = "../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/allinone-ejqijffttumzgubvjyjnvroiaiwu/Build/Products/Debug/nnt.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B09D51176ED43F00B39F81 /* nnt.framework in Frameworks */,
+				1601083D176FFB470072A434 /* nnt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +51,7 @@
 		16B09D07176EB9C000B39F81 = {
 			isa = PBXGroup;
 			children = (
-				16B09D50176ED43F00B39F81 /* nnt.framework */,
+				1601083C176FFB470072A434 /* nnt.framework */,
 				16B09D12176EB9C000B39F81 /* audio */,
 				16B09D11176EB9C000B39F81 /* Products */,
 			);
@@ -64,6 +68,8 @@
 		16B09D12176EB9C000B39F81 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				163F0294176FF90A003F2E77 /* word.wav */,
+				163F0295176FF90A003F2E77 /* word1.wav */,
 				16B09D13176EB9C000B39F81 /* main.mm */,
 				16B09D15176EB9C000B39F81 /* audio.1 */,
 			);
@@ -133,8 +139,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -165,8 +171,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;

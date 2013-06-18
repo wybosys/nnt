@@ -52,6 +52,11 @@ Riff::Chunk* Riff::Chunk::create() const
     return new Chunk;
 }
 
+bool Riff::Chunk::save()
+{
+    return true;
+}
+
 bool Riff::Chunk::read(void **d)
 {
     idr = core::offsets::pop<dword>(*d);
@@ -106,6 +111,50 @@ bool Riff::parse(core::data const& da)
             ck->next->prev = ck;
             ck = ck->next;
         }
+    }
+    return true;
+}
+
+bool Riff::save(core::data& da) const
+{
+    Chunk const* ck = &root;
+    while (ck)
+    {
+        static Riff::Identity RIFF("RIFF");
+        static Riff::Identity LIST("LIST");
+        
+        if (!core::down_const(ck)->save())
+            return false;
+        
+        da.append(ck->idr);
+        
+        core::data tmp;
+        
+        if (ck->idr == RIFF)
+        {
+            if (!core::down_const(ck->child)->save())
+                return false;
+            
+            tmp.append(ck->type);
+            tmp.append(ck->child->idr);
+            tmp.append<dword>(ck->child->data.length());
+            tmp.append(ck->child->data);
+        }
+        else if (ck->idr == LIST)
+        {
+            tmp.append(ck->child->idr);
+            tmp.append<dword>(ck->child->data.length() + 4);
+        }
+        else
+        {
+            tmp.append<dword>(ck->data.length());
+            tmp.append(ck->data);
+        }
+        
+        da.append<dword>(tmp.length());
+        da.append(tmp);
+        
+        ck = ck->next;
     }
     return true;
 }
