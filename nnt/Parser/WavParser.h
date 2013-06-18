@@ -19,6 +19,8 @@ public:
     virtual bool save(core::data&) const;
     virtual Chunk* create_chunk() const;
     
+    void collect(NRESET core::data&) const;
+    
     uint channel() const
     {
         return _channel;

@@ -929,7 +929,7 @@ Application::~Application()
 {
     [__rpool drain];
     
-    safe_delete_type(_argu, Arguments*);
+    safe_delete<Arguments>(_argu);
 }
     
 Application& Application::getInstance()

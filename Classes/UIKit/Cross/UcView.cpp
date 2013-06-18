@@ -27,7 +27,7 @@ void* View::Create()
 
 void View::Destroy(void*& obj)
 {
-    safe_delete_type(obj, QWidget*);
+    safe_delete<QWidget>(obj);
 }
 
 void View::Resize(void* obj, Size const& sz)

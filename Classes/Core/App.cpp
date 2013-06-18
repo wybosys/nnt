@@ -99,7 +99,7 @@ Console::Console()
 
 Console::~Console()
 {
-    safe_delete_type(_cmd, Arguments*);
+    safe_delete<Arguments>(_cmd);
 }
 
 void Console::load()

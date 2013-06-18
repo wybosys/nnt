@@ -225,8 +225,9 @@ SocketStreamAsync::SocketStreamAsync()
 
 SocketStreamAsync::~SocketStreamAsync()
 {
-    safe_delete_type(reader, ACE_Asynch_Read_Stream*);
-    safe_delete_type(writer, ACE_Asynch_Write_Stream*);
+    safe_delete<ACE_Asynch_Read_Stream>(reader);
+    safe_delete<ACE_Asynch_Write_Stream>(writer);
+
     core::clear_destroy(buffers);
 }
 

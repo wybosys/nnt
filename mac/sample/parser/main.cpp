@@ -100,6 +100,11 @@ void test_wav()
     
     parser::Wav wv;
     wv.parse(da);
+    wv.set_channel(2);
+    wv.set_bps(16);
+    da.clear();
+    wv.save(da);
+    core::File::SaveAll(core::File::url_type("word-tmp.wav"), da);
 }
 
 int main (int argc, const char * argv[])

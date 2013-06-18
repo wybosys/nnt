@@ -17,7 +17,8 @@ NNT_BEGIN_OBJC
 }
 
 - (void)dealloc {
-    safe_delete_type(_obj, core::Condition*);
+    safe_delete<core::Condition>(_obj);
+
     [super dealloc];
 }
 

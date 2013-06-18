@@ -637,6 +637,8 @@ public:
 
     usize length() const
     {
+        if (_offset >= this->_dl)
+            return 0;
         return this->_dl - _offset;
     }
 

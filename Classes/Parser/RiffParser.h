@@ -56,7 +56,7 @@ public:
     ~Riff();
     
     virtual bool parse(core::data const&);
-    virtual bool save(core::data&) const;
+    virtual bool save(RESET core::data&) const;
     virtual Chunk* create_chunk() const;
     
     Chunk root;

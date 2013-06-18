@@ -301,6 +301,7 @@
 
 # if defined(NNT_GCC) && !defined(NNT_CC_CUDA)
 #   pragma GCC diagnostic ignored "-Wunused-function"
+#   pragma GCC diagnostic ignored "-Wunnamed-type-template-args"
 #   pragma GCC diagnostic ignored "-Wreorder"
 # endif
 
@@ -1238,10 +1239,50 @@ typedef int bool;
 //#   define zero_release(obj) {}
 # endif
 
-# define safe_delete(obj) { if (obj) { delete obj; obj = 0; } }
-# define safe_delete_arr(arr) { if (arr) { delete [] arr; arr = 0; } }
-# define safe_delete_type(obj, type) { if (obj) { delete (type)obj; obj = 0; } }
-# define safe_delete_arr_type(arr, type) { if (arr) { delete [] (type)arr; arr = 0; } }
+# ifdef NNT_CXX
+
+template <typename T>
+inline void safe_delete(T*& obj)
+{
+    if (obj)
+    {
+        delete obj;
+        obj = 0;
+    }
+}
+
+template <typename T>
+inline void safe_delete(void*& obj)
+{
+    if (obj)
+    {
+        delete (T*) obj;
+        obj = 0;
+    }
+}
+
+template <typename Tdes, typename T, typename Tin>
+inline void safe_delete(Tin*& obj)
+{
+    if (obj)
+    {
+        delete (T*) (Tdes*) obj;
+        obj = 0;
+    }
+}
+
+template <typename T>
+inline void safe_delete_array(void*& obj)
+{
+    if (obj)
+    {
+        delete [] (T*) obj;
+        obj = 0;
+    }
+}
+
+# endif
+
 # define zero_drop(obj) { if(obj) { obj->drop(); obj = 0; } }
 # define safe_drop(obj) { if (obj && obj->drop()) obj = 0; }
 # define safe_grab(obj) { if (obj) obj->grab(); }
@@ -1278,6 +1319,14 @@ NNT_END_HEADER_C
 
 # ifndef RESULT
 #   define RESULT
+# endif
+
+# ifndef RESET
+#   define RESET
+# endif
+
+# ifndef NRESET
+#   define NRESET
 # endif
 
 static void null_func(void) {};

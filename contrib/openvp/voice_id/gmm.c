@@ -29,7 +29,7 @@ YYYY/MM/DD   X.Y      <作者或修改者名>    <修改内容>
 #include "gmm.h"
 #include "cluster.h"
 
-# define xprint printf
+# define xprint //printf
 # define _isnan isnan
 # define TEXT(exp) exp
 
@@ -254,7 +254,7 @@ static BOOL InitGMM(double ** X, GMM * pGMM, int train_frame_num, int m)
 				gmm.cMatrix[i][j] = sum[i][j] / clusterSize[i] - pow(gmm.u[i][j], 2);
 				if (gmm.cMatrix[i][j] < 0)
 				{
-					xprint("Initial value of GMM`cMatrix < 0");
+					//xprint("Initial value of GMM`cMatrix < 0");
 					gmm.f_FreeGMM(&gmm);
 					free(clusterIndex);
 					free(clusterSize);
@@ -273,8 +273,8 @@ static BOOL InitGMM(double ** X, GMM * pGMM, int train_frame_num, int m)
 		} // end if (clusterSize[i] > 0)
 		else
 		{
-			xprint(TEXT("InitGMM: Decrease M and increase frame number"));
-			xprint(TEXT("clusterSize[%d]: %d\n"), i, clusterSize[i]);
+			//xprint(TEXT("InitGMM: Decrease M and increase frame number"));
+			//xprint(TEXT("clusterSize[%d]: %d\n"), i, clusterSize[i]);
 			gmm.f_FreeGMM(&gmm);
 			free(clusterIndex);
 			free(clusterSize);
@@ -419,7 +419,7 @@ static BOOL BuildGMM(GMM * pGMM, GMM * Out, double ** X, int train_frame_num, in
 		}
 		if (sum_pb == 0 || _isnan(sum_pb))
 		{
-			xprint("sum_ph = %lf", sum_pb);
+			//xprint("sum_ph = %lf", sum_pb);
 			goto ERROR_RETURN;
 		}
 		for (j = 0; j < m; ++j)
@@ -458,7 +458,7 @@ static BOOL BuildGMM(GMM * pGMM, GMM * Out, double ** X, int train_frame_num, in
 			temp_gmm.cMatrix[j][k] -= pow(temp_gmm.u[j][k], 2);
 			if (temp_gmm.cMatrix[j][k] <= 0)
 			{
-				xprint("BuildGMM: cMatrix <= 0");
+				//xprint("BuildGMM: cMatrix <= 0");
 ERROR_RETURN:				
 				for (i = 0; i < train_frame_num; ++i)
 				{
@@ -536,7 +536,7 @@ BOOL GMMs(double ** X, GMM * pGMM, int train_frame_num, int m)
 		second = temp;
 		diff = GMM_diff(first, second);
 
-		xprint("diff = %lf\n", diff);
+		//xprint("diff = %lf\n", diff);
 	}
 	while (diff >= DIFF_GMM_VALUE);
 
@@ -586,7 +586,7 @@ BOOL GMM_identify(double ** X, double * value, GMM * pGMM, int frame_num, int m)
 // TODO sum_pb==0导致负无穷-nan的temp_max
 		if (sum_pb <= 0)
 		{
-			xprint("后验概率sum_pb <= 0");
+			//xprint("后验概率sum_pb <= 0");
 			return FALSE;
 		}
 		else
@@ -594,7 +594,7 @@ BOOL GMM_identify(double ** X, double * value, GMM * pGMM, int frame_num, int m)
 			temp += log(sum_pb);
 		}
 	}
-	xprint("max = %lf", temp);
+	//xprint("max = %lf", temp);
 
 	*value = temp;
 	free(pb);

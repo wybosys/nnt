@@ -9,6 +9,44 @@ NNT_BEGIN_NS(vp)
 
 NNTDECL_PRIVATE_HEAD_CXX(Digest);
 
+class mfcc
+{
+public:
+    
+    mfcc();
+    mfcc(mfcc const&);
+    ~mfcc();
+    
+    mfcc& operator = (mfcc const& r);
+    
+    operator double** () const
+    {
+        return (double**)_data;
+    }
+    
+protected:
+    
+    double** _data;
+    
+};
+
+class Result
+{
+public:
+    
+    Result();
+    ~Result();
+    
+    Result& operator = (Result const&);
+    real compare(Result const&);
+    
+    typedef core::vector<mfcc> mfccs_type;    
+    
+    mfccs_type mfccs;
+    void* gmms;
+    
+};
+
 class Digest
 {
     NNTDECL_PRIVATE_CXX(Digest);
@@ -17,6 +55,8 @@ public:
     
     Digest();
     ~Digest();
+    
+    Result calc(core::data const&);
     
 };
 

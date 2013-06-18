@@ -47,7 +47,7 @@ _Method::_Method()
 
 _Method::~_Method()
 {
-    safe_delete(_def);
+    safe_delete<void, PyMethodDef>(_def);
 }
 
 void _Method::set_name(ntl::string const& str)

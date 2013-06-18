@@ -82,6 +82,19 @@ bool Wav::is_data(Chunk const* ck)
     return ck->idr == IDR_DATA;
 }
 
+void Wav::collect(core::data &da) const
+{
+    Chunk const* ck = &root;
+    while (ck)
+    {
+        if (is_data(ck))
+            da.append(ck->data);
+        if (ck->child && is_data(ck->child))
+            da.append(ck->child->data);
+        ck = ck->next;
+    }
+}
+
 struct bytes_1_8
 {
     byte d;
@@ -114,48 +127,49 @@ static void convert(L const& f, R const& t);
 
 static void convert(bytes_1_8 const& f, bytes_2_8& t)
 {
-    t._0.d = t._1.d = f.d >> 1;
+    t._0.d = t._1.d = f.d;
 }
 
 static void convert(bytes_2_8 const& f, bytes_1_8& t)
 {
-    t.d = f._0.d + f._1.d;
+    t.d = MAX(f._0.d, f._1.d);
 }
 
 static void convert(bytes_1_8 const& f, bytes_1_16& t)
 {
-    t.d = f.d;
+    t.d = (f.d - 0x80) << 8;
 }
 
 static void convert(bytes_1_16 const&f , bytes_2_16& t)
 {
-    t._0.d = t._1.d = f.d >> 1;
+    t._0.d = t._1.d = f.d;
 }
 
 static void convert(bytes_2_16 const& f, bytes_1_16& t)
 {
-    t.d = f._0.d + f._1.d;
+    t.d = MAX(f._0.d, f._1.d);
 }
 
 static void convert(bytes_2_16 const& f, bytes_2_8& t)
 {
-    t._0.d = f._0.d >> 8;
-    t._1.d = f._1.d >> 8;
+    t._0.d = (f._0.d >> 8) + 0x80;
+    t._1.d = (f._1.d >> 8) + 0x80;
 }
 
 static void convert(bytes_1_16 const& f, bytes_1_8& t)
 {
-    t.d = f.d >> 8;
+    t.d = (f.d >> 8) + 0x80;
 }
 
 static void convert(bytes_2_8 const& f, bytes_2_16& t)
 {
-    t._0.d = f._0.d << 8;
-    t._1.d = f._1.d << 8;
+    t._0.d = (f._0.d - 0x80) << 8;
+    t._1.d = (f._1.d - 0x80) << 8;
 }
 
 # define update_info \
-_abps = _channel * _bps * _sample_rate / 8
+_abps = _channel * _bps * _sample_rate / 8; \
+_align = _bps / 8 * _channel;
 
 void Wav::set_channel(uint ch)
 {

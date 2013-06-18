@@ -895,6 +895,63 @@ inline void initial(T*& ptr)
     ptr = NULL;
 }
 
+template <typename T>
+inline T initial()
+{
+    T ret;
+    alloc::Heap<T>::Fill(&ret, 1, 0);
+    return ret;
+}
+
+# ifndef MAX
+#   define MAX(a, b) ((a) > (b) ? (a) : (b))
+# endif
+
+# ifndef MIN
+#   define MIN(a, b) ((a) < (b) ? (a) : (b))
+# endif
+
+template <typename valT, typename iterT>
+static valT max(iterT begin, iterT const& end)
+{
+    valT ret = 0;
+    for (; begin != end; ++begin)
+        ret = MAX(ret, *begin);
+    return ret;
+}
+
+template <typename valT, typename iterT>
+static valT min(iterT begin, iterT const& end)
+{
+    valT ret = 0xFFFFFFFF;
+    for (; begin != end; ++begin)
+        ret = MIN(ret, *begin);
+    return ret;
+}
+
+template <typename valT, typename iterT>
+static core::pair<valT, valT> max_min(iterT begin, iterT const& end)
+{
+    core::pair<valT, valT> ret;
+    ret.first = 0;
+    ret.second = 0xFFFFFFFF;
+    for (; begin != end; ++begin)
+    {
+        ret.first = MAX(ret.first, *begin);
+        ret.second = MIN(ret.second, *begin);
+    }
+    return ret;
+}
+
+template <typename valT, typename iterT>
+static valT sum(iterT begin, iterT const& end)
+{
+    valT ret = 0;
+    for (; begin != end; ++begin)
+        ret += *begin;
+    return ret;
+}
+
 NNT_END_NS
 
 NNT_END_HEADER_CXX
