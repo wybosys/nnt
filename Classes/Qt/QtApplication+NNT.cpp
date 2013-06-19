@@ -19,9 +19,12 @@ public:
     
     virtual void init()
     {
-        core::string logo = prv::resource_directory() + "logo.png";
-        QPixmap pm = QPixmap(QString::fromStdString(logo));
-        pm.fill(*this, 0, 0);
+        core::string f_logo = prv::resource_directory() + "logo.png";
+        QPixmap* pm = new QPixmap(QString::fromStdString(f_logo));
+        QLabel* logo = new QLabel;
+        logo->setPixmap(pm->scaled(64, 64));
+        QVBoxLayout* lyt = new QVBoxLayout(widget());
+        lyt->addWidget(logo);
     }
     
 };
@@ -59,7 +62,9 @@ int Application::execute(int argc, char **argv)
     
     // show main window.
 # ifdef NNT_DEBUG
+    
     _window->show();
+    
 # endif
     
     // into loop.

@@ -30,6 +30,7 @@ void Window::create()
 
 void Window::destroy()
 {
+    safe_delete<QWidget>(_qt);
     _delete<QMainWindow>();
 }
 

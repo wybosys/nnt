@@ -24,12 +24,17 @@ public:
     
     operator QMainWindow* () const
     {
-        return (QMainWindow*)_qt;
+        return (QMainWindow*)_obj;
     }
     
     QMainWindow* qt() const
     {
-        return (QMainWindow*)_qt;
+        return (QMainWindow*)_obj;
+    }
+    
+    QWidget* widget() const
+    {
+        return (QWidget*)_qt;
     }
     
 # endif
