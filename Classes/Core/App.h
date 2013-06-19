@@ -333,7 +333,7 @@ public:
     //! get instance.
     NNT_STATIC Environment* getInstance();
     
-    //! get directory.
+    //! working directory.
     NNT_STATIC core::string workingDirectory();
     
     //! replace working directory, not change to system's current directory.

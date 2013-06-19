@@ -19,10 +19,24 @@ public:
 public:
     
     void show();
+    
+# ifdef NNT_QT
+    
+    operator QMainWindow* () const
+    {
+        return (QMainWindow*)_qt;
+    }
+    
+    QMainWindow* qt() const
+    {
+        return (QMainWindow*)_qt;
+    }
+    
+# endif
   
 protected:
     
-    void* _4qt;
+    void* _qt;
     
 };
 

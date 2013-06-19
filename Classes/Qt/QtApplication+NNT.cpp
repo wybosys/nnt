@@ -1,9 +1,10 @@
 
 # include "Core.h"
-# include <QtGui/QtGui>
+# include "Qt+NNT.h"
 # include "QtApplication+NNT.h"
 # include "../UIKit/Cross/UcKernel.h"
 # include "../UIKit/Cross/UcWindow.h"
+# include "../Core/framework.prv.h"
 
 # ifdef NNT_MSVC
 # endif
@@ -16,9 +17,11 @@ class LogoWindow
 {
 public:
     
-    LogoWindow()
+    virtual void init()
     {
-        
+        core::string logo = prv::resource_directory() + "logo.png";
+        QPixmap pm = QPixmap(QString::fromStdString(logo));
+        pm.fill(*this, 0, 0);
     }
     
 };
@@ -49,6 +52,7 @@ int Application::execute(int argc, char **argv)
     
     // create root window.
     _window = new LogoWindow;
+    _window->init();
     
     // call nnt.
     this->load();

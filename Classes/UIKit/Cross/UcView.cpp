@@ -1,8 +1,8 @@
 
 # include "Core.h"
+# include "../../Qt/Qt+NNT.h"
 # include "UcKernel.h"
 # include "UcView.h"
-# include <QtGui/QtGui>
 # include "../../Core/App.h"
 # include "UcWindow.h"
 
@@ -18,6 +18,7 @@ UC_BEGIN
 
 NNT_BEGIN_NS(impl)
 
+/*
 void* View::Create()
 {
     Window* win = (Window*)cross::__gs_application->window();
@@ -29,6 +30,7 @@ void View::Destroy(void*& obj)
 {
     safe_delete<QWidget>(obj);
 }
+ */
 
 void View::Resize(void* obj, Size const& sz)
 {

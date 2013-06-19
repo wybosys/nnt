@@ -8,7 +8,6 @@ class IView
 {
 public:
     
-    virtual void init() = 0;
     virtual void resize(Size const&) = 0;
     virtual void show() = 0;
     
@@ -24,8 +23,6 @@ public:
     
     static void Resize(void*, Size const&);
     static void Show(void*);
-    static void* Create();
-    static void Destroy(void*&);
     
 };
 
@@ -48,16 +45,6 @@ public:
         PASS;
     }
     
-    void create()
-    {
-        this->_obj = impl::View::Create();
-    }
-    
-    void destroy()
-    {
-        impl::View::Destroy(this->_obj);
-    }
-    
     virtual void resize(Size const& sz)
     {
         impl::View::Resize(this->_obj, sz);
@@ -68,10 +55,19 @@ public:
         impl::View::Show(this->_obj);
     }
     
-    virtual void init()
+# ifdef NNT_QT
+    
+    operator QWidget* () const
     {
-        PASS;
+        return (QWidget*)this->_obj;
     }
+    
+    QWidget* qt() const
+    {
+        return (QWidget*)this->_obj; 
+    }
+    
+# endif
     
 };
 

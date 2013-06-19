@@ -14,11 +14,13 @@ NNT_BEGIN_OBJC
 
 + (NSString *)PathOf:(NSString*)tgt {
     NSString* bundle = [[NSBundle mainBundle] bundlePath];
-    
+
+    /*
 # ifdef NNT_TARGET_MAC
     bundle = [bundle stringByAppendingPathComponent:@"Contents"];
     bundle = [bundle stringByAppendingPathComponent:@"Resources"];
 # endif
+     */
     
     NSString* ret = [bundle stringByAppendingPathComponent:tgt];
     return ret;

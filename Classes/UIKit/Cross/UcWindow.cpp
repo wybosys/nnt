@@ -1,8 +1,8 @@
 
 # include "Core.h"
+# include "../../Qt/Qt+NNT.h"
 # include "UcKernel.h"
 # include "UcWindow.h"
-# include <QtGui/QtGui>
 
 UC_BEGIN
 
@@ -19,18 +19,23 @@ Window::~Window()
 void Window::create()
 {
     // create main window.
-    _create<QMainWindow>();
+    _new<QMainWindow>();
     
     QMainWindow* win = (QMainWindow*)_obj;
     
     // set center widget.
-    _4qt = new QWidget(win);
-    win->setCentralWidget((QWidget*)_4qt);
+    _qt = new QWidget(win);
+    win->setCentralWidget((QWidget*)_qt);
 }
 
 void Window::destroy()
 {
-    _destroy<QMainWindow>();
+    _delete<QMainWindow>();
+}
+
+void Window::init()
+{
+    
 }
 
 void Window::show()

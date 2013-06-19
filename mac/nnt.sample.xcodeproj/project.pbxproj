@@ -314,6 +314,8 @@
 		16A26B4317717AC200E2053A /* Statistic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B4117717AC200E2053A /* Statistic.cpp */; };
 		16A26B5E17719BCB00E2053A /* AmrParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B5C17719BCB00E2053A /* AmrParser.cpp */; };
 		16A26B621771A29C00E2053A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16A26B611771A29C00E2053A /* logo.png */; };
+		16A26B651771B1FB00E2053A /* framework.prv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B631771B1FA00E2053A /* framework.prv.cpp */; };
+		16A26B681771B25200E2053A /* framework.prv.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B671771B25100E2053A /* framework.prv.mm */; };
 		16A4498F149EEE3200DF7F82 /* NSFont+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A4498D149EEE3200DF7F82 /* NSFont+NNT.m */; };
 		16A449F0149F133800DF7F82 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449EF149F133800DF7F82 /* libxml2.dylib */; };
 		16A449F3149F137300DF7F82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449F2149F137300DF7F82 /* QuartzCore.framework */; };
@@ -459,6 +461,7 @@
 		16ED7D9117544FAF0029A62E /* CudaFunction.cu in Sources */ = {isa = PBXBuildFile; fileRef = 16ED7D8F17544FAF0029A62E /* CudaFunction.cu */; };
 		16ED7D961754662F0029A62E /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
 		16ED7D971754663F0029A62E /* libcudart.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 16ED7D951754662F0029A62E /* libcudart.dylib */; };
+		16EF3C7D1771B6BA00B484E9 /* Qt+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16EF3C7C1771B6BA00B484E9 /* Qt+NNT.cpp */; };
 		16F2AF2515327A2C0047DB0B /* NSTableView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */; };
 		16F2AF2E153285590047DB0B /* NSScrollView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */; };
 		16F2AF33153289AE0047DB0B /* NSButton+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF32153289AE0047DB0B /* NSButton+NNT.mm */; };
@@ -1081,6 +1084,9 @@
 		16A26B5C17719BCB00E2053A /* AmrParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AmrParser.cpp; sourceTree = "<group>"; };
 		16A26B5D17719BCB00E2053A /* AmrParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmrParser.h; sourceTree = "<group>"; };
 		16A26B611771A29C00E2053A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../Resources/logo.png; sourceTree = "<group>"; };
+		16A26B631771B1FA00E2053A /* framework.prv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = framework.prv.cpp; path = ../Classes/Core/framework.prv.cpp; sourceTree = "<group>"; };
+		16A26B641771B1FA00E2053A /* framework.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = framework.prv.h; path = ../Classes/Core/framework.prv.h; sourceTree = "<group>"; };
+		16A26B671771B25100E2053A /* framework.prv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = framework.prv.mm; path = ../Classes/Core/framework.prv.mm; sourceTree = "<group>"; };
 		16A4498C149EEE3200DF7F82 /* NSFont+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont+NNT.h"; sourceTree = "<group>"; };
 		16A4498D149EEE3200DF7F82 /* NSFont+NNT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont+NNT.m"; sourceTree = "<group>"; };
 		16A449EF149F133800DF7F82 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1500,6 +1506,8 @@
 		16ED7D9017544FAF0029A62E /* CudaFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaFunction.h; path = ../Classes/HGC/CudaFunction.h; sourceTree = "<group>"; };
 		16ED7D931754535E0029A62E /* CudaMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CudaMath.h; path = ../Classes/HGC/CudaMath.h; sourceTree = "<group>"; };
 		16ED7D951754662F0029A62E /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../lib/Mac/libcudart.dylib; sourceTree = "<group>"; };
+		16EF3C7A1771B6B300B484E9 /* Qt+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Qt+NNT.h"; sourceTree = "<group>"; };
+		16EF3C7C1771B6BA00B484E9 /* Qt+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Qt+NNT.cpp"; sourceTree = "<group>"; };
 		16F2AF2415327A2B0047DB0B /* NSTableView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSTableView+NNT.mm"; path = "../Classes/UIKit/NSTableView+NNT.mm"; sourceTree = "<group>"; };
 		16F2AF2B153284D60047DB0B /* NSScrollView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScrollView+NNT.h"; path = "../Classes/UIKit/NSScrollView+NNT.h"; sourceTree = "<group>"; };
 		16F2AF2D153285590047DB0B /* NSScrollView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSScrollView+NNT.mm"; path = "../Classes/UIKit/NSScrollView+NNT.mm"; sourceTree = "<group>"; };
@@ -2503,6 +2511,9 @@
 				1630A7F8171BFC1400B318A9 /* CmdArguments.h */,
 				1630A7F9171BFC1400B318A9 /* NetAddress.cpp */,
 				1630A7FA171BFC1400B318A9 /* NetAddress.h */,
+				16A26B671771B25100E2053A /* framework.prv.mm */,
+				16A26B631771B1FA00E2053A /* framework.prv.cpp */,
+				16A26B641771B1FA00E2053A /* framework.prv.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -2739,6 +2750,8 @@
 		16DCDAEE16087ADE00E7308E /* Qt */ = {
 			isa = PBXGroup;
 			children = (
+				16EF3C7A1771B6B300B484E9 /* Qt+NNT.h */,
+				16EF3C7C1771B6BA00B484E9 /* Qt+NNT.cpp */,
 				16DCDAEF16087ADE00E7308E /* QtApplication+NNT.cpp */,
 				16DCDAF016087ADE00E7308E /* QtApplication+NNT.h */,
 			);
@@ -3884,6 +3897,9 @@
 				164093E5176F0C1E0032E1FF /* File+NNT.cpp in Sources */,
 				16A26B4317717AC200E2053A /* Statistic.cpp in Sources */,
 				16A26B5E17719BCB00E2053A /* AmrParser.cpp in Sources */,
+				16A26B651771B1FB00E2053A /* framework.prv.cpp in Sources */,
+				16A26B681771B25200E2053A /* framework.prv.mm in Sources */,
+				16EF3C7D1771B6BA00B484E9 /* Qt+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

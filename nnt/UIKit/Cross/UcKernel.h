@@ -33,6 +33,7 @@ typedef ::nnt::Rect<Value, 2, Point, Size> Rect;
 
 # define UC_OBJECT \
 void create(); \
+virtual void init(); \
 void destroy();
 
 template <typename implT>
@@ -54,7 +55,7 @@ public:
         _impl()->create();
     }
     
-    ~Object()
+    virtual ~Object()
     {
         _impl()->destroy();
     }
@@ -69,6 +70,8 @@ public:
         PASS;
     }
     
+    virtual void init() = 0;
+
     void* object() const
     {
         return (void*)_obj;
@@ -99,13 +102,13 @@ protected:
     }
     
     template <typename tyT>
-    void _create()
+    void _new()
     {
         _obj = new tyT();
     }
 
     template <typename tyT>
-    void _destroy()
+    void _delete()
     {
         if (_obj)
         {
