@@ -501,7 +501,7 @@ NNT_BEGIN_OBJC
     self.cornerRadius = 5.f;
     self.masksToBounds = YES;
     
-    offset = 0;
+    self.offset = 0;
     adaptContent = YES;
     
     return self;
