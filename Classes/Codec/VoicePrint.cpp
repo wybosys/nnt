@@ -1,6 +1,7 @@
 
 # include "Core.h"
 # include "VoicePrint.h"
+# include "../Math/Statistic.h"
 
 NNT_BEGIN_HEADER_C
 
@@ -68,6 +69,9 @@ Result& Result::operator = (Result const& r)
 
 real Result::compare(Result const& r)
 {
+    if (!mfccs.size() || !r.mfccs.size())
+        return 0;
+    
     typedef core::vector<double> comprs_type;
     comprs_type comprs;
     
@@ -81,9 +85,13 @@ real Result::compare(Result const& r)
         {
             double val = fabs(tmp);
             comprs.push_back(val);
+            
+# ifdef NNT_DEBUG
+            printf("left %f\n", val);
+# endif
         }
     }
-    
+        
     for (mfccs_type::const_iterator each = r.mfccs.begin();
          each != r.mfccs.end();
          ++each)
@@ -93,20 +101,16 @@ real Result::compare(Result const& r)
         {
             double val = fabs(tmp);
             comprs.push_back(val);
+            
+# ifdef NNT_DEBUG
+            printf("right %f\n", val);
+# endif
         }
     }
     
-    /*
-    for (comprs_type::const_iterator each = comprs.begin();
-         each != comprs.end();
-         ++each)
-    {
-        printf("%f\n", *each);
-    }
-     */
-    
-    core::pair<double, double> mm = core::max_min<double>(comprs.begin(), comprs.end());
-    return mm.second / mm.first;
+    double dev = stat::deviation_standard<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end());
+    double avg = stat::sum<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end()) / comprs.size();
+    return dev / avg;
 }
 
 NNTDECL_PRIVATE_BEGIN_CXX(Digest)

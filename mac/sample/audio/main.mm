@@ -71,7 +71,7 @@ void test_vp()
 }
 
 int main(int argc, const char * argv[])
-{
+{    
     test_vp();
     return 0;
 }

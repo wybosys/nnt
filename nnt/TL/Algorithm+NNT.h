@@ -16,6 +16,7 @@ NNT_BEGIN_NS(ntl)
 # ifdef NNT_USER_SPACE
 
 using ::std::auto_ptr;
+using ::std::distance;
 
 # endif
 
@@ -886,8 +887,16 @@ static conT values(mapT const& map)
 }
 
 template <typename T>
-inline void initial(T&)
-{}
+inline void initial(T& val, typename is_class<T>::failed const& = failed_o)
+{
+    val = 0;
+}
+
+template <typename T>
+inline void initial(T& val, typename is_class<T>::match const& = match_o)
+{
+    PASS;
+}
 
 template <typename T>
 inline void initial(T*& ptr)

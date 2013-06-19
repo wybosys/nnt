@@ -179,6 +179,84 @@ inline_impl id to_object(valT const& obj)
 
 NNT_BEGIN_NS(ntl)
 
+typedef struct {} true_type;
+typedef struct {} false_type;
+
+NNT_CONST_VAR(true_type, true_o);
+NNT_CONST_VAR(false_type, false_o);
+
+typedef struct {} same_type;
+typedef struct {} diff_type;
+
+NNT_CONST_VAR(same_type, same_o);
+NNT_CONST_VAR(diff_type, diff_o);
+
+typedef struct {} match_type;
+typedef struct {} failed_type;
+
+NNT_CONST_VAR(match_type, match_o);
+NNT_CONST_VAR(failed_type, failed_o);
+
+template <typename lT, typename rT>
+struct is_same
+{
+    typedef diff_type type, diff;
+};
+
+template <typename lT>
+struct is_same<lT, lT>
+{
+    typedef same_type type, same;
+};
+
+typedef struct {} class_type;
+typedef struct {} std_type;
+
+NNT_CONST_VAR(class_type, class_o);
+NNT_CONST_VAR(std_type, std_o);
+
+template <typename T>
+struct is_stdtype
+{
+    typedef false_type type;
+};
+
+# define _NNTNTL_IMPL_STDTYPE(in) \
+template <> \
+struct is_stdtype < in > \
+{ \
+typedef true_type type; \
+};
+
+_NNTNTL_IMPL_STDTYPE(int);
+_NNTNTL_IMPL_STDTYPE(uint);
+_NNTNTL_IMPL_STDTYPE(float);
+_NNTNTL_IMPL_STDTYPE(double);
+_NNTNTL_IMPL_STDTYPE(void*);
+_NNTNTL_IMPL_STDTYPE(void);
+_NNTNTL_IMPL_STDTYPE(short);
+_NNTNTL_IMPL_STDTYPE(ushort);
+_NNTNTL_IMPL_STDTYPE(char);
+_NNTNTL_IMPL_STDTYPE(uchar);
+_NNTNTL_IMPL_STDTYPE(long);
+_NNTNTL_IMPL_STDTYPE(ulong);
+_NNTNTL_IMPL_STDTYPE(longlong);
+_NNTNTL_IMPL_STDTYPE(ulonglong);
+
+template <typename T, typename stdT = typename is_stdtype<T>::type >
+struct is_class
+{
+    typedef class_type type;
+    typedef match_type match;
+};
+
+template <typename T>
+struct is_class <T, true_type>
+{
+    typedef std_type type;
+    typedef failed_type failed;
+};
+
 typedef enum
 {
     copy = true,
@@ -196,12 +274,6 @@ struct triple_select<false, A, B>
 {
     typedef B type;
 };
-
-typedef struct {} true_type;
-typedef struct {} false_type;
-
-NNT_CONST_VAR(true_type, true_o);
-NNT_CONST_VAR(false_type, false_o);
 
 # define NNT_TL_CLASS_HAS_FUNC(func, name) \
 template<typename T, typename Sign> \
@@ -652,21 +724,6 @@ inline_impl TRe dup_cast(TIn const&)
 { 
 	return error_op(); 
 }
-
-typedef struct {} same_type;
-typedef struct {} differ_type;
-
-template <typename lT, typename rT>
-struct is_same
-{
-    typedef differ_type type, differ;
-};
-
-template <typename lT>
-struct is_same<lT, lT>
-{
-    typedef same_type type, same;
-};
 
 template <typename baseT, typename base2T>
 struct inherit

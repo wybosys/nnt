@@ -303,6 +303,7 @@
 #   pragma GCC diagnostic ignored "-Wunused-function"
 #   pragma GCC diagnostic ignored "-Wunnamed-type-template-args"
 #   pragma GCC diagnostic ignored "-Wreorder"
+#   pragma GCC diagnostic ignored "-Wlocal-type-template-args"
 # endif
 
 # ifdef __BLOCKS__
