@@ -198,7 +198,6 @@ NNT_END_HEADER_C
 @end
 
 void _trace_obj(NSString* __objname, id __obj) {
-# ifdef NNT_DEBUG
     NNTConsole* console = [NNTConsole shared];
         
     if (__obj == nil) {
@@ -255,29 +254,22 @@ void _trace_obj(NSString* __objname, id __obj) {
     }
     
     [console println:[NSString stringWithFormat:@"%@: %@", __objname, __obj]];
-# endif
 }
 
 void _trace_int(NSString *__objname, int __val) {
-# ifdef NNT_DEBUG
     NNTConsole* console = [NNTConsole shared];
     [console println:[NSString stringWithFormat:@"%@ dec= %d , hex= 0x%x, oct= 0%o , bin= b%@", __objname, __val, __val, __val, [NSNumber StringValueBinary:__val]]];
-# endif
 }
 
 void _trace_float(NSString *__objname, float __val) {
-# ifdef NNT_DEBUG
     NNTConsole* console = [NNTConsole shared];
     [console println:[NSString stringWithFormat:@"%@ = %f", __objname, __val]];
-# endif
 }
 
 void _trace_msg(NSString* __str) {
-# ifdef NNT_DEBUG
     NNTConsole* console = [NNTConsole shared];
     NSString* str = [__str unescape];
     [console println:str];
-# endif
 }
 
 NNT_END_OBJC

@@ -8,7 +8,8 @@ void test_statistic()
 {
     core::vector<int> d;
     d << 2 << 2 << 3 << 2 << 2;
-    double dev = sqrt(stat::deviation_standard_sq<double, core::vector<int>::const_iterator>::o(d.begin(), d.end()));
+    double dev = sqrt(stat::deviation<double, core::vector<int>::const_iterator>::o(d.begin(), d.end()));
+    trace_fmt("dev %f", dev);
 }
 
 NNTAPP_END

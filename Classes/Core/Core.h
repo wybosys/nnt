@@ -1767,6 +1767,17 @@ inline_impl void trace_msg(T const& str)
     trace_msg(str.c_str());
 }
 
+inline_impl int trace_fmt(char const* msg, ...)
+{
+    printf("nnt: ");
+    va_list va;
+    va_start(va, msg);
+    int ret = vprintf(msg, va);
+    va_end(va);
+    printf(".\n");
+    return ret;
+}
+
 #       endif // msvc.
 
 #     else // non cxx.
