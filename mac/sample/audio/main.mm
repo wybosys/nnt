@@ -70,8 +70,11 @@ void test_vp()
     
 }
 
-int main(int argc, const char * argv[])
+int main(int argc, char** argv)
 {    
-    test_vp();
-    return 0;
+    if (0) test_vp();
+    if (1) test_mic();
+    
+    cross::Application app;
+    return app.execute(argc, argv);
 }

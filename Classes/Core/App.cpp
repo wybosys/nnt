@@ -132,7 +132,7 @@ void act_break(int)
     __gs_app_wait.signal();
 }
 
-int Console::execute(int argc, char *argv[])
+int Console::execute(int argc, char **argv)
 {
     // process arguments.
     if (_cmd == NULL)

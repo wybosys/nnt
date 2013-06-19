@@ -11,6 +11,18 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cross)
 
+class LogoWindow
+: public ui::uc::Window
+{
+public:
+    
+    LogoWindow()
+    {
+        
+    }
+    
+};
+
 QApplication* __gsqt_application = NULL;
 Application* __gs_application = NULL;
 
@@ -30,19 +42,21 @@ void Application::load()
     PASS;
 }
 
-int Application::execute(int argc, char *argv[])
+int Application::execute(int argc, char **argv)
 {
     // create Qt App.
     __gsqt_application = new QApplication(argc, argv);
     
     // create root window.
-    _window = new ui::uc::Window;
+    _window = new LogoWindow;
     
     // call nnt.
     this->load();
     
     // show main window.
+# ifdef NNT_DEBUG
     _window->show();
+# endif
     
     // into loop.
     int ret = 0;

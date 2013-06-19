@@ -8,6 +8,7 @@ class IView
 {
 public:
     
+    virtual void init() = 0;
     virtual void resize(Size const&) = 0;
     virtual void show() = 0;
     
@@ -66,7 +67,12 @@ public:
     {
         impl::View::Show(this->_obj);
     }
-        
+    
+    virtual void init()
+    {
+        PASS;
+    }
+    
 };
 
 UC_END_HEADER

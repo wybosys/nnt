@@ -7,6 +7,13 @@
 
 # ifdef NNT_OBJC
 
+NNT_BEGIN_HEADER_OBJC
+
+@interface NNTMicRecorder : NNTObject
+@end
+
+NNT_END_HEADER_OBJC
+
 # ifdef NNT_CXX
 
 NNT_BEGIN_HEADER_CXX
@@ -15,7 +22,7 @@ NNT_BEGIN_NS(mic)
 NNTDECL_PRIVATE_HEAD_CXX(Recorder);
 
 class Recorder
-: public cxx::Object<>
+: public ns::Object<NNTMicRecorder>
 {
     
     NNTDECL_PRIVATE_CXX(Recorder);

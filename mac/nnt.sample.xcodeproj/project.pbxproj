@@ -99,11 +99,8 @@
 		164093D1176F00010032E1FF /* voiceIdentify.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093C4176F00010032E1FF /* voiceIdentify.c */; };
 		164093D5176F021D0032E1FF /* VoicePrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093D3176F021D0032E1FF /* VoicePrint.cpp */; };
 		164093D9176F064C0032E1FF /* WavParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093D7176F064C0032E1FF /* WavParser.cpp */; };
-		164093DA176F064C0032E1FF /* WavParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093D8176F064C0032E1FF /* WavParser.h */; };
 		164093DD176F06810032E1FF /* RiffParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093DB176F06810032E1FF /* RiffParser.cpp */; };
-		164093DE176F06810032E1FF /* RiffParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093DC176F06810032E1FF /* RiffParser.h */; };
 		164093E5176F0C1E0032E1FF /* File+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164093E3176F0C1E0032E1FF /* File+NNT.cpp */; };
-		164093E6176F0C1E0032E1FF /* File+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 164093E4176F0C1E0032E1FF /* File+NNT.h */; };
 		1648F871158727AF00A47990 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F86F158727AF00A47990 /* HtmlObjParser.mm */; };
 		1648F879158727BD00A47990 /* GifParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1648F873158727BD00A47990 /* GifParser.m */; };
 		1648F87B158727BD00A47990 /* StyleStringParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F875158727BD00A47990 /* StyleStringParser.mm */; };
@@ -315,7 +312,8 @@
 		169DD2311457D52E000A9889 /* Bdb+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 169DD2201457D52E000A9889 /* Bdb+NNT.m */; };
 		169DD2391457D52E000A9889 /* Sqlite+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD2281457D52E000A9889 /* Sqlite+NNT.mm */; };
 		16A26B4317717AC200E2053A /* Statistic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B4117717AC200E2053A /* Statistic.cpp */; };
-		16A26B4417717AC200E2053A /* Statistic.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A26B4217717AC200E2053A /* Statistic.h */; };
+		16A26B5E17719BCB00E2053A /* AmrParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A26B5C17719BCB00E2053A /* AmrParser.cpp */; };
+		16A26B621771A29C00E2053A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16A26B611771A29C00E2053A /* logo.png */; };
 		16A4498F149EEE3200DF7F82 /* NSFont+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A4498D149EEE3200DF7F82 /* NSFont+NNT.m */; };
 		16A449F0149F133800DF7F82 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449EF149F133800DF7F82 /* libxml2.dylib */; };
 		16A449F3149F137300DF7F82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A449F2149F137300DF7F82 /* QuartzCore.framework */; };
@@ -1080,6 +1078,9 @@
 		169DD2281457D52E000A9889 /* Sqlite+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Sqlite+NNT.mm"; path = "../Classes/Store/Sqlite+NNT.mm"; sourceTree = "<group>"; };
 		16A26B4117717AC200E2053A /* Statistic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Statistic.cpp; path = ../Classes/Math/Statistic.cpp; sourceTree = "<group>"; };
 		16A26B4217717AC200E2053A /* Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Statistic.h; path = ../Classes/Math/Statistic.h; sourceTree = "<group>"; };
+		16A26B5C17719BCB00E2053A /* AmrParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AmrParser.cpp; sourceTree = "<group>"; };
+		16A26B5D17719BCB00E2053A /* AmrParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmrParser.h; sourceTree = "<group>"; };
+		16A26B611771A29C00E2053A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../Resources/logo.png; sourceTree = "<group>"; };
 		16A4498C149EEE3200DF7F82 /* NSFont+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont+NNT.h"; sourceTree = "<group>"; };
 		16A4498D149EEE3200DF7F82 /* NSFont+NNT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont+NNT.m"; sourceTree = "<group>"; };
 		16A449EF149F133800DF7F82 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -2264,6 +2265,7 @@
 			children = (
 				169DD13C1457A497000A9889 /* Classes */,
 				16DD17E5150471B10053958F /* contrib */,
+				16A26B601771A24B00E2053A /* resources */,
 				169DD1BD1457A923000A9889 /* 3rd */,
 				169DD11C1457A239000A9889 /* nnt */,
 				169DD1151457A239000A9889 /* Frameworks */,
@@ -2555,9 +2557,19 @@
 			name = Store;
 			sourceTree = "<group>";
 		};
+		16A26B601771A24B00E2053A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				16A26B611771A29C00E2053A /* logo.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		16A44A5D149F158B00DF7F82 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				16A26B5C17719BCB00E2053A /* AmrParser.cpp */,
+				16A26B5D17719BCB00E2053A /* AmrParser.h */,
 				164093DB176F06810032E1FF /* RiffParser.cpp */,
 				164093DC176F06810032E1FF /* RiffParser.h */,
 				164093D7176F064C0032E1FF /* WavParser.cpp */,
@@ -3316,10 +3328,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				164093DA176F064C0032E1FF /* WavParser.h in Headers */,
-				164093DE176F06810032E1FF /* RiffParser.h in Headers */,
-				164093E6176F0C1E0032E1FF /* File+NNT.h in Headers */,
-				16A26B4417717AC200E2053A /* Statistic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3381,6 +3389,7 @@
 			files = (
 				16ED7D971754663F0029A62E /* libcudart.dylib in Resources */,
 				169DD1211457A239000A9889 /* InfoPlist.strings in Resources */,
+				16A26B621771A29C00E2053A /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3874,6 +3883,7 @@
 				164093DD176F06810032E1FF /* RiffParser.cpp in Sources */,
 				164093E5176F0C1E0032E1FF /* File+NNT.cpp in Sources */,
 				16A26B4317717AC200E2053A /* Statistic.cpp in Sources */,
+				16A26B5E17719BCB00E2053A /* AmrParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

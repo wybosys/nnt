@@ -290,6 +290,7 @@
 #   pragma warning (disable: 4275) // disable dll-interface warning.
 #   pragma warning (disable: 4819)
 #   pragma warning (disable: 4244)
+#   define NNT_DISABLE_WARNING(exp) warning (disable : exp)
 # endif
 
 # ifdef NNT_CLANG
@@ -304,6 +305,10 @@
 #   pragma GCC diagnostic ignored "-Wunnamed-type-template-args"
 #   pragma GCC diagnostic ignored "-Wreorder"
 #   pragma GCC diagnostic ignored "-Wlocal-type-template-args"
+# endif
+
+# ifdef NNT_GCC
+#   define NNT_DISABLE_WARNING(exp) GCC diagnostic ignored exp
 # endif
 
 # ifdef __BLOCKS__
@@ -738,6 +743,7 @@ namespace nnt {}
 
 # define is_no == NO
 # define is_yes == YES
+# define is_nil == nil
 
 # endif
 

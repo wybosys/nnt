@@ -23,7 +23,7 @@ public:
     virtual ~IApplication() {}
     
     //! execute.
-    virtual int execute(int argc, char *argv[]) = 0;
+    virtual int execute(int argc, char **argv) = 0;
 
     //! get arguments.
     virtual IArguments* arguments() = 0;
@@ -227,7 +227,7 @@ public:
     void open(ns::URL const& url);
     
     // impl.
-    virtual int execute(int argc, char *argv[]);
+    virtual int execute(int argc, char **argv);
     virtual void load();
     virtual IArguments* arguments();
     
@@ -365,7 +365,7 @@ public:
     ~Console();
 
     virtual void load();
-    virtual int execute(int argc, char *argv[]);
+    virtual int execute(int argc, char **argv);
     virtual IArguments* arguments();
 
 protected:
@@ -391,7 +391,7 @@ public:
     
     //! impl.
     virtual void load();
-    virtual int execute(int argc, char *argv[]);
+    virtual int execute(int argc, char **argv);
     virtual IArguments* arguments();
     
     // get.

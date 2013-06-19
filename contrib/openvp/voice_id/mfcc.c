@@ -166,8 +166,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
     double * pSave;                        // 合格语音存储地址
     double * pDiffHead = pDiffVoice;
     double * pDiffNext  = pDiffVoice;
-
-
+    
 	if (iFrameNum < train_frame_num)
 	{
 		return NULL;
@@ -191,7 +190,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
                 free(pTranDiff);
                 return NULL;
             }
-            len = pDiffNext - pDiffHead - FRAME_LEN/2;
+            len = (int)(pDiffNext - pDiffHead - FRAME_LEN/2);
             if (len > 0)
             {
                 memcpy(pSave, pDiffHead, len * sizeof(double));
@@ -209,7 +208,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
         PriorHalfFrame = NextHalfFrame;
     } // end: for(;;)
 
-    len = pDiffNext - pDiffHead + FRAME_LEN/2;
+    len = (int)(pDiffNext - pDiffHead + FRAME_LEN/2);
     if (len > 0)
     {
         memcpy(pSave, pDiffHead, len * sizeof(double));

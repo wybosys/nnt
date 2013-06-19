@@ -7,9 +7,7 @@ NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
 FormatType::FormatType()
-{
-    core::initial(_format);
-    
+{    
     _format.mChannelsPerFrame = 2;
     _format.mFormatID = kAudioFormatLinearPCM;
     _format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
@@ -18,6 +16,7 @@ FormatType::FormatType()
     _format.mFramesPerPacket = 1;
     _format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
     _format.mSampleRate = mic::Device::SampleRate();
+    _format.mReserved = 0;
 }
 
 FormatType::~FormatType()

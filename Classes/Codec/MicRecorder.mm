@@ -3,6 +3,24 @@
 # import "MicRecorder.h"
 # import <AudioToolbox/AudioToolbox.h>
 
+NNT_BEGIN_OBJC
+
+@implementation NNTMicRecorder
+
+- (id)init {
+    if ((self = [super init]) is_nil)
+        return nil;
+    return self;
+}
+
+- (void)dealloc {
+    [super dealloc];
+}
+
+@end
+
+NNT_END_OBJC
+
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(mic)
 

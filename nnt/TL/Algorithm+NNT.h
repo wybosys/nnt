@@ -920,6 +920,8 @@ inline T initial()
 #   define MIN(a, b) ((a) < (b) ? (a) : (b))
 # endif
 
+# ifdef NNT_STL
+
 template <typename valT, typename iterT>
 static valT max(iterT begin, iterT const& end)
 {
@@ -939,9 +941,9 @@ static valT min(iterT begin, iterT const& end)
 }
 
 template <typename valT, typename iterT>
-static core::pair<valT, valT> max_min(iterT begin, iterT const& end)
+static ::std::pair<valT, valT> max_min(iterT begin, iterT const& end)
 {
-    core::pair<valT, valT> ret;
+    ::std::pair<valT, valT> ret;
     ret.first = 0;
     ret.second = 0xFFFFFFFF;
     for (; begin != end; ++begin)
@@ -960,6 +962,8 @@ static valT sum(iterT begin, iterT const& end)
         ret += *begin;
     return ret;
 }
+
+# endif
 
 NNT_END_NS
 
