@@ -28,10 +28,51 @@ NNTDECL_PRIVATE_BEGIN_CXX(Recorder)
 
 void init()
 {
-    
+    stm = NULL;
 }
 
 void dealloc()
+{
+    close_stream();
+}
+
+bool open_stream()
+{
+    close_stream();
+    
+    OSStatus sta = AudioFileStreamOpen(d_owner,
+                                       HandlerPropertyListenerProc,
+                                       HandlerPacketsProc,
+                                       d_owner->type,
+                                       &stm);
+    
+    return sta == 0;
+}
+
+void close_stream()
+{
+    if (stm)
+    {
+        AudioFileStreamClose(stm);
+        stm = NULL;
+    }
+}
+
+static void HandlerPropertyListenerProc(
+                                        void *						inClientData,
+                                        AudioFileStreamID			inAudioFileStream,
+                                        AudioFileStreamPropertyID	inPropertyID,
+                                        UInt32 *					ioFlags)
+{
+    
+}
+
+static void HandlerPacketsProc(
+                               void *							inClientData,
+                               UInt32							inNumberBytes,
+                               UInt32							inNumberPackets,
+                               const void *					inInputData,
+                               AudioStreamPacketDescription	*inPacketDescriptions)
 {
     
 }
@@ -47,6 +88,7 @@ static void InputBufferHandler(void *                          inUserData,
 }
 
 AudioQueueRef queue;
+AudioFileStreamID stm;
 
 NNTDECL_PRIVATE_END_CXX
 
