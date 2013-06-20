@@ -156,13 +156,6 @@ void set_stream()
             // now set the magic cookie on the output file
             // even though some formats have cookies, some files don't take them, so we ignore the error
             /*err =*/
-            /*
-            AudioFileStreamSetProperty(
-                                       d_owner->stm,
-                                       kAudioFileStreamProperty_MagicCookieData,
-                                       propertySize,
-                                       magicCookie);
-             */
             AudioFileSetProperty(d_owner->stm, kAudioFilePropertyMagicCookieData, propertySize, magicCookie);
         }
 		free(magicCookie);
@@ -221,31 +214,7 @@ bool Buffer::open()
                                                     &format,
                                                     kAudioFileFlags_EraseFile,
                                                     &stm);
-    
-    /*OSStatus sta = AudioFileStreamOpen(this,
-                                       private_type::HandlerPropertyListener,
-                                       private_type::HandlerPackets,
-                                       type,
-                                       &stm);*/
-    
-    /*
-    OSStatus sta = AudioFileOpenWithCallbacks(this,
-                                              private_type::HandlerRead,
-                                              private_type::HandlerWrite,
-                                              private_type::HandlerGetSize,
-                                              private_type::HandlerSetSize,
-                                              type,
-                                              &stm);
-     */
-    /*
-    CFURLRef url = CFURLCreateFromFileSystemRepresentation(NULL, (Byte*)"tmpxx.aac", strlen("tmpxx.aac"), FALSE);
-    OSStatus sta = AudioFileCreateWithURL(url,
-                                          type,
-                                          &format,
-                                          kAudioFileFlags_EraseFile,
-                                          &stm);
-     */
-    
+        
     if (sta != 0)
     {
         trace_fmt("failed to open buffer, %s", (char*)&sta);
@@ -287,7 +256,6 @@ void Buffer::close()
     if (stm)
     {
         AudioFileClose(stm);
-        //AudioFileStreamClose(stm);
         stm = NULL;
     }
     

@@ -15,13 +15,6 @@ void Buffer::receive(AudioQueueRef inAQ, AudioQueueBufferRef inBuffer, const Aud
                                          packets,
                                          &inNumPackets,
                                          inBuffer->mAudioData);
-
-    /*
-    OSStatus sta = AudioFileStreamParseBytes(stm,
-                                             inBuffer->mAudioDataByteSize,
-                                             inBuffer->mAudioData,
-                                             kAudioFileStreamPropertyFlag_CacheProperty);
-     */
     
     if (sta == noErr)
     {
