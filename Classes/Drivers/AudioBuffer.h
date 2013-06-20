@@ -30,7 +30,7 @@ public:
 # ifdef NNT_MACH
     
     AudioQueueRef queue;
-    AudioFileStreamID stm;
+    AudioFileID stm;
     AudioFileTypeID type;
     AudioStreamBasicDescription format;
     bool used;

@@ -8,7 +8,6 @@ NNT_BEGIN_NS(audio)
 void Buffer::receive(AudioQueueRef inAQ, AudioQueueBufferRef inBuffer, const AudioTimeStamp *inStartTime, UInt32 inNumPackets, const AudioStreamPacketDescription *inPacketDesc)
 {
 
-    /*
     OSStatus sta = AudioFileWritePackets(stm,
                                          FALSE,
                                          inBuffer->mAudioDataByteSize,
@@ -16,12 +15,13 @@ void Buffer::receive(AudioQueueRef inAQ, AudioQueueBufferRef inBuffer, const Aud
                                          packets,
                                          &inNumPackets,
                                          inBuffer->mAudioData);
-     */
 
+    /*
     OSStatus sta = AudioFileStreamParseBytes(stm,
                                              inBuffer->mAudioDataByteSize,
                                              inBuffer->mAudioData,
                                              kAudioFileStreamPropertyFlag_CacheProperty);
+     */
     
     if (sta == noErr)
     {
@@ -34,9 +34,6 @@ void Buffer::receive(AudioQueueRef inAQ, AudioQueueBufferRef inBuffer, const Aud
         trace_fmt(@"failed to parse data, %.4s", (char*)&sta);
     }
 # endif
-    
-    //data = core::data((byte*)inBuffer->mAudioData, (usize)inBuffer->mAudioDataByteSize, core::assign);
-    //emit(kSignalBytesAvailable, cxx::eventobj_t::Data(&data));
     
     if (used)
     {

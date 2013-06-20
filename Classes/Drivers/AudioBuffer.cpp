@@ -36,8 +36,7 @@ void dealloc()
 
 # ifdef NNT_MACH
 
-static OSStatus HandlerRead(
-                            void *		inClientData,
+static OSStatus HandlerRead(void *		inClientData,
                             SInt64		inPosition,
                             UInt32	requestCount,
                             void *		buffer,
@@ -46,26 +45,35 @@ static OSStatus HandlerRead(
     return 0;
 }
 
-static OSStatus HandlerWrite(
-                             void * 		inClientData,
+static OSStatus HandlerWrite(void * 		inClientData,
                              SInt64		inPosition,
                              UInt32		requestCount,
                              const void *buffer,
                              UInt32    * actualCount)
 {
+    use<Buffer> buf = inClientData;
+    
+    // sig.
+    core::data tmp = core::data((byte*)buffer, (usize)requestCount, core::assign);
+    buf->emit(kSignalBytesAvailable, cxx::eventobj_t::Data(&tmp));
+    
+    // write.
+    buf->data.append((void*)buffer, requestCount);
+    *actualCount = requestCount;
+    
     return 0;
 }
 
-static SInt64 HandlerGetSize(
-                             void * 		inClientData)
+static SInt64 HandlerGetSize(void * 		inClientData)
 {
     return 0;
 }
 
-static OSStatus HandlerSetSize(
-                               void *		inClientData,
+static OSStatus HandlerSetSize(void *		inClientData,
                                SInt64		inSize)
 {
+    use<Buffer> buf = inClientData;
+    buf->data.resize(inSize);
     return 0;
 }
 
@@ -148,11 +156,14 @@ void set_stream()
             // now set the magic cookie on the output file
             // even though some formats have cookies, some files don't take them, so we ignore the error
             /*err =*/
+            /*
             AudioFileStreamSetProperty(
                                        d_owner->stm,
                                        kAudioFileStreamProperty_MagicCookieData,
                                        propertySize,
                                        magicCookie);
+             */
+            AudioFileSetProperty(d_owner->stm, kAudioFilePropertyMagicCookieData, propertySize, magicCookie);
         }
 		free(magicCookie);
 	}
@@ -200,12 +211,22 @@ bool Buffer::open()
     close();
     
 # ifdef NNT_MACH
+
+    OSStatus sta = AudioFileInitializeWithCallbacks(this,
+                                                    private_type::HandlerRead,
+                                                    private_type::HandlerWrite,
+                                                    private_type::HandlerGetSize,
+                                                    private_type::HandlerSetSize,
+                                                    type,
+                                                    &format,
+                                                    kAudioFileFlags_EraseFile,
+                                                    &stm);
     
-    OSStatus sta = AudioFileStreamOpen(this,
+    /*OSStatus sta = AudioFileStreamOpen(this,
                                        private_type::HandlerPropertyListener,
                                        private_type::HandlerPackets,
                                        type,
-                                       &stm);
+                                       &stm);*/
     
     /*
     OSStatus sta = AudioFileOpenWithCallbacks(this,
@@ -265,8 +286,8 @@ void Buffer::close()
     
     if (stm)
     {
-        //AudioFileClose(stm);
-        AudioFileStreamClose(stm);
+        AudioFileClose(stm);
+        //AudioFileStreamClose(stm);
         stm = NULL;
     }
     
