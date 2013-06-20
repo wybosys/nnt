@@ -103,6 +103,8 @@ bool Recorder::start()
         return false;
     }
     
+    format.update(d_ptr->queue);
+    
     // open stream.
     d_ptr->buffer.type = type;
     d_ptr->buffer.queue = d_ptr->queue;
@@ -120,9 +122,12 @@ bool Recorder::start()
         return false;
     }
     
+    d_ptr->buffer.used = true;
     suc = AudioQueueStart(d_ptr->queue, NULL);
+    
     if (suc != 0)
     {
+        d_ptr->buffer.used = false;
         trace_msg(@"failed to start audio queue");
         return false;
     }
@@ -132,12 +137,17 @@ bool Recorder::start()
 
 bool Recorder::stop()
 {
+    d_ptr->buffer.used = false;
+    
     if (d_ptr->queue)
     {
         AudioQueueStop(d_ptr->queue, YES);
         AudioQueueDispose(d_ptr->queue, YES);
         d_ptr->queue = NULL;
     }
+    
+    d_ptr->buffer.close();
+    
     return true;
 }
 

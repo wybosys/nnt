@@ -11,6 +11,7 @@ void init()
 {
 # ifdef NNT_MACH
     
+    d_owner->need_release = true;
     buffers.resize(3, NULL);
     
 # endif
@@ -20,11 +21,14 @@ void dealloc()
 {
 # ifdef NNT_MACH
     
-    for (core::vector<AudioQueueBufferRef>::iterator each = buffers.begin();
-         each != buffers.end();
-         ++each)
+    if (d_owner->need_release)
     {
-        AudioQueueFreeBuffer(d_owner->queue, *each);
+        for (core::vector<AudioQueueBufferRef>::iterator each = buffers.begin();
+             each != buffers.end();
+             ++each)
+        {
+            AudioQueueFreeBuffer(d_owner->queue, *each);
+        }
     }
     
 # endif
@@ -32,23 +36,56 @@ void dealloc()
 
 # ifdef NNT_MACH
 
-static void HandlerPropertyListenerProc(
-                                        void *						inClientData,
-                                        AudioFileStreamID			inAudioFileStream,
-                                        AudioFileStreamPropertyID	inPropertyID,
-                                        UInt32 *					ioFlags)
+static OSStatus HandlerRead(
+                            void *		inClientData,
+                            SInt64		inPosition,
+                            UInt32	requestCount,
+                            void *		buffer,
+                            UInt32 *	actualCount)
 {
-    
+    return 0;
 }
 
-static void HandlerPacketsProc(
-                               void *							inClientData,
-                               UInt32							inNumberBytes,
-                               UInt32							inNumberPackets,
-                               const void *					inInputData,
-                               AudioStreamPacketDescription	*inPacketDescriptions)
+static OSStatus HandlerWrite(
+                             void * 		inClientData,
+                             SInt64		inPosition,
+                             UInt32		requestCount,
+                             const void *buffer,
+                             UInt32    * actualCount)
 {
-    
+    return 0;
+}
+
+static SInt64 HandlerGetSize(
+                             void * 		inClientData)
+{
+    return 0;
+}
+
+static OSStatus HandlerSetSize(
+                               void *		inClientData,
+                               SInt64		inSize)
+{
+    return 0;
+}
+
+static void HandlerPropertyListener(
+                                    void *						inClientData,
+                                    AudioFileStreamID			inAudioFileStream,
+                                    AudioFileStreamPropertyID	inPropertyID,
+                                    UInt32 *					ioFlags)
+{
+    trace_msg("audio buffer property callback");
+}
+
+static void HandlerPackets(
+                           void *							inClientData,
+                           UInt32							inNumberBytes,
+                           UInt32							inNumberPackets,
+                           const void *					inInputData,
+                           AudioStreamPacketDescription	*inPacketDescriptions)
+{
+    trace_msg("audio buffer packets callback");
 }
 
 usize calc_buffer_size() const
@@ -58,12 +95,18 @@ usize calc_buffer_size() const
 	frames = (int)ceil(d_owner->seconds * d_owner->format.mSampleRate);
 	
 	if (d_owner->format.mBytesPerFrame > 0)
+    {
 		bytes = frames * d_owner->format.mBytesPerFrame;
-	else {
+	}
+    else
+    {
 		UInt32 maxPacketSize;
 		if (d_owner->format.mBytesPerPacket > 0)
+        {
 			maxPacketSize = d_owner->format.mBytesPerPacket;	// constant packet size
-		else {
+		}
+        else
+        {
 			UInt32 propertySize = sizeof(maxPacketSize);
             if (AudioQueueGetProperty(d_owner->queue,
                                       kAudioConverterPropertyMaximumOutputPacketSize,
@@ -83,6 +126,41 @@ usize calc_buffer_size() const
 	return bytes;
 }
 
+void set_stream()
+{
+    OSStatus err;
+	UInt32 propertySize;
+	
+	// get the magic cookie, if any, from the converter
+	err = AudioQueueGetPropertySize(d_owner->queue,
+                                    kAudioConverterCompressionMagicCookie,
+                                    &propertySize);
+	
+	if (err == noErr && propertySize > 0) {
+		// there is valid cookie data to be fetched;  get it
+		Byte *magicCookie = (Byte *)malloc(propertySize);
+        err = AudioQueueGetProperty(d_owner->queue,
+                                    kAudioConverterCompressionMagicCookie,
+                                    magicCookie,
+                                    &propertySize);
+        if (err == 0)
+        {
+            // now set the magic cookie on the output file
+            // even though some formats have cookies, some files don't take them, so we ignore the error
+            /*err =*/
+            AudioFileStreamSetProperty(
+                                       d_owner->stm,
+                                       kAudioFileStreamProperty_MagicCookieData,
+                                       propertySize,
+                                       magicCookie);
+        }
+		free(magicCookie);
+	}
+        
+    if (err != 0)
+        trace_fmt("failed to set stream, %.4s", &err);
+}
+
 core::vector<AudioQueueBufferRef> buffers;
 
 # endif
@@ -98,6 +176,8 @@ Buffer::Buffer()
     queue = NULL;
     stm = NULL;
     type = 0;
+    used = false;
+    packets = 0;
     
 # endif
     
@@ -122,26 +202,52 @@ bool Buffer::open()
 # ifdef NNT_MACH
     
     OSStatus sta = AudioFileStreamOpen(this,
-                                       private_type::HandlerPropertyListenerProc,
-                                       private_type::HandlerPacketsProc,
+                                       private_type::HandlerPropertyListener,
+                                       private_type::HandlerPackets,
                                        type,
                                        &stm);
     
+    /*
+    OSStatus sta = AudioFileOpenWithCallbacks(this,
+                                              private_type::HandlerRead,
+                                              private_type::HandlerWrite,
+                                              private_type::HandlerGetSize,
+                                              private_type::HandlerSetSize,
+                                              type,
+                                              &stm);
+     */
+    /*
+    CFURLRef url = CFURLCreateFromFileSystemRepresentation(NULL, (Byte*)"tmpxx.aac", strlen("tmpxx.aac"), FALSE);
+    OSStatus sta = AudioFileCreateWithURL(url,
+                                          type,
+                                          &format,
+                                          kAudioFileFlags_EraseFile,
+                                          &stm);
+     */
+    
     if (sta != 0)
+    {
+        trace_fmt("failed to open buffer, %s", (char*)&sta);
         return false;
+    }
+    
+    d_ptr->set_stream();    
     
     // alloc.
     usize sz = d_ptr->calc_buffer_size();
     if (sz == 0)
+    {
+        trace_fmt("failed to calc buffer size, %s", (char*)&sta);
         return false;
+    }
     
     for (core::vector<AudioQueueBufferRef>::iterator each = d_ptr->buffers.begin();
          each != d_ptr->buffers.end();
          ++each)
     {
-        if (AudioQueueAllocateBuffer(queue, sz, &*each))
+        if ((sta = AudioQueueAllocateBuffer(queue, sz, &*each)))
         {
-            trace_msg("failed to allocate audio buffer");
+            trace_fmt("failed to allocate audio buffer, %s", (char*)&sta);
             return false;
         }
     }
@@ -159,6 +265,7 @@ void Buffer::close()
     
     if (stm)
     {
+        //AudioFileClose(stm);
         AudioFileStreamClose(stm);
         stm = NULL;
     }

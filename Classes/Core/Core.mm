@@ -269,6 +269,7 @@ void _trace_float(NSString *__objname, float __val) {
 void _trace_msg(NSString* __str) {
     NNTConsole* console = [NNTConsole shared];
     NSString* str = [__str unescape];
+    str = [NSString stringWithFormat:@"%@.", str];
     [console println:str];
 }
 

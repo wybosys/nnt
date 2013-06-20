@@ -49,6 +49,9 @@ bool Device::add(audio::Buffer &buf)
         }
     }
     
+    // if success, the buffer will freed when dispose the queue.
+    buf.need_release = suc == 0;
+    
     return suc != 0;
     
 # endif

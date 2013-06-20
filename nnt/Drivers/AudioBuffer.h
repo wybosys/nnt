@@ -33,6 +33,7 @@ public:
     AudioFileStreamID stm;
     AudioFileTypeID type;
     AudioStreamBasicDescription format;
+    bool used;
     
     void receive(AudioQueueRef                   inAQ,
                  AudioQueueBufferRef             inBuffer,
@@ -41,6 +42,8 @@ public:
                  const AudioStreamPacketDescription *inPacketDesc);
     
     core::vector<AudioQueueBufferRef>& handle();
+    bool need_release;
+    SInt64 packets;
     
 # endif
     

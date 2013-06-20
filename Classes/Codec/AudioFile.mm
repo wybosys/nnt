@@ -7,16 +7,12 @@ NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
 FormatType::FormatType()
-{    
-    _format.mChannelsPerFrame = 2;
-    _format.mFormatID = kAudioFormatLinearPCM;
-    _format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
-    _format.mBitsPerChannel = 16;
-    _format.mReserved = 0;
-    _format.mFramesPerPacket = 1;
-    _format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
+{
+    memset(&_format, 0, sizeof(_format));
+    
+    // default set.
     _format.mSampleRate = mic::Device::SampleRate();
-    _format.mReserved = 0;
+    _format.mChannelsPerFrame = 2;
 }
 
 FormatType::~FormatType()
@@ -24,10 +20,38 @@ FormatType::~FormatType()
     
 }
 
+void FormatType::update(AudioQueueRef queue)
+{
+    UInt32 sz = sizeof(_format);
+    OSStatus sta = AudioQueueGetProperty(queue,
+                                         kAudioConverterCurrentOutputStreamDescription,
+                                         &_format,
+                                         &sz);
+    if (sta != 0)
+        trace_msg(@"failed to update format by queue");
+}
+
 void FormatType::update(FileType const& ft)
 {
     if (ft.is_bigedian(_format.mBitsPerChannel))
         _format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
+    
+    if (_format.mFormatID == 0)
+    {
+        switch (ft)
+        {
+            case kAudioFileAIFFType: _format.mFormatID = kAudioFormatAppleLossless; break;
+            case kAudioFileAIFCType: _format.mFormatID = kAudioFormatAppleIMA4; break;
+            case kAudioFileWAVEType: _format.mFormatID = kAudioFormatLinearPCM; break;
+            case kAudioFileMP1Type: _format.mFormatID = kAudioFormatMPEGLayer1; break;
+            case kAudioFileMP2Type: _format.mFormatID = kAudioFormatMPEGLayer2; break;
+            case kAudioFileMP3Type: _format.mFormatID = kAudioFormatMPEGLayer3; break;
+            case kAudioFileAC3Type: _format.mFormatID = kAudioFormatAC3; break;
+            case kAudioFileAAC_ADTSType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
+            case kAudioFileAMRType: _format.mFormatID = kAudioFormatAMR; break;
+            default: trace_msg(@"failed to convert filetype to formattype"); break;
+        }
+    }
 }
 
 FileType::FileType()
@@ -72,8 +96,26 @@ AudioFileTypeID FileType::FindType(ns::String const& str)
     }
 	
 	UInt32 propertySize = sizeof(AudioFileTypeID);
-	err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_TypesForExtension, sizeof(extension), &extension, &propertySize, &ret);
-	CFRelease(extension);
+	err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_TypesForExtension,
+                                 sizeof(extension),
+                                 &extension,
+                                 &propertySize,
+                                 &ret);
+    if (extension != filename)
+        CFRelease(extension);
+    
+    if (err != 0)
+    {
+        trace_msg(@"failed get file type");
+    }
+# ifdef NNT_DEBUG
+    else
+    {
+        core::string str((char const*)&ret, propertySize);
+        str = core::string(str.rbegin(), str.rend());
+        trace_fmt(@"got file type: %s", str.c_str());
+    }
+# endif
 	
     return ret;
 }

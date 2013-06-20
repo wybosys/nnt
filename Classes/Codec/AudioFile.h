@@ -48,6 +48,7 @@ public:
     FormatType();
     ~FormatType();
     
+    void update(AudioQueueRef);
     void update(FileType const&);
     
     operator AudioStreamBasicDescription const& () const

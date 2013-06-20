@@ -22,9 +22,9 @@ void mic_bytes(cxx::eventobj_t& evt)
 
 void test_mic()
 {
-    f_rdr.open(core::FileUrl<>("record.wav"), mask_t().on<Io::write>().on<Io::create>());
+    f_rdr.open(core::FileUrl<>("record.aac"), mask_t().on<Io::write>().on<Io::create>());
     au_rdr.set(dev_mic);
-    au_rdr.type.set("wav");
+    au_rdr.type.set("aac");
     au_rdr.buffer().connect(kSignalBytesAvailable, mic_bytes);
     au_rdr.start();
     sleep_second(5);
