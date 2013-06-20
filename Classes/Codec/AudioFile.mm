@@ -32,10 +32,7 @@ void FormatType::update(AudioQueueRef queue)
 }
 
 void FormatType::update(FileType const& ft)
-{
-    if (ft.is_bigedian(_format.mBitsPerChannel))
-        _format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
-    
+{    
     if (_format.mFormatID == 0)
     {
         switch (ft)
@@ -52,6 +49,19 @@ void FormatType::update(FileType const& ft)
             default: trace_msg(@"failed to convert filetype to formattype"); break;
         }
     }
+    
+    if (_format.mFormatID == 0 || _format.mFormatID == kAudioFormatLinearPCM) {
+		// default to PCM, 16 bit int
+		_format.mFormatID = kAudioFormatLinearPCM;
+		_format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
+		_format.mBitsPerChannel = 16;
+        if (ft.is_bigedian(_format.mBitsPerChannel))
+			_format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
+		_format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
+        _format.mFramesPerPacket = 1;
+		_format.mReserved = 0;
+	}
+    
 }
 
 FileType::FileType()

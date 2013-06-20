@@ -42,6 +42,12 @@ static OSStatus HandlerRead(void *		inClientData,
                             void *		buffer,
                             UInt32 *	actualCount)
 {
+    use<Buffer> buf = inClientData;
+    if (requestCount > (buf->data.length() - inPosition))
+        *actualCount = (buf->data.length() - inPosition);
+    else
+        *actualCount = requestCount;
+    memcpy(buffer, buf->data.bytes() + inPosition, *actualCount);
     return 0;
 }
 
@@ -58,7 +64,21 @@ static OSStatus HandlerWrite(void * 		inClientData,
     buf->emit(kSignalBytesAvailable, cxx::eventobj_t::Data(&tmp));
     
     // write.
-    buf->data.append((void*)buffer, requestCount);
+    //if (inPosition == buf->data.length())
+    {
+        buf->data.append((void*)buffer, requestCount);
+    }
+    /*
+     else if (inPosition < buf->data.length())
+    {
+        trace_msg("<");
+    }
+    else
+    {
+        trace_msg(">");
+    }
+     */
+    
     *actualCount = requestCount;
     
     return 0;
@@ -66,14 +86,18 @@ static OSStatus HandlerWrite(void * 		inClientData,
 
 static SInt64 HandlerGetSize(void * 		inClientData)
 {
-    return 0;
+    use<Buffer> buf = inClientData;
+    return buf->data.length();
 }
 
 static OSStatus HandlerSetSize(void *		inClientData,
                                SInt64		inSize)
 {
     use<Buffer> buf = inClientData;
+    core::data da = buf->data;
     buf->data.resize(inSize);
+    buf->data.fill(0);
+    buf->data.copy(da);
     return 0;
 }
 
@@ -160,9 +184,11 @@ void set_stream()
         }
 		free(magicCookie);
 	}
-        
+    
+    /*
     if (err != 0)
         trace_fmt("failed to set stream, %.4s", &err);
+     */
 }
 
 core::vector<AudioQueueBufferRef> buffers;
@@ -217,7 +243,7 @@ bool Buffer::open()
         
     if (sta != 0)
     {
-        trace_fmt("failed to open buffer, %s", (char*)&sta);
+        trace_fmt("failed to open buffer, %.4s", (char*)&sta);
         return false;
     }
     
@@ -227,7 +253,7 @@ bool Buffer::open()
     usize sz = d_ptr->calc_buffer_size();
     if (sz == 0)
     {
-        trace_fmt("failed to calc buffer size, %s", (char*)&sta);
+        trace_fmt("failed to calc buffer size, %.4s", (char*)&sta);
         return false;
     }
     
@@ -237,7 +263,7 @@ bool Buffer::open()
     {
         if ((sta = AudioQueueAllocateBuffer(queue, sz, &*each)))
         {
-            trace_fmt("failed to allocate audio buffer, %s", (char*)&sta);
+            trace_fmt("failed to allocate audio buffer, %.4s", (char*)&sta);
             return false;
         }
     }

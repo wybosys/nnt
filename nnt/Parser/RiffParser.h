@@ -14,12 +14,15 @@ public:
     {
     public:
         
+        Identity(dword);
         Identity(char const*);
         
         operator dword () const
         {
             return _idr;
         }
+        
+        operator core::string () const;
         
     protected:
         

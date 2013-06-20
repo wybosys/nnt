@@ -22,12 +22,12 @@ void mic_bytes(cxx::eventobj_t& evt)
 
 void test_mic()
 {
-    f_rdr.open(core::FileUrl<>("record.aac"), mask_t().on<Io::write>().on<Io::create>());
+    f_rdr.open(core::FileUrl<>("record.wav"), mask_t().on<Io::write>().on<Io::create>());
     au_rdr.set(dev_mic);
-    au_rdr.type.set("aac");
+    au_rdr.type.set("wav");
     au_rdr.buffer().connect(kSignalBytesAvailable, mic_bytes);
     au_rdr.start();
-    sleep_second(5);
+    sleep_second(1);
     au_rdr.stop();
     f_rdr.close();
 }
@@ -35,6 +35,16 @@ void test_mic()
 void test_vp()
 {
     vp::Result res0, res1, res2;
+    
+    {
+        core::data da;
+        core::File::ReadAll(core::File::url_type("record.wav"), da);
+        parser::Wav wv;
+        wv.parse(da);
+        wv.set_channel(1);
+        wv.set_bps(8);
+        wv.save(da);
+    }
     
     {
         core::data da;
@@ -85,9 +95,9 @@ void test_vp()
 }
 
 int main(int argc, char** argv)
-{    
-    if (0) test_vp();
+{
     if (1) test_mic();
+    if (1) test_vp();
     
     cross::Application app;
     return app.execute(argc, argv);

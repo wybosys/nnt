@@ -5,12 +5,23 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(parser)
 
+Riff::Identity::Identity(dword v)
+: _idr(v)
+{
+    
+}
+
 Riff::Identity::Identity(char const* s)
 : _idr(0)
 {
     usize len = strlen(s);
     len = (len < 5) ? len : 4;
     memcpy(&_idr, s, len);
+}
+
+Riff::Identity::operator core::string () const
+{
+    return core::string((char*)&_idr, 4);
 }
 
 Riff::Riff()
@@ -65,6 +76,10 @@ bool Riff::Chunk::read(void **d)
     static Riff::Identity RIFF("RIFF");
     static Riff::Identity LIST("LIST");
     
+# ifdef NNT_DEBUG
+    core::string idrname = Riff::Identity(idr);
+# endif
+    
     if (idr == RIFF)
     {
         type = core::offsets::pop<dword>(*d);
@@ -79,7 +94,7 @@ bool Riff::Chunk::read(void **d)
         sz -= 4;
     }
     else
-    {
+    {        
         type = 0;
         
         fill(*d, sz);
