@@ -446,6 +446,9 @@
 		16DEB6D21772AC230086591F /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CA1772AC230086591F /* reader.c */; };
 		16DEB6D31772AC230086591F /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CB1772AC230086591F /* scanner.c */; };
 		16DEB6D41772AC230086591F /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CC1772AC230086591F /* writer.c */; };
+		16DEB6D81772C8620086591F /* AudioBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D51772C8620086591F /* AudioBuffer.cpp */; };
+		16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6D61772C8620086591F /* AudioBuffer.h */; };
+		16DEB6DA1772C8620086591F /* AudioBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D71772C8620086591F /* AudioBuffer.mm */; };
 		16E009E416085C0B00B35D3F /* Mime+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */; };
 		16E009E616085C0B00B35D3F /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096C16085C0B00B35D3F /* Mime+NNT.mm */; };
 		16E009E816085C0B00B35D3F /* NSHttpCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096E16085C0B00B35D3F /* NSHttpCache.mm */; };
@@ -1484,6 +1487,9 @@
 		16DEB6CA1772AC230086591F /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = reader.c; path = ../contrib/yaml/reader.c; sourceTree = "<group>"; };
 		16DEB6CB1772AC230086591F /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = ../contrib/yaml/scanner.c; sourceTree = "<group>"; };
 		16DEB6CC1772AC230086591F /* writer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = writer.c; path = ../contrib/yaml/writer.c; sourceTree = "<group>"; };
+		16DEB6D51772C8620086591F /* AudioBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioBuffer.cpp; path = ../Classes/Drivers/AudioBuffer.cpp; sourceTree = "<group>"; };
+		16DEB6D61772C8620086591F /* AudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioBuffer.h; path = ../Classes/Drivers/AudioBuffer.h; sourceTree = "<group>"; };
+		16DEB6D71772C8620086591F /* AudioBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioBuffer.mm; path = ../Classes/Drivers/AudioBuffer.mm; sourceTree = "<group>"; };
 		16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Mime+NNT.cpp"; sourceTree = "<group>"; };
 		16E0096B16085C0B00B35D3F /* Mime+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mime+NNT.h"; sourceTree = "<group>"; };
 		16E0096C16085C0B00B35D3F /* Mime+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Mime+NNT.mm"; sourceTree = "<group>"; };
@@ -2678,6 +2684,9 @@
 				16B09D60176EDA6B00B39F81 /* MicDevice.cpp */,
 				16B09D61176EDA6B00B39F81 /* MicDevice.h */,
 				16B09D62176EDA6B00B39F81 /* MicDevice.mm */,
+				16DEB6D51772C8620086591F /* AudioBuffer.cpp */,
+				16DEB6D61772C8620086591F /* AudioBuffer.h */,
+				16DEB6D71772C8620086591F /* AudioBuffer.mm */,
 				16B09D01176EB56C00B39F81 /* AudioDevice.cpp */,
 				16B09D02176EB56C00B39F81 /* AudioDevice.h */,
 				16B09D03176EB56C00B39F81 /* AudioDevice.mm */,
@@ -3380,6 +3389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16DEB6C31772A9E70086591F /* YamlParser.h in Headers */,
+				16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3948,6 +3958,8 @@
 				16DEB6D21772AC230086591F /* reader.c in Sources */,
 				16DEB6D31772AC230086591F /* scanner.c in Sources */,
 				16DEB6D41772AC230086591F /* writer.c in Sources */,
+				16DEB6D81772C8620086591F /* AudioBuffer.cpp in Sources */,
+				16DEB6DA1772C8620086591F /* AudioBuffer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

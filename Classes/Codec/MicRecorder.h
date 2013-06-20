@@ -4,6 +4,7 @@
 
 # include "../Drivers/MicDevice.h"
 # include "AudioFile.h"
+# include "../Drivers/AudioBuffer.h"
 
 # ifdef NNT_OBJC
 
@@ -11,6 +12,8 @@ NNT_BEGIN_HEADER_OBJC
 
 @interface NNTMicRecorder : NNTObject
 @end
+
+NNT_EXTERN signal_t kSignalStart, kSignalStop, kSignalPause, kSignalResume;
 
 NNT_END_HEADER_OBJC
 
@@ -29,18 +32,22 @@ class Recorder
   
 public:
     
-    Recorder(Device&);
+    Recorder(Device* = NULL);
     ~Recorder();
     
+    void set(Device&);
+    void set(Device*);
     bool start();
     bool stop();
+    
+    audio::Buffer const& buffer() const;
 
     audio::FileType type;
     audio::FormatType format;
     
 protected:
     
-    Device& _dev;
+    Device* _dev;
     
 };
 

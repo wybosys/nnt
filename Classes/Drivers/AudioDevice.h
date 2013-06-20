@@ -27,7 +27,6 @@ public:
     Device();
     ~Device();
     
-    
 };
 
 NNT_END_NS

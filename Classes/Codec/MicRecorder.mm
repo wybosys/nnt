@@ -1,9 +1,14 @@
 
 # import "Core.h"
 # import "MicRecorder.h"
-# import <AudioToolbox/AudioToolbox.h>
+# import "AudioBuffer.h"
 
 NNT_BEGIN_OBJC
+
+signal_t kSignalStart = @"::nnt::start";
+signal_t kSignalStop = @"::nnt::stop";
+signal_t kSignalPause = @"::nnt::pause";
+signal_t kSignalResume = @"::nnt::resume";
 
 @implementation NNTMicRecorder
 
@@ -17,6 +22,11 @@ NNT_BEGIN_OBJC
     [super dealloc];
 }
 
+NNTEVENT_BEGIN
+NNTEVENT_SIGNAL(kSignalStart);
+NNTEVENT_SIGNAL(kSignalStop);
+NNTEVENT_END
+
 @end
 
 NNT_END_OBJC
@@ -28,51 +38,10 @@ NNTDECL_PRIVATE_BEGIN_CXX(Recorder)
 
 void init()
 {
-    stm = NULL;
+    queue = NULL;
 }
 
 void dealloc()
-{
-    close_stream();
-}
-
-bool open_stream()
-{
-    close_stream();
-    
-    OSStatus sta = AudioFileStreamOpen(d_owner,
-                                       HandlerPropertyListenerProc,
-                                       HandlerPacketsProc,
-                                       d_owner->type,
-                                       &stm);
-    
-    return sta == 0;
-}
-
-void close_stream()
-{
-    if (stm)
-    {
-        AudioFileStreamClose(stm);
-        stm = NULL;
-    }
-}
-
-static void HandlerPropertyListenerProc(
-                                        void *						inClientData,
-                                        AudioFileStreamID			inAudioFileStream,
-                                        AudioFileStreamPropertyID	inPropertyID,
-                                        UInt32 *					ioFlags)
-{
-    
-}
-
-static void HandlerPacketsProc(
-                               void *							inClientData,
-                               UInt32							inNumberBytes,
-                               UInt32							inNumberPackets,
-                               const void *					inInputData,
-                               AudioStreamPacketDescription	*inPacketDescriptions)
 {
     
 }
@@ -84,15 +53,16 @@ static void InputBufferHandler(void *                          inUserData,
                                UInt32							inNumPackets,
                                const AudioStreamPacketDescription *inPacketDesc)
 {
-    
+    use<owner_type> rdr = inUserData;
+    rdr->d_ptr->buffer.receive(inAQ, inBuffer, inStartTime, inNumPackets, inPacketDesc);
 }
 
 AudioQueueRef queue;
-AudioFileStreamID stm;
+audio::Buffer buffer;
 
 NNTDECL_PRIVATE_END_CXX
 
-Recorder::Recorder(Device& dev)
+Recorder::Recorder(Device* dev)
 : _dev(dev)
 {
     NNTDECL_PRIVATE_CONSTRUCT(Recorder);
@@ -100,7 +70,19 @@ Recorder::Recorder(Device& dev)
 
 Recorder::~Recorder()
 {
+    stop();
+    
     NNTDECL_PRIVATE_DESTROY();
+}
+
+void Recorder::set(Device& dev)
+{
+    _dev = &dev;
+}
+
+void Recorder::set(Device* dev)
+{
+    _dev = dev;
 }
 
 bool Recorder::start()
@@ -114,12 +96,54 @@ bool Recorder::start()
                                       NULL,
                                       0,
                                       &d_ptr->queue);
-    return suc != 0;
+    
+    if (suc != 0)
+    {
+        trace_msg(@"failed to create audio queue");
+        return false;
+    }
+    
+    // open stream.
+    d_ptr->buffer.type = type;
+    d_ptr->buffer.queue = d_ptr->queue;
+    d_ptr->buffer.format = format;
+    
+    if (!d_ptr->buffer.open())
+    {
+        trace_msg(@"failed to open audio buffer");
+        return false;
+    }
+    
+    if (!_dev->add(d_ptr->buffer))
+    {
+        trace_msg(@"failed to add audio buffer to device");
+        return false;
+    }
+    
+    suc = AudioQueueStart(d_ptr->queue, NULL);
+    if (suc != 0)
+    {
+        trace_msg(@"failed to start audio queue");
+        return false;
+    }
+    
+    return true;
 }
 
 bool Recorder::stop()
 {
+    if (d_ptr->queue)
+    {
+        AudioQueueStop(d_ptr->queue, YES);
+        AudioQueueDispose(d_ptr->queue, YES);
+        d_ptr->queue = NULL;
+    }
     return true;
+}
+
+audio::Buffer const& Recorder::buffer() const
+{
+    return d_ptr->buffer;
 }
 
 NNT_END_NS

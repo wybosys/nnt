@@ -10,12 +10,26 @@
 
 NNT_USINGCXXNAMESPACE;
 
+mic::Device dev_mic;
+mic::Recorder au_rdr;
+core::File f_rdr;
+
+void mic_bytes(cxx::eventobj_t& evt)
+{
+    core::data& da = evt;
+    f_rdr.write(da);
+}
+
 void test_mic()
 {
-    mic::Device mic;
-    mic::Recorder rdr(mic);
-    rdr.type.set("wav");
-    rdr.start();
+    f_rdr.open(core::FileUrl<>("record.wav"), mask_t().on<Io::write>().on<Io::create>());
+    au_rdr.set(dev_mic);
+    au_rdr.type.set("wav");
+    au_rdr.buffer().connect(kSignalBytesAvailable, mic_bytes);
+    au_rdr.start();
+    sleep_second(5);
+    au_rdr.stop();
+    f_rdr.close();
 }
 
 void test_vp()

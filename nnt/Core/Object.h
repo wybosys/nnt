@@ -1039,37 +1039,37 @@ public:
 	virtual void register_signal(signal_t const&);
     
     //! connect signal to slot.
-    virtual event_type::slot_t* connect(signal_t const& sig, event_func func, void* tag);
-	virtual event_type::slot_t* connect(signal_t const& sig, event_pure func);
+    virtual event_type::slot_t* connect(signal_t const& sig, event_func func, void* tag) const;
+	virtual event_type::slot_t* connect(signal_t const& sig, event_pure func) const;
     
     //! redirect signal.
-    virtual event_type::slot_t* redirect(signal_t const& sig, signal_t const& sigto, RefObject*);
+    virtual event_type::slot_t* redirect(signal_t const& sig, signal_t const& sigto, RefObject*) const;
     
     //! disconnect.
-    virtual void disconnect(void*);
-    virtual void disconnect(signal_t const&, event_func, void*);
-    virtual void disconnect(signal_t const&, void*);
+    virtual void disconnect(void*) const;
+    virtual void disconnect(signal_t const&, event_func, void*) const;
+    virtual void disconnect(signal_t const&, void*) const;
     
     //! block a signal.
-    virtual void block(signal_t const&);
+    virtual void block(signal_t const&) const;
     
     //! unblock a signal.
-    virtual void unblock(signal_t const&);
+    virtual void unblock(signal_t const&) const;
     
     //! exist.
     virtual bool exist_signal(signal_t const&) const;
     
     //! emit signal.
-	virtual void emit(signal_t const&);
-    virtual void emit(signal_t const&, eventobj_t& evtobj, void* sender);
-	virtual void emit(signal_t const&, eventobj_t& evtobj);
-    virtual void emit(signal_t const&, eventobj_t const& evtobj);
+	virtual void emit(signal_t const&) const;
+	virtual void emit(signal_t const&, eventobj_t& evtobj) const;
+    virtual void emit(signal_t const&, eventobj_t const& evtobj) const;
+    virtual void emit(signal_t const&, eventobj_t& evtobj, void* sender) const;
 
     //! signals init.
 	virtual void init_signals();
     
     //! get event object.
-	virtual event_type* getEvent();
+	virtual event_type* getEvent() const;
     
     //! store a object, will grab its reference count.
 	void store_set(char const* name, void* obj);
@@ -1101,7 +1101,7 @@ public:
 protected:
 
     //! event.
-	event_type *_event;
+	mutable event_type *_event;
     
     //! store.
 	store_type *_store;
@@ -1245,14 +1245,14 @@ template_impl Object<OBJECT_TPL_IMPL>::~Object()
 }
 
 OBJECT_TPL_DECL
-template_impl event_type* Object<OBJECT_TPL_IMPL>::getEvent()
+template_impl event_type* Object<OBJECT_TPL_IMPL>::getEvent() const
 {
 	if (_event == NULL) 
     { 
         _event = new event_type(); 
-        this->init_signals(); 
+        ((self_type*)this)->init_signals();
     }
-	return _event;
+	return (event_type*)_event;
 }
 
 OBJECT_TPL_DECL
@@ -1263,51 +1263,51 @@ template_impl void Object<OBJECT_TPL_IMPL>::register_signal(signal_t const& sig)
 
 OBJECT_TPL_DECL
 template_impl event_type::slot_t*
-Object<OBJECT_TPL_IMPL>::connect(signal_t const& sig, event_func act, void* tgt)
+Object<OBJECT_TPL_IMPL>::connect(signal_t const& sig, event_func act, void* tgt) const
 {
 	return this->getEvent()->connect(sig, (Object<> *)tgt, act);
 }
 
 OBJECT_TPL_DECL
 template_impl event_type::slot_t* 
-Object<OBJECT_TPL_IMPL>::connect(signal_t const& sig, event_pure func)
+Object<OBJECT_TPL_IMPL>::connect(signal_t const& sig, event_pure func) const
 {
 	return this->getEvent()->connect(sig, func);
 }
 
 OBJECT_TPL_DECL
 template_impl event_type::slot_t*
-Object<OBJECT_TPL_IMPL>::redirect(signal_t const& sig, signal_t const& sigto, RefObject *tgt)
+Object<OBJECT_TPL_IMPL>::redirect(signal_t const& sig, signal_t const& sigto, RefObject *tgt) const
 {
     return this->getEvent()->redirect(sig, sigto, tgt);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::disconnect(void* tgt)
+template_impl void Object<OBJECT_TPL_IMPL>::disconnect(void* tgt) const
 {
     this->getEvent()->disconnect((Object<> *)tgt);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::disconnect(signal_t const& sig, event_func func, void* tgt)
+template_impl void Object<OBJECT_TPL_IMPL>::disconnect(signal_t const& sig, event_func func, void* tgt) const
 {
     this->getEvent()->disconnect(sig, (Object<> *)tgt, func);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::disconnect(signal_t const& sig, void* tgt)
+template_impl void Object<OBJECT_TPL_IMPL>::disconnect(signal_t const& sig, void* tgt) const
 {
     this->getEvent()->disconnect(sig, (Object<> *)tgt);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::block(signal_t const& sig)
+template_impl void Object<OBJECT_TPL_IMPL>::block(signal_t const& sig) const
 {
     this->getEvent()->block(sig);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::unblock(signal_t const& sig)
+template_impl void Object<OBJECT_TPL_IMPL>::unblock(signal_t const& sig) const
 {
     this->getEvent()->unblock(sig);
 }
@@ -1319,26 +1319,26 @@ template_impl bool Object<OBJECT_TPL_IMPL>::exist_signal(signal_t const& sig) co
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig)
+template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig) const
 {
     eventobj_t evt;
-	this->getEvent()->emit(sig, evt, this);
+	this->getEvent()->emit(sig, evt, (void*)this);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t& obj)
+template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t& obj) const
 {
-	this->getEvent()->emit(sig, obj, this);
+	this->getEvent()->emit(sig, obj, (void*)this);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t const& obj)
+template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t const& obj) const
 {
-	this->getEvent()->emit(sig, (eventobj_t&)obj, this);
+	this->getEvent()->emit(sig, (eventobj_t&)obj, (void*)this);
 }
 
 OBJECT_TPL_DECL
-template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t& obj, void* sender)
+template_impl void Object<OBJECT_TPL_IMPL>::emit(signal_t const& sig, eventobj_t& obj, void* sender) const
 {
 	this->getEvent()->emit(sig, obj, sender);
 }

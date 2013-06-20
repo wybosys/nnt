@@ -2,6 +2,9 @@
 # ifndef __NNT_MIC_DEVICE_215A7AD1371A4FD3BB53661D396AA5F8_H_INCLUDED
 # define __NNT_MIC_DEVICE_215A7AD1371A4FD3BB53661D396AA5F8_H_INCLUDED
 
+# include "AudioObject.h"
+# include "AudioBuffer.h"
+
 # ifdef NNT_CXX
 
 NNT_BEGIN_HEADER_CXX
@@ -20,6 +23,8 @@ public:
     ~Device();
     
     static real SampleRate();
+    
+    bool add(audio::Buffer&);
     
 };
 
