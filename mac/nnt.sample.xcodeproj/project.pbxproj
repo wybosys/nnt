@@ -436,6 +436,16 @@
 		16DD18131504726C0053958F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD18081504726C0053958F /* SBJsonParser.m */; };
 		16DD18151504726C0053958F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD180A1504726C0053958F /* SBJsonWriter.m */; };
 		16DD1C2C150494000053958F /* libACE.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD1C2B150494000053958F /* libACE.dylib */; };
+		16DEB6C21772A9E70086591F /* YamlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C01772A9E70086591F /* YamlParser.cpp */; };
+		16DEB6C31772A9E70086591F /* YamlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6C11772A9E70086591F /* YamlParser.h */; };
+		16DEB6CD1772AC230086591F /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C51772AC230086591F /* api.c */; };
+		16DEB6CE1772AC230086591F /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C61772AC230086591F /* dumper.c */; };
+		16DEB6CF1772AC230086591F /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C71772AC230086591F /* emitter.c */; };
+		16DEB6D01772AC230086591F /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C81772AC230086591F /* loader.c */; };
+		16DEB6D11772AC230086591F /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C91772AC230086591F /* parser.c */; };
+		16DEB6D21772AC230086591F /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CA1772AC230086591F /* reader.c */; };
+		16DEB6D31772AC230086591F /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CB1772AC230086591F /* scanner.c */; };
+		16DEB6D41772AC230086591F /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CC1772AC230086591F /* writer.c */; };
 		16E009E416085C0B00B35D3F /* Mime+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */; };
 		16E009E616085C0B00B35D3F /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096C16085C0B00B35D3F /* Mime+NNT.mm */; };
 		16E009E816085C0B00B35D3F /* NSHttpCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096E16085C0B00B35D3F /* NSHttpCache.mm */; };
@@ -1464,6 +1474,16 @@
 		16DD18091504726C0053958F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		16DD180A1504726C0053958F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		16DD1C2B150494000053958F /* libACE.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libACE.dylib; path = ../lib/Mac/libACE.dylib; sourceTree = "<group>"; };
+		16DEB6C01772A9E70086591F /* YamlParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YamlParser.cpp; sourceTree = "<group>"; };
+		16DEB6C11772A9E70086591F /* YamlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YamlParser.h; sourceTree = "<group>"; };
+		16DEB6C51772AC230086591F /* api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = api.c; path = ../contrib/yaml/api.c; sourceTree = "<group>"; };
+		16DEB6C61772AC230086591F /* dumper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dumper.c; path = ../contrib/yaml/dumper.c; sourceTree = "<group>"; };
+		16DEB6C71772AC230086591F /* emitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = emitter.c; path = ../contrib/yaml/emitter.c; sourceTree = "<group>"; };
+		16DEB6C81772AC230086591F /* loader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loader.c; path = ../contrib/yaml/loader.c; sourceTree = "<group>"; };
+		16DEB6C91772AC230086591F /* parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parser.c; path = ../contrib/yaml/parser.c; sourceTree = "<group>"; };
+		16DEB6CA1772AC230086591F /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = reader.c; path = ../contrib/yaml/reader.c; sourceTree = "<group>"; };
+		16DEB6CB1772AC230086591F /* scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanner.c; path = ../contrib/yaml/scanner.c; sourceTree = "<group>"; };
+		16DEB6CC1772AC230086591F /* writer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = writer.c; path = ../contrib/yaml/writer.c; sourceTree = "<group>"; };
 		16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Mime+NNT.cpp"; sourceTree = "<group>"; };
 		16E0096B16085C0B00B35D3F /* Mime+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mime+NNT.h"; sourceTree = "<group>"; };
 		16E0096C16085C0B00B35D3F /* Mime+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Mime+NNT.mm"; sourceTree = "<group>"; };
@@ -2634,6 +2654,8 @@
 				1638EABA150F13E0000B8C35 /* SOAPParser.h */,
 				1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */,
 				1630A800171BFC2500B318A9 /* SOAPObject.h */,
+				16DEB6C01772A9E70086591F /* YamlParser.cpp */,
+				16DEB6C11772A9E70086591F /* YamlParser.h */,
 			);
 			name = Parser;
 			path = ../Classes/Parser;
@@ -3108,6 +3130,7 @@
 		16DD17E5150471B10053958F /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				16DEB6C41772AC0E0086591F /* yaml */,
 				164093B7176EFFF20032E1FF /* openvp */,
 				167D00ED1709686B00B94D5E /* mongoose */,
 				16CCEB431592FF4F00A16A3C /* libxml */,
@@ -3144,6 +3167,21 @@
 				16DD180A1504726C0053958F /* SBJsonWriter.m */,
 			);
 			path = SBJSON;
+			sourceTree = "<group>";
+		};
+		16DEB6C41772AC0E0086591F /* yaml */ = {
+			isa = PBXGroup;
+			children = (
+				16DEB6C51772AC230086591F /* api.c */,
+				16DEB6C61772AC230086591F /* dumper.c */,
+				16DEB6C71772AC230086591F /* emitter.c */,
+				16DEB6C81772AC230086591F /* loader.c */,
+				16DEB6C91772AC230086591F /* parser.c */,
+				16DEB6CA1772AC230086591F /* reader.c */,
+				16DEB6CB1772AC230086591F /* scanner.c */,
+				16DEB6CC1772AC230086591F /* writer.c */,
+			);
+			name = yaml;
 			sourceTree = "<group>";
 		};
 		16E00A691608695700B35D3F /* BSE */ = {
@@ -3341,6 +3379,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16DEB6C31772A9E70086591F /* YamlParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3900,6 +3939,15 @@
 				16A26B651771B1FB00E2053A /* framework.prv.cpp in Sources */,
 				16A26B681771B25200E2053A /* framework.prv.mm in Sources */,
 				16EF3C7D1771B6BA00B484E9 /* Qt+NNT.cpp in Sources */,
+				16DEB6C21772A9E70086591F /* YamlParser.cpp in Sources */,
+				16DEB6CD1772AC230086591F /* api.c in Sources */,
+				16DEB6CE1772AC230086591F /* dumper.c in Sources */,
+				16DEB6CF1772AC230086591F /* emitter.c in Sources */,
+				16DEB6D01772AC230086591F /* loader.c in Sources */,
+				16DEB6D11772AC230086591F /* parser.c in Sources */,
+				16DEB6D21772AC230086591F /* reader.c in Sources */,
+				16DEB6D31772AC230086591F /* scanner.c in Sources */,
+				16DEB6D41772AC230086591F /* writer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
