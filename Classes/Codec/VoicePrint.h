@@ -24,6 +24,9 @@ public:
         return (double**)_data;
     }
     
+    void to(core::data&) const;
+    void from(core::data const&);
+    
 protected:
     
     double** _data;

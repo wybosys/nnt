@@ -11,6 +11,8 @@
 # include <nnt/Trail/Micphone.h>
 # include <nnt/Core/Task+NNT.h>
 
+# include <nnt/Store/LevelDB+NNT.h>
+
 NNT_USINGCXXNAMESPACE;
 
 class RecordTask
@@ -23,6 +25,12 @@ public:
     {
         infinite();
         dev_trail.start();
+        
+        au_rdr.set(dev_mic);
+        au_rdr.type.set("wav");
+        au_rdr.format.set_sampler(8000);
+        au_rdr.format.set_channel(1);
+        au_rdr.format.set_bits(8);
     }
     
     virtual int main()
@@ -57,21 +65,6 @@ public:
 };
 
 RecordTask task;
-
-void test_mic()
-{
-    /*
-    au_rdr.set(dev_mic);
-    au_rdr.type.set("wav");
-    au_rdr.format.set_sampler(8000);
-    au_rdr.format.set_channel(1);
-    au_rdr.format.set_bits(8);
-    au_rdr.start();
-    sleep_second(5);
-    au_rdr.stop();
-    core::File::SaveAll(core::FileUrl<>("record." + core::string(au_rdr.type)), au_rdr.buffer().data);
-     */
-}
 
 void test_vp()
 {

@@ -437,7 +437,6 @@
 		16DD18151504726C0053958F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DD180A1504726C0053958F /* SBJsonWriter.m */; };
 		16DD1C2C150494000053958F /* libACE.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DD1C2B150494000053958F /* libACE.dylib */; };
 		16DEB6C21772A9E70086591F /* YamlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C01772A9E70086591F /* YamlParser.cpp */; };
-		16DEB6C31772A9E70086591F /* YamlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6C11772A9E70086591F /* YamlParser.h */; };
 		16DEB6CD1772AC230086591F /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C51772AC230086591F /* api.c */; };
 		16DEB6CE1772AC230086591F /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C61772AC230086591F /* dumper.c */; };
 		16DEB6CF1772AC230086591F /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6C71772AC230086591F /* emitter.c */; };
@@ -447,14 +446,13 @@
 		16DEB6D31772AC230086591F /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CB1772AC230086591F /* scanner.c */; };
 		16DEB6D41772AC230086591F /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6CC1772AC230086591F /* writer.c */; };
 		16DEB6D81772C8620086591F /* AudioBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D51772C8620086591F /* AudioBuffer.cpp */; };
-		16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6D61772C8620086591F /* AudioBuffer.h */; };
 		16DEB6DA1772C8620086591F /* AudioBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D71772C8620086591F /* AudioBuffer.mm */; };
 		16DEB6E0177426AE0086591F /* Micphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6DD177426AE0086591F /* Micphone.cpp */; };
-		16DEB6E1177426AE0086591F /* Micphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6DE177426AE0086591F /* Micphone.h */; };
 		16DEB6E2177426AE0086591F /* Micphone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6DF177426AE0086591F /* Micphone.mm */; };
-		16DEB6E5177426D30086591F /* Clipboard+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6E3177426D30086591F /* Clipboard+NNT.h */; };
 		16DEB6E6177426D30086591F /* Clipboard+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6E4177426D30086591F /* Clipboard+NNT.mm */; };
-		16DEB6E8177429F10086591F /* AudioFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6E7177429F10086591F /* AudioFile.mm */; };
+		16DEB6F217745B150086591F /* LevelDB+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6F017745B150086591F /* LevelDB+NNT.mm */; };
+		16DEB6F417745B2E0086591F /* LevelDB+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6F317745B2D0086591F /* LevelDB+NNT.cpp */; };
+		16DEB6F517745B5C0086591F /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DEB6ED177458530086591F /* libleveldb.a */; };
 		16E009E416085C0B00B35D3F /* Mime+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */; };
 		16E009E616085C0B00B35D3F /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096C16085C0B00B35D3F /* Mime+NNT.mm */; };
 		16E009E816085C0B00B35D3F /* NSHttpCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096E16085C0B00B35D3F /* NSHttpCache.mm */; };
@@ -1501,7 +1499,10 @@
 		16DEB6DF177426AE0086591F /* Micphone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Micphone.mm; path = ../Classes/Trail/Micphone.mm; sourceTree = "<group>"; };
 		16DEB6E3177426D30086591F /* Clipboard+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Clipboard+NNT.h"; path = "../Classes/Trail/Clipboard+NNT.h"; sourceTree = "<group>"; };
 		16DEB6E4177426D30086591F /* Clipboard+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Clipboard+NNT.mm"; path = "../Classes/Trail/Clipboard+NNT.mm"; sourceTree = "<group>"; };
-		16DEB6E7177429F10086591F /* AudioFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFile.mm; sourceTree = "<group>"; };
+		16DEB6ED177458530086591F /* libleveldb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libleveldb.a; path = ../lib/Mac/libleveldb.a; sourceTree = "<group>"; };
+		16DEB6EF17745B150086591F /* LevelDB+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LevelDB+NNT.h"; path = "../Classes/Store/LevelDB+NNT.h"; sourceTree = "<group>"; };
+		16DEB6F017745B150086591F /* LevelDB+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "LevelDB+NNT.mm"; path = "../Classes/Store/LevelDB+NNT.mm"; sourceTree = "<group>"; };
+		16DEB6F317745B2D0086591F /* LevelDB+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "LevelDB+NNT.cpp"; path = "../Classes/Store/LevelDB+NNT.cpp"; sourceTree = "<group>"; };
 		16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Mime+NNT.cpp"; sourceTree = "<group>"; };
 		16E0096B16085C0B00B35D3F /* Mime+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mime+NNT.h"; sourceTree = "<group>"; };
 		16E0096C16085C0B00B35D3F /* Mime+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Mime+NNT.mm"; sourceTree = "<group>"; };
@@ -1672,6 +1673,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16DEB6F517745B5C0086591F /* libleveldb.a in Frameworks */,
 				16B09D67176EDBBB00B39F81 /* QTKit.framework in Frameworks */,
 				167D00E4170967CB00B94D5E /* CoreAudio.framework in Frameworks */,
 				16B09D5F176ED91400B39F81 /* OpenAL.framework in Frameworks */,
@@ -2330,6 +2332,7 @@
 		169DD1151457A239000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16DEB6ED177458530086591F /* libleveldb.a */,
 				16B09D31176EC8B100B39F81 /* libpython.dylib */,
 				16ED7D951754662F0029A62E /* libcudart.dylib */,
 				167D00DF1709673F00B94D5E /* libQtGui.4.dylib */,
@@ -2590,6 +2593,9 @@
 				169DD21F1457D52E000A9889 /* Bdb+NNT.h */,
 				169DD2201457D52E000A9889 /* Bdb+NNT.m */,
 				164EFDB114F4D456005FEDD8 /* Bdb+NNT.cpp */,
+				16DEB6EF17745B150086591F /* LevelDB+NNT.h */,
+				16DEB6F017745B150086591F /* LevelDB+NNT.mm */,
+				16DEB6F317745B2D0086591F /* LevelDB+NNT.cpp */,
 				169DD2271457D52E000A9889 /* Sqlite+NNT.h */,
 				169DD2281457D52E000A9889 /* Sqlite+NNT.mm */,
 				16763A061512DD3300021D40 /* Sqlite+NNT.cpp */,
@@ -3250,7 +3256,6 @@
 				16B09D8C176EE28200B39F81 /* MicRecorder.mm */,
 				16B09D93176EE37100B39F81 /* AudioFile.h */,
 				16B09D94176EE37100B39F81 /* AudioFile.cpp */,
-				16DEB6E7177429F10086591F /* AudioFile.mm */,
 				164093D3176F021D0032E1FF /* VoicePrint.cpp */,
 				164093D4176F021D0032E1FF /* VoicePrint.h */,
 			);
@@ -3414,10 +3419,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16DEB6C31772A9E70086591F /* YamlParser.h in Headers */,
-				16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */,
-				16DEB6E1177426AE0086591F /* Micphone.h in Headers */,
-				16DEB6E5177426D30086591F /* Clipboard+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3991,7 +3992,8 @@
 				16DEB6E0177426AE0086591F /* Micphone.cpp in Sources */,
 				16DEB6E2177426AE0086591F /* Micphone.mm in Sources */,
 				16DEB6E6177426D30086591F /* Clipboard+NNT.mm in Sources */,
-				16DEB6E8177429F10086591F /* AudioFile.mm in Sources */,
+				16DEB6F217745B150086591F /* LevelDB+NNT.mm in Sources */,
+				16DEB6F417745B2E0086591F /* LevelDB+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

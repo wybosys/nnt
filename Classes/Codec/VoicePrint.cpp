@@ -45,6 +45,25 @@ mfcc::~mfcc()
     free(_data);
 }
 
+void mfcc::to(core::data &da) const
+{
+    da.clear();
+    for (uint i = 0; i < FRAME_LEN; ++i)
+    {
+        da.append(_data[i], D * sizeof(double));
+    }
+}
+
+void mfcc::from(core::data const& da)
+{
+    core::framedata fd(da.bytes(), da.length());
+    for (uint i = 0; i < FRAME_LEN; ++i)
+    {
+        memcpy(_data[i], fd.bytes(), D * sizeof(double));
+        fd.move(D * sizeof(double));
+    }
+}
+
 Result::Result()
 {    
     // alloc gmm.

@@ -6,6 +6,8 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
+# ifdef NNT_MACH
+
 FormatType::FormatType()
 {
     memset(&_format, 0, sizeof(_format));
@@ -136,6 +138,68 @@ FileType::~FileType()
     
 }
 
+FileType::FileType(core::string const& str)
+{
+    _type = FindType(str);
+}
+
+void FileType::set(core::string const& str)
+{
+    _strtype = str;
+    ::std::transform(_strtype.begin(), _strtype.end(), _strtype.begin(), ::tolower);
+    _type = FindType(_strtype);
+}
+
+AudioFileTypeID FileType::FindType(core::string const& str)
+{
+	OSStatus err;
+    AudioFileTypeID ret = 0;
+    
+    CFStringRef filename = CFStringCreateWithCString(kCFAllocatorDefault, str.c_str(), kCFStringEncodingASCII);
+    CFStringRef extension = NULL;
+    
+	// find the extension in the filename.
+	CFRange range = CFStringFind(filename, CFSTR("."), kCFCompareBackwards);
+	if (range.location == kCFNotFound)
+    {
+		extension = filename;
+    }
+    else
+    {
+        range.location += 1;
+        range.length = CFStringGetLength(filename) - range.location;
+        extension = CFStringCreateWithSubstring(NULL, filename, range);
+    }
+	
+	UInt32 propertySize = sizeof(AudioFileTypeID);
+	err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_TypesForExtension,
+                                 sizeof(extension),
+                                 &extension,
+                                 &propertySize,
+                                 &ret);
+    if (extension != filename)
+        CFRelease(extension);
+    CFRelease(filename);
+    
+    if (propertySize == 0)
+    {
+        ret = kAudioFileCAFType;
+    }
+    
+    if (err != 0)
+    {
+        trace_msg("failed get file type");
+    }
+# ifdef NNT_DEBUG
+    else
+    {
+        trace_fmt("got file type: %.4s", (char*)&ret);
+    }
+# endif
+	
+    return ret;
+}
+
 bool FileType::is_bigedian(FormatType const& fmt) const
 {
     AudioFileTypeAndFormatID ftf;
@@ -168,6 +232,8 @@ bool FileType::is_bigedian(FormatType const& fmt) const
 	free(formats);
 	return requiresBigEndian;
 }
+
+# endif
 
 NNT_END_NS
 NNT_END_CXX

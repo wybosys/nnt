@@ -160,6 +160,8 @@ class SequentialFile {
   // Read up to "n" bytes from the file.  "scratch[0..n-1]" may be
   // written by this routine.  Sets "*result" to the data that was
   // read (including if fewer than "n" bytes were successfully read).
+  // May set "*result" to point at data in "scratch[0..n-1]", so
+  // "scratch[0..n-1]" must be live when "*result" is used.
   // If an error was encountered, returns a non-OK status.
   //
   // REQUIRES: External synchronization
@@ -173,6 +175,11 @@ class SequentialFile {
   //
   // REQUIRES: External synchronization
   virtual Status Skip(uint64_t n) = 0;
+
+ private:
+  // No copying allowed
+  SequentialFile(const SequentialFile&);
+  void operator=(const SequentialFile&);
 };
 
 // A file abstraction for randomly reading the contents of a file.
@@ -184,12 +191,19 @@ class RandomAccessFile {
   // Read up to "n" bytes from the file starting at "offset".
   // "scratch[0..n-1]" may be written by this routine.  Sets "*result"
   // to the data that was read (including if fewer than "n" bytes were
-  // successfully read).  If an error was encountered, returns a
-  // non-OK status.
+  // successfully read).  May set "*result" to point at data in
+  // "scratch[0..n-1]", so "scratch[0..n-1]" must be live when
+  // "*result" is used.  If an error was encountered, returns a non-OK
+  // status.
   //
   // Safe for concurrent use by multiple threads.
   virtual Status Read(uint64_t offset, size_t n, Slice* result,
                       char* scratch) const = 0;
+
+ private:
+  // No copying allowed
+  RandomAccessFile(const RandomAccessFile&);
+  void operator=(const RandomAccessFile&);
 };
 
 // A file abstraction for sequential writing.  The implementation
@@ -258,8 +272,8 @@ extern Status ReadFileToString(Env* env, const std::string& fname,
 // functionality of another Env.
 class EnvWrapper : public Env {
  public:
-  // Initialize an EnvWrapper that delegates all calls to *target
-  explicit EnvWrapper(Env* target) : target_(target) { }
+  // Initialize an EnvWrapper that delegates all calls to *t
+  explicit EnvWrapper(Env* t) : target_(t) { }
   virtual ~EnvWrapper();
 
   // Return the target to which this Env forwards all calls
@@ -314,6 +328,6 @@ class EnvWrapper : public Env {
   Env* target_;
 };
 
-}
+}  // namespace leveldb
 
 #endif  // STORAGE_LEVELDB_INCLUDE_ENV_H_

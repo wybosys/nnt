@@ -50,28 +50,15 @@ class FileType
 public:
     
     FileType();
-    
-# ifdef NNT_OBJC
-    FileType(ns::String const&);
-# else
     FileType(core::string const&);
-# endif
     
     ~FileType();
     
-# ifdef NNT_OBJC
-    void set(ns::String const&);
-# else
     void set(core::string const&);
-# endif
     
     bool is_bigedian(FormatType const&) const;
     
-# ifdef NNT_OBJC
-    static AudioFileTypeID FindType(ns::String const&);
-# else
     static AudioFileTypeID FindType(core::string const&);
-# endif
     
     operator AudioFileTypeID const& () const
     {
@@ -83,26 +70,14 @@ public:
         return &_type;
     }
     
-# ifdef NNT_OBJC
-    operator ns::String const& () const
-    {
-        return _strtype;
-    }
-# endif
-    
     operator core::string () const
     {
-        return core::type_cast<core::string>(_strtype);
+        return _strtype;
     }
     
 protected:
     
-# ifdef NNT_OBJC
-    ns::String _strtype;
-# else
-    core::string _strtype;
-# endif
-    
+    core::string _strtype;    
     AudioFileTypeID _type;
     
 };

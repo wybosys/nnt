@@ -204,7 +204,6 @@ Buffer::Buffer()
     stm = NULL;
     type = 0;
     used = false;
-    packets = 0;
     
 # endif
     
@@ -295,6 +294,8 @@ void Buffer::close()
             }
         }
     }
+    
+    packets = 0;
     
 # endif
 }
