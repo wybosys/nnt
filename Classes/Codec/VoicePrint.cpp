@@ -70,6 +70,18 @@ Result::Result()
     gmms = new GMM;
 }
 
+Result::Result(Result const& r)
+{
+    // alloc.
+    gmms = new GMM;
+    
+    // copy mfcc
+    mfccs = r.mfccs;
+    
+    // copy gmm
+    *(GMM*)gmms = *(GMM*)r.gmms;
+}
+
 Result::~Result()
 {
     safe_delete<GMM>(gmms);
@@ -172,7 +184,15 @@ Result calc(byte* d, usize len)
             if (GMMs(t_mfcc, gmms, FRAME_LEN, M))
             {
                 ret.mfccs.push_back(t_mfcc);
+                
+                trace_msg("processed slice for vp");
             }
+# ifdef NNT_DEBUG
+            else
+            {
+                trace_msg("skip slice for vp");
+            }
+# endif
         }
     
         if (release)

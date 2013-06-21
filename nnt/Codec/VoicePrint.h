@@ -38,6 +38,7 @@ class Result
 public:
     
     Result();
+    Result(Result const&);
     ~Result();
     
     Result& operator = (Result const&);

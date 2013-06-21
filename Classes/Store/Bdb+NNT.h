@@ -53,12 +53,11 @@ class Bdb
     NNTDECL_PRIVATE_CXX(Bdb);
     
 public:
+    
     NNTDECL_DBMS_DRIVER;
     
     Bdb();
     virtual ~Bdb();
-    
-public:
     
     //! delete database.
     virtual bool delete_db();

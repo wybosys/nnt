@@ -10,8 +10,42 @@
 
 # endif
 
+# include <limits.h>
+# include <float.h>
+
 NNT_BEGIN_HEADER_CXX 
 NNT_BEGIN_NS(ntl)
+
+template <typename T>
+struct limit
+{
+};
+
+template <>
+struct limit <int>
+{
+    enum { MAX = INT_MAX, MIN = INT_MIN};
+};
+
+template <>
+struct limit <uint>
+{
+    enum { MAX = UINT_MAX, MIN = 0};
+};
+
+/*
+template <>
+struct limit <float>
+{
+    enum { MAX = FLT_MAX, MIN = FLT_MIN };
+};
+
+template <>
+struct limit <double>
+{
+    enum { MAX = DBL_MAX, MIN = DBL_MIN };
+};
+ */
 
 # ifdef NNT_USER_SPACE
 
