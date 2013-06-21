@@ -120,6 +120,8 @@ bool Riff::parse(core::data const& da)
         if (!ck->read((void**)&d))
             return false;
         
+        load(*ck);
+        
         if (d < de)
         {
             ck->next = create_chunk();
@@ -128,6 +130,11 @@ bool Riff::parse(core::data const& da)
         }
     }
     return true;
+}
+
+void Riff::load(Chunk const&)
+{
+    PASS;
 }
 
 bool Riff::save(core::data& da) const

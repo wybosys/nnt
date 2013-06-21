@@ -14,28 +14,21 @@ mic::Device dev_mic;
 mic::Recorder au_rdr;
 core::File f_rdr;
 
-void mic_bytes(cxx::eventobj_t& evt)
-{
-    core::data& da = evt;
-    f_rdr.write(da);
-}
-
 void test_mic()
 {
-    f_rdr.open(core::FileUrl<>("record.wav"), mask_t().on<Io::write>().on<Io::create>());
     au_rdr.set(dev_mic);
     au_rdr.type.set("wav");
-    au_rdr.buffer().connect(kSignalBytesAvailable, mic_bytes);
     au_rdr.start();
     sleep_second(1);
     au_rdr.stop();
-    f_rdr.close();
+    core::File::SaveAll(core::FileUrl<>("record.wav"), au_rdr.buffer().data);
 }
 
 void test_vp()
 {
     vp::Result res0, res1, res2;
     
+    if (1)
     {
         core::data da;
         core::File::ReadAll(core::File::url_type("record.wav"), da);

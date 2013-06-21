@@ -46,6 +46,7 @@ void FormatType::update(FileType const& ft)
             case kAudioFileAC3Type: _format.mFormatID = kAudioFormatAC3; break;
             case kAudioFileAAC_ADTSType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
             case kAudioFileAMRType: _format.mFormatID = kAudioFormatAMR; break;
+            case kAudioFileCAFType: _format.mFormatID = kAudioFormatLinearPCM; break;
             default: trace_msg(@"failed to convert filetype to formattype"); break;
         }
     }

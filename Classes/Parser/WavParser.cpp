@@ -32,30 +32,25 @@ Riff::Chunk* Wav::create_chunk() const
     return new WavChunk;
 }
 
-bool Wav::parse(core::data const& da)
+void Wav::load(Chunk const& ck)
 {
-    if (!Riff::parse(da))
-        return false;
-    
     static Riff::Identity IDR_WAV("WAVE");
     static Riff::Identity IDR_FMT("fmt ");
     
-    if (root.type != IDR_WAV)
-        return false;
-    
-    if (!root.child || root.child->idr != IDR_FMT)
-        return false;
-    
-    byte* d = root.child->data.bytes();
-    _tag = core::offsets::pop<word>(d);
-    _channel = core::offsets::pop<word>(d);
-    _sample_rate = core::offsets::pop<dword>(d);
-    _abps = core::offsets::pop<dword>(d);
-    _align = core::offsets::pop<word>(d);
-    _bps = core::offsets::pop<word>(d);
-    _additions = (root.child->data.length() == 18) ? core::offsets::pop<word>(d) : 0;
-    
-    return true;
+    if (root.type == IDR_WAV)
+    {
+        if (root.child || root.child->idr != IDR_FMT)
+        {
+            byte* d = root.child->data.bytes();
+            _tag = core::offsets::pop<word>(d);
+            _channel = core::offsets::pop<word>(d);
+            _sample_rate = core::offsets::pop<dword>(d);
+            _abps = core::offsets::pop<dword>(d);
+            _align = core::offsets::pop<word>(d);
+            _bps = core::offsets::pop<word>(d);
+            _additions = (root.child->data.length() == 18) ? core::offsets::pop<word>(d) : 0;
+        }
+    }
 }
 
 bool Wav::save(core::data &da) const

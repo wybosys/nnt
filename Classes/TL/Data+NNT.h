@@ -276,14 +276,14 @@ public:
         this->_nrelease = true;
     }
 
-    usize copy(void const* d, usize l)
+    usize copy(void const* d, usize l, usize off = 0)
     {
         usize tgtsz = l;
-        if (this->_dl < l)
-            tgtsz = this->_dl;
+        if ((this->_dl - off) < l)
+            tgtsz = this->_dl - off;
         if (tgtsz == 0)
             return 0;
-        heaper::Mem::Copy(this->_da, d, tgtsz);
+        heaper::Mem::Copy(this->_da + off, d, tgtsz);
         return tgtsz;
     }
 

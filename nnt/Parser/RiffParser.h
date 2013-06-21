@@ -60,6 +60,7 @@ public:
     
     virtual bool parse(core::data const&);
     virtual bool save(RESET core::data&) const;
+    virtual void load(Chunk const&);
     virtual Chunk* create_chunk() const;
     
     Chunk root;

@@ -64,20 +64,14 @@ static OSStatus HandlerWrite(void * 		inClientData,
     buf->emit(kSignalBytesAvailable, cxx::eventobj_t::Data(&tmp));
     
     // write.
-    //if (inPosition == buf->data.length())
+    if (inPosition == buf->data.length())
     {
         buf->data.append((void*)buffer, requestCount);
     }
-    /*
-     else if (inPosition < buf->data.length())
-    {
-        trace_msg("<");
-    }
     else
     {
-        trace_msg(">");
+        buf->data.copy((void*)buffer, requestCount, inPosition);
     }
-     */
     
     *actualCount = requestCount;
     
@@ -238,7 +232,7 @@ bool Buffer::open()
                                                     private_type::HandlerSetSize,
                                                     type,
                                                     &format,
-                                                    kAudioFileFlags_EraseFile,
+                                                    0,
                                                     &stm);
         
     if (sta != 0)

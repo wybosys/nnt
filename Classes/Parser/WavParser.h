@@ -15,9 +15,9 @@ public:
     Wav();
     ~Wav();
     
-    virtual bool parse(core::data const&);
     virtual bool save(core::data&) const;
     virtual Chunk* create_chunk() const;
+    virtual void load(Chunk const&);
     
     void collect(NRESET core::data&) const;
     
