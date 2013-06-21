@@ -18,6 +18,8 @@ void test_mic()
 {
     au_rdr.set(dev_mic);
     au_rdr.type.set("wav");
+    au_rdr.format.set_channel(1);
+    au_rdr.format.set_bits(8);
     au_rdr.start();
     sleep_second(1);
     au_rdr.stop();
@@ -34,9 +36,6 @@ void test_vp()
         core::File::ReadAll(core::File::url_type("record.wav"), da);
         parser::Wav wv;
         wv.parse(da);
-        wv.set_channel(1);
-        wv.set_bps(8);
-        wv.save(da);
     }
     
     {

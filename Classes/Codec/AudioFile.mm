@@ -17,7 +17,17 @@ FormatType::FormatType()
 
 FormatType::~FormatType()
 {
-    
+    PASS;
+}
+
+void FormatType::set_channel(uint v)
+{
+    _format.mChannelsPerFrame = v;
+}
+
+void FormatType::set_bits(uint v)
+{
+    _format.mBitsPerChannel = v;
 }
 
 void FormatType::update(AudioQueueRef queue)
@@ -54,9 +64,12 @@ void FormatType::update(FileType const& ft)
     if (_format.mFormatID == 0 || _format.mFormatID == kAudioFormatLinearPCM) {
 		// default to PCM, 16 bit int
 		_format.mFormatID = kAudioFormatLinearPCM;
-		_format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
-		_format.mBitsPerChannel = 16;
-        if (ft.is_bigedian(_format.mBitsPerChannel))
+        if (_format.mBitsPerChannel == 0)
+            _format.mBitsPerChannel = 16;
+        if (_format.mBitsPerChannel > 8)
+            _format.mFormatFlags |= kLinearPCMFormatFlagIsSignedInteger;
+		_format.mFormatFlags |= kLinearPCMFormatFlagIsPacked;
+        if (ft.is_bigedian(*this))
 			_format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
 		_format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
         _format.mFramesPerPacket = 1;
@@ -131,7 +144,7 @@ AudioFileTypeID FileType::FindType(ns::String const& str)
     return ret;
 }
 
-bool FileType::is_bigedian(uint bits) const
+bool FileType::is_bigedian(FormatType const& fmt) const
 {
     AudioFileTypeAndFormatID ftf;
 	UInt32 propertySize;
@@ -139,19 +152,22 @@ bool FileType::is_bigedian(uint bits) const
 	Boolean requiresBigEndian;
 	
 	ftf.mFileType = _type;
-	ftf.mFormatID = kAudioFormatLinearPCM;
+	ftf.mFormatID = ((AudioStreamBasicDescription const*)fmt)->mFormatID;
 	
 	err = AudioFileGetGlobalInfoSize(kAudioFileGlobalInfo_AvailableStreamDescriptionsForFormat, sizeof(ftf), &ftf, &propertySize);
-	if (err) return FALSE;
+	if (err)
+        return FALSE;
     
 	AudioStreamBasicDescription *formats = (AudioStreamBasicDescription *)malloc(propertySize);
 	err = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_AvailableStreamDescriptionsForFormat, sizeof(ftf), &ftf, &propertySize, formats);
 	requiresBigEndian = TRUE;
     if (err == noErr) {
         int i, nFormats = propertySize / sizeof(AudioStreamBasicDescription);
-        for (i = 0; i < nFormats; ++i) {
-            if (formats[i].mBitsPerChannel == bits
-                && !(formats[i].mFormatFlags & kLinearPCMFormatFlagIsBigEndian)) {
+        for (i = 0; i < nFormats; ++i)
+        {
+            if (formats[i].mBitsPerChannel == ((AudioStreamBasicDescription const*)fmt)->mBitsPerChannel
+                && !(formats[i].mFormatFlags & kLinearPCMFormatFlagIsBigEndian))
+            {
                 requiresBigEndian = FALSE;
                 break;
             }

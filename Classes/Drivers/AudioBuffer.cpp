@@ -59,10 +59,6 @@ static OSStatus HandlerWrite(void * 		inClientData,
 {
     use<Buffer> buf = inClientData;
     
-    // sig.
-    core::data tmp = core::data((byte*)buffer, (usize)requestCount, core::assign);
-    buf->emit(kSignalBytesAvailable, cxx::eventobj_t::Data(&tmp));
-    
     // write.
     if (inPosition == buf->data.length())
     {
@@ -277,6 +273,20 @@ void Buffer::close()
     {
         AudioFileClose(stm);
         stm = NULL;
+    }
+    
+    if (need_release && queue)
+    {
+        for (core::vector<AudioQueueBufferRef>::iterator each = d_ptr->buffers.begin();
+             each != d_ptr->buffers.end();
+             ++each)
+        {
+            if (*each != NULL)
+            {
+                AudioQueueFreeBuffer(queue, *each);
+                *each = NULL;
+            }
+        }
     }
     
 # endif

@@ -112,12 +112,16 @@ bool Recorder::start()
     
     if (!d_ptr->buffer.open())
     {
+        stop();
+        
         trace_fmt(@"failed to open audio buffer, %.4s", (char*)&suc);
         return false;
     }
     
     if (!_dev->add(d_ptr->buffer))
     {
+        stop();
+        
         trace_fmt(@"failed to add audio buffer to device, %.4s", (char*)&suc);
         return false;
     }
@@ -127,7 +131,8 @@ bool Recorder::start()
     
     if (suc != 0)
     {
-        d_ptr->buffer.used = false;
+        stop();
+        
         trace_fmt(@"failed to start audio queue, %.4s", (char*)&suc);
         return false;
     }
