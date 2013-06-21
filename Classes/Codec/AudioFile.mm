@@ -30,6 +30,11 @@ void FormatType::set_bits(uint v)
     _format.mBitsPerChannel = v;
 }
 
+void FormatType::set_sampler(real v)
+{
+    _format.mSampleRate = v;
+}
+
 void FormatType::update(AudioQueueRef queue)
 {
     UInt32 sz = sizeof(_format);
@@ -42,13 +47,14 @@ void FormatType::update(AudioQueueRef queue)
 }
 
 void FormatType::update(FileType const& ft)
-{    
+{
+    ns::String file = ft;
+    
     if (_format.mFormatID == 0)
     {
         switch (ft)
         {
             case kAudioFileAIFFType: _format.mFormatID = kAudioFormatAppleLossless; break;
-            case kAudioFileAIFCType: _format.mFormatID = kAudioFormatAppleIMA4; break;
             case kAudioFileWAVEType: _format.mFormatID = kAudioFormatLinearPCM; break;
             case kAudioFileMP1Type: _format.mFormatID = kAudioFormatMPEGLayer1; break;
             case kAudioFileMP2Type: _format.mFormatID = kAudioFormatMPEGLayer2; break;
@@ -56,26 +62,68 @@ void FormatType::update(FileType const& ft)
             case kAudioFileAC3Type: _format.mFormatID = kAudioFormatAC3; break;
             case kAudioFileAAC_ADTSType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
             case kAudioFileAMRType: _format.mFormatID = kAudioFormatAMR; break;
-            case kAudioFileCAFType: _format.mFormatID = kAudioFormatLinearPCM; break;
-            default: trace_msg(@"failed to convert filetype to formattype"); break;
+            case kAudioFile3GPType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
+            case kAudioFile3GP2Type: _format.mFormatID = kAudioFormatMPEG4AAC; break;
+            case kAudioFileM4AType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
+            case kAudioFileM4BType: _format.mFormatID = kAudioFormatMPEG4AAC; break;
+            case kAudioFileCAFType:
+            {
+                if (file == @"lbc")
+                    _format.mFormatID = kAudioFormatiLBC;
+                else
+                    _format.mFormatID = kAudioFormatAppleLossless;
+            } break;
+            default: trace_fmt(@"failed to convert file-type to format-type, %.4s", (char*)&ft); break;
         }
     }
     
-    if (_format.mFormatID == 0 || _format.mFormatID == kAudioFormatLinearPCM) {
-		// default to PCM, 16 bit int
-		_format.mFormatID = kAudioFormatLinearPCM;
-        if (_format.mBitsPerChannel == 0)
-            _format.mBitsPerChannel = 16;
-        if (_format.mBitsPerChannel > 8)
-            _format.mFormatFlags |= kLinearPCMFormatFlagIsSignedInteger;
-		_format.mFormatFlags |= kLinearPCMFormatFlagIsPacked;
-        if (ft.is_bigedian(*this))
-			_format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
-		_format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
-        _format.mFramesPerPacket = 1;
-		_format.mReserved = 0;
-	}
+    if (_format.mFormatID == 0)
+        _format.mFormatID = kAudioFormatLinearPCM;
     
+    switch (_format.mFormatID)
+    {
+        case kAudioFormatLinearPCM:
+        {
+            _format.mFormatID = kAudioFormatLinearPCM;
+            
+            if (_format.mBitsPerChannel == 0)
+                _format.mBitsPerChannel = 16;
+            if (_format.mBitsPerChannel > 8)
+                
+                _format.mFormatFlags |= kLinearPCMFormatFlagIsSignedInteger;
+            _format.mFormatFlags |= kLinearPCMFormatFlagIsPacked;
+            
+            if (ft.is_bigedian(*this))
+                _format.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
+            
+            _format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
+            _format.mFramesPerPacket = 1;
+            _format.mReserved = 0;
+        } break;
+            
+        case kAudioFormatiLBC:
+        {
+            _format.mChannelsPerFrame = 1;
+            _format.mSampleRate = 8000;
+        } break;
+            
+        case kAudioFormatMPEG4AAC:
+        {
+           
+        } break;
+            
+    }
+    
+    update();
+    
+}
+
+void FormatType::update()
+{
+    UInt32 sz = sizeof(_format);
+    AudioFormatGetProperty(kAudioFormatProperty_FormatInfo,
+                           0, NULL,
+                           &sz, &_format);
 }
 
 FileType::FileType()
@@ -95,7 +143,8 @@ FileType::~FileType()
 
 void FileType::set(ns::String const& str)
 {
-    _type = FindType(str);
+    _strtype = str.lower();
+    _type = FindType(_strtype);
 }
 
 AudioFileTypeID FileType::FindType(ns::String const& str)
@@ -128,6 +177,11 @@ AudioFileTypeID FileType::FindType(ns::String const& str)
     if (extension != filename)
         CFRelease(extension);
     
+    if (propertySize == 0)
+    {
+        ret = kAudioFileCAFType;
+    }
+    
     if (err != 0)
     {
         trace_msg(@"failed get file type");
@@ -135,9 +189,7 @@ AudioFileTypeID FileType::FindType(ns::String const& str)
 # ifdef NNT_DEBUG
     else
     {
-        core::string str((char const*)&ret, propertySize);
-        str = core::string(str.rbegin(), str.rend());
-        trace_fmt(@"got file type: %s", str.c_str());
+        trace_fmt(@"got file type: %.4s", (char*)&ret);
     }
 # endif
 	

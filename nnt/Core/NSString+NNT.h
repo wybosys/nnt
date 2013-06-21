@@ -337,6 +337,16 @@ public:
         return [this->_self stringByReplacingOccurrencesOfString:src withString:des];
     }
     
+    String lower() const
+    {
+        return [this->_self lowercaseString];
+    }
+    
+    String upper() const
+    {
+        return [this->_self uppercaseString];   
+    }
+    
 };
     
 NNT_END_NS

@@ -58,18 +58,25 @@ static OSStatus HandlerWrite(void * 		inClientData,
                              UInt32    * actualCount)
 {
     use<Buffer> buf = inClientData;
+    *actualCount = requestCount;
     
     // write.
     if (inPosition == buf->data.length())
     {
         buf->data.append((void*)buffer, requestCount);
     }
+    else if (inPosition > buf->data.length())
+    {
+        core::data da = buf->data;
+        buf->data.resize(inPosition);
+        buf->data.fill(0);
+        buf->data.copy(da);
+        buf->data.append((void*)buffer, requestCount);
+    }
     else
     {
         buf->data.copy((void*)buffer, requestCount, inPosition);
     }
-    
-    *actualCount = requestCount;
     
     return 0;
 }
@@ -220,7 +227,7 @@ bool Buffer::open()
     close();
     
 # ifdef NNT_MACH
-
+        
     OSStatus sta = AudioFileInitializeWithCallbacks(this,
                                                     private_type::HandlerRead,
                                                     private_type::HandlerWrite,

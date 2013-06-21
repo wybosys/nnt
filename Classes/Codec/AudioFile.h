@@ -23,9 +23,11 @@ public:
     
     void set_channel(uint);
     void set_bits(uint);
+    void set_sampler(real);
     
     void update(AudioQueueRef);
     void update(FileType const&);
+    void update();
     
     operator AudioStreamBasicDescription const& () const
     {
@@ -66,8 +68,19 @@ public:
         return &_type;
     }
     
+    operator ns::String const& () const
+    {
+        return _strtype;
+    }
+    
+    operator core::string () const
+    {
+        return core::type_cast<core::string>(_strtype);
+    }
+    
 protected:
     
+    ns::String _strtype;
     AudioFileTypeID _type;
     
 };
