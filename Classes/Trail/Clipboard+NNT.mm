@@ -1,18 +1,29 @@
 
 # import "Core.h"
 # import "Clipboard+NNT.h"
+
+# ifdef NNT_TARGET_IOS
+
 # import <UIKit/UIKit.h>
+
+# endif
+
+# ifdef NNT_TARGET_IOS
 
 NNT_BEGIN_OBJC
 
 signal_t kSignalContentChanged = @"::nnt::content::changed";
 
 NNTDECL_PRIVATE_BEGIN(Clipboard, NNTObject)
-{
+{    
     UIPasteboard* _pb;
 }
 
+# ifdef NNT_TARGET_IOS
+
 @property (nonatomic, retain) UIPasteboard* pb;
+
+# endif
 
 NNTDECL_PRIVATE_IMPL(Clipboard)
 
@@ -187,3 +198,5 @@ uint Clipboard::count() const
 
 NNT_END_NS
 NNT_END_CXX
+
+# endif

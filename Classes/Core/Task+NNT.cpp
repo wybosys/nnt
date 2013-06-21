@@ -229,6 +229,8 @@ bool complete;
 
 int run_once()
 {
+    autocollect;
+    
     mtx_run.lock();
     
     int ret = 0;

@@ -909,6 +909,10 @@ friend class cls##Private; \
 typedef cls##Private private_type; \
 private_type* d_ptr;
 
+# define NNTDECL_PRIVATE_FRIEND(cls) \
+friend class cls; \
+friend class cls##Private;
+
 # define NNTDECL_PRIVATE_CONSTRUCT(cls) \
 d_ptr = new private_type(this);
 

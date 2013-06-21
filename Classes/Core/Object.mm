@@ -386,3 +386,19 @@ void ObjectInit () {
 }
 
 NNT_END_OBJC
+
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(ns)
+
+AutoreleasePool::AutoreleasePool()
+{
+    pool = [[NSAutoreleasePool alloc] init];
+}
+
+AutoreleasePool::~AutoreleasePool()
+{
+    [pool drain];
+}
+
+NNT_END_NS
+NNT_END_CXX

@@ -8,14 +8,59 @@
 # include <nnt/Parser/WavParser.h>
 # include <nnt/Codec/VoicePrint.h>
 
+# include <nnt/Trail/Micphone.h>
+# include <nnt/Core/Task+NNT.h>
+
 NNT_USINGCXXNAMESPACE;
 
-mic::Device dev_mic;
-mic::Recorder au_rdr;
-core::File f_rdr;
+class RecordTask
+: public core::Task
+{
+public:
+    
+    RecordTask()
+    : recording(false)
+    {
+        infinite();
+        dev_trail.start();
+    }
+    
+    virtual int main()
+    {
+        dev_trail.update();
+        real p = dev_trail.peak_power();
+        
+        if (p > -20 && !recording)
+        {
+            recording = true;
+            trace_msg(@"recording start");
+            
+            // begin recording.
+        }
+        else if (p < -40 && recording)
+        {
+            sleep_second(5);
+            trace_msg(@"recording ended");
+            recording = false;
+        }
+        
+        //trace_fmt(@"power: %f", p);
+        ::sleep_second(1);
+        return 0;
+    }
+ 
+    mic::Device dev_mic;
+    mic::Recorder au_rdr;
+    mic::Trail dev_trail;
+    bool recording;
+    
+};
+
+RecordTask task;
 
 void test_mic()
 {
+    /*
     au_rdr.set(dev_mic);
     au_rdr.type.set("wav");
     au_rdr.format.set_sampler(8000);
@@ -25,6 +70,7 @@ void test_mic()
     sleep_second(5);
     au_rdr.stop();
     core::File::SaveAll(core::FileUrl<>("record." + core::string(au_rdr.type)), au_rdr.buffer().data);
+     */
 }
 
 void test_vp()
@@ -88,9 +134,8 @@ void test_vp()
 }
 
 int main(int argc, char** argv)
-{
-    if (1) test_mic();
-    if (1) test_vp();
+{    
+    task.start();
     
     cross::Application app;
     return app.execute(argc, argv);

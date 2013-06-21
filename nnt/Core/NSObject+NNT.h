@@ -407,26 +407,6 @@ protected:
 
 # define NNTMACRO_LOCKOBJ(obj) ::nnt::ns::AutoLockObject<__typeof__(*obj)> NNTAUTO_NAME(obj);
 
-class AutoreleasePool
-{
-public:
-    
-    AutoreleasePool()
-    {
-        pool = [[NSAutoreleasePool alloc] init];
-    }
-    
-    ~AutoreleasePool()
-    {
-        [pool drain];
-    }
-    
-    NSAutoreleasePool* pool;
-    
-};
-
-# define autocollect ::nnt::ns::AutoreleasePool NNTAUTO_NAME;
-
 class Null
 {
 public:

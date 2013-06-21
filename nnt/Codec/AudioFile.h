@@ -2,7 +2,7 @@
 # ifndef __NNT_AUDIOFILE_6800445606AD4BC59E5C468D1835F405_H_INCLUDED
 # define __NNT_AUDIOFILE_6800445606AD4BC59E5C468D1835F405_H_INCLUDED
 
-# ifdef NNT_OBJC
+# ifdef NNT_MACH
 
 # ifdef NNT_CXX
 
@@ -50,13 +50,28 @@ class FileType
 public:
     
     FileType();
+    
+# ifdef NNT_OBJC
     FileType(ns::String const&);
+# else
+    FileType(core::string const&);
+# endif
+    
     ~FileType();
     
+# ifdef NNT_OBJC
     void set(ns::String const&);
+# else
+    void set(core::string const&);
+# endif
     
     bool is_bigedian(FormatType const&) const;
+    
+# ifdef NNT_OBJC
     static AudioFileTypeID FindType(ns::String const&);
+# else
+    static AudioFileTypeID FindType(core::string const&);
+# endif
     
     operator AudioFileTypeID const& () const
     {
@@ -68,10 +83,12 @@ public:
         return &_type;
     }
     
+# ifdef NNT_OBJC
     operator ns::String const& () const
     {
         return _strtype;
     }
+# endif
     
     operator core::string () const
     {
@@ -80,7 +97,12 @@ public:
     
 protected:
     
+# ifdef NNT_OBJC
     ns::String _strtype;
+# else
+    core::string _strtype;
+# endif
+    
     AudioFileTypeID _type;
     
 };

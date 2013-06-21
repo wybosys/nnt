@@ -687,6 +687,36 @@ protected:
 
 };
 
+# ifdef NNT_MACH
+
+NNT_BEGIN_NS(ns)
+
+class AutoreleasePool
+{
+public:
+    
+    AutoreleasePool();    
+    ~AutoreleasePool();
+
+# ifdef NNT_OBJC
+    NSAutoreleasePool*
+# else
+    void*
+# endif
+    pool;
+    
+};
+
+# define autocollect ::nnt::ns::AutoreleasePool NNTAUTO_NAME;
+
+NNT_END_NS
+
+# else
+
+# define autocollect
+
+# endif
+
 NNT_END_HEADER_CXX
 
 # endif

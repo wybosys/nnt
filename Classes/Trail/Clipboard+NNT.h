@@ -52,11 +52,15 @@ public:
     ns::URL to_url() const;
     operator ns::URL () const;
     
+# ifdef NNT_TARGET_IOS
+    
     ui::Image to_image() const;
     operator ui::Image () const;
     
     ui::Color to_color() const;
     operator ui::Color () const;
+    
+# endif
     
     void clear();
     uint count() const;

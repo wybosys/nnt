@@ -378,7 +378,7 @@
 		16B09D87176EE1EC00B39F81 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D78176EE1EC00B39F81 /* CAStreamBasicDescription.cpp */; };
 		16B09D89176EE1EC00B39F81 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D7A176EE1EC00B39F81 /* CAXException.cpp */; };
 		16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D8C176EE28200B39F81 /* MicRecorder.mm */; };
-		16B09D96176EE37100B39F81 /* AudioFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D94176EE37100B39F81 /* AudioFile.mm */; };
+		16B09D96176EE37100B39F81 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D94176EE37100B39F81 /* AudioFile.cpp */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
 		16C44CC114A02D6100775B19 /* NSViewController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBD14A02D6100775B19 /* NSViewController+NNT.mm */; };
@@ -449,6 +449,12 @@
 		16DEB6D81772C8620086591F /* AudioBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D51772C8620086591F /* AudioBuffer.cpp */; };
 		16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6D61772C8620086591F /* AudioBuffer.h */; };
 		16DEB6DA1772C8620086591F /* AudioBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6D71772C8620086591F /* AudioBuffer.mm */; };
+		16DEB6E0177426AE0086591F /* Micphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6DD177426AE0086591F /* Micphone.cpp */; };
+		16DEB6E1177426AE0086591F /* Micphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6DE177426AE0086591F /* Micphone.h */; };
+		16DEB6E2177426AE0086591F /* Micphone.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6DF177426AE0086591F /* Micphone.mm */; };
+		16DEB6E5177426D30086591F /* Clipboard+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DEB6E3177426D30086591F /* Clipboard+NNT.h */; };
+		16DEB6E6177426D30086591F /* Clipboard+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6E4177426D30086591F /* Clipboard+NNT.mm */; };
+		16DEB6E8177429F10086591F /* AudioFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DEB6E7177429F10086591F /* AudioFile.mm */; };
 		16E009E416085C0B00B35D3F /* Mime+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */; };
 		16E009E616085C0B00B35D3F /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096C16085C0B00B35D3F /* Mime+NNT.mm */; };
 		16E009E816085C0B00B35D3F /* NSHttpCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E0096E16085C0B00B35D3F /* NSHttpCache.mm */; };
@@ -1206,7 +1212,7 @@
 		16B09D8B176EE28200B39F81 /* MicRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicRecorder.h; sourceTree = "<group>"; };
 		16B09D8C176EE28200B39F81 /* MicRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MicRecorder.mm; sourceTree = "<group>"; };
 		16B09D93176EE37100B39F81 /* AudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFile.h; sourceTree = "<group>"; };
-		16B09D94176EE37100B39F81 /* AudioFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFile.mm; sourceTree = "<group>"; };
+		16B09D94176EE37100B39F81 /* AudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFile.cpp; sourceTree = "<group>"; };
 		16BA0A081547C9570069968D /* DBMSOdbc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBMSOdbc.cpp; path = ../Classes/Store/DBMSOdbc.cpp; sourceTree = "<group>"; };
 		16BA0A091547C9570069968D /* DBMSOdbc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMSOdbc.h; path = ../Classes/Store/DBMSOdbc.h; sourceTree = "<group>"; };
 		16C44CBA14A02D6100775B19 /* NSView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+NNT.h"; path = "../Classes/UIKit/NSView+NNT.h"; sourceTree = "<group>"; };
@@ -1490,6 +1496,12 @@
 		16DEB6D51772C8620086591F /* AudioBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioBuffer.cpp; path = ../Classes/Drivers/AudioBuffer.cpp; sourceTree = "<group>"; };
 		16DEB6D61772C8620086591F /* AudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioBuffer.h; path = ../Classes/Drivers/AudioBuffer.h; sourceTree = "<group>"; };
 		16DEB6D71772C8620086591F /* AudioBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioBuffer.mm; path = ../Classes/Drivers/AudioBuffer.mm; sourceTree = "<group>"; };
+		16DEB6DD177426AE0086591F /* Micphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Micphone.cpp; path = ../Classes/Trail/Micphone.cpp; sourceTree = "<group>"; };
+		16DEB6DE177426AE0086591F /* Micphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Micphone.h; path = ../Classes/Trail/Micphone.h; sourceTree = "<group>"; };
+		16DEB6DF177426AE0086591F /* Micphone.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Micphone.mm; path = ../Classes/Trail/Micphone.mm; sourceTree = "<group>"; };
+		16DEB6E3177426D30086591F /* Clipboard+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Clipboard+NNT.h"; path = "../Classes/Trail/Clipboard+NNT.h"; sourceTree = "<group>"; };
+		16DEB6E4177426D30086591F /* Clipboard+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Clipboard+NNT.mm"; path = "../Classes/Trail/Clipboard+NNT.mm"; sourceTree = "<group>"; };
+		16DEB6E7177429F10086591F /* AudioFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFile.mm; sourceTree = "<group>"; };
 		16E0096A16085C0B00B35D3F /* Mime+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Mime+NNT.cpp"; sourceTree = "<group>"; };
 		16E0096B16085C0B00B35D3F /* Mime+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mime+NNT.h"; sourceTree = "<group>"; };
 		16E0096C16085C0B00B35D3F /* Mime+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Mime+NNT.mm"; sourceTree = "<group>"; };
@@ -2426,6 +2438,7 @@
 				1627642C14F5E40D00DC935B /* Security */,
 				169DD2171457D510000A9889 /* Store */,
 				167D003B17095C7100B94D5E /* TL */,
+				16DEB6DC177426940086591F /* Trail */,
 				164F23BB1457DDE400396C42 /* UIKit */,
 				162BA6D3150DF0E900F33E1D /* Util */,
 				167EBB5614F36A030012570E /* View */,
@@ -3193,6 +3206,18 @@
 			name = yaml;
 			sourceTree = "<group>";
 		};
+		16DEB6DC177426940086591F /* Trail */ = {
+			isa = PBXGroup;
+			children = (
+				16DEB6E3177426D30086591F /* Clipboard+NNT.h */,
+				16DEB6E4177426D30086591F /* Clipboard+NNT.mm */,
+				16DEB6DD177426AE0086591F /* Micphone.cpp */,
+				16DEB6DE177426AE0086591F /* Micphone.h */,
+				16DEB6DF177426AE0086591F /* Micphone.mm */,
+			);
+			name = Trail;
+			sourceTree = "<group>";
+		};
 		16E00A691608695700B35D3F /* BSE */ = {
 			isa = PBXGroup;
 			children = (
@@ -3224,7 +3249,8 @@
 				16B09D8B176EE28200B39F81 /* MicRecorder.h */,
 				16B09D8C176EE28200B39F81 /* MicRecorder.mm */,
 				16B09D93176EE37100B39F81 /* AudioFile.h */,
-				16B09D94176EE37100B39F81 /* AudioFile.mm */,
+				16B09D94176EE37100B39F81 /* AudioFile.cpp */,
+				16DEB6E7177429F10086591F /* AudioFile.mm */,
 				164093D3176F021D0032E1FF /* VoicePrint.cpp */,
 				164093D4176F021D0032E1FF /* VoicePrint.h */,
 			);
@@ -3390,6 +3416,8 @@
 			files = (
 				16DEB6C31772A9E70086591F /* YamlParser.h in Headers */,
 				16DEB6D91772C8620086591F /* AudioBuffer.h in Headers */,
+				16DEB6E1177426AE0086591F /* Micphone.h in Headers */,
+				16DEB6E5177426D30086591F /* Clipboard+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3934,7 +3962,7 @@
 				16B09D87176EE1EC00B39F81 /* CAStreamBasicDescription.cpp in Sources */,
 				16B09D89176EE1EC00B39F81 /* CAXException.cpp in Sources */,
 				16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */,
-				16B09D96176EE37100B39F81 /* AudioFile.mm in Sources */,
+				16B09D96176EE37100B39F81 /* AudioFile.cpp in Sources */,
 				164093C6176F00010032E1FF /* cluster.c in Sources */,
 				164093C8176F00010032E1FF /* FFT2.c in Sources */,
 				164093CB176F00010032E1FF /* gmm.c in Sources */,
@@ -3960,6 +3988,10 @@
 				16DEB6D41772AC230086591F /* writer.c in Sources */,
 				16DEB6D81772C8620086591F /* AudioBuffer.cpp in Sources */,
 				16DEB6DA1772C8620086591F /* AudioBuffer.mm in Sources */,
+				16DEB6E0177426AE0086591F /* Micphone.cpp in Sources */,
+				16DEB6E2177426AE0086591F /* Micphone.mm in Sources */,
+				16DEB6E6177426D30086591F /* Clipboard+NNT.mm in Sources */,
+				16DEB6E8177429F10086591F /* AudioFile.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
