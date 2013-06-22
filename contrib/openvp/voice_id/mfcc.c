@@ -171,7 +171,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
 	{
 		return NULL;
 	}
-    pTranDiff = (double *)calloc((train_frame_num/2 + 1)*FRAME_LEN, sizeof(double));
+    pTranDiff = (double *)calloc((train_frame_num/2 + 1) * FRAME_LEN, sizeof(double));
 	if (!pTranDiff)
 	{
 		return NULL;
@@ -185,7 +185,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
         FrameEnergy = PriorHalfFrame + NextHalfFrame;
         if (FrameEnergy < SILENCE_VALUE)   // 是静寂语音
         {
-             if (iFrameNum-iFrame < train_frame_num-iNum)   // 剩下的帧不足以作为训练帧
+            if (iFrameNum-iFrame < train_frame_num-iNum)   // 剩下的帧不足以作为训练帧
             {
                 free(pTranDiff);
                 return NULL;
@@ -199,6 +199,7 @@ static double * JudgeTrainFrame2(double * pDiffVoice, int iSampleNum, int train_
             pDiffNext +=  FRAME_LEN/2;  // 重新定位可用作训练的帧
             pDiffHead= pDiffNext;
             NextHalfFrame = HalfFrameEnergy(pDiffHead);
+            ++iFrame;
         }
 		else
 		{

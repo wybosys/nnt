@@ -91,7 +91,11 @@ public:
                     trace_msg(@"fail match");
                 }
                 
+                // save result.
                 results.push_back(result);
+                
+                // save record.
+                core::File::SaveAll(core::FileUrl<>("record.wav"), au_rdr.buffer().data);
             }
         }
         
@@ -113,7 +117,22 @@ RecordTask task;
 
 int main(int argc, char** argv)
 {    
-    task.start();
+    //task.start();
+    
+    if (1)
+    {
+        core::data da;
+        core::File::ReadAll(core::File::url_type("word.wav"), da);
+        parser::Wav wv;
+        wv.parse(da);
+        wv.set_channel(1);
+        wv.set_bps(8);
+        wv.save(da);
+        da.clear();
+        wv.collect(da);
+        vp::Digest dg;
+        vp::Result res0 = dg.calc(da);
+    }
     
     cross::Application app;
     return app.execute(argc, argv);

@@ -1,15 +1,1 @@
-
-# ifndef __NNT_UIKIT_UITIP_8644A7B02C1741A687A2D396AB1E5AFD_H_INCLUDED
-# define __NNT_UIKIT_UITIP_8644A7B02C1741A687A2D396AB1E5AFD_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface UITip : NSObject {
-    
-}
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/UIKit/UITip.h"

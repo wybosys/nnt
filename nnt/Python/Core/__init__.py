@@ -1,4 +1,1 @@
-
-from object import *
-import object
-import cli
+/work/develop/nnt/Classes/Python/Core/__init__.py

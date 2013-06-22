@@ -29,14 +29,14 @@ YYYY/MM/DD   X.Y      <作者或修改者名>    <修改内容>
 #include "FFT2.h"
 
 
-#define SIGNAL_TIME 5       //!< 训练信号持续时间(s)
+//#define SIGNAL_TIME 5       //!< 训练信号持续时间(s)
 #define FRAME_LEN 256       //!< 帧长度
 
 ////帧数=音频采样频率*训练信号持续时间/帧长度
 //#define FRAME_NUM (SAMPLE_FREQUENCY * SIGNAL_TIME / FRAME_LEN)
 #define SILENCE_VALUE   0.016  //!< 静寂状态阈值/帧，取0.016
 
-#define GOOD_FRAME_NUM  1000   //!< 连续大于静寂状态阈值的帧数（可用于训练的最小帧数） 
+//#define GOOD_FRAME_NUM  1000   //!< 连续大于静寂状态阈值的帧数（可用于训练的最小帧数）
 #define D 20                   //!< MFCC参数向量维度20
 
 

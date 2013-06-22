@@ -1,15 +1,1 @@
-
-# ifndef __NNT_CORE_NSREGEXLIBRARY_ECD53E1935FF4AFFB4FC6124981FF215_H_INCLUDED
-# define __NNT_CORE_NSREGEXLIBRARY_ECD53E1935FF4AFFB4FC6124981FF215_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-NNT_EXTERN NSString* kMatch_Email;
-NNT_EXTERN NSString* kMatch_Password;
-NNT_EXTERN NSString* kMatch_Cellphone;
-NNT_EXTERN NSString* kMatch_Zipcode;
-NNT_EXTERN NSString* kMatch_Telephone;
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/Core/NSRegexLibrary.h"

@@ -361,11 +361,19 @@ static double GMM_density(GMM * pGMM, double * X, int index) //高斯密度函�
 	{
 		//TODO 对角矩阵的对角线中出现0，导致无穷大1#INF
 		temp += pow(X[i] - pGMM->u[index][i], 2) / pGMM->cMatrix[index][i];
+        if (isinf(temp))
+            break;
+        
 		//TODO sqrt出现-nan,因为开方值为负
 		sqrt_Matrix_value *= sqrt(pGMM->cMatrix[index][i]);
 	}
+    
+    if (isinf(temp))
+        return NAN;
+    
 	//TODO temp值太大，导致exp(temp / -2)为0
 	res = pow(_2PI, D/-2) / sqrt_Matrix_value * exp(temp / -2);
+    
 	return res;
 }
 

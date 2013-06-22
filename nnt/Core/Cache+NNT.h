@@ -1,13 +1,1 @@
-
-# ifndef __NNT_CORE_CACHE_CC813262B7C54DBFA17935BE215EB05D_H_INCLUDED
-# define __NNT_CORE_CACHE_CC813262B7C54DBFA17935BE215EB05D_H_INCLUDED
-
-# include "./AbstractCache.h"
-
-# ifdef NNT_OBJC
-
-typedef AbstractCache NNTCache;
-
-# endif
-
-# endif
+# include "/work/develop/nnt/Classes/Core/Cache+NNT.h"

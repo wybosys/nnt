@@ -1,17 +1,1 @@
-
-# ifndef __NNT_SCRIPT_NODEJS_F700D1B4885A414E985317067A4235A2_H_INCLUDED
-# define __NNT_SCRIPT_NODEJS_F700D1B4885A414E985317067A4235A2_H_INCLUDED
-
-# ifdef NNT_OBJC
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface Nodejs : NNTObject
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
-
-# endif
+# include "/work/develop/nnt/Classes/Script/Nodejs+NNT.h"

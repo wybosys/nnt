@@ -1,16 +1,1 @@
-
-# ifndef __NNT_CORE_MEMCACHE_809B2DB0A64245C69788299EC0643462_H_INCLUDED
-# define __NNT_CORE_MEMCACHE_809B2DB0A64245C69788299EC0643462_H_INCLUDED
-
-# import "AbstractCache.h"
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface MemCache : AbstractCache {
-    
-}
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/Core/MemCache.h"

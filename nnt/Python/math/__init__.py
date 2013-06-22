@@ -1,3 +1,1 @@
-
-from types import *
-
+/work/develop/nnt/Classes/Python/math/__init__.py

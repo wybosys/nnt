@@ -1,9 +1,1 @@
-
-# ifndef __NNT_QT_DD13632604994D38AC87EAAE029EA763_H_INCLUDED
-# define __NNT_QT_DD13632604994D38AC87EAAE029EA763_H_INCLUDED
-
-# include <QtGui/QtGui>
-
-# define NNT_QT 1
-
-# endif
+# include "/work/develop/nnt/Classes/Qt/Qt+NNT.h"

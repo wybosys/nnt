@@ -1,16 +1,1 @@
-
-# ifndef __NNT_VIEW_HTMLGRID_5A94AFFEA10B4A16A6AF2656B2289DB9_H_INCLUDED
-# define __NNT_VIEW_HTMLGRID_5A94AFFEA10B4A16A6AF2656B2289DB9_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface VHtmlTable : NSObject {
-}
-
-- (NSString*)make:(NSObject*)__model;
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/View/VHtmlTable.h"

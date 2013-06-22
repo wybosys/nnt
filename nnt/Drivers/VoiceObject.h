@@ -1,16 +1,1 @@
-
-# ifndef __NNT_DRIVER_VOICEOBJECT_55F070FE91D64D19B9A65BDE8FC6CA54_H_INCLUDED
-# define __NNT_DRIVER_VOICEOBJECT_55F070FE91D64D19B9A65BDE8FC6CA54_H_INCLUDED
-
-# ifdef NNT_OBJC
-
-NNT_BEGIN_HEADER_OBJC
-
-NNT_EXTERN signal_t kSignalVoiceRecognizeSuccess;
-NNT_EXTERN signal_t kSignalSpeechCompletion;
-
-NNT_END_HEADER_OBJC
-
-# endif
-
-# endif
+# include "/work/develop/nnt/Classes/Drivers/VoiceObject.h"

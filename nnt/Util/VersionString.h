@@ -1,11 +1,1 @@
-
-# ifndef __NNT_UTIL_VERSIONSTRING_33B87D0F4E714AC6B1C0D16BBD41DCF7_H_INCLUDED
-# define __NNT_UTIL_VERSIONSTRING_33B87D0F4E714AC6B1C0D16BBD41DCF7_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-NNT_EXTERN NSComparisonResult versionStringCompare(NSString* str, NSString *other);
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/Util/VersionString.h"

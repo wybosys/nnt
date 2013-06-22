@@ -1,13 +1,1 @@
-
-# ifndef __NNT_HGC_MATH_6D6EDB6C528F4E8A946C04FE10BF7A95_H_INCLUDED
-# define __NNT_HGC_MATH_6D6EDB6C528F4E8A946C04FE10BF7A95_H_INCLUDED
-
-NNT_BEGIN_HEADER_CXX
-NNT_BEGIN_NS(opencl)
-
-void square(void* input, void* output, NNTOpenCLValueType, uinteger count);
-
-NNT_END_NS
-NNT_END_HEADER_CXX
-
-# endif
+# include "/work/develop/nnt/Classes/HGC/OCLMath.h"

@@ -1,15 +1,1 @@
-
-# ifndef __NNT_UIKIT_ACTIONPAD_E7DD95D561FC4683847C3C78F4C0CF11_H_INCLUDED
-# define __NNT_UIKIT_ACTIONPAD_E7DD95D561FC4683847C3C78F4C0CF11_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface UIActionPad : NNTUIView
-
-@end
-
-NNT_EXTERN signal_t kSignalPadAction;
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/UIKit/UIActionPad.h"

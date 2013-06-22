@@ -1,18 +1,1 @@
-
-# ifndef __NNT_NS_MESSAGEBOX_2F18B7780E6441B588B127A18948B6E3_H_INCLUDED
-# define __NNT_NS_MESSAGEBOX_2F18B7780E6441B588B127A18948B6E3_H_INCLUDED
-
-# import "NSWindow+NNT.h"
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface NSMessageBox : NNTNSWindow
-
-- (id)initWithTitle:(NSString*)title;
-- (void)show;
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/UIKit/NSMessageBox.h"

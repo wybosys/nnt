@@ -1,15 +1,1 @@
-
-# ifndef __NNT_OA_GOOGLE_AF2FDE019EE44A71AA910039ACD4603E_H_INCLUDED
-# define __NNT_OA_GOOGLE_AF2FDE019EE44A71AA910039ACD4603E_H_INCLUDED
-
-# import "OANull.h"
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface OAGoogle : OANull
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/OpenApi/OAGoogle.h"

@@ -1,17 +1,1 @@
-
-# ifndef __NNT_UIKIT_UISETTINGSSTOREUSERDEFAULTS_B6010553B8EF45E9AF497C84AEC3E0B4_H_INCLUDED
-# define __NNT_UIKIT_UISETTINGSSTOREUSERDEFAULTS_B6010553B8EF45E9AF497C84AEC3E0B4_H_INCLUDED
-
-# import "./UISettingsStore.h"
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface UISettingsStoreUserDefaults : UISettingsStore {
-    
-}
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/UIKit/UISettingsStoreUserDefaults.h"

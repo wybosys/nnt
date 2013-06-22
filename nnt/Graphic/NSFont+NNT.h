@@ -1,15 +1,1 @@
-
-# ifndef __NNT_Ng_NSFONT_B0BAB68237E3403C9CC63253B4FF3868_H_INCLUDED
-# define __NNT_Ng_NSFONT_B0BAB68237E3403C9CC63253B4FF3868_H_INCLUDED
-
-NNT_BEGIN_HEADER_OBJC
-
-@interface NSFont (Ng)
-
-- (NSMutableDictionary*)getAttributes;
-
-@end
-
-NNT_END_HEADER_OBJC
-
-# endif
+# include "/work/develop/nnt/Classes/Graphic/NSFont+NNT.h"

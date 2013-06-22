@@ -100,7 +100,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
@@ -113,6 +112,7 @@
  '(initial-scratch-message "")
  '(linum-format "%-5d")
  '(scroll-bar-mode (quote right))
+ '(session-use-package t nil (session))
  '(show-paren-mode t)
  '(tab-width 4))
 
@@ -561,3 +561,10 @@
 (global-set-key (kbd "<end>") 'bookmark-set)
 (global-set-key (kbd "<home>") 'bookmark-jump)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
+ '(linum ((t (:inherit (shadow default) :background "color-255")))))

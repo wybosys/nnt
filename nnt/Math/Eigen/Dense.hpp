@@ -1,7 +1,1 @@
-#include "Core.hpp"
-#include "LU.hpp"
-#include "Cholesky.hpp"
-#include "QR.hpp"
-#include "SVD.hpp"
-#include "Geometry.hpp"
-#include "Eigenvalues.hpp"
+# include "/work/develop/nnt/Classes/Math/Eigen/Dense.hpp"

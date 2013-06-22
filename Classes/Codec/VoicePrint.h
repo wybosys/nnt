@@ -13,7 +13,7 @@ class mfcc
 {
 public:
     
-    mfcc();
+    mfcc(usize size = 0);
     mfcc(mfcc const&);
     ~mfcc();
     
@@ -24,11 +24,13 @@ public:
         return (double**)_data;
     }
     
+    void clear();
     void to(core::data&) const;
     void from(core::data const&);
     
 protected:
     
+    usize _count;
     double** _data;
     
 };
@@ -61,6 +63,8 @@ public:
     ~Digest();
     
     Result calc(core::data const&);
+    
+    usize slice;
     
 };
 

@@ -1,6 +1,1 @@
-
-# ifndef __NNT_XMPP_IM_AVATAR_EE1C8F907E9542E78D86703A414ADA28_H_INCLUDED
-# define __NNT_XMPP_IM_AVATAR_EE1C8F907E9542E78D86703A414ADA28_H_INCLUDED
-
-
-# endif
+# include "/work/develop/nnt/Classes/Cross/xmpp/im/XimAvatar.h"

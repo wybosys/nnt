@@ -12,17 +12,21 @@ NNT_END_HEADER_C
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(vp)
 
-mfcc::mfcc()
+mfcc::mfcc(usize sz)
+: _count(sz), _data(0)
 {
-    _data = (double**)malloc(FRAME_LEN * sizeof(double*));
-    for (uint i = 0; i < FRAME_LEN; ++i)
-        _data[i] = (double*)malloc(D * sizeof(double));
+    _data = (double**)malloc(_count * sizeof(double*));
+    for (uint i = 0; i < _count; ++i)
+    {
+        _data[i] = (double*)calloc(D, sizeof(double));
+    }
 }
 
 mfcc::mfcc(mfcc const& r)
 {
-    _data = (double**)malloc(FRAME_LEN * sizeof(double*));
-    for (uint i = 0; i < FRAME_LEN; ++i)
+    _count = r._count;
+    _data = (double**)malloc(_count * sizeof(double*));
+    for (uint i = 0; i < _count; ++i)
     {
         _data[i] = (double*)malloc(D * sizeof(double));
         memcpy(_data[i], r._data[i], D * sizeof(double));
@@ -31,8 +35,13 @@ mfcc::mfcc(mfcc const& r)
 
 mfcc& mfcc::operator = (mfcc const& r)
 {
-    for (uint i = 0; i < FRAME_LEN; ++i)
+    clear();
+    
+    _count = r._count;
+    _data = (double**)malloc(_count * sizeof(double*));
+    for (uint i = 0; i < _count; ++i)
     {
+        _data[i] = (double*)malloc(D * sizeof(double));
         memcpy(_data[i], r._data[i], D * sizeof(double));
     }
     return *this;
@@ -40,15 +49,22 @@ mfcc& mfcc::operator = (mfcc const& r)
 
 mfcc::~mfcc()
 {
-    for (uint i = 0; i < FRAME_LEN; ++i)
+    clear();
+}
+
+void mfcc::clear()
+{
+    for (uint i = 0; i < _count; ++i)
         free(_data[i]);
     free(_data);
+    _count = 0;
+    _data = NULL;
 }
 
 void mfcc::to(core::data &da) const
 {
     da.clear();
-    for (uint i = 0; i < FRAME_LEN; ++i)
+    for (uint i = 0; i < _count; ++i)
     {
         da.append(_data[i], D * sizeof(double));
     }
@@ -56,8 +72,17 @@ void mfcc::to(core::data &da) const
 
 void mfcc::from(core::data const& da)
 {
+    clear();
+    
+    _count = da.length() / sizeof(double) / D;
+    _data = (double**)malloc(_count * sizeof(double*));
+    for (uint i = 0; i < _count; ++i)
+    {
+        _data[i] = (double*)malloc(D * sizeof(double));
+    }
+    
     core::framedata fd(da.bytes(), da.length());
-    for (uint i = 0; i < FRAME_LEN; ++i)
+    for (uint i = 0; i < _count; ++i)
     {
         memcpy(_data[i], fd.bytes(), D * sizeof(double));
         fd.move(D * sizeof(double));
@@ -106,13 +131,14 @@ real Result::compare(Result const& r)
     typedef core::vector<double> comprs_type;
     comprs_type comprs;
     
+    /*
     use<GMM> gmms = this->gmms;
     for (mfccs_type::const_iterator each = mfccs.begin();
          each != mfccs.end();
          ++each)
     {
         double tmp;
-        if (GMM_identify(*each, &tmp, gmms, FRAME_LEN, M))
+        if (GMM_identify(*each, &tmp, gmms, SLICE_LEN, M))
         {
             double val = fabs(tmp);
             comprs.push_back(val);
@@ -128,7 +154,7 @@ real Result::compare(Result const& r)
          ++each)
     {
         double tmp;
-        if (GMM_identify(*each, &tmp, gmms, FRAME_LEN, M))
+        if (GMM_identify(*each, &tmp, gmms, SLICE_LEN, M))
         {
             double val = fabs(tmp);
             comprs.push_back(val);
@@ -138,6 +164,7 @@ real Result::compare(Result const& r)
 # endif
         }
     }
+     */
     
     double dev = stat::deviation_standard<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end());
     double avg = stat::sum<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end()) / comprs.size();
@@ -156,49 +183,31 @@ void dealloc()
     
 }
 
-Result calc(byte* d, usize len)
+Result calc(byte* d, usize dlen)
 {
-    Result ret;
-    core::framedata fd(d, len);
+    Result ret;    
+    core::framedata fd(d, dlen);
     
     use<GMM> gmms = ret.gmms;
     
-    while (fd.length())
-    {
-        usize len = 320 * FRAME_LEN;
-        byte* buf = fd.bytes();
-        bool release = false;
-
-        if (len > fd.length())
-        {
-            byte* nbuf = core::alloc::Heap<byte>::Alloc(len);
-            core::alloc::Heap<byte>::Fill(nbuf, len, 0);
-            core::alloc::Heap<byte>::Copy(nbuf, buf, fd.length());
-            buf = nbuf;
-            release = true;
-        }    
-        
-        mfcc t_mfcc;
-        if (voiceToMFCC((BYTE*)buf, len, t_mfcc, FRAME_LEN))
-        {            
-            if (GMMs(t_mfcc, gmms, FRAME_LEN, M))
-            {
-                ret.mfccs.push_back(t_mfcc);
-                
-                trace_msg("processed slice for vp");
-            }
-# ifdef NNT_DEBUG
-            else
-            {
-                trace_msg("skip slice for vp");
-            }
-# endif
-        }
+    usize const framelen = dlen / FRAME_LEN;
     
-        if (release)
-            core::alloc::Heap<byte>::Free(buf);
-        
-        fd.move(len);
+    // calc mfcc.
+    mfcc t_mfcc(framelen);
+    if (voiceToMFCC((BYTE*)d, dlen, t_mfcc, 200))
+    {
+        if (GMMs(t_mfcc, gmms, 200, M))
+        {
+            ret.mfccs.push_back(t_mfcc);
+            
+            trace_msg("processed slice for vp");
+        }
+# ifdef NNT_DEBUG
+        else
+        {
+            trace_msg("skip slice for vp");
+        }
+# endif
     }
     
     return ret;
@@ -209,6 +218,8 @@ NNTDECL_PRIVATE_END_CXX
 Digest::Digest()
 {
     NNTDECL_PRIVATE_CONSTRUCT(Digest);
+    
+    slice = 44100 * 5; // 5 seconds.
 }
 
 Digest::~Digest()
