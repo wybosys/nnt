@@ -91,80 +91,52 @@ void mfcc::from(core::data const& da)
 
 Result::Result()
 {    
-    // alloc gmm.
-    gmms = new GMM;
+
 }
 
 Result::Result(Result const& r)
 {
-    // alloc.
-    gmms = new GMM;
-    
-    // copy mfcc
-    mfccs = r.mfccs;
-    
-    // copy gmm
-    *(GMM*)gmms = *(GMM*)r.gmms;
+    codes = r.codes;
 }
 
 Result::~Result()
 {
-    safe_delete<GMM>(gmms);
+    
 }
 
 Result& Result::operator = (Result const& r)
 {
-    // copy mfcc
-    mfccs = r.mfccs;
-    
-    // copy gmm
-    *(GMM*)gmms = *(GMM*)r.gmms;
-    
+    codes = r.codes;
     return *this;
+}
+
+bool Result::empty() const
+{
+    return codes.size() == 0;
 }
 
 real Result::compare(Result const& r)
 {
-    if (!mfccs.size() || !r.mfccs.size())
-        return 0;
+    if (!codes.size() || !r.codes.size())
+        return 1;
     
     typedef core::vector<double> comprs_type;
     comprs_type comprs;
     
-    /*
-    use<GMM> gmms = this->gmms;
-    for (mfccs_type::const_iterator each = mfccs.begin();
-         each != mfccs.end();
+    for (codes_type::const_iterator each = codes.begin();
+         each != codes.end();
          ++each)
     {
-        double tmp;
-        if (GMM_identify(*each, &tmp, gmms, SLICE_LEN, M))
-        {
-            double val = fabs(tmp);
-            comprs.push_back(val);
-            
-# ifdef NNT_DEBUG
-            printf("left %f\n", val);
-# endif
-        }
+        comprs.push_back(*each);
     }
-        
-    for (mfccs_type::const_iterator each = r.mfccs.begin();
-         each != r.mfccs.end();
+    
+    for (codes_type::const_iterator each = r.codes.begin();
+         each != r.codes.end();
          ++each)
     {
-        double tmp;
-        if (GMM_identify(*each, &tmp, gmms, SLICE_LEN, M))
-        {
-            double val = fabs(tmp);
-            comprs.push_back(val);
-            
-# ifdef NNT_DEBUG
-            printf("right %f\n", val);
-# endif
-        }
+
+        comprs.push_back(*each);
     }
-     */
     
     double dev = stat::deviation_standard<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end());
     double avg = stat::sum<double, comprs_type::const_iterator>::o(comprs.begin(), comprs.end()) / comprs.size();
@@ -183,31 +155,48 @@ void dealloc()
     
 }
 
+# define TRAINFRAME 300
+
 Result calc(byte* d, usize dlen)
 {
     Result ret;    
     core::framedata fd(d, dlen);
     
-    use<GMM> gmms = ret.gmms;
+    usize const framelen = d_owner->slice / FRAME_LEN;
+    if (framelen < TRAINFRAME)
+        return ret;
     
-    usize const framelen = dlen / FRAME_LEN;
-    
-    // calc mfcc.
-    mfcc t_mfcc(framelen);
-    if (voiceToMFCC((BYTE*)d, dlen, t_mfcc, 200))
-    {
-        if (GMMs(t_mfcc, gmms, 200, M))
+    while (fd.length() > d_owner->slice)    {
+        
+        mfcc t_mfcc(framelen);
+        GMM gmm;
+        
+        if (voiceToMFCC((BYTE*)fd.bytes(), d_owner->slice, t_mfcc, TRAINFRAME))
         {
-            ret.mfccs.push_back(t_mfcc);
-            
-            trace_msg("processed slice for vp");
-        }
+            if (GMMs(t_mfcc, &gmm, TRAINFRAME, M))
+            {
+                double val = 0;
+                if (GMM_identify(t_mfcc, &val, &gmm, framelen, M))
+                {
+                    val = fabs(val);
+                    ret.codes.push_back(val);
+                    
+                    trace_fmt("succeed calc slice's code, %f", val);                    
+                }
+                else
+                {
+                    trace_msg("failed to calc slice's code");
+                }
+            }
 # ifdef NNT_DEBUG
-        else
-        {
-            trace_msg("skip slice for vp");
-        }
+            else
+            {
+                trace_msg("skip slice for vp");
+            }
 # endif
+        }
+        
+        fd.move(d_owner->slice);
     }
     
     return ret;
@@ -219,7 +208,7 @@ Digest::Digest()
 {
     NNTDECL_PRIVATE_CONSTRUCT(Digest);
     
-    slice = 44100 * 5; // 5 seconds.
+    slice = 44100 * 2; // 5 seconds.
 }
 
 Digest::~Digest()

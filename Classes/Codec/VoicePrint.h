@@ -43,13 +43,13 @@ public:
     Result(Result const&);
     ~Result();
     
+    bool empty() const;
+    
     Result& operator = (Result const&);
     real compare(Result const&);
     
-    typedef core::vector<mfcc> mfccs_type;    
-    
-    mfccs_type mfccs;
-    void* gmms;
+    typedef core::vector<double> codes_type;
+    codes_type codes;
     
 };
 

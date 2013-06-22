@@ -1,1 +1,18 @@
-# include "/work/develop/nnt/Classes/Cross/SocketRequest.h"
+
+# ifndef __NNT_CROSS_SOCKET_268A96EB430749948A71FC204FA52C37_H_INCLUDED
+# define __NNT_CROSS_SOCKET_268A96EB430749948A71FC204FA52C37_H_INCLUDED
+
+# import "NullRpc.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+NNTDECL_PRIVATE_HEAD(SocketRequest);
+
+@interface SocketRequest : NullRpc {
+    NNTDECL_PRIVATE(SocketRequest);
+}
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

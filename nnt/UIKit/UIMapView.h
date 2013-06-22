@@ -1,1 +1,23 @@
-# include "/work/develop/nnt/Classes/UIKit/UIMapView.h"
+
+# ifndef __NNT_UIMAPVIEW_20F6BB4F0A49444883E6A181AA0F705B_H_INCLUDED
+# define __NNT_UIMAPVIEW_20F6BB4F0A49444883E6A181AA0F705B_H_INCLUDED
+
+# import <MapKit/MapKit.h>
+
+NNT_BEGIN_HEADER_OBJC
+
+NNTDECL_PRIVATE_HEAD(UIMapView);
+
+@interface UIMapView : MKMapView {
+    
+    NNTOBJECT_DECL;
+    NNTDECL_PRIVATE_EX(UIMapView, d_ptr_map);
+}
+
+NNTOBJECT_PROP;
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

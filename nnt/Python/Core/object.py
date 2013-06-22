@@ -1,1 +1,4 @@
-/work/develop/nnt/Classes/Python/Core/object.py
+
+class Object:
+
+    pass

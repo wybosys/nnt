@@ -1,1 +1,20 @@
-# include "/work/develop/nnt/Classes/UIKit/UIImagePickerController+NNT.h"
+
+# ifndef __NNT_UIIMAGEPICKERCONTROLLER_6441CB7832274AA09FF8D07AD57D0912_H_INCLUDED
+# define __NNT_UIIMAGEPICKERCONTROLLER_6441CB7832274AA09FF8D07AD57D0912_H_INCLUDED
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface NNTUIImagePickerController : UIImagePickerController {
+    
+    NNTOBJECT_DECL;
+}
+
+NNTOBJECT_PROP;
+
++ (id)controller;
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

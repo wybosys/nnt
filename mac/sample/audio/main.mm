@@ -41,7 +41,9 @@ public:
         dev_trail.update();
         real p = dev_trail.peak_power();
         
-        if (p > -20 && !recording)
+        trace_fmt(@"mic power: %f", p);
+        
+        if (p > -10 && !recording)
         {
             recording = true;
             trace_msg(@"recording start");
@@ -49,7 +51,7 @@ public:
             // begin recording.
             au_rdr.start();
         }
-        else if (p < -40 && recording)
+        else if (p < -20 && recording)
         {
             trace_msg(@"recording ended");
             recording = false;
@@ -64,38 +66,45 @@ public:
                 vp::Digest dg;
                 core::data da;
                 wav.collect(da);
+                
                 vp::Result result = dg.calc(da);
-                
-                // get nearest.
-                real min = FLT_MAX;
-                int match = -1;
-                for (core::counter<results_type::const_iterator> each = results.begin();
-                     each != results.end();
-                     ++each)
+                if (result.empty() == false)
                 {
-                    real res = result.compare(*each);
-                    trace_fmt(@"compare %d: %f", each.count, res);
-                    if (min > res)
+                    // get nearest.
+                    real min = FLT_MAX;
+                    int match = -1;
+                    for (core::counter<results_type::const_iterator> each = results.begin();
+                         each != results.end();
+                         ++each)
                     {
-                        match = each.count;
-                        min = res;
+                        real res = result.compare(*each);
+                        trace_fmt(@"compare %d: %f", each.count, res);
+                        if (min > res)
+                        {
+                            match = each.count;
+                            min = res;
+                        }
                     }
+                    
+                    if (match != -1)
+                    {
+                        trace_fmt(@"matched audio: %d", match);
+                    }
+                    else
+                    {
+                        trace_msg(@"fail match");
+                    }
+                    
+                    // save result.
+                    results.push_back(result);
+                    
+                    // save record.
+                    core::File::SaveAll(core::FileUrl<>("record.wav"), au_rdr.buffer().data);
                 }
-                
-                if (match != -1)
-                {
-                    trace_fmt(@"matched audio: %d", match);
-                }
-                else
-                {
-                    trace_msg(@"fail match");
-                }
-                
-                // save result.
-                results.push_back(result);
-                
-                // save record.
-                core::File::SaveAll(core::FileUrl<>("record.wav"), au_rdr.buffer().data);
+            }
+            else
+            {
+                trace_msg(@"failed to digest vp");
             }
         }
         
@@ -115,11 +124,10 @@ public:
 
 RecordTask task;
 
-int main(int argc, char** argv)
-{    
-    //task.start();
+void test_manual()
+{
+    vp::Result res0, res1, res2;
     
-    if (1)
     {
         core::data da;
         core::File::ReadAll(core::File::url_type("word.wav"), da);
@@ -131,8 +139,48 @@ int main(int argc, char** argv)
         da.clear();
         wv.collect(da);
         vp::Digest dg;
-        vp::Result res0 = dg.calc(da);
+        res0 = dg.calc(da);
     }
+    
+    {
+        core::data da;
+        core::File::ReadAll(core::File::url_type("word1.wav"), da);
+        parser::Wav wv;
+        wv.parse(da);
+        wv.set_channel(1);
+        wv.set_bps(8);
+        wv.save(da);
+        da.clear();
+        wv.collect(da);
+        vp::Digest dg;
+        res1 = dg.calc(da);
+    }
+    
+    {
+        core::data da;
+        core::File::ReadAll(core::File::url_type("word2.wav"), da);
+        parser::Wav wv;
+        wv.parse(da);
+        wv.set_channel(1);
+        wv.set_bps(8);
+        wv.save(da);
+        da.clear();
+        wv.collect(da);
+        vp::Digest dg;
+        res2 = dg.calc(da);
+    }
+    
+    trace_fmt(@"0-1 %f", res0.compare(res1));
+    trace_fmt(@"0-2 %f", res0.compare(res2));
+    trace_fmt(@"1-2 %f", res1.compare(res2));
+    
+}
+
+int main(int argc, char** argv)
+{
+    task.start();
+    
+    //if (1) test_manual();
     
     cross::Application app;
     return app.execute(argc, argv);

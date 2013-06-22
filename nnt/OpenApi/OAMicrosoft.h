@@ -1,1 +1,15 @@
-# include "/work/develop/nnt/Classes/OpenApi/OAMicrosoft.h"
+
+# ifndef __NNT_OA_MICROSOFT_30561E00C7A64FAD94E3E5A57D939250_H_INCLUDED
+# define __NNT_OA_MICROSOFT_30561E00C7A64FAD94E3E5A57D939250_H_INCLUDED
+
+# import "OANull.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface OAMicrosoft : OANull
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

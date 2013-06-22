@@ -1,1 +1,19 @@
-# include "/work/develop/nnt/Classes/UIKit/UIStyleSheet.h"
+
+# ifndef __NNT_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
+# define __NNT_UI_STYLESHEET_B3000D00D8644A85874C9CF7E047E872_H_INCLUDED
+
+# import "../Graphic/styles/CGStyle.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+NNT_EXTERN NSString* kStyleBackground;
+
+@interface UIStyleSheet : NgStyleSheet
+
+@property (nonatomic, retain) NgFill* backgroundFill;
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

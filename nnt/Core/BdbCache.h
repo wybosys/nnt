@@ -1,1 +1,20 @@
-# include "/work/develop/nnt/Classes/Core/BdbCache.h"
+
+# ifndef __NNT_STORE_BDBCACHE_E772630429F64E2D8339D2F496A4B9B4_H_INCLUDED
+# define __NNT_STORE_BDBCACHE_E772630429F64E2D8339D2F496A4B9B4_H_INCLUDED
+
+# import "FileCache.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+NNTDECL_PRIVATE_HEAD(BdbCache);
+
+@interface BdbCache : AbstractUrlCache {
+    
+    NNTDECL_PRIVATE_EX(BdbCache, d_ptr_bdb);
+}
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

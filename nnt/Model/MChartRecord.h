@@ -1,1 +1,14 @@
-# include "/work/develop/nnt/Classes/Model/MChartRecord.h"
+
+# ifndef __NNT_MODEL_CHARTRECORD_1ECC0AC73CB94C75B137EC0D3D845D39_H_INCLUDED
+# define __NNT_MODEL_CHARTRECORD_1ECC0AC73CB94C75B137EC0D3D845D39_H_INCLUDED
+
+# import "Model.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface MChartRecord : Model
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

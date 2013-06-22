@@ -1,1 +1,17 @@
-# include "/work/develop/nnt/Classes/UIKit/UIPDFPage.h"
+
+# ifndef __NNT_UIKIT_UIPDFPAGE_8996F4FDA730489181ED56524AAD7736_H_INCLUDED
+# define __NNT_UIKIT_UIPDFPAGE_8996F4FDA730489181ED56524AAD7736_H_INCLUDED
+
+# import "UIView+NNT.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface UIPDFPage : NNTUIView {
+    
+}
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

@@ -1,1 +1,92 @@
-# include "/work/develop/nnt/Classes/Codec/AudioFile.h"
+
+# ifndef __NNT_AUDIOFILE_6800445606AD4BC59E5C468D1835F405_H_INCLUDED
+# define __NNT_AUDIOFILE_6800445606AD4BC59E5C468D1835F405_H_INCLUDED
+
+# ifdef NNT_MACH
+
+# ifdef NNT_CXX
+
+# include <AudioToolbox/AudioToolbox.h>
+# include <CoreAudio/CoreAudio.h>
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(audio)
+
+class FileType;
+
+class FormatType
+{
+public:
+    
+    FormatType();
+    ~FormatType();
+    
+    void set_channel(uint);
+    void set_bits(uint);
+    void set_sampler(real);
+    
+    void update(AudioQueueRef);
+    void update(FileType const&);
+    void update();
+    
+    operator AudioStreamBasicDescription const& () const
+    {
+        return _format;
+    }
+    
+    operator AudioStreamBasicDescription const* () const
+    {
+        return &_format;
+    }
+    
+protected:
+    
+    AudioStreamBasicDescription _format;
+    
+};
+
+class FileType
+{
+public:
+    
+    FileType();
+    FileType(core::string const&);
+    
+    ~FileType();
+    
+    void set(core::string const&);
+    
+    bool is_bigedian(FormatType const&) const;
+    
+    static AudioFileTypeID FindType(core::string const&);
+    
+    operator AudioFileTypeID const& () const
+    {
+        return _type;
+    }
+    
+    operator AudioFileTypeID const* () const
+    {
+        return &_type;
+    }
+    
+    operator core::string () const
+    {
+        return _strtype;
+    }
+    
+protected:
+    
+    core::string _strtype;    
+    AudioFileTypeID _type;
+    
+};
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
+
+# endif
+
+# endif

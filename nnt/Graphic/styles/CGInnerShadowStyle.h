@@ -1,1 +1,15 @@
-# include "/work/develop/nnt/Classes/Graphic/styles/CGInnerShadowStyle.h"
+
+# ifndef __NNT_CG_INNERSHADOWSTYLE_029CBC679C98447AB8654B16361C2516_H_INCLUDED
+# define __NNT_CG_INNERSHADOWSTYLE_029CBC679C98447AB8654B16361C2516_H_INCLUDED
+
+# import "CGShadowStyle.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface NgInnerShadowStyle : NgShadowStyle
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

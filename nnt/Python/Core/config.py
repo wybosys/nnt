@@ -1,1 +1,2 @@
-/work/develop/nnt/Classes/Python/Core/config.py
+
+DEBUG = True

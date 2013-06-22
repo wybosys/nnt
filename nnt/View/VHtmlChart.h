@@ -1,1 +1,15 @@
-# include "/work/develop/nnt/Classes/View/VHtmlChart.h"
+
+# ifndef __NNT_VIEW_HTMLCHART_54D4054DBB384788A87868E5409EAE36_H_INCLUDED
+# define __NNT_VIEW_HTMLCHART_54D4054DBB384788A87868E5409EAE36_H_INCLUDED
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface VHtmlChart : NNTObject
+
+- (NSString*)make:(NSObject*)__model;
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

@@ -1,1 +1,20 @@
-# include "/work/develop/nnt/Classes/View/VHtml.h"
+
+# ifndef __NNT_VIEW_HTML_57B98C4E1AC1484AA433351115342157_H_INCLUDED
+# define __NNT_VIEW_HTML_57B98C4E1AC1484AA433351115342157_H_INCLUDED
+
+NNT_BEGIN_HEADER_OBJC
+
+NNTDECL_PRIVATE_HEAD(VHtml);
+
+@interface VHtml : NSObject {
+	NNTDECL_PRIVATE(VHtml);
+}
+
++ (NSString*)make_css:(NSString*)content;
++ (NSString*)make_javascript:(NSString*)content;
+
+@end
+
+NNT_END_HEADER_OBJC
+
+# endif

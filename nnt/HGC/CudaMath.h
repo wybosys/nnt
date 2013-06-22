@@ -1,1 +1,13 @@
-# include "/work/develop/nnt/Classes/HGC/CudaMath.h"
+
+# ifndef __NNT_CUDA_MATH_244872DA67AD45F99BAFD6E2BE263922_H_INCLUDED
+# define __NNT_CUDA_MATH_244872DA67AD45F99BAFD6E2BE263922_H_INCLUDED
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(cuda)
+
+void square(float* input, float* output, usize count);
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
