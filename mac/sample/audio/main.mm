@@ -101,15 +101,15 @@ public:
                     // save record.
                     core::File::SaveAll(core::FileUrl<>("record.wav"), au_rdr.buffer().data);
                 }
+                else
+                {
+                    trace_msg(@"failed to digest vp");
+                }
             }
             else
             {
-                trace_msg(@"failed to digest vp");
+                trace_msg(@"failed to parse audio");
             }
-        }
-        else
-        {
-            trace_msg(@"failed to parse audio");
         }
         
         ::sleep_second(1);
