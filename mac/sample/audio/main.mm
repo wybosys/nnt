@@ -43,7 +43,7 @@ public:
         
         trace_fmt(@"mic power: %f", p);
         
-        if (p > -10 && !recording)
+        if (p > -30 && !recording)
         {
             recording = true;
             trace_msg(@"recording start");
