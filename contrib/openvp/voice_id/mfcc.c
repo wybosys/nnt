@@ -412,7 +412,7 @@ BOOL voiceToMFCC(BYTE * pRawVoice, int iSampleNum, double ** MFCC, int train_fra
     pDiff = JudgeTrainFrame2(pDiffVoice, iSampleNum, train_frame_num);
     if (!pDiff)    // 判断静寂语音
     {
-		xprint("Error: It`s silent voice!");
+		//xprint("Error: It`s silent voice!");
         free(pDiffVoice);
         return FALSE;
     }
