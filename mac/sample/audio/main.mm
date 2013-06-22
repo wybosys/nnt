@@ -107,8 +107,11 @@ public:
                 trace_msg(@"failed to digest vp");
             }
         }
+        else
+        {
+            trace_msg(@"failed to parse audio");
+        }
         
-        //trace_fmt(@"power: %f", p);
         ::sleep_second(1);
         return 0;
     }
