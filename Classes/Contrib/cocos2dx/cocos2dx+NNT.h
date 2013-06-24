@@ -4,4 +4,20 @@
 
 # include "./ccView+NNT.h"
 
+# ifdef NNT_TARGET_IOS
+#   define CC_TARGET_OS_IPHONE 1
+# endif
+
+# ifndef NNT_LIBRARY
+
+#   include <cocos2d.h>
+
+NNTAPP_BEGIN
+
+using namespace cocos2d;
+
+NNTAPP_END
+
+# endif
+
 # endif

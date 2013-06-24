@@ -10,6 +10,10 @@
 		1612497417785A6E00731002 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497317785A6E00731002 /* libcocos2dx.a */; };
 		1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497717785A8E00731002 /* OpenGLES.framework */; };
 		1612497A17785A9E00731002 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497917785A9E00731002 /* libz.dylib */; };
+		161249931778696800731002 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161249911778696800731002 /* MainScene.cpp */; };
+		1612499817786BE900731002 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499517786BE900731002 /* CloseNormal.png */; };
+		1612499917786BE900731002 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499617786BE900731002 /* CloseSelected.png */; };
+		1612499A17786BE900731002 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499717786BE900731002 /* HelloWorld.png */; };
 		168DDAEE17782D45004B0D30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAED17782D45004B0D30 /* UIKit.framework */; };
 		168DDAF017782D45004B0D30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAEF17782D45004B0D30 /* Foundation.framework */; };
 		168DDAF217782D45004B0D30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAF117782D45004B0D30 /* CoreGraphics.framework */; };
@@ -39,6 +43,11 @@
 		1612497317785A6E00731002 /* libcocos2dx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcocos2dx.a; path = ../../lib/iOS/libcocos2dx.a; sourceTree = "<group>"; };
 		1612497717785A8E00731002 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1612497917785A9E00731002 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		161249911778696800731002 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
+		161249921778696800731002 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		1612499517786BE900731002 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		1612499617786BE900731002 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		1612499717786BE900731002 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		168DDAEA17782D45004B0D30 /* cocos2dx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168DDAED17782D45004B0D30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		168DDAEF17782D45004B0D30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,9 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1612499417786BE900731002 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				1612499517786BE900731002 /* CloseNormal.png */,
+				1612499617786BE900731002 /* CloseSelected.png */,
+				1612499717786BE900731002 /* HelloWorld.png */,
+			);
+			name = resources;
+			path = cocos2dx/resources;
+			sourceTree = "<group>";
+		};
 		168DDAE117782D44004B0D30 = {
 			isa = PBXGroup;
 			children = (
+				1612499417786BE900731002 /* resources */,
 				168DDAF317782D45004B0D30 /* cocos2dx */,
 				168DDAEC17782D45004B0D30 /* Frameworks */,
 				168DDAEB17782D45004B0D30 /* Products */,
@@ -140,6 +161,8 @@
 		168DDAF317782D45004B0D30 /* cocos2dx */ = {
 			isa = PBXGroup;
 			children = (
+				161249911778696800731002 /* MainScene.cpp */,
+				161249921778696800731002 /* MainScene.h */,
 				168DDAFC17782D45004B0D30 /* AppDelegate.h */,
 				168DDAFD17782D45004B0D30 /* AppDelegate.mm */,
 				168DDEBC17782EDF004B0D30 /* MainController.h */,
@@ -223,6 +246,9 @@
 				168DDED017782F99004B0D30 /* Default-Portrait~ipad.png in Resources */,
 				168DDED217782F9D004B0D30 /* Default-Landscape@2x~ipad.png in Resources */,
 				168DDED417782FA0004B0D30 /* Default-Landscape~ipad.png in Resources */,
+				1612499817786BE900731002 /* CloseNormal.png in Resources */,
+				1612499917786BE900731002 /* CloseSelected.png in Resources */,
+				1612499A17786BE900731002 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +262,7 @@
 				168DDAFA17782D45004B0D30 /* main.mm in Sources */,
 				168DDAFE17782D45004B0D30 /* AppDelegate.mm in Sources */,
 				168DDEBE17782EDF004B0D30 /* MainController.mm in Sources */,
+				161249931778696800731002 /* MainScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,36 +343,19 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cocos2dx/cocos2dx-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../../nnt;
+				HEADER_SEARCH_PATHS = (
+					../../nnt,
+					../../3rd/cocos2dx,
+					../../3rd/cocos2dx/include,
+					../../3rd/cocos2dx/platform,
+					../../3rd/cocos2dx/platform/ios,
+				);
 				INFOPLIST_FILE = "cocos2dx/cocos2dx-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib/iOS\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/blackberry/libraries/armle-v7\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/blackberry/libraries/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/emscripten/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/ios/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/linux/libraries/lib64\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/linux/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/tizen/prebuilt/libwebp/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/win32/libraries\"",
 				);
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -358,36 +368,19 @@
 				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cocos2dx/cocos2dx-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../../nnt;
+				HEADER_SEARCH_PATHS = (
+					../../nnt,
+					../../3rd/cocos2dx,
+					../../3rd/cocos2dx/include,
+					../../3rd/cocos2dx/platform,
+					../../3rd/cocos2dx/platform/ios,
+				);
 				INFOPLIST_FILE = "cocos2dx/cocos2dx-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../lib/iOS\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libcurl/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libjpeg/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libpng/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/armeabi\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/armeabi-v7a\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/android/prebuilt/libwebp/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/blackberry/libraries/armle-v7\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/blackberry/libraries/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/emscripten/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/ios/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/linux/libraries/lib64\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/linux/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/tizen/prebuilt/libwebp/libs/x86\"",
-					"\"$(SRCROOT)/../../nnt/Contrib/cocos2dx/platform/third_party/win32/libraries\"",
 				);
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -1,5 +1,6 @@
 
 # import "Core.h"
+# import "cocos2dx+NNT.h"
 # import "ccView+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC

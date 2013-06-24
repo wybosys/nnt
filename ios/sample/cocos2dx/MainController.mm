@@ -21,7 +21,7 @@ MainController::MainController()
 
 void MainController::view_loaded()
 {
-    
+    CCApplication::sharedApplication()->run();
 }
 
 NNTAPP_END
