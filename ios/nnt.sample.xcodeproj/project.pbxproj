@@ -72,6 +72,11 @@
 		161043A515CBC64100485DDF /* XimMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A315CBC64000485DDF /* XimMessage.h */; };
 		161043A815CBC67400485DDF /* XimRoster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161043A615CBC67300485DDF /* XimRoster.cpp */; };
 		161043A915CBC67400485DDF /* XimRoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A715CBC67400485DDF /* XimRoster.h */; };
+		1612496D1778350600731002 /* ccView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161249691778350600731002 /* ccView+NNT.h */; };
+		1612496E1778350600731002 /* ccView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1612496A1778350600731002 /* ccView+NNT.mm */; };
+		1612496F1778350600731002 /* cocos2dx+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612496B1778350600731002 /* cocos2dx+NNT.h */; };
+		161249701778350600731002 /* cocos2dx+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1612496C1778350600731002 /* cocos2dx+NNT.mm */; };
+		161249721778384900731002 /* cocos2dx.prv.h in Headers */ = {isa = PBXBuildFile; fileRef = 161249711778384900731002 /* cocos2dx.prv.h */; };
 		1612512915D4A95B002E0CDE /* UIHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612512715D4A95B002E0CDE /* UIHudView.h */; };
 		1612512A15D4A95B002E0CDE /* UIHudView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1612512815D4A95B002E0CDE /* UIHudView.mm */; };
 		161257AE1499F51900AC645A /* UICoverDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 161257AC1499F51900AC645A /* UICoverDrawerController.h */; };
@@ -1666,6 +1671,11 @@
 		161043A315CBC64000485DDF /* XimMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimMessage.h; sourceTree = "<group>"; };
 		161043A615CBC67300485DDF /* XimRoster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XimRoster.cpp; sourceTree = "<group>"; };
 		161043A715CBC67400485DDF /* XimRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimRoster.h; sourceTree = "<group>"; };
+		161249691778350600731002 /* ccView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ccView+NNT.h"; sourceTree = "<group>"; };
+		1612496A1778350600731002 /* ccView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ccView+NNT.mm"; sourceTree = "<group>"; };
+		1612496B1778350600731002 /* cocos2dx+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2dx+NNT.h"; sourceTree = "<group>"; };
+		1612496C1778350600731002 /* cocos2dx+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "cocos2dx+NNT.mm"; sourceTree = "<group>"; };
+		161249711778384900731002 /* cocos2dx.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cocos2dx.prv.h; sourceTree = "<group>"; };
 		1612512715D4A95B002E0CDE /* UIHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHudView.h; sourceTree = "<group>"; };
 		1612512815D4A95B002E0CDE /* UIHudView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIHudView.mm; sourceTree = "<group>"; };
 		161257AC1499F51900AC645A /* UICoverDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoverDrawerController.h; sourceTree = "<group>"; };
@@ -3312,6 +3322,27 @@
 			path = im;
 			sourceTree = "<group>";
 		};
+		16124967177834F600731002 /* Contrib */ = {
+			isa = PBXGroup;
+			children = (
+				161249681778350600731002 /* cocos2dx */,
+			);
+			name = Contrib;
+			sourceTree = "<group>";
+		};
+		161249681778350600731002 /* cocos2dx */ = {
+			isa = PBXGroup;
+			children = (
+				161249711778384900731002 /* cocos2dx.prv.h */,
+				161249691778350600731002 /* ccView+NNT.h */,
+				1612496A1778350600731002 /* ccView+NNT.mm */,
+				1612496B1778350600731002 /* cocos2dx+NNT.h */,
+				1612496C1778350600731002 /* cocos2dx+NNT.mm */,
+			);
+			name = cocos2dx;
+			path = Contrib/cocos2dx;
+			sourceTree = "<group>";
+		};
 		16141C4613AA00D500896301 /* Context */ = {
 			isa = PBXGroup;
 			children = (
@@ -3782,6 +3813,7 @@
 				169D4818141F43AE00FBF0C8 /* BSE */,
 				1603A91915DCDE320029A54C /* Codec */,
 				16141C4613AA00D500896301 /* Context */,
+				16124967177834F600731002 /* Contrib */,
 				1699DCC514466F0D00E9CAE2 /* Core */,
 				1665528E13A6086E008DF239 /* Cross */,
 				16F0E61716BA527B0068A20A /* Drivers */,
@@ -6282,6 +6314,9 @@
 				16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */,
 				16DB7D7C176456BA00F36A7E /* PythonExtension.h in Headers */,
 				16E51B6B176B3A7C0097BA46 /* AppStatistics.h in Headers */,
+				1612496D1778350600731002 /* ccView+NNT.h in Headers */,
+				1612496F1778350600731002 /* cocos2dx+NNT.h in Headers */,
+				161249721778384900731002 /* cocos2dx.prv.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7184,6 +7219,8 @@
 				16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */,
 				16DB7D7B176456BA00F36A7E /* PythonExtension.cpp in Sources */,
 				16E51B6C176B3A7C0097BA46 /* AppStatistics.mm in Sources */,
+				1612496E1778350600731002 /* ccView+NNT.mm in Sources */,
+				161249701778350600731002 /* cocos2dx+NNT.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7247,6 +7284,9 @@
 					../3rd,
 					/usr/include/libxml2,
 					../contrib/zbar/include,
+					../contrib/cocos2dx/cocos2dx/include,
+					../contrib/cocos2dx/cocos2dx,
+					../contrib/cocos2dx/cocos2dx/platform/mac,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -7284,6 +7324,9 @@
 					../3rd,
 					/usr/include/libxml2,
 					../contrib/zbar/include,
+					../contrib/cocos2dx/cocos2dx/include,
+					../contrib/cocos2dx/cocos2dx,
+					../contrib/cocos2dx/cocos2dx/platform/mac,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (

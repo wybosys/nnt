@@ -702,6 +702,8 @@
 		168BE06615F0A13B00029DC1 /* EmojiCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168BE06515F0A13B00029DC1 /* EmojiCodec.mm */; };
 		168CCECF157A2A9600E83E60 /* HtmlObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 168CCECD157A2A9600E83E60 /* HtmlObjParser.h */; };
 		168CCED0157A2A9600E83E60 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */; };
+		168DDADF17782C76004B0D30 /* AppStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 168DDADD17782C76004B0D30 /* AppStatistics.h */; };
+		168DDAE017782C76004B0D30 /* AppStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168DDADE17782C76004B0D30 /* AppStatistics.mm */; };
 		168F47BA158C58C300F4D998 /* XmppObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F47B8158C58C300F4D998 /* XmppObject.cpp */; };
 		168F47BB158C58C300F4D998 /* XmppObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 168F47B9158C58C300F4D998 /* XmppObject.h */; };
 		168F47C2158C5A4600F4D998 /* XmlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F47C1158C5A4600F4D998 /* XmlParser.cpp */; };
@@ -2287,6 +2289,8 @@
 		168BE06515F0A13B00029DC1 /* EmojiCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmojiCodec.mm; sourceTree = "<group>"; };
 		168CCECD157A2A9600E83E60 /* HtmlObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlObjParser.h; sourceTree = "<group>"; };
 		168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HtmlObjParser.mm; sourceTree = "<group>"; };
+		168DDADD17782C76004B0D30 /* AppStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStatistics.h; sourceTree = "<group>"; };
+		168DDADE17782C76004B0D30 /* AppStatistics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppStatistics.mm; sourceTree = "<group>"; };
 		168F47B8158C58C300F4D998 /* XmppObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppObject.cpp; sourceTree = "<group>"; };
 		168F47B9158C58C300F4D998 /* XmppObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppObject.h; sourceTree = "<group>"; };
 		168F47C1158C5A4600F4D998 /* XmlParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlParser.cpp; sourceTree = "<group>"; };
@@ -4560,6 +4564,8 @@
 				161A2AF41688341400B53AD1 /* AEMInformation.mm */,
 				167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */,
 				167E54E415BE4ADA0075DD01 /* BehaviourSys.h */,
+				168DDADD17782C76004B0D30 /* AppStatistics.h */,
+				168DDADE17782C76004B0D30 /* AppStatistics.mm */,
 			);
 			path = BSE;
 			sourceTree = "<group>";
@@ -6218,6 +6224,7 @@
 				16FBADCC172631D70041C5C4 /* Memory+NNT.h in Headers */,
 				16FBADD2172631E80041C5C4 /* Stdtype+NNT.h in Headers */,
 				16FBADD4172631E80041C5C4 /* URL+NNT.h in Headers */,
+				168DDADF17782C76004B0D30 /* AppStatistics.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7108,6 +7115,7 @@
 				16FBADCB172631D70041C5C4 /* Memory+NNT.cpp in Sources */,
 				16FBADD1172631E80041C5C4 /* Stdtype+NNT.cpp in Sources */,
 				16FBADD3172631E80041C5C4 /* URL+NNT.cpp in Sources */,
+				168DDAE017782C76004B0D30 /* AppStatistics.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -386,6 +386,16 @@ public:
         [this->_self dismissPresentedViewController:animated];
     }
     
+    void set_fullscreen(bool val)
+    {
+        this->_self.wantsFullScreenLayout = val;
+    }
+    
+    bool is_fullscreen() const
+    {
+        return this->_self.wantsFullScreenLayout;
+    }
+    
 };
 
 template <

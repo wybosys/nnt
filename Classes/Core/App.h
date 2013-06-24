@@ -185,7 +185,7 @@ NNT_END_HEADER_OBJC
 # ifdef NNT_CXX
 
 # ifdef NNT_TARGET_IOS
-# include "UIWindow+NNT.h"
+# include "../UIKit/UIWindow+NNT.h"
 # else
 # include "../UIKit/NSWindow+NNT.h"
 # endif
