@@ -39,10 +39,14 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
+# include "../Core/ObjectDL.h"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(parser)
 
 NNTDECL_PRIVATE_HEAD_CXX(JsonDocument);
+
+class JsonObj;
 
 class JsonDocument
 {
@@ -53,6 +57,27 @@ public:
     JsonDocument();
     ~JsonDocument();
     
+    void clear();
+    bool parse(core::data const&);
+    bool save(core::data&) const;
+    
+    NNTDECL_PRIVATE_FRIEND(JsonObj);
+};
+
+class JsonObj
+{
+public:
+    
+    JsonObj(JsonDocument&);
+    ~JsonObj();
+    
+    lang::Object* to_object() const;
+    bool to_data(lang::Object const*);
+    
+protected:
+    
+    JsonDocument& _doc;
+
 };
 
 NNT_END_NS

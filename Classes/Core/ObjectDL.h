@@ -16,6 +16,7 @@ NNTCLASS(Namespace);
 class Object
 {
 public:
+    
     Object()
     : _refcnt(1)
     {
@@ -27,7 +28,6 @@ public:
         PASS;
     }
     
-public:
     void grab()
     {
         ++_refcnt;
@@ -40,7 +40,9 @@ public:
     }
     
 protected:
+    
     int _refcnt;
+
 };
 
 class Field
@@ -49,6 +51,7 @@ class Field
     NNTDECL_NOCOPY(Field);
     
 public:
+    
     Field()
     : cls(NULL)
     {
@@ -65,8 +68,6 @@ public:
     {
         PASS;
     }
-    
-public:
     
     bool is_equal(Field const* fld) const
     {
@@ -99,6 +100,7 @@ public:
     }
     
 public:
+    
     //! type.
     Class* cls;
     
@@ -107,6 +109,7 @@ public:
     
     //! value of field.
     variant_t value;
+    
 };
 
 class Parameter
@@ -150,6 +153,7 @@ public:
     }
     
     bool optional;
+    
 };
 
 class Method
@@ -158,6 +162,7 @@ class Method
     NNTDECL_NOCOPY(Method);
     
 public:
+    
     Method()    
     : method(0)
     {
@@ -207,8 +212,6 @@ public:
         returns.clear();
     }
     
-public:    
-    
     bool is_equal(Method const* mtd) const
     {
         if (this == mtd)
@@ -246,6 +249,7 @@ public:
     }
     
 public:
+    
     core::string name;    
     
     //typedef core::map<core::string, Field*> params_type;
@@ -256,6 +260,7 @@ public:
     
     //typedef void (Object::*method_type)(params_type const&, returns_type&);
     method_type method;
+    
 };
 
 class Class
@@ -264,6 +269,7 @@ class Class
     NNTDECL_NOCOPY(Class);
     
 public:
+    
     Class()
     : instance(0)
     {
@@ -305,8 +311,6 @@ public:
         }
 
     }
-    
-public:
     
     bool could_instance(Class const* cls) const
     {
@@ -367,6 +371,7 @@ public:
     }
     
 public:
+    
     //! name of method.
     core::string name;
     
@@ -381,9 +386,11 @@ public:
     
     //typedef Object* (*instance_type)();
     instance_type instance;
+    
 };
 
-enum {
+enum
+{
     INVOKE_SUCCESS        = 0,
     INVOKE_ERROR          = -1,
     CLASS_NOTFOUND        = -10000001,
@@ -455,6 +462,7 @@ public:
     
     typedef core::map<core::string, Class*> classes_type;
     classes_type classes;
+    
 };
 
 NNT_BEGIN_NS(fp)

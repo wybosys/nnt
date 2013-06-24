@@ -4,10 +4,11 @@
 # include <nnt/Parser/SOAPParser.h>
 # include <nnt/Core/ObjectDL.h>
 # include <nnt/Parser/SoapObject.h>
-# include <nnt/Core/Resource+NNt.h>
 # include <nnt/Parser/RiffParser.h>
+# include <nnt/Parser/JsonObjParser.h>
 # include <nnt/Parser/WavParser.h>
 # include <nnt/Core/File+NNT.h>
+# include <nnt/Core/Resource+NNt.h>
 
 NNT_USINGCXXNAMESPACE;
 
@@ -107,14 +108,33 @@ void test_wav()
     core::File::SaveAll(core::File::url_type("word-tmp.wav"), da);
 }
 
+void test_json()
+{
+    parser::JsonDocument json;
+    core::string str = "{\"root\":[1, \"a\"]}";
+    if (json.parse(core::type_cast<core::data>(str)) == false)
+    {
+        trace_msg("failed to parse json");
+        return;
+    }
+    core::data da;
+    if (json.save(da) == false || json.parse(da) == false)
+    {
+        trace_msg("failed to save json");
+        return;
+    }
+    
+}
+
 int main (int argc, const char * argv[])
 {
     lang::Namespace* nm = soap::getNamespace();
     nm->classes["Stock"] = Stock::Class();
     
-    if (1) test_soap();
-    if (1) test_xml();
-    if (1) test_wav();
+    if (0) test_soap();
+    if (0) test_xml();
+    if (0) test_wav();
+    if (1) test_json();
     
     return 0;
 }
