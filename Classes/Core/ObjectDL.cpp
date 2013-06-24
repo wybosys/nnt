@@ -2,7 +2,8 @@
 # include "Core.h"
 # include "ObjectDL.h"
  
-NNT_BEGIN_CXX NNT_BEGIN_NS(lang)
+NNT_BEGIN_CXX
+NNT_BEGIN_NS(lang)
 
 class DLObject
 {
@@ -153,4 +154,5 @@ INVOKE_STA invokeClass(Object* obj, Class const* objcls, Class const* declcls, v
     return ret;
 }
 
-NNT_END_NS NNT_END_CXX
+NNT_END_NS
+NNT_END_CXX

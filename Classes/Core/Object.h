@@ -274,16 +274,22 @@ public:
         PASS;
     }
     
-    auto_ref(self_type& r)
+    auto_ref(self_type& r, bool ref = true)
     : _obj(NULL)
     {
-        reset(r._obj);
+        if (ref)
+            reset(r._obj);
+        else
+            _obj = r._obj;
     }
     
-    auto_ref(value_type* r)
+    auto_ref(value_type* r, bool ref = true)
     : _obj(NULL)
     {
-        reset(r);
+        if (ref)
+            reset(r);
+        else
+            _obj = r;
     }
     
     ~auto_ref()

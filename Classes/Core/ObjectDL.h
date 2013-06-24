@@ -28,12 +28,12 @@ public:
         PASS;
     }
     
-    void grab()
+    void grab() const
     {
         ++_refcnt;
     }
     
-    void drop()
+    void drop() const
     {
         if (--_refcnt == 0)
             delete this;
@@ -41,7 +41,7 @@ public:
     
 protected:
     
-    int _refcnt;
+    mutable int _refcnt;
 
 };
 
