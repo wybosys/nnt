@@ -37,4 +37,27 @@ NNT_END_HEADER_CXX
 
 # endif // objc
 
+# ifdef NNT_CXX
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(parser)
+
+NNTDECL_PRIVATE_HEAD_CXX(JsonDocument);
+
+class JsonDocument
+{
+    NNTDECL_PRIVATE_CXX(JsonDocument);
+    
+public:
+    
+    JsonDocument();
+    ~JsonDocument();
+    
+};
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
+
 # endif

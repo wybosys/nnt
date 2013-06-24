@@ -5,14 +5,12 @@
 
 NNTAPP_BEGIN
 
-using namespace ::wsi;
-
 ns::AlphabetFlow af;
 
 Cell::Cell()
 {    
     add_sub(img);
-    img.set_image(wsi::ui::Image(@"logo@57.png"));
+    img.set_image(ui::Image(@"logo@57.png"));
     set_background(cg::Gradient(cg::Color::White(), cg::Color::Black(), 0, 4, M_PI_2));
 }
 
@@ -23,9 +21,9 @@ Cell::~Cell()
 
 void Cell::layout_subviews()
 {
-    wsi::CGRectLayoutHBox lyt(bounds());
-    wsi::CGRectLayoutLinear lnr(lyt);
-    lnr << (wsi::flex)1 << (wsi::pixel)bounds().size.height;
+    CGRectLayoutHBox lyt(bounds());
+    CGRectLayoutLinear lnr(lyt);
+    lnr << (flex)1 << (pixel)bounds().size.height;
     lyt << lnr;
     img.set_frame(lyt << lnr);
 }
@@ -39,8 +37,8 @@ void Cell::update()
 
 Table::Table()
 {
-    top.set_background(wsi::ui::Color::Red());
-    bottom.set_background(wsi::ui::Color::Blue());
+    top.set_background(ui::Color::Red());
+    bottom.set_background(ui::Color::Blue());
     
     top.normal_text().set_text(@"TOP HEADER");
     top.action_text().set_text(@"TOP ACTION HEADER");
@@ -50,7 +48,7 @@ Table::Table()
     view().set_topheader(top);
     view().set_bottomheader(bottom);
     
-    wsi::ui::TableSection* sec = new wsi::ui::TableSection;
+    ui::TableSection* sec = new ui::TableSection;
     sec->header = @"MAIN";
     add(sec);
     sec->drop();
@@ -64,7 +62,7 @@ Table::Table()
     }
 }
 
-::wsi::Object* Table::makecell(IndexPath const& idx) const
+::nnt::Object* Table::makecell(IndexPath const& idx) const
 {
     Cell* cell = Cell::New();
     return cell;
@@ -88,7 +86,7 @@ void MainController::view_loaded()
     view().tab.bottom.connect(kSignalAction, _action(MainController::act_bottom), this);
 }
 
-void MainController::act_selected(wsi::EventObj& evt)
+void MainController::act_selected(EventObj& evt)
 {
     //Cell* cell = (Cell*)evt.result();
     Table::IndexPath idx((id)evt.data());
@@ -98,7 +96,7 @@ void MainController::act_selected(wsi::EventObj& evt)
     view().tab.view().set_editable(!view().tab.view().is_editable());
 }
 
-void MainController::act_removed(wsi::EventObj& evt)
+void MainController::act_removed(EventObj& evt)
 {
     Cell* cell = (Cell*)evt.result();
     trace_msg(cell->str);
@@ -106,16 +104,16 @@ void MainController::act_removed(wsi::EventObj& evt)
     view().tab.view().set_editable(!view().tab.view().is_editable());
 }
 
-void MainController::act_top(wsi::EventObj &)
+void MainController::act_top(EventObj &)
 {
     trace_msg(@"TOP REFRESH");
 }
 
-void MainController::act_bottom(wsi::EventObj &)
+void MainController::act_bottom(EventObj &)
 {
     trace_msg(@"BOTTOM REFRESH");
     
-    wsi::ui::TableSection* sec = new wsi::ui::TableSection;
+    ui::TableSection* sec = new ui::TableSection;
     sec->header = @"ADD";
     for (uint i = 0; i < 12; ++i)
         sec->add(af.next());

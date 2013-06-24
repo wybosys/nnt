@@ -4,7 +4,7 @@
 NNTAPP_BEGIN
 
 class App
-: public ::wsi::Application
+: public Application
 {
 public:
     void load();

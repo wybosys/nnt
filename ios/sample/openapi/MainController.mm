@@ -21,7 +21,7 @@ NNTAPP_BEGIN_OBJC
 static OASina *sina = nil;
 static OATencent *tencent = nil;
 static OANetease *net = nil;
-static WSIUITextView *text = nil;
+static NNTUITextView *text = nil;
 static OAKaixin *kaixin = nil;
 static OARenRen *renren = nil;
 static OASohu *sohu = nil;
@@ -33,7 +33,7 @@ static OADouban *douban = nil;
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     
-    using namespace wsi;
+    NNT_USINGNAMESPACE;
     
     self.backgroundColor = [UIColor whiteColor];
     
@@ -115,7 +115,7 @@ static OADouban *douban = nil;
     [self addSubview:btn];
     [btn connect:kSignalButtonClicked sel:@selector(act_weibo_show_tencent) obj:self];
     
-    text = [[WSIUITextView alloc] initWithZero];
+    text = [[NNTUITextView alloc] initWithZero];
     text.frame = lyt.fill();
     [self addSubview:text];
     [text release];
@@ -158,7 +158,7 @@ static OADouban *douban = nil;
     [self addSubview:btn];
     [btn connect:kSignalButtonClicked sel:@selector(act_post_renren) obj:self];
     
-    text = [[WSIUITextView alloc] initWithZero];
+    text = [[NNTUITextView alloc] initWithZero];
     text.frame = lyt.fill();
     [self addSubview:text];
     [text release];
@@ -202,7 +202,7 @@ static OADouban *douban = nil;
     [btn connect:kSignalButtonClicked sel:@selector(act_post_kaixin) obj:self];
     
     
-    text = [[WSIUITextView alloc] initWithZero];
+    text = [[NNTUITextView alloc] initWithZero];
     text.frame = lyt.fill();
     [self addSubview:text];
     [text release];
@@ -259,7 +259,9 @@ static OADouban *douban = nil;
     api.apiType = OAuthApiTypeJSON;
     [SERV() retrieve_model:api];
     
-    wsi::ns::Dictionary dict(api.result);
+    NNT_USINGNAMESPACE;
+    
+    ns::Dictionary dict(api.result);
     
     NSString* str = [NSString stringWithFormat:@"NICKNAME: %@\n", dict[@"screen_name"]];
     str = [str stringByAppendingFormat:@"NAME: %@\n", dict[@"name"]];
@@ -282,7 +284,7 @@ static OADouban *douban = nil;
     OApiSinaWeiboUpload* api = [[OApiSinaWeiboUpload alloc] initWithOAuth:sina];
     api.apiType = OAuthApiTypeJSON;
     api.content = @"test upload image";
-    api.image = [WCGImage imageWithNamed:@"logo@57.png"];
+    api.image = [NgImage imageWithNamed:@"logo@57.png"];
     [SERV() retrieve_model:api];
     [api release];
 }
@@ -301,7 +303,9 @@ static OADouban *douban = nil;
     api.apiType = OAuthApiTypeJSON;
     [SERV() retrieve_model:api];
     
-    wsi::ns::Dictionary dict(api.result);
+    NNT_USINGNAMESPACE;
+    
+    ns::Dictionary dict(api.result);
     
     [api release];
 }
@@ -319,7 +323,10 @@ static OADouban *douban = nil;
     //    
     [SERV() retrieve_model:api];
     
-    wsi::ns::Dictionary dict(api.result);
+    NNT_USINGNAMESPACE;
+    
+    ns::Dictionary dict(api.result);
+    
     [api release];
 }
 
@@ -330,7 +337,11 @@ static OADouban *douban = nil;
     api.apiType = OAuthApiTypeJSON;
     api.id = @"41177002056870";
     [SERV() retrieve_model:api];
-    wsi::ns::Dictionary dict(api.result);
+    
+    NNT_USINGNAMESPACE;
+    
+    ns::Dictionary dict(api.result);
+    
     [api release];
 }
 
@@ -389,7 +400,9 @@ static OADouban *douban = nil;
     OApiNetUserInfo *api = [[OApiNetUserInfo alloc] initWithOAuth:net];
     api.apiType = OAuthApiTypeJSON;
     [SERV() retrieve_model:api];
-    wsi::ns::Dictionary dict(api.result);
+    
+    NNT_USINGNAMESPACE;
+    ns::Dictionary dict(api.result);
 }
 
 - (void)act_weibo_post_net {
@@ -440,7 +453,10 @@ static OADouban *douban = nil;
     OApiKaixinUserInfo *api = [[OApiKaixinUserInfo alloc] initWithOAuth:kaixin];
     api.apiType = OAuthApiTypeJSON;
     [SERV() retrieve_model:api];
-    wsi::ns::Dictionary dict(api.result);    
+    
+    NNT_USINGNAMESPACE;
+    
+    ns::Dictionary dict(api.result);
 }
 
 - (void)act_post_kaixin {

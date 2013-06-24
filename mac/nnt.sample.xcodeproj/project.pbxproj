@@ -279,6 +279,7 @@
 		167EBB6414F36A030012570E /* VHtmlChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5B14F36A030012570E /* VHtmlChart.m */; };
 		167EBB6614F36A030012570E /* VHtmlTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5D14F36A030012570E /* VHtmlTable.m */; };
 		167EBB6A14F36AE50012570E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EBB6914F36AE50012570E /* SystemConfiguration.framework */; };
+		168DD6F51777E878004B0D30 /* JsonObjParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168DD6F41777E878004B0D30 /* JsonObjParser.cpp */; };
 		168F22A815200C9900095E80 /* gil.prv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F22A615200C9900095E80 /* gil.prv.cpp */; };
 		168F22BD1520344300095E80 /* NSFileConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 168F22BB1520344300095E80 /* NSFileConnection.m */; };
 		168F22C21520691500095E80 /* DBMS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F22C11520691500095E80 /* DBMS.cpp */; };
@@ -1023,6 +1024,7 @@
 		168B11881542580800D9325A /* JuiceOpenGLES2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLES2.hpp; sourceTree = "<group>"; };
 		168B11891542580800D9325A /* JuiceOpenGLPCDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLPCDriver.hpp; sourceTree = "<group>"; };
 		168B11C1154279BC00D9325A /* JuiceCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceCamera.hpp; sourceTree = "<group>"; };
+		168DD6F41777E878004B0D30 /* JsonObjParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonObjParser.cpp; sourceTree = "<group>"; };
 		168F22A615200C9900095E80 /* gil.prv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gil.prv.cpp; path = ../Classes/Core/gil.prv.cpp; sourceTree = "<group>"; };
 		168F22A715200C9900095E80 /* gil.prv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gil.prv.h; path = ../Classes/Core/gil.prv.h; sourceTree = "<group>"; };
 		168F22BA1520344300095E80 /* NSFileConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSFileConnection.h; path = ../Classes/Core/NSFileConnection.h; sourceTree = "<group>"; };
@@ -2666,6 +2668,7 @@
 				1648F877158727BD00A47990 /* SVGParser.h */,
 				16A44A6B149F158B00DF7F82 /* JsonObjParser.h */,
 				16A44A6C149F158B00DF7F82 /* JsonObjParser.mm */,
+				168DD6F41777E878004B0D30 /* JsonObjParser.cpp */,
 				16A44A6D149F158B00DF7F82 /* MustacheParser.h */,
 				16A44A6E149F158B00DF7F82 /* MustacheParser.m */,
 				16A44A6F149F158B00DF7F82 /* NullObjParser.h */,
@@ -3994,6 +3997,7 @@
 				16DEB6E6177426D30086591F /* Clipboard+NNT.mm in Sources */,
 				16DEB6F217745B150086591F /* LevelDB+NNT.mm in Sources */,
 				16DEB6F417745B2E0086591F /* LevelDB+NNT.cpp in Sources */,
+				168DD6F51777E878004B0D30 /* JsonObjParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

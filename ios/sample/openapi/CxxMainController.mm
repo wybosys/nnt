@@ -1,8 +1,8 @@
 
 # include "Foundation+NNT.h"
 # include "CxxMainController.h"
-# include "WSIConfiguration.h"
-# include "UIActionSheet+WSI.h"
+# include "Configuration+NNT.h"
+# include "UIActionSheet+NNT.h"
 
 NNTAPP_BEGIN
 

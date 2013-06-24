@@ -5,34 +5,37 @@
 NNTAPP_BEGIN
 
 class Cell
-: public wsi::ui::TableCell<Cell>
+: public ui::TableCell<Cell>
 {
 public:
     Cell();
     ~Cell();
-    wsi::ns::String str;
+    
+    ns::String str;
     
     void layout_subviews();
     void update();
     
 protected:
-    wsi::ui::ImageView img;
+    
+    ui::ImageView img;
+    
 };
 
 class Table
-: public wsi::ui::PlainTableController
+: public ui::PlainTableController
 //: public wsi::ui::GroupedTableController
 {
 public:
     Table();
     
-    virtual wsi::Object* makecell(IndexPath const&) const;
+    virtual ::nnt::Object* makecell(IndexPath const&) const;
     
-    wsi::ui::ActivityHeaderView top, bottom;
+    ui::ActivityHeaderView top, bottom;
 };
 
 class MainView
-: public wsi::ui::View<MainView>
+: public ui::View<MainView>
 {
 public:
     MainView();
@@ -41,18 +44,18 @@ public:
 };
 
 class MainController
-: public wsi::ui::Controller<MainController, MainView>
+: public ui::Controller<MainController, MainView>
 {
 public:
     void view_loaded();
     
 protected:
-    void act_selected(wsi::EventObj&);
-    void act_removed(wsi::EventObj&);
+    void act_selected(EventObj&);
+    void act_removed(EventObj&);
     
 protected:
-    void act_top(wsi::EventObj&);
-    void act_bottom(wsi::EventObj&);
+    void act_top(EventObj&);
+    void act_bottom(EventObj&);
 };
 
 NNTAPP_END
