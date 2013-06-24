@@ -1,8 +1,22 @@
 
 # import "Core.h"
 # import "ccView+NNT.h"
-# import "cocos2dx.prv.h"
-# import "../../../contrib/cocos2dx/cocos2dx/platform/ios/EAGLView.h"
+
+NNT_BEGIN_HEADER_OBJC
+
+@interface EAGLView : UIView
+
++ (id) viewWithFrame:(CGRect)frame
+         pixelFormat:(NSString*)format
+         depthFormat:(GLuint)depth
+  preserveBackbuffer:(BOOL)retained
+          sharegroup:(EAGLSharegroup*)sharegroup
+       multiSampling:(BOOL)multisampling
+     numberOfSamples:(unsigned int)samples;
+
+@end
+
+NNT_END_HEADER_OBJC
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cocos)
