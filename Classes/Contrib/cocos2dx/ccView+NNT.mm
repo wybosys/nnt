@@ -20,7 +20,8 @@ NNT_BEGIN_HEADER_OBJC
 NNT_END_HEADER_OBJC
 
 NNT_BEGIN_CXX
-NNT_BEGIN_NS(cocos)
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(cocos2d)
 
 View::View()
 {
@@ -45,5 +46,6 @@ void View::layout_subviews()
     _gl.frame = bounds();
 }
 
+NNT_END_NS
 NNT_END_NS
 NNT_END_CXX

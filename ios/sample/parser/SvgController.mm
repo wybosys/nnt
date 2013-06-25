@@ -25,8 +25,8 @@ void SvgController::view_loaded()
     
 }
 
-void svg_callback(::wsi::svg::PathParser::Action const*, void*);
-void svg_callback(::wsi::svg::PathParser::Action const* act, void* ctx)
+void svg_callback(svg::PathParser::Action const*, void*);
+void svg_callback(svg::PathParser::Action const* act, void* ctx)
 {
 }
 

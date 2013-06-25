@@ -62,7 +62,7 @@ void HtmlController::view_loaded()
     doc.jquery("li.cls-1", result);
     
     if (result.size())
-        trace_msg(@"got " + wsi::ns::String(result.size()));
+        trace_msg(@"got " + ns::String(result.size()));
     else
         trace_msg(@"empty .............");
     

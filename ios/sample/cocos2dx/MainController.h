@@ -7,7 +7,7 @@
 NNTAPP_BEGIN
 
 class MainView
-: public cocos::View
+: public ui::cocos2d::View
 {
 public:
     

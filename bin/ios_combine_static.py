@@ -3,7 +3,7 @@
 import sys
 product = ""
 
-if (len(sys.argv) == 0):
+if (len(sys.argv) == 1):
     product = raw_input("please input product name: ")
 else:
     product = sys.argv[1]

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1600EAA415778F2B001A7953 /* HtmlController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1600EAA315778F2B001A7953 /* HtmlController.mm */; };
+		1612293B17796D1600A97278 /* libboost_regex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612293A17796D1600A97278 /* libboost_regex.a */; };
 		161E5A7E153518E700D3B0B2 /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E5A7D153518E700D3B0B2 /* libdb.a */; };
 		1657D96115CFA4AB00390AB8 /* XmlController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1657D96015CFA4AB00390AB8 /* XmlController.mm */; };
 		1657D96415CFA5C200390AB8 /* SvgController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1657D96315CFA5C200390AB8 /* SvgController.mm */; };
-		16610DDC15CFA927005267CC /* libregex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16610DDB15CFA927005267CC /* libregex.a */; };
 		16703F931578A9D000789A77 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 16703F921578A9D000789A77 /* test.html */; };
 		167D8A181709350100B94D5E /* libnnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D8A171709350100B94D5E /* libnnt.a */; };
 		167FC8BD1495C21000F70E35 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 167FC8BC1495C21000F70E35 /* libicucore.dylib */; };
@@ -35,12 +35,12 @@
 /* Begin PBXFileReference section */
 		1600EAA215778F2B001A7953 /* HtmlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlController.h; sourceTree = "<group>"; };
 		1600EAA315778F2B001A7953 /* HtmlController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HtmlController.mm; sourceTree = "<group>"; };
+		1612293A17796D1600A97278 /* libboost_regex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_regex.a; path = ../../lib/iOS/libboost_regex.a; sourceTree = "<group>"; };
 		161E5A7D153518E700D3B0B2 /* libdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdb.a; path = ../../lib/iOS/libdb.a; sourceTree = "<group>"; };
 		1657D95F15CFA4AB00390AB8 /* XmlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlController.h; sourceTree = "<group>"; };
 		1657D96015CFA4AB00390AB8 /* XmlController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XmlController.mm; sourceTree = "<group>"; };
 		1657D96215CFA5C200390AB8 /* SvgController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgController.h; sourceTree = "<group>"; };
 		1657D96315CFA5C200390AB8 /* SvgController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SvgController.mm; sourceTree = "<group>"; };
-		16610DDB15CFA927005267CC /* libregex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libregex.a; path = ../../lib/iOS/libregex.a; sourceTree = "<group>"; };
 		16703F921578A9D000789A77 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		167D86BB170934F800B94D5E /* AIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAction.h; sourceTree = "<group>"; };
 		167D86BC170934F800B94D5E /* AIBehave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBehave.h; sourceTree = "<group>"; };
@@ -834,7 +834,7 @@
 		167D8A13170934F900B94D5E /* ImageCodecReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodecReader.h; sourceTree = "<group>"; };
 		167D8A15170934F900B94D5E /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		167D8A16170934F900B94D5E /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
-		167D8A171709350100B94D5E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		167D8A171709350100B94D5E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
 		167FC8BC1495C21000F70E35 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		167FC8BE1495C21400F70E35 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		167FC8C01495C21900F70E35 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -862,8 +862,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1612293B17796D1600A97278 /* libboost_regex.a in Frameworks */,
 				167D8A181709350100B94D5E /* libnnt.a in Frameworks */,
-				16610DDC15CFA927005267CC /* libregex.a in Frameworks */,
 				161E5A7E153518E700D3B0B2 /* libdb.a in Frameworks */,
 				167FC8C11495C21900F70E35 /* QuartzCore.framework in Frameworks */,
 				167FC8BF1495C21400F70E35 /* libxml2.dylib in Frameworks */,
@@ -2251,7 +2251,7 @@
 		168431DF1495BFE200888AED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16610DDB15CFA927005267CC /* libregex.a */,
+				1612293A17796D1600A97278 /* libboost_regex.a */,
 				16C6880814960DF400E07457 /* Default-Landscape~ipad.png */,
 				16C6880614960DF100E07457 /* Default-Portrait~ipad.png */,
 				16C6880414960DE400E07457 /* logo@72.png */,

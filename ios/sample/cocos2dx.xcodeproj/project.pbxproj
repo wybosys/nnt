@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		16122920177945FA00A97278 /* TestNetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612291E177945FA00A97278 /* TestNetObject.cpp */; };
 		1612292317794B0600A97278 /* UsersLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292117794B0600A97278 /* UsersLogin.cpp */; };
+		1612292C177966AC00A97278 /* NetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292A1779614A00A97278 /* NetObject.cpp */; };
+		1612292D177966B000A97278 /* CommonObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161229271779607B00A97278 /* CommonObj.cpp */; };
+		161229FC1779791700A97278 /* libcocos2dx-extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161229FB1779791700A97278 /* libcocos2dx-extension.a */; };
 		1612497417785A6E00731002 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497317785A6E00731002 /* libcocos2dx.a */; };
 		1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497717785A8E00731002 /* OpenGLES.framework */; };
 		1612497A17785A9E00731002 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497917785A9E00731002 /* libz.dylib */; };
@@ -46,6 +49,23 @@
 		1612291F177945FA00A97278 /* TestNetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNetObject.h; sourceTree = "<group>"; };
 		1612292117794B0600A97278 /* UsersLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UsersLogin.cpp; sourceTree = "<group>"; };
 		1612292217794B0600A97278 /* UsersLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersLogin.h; sourceTree = "<group>"; };
+		161229271779607B00A97278 /* CommonObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommonObj.cpp; sourceTree = "<group>"; };
+		161229281779607B00A97278 /* CommonObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonObj.h; sourceTree = "<group>"; };
+		161229291779607B00A97278 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		1612292A1779614A00A97278 /* NetObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetObject.cpp; sourceTree = "<group>"; };
+		1612292B1779614A00A97278 /* NetObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetObject.h; sourceTree = "<group>"; };
+		1612292F1779675600A97278 /* arraylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arraylist.h; sourceTree = "<group>"; };
+		161229301779675600A97278 /* bits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bits.h; sourceTree = "<group>"; };
+		161229311779675600A97278 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		161229321779675600A97278 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		161229331779675600A97278 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		161229341779675600A97278 /* json_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_object.h; sourceTree = "<group>"; };
+		161229351779675600A97278 /* json_object_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_object_private.h; sourceTree = "<group>"; };
+		161229361779675600A97278 /* json_tokener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_tokener.h; sourceTree = "<group>"; };
+		161229371779675600A97278 /* json_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_util.h; sourceTree = "<group>"; };
+		161229381779675600A97278 /* linkhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkhash.h; sourceTree = "<group>"; };
+		161229391779675600A97278 /* printbuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printbuf.h; sourceTree = "<group>"; };
+		161229FB1779791700A97278 /* libcocos2dx-extension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2dx-extension.a"; path = "../../lib/iOS/libcocos2dx-extension.a"; sourceTree = "<group>"; };
 		1612497317785A6E00731002 /* libcocos2dx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcocos2dx.a; path = ../../lib/iOS/libcocos2dx.a; sourceTree = "<group>"; };
 		1612497717785A8E00731002 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1612497917785A9E00731002 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -89,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161229FC1779791700A97278 /* libcocos2dx-extension.a in Frameworks */,
 				1612497A17785A9E00731002 /* libz.dylib in Frameworks */,
 				1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */,
 				1612497417785A6E00731002 /* libcocos2dx.a in Frameworks */,
@@ -106,6 +127,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1612292E1779675600A97278 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1612292F1779675600A97278 /* arraylist.h */,
+				161229301779675600A97278 /* bits.h */,
+				161229311779675600A97278 /* config.h */,
+				161229321779675600A97278 /* debug.h */,
+				161229331779675600A97278 /* json.h */,
+				161229341779675600A97278 /* json_object.h */,
+				161229351779675600A97278 /* json_object_private.h */,
+				161229361779675600A97278 /* json_tokener.h */,
+				161229371779675600A97278 /* json_util.h */,
+				161229381779675600A97278 /* linkhash.h */,
+				161229391779675600A97278 /* printbuf.h */,
+			);
+			name = include;
+			path = cocos2dx/include;
+			sourceTree = "<group>";
+		};
 		1612499417786BE900731002 /* resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +160,7 @@
 		168DDAE117782D44004B0D30 = {
 			isa = PBXGroup;
 			children = (
+				1612292E1779675600A97278 /* include */,
 				1612499417786BE900731002 /* resources */,
 				168DDAF317782D45004B0D30 /* cocos2dx */,
 				168DDAEC17782D45004B0D30 /* Frameworks */,
@@ -141,6 +182,7 @@
 				1612497917785A9E00731002 /* libz.dylib */,
 				1612497717785A8E00731002 /* OpenGLES.framework */,
 				1612497317785A6E00731002 /* libcocos2dx.a */,
+				161229FB1779791700A97278 /* libcocos2dx-extension.a */,
 				168DDEBA17782E44004B0D30 /* libdb.a */,
 				168DDED317782FA0004B0D30 /* Default-Landscape~ipad.png */,
 				168DDED117782F9D004B0D30 /* Default-Landscape@2x~ipad.png */,
@@ -175,6 +217,11 @@
 				168DDEBD17782EDF004B0D30 /* MainController.mm */,
 				1612291E177945FA00A97278 /* TestNetObject.cpp */,
 				1612291F177945FA00A97278 /* TestNetObject.h */,
+				1612292A1779614A00A97278 /* NetObject.cpp */,
+				1612292B1779614A00A97278 /* NetObject.h */,
+				161229271779607B00A97278 /* CommonObj.cpp */,
+				161229281779607B00A97278 /* CommonObj.h */,
+				161229291779607B00A97278 /* Const.h */,
 				1612292117794B0600A97278 /* UsersLogin.cpp */,
 				1612292217794B0600A97278 /* UsersLogin.h */,
 				168DDAF417782D45004B0D30 /* Supporting Files */,
@@ -274,6 +321,8 @@
 				168DDEBE17782EDF004B0D30 /* MainController.mm in Sources */,
 				161249931778696800731002 /* MainScene.cpp in Sources */,
 				16122920177945FA00A97278 /* TestNetObject.cpp in Sources */,
+				1612292C177966AC00A97278 /* NetObject.cpp in Sources */,
+				1612292D177966B000A97278 /* CommonObj.cpp in Sources */,
 				1612292317794B0600A97278 /* UsersLogin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,10 +406,12 @@
 				GCC_PREFIX_HEADER = "cocos2dx/cocos2dx-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../../nnt,
+					../../3rd/,
 					../../3rd/cocos2dx,
 					../../3rd/cocos2dx/include,
 					../../3rd/cocos2dx/platform,
 					../../3rd/cocos2dx/platform/ios,
+					include,
 				);
 				INFOPLIST_FILE = "cocos2dx/cocos2dx-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -382,10 +433,12 @@
 				GCC_PREFIX_HEADER = "cocos2dx/cocos2dx-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					../../nnt,
+					../../3rd/,
 					../../3rd/cocos2dx,
 					../../3rd/cocos2dx/include,
 					../../3rd/cocos2dx/platform,
 					../../3rd/cocos2dx/platform/ios,
+					include,
 				);
 				INFOPLIST_FILE = "cocos2dx/cocos2dx-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

@@ -19,6 +19,10 @@ public:
     
     CREATE_FUNC(MainScene);
     
+protected:
+    
+    void act_button_clicked(CCObject*);
+    
 };
 
 NNTAPP_END

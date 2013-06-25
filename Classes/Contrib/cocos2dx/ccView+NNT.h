@@ -11,7 +11,8 @@ NNTDECL_EXTERN_CLASS(EAGLView);
 NNT_END_HEADER_OBJC
 
 NNT_BEGIN_HEADER_CXX
-NNT_BEGIN_NS(cocos)
+NNT_BEGIN_NS(ui)
+NNT_BEGIN_NS(cocos2d)
 
 class View
 : public ui::View<View>
@@ -29,6 +30,7 @@ protected:
     
 };
 
+NNT_END_NS
 NNT_END_NS
 NNT_END_HEADER_CXX
 

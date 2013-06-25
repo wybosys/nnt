@@ -1,6 +1,8 @@
 
 # include <Foundation+NNT.h>
 # include "MainScene.h"
+# include "TestNetObject.h"
+# include <cocos2dx/extension/GUI/CCControlExtension/CCControlButton.h>
 
 NNTAPP_BEGIN
 
@@ -52,23 +54,18 @@ bool MainScene::init()
     // create and initialize a label
     CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Thonburi", 34);
     
+    // add button.
+    CCControlButton* pButton = CCControlButton::create(pLabel, extension::CCScale9Sprite::create("HelloWorld.png"));
+    pButton->addTargetWithActionForControlEvents(this, cccontrol_selector(MainScene::act_button_clicked), CCControlEventTouchDown);
+
     // ask director the window size
     CCSize size = CCDirector::sharedDirector()->getWinSize();
     
     // position the label on the center of the screen
-    pLabel->setPosition( ccp(size.width / 2, size.height - 20) );
-    
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-    
-    // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-    
-    // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size.width/2, size.height/2) );
+    pButton->setPosition( ccp(size.width / 2, size.height / 2) );
     
     // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
+    this->addChild(pButton, 0);
     
     return true;
 }
@@ -76,6 +73,11 @@ bool MainScene::init()
 void MainScene::menuCloseCallback(CCObject* pSender)
 {
     CCDirector::sharedDirector()->end();
+}
+
+void MainScene::act_button_clicked(CCObject* pSender)
+{
+    test_netobj();
 }
 
 NNTAPP_END

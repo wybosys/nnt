@@ -12,9 +12,17 @@
 
 #   include <cocos2d.h>
 
+namespace cocos2d
+{
+    namespace extension
+    {
+    }
+}
+
 NNTAPP_BEGIN
 
-using namespace cocos2d;
+using namespace ::cocos2d;
+using namespace ::cocos2d::extension;
 
 NNTAPP_END
 
