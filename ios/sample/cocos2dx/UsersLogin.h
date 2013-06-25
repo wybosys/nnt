@@ -6,10 +6,6 @@
 # include "CommonObj.h"
 # include "Const.h"
 
-#include <set>
-#include <string>
-#include <vector>
-
 //output auto generated anonymous structs
 //for output
 //
@@ -19,9 +15,7 @@ NETOBJ_BEGIN
 class UsersLogin
 : public NetObj
 {
-private:
-    
-    set<const char*> __inputSet__;
+private:        
 
     //input fields
     //应用ID 
@@ -105,11 +99,12 @@ public:
     UsersLogin();
     ~UsersLogin();
     
-    string getUrl() {
+    string getUrl() const
+    {
         return API_USERS_LOGIN;
     }
     
-    void initRequest();
+    virtual void initRequest(req_type&) const;
     void parse(json_object* obj);
 
 };

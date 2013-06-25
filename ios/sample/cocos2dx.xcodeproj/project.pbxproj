@@ -12,6 +12,7 @@
 		1612292C177966AC00A97278 /* NetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292A1779614A00A97278 /* NetObject.cpp */; };
 		1612292D177966B000A97278 /* CommonObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161229271779607B00A97278 /* CommonObj.cpp */; };
 		161229FC1779791700A97278 /* libcocos2dx-extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161229FB1779791700A97278 /* libcocos2dx-extension.a */; };
+		161229FE177991CB00A97278 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161229FD177991CA00A97278 /* libcurl.a */; };
 		1612497417785A6E00731002 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497317785A6E00731002 /* libcocos2dx.a */; };
 		1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497717785A8E00731002 /* OpenGLES.framework */; };
 		1612497A17785A9E00731002 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497917785A9E00731002 /* libz.dylib */; };
@@ -66,6 +67,7 @@
 		161229381779675600A97278 /* linkhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkhash.h; sourceTree = "<group>"; };
 		161229391779675600A97278 /* printbuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printbuf.h; sourceTree = "<group>"; };
 		161229FB1779791700A97278 /* libcocos2dx-extension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2dx-extension.a"; path = "../../lib/iOS/libcocos2dx-extension.a"; sourceTree = "<group>"; };
+		161229FD177991CA00A97278 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../lib/iOS/libcurl.a; sourceTree = "<group>"; };
 		1612497317785A6E00731002 /* libcocos2dx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcocos2dx.a; path = ../../lib/iOS/libcocos2dx.a; sourceTree = "<group>"; };
 		1612497717785A8E00731002 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1612497917785A9E00731002 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161229FE177991CB00A97278 /* libcurl.a in Frameworks */,
 				161229FC1779791700A97278 /* libcocos2dx-extension.a in Frameworks */,
 				1612497A17785A9E00731002 /* libz.dylib in Frameworks */,
 				1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */,
@@ -179,6 +182,7 @@
 		168DDAEC17782D45004B0D30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				161229FD177991CA00A97278 /* libcurl.a */,
 				1612497917785A9E00731002 /* libz.dylib */,
 				1612497717785A8E00731002 /* OpenGLES.framework */,
 				1612497317785A6E00731002 /* libcocos2dx.a */,

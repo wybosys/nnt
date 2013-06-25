@@ -19,12 +19,16 @@ namespace cocos2d
     }
 }
 
+# ifdef NNTAPP_BEGIN
+
 NNTAPP_BEGIN
 
 using namespace ::cocos2d;
 using namespace ::cocos2d::extension;
 
 NNTAPP_END
+
+# endif
 
 # endif
 

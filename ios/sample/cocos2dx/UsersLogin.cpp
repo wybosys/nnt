@@ -1,4 +1,5 @@
 
+# include <Foundation+NNT.h>
 # include "UsersLogin.h"
 
 NETOBJ_BEGIN
@@ -29,48 +30,50 @@ UsersLogin::UsersLogin() {
 
 UsersLogin::~UsersLogin() {
     delete data;
-
 }
 
-void UsersLogin::initRequest() {
-
-    if (__inputSet__.find("appid") != __inputSet__.end())
-    	//[request setPostValue:[NSNumber numberWithInt:in_appid] forKey:@"appid"];
+void UsersLogin::initRequest(req_type& req) const
+{
+    stringstream ss;
+    if (__inputSet__.find("appid") == __inputSet__.end())
         return;
-    if (__inputSet__.find("channelid") != __inputSet__.end())
-    	//[request setPostValue:[NSNumber numberWithInt:in_channelid] forKey:@"channelid"];
+    ss << "appid=" << in_appid << "&";
+    if (__inputSet__.find("channelid") == __inputSet__.end())
         return;
-    if (__inputSet__.find("equipmentid") != __inputSet__.end())
-    	//[request setPostValue:in_equipmentid forKey:@"equipmentid"];
+    ss << "channelid=" << in_channelid << "&";
+    if (__inputSet__.find("equipmentid") == __inputSet__.end())
         return;
-    if (__inputSet__.find("applicationversion") != __inputSet__.end())
-    	//[request setPostValue:in_applicationversion forKey:@"applicationversion"];
+    ss << "equipmentid=" << in_equipmentid << "&";
+    if (__inputSet__.find("applicationversion") == __inputSet__.end())
         return;
-    if (__inputSet__.find("systemversion") != __inputSet__.end())
-    	//[request setPostValue:in_systemversion forKey:@"systemversion"];
+    ss << "applicationversion=" << in_applicationversion << "&";
+    if (__inputSet__.find("systemversion") == __inputSet__.end())
         return;
-    if (__inputSet__.find("cellbrand") != __inputSet__.end())
-    	//[request setPostValue:in_cellbrand forKey:@"cellbrand"];
+    ss << "systemversion=" << in_systemversion << "&";
+    if (__inputSet__.find("cellbrand") == __inputSet__.end())
         return;
-    if (__inputSet__.find("cellmodel") != __inputSet__.end())
-    	//[request setPostValue:in_cellmodel forKey:@"cellmodel"];
+    ss << "cellbrand=" << in_cellbrand << "&";
+    if (__inputSet__.find("cellmodel") == __inputSet__.end())
         return;
-    if (__inputSet__.find("device_token") != __inputSet__.end())
-    	//[request setPostValue:in_device_token forKey:@"device_token"];
+    ss << "cellmodel=" << in_cellmodel << "&";
+    if (__inputSet__.find("device_token") == __inputSet__.end())
         return;
-    if (__inputSet__.find("mac") != __inputSet__.end())
-    	//[request setPostValue:in_mac forKey:@"mac"];
+    ss << "device_token=" << in_device_token << "&";
+    if (__inputSet__.find("mac") == __inputSet__.end())
         return;
-    if (__inputSet__.find("name") != __inputSet__.end())
-    	//[request setPostValue:in_name forKey:@"name"];
+    ss << "mac=" << in_mac << "&";
+    if (__inputSet__.find("name") == __inputSet__.end())
         return;
-    if (__inputSet__.find("password") != __inputSet__.end())
-    	//[request setPostValue:in_password forKey:@"password"];
+    ss << "name=" << in_name << "&";
+    if (__inputSet__.find("password") == __inputSet__.end())
         return;
-    if (__inputSet__.find("rndcheck") != __inputSet__.end())
-    	//[request setPostValue:in_rndcheck forKey:@"rndcheck"];
+    ss << "password=" << in_password << "&";
+    if (__inputSet__.find("rndcheck") == __inputSet__.end())
         return;
+    ss << "rndcheck=" << in_rndcheck;
     
+    string str = ss.str();
+    req.setRequestData(str.c_str(), str.length());
 }
 
 void UsersLogin::setIn_appid(int _appid) {

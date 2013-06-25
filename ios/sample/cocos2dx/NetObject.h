@@ -13,6 +13,11 @@
 # include <set>
 # include "json.h"
 
+# include <Contrib/cocos2dx/cocos2dx+NNT.h>
+# include <extension/network/HttpClient.h>
+# include <extension/network/HttpRequest.h>
+# include <extension/network/HttpResponse.h>
+
 NETOBJ_BEGIN_C
 
 extern size_t json_object_get_string_len(json_object* jso);
@@ -24,16 +29,65 @@ NETOBJ_BEGIN
 using namespace ::std;
 
 class NetObj
+: public cocos2d::CCObject
 {
 public:
+    
+    class Request
+    : public cocos2d::extension::CCHttpRequest
+    {
+    public:
+        
+        Request(cocos2d::CCObject* o)
+        : model(o)
+        {
+            model->retain();
+        }
+        
+        ~Request()
+        {
+            model->release();
+        }
+        
+        void add(string const& key, string const& val);
+        
+        cocos2d::CCObject* model;
+        
+    };
+    
+    typedef Request req_type;
+    typedef cocos2d::extension::CCHttpResponse respn_type;
+    typedef cocos2d::extension::CCHttpClient cli_type;
+    typedef json_object* result_obj;
     
     NetObj();
     virtual ~NetObj();
     
-    virtual string getUrl() { return ""; }
-    virtual void initRequest() { return; }
-    virtual void parse(json_object* obj) = 0;
+    virtual string getUrl() const { return ""; }
+    virtual void initRequest(req_type&) const {}
+    virtual void parse(json_object* obj) {}
+    
+    void* delegate;
+    
+protected:
+    
+    typedef set<string> set_type;
+    set_type __inputSet__;
 
+};
+
+class Model
+{
+public:
+    
+    void callApi(NetObj*);
+    
+    static Model& getInstance()
+    {
+        static Model __m;
+        return __m;
+    }
+    
 };
 
 NETOBJ_END
