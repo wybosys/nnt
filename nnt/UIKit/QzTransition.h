@@ -6,6 +6,8 @@ NNT_BEGIN_HEADER_OBJC
 
 NNT_EXTERN NSString* kCATransitionPageCurl;
 NNT_EXTERN NSString* kCATransitionPageUnCurl;
+NNT_EXTERN NSString* kCATransitionRipple;
+NNT_EXTERN NSString* kCATransitionSuck;
 NNT_EXTERN real kCATransitionDuration;
 
 NNT_END_HEADER_OBJC

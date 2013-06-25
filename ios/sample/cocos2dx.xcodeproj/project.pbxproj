@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16122920177945FA00A97278 /* TestNetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612291E177945FA00A97278 /* TestNetObject.cpp */; };
+		1612292317794B0600A97278 /* UsersLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292117794B0600A97278 /* UsersLogin.cpp */; };
 		1612497417785A6E00731002 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497317785A6E00731002 /* libcocos2dx.a */; };
 		1612497817785A8E00731002 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497717785A8E00731002 /* OpenGLES.framework */; };
 		1612497A17785A9E00731002 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612497917785A9E00731002 /* libz.dylib */; };
@@ -40,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1612291E177945FA00A97278 /* TestNetObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestNetObject.cpp; sourceTree = "<group>"; };
+		1612291F177945FA00A97278 /* TestNetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNetObject.h; sourceTree = "<group>"; };
+		1612292117794B0600A97278 /* UsersLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UsersLogin.cpp; sourceTree = "<group>"; };
+		1612292217794B0600A97278 /* UsersLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersLogin.h; sourceTree = "<group>"; };
 		1612497317785A6E00731002 /* libcocos2dx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcocos2dx.a; path = ../../lib/iOS/libcocos2dx.a; sourceTree = "<group>"; };
 		1612497717785A8E00731002 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1612497917785A9E00731002 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -167,6 +173,10 @@
 				168DDAFD17782D45004B0D30 /* AppDelegate.mm */,
 				168DDEBC17782EDF004B0D30 /* MainController.h */,
 				168DDEBD17782EDF004B0D30 /* MainController.mm */,
+				1612291E177945FA00A97278 /* TestNetObject.cpp */,
+				1612291F177945FA00A97278 /* TestNetObject.h */,
+				1612292117794B0600A97278 /* UsersLogin.cpp */,
+				1612292217794B0600A97278 /* UsersLogin.h */,
 				168DDAF417782D45004B0D30 /* Supporting Files */,
 			);
 			path = cocos2dx;
@@ -263,6 +273,8 @@
 				168DDAFE17782D45004B0D30 /* AppDelegate.mm in Sources */,
 				168DDEBE17782EDF004B0D30 /* MainController.mm in Sources */,
 				161249931778696800731002 /* MainScene.cpp in Sources */,
+				16122920177945FA00A97278 /* TestNetObject.cpp in Sources */,
+				1612292317794B0600A97278 /* UsersLogin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
