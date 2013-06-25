@@ -112,7 +112,7 @@
  '(initial-scratch-message "")
  '(linum-format "%-5d")
  '(scroll-bar-mode (quote right))
- '(session-use-package t nil (session))
+ ;'(session-use-package t nil (session))
  '(show-paren-mode t)
  '(tab-width 4))
 
@@ -231,7 +231,7 @@
   (require 'desktop)
   (session-initialize)
 )
-(add-hook 'after-init-hook 'my-session)
+;(add-hook 'after-init-hook 'my-session)
 
 ;; uniquify buffer name
 (require 'uniquify)
