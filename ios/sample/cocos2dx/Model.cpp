@@ -217,6 +217,7 @@ public:
     
     ~ModelTask()
     {
+        stop = true;
         pthread_cond_signal(&sleepcond_queue);
         pthread_cond_destroy(&sleepcond_queue);
         pthread_mutex_destroy(&sleepcondmtx_queue);
