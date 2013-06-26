@@ -133,9 +133,14 @@ public:
     {
         work();
         
+        // release the retain in callApi.
+        item->model->release();
+        
         stop = true;
         return 0;
     }
+    
+protected:
     
     void work()
     {
@@ -146,7 +151,6 @@ public:
         {
             DELEGATE_CALL(onFailResponsed(m));
             DELEGATE_CALL(onFailed(m));
-            m->release();
             return;
         }
         
@@ -159,7 +163,6 @@ public:
         {
             DELEGATE_CALL(onFailParsed(m));
             DELEGATE_CALL(onFailed(m));
-            m->release();
             return;
         }
         
@@ -172,7 +175,6 @@ public:
             DELEGATE_CALL(onFailParsed(m));
             DELEGATE_CALL(onFailed(m));
             json_object_put(jobj);
-            m->release();
             return;
         }
         
@@ -184,7 +186,6 @@ public:
             DELEGATE_CALL(onFailCalled(m, m->message.c_str()));
             DELEGATE_CALL(onFailed(m));
             json_object_put(jobj);
-            m->release();
             return;
         }
         
@@ -195,9 +196,6 @@ public:
         DELEGATE_CALL(onSuccess(m));
         
         json_object_put(jobj);
-        
-        // retain in callApi.
-        m->release();
     }
     
     TaskItem* item;
