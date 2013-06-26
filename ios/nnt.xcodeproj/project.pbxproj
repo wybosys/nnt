@@ -72,6 +72,19 @@
 		161043A515CBC64100485DDF /* XimMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A315CBC64000485DDF /* XimMessage.h */; };
 		161043A815CBC67400485DDF /* XimRoster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161043A615CBC67300485DDF /* XimRoster.cpp */; };
 		161043A915CBC67400485DDF /* XimRoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A715CBC67400485DDF /* XimRoster.h */; };
+		1612293D17796D3A00A97278 /* JsonObjParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612293C17796D3A00A97278 /* JsonObjParser.cpp */; };
+		1612294617796D9100A97278 /* arraylist.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612293F17796D9100A97278 /* arraylist.c */; };
+		1612294717796D9100A97278 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294017796D9100A97278 /* debug.c */; };
+		1612294817796D9100A97278 /* json_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294117796D9100A97278 /* json_object.c */; };
+		1612294917796D9100A97278 /* json_tokener.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294217796D9100A97278 /* json_tokener.c */; };
+		1612294A17796D9100A97278 /* json_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294317796D9100A97278 /* json_util.c */; };
+		1612294B17796D9100A97278 /* linkhash.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294417796D9100A97278 /* linkhash.c */; };
+		1612294C17796D9100A97278 /* printbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294517796D9100A97278 /* printbuf.c */; };
+		1612294E17796E1900A97278 /* json_nnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294D17796E1900A97278 /* json_nnt.c */; };
+		1612498C1778623800731002 /* ccView+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 161249871778623800731002 /* ccView+NNT.h */; };
+		1612498D1778623800731002 /* ccView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161249881778623800731002 /* ccView+NNT.mm */; };
+		1612498F1778623800731002 /* cocos2dx+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612498A1778623800731002 /* cocos2dx+NNT.h */; };
+		161249901778623800731002 /* cocos2dx+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1612498B1778623800731002 /* cocos2dx+NNT.mm */; };
 		1612512915D4A95B002E0CDE /* UIHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612512715D4A95B002E0CDE /* UIHudView.h */; };
 		1612512A15D4A95B002E0CDE /* UIHudView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1612512815D4A95B002E0CDE /* UIHudView.mm */; };
 		161257AE1499F51900AC645A /* UICoverDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 161257AC1499F51900AC645A /* UICoverDrawerController.h */; };
@@ -430,7 +443,6 @@
 		165E7D881564F08E0094C5D2 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165E7D871564F08E0094C5D2 /* App.cpp */; };
 		16618F3B15EE1B2900D66883 /* UIFont+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16618F3915EE1B2900D66883 /* UIFont+NNT.h */; };
 		16618F3C15EE1B2900D66883 /* UIFont+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16618F3A15EE1B2900D66883 /* UIFont+NNT.mm */; };
-		16624C7C1505B7C300AFED23 /* WSIExecution+Chart.h in Headers */ = {isa = PBXBuildFile; fileRef = 16624C7B1505B7C200AFED23 /* WSIExecution+Chart.h */; };
 		1662FFBC165E113A0058876E /* RegexObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1662FFBA165E11390058876E /* RegexObjParser.h */; };
 		1662FFBD165E113A0058876E /* RegexObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1662FFBB165E113A0058876E /* RegexObjParser.mm */; };
 		16654BB613A5FF11008DF239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16654BB513A5FF11008DF239 /* Foundation.framework */; };
@@ -702,8 +714,6 @@
 		168BE06615F0A13B00029DC1 /* EmojiCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168BE06515F0A13B00029DC1 /* EmojiCodec.mm */; };
 		168CCECF157A2A9600E83E60 /* HtmlObjParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 168CCECD157A2A9600E83E60 /* HtmlObjParser.h */; };
 		168CCED0157A2A9600E83E60 /* HtmlObjParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */; };
-		168DDADF17782C76004B0D30 /* AppStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 168DDADD17782C76004B0D30 /* AppStatistics.h */; };
-		168DDAE017782C76004B0D30 /* AppStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 168DDADE17782C76004B0D30 /* AppStatistics.mm */; };
 		168F47BA158C58C300F4D998 /* XmppObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F47B8158C58C300F4D998 /* XmppObject.cpp */; };
 		168F47BB158C58C300F4D998 /* XmppObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 168F47B9158C58C300F4D998 /* XmppObject.h */; };
 		168F47C2158C5A4600F4D998 /* XmlParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168F47C1158C5A4600F4D998 /* XmlParser.cpp */; };
@@ -1061,6 +1071,8 @@
 		16BA174613BAF81A00BB6A5F /* CHMObjParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA174313BAF81A00BB6A5F /* CHMObjParser.m */; };
 		16BA175C13BB24C400BB6A5F /* HTMLNode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BA175A13BB24C300BB6A5F /* HTMLNode+NNT.h */; };
 		16BA175E13BB24C400BB6A5F /* HTMLNode+NNT.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA175B13BB24C400BB6A5F /* HTMLNode+NNT.m */; };
+		16BA95231763159700A9D491 /* nnt.core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95211763159700A9D491 /* nnt.core.cpp */; };
+		16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95221763159700A9D491 /* nnt.modules.cpp */; };
 		16BB8E5A16DC59C0007DFFE8 /* AdmobService.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BB8E5816DC59C0007DFFE8 /* AdmobService.h */; };
 		16BB8E5B16DC59C0007DFFE8 /* AdmobService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */; };
 		16BD80EF157C95B300EE4CC6 /* SmtpClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */; };
@@ -1316,12 +1328,6 @@
 		16CEB9F714A30DAD002DB496 /* UIScrollHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEB9F514A30DAD002DB496 /* UIScrollHeaderView.m */; };
 		16CF543D15E38A9F0021AEBD /* XmppClose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CF543B15E38A9F0021AEBD /* XmppClose.cpp */; };
 		16CF543E15E38A9F0021AEBD /* XmppClose.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CF543C15E38A9F0021AEBD /* XmppClose.h */; };
-		16CFAB7914A2C0B1000C30DB /* nnt.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7714A2C0B1000C30DB /* nnt.core.h */; };
-		16CFAB7A14A2C0B1000C30DB /* nnt.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7814A2C0B1000C30DB /* nnt.core.m */; };
-		16CFAB7D14A2C280000C30DB /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB7B14A2C280000C30DB /* nnt.modules.h */; };
-		16CFAB7E14A2C280000C30DB /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB7C14A2C280000C30DB /* nnt.modules.m */; };
-		16CFAB8314A2CBFD000C30DB /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8114A2CBFD000C30DB /* pynnt.h */; };
-		16CFAB8414A2CBFD000C30DB /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CFAB8214A2CBFD000C30DB /* pynnt.mm */; };
 		16CFAB8A14A2D445000C30DB /* Script+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFAB8914A2D445000C30DB /* Script+NNT.h */; };
 		16CFB6AC13AAFA8E00FAFCAC /* FtpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFB6A813AAFA8E00FAFCAC /* FtpServer.h */; };
 		16CFB6AE13AAFA8E00FAFCAC /* FtpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CFB6A913AAFA8E00FAFCAC /* FtpServer.m */; };
@@ -1379,6 +1385,10 @@
 		16D8AAF815369EF50007EB8D /* ICRCameraController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16D8AAF615369EF50007EB8D /* ICRCameraController.mm */; };
 		16DA257A15F0999700110F42 /* EmojiCodec.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DA257815F0999700110F42 /* EmojiCodec.h */; };
 		16DA257B15F0999700110F42 /* EmojiCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DA257915F0999700110F42 /* EmojiCodec.cpp */; };
+		16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DABF001758968C00B303E9 /* UIProgress+NNT.h */; };
+		16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16DABF011758968D00B303E9 /* UIProgress+NNT.mm */; };
+		16DB7D7B176456BA00F36A7E /* PythonExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16DB7D79176456BA00F36A7E /* PythonExtension.cpp */; };
+		16DB7D7C176456BA00F36A7E /* PythonExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DB7D7A176456BA00F36A7E /* PythonExtension.h */; };
 		16DB8C5F1443F58F00E85F90 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB8C5E1443F58F00E85F90 /* ImageIO.framework */; };
 		16DB8C821444136B00E85F90 /* AlphabetFlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DB8C801444136B00E85F90 /* AlphabetFlow.h */; };
 		16DB8C841444136B00E85F90 /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DB8C811444136B00E85F90 /* AlphabetFlow.m */; };
@@ -1421,6 +1431,8 @@
 		16E434D815F5A23F0026BFFF /* Mime+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E434D715F5A23F0026BFFF /* Mime+NNT.mm */; };
 		16E434DC15F5D5880026BFFF /* OAOpenQQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E434DA15F5D5870026BFFF /* OAOpenQQ.h */; };
 		16E434DD15F5D5880026BFFF /* OAOpenQQ.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E434DB15F5D5880026BFFF /* OAOpenQQ.mm */; };
+		16E51B6B176B3A7C0097BA46 /* AppStatistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E51B69176B3A7C0097BA46 /* AppStatistics.h */; };
+		16E51B6C176B3A7C0097BA46 /* AppStatistics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E51B6A176B3A7C0097BA46 /* AppStatistics.mm */; };
 		16E5A8F31634D9B7004EF242 /* UIActivityIndicatorBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E5A8F11634D9B7004EF242 /* UIActivityIndicatorBar.h */; };
 		16E5A8F41634D9B7004EF242 /* UIActivityIndicatorBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E5A8F21634D9B7004EF242 /* UIActivityIndicatorBar.mm */; };
 		16E5AD301635278B004EF242 /* UIActivityIndicatorWave.h in Headers */ = {isa = PBXBuildFile; fileRef = 16E5AD2E1635278B004EF242 /* UIActivityIndicatorWave.h */; };
@@ -1480,6 +1492,24 @@
 		16F0E61616BA4D0A0068A20A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F0E61516BA4D090068A20A /* Accounts.framework */; };
 		16F0E62216BA52AB0068A20A /* iOSPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F0E62016BA52AA0068A20A /* iOSPrinter.h */; };
 		16F0E62316BA52AB0068A20A /* iOSPrinter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F0E62116BA52AA0068A20A /* iOSPrinter.mm */; };
+		16F18F051761723A00F76029 /* mongoose.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F021761723A00F76029 /* mongoose.h */; };
+		16F18F0E17617AA800F76029 /* Class+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0817617AA800F76029 /* Class+NNT.cpp */; };
+		16F18F0F17617AA800F76029 /* Class+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0917617AA800F76029 /* Class+NNT.h */; };
+		16F18F1017617AA800F76029 /* Unicode+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */; };
+		16F18F1117617AA800F76029 /* Unicode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0B17617AA800F76029 /* Unicode+NNT.h */; };
+		16F18F1217617AA800F76029 /* URI+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F18F0C17617AA800F76029 /* URI+NNT.cpp */; };
+		16F18F1317617AA800F76029 /* URI+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F18F0D17617AA800F76029 /* URI+NNT.h */; };
+		16F192DD1761AAA600F76029 /* nnt.core.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192D71761AAA600F76029 /* nnt.core.h */; };
+		16F192DE1761AAA600F76029 /* nnt.core.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F192D81761AAA600F76029 /* nnt.core.m */; };
+		16F192DF1761AAA600F76029 /* nnt.modules.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192D91761AAA600F76029 /* nnt.modules.h */; };
+		16F192E01761AAA600F76029 /* nnt.modules.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F192DA1761AAA600F76029 /* nnt.modules.m */; };
+		16F192E11761AAA600F76029 /* pynnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192DB1761AAA600F76029 /* pynnt.h */; };
+		16F192E21761AAA600F76029 /* pynnt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192DC1761AAA600F76029 /* pynnt.cpp */; };
+		16F192E51761ACDA00F76029 /* PythonWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E31761ACDA00F76029 /* PythonWebServer.cpp */; };
+		16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F192E41761ACDA00F76029 /* PythonWebServer.h */; };
+		16F192E81761ADA400F76029 /* PythonWebServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E71761ADA400F76029 /* PythonWebServer.mm */; };
+		16F192EA1761AF2200F76029 /* pynnt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F192E91761AF2200F76029 /* pynnt.mm */; };
+		16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F192EB1761B29F00F76029 /* Python+NNT.cpp */; };
 		16F2384A149843F700E7F082 /* Contact+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 16F23848149843F700E7F082 /* Contact+NNT.h */; };
 		16F2384B149843F700E7F082 /* Contact+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F23849149843F700E7F082 /* Contact+NNT.mm */; };
 		16F32C1813A60C52003B9987 /* nnt_prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16F32C1713A60C52003B9987 /* nnt_prefix.pch */; };
@@ -1649,6 +1679,19 @@
 		161043A315CBC64000485DDF /* XimMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimMessage.h; sourceTree = "<group>"; };
 		161043A615CBC67300485DDF /* XimRoster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XimRoster.cpp; sourceTree = "<group>"; };
 		161043A715CBC67400485DDF /* XimRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimRoster.h; sourceTree = "<group>"; };
+		1612293C17796D3A00A97278 /* JsonObjParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonObjParser.cpp; sourceTree = "<group>"; };
+		1612293F17796D9100A97278 /* arraylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = arraylist.c; path = ../contrib/json/arraylist.c; sourceTree = "<group>"; };
+		1612294017796D9100A97278 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../contrib/json/debug.c; sourceTree = "<group>"; };
+		1612294117796D9100A97278 /* json_object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_object.c; path = ../contrib/json/json_object.c; sourceTree = "<group>"; };
+		1612294217796D9100A97278 /* json_tokener.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_tokener.c; path = ../contrib/json/json_tokener.c; sourceTree = "<group>"; };
+		1612294317796D9100A97278 /* json_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_util.c; path = ../contrib/json/json_util.c; sourceTree = "<group>"; };
+		1612294417796D9100A97278 /* linkhash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = linkhash.c; path = ../contrib/json/linkhash.c; sourceTree = "<group>"; };
+		1612294517796D9100A97278 /* printbuf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = printbuf.c; path = ../contrib/json/printbuf.c; sourceTree = "<group>"; };
+		1612294D17796E1900A97278 /* json_nnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_nnt.c; path = ../contrib/json/json_nnt.c; sourceTree = "<group>"; };
+		161249871778623800731002 /* ccView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ccView+NNT.h"; path = "Contrib/cocos2dx/ccView+NNT.h"; sourceTree = "<group>"; };
+		161249881778623800731002 /* ccView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "ccView+NNT.mm"; path = "Contrib/cocos2dx/ccView+NNT.mm"; sourceTree = "<group>"; };
+		1612498A1778623800731002 /* cocos2dx+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "cocos2dx+NNT.h"; path = "Contrib/cocos2dx/cocos2dx+NNT.h"; sourceTree = "<group>"; };
+		1612498B1778623800731002 /* cocos2dx+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "cocos2dx+NNT.mm"; path = "Contrib/cocos2dx/cocos2dx+NNT.mm"; sourceTree = "<group>"; };
 		1612512715D4A95B002E0CDE /* UIHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHudView.h; sourceTree = "<group>"; };
 		1612512815D4A95B002E0CDE /* UIHudView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIHudView.mm; sourceTree = "<group>"; };
 		161257AC1499F51900AC645A /* UICoverDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoverDrawerController.h; sourceTree = "<group>"; };
@@ -2009,7 +2052,6 @@
 		165E7D871564F08E0094C5D2 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		16618F3915EE1B2900D66883 /* UIFont+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+NNT.h"; sourceTree = "<group>"; };
 		16618F3A15EE1B2900D66883 /* UIFont+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIFont+NNT.mm"; sourceTree = "<group>"; };
-		16624C7B1505B7C200AFED23 /* WSIExecution+Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSIExecution+Chart.h"; sourceTree = "<group>"; };
 		1662FFBA165E11390058876E /* RegexObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexObjParser.h; sourceTree = "<group>"; };
 		1662FFBB165E113A0058876E /* RegexObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RegexObjParser.mm; sourceTree = "<group>"; };
 		16654BB213A5FF11008DF239 /* libnnt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnnt.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2051,8 +2093,6 @@
 		1665535D13A6086E008DF239 /* VHtmlChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHtmlChart.m; sourceTree = "<group>"; };
 		1665535E13A6086E008DF239 /* VHtmlTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHtmlTable.h; sourceTree = "<group>"; };
 		1665535F13A6086E008DF239 /* VHtmlTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHtmlTable.m; sourceTree = "<group>"; };
-		1665536013A6086E008DF239 /* VHtmlTable_bg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = VHtmlTable_bg.gif; sourceTree = "<group>"; };
-		1665536113A6086E008DF239 /* VHtmlTable_CSS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = VHtmlTable_CSS.css; sourceTree = "<group>"; };
 		1665552413A609AE008DF239 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1665552813A609B9008DF239 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1665553313A60B81008DF239 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -2289,8 +2329,6 @@
 		168BE06515F0A13B00029DC1 /* EmojiCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmojiCodec.mm; sourceTree = "<group>"; };
 		168CCECD157A2A9600E83E60 /* HtmlObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlObjParser.h; sourceTree = "<group>"; };
 		168CCECE157A2A9600E83E60 /* HtmlObjParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HtmlObjParser.mm; sourceTree = "<group>"; };
-		168DDADD17782C76004B0D30 /* AppStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStatistics.h; sourceTree = "<group>"; };
-		168DDADE17782C76004B0D30 /* AppStatistics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppStatistics.mm; sourceTree = "<group>"; };
 		168F47B8158C58C300F4D998 /* XmppObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppObject.cpp; sourceTree = "<group>"; };
 		168F47B9158C58C300F4D998 /* XmppObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppObject.h; sourceTree = "<group>"; };
 		168F47C1158C5A4600F4D998 /* XmlParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlParser.cpp; sourceTree = "<group>"; };
@@ -2650,6 +2688,8 @@
 		16BA174313BAF81A00BB6A5F /* CHMObjParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMObjParser.m; sourceTree = "<group>"; };
 		16BA175A13BB24C300BB6A5F /* HTMLNode+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTMLNode+NNT.h"; sourceTree = "<group>"; };
 		16BA175B13BB24C400BB6A5F /* HTMLNode+NNT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTMLNode+NNT.m"; sourceTree = "<group>"; };
+		16BA95211763159700A9D491 /* nnt.core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.core.cpp; sourceTree = "<group>"; };
+		16BA95221763159700A9D491 /* nnt.modules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nnt.modules.cpp; sourceTree = "<group>"; };
 		16BB8E5816DC59C0007DFFE8 /* AdmobService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmobService.h; sourceTree = "<group>"; };
 		16BB8E5916DC59C0007DFFE8 /* AdmobService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdmobService.mm; sourceTree = "<group>"; };
 		16BD80EC157C95B300EE4CC6 /* SmtpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmtpClient.cpp; sourceTree = "<group>"; };
@@ -2905,12 +2945,6 @@
 		16CEB9F514A30DAD002DB496 /* UIScrollHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollHeaderView.m; sourceTree = "<group>"; };
 		16CF543B15E38A9F0021AEBD /* XmppClose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmppClose.cpp; sourceTree = "<group>"; };
 		16CF543C15E38A9F0021AEBD /* XmppClose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppClose.h; sourceTree = "<group>"; };
-		16CFAB7714A2C0B1000C30DB /* nnt.core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.core.h; sourceTree = "<group>"; };
-		16CFAB7814A2C0B1000C30DB /* nnt.core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.core.m; sourceTree = "<group>"; };
-		16CFAB7B14A2C280000C30DB /* nnt.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.modules.h; sourceTree = "<group>"; };
-		16CFAB7C14A2C280000C30DB /* nnt.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.modules.m; sourceTree = "<group>"; };
-		16CFAB8114A2CBFD000C30DB /* pynnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pynnt.h; sourceTree = "<group>"; };
-		16CFAB8214A2CBFD000C30DB /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
 		16CFAB8914A2D445000C30DB /* Script+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Script+NNT.h"; sourceTree = "<group>"; };
 		16CFB6A813AAFA8E00FAFCAC /* FtpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtpServer.h; sourceTree = "<group>"; };
 		16CFB6A913AAFA8E00FAFCAC /* FtpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtpServer.m; sourceTree = "<group>"; };
@@ -2971,6 +3005,10 @@
 		16D8AAF615369EF50007EB8D /* ICRCameraController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ICRCameraController.mm; sourceTree = "<group>"; };
 		16DA257815F0999700110F42 /* EmojiCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiCodec.h; sourceTree = "<group>"; };
 		16DA257915F0999700110F42 /* EmojiCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EmojiCodec.cpp; sourceTree = "<group>"; };
+		16DABF001758968C00B303E9 /* UIProgress+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgress+NNT.h"; sourceTree = "<group>"; };
+		16DABF011758968D00B303E9 /* UIProgress+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIProgress+NNT.mm"; sourceTree = "<group>"; };
+		16DB7D79176456BA00F36A7E /* PythonExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PythonExtension.cpp; sourceTree = "<group>"; };
+		16DB7D7A176456BA00F36A7E /* PythonExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PythonExtension.h; sourceTree = "<group>"; };
 		16DB8C5A1443F52D00E85F90 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		16DB8C5E1443F58F00E85F90 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		16DB8C801444136B00E85F90 /* AlphabetFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabetFlow.h; sourceTree = "<group>"; };
@@ -3014,6 +3052,8 @@
 		16E434D715F5A23F0026BFFF /* Mime+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Mime+NNT.mm"; sourceTree = "<group>"; };
 		16E434DA15F5D5870026BFFF /* OAOpenQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAOpenQQ.h; sourceTree = "<group>"; };
 		16E434DB15F5D5880026BFFF /* OAOpenQQ.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OAOpenQQ.mm; sourceTree = "<group>"; };
+		16E51B69176B3A7C0097BA46 /* AppStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStatistics.h; sourceTree = "<group>"; };
+		16E51B6A176B3A7C0097BA46 /* AppStatistics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppStatistics.mm; sourceTree = "<group>"; };
 		16E5A8F11634D9B7004EF242 /* UIActivityIndicatorBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityIndicatorBar.h; sourceTree = "<group>"; };
 		16E5A8F21634D9B7004EF242 /* UIActivityIndicatorBar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIActivityIndicatorBar.mm; sourceTree = "<group>"; };
 		16E5AD2E1635278B004EF242 /* UIActivityIndicatorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityIndicatorWave.h; sourceTree = "<group>"; };
@@ -3073,6 +3113,24 @@
 		16F0E61516BA4D090068A20A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		16F0E62016BA52AA0068A20A /* iOSPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSPrinter.h; sourceTree = "<group>"; };
 		16F0E62116BA52AA0068A20A /* iOSPrinter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSPrinter.mm; sourceTree = "<group>"; };
+		16F18F021761723A00F76029 /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mongoose.h; path = ../contrib/mongoose/mongoose.h; sourceTree = "<group>"; };
+		16F18F0817617AA800F76029 /* Class+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Class+NNT.cpp"; path = "TL/Class+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0917617AA800F76029 /* Class+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Class+NNT.h"; path = "TL/Class+NNT.h"; sourceTree = "<group>"; };
+		16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Unicode+NNT.cpp"; path = "TL/Unicode+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0B17617AA800F76029 /* Unicode+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Unicode+NNT.h"; path = "TL/Unicode+NNT.h"; sourceTree = "<group>"; };
+		16F18F0C17617AA800F76029 /* URI+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "URI+NNT.cpp"; path = "TL/URI+NNT.cpp"; sourceTree = "<group>"; };
+		16F18F0D17617AA800F76029 /* URI+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "URI+NNT.h"; path = "TL/URI+NNT.h"; sourceTree = "<group>"; };
+		16F192D71761AAA600F76029 /* nnt.core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.core.h; sourceTree = "<group>"; };
+		16F192D81761AAA600F76029 /* nnt.core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.core.m; sourceTree = "<group>"; };
+		16F192D91761AAA600F76029 /* nnt.modules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt.modules.h; sourceTree = "<group>"; };
+		16F192DA1761AAA600F76029 /* nnt.modules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nnt.modules.m; sourceTree = "<group>"; };
+		16F192DB1761AAA600F76029 /* pynnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pynnt.h; sourceTree = "<group>"; };
+		16F192DC1761AAA600F76029 /* pynnt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pynnt.cpp; sourceTree = "<group>"; };
+		16F192E31761ACDA00F76029 /* PythonWebServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PythonWebServer.cpp; sourceTree = "<group>"; };
+		16F192E41761ACDA00F76029 /* PythonWebServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PythonWebServer.h; sourceTree = "<group>"; };
+		16F192E71761ADA400F76029 /* PythonWebServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PythonWebServer.mm; sourceTree = "<group>"; };
+		16F192E91761AF2200F76029 /* pynnt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pynnt.mm; sourceTree = "<group>"; };
+		16F192EB1761B29F00F76029 /* Python+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Python+NNT.cpp"; sourceTree = "<group>"; };
 		16F23848149843F700E7F082 /* Contact+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contact+NNT.h"; path = "Trail/Contact+NNT.h"; sourceTree = "<group>"; };
 		16F23849149843F700E7F082 /* Contact+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "Contact+NNT.mm"; path = "Trail/Contact+NNT.mm"; sourceTree = "<group>"; };
 		16F32C1713A60C52003B9987 /* nnt_prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nnt_prefix.pch; sourceTree = "<group>"; };
@@ -3276,6 +3334,40 @@
 				162BE41115DBA89E00CD666F /* XimXPhoto.h */,
 			);
 			path = im;
+			sourceTree = "<group>";
+		};
+		1612293E17796D7B00A97278 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				1612294D17796E1900A97278 /* json_nnt.c */,
+				1612293F17796D9100A97278 /* arraylist.c */,
+				1612294017796D9100A97278 /* debug.c */,
+				1612294117796D9100A97278 /* json_object.c */,
+				1612294217796D9100A97278 /* json_tokener.c */,
+				1612294317796D9100A97278 /* json_util.c */,
+				1612294417796D9100A97278 /* linkhash.c */,
+				1612294517796D9100A97278 /* printbuf.c */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
+		16124967177834F600731002 /* Contrib */ = {
+			isa = PBXGroup;
+			children = (
+				1612497B177860EC00731002 /* cocos2dx */,
+			);
+			name = Contrib;
+			sourceTree = "<group>";
+		};
+		1612497B177860EC00731002 /* cocos2dx */ = {
+			isa = PBXGroup;
+			children = (
+				161249871778623800731002 /* ccView+NNT.h */,
+				161249881778623800731002 /* ccView+NNT.mm */,
+				1612498A1778623800731002 /* cocos2dx+NNT.h */,
+				1612498B1778623800731002 /* cocos2dx+NNT.mm */,
+			);
+			name = cocos2dx;
 			sourceTree = "<group>";
 		};
 		16141C4613AA00D500896301 /* Context */ = {
@@ -3491,6 +3583,7 @@
 		16358B3114A07BF1005F06B5 /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				1612293E17796D7B00A97278 /* json */,
 				16AC1CEE16F2D07F00316206 /* mongoose */,
 				1693685E16F192860021909E /* ossp-uuid */,
 				162C725E15BFA1240013084C /* lua */,
@@ -3528,13 +3621,19 @@
 		1646C23C140BA407009B3E79 /* Script */ = {
 			isa = PBXGroup;
 			children = (
-				16CFAB7614A2C0B1000C30DB /* _python.site */,
+				16F192D61761AAA600F76029 /* python.site.prv */,
 				16CFAB8914A2D445000C30DB /* Script+NNT.h */,
 				1646C23D140BA407009B3E79 /* Lua+NNT.h */,
 				1646C23E140BA407009B3E79 /* Lua+NNT.mm */,
 				16ADF2AD1602CE1C008B242B /* Lua+NNT.cpp */,
 				16D0DAC11490BC56002F309D /* Python+NNT.h */,
 				16D0DAC21490BC56002F309D /* Python+NNT.mm */,
+				16F192EB1761B29F00F76029 /* Python+NNT.cpp */,
+				16DB7D79176456BA00F36A7E /* PythonExtension.cpp */,
+				16DB7D7A176456BA00F36A7E /* PythonExtension.h */,
+				16F192E71761ADA400F76029 /* PythonWebServer.mm */,
+				16F192E31761ACDA00F76029 /* PythonWebServer.cpp */,
+				16F192E41761ACDA00F76029 /* PythonWebServer.h */,
 				16A5F13414A1D77100503290 /* TinyScheme+NNT.h */,
 				16A5F13514A1D77100503290 /* TinyScheme+NNT.m */,
 				16A5F2E014A1DC6300503290 /* tinyscheme.prv.h */,
@@ -3742,6 +3841,7 @@
 				169D4818141F43AE00FBF0C8 /* BSE */,
 				1603A91915DCDE320029A54C /* Codec */,
 				16141C4613AA00D500896301 /* Context */,
+				16124967177834F600731002 /* Contrib */,
 				1699DCC514466F0D00E9CAE2 /* Core */,
 				1665528E13A6086E008DF239 /* Cross */,
 				16F0E61716BA527B0068A20A /* Drivers */,
@@ -3916,6 +4016,7 @@
 				16BA173C13B9E12E00BB6A5F /* CHMParser.c */,
 				166552B513A6086E008DF239 /* JsonObjParser.h */,
 				166552B613A6086E008DF239 /* JsonObjParser.mm */,
+				1612293C17796D3A00A97278 /* JsonObjParser.cpp */,
 				166552B713A6086E008DF239 /* NullObjParser.h */,
 				166552B813A6086E008DF239 /* NullObjParser.mm */,
 				166552B913A6086E008DF239 /* XmlObjParser.h */,
@@ -3971,8 +4072,6 @@
 				1665535D13A6086E008DF239 /* VHtmlChart.m */,
 				1665535E13A6086E008DF239 /* VHtmlTable.h */,
 				1665535F13A6086E008DF239 /* VHtmlTable.m */,
-				1665536013A6086E008DF239 /* VHtmlTable_bg.gif */,
-				1665536113A6086E008DF239 /* VHtmlTable_CSS.css */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4564,8 +4663,8 @@
 				161A2AF41688341400B53AD1 /* AEMInformation.mm */,
 				167E54E315BE4ADA0075DD01 /* BehaviourSys.cpp */,
 				167E54E415BE4ADA0075DD01 /* BehaviourSys.h */,
-				168DDADD17782C76004B0D30 /* AppStatistics.h */,
-				168DDADE17782C76004B0D30 /* AppStatistics.mm */,
+				16E51B69176B3A7C0097BA46 /* AppStatistics.h */,
+				16E51B6A176B3A7C0097BA46 /* AppStatistics.mm */,
 			);
 			path = BSE;
 			sourceTree = "<group>";
@@ -4624,6 +4723,12 @@
 				169F83DD16F8478E0008AAC9 /* Vector+NNT.cpp */,
 				169F83DE16F8478E0008AAC9 /* Vector+NNT.h */,
 				169F83DF16F8478E0008AAC9 /* Vector+NNT.mm */,
+				16F18F0817617AA800F76029 /* Class+NNT.cpp */,
+				16F18F0917617AA800F76029 /* Class+NNT.h */,
+				16F18F0A17617AA800F76029 /* Unicode+NNT.cpp */,
+				16F18F0B17617AA800F76029 /* Unicode+NNT.h */,
+				16F18F0C17617AA800F76029 /* URI+NNT.cpp */,
+				16F18F0D17617AA800F76029 /* URI+NNT.h */,
 			);
 			name = TL;
 			sourceTree = "<group>";
@@ -4745,6 +4850,7 @@
 		16AC1CEE16F2D07F00316206 /* mongoose */ = {
 			isa = PBXGroup;
 			children = (
+				16F18F021761723A00F76029 /* mongoose.h */,
 				16AC1CEF16F2D08E00316206 /* mongoose.c */,
 			);
 			name = mongoose;
@@ -4821,7 +4927,6 @@
 		16C2D8F314457F5D00CA6EDF /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				16624C7B1505B7C200AFED23 /* WSIExecution+Chart.h */,
 				1686D70B167EBAFA006B4FE9 /* QzEffect.mm */,
 				1686D70C167EBAFA006B4FE9 /* QzEffect.h */,
 				16444EA01561EFD4006BB97C /* QzAnimation.h */,
@@ -4991,6 +5096,8 @@
 				16C2D99614457F5D00CA6EDF /* UIPickerView+NNT.mm */,
 				16D01878147B9BB400B0A489 /* UIPickerControl.h */,
 				16D01879147B9BB500B0A489 /* UIPickerControl.mm */,
+				16DABF001758968C00B303E9 /* UIProgress+NNT.h */,
+				16DABF011758968D00B303E9 /* UIProgress+NNT.mm */,
 				166C17AA146A23E800914C1E /* UIRatingControl.h */,
 				166C17AB146A23E800914C1E /* UIRatingControl.m */,
 				16C2D99714457F5D00CA6EDF /* UIScreen+NNT.h */,
@@ -5167,19 +5274,6 @@
 			name = Theme;
 			path = ../Classes/Theme;
 			sourceTree = SOURCE_ROOT;
-		};
-		16CFAB7614A2C0B1000C30DB /* _python.site */ = {
-			isa = PBXGroup;
-			children = (
-				16CFAB8114A2CBFD000C30DB /* pynnt.h */,
-				16CFAB8214A2CBFD000C30DB /* pynnt.mm */,
-				16CFAB7B14A2C280000C30DB /* nnt.modules.h */,
-				16CFAB7C14A2C280000C30DB /* nnt.modules.m */,
-				16CFAB7714A2C0B1000C30DB /* nnt.core.h */,
-				16CFAB7814A2C0B1000C30DB /* nnt.core.m */,
-			);
-			path = _python.site;
-			sourceTree = "<group>";
 		};
 		16D7994514413E58007E014D /* Trail */ = {
 			isa = PBXGroup;
@@ -5366,6 +5460,22 @@
 				16707C9716D360A500C8C9A4 /* IFlytekVoice.mm */,
 			);
 			path = Drivers;
+			sourceTree = "<group>";
+		};
+		16F192D61761AAA600F76029 /* python.site.prv */ = {
+			isa = PBXGroup;
+			children = (
+				16F192D71761AAA600F76029 /* nnt.core.h */,
+				16F192D81761AAA600F76029 /* nnt.core.m */,
+				16BA95211763159700A9D491 /* nnt.core.cpp */,
+				16F192D91761AAA600F76029 /* nnt.modules.h */,
+				16F192DA1761AAA600F76029 /* nnt.modules.m */,
+				16BA95221763159700A9D491 /* nnt.modules.cpp */,
+				16F192DB1761AAA600F76029 /* pynnt.h */,
+				16F192DC1761AAA600F76029 /* pynnt.cpp */,
+				16F192E91761AF2200F76029 /* pynnt.mm */,
+			);
+			path = python.site.prv;
 			sourceTree = "<group>";
 		};
 		16F98C87149EDDC100240965 /* Graphic */ = {
@@ -5783,9 +5893,6 @@
 				16A5F13214A1D5BD00503290 /* scheme.h in Headers */,
 				16A5F13614A1D77100503290 /* TinyScheme+NNT.h in Headers */,
 				16A5F2E114A1DC6300503290 /* tinyscheme.prv.h in Headers */,
-				16CFAB7914A2C0B1000C30DB /* nnt.core.h in Headers */,
-				16CFAB7D14A2C280000C30DB /* nnt.modules.h in Headers */,
-				16CFAB8314A2CBFD000C30DB /* pynnt.h in Headers */,
 				16CFAB8A14A2D445000C30DB /* Script+NNT.h in Headers */,
 				16CEB9F614A30DAD002DB496 /* UIScrollHeaderView.h in Headers */,
 				165D4A2A14A9BA3000FEF20D /* PreciseNumber.h in Headers */,
@@ -5936,7 +6043,6 @@
 				16DD1BEE15048A9D0053958F /* SBJsonWriter.h in Headers */,
 				16DD1BF615048B5D0053958F /* HTMLNode.h in Headers */,
 				16DD1BF815048B5D0053958F /* HTMLParser.h in Headers */,
-				16624C7C1505B7C300AFED23 /* WSIExecution+Chart.h in Headers */,
 				1675AF941515FFE90046A630 /* Filesystem.h in Headers */,
 				1675AF9D1516002E0046A630 /* FsSamba.h in Headers */,
 				1675AFA01516002E0046A630 /* ObjectDL.h in Headers */,
@@ -6224,7 +6330,19 @@
 				16FBADCC172631D70041C5C4 /* Memory+NNT.h in Headers */,
 				16FBADD2172631E80041C5C4 /* Stdtype+NNT.h in Headers */,
 				16FBADD4172631E80041C5C4 /* URL+NNT.h in Headers */,
-				168DDADF17782C76004B0D30 /* AppStatistics.h in Headers */,
+				16DABF021758968D00B303E9 /* UIProgress+NNT.h in Headers */,
+				16F18F051761723A00F76029 /* mongoose.h in Headers */,
+				16F18F0F17617AA800F76029 /* Class+NNT.h in Headers */,
+				16F18F1117617AA800F76029 /* Unicode+NNT.h in Headers */,
+				16F18F1317617AA800F76029 /* URI+NNT.h in Headers */,
+				16F192DD1761AAA600F76029 /* nnt.core.h in Headers */,
+				16F192DF1761AAA600F76029 /* nnt.modules.h in Headers */,
+				16F192E11761AAA600F76029 /* pynnt.h in Headers */,
+				16F192E61761ACDA00F76029 /* PythonWebServer.h in Headers */,
+				16DB7D7C176456BA00F36A7E /* PythonExtension.h in Headers */,
+				16E51B6B176B3A7C0097BA46 /* AppStatistics.h in Headers */,
+				1612498C1778623800731002 /* ccView+NNT.h in Headers */,
+				1612498F1778623800731002 /* cocos2dx+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6256,7 +6374,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */;
+			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -6515,9 +6633,6 @@
 				16CCBCC514A176A800FDEB99 /* NSStyleString.mm in Sources */,
 				16A5F13114A1D5BD00503290 /* scheme.c in Sources */,
 				16A5F13714A1D77100503290 /* TinyScheme+NNT.m in Sources */,
-				16CFAB7A14A2C0B1000C30DB /* nnt.core.m in Sources */,
-				16CFAB7E14A2C280000C30DB /* nnt.modules.m in Sources */,
-				16CFAB8414A2CBFD000C30DB /* pynnt.mm in Sources */,
 				16CEB9F714A30DAD002DB496 /* UIScrollHeaderView.m in Sources */,
 				165D4A2B14A9BA3000FEF20D /* PreciseNumber.mm in Sources */,
 				16A1C57B14BC3C6200B30F19 /* png.c in Sources */,
@@ -7115,7 +7230,32 @@
 				16FBADCB172631D70041C5C4 /* Memory+NNT.cpp in Sources */,
 				16FBADD1172631E80041C5C4 /* Stdtype+NNT.cpp in Sources */,
 				16FBADD3172631E80041C5C4 /* URL+NNT.cpp in Sources */,
-				168DDAE017782C76004B0D30 /* AppStatistics.mm in Sources */,
+				16DABF031758968D00B303E9 /* UIProgress+NNT.mm in Sources */,
+				16F18F0E17617AA800F76029 /* Class+NNT.cpp in Sources */,
+				16F18F1017617AA800F76029 /* Unicode+NNT.cpp in Sources */,
+				16F18F1217617AA800F76029 /* URI+NNT.cpp in Sources */,
+				16F192DE1761AAA600F76029 /* nnt.core.m in Sources */,
+				16F192E01761AAA600F76029 /* nnt.modules.m in Sources */,
+				16F192E21761AAA600F76029 /* pynnt.cpp in Sources */,
+				16F192E51761ACDA00F76029 /* PythonWebServer.cpp in Sources */,
+				16F192E81761ADA400F76029 /* PythonWebServer.mm in Sources */,
+				16F192EA1761AF2200F76029 /* pynnt.mm in Sources */,
+				16F192EC1761B29F00F76029 /* Python+NNT.cpp in Sources */,
+				16BA95231763159700A9D491 /* nnt.core.cpp in Sources */,
+				16BA95241763159700A9D491 /* nnt.modules.cpp in Sources */,
+				16DB7D7B176456BA00F36A7E /* PythonExtension.cpp in Sources */,
+				16E51B6C176B3A7C0097BA46 /* AppStatistics.mm in Sources */,
+				1612498D1778623800731002 /* ccView+NNT.mm in Sources */,
+				161249901778623800731002 /* cocos2dx+NNT.mm in Sources */,
+				1612293D17796D3A00A97278 /* JsonObjParser.cpp in Sources */,
+				1612294617796D9100A97278 /* arraylist.c in Sources */,
+				1612294717796D9100A97278 /* debug.c in Sources */,
+				1612294817796D9100A97278 /* json_object.c in Sources */,
+				1612294917796D9100A97278 /* json_tokener.c in Sources */,
+				1612294A17796D9100A97278 /* json_util.c in Sources */,
+				1612294B17796D9100A97278 /* linkhash.c in Sources */,
+				1612294C17796D9100A97278 /* printbuf.c in Sources */,
+				1612294E17796E1900A97278 /* json_nnt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7183,7 +7323,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../lib/iOS,
 					"\"$(SRCROOT)/../lib/iOS\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -7221,7 +7360,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../lib/iOS,
 					"\"$(SRCROOT)/../lib/iOS\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -7237,7 +7375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */ = {
+		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBA13A5FF11008DF239 /* Debug */,
