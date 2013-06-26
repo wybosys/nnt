@@ -146,6 +146,7 @@ public:
         {
             DELEGATE_CALL(onFailResponsed(m));
             DELEGATE_CALL(onFailed(m));
+            m->release();
             return;
         }
         
@@ -158,6 +159,7 @@ public:
         {
             DELEGATE_CALL(onFailParsed(m));
             DELEGATE_CALL(onFailed(m));
+            m->release();
             return;
         }
         
