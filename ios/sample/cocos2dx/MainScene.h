@@ -3,11 +3,13 @@
 # define MAINSCENE
 
 # include <Contrib/cocos2dx/cocos2dx+NNT.h>
+# include "NetObject.h"
 
 NNTAPP_BEGIN
 
 class MainScene
-: public cocos2d::CCLayer
+: public cocos2d::CCLayer,
+public netobj::NetObj::IDelegate
 {
 public:
 
@@ -22,6 +24,7 @@ public:
 protected:
     
     void act_button_clicked(CCObject*);
+    virtual void success(netobj::NetObj*);
     
 };
 

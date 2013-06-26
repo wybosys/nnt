@@ -126,17 +126,16 @@ void UsersLogin::setIn_rndcheck(string _rndcheck) {
 }
 
 
-void UsersLogin::parse(json_object* obj) {    
-    if (obj == NULL)
-        return;
-    /*
-    json_object *node = json_object_object_get(obj, "code");
-    this.code = json_object_get_int(node);
-    json_object *node = json_object_object_get(obj, "message");
-    this.message.assign(json_object_get_string(node), json_object_get_string_len(node));
-    json_object *node = json_object_object_get(obj, "data");
-    data.parse(node);
-     */
+void UsersLogin::parse(json_object* obj)
+{
+    json_object* node;
+    
+    node = json_object_object_get(obj, "accountid");
+    if (node)
+        data->setAccountid(json_object_get_int(node));
+    node = json_object_object_get(obj, "nickname");
+    if (node)
+        data->setNickname(json_object_get_string(node));
 }
 
 NETOBJ_END

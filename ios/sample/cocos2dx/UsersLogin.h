@@ -49,10 +49,6 @@ private:
 private:
     
     // 
-    int code;
-    // 
-    string message;
-    // 
     LoginOutputData* data;
 
 public:

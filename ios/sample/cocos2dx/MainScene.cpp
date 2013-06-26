@@ -1,8 +1,8 @@
 
 # include <Foundation+NNT.h>
 # include "MainScene.h"
-# include "TestNetObject.h"
 # include <cocos2dx/extension/GUI/CCControlExtension/CCControlButton.h>
+# include "UsersLogin.h"
 
 NNTAPP_BEGIN
 
@@ -77,7 +77,33 @@ void MainScene::menuCloseCallback(CCObject* pSender)
 
 void MainScene::act_button_clicked(CCObject* pSender)
 {
-    test_netobj();
+    netobj::UsersLogin* ul = new netobj::UsersLogin;
+    ul->setIn_appid(1);
+    ul->setIn_channelid(1);
+    ul->setIn_equipmentid("iphone");
+    ul->setIn_applicationversion("2.0.0");
+    ul->setIn_systemversion("ios 5.1");
+    ul->setIn_cellbrand("iphone4");
+    ul->setIn_cellmodel("5");
+    ul->setIn_device_token("fdssdeew123");
+    ul->setIn_mac("31232103213213213");
+    ul->setIn_name("zzw2@hoodinn.com");
+    ul->setIn_password("123456");
+    ul->setIn_rndcheck("test");
+    ul->delegate = this;
+    
+    netobj::Model::getInstance().callApi(ul);
+    
+    ul->release();
+}
+
+void MainScene::success(netobj::NetObj *m)
+{
+    netobj::UsersLogin* ul = dynamic_cast<netobj::UsersLogin*>(m);
+    if (ul)
+    {
+        trace_msg(ul->getData()->getNickname());
+    }
 }
 
 NNTAPP_END

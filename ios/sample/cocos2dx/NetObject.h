@@ -33,29 +33,21 @@ class NetObj
 {
 public:
     
-    class Request
-    : public cocos2d::extension::CCHttpRequest
+    class IDelegate
     {
     public:
         
-        Request(cocos2d::CCObject* o)
-        : model(o)
-        {
-            model->retain();
-        }
+        virtual ~IDelegate() {}
         
-        ~Request()
-        {
-            model->release();
-        }
-        
-        void add(string const& key, string const& val);
-        
-        cocos2d::CCObject* model;
+        virtual void success(NetObj*) {}
+        virtual void failed(NetObj*) {}
+        virtual void failCalled(NetObj*, char const*) {}
+        virtual void failResponsed(NetObj*) const {}
+        virtual void failParsed(NetObj*) const {}
         
     };
     
-    typedef Request req_type;
+    typedef cocos2d::extension::CCHttpRequest req_type;
     typedef cocos2d::extension::CCHttpResponse respn_type;
     typedef cocos2d::extension::CCHttpClient cli_type;
     typedef json_object* result_obj;
@@ -63,17 +55,26 @@ public:
     NetObj();
     virtual ~NetObj();
     
+    virtual string getFullUrl() const;
     virtual string getUrl() const { return ""; }
     virtual void initRequest(req_type&) const {}
     virtual void parse(json_object* obj) {}
     
-    void* delegate;
+    IDelegate* delegate;
     
 protected:
     
+    void cbHttpResponse(cli_type*, respn_type*);
+    
+    int code;
+    string message;
+    
     typedef set<string> set_type;
     set_type __inputSet__;
+    
+private:
 
+    friend class Model;
 };
 
 class Model
