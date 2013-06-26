@@ -24,7 +24,7 @@ public:
 protected:
     
     void act_button_clicked(CCObject*);
-    virtual void success(netobj::NetObj*);
+    virtual void onSuccess(netobj::NetObj*);
     
 };
 

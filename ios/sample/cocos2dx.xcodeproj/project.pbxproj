@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1612292317794B0600A97278 /* UsersLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292117794B0600A97278 /* UsersLogin.cpp */; };
-		1612292C177966AC00A97278 /* NetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612292A1779614A00A97278 /* NetObject.cpp */; };
 		1612292D177966B000A97278 /* CommonObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161229271779607B00A97278 /* CommonObj.cpp */; };
 		161229FC1779791700A97278 /* libcocos2dx-extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161229FB1779791700A97278 /* libcocos2dx-extension.a */; };
 		161229FE177991CB00A97278 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161229FD177991CA00A97278 /* libcurl.a */; };
@@ -19,6 +18,7 @@
 		1612499817786BE900731002 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499517786BE900731002 /* CloseNormal.png */; };
 		1612499917786BE900731002 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499617786BE900731002 /* CloseSelected.png */; };
 		1612499A17786BE900731002 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1612499717786BE900731002 /* HelloWorld.png */; };
+		16615C4E177A7FCE0042DBD8 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16615C4C177A7E470042DBD8 /* Model.cpp */; };
 		168DDAEE17782D45004B0D30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAED17782D45004B0D30 /* UIKit.framework */; };
 		168DDAF017782D45004B0D30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAEF17782D45004B0D30 /* Foundation.framework */; };
 		168DDAF217782D45004B0D30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168DDAF117782D45004B0D30 /* CoreGraphics.framework */; };
@@ -50,7 +50,6 @@
 		161229271779607B00A97278 /* CommonObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommonObj.cpp; sourceTree = "<group>"; };
 		161229281779607B00A97278 /* CommonObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonObj.h; sourceTree = "<group>"; };
 		161229291779607B00A97278 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
-		1612292A1779614A00A97278 /* NetObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NetObject.cpp; sourceTree = "<group>"; };
 		1612292B1779614A00A97278 /* NetObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetObject.h; sourceTree = "<group>"; };
 		1612292F1779675600A97278 /* arraylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arraylist.h; sourceTree = "<group>"; };
 		161229301779675600A97278 /* bits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bits.h; sourceTree = "<group>"; };
@@ -73,6 +72,8 @@
 		1612499517786BE900731002 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		1612499617786BE900731002 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		1612499717786BE900731002 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		16615C4C177A7E470042DBD8 /* Model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
+		16615C4D177A7E470042DBD8 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		168DDAEA17782D45004B0D30 /* cocos2dx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168DDAED17782D45004B0D30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		168DDAEF17782D45004B0D30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -216,8 +217,9 @@
 				168DDAFD17782D45004B0D30 /* AppDelegate.mm */,
 				168DDEBC17782EDF004B0D30 /* MainController.h */,
 				168DDEBD17782EDF004B0D30 /* MainController.mm */,
-				1612292A1779614A00A97278 /* NetObject.cpp */,
 				1612292B1779614A00A97278 /* NetObject.h */,
+				16615C4C177A7E470042DBD8 /* Model.cpp */,
+				16615C4D177A7E470042DBD8 /* Model.h */,
 				161229271779607B00A97278 /* CommonObj.cpp */,
 				161229281779607B00A97278 /* CommonObj.h */,
 				161229291779607B00A97278 /* Const.h */,
@@ -319,8 +321,8 @@
 				168DDAFE17782D45004B0D30 /* AppDelegate.mm in Sources */,
 				168DDEBE17782EDF004B0D30 /* MainController.mm in Sources */,
 				161249931778696800731002 /* MainScene.cpp in Sources */,
-				1612292C177966AC00A97278 /* NetObject.cpp in Sources */,
 				1612292D177966B000A97278 /* CommonObj.cpp in Sources */,
+				16615C4E177A7FCE0042DBD8 /* Model.cpp in Sources */,
 				1612292317794B0600A97278 /* UsersLogin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,6 +3,7 @@
 # include "MainScene.h"
 # include <cocos2dx/extension/GUI/CCControlExtension/CCControlButton.h>
 # include "UsersLogin.h"
+# include "Model.h"
 
 NNTAPP_BEGIN
 
@@ -97,7 +98,7 @@ void MainScene::act_button_clicked(CCObject* pSender)
     ul->release();
 }
 
-void MainScene::success(netobj::NetObj *m)
+void MainScene::onSuccess(netobj::NetObj *m)
 {
     netobj::UsersLogin* ul = dynamic_cast<netobj::UsersLogin*>(m);
     if (ul)

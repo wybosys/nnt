@@ -1,35 +1,20 @@
 
 # include <Foundation+NNT.h>
-# include "NetObject.h"
-# include "json.h"
+# include "Model.h"
 
 NETOBJ_BEGIN
 
-NetObj::NetObj()
-: delegate(NULL)
+# define DELEGATE_CALL(func) if (m->delegate) m->delegate->func;
+
+void Model::cbHttpResponse(NetObj::cli_type* cli, NetObj::respn_type* respn)
 {
+    NetObj* m = (NetObj*)respn->getHttpRequest()->getUserData();
     
-}
-
-NetObj::~NetObj()
-{
-    delegate = NULL;
-}
-
-string NetObj::getFullUrl() const
-{
-    return "http://dev.hoodinn.com/venus09/api/" + getUrl();
-}
-
-# define DELEGATE_CALL(func) if (delegate) delegate->func;
-
-void NetObj::cbHttpResponse(cli_type* client, respn_type* respn)
-{
     int code = respn->getResponseCode();
     if (code != 200)
     {
-        DELEGATE_CALL(failResponsed(this));
-        DELEGATE_CALL(failed(this));
+        DELEGATE_CALL(onFailResponsed(m));
+        DELEGATE_CALL(onFailed(m));
         return;
     }
     
@@ -40,8 +25,8 @@ void NetObj::cbHttpResponse(cli_type* client, respn_type* respn)
     json_tokener_free(tok);
     if (!ret)
     {
-        DELEGATE_CALL(failParsed(this));
-        DELEGATE_CALL(failed(this));
+        DELEGATE_CALL(onFailParsed(m));
+        DELEGATE_CALL(onFailed(m));
         return;
     }
     
@@ -51,30 +36,35 @@ void NetObj::cbHttpResponse(cli_type* client, respn_type* respn)
     json_object* ndata = json_object_object_get(jobj, "data");
     if (!ncode || !nmsg || !ndata)
     {
-        DELEGATE_CALL(failParsed(this));
-        DELEGATE_CALL(failed(this));
+        DELEGATE_CALL(onFailParsed(m));
+        DELEGATE_CALL(onFailed(m));
         json_object_put(jobj);
+        m->release();
         return;
     }
     
-    this->code = json_object_get_int(ncode);
-    message = json_object_get_string(nmsg);
+    m->code = json_object_get_int(ncode);
+    m->message = json_object_get_string(nmsg);
     
-    if (this->code != 0)
+    if (m->code != 0)
     {
-        DELEGATE_CALL(failCalled(this, message.c_str()));
-        DELEGATE_CALL(failed(this));
+        DELEGATE_CALL(onFailCalled(m, m->message.c_str()));
+        DELEGATE_CALL(onFailed(m));
         json_object_put(jobj);
+        m->release();
         return;
     }
     
     // from json to api.
-    parse(ndata);
+    m->parse(ndata);
     
     // suc.
-    DELEGATE_CALL(success(this));
+    DELEGATE_CALL(onSuccess(m));
     
     json_object_put(jobj);
+    
+    // retain in callApi.
+    m->release();
 }
 
 void Model::callApi(NetObj* obj)
@@ -82,7 +72,9 @@ void Model::callApi(NetObj* obj)
     NetObj::req_type* req = new NetObj::req_type;
     req->setRequestType(NetObj::req_type::kHttpPost);
     req->setUrl(obj->getFullUrl().c_str());
-    req->setResponseCallback(obj, httpresponse_selector(NetObj::cbHttpResponse));
+    req->setResponseCallback(this, httpresponse_selector(Model::cbHttpResponse));
+    obj->retain();
+    req->setUserData(obj);
     obj->initRequest(*req);
     NetObj::cli_type::getInstance()->send(req);
     req->release();

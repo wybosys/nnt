@@ -39,11 +39,11 @@ public:
         
         virtual ~IDelegate() {}
         
-        virtual void success(NetObj*) {}
-        virtual void failed(NetObj*) {}
-        virtual void failCalled(NetObj*, char const*) {}
-        virtual void failResponsed(NetObj*) const {}
-        virtual void failParsed(NetObj*) const {}
+        virtual void onSuccess(NetObj*) {}
+        virtual void onFailed(NetObj*) {}
+        virtual void onFailCalled(NetObj*, char const*) {}
+        virtual void onFailResponsed(NetObj*) const {}
+        virtual void onFailParsed(NetObj*) const {}
         
     };
     
@@ -52,19 +52,29 @@ public:
     typedef cocos2d::extension::CCHttpClient cli_type;
     typedef json_object* result_obj;
     
-    NetObj();
-    virtual ~NetObj();
+    NetObj()
+    : delegate(NULL)
+    {
+        
+    }
     
-    virtual string getFullUrl() const;
+    virtual ~NetObj()
+    {
+        delegate = NULL;
+    }
+    
+    virtual string getFullUrl() const
+    {
+        return "http://dev.hoodinn.com/venus09/api/" + getUrl();
+    }
+    
     virtual string getUrl() const { return ""; }
     virtual void initRequest(req_type&) const {}
     virtual void parse(json_object* obj) {}
     
     IDelegate* delegate;
     
-protected:
-    
-    void cbHttpResponse(cli_type*, respn_type*);
+protected:        
     
     int code;
     string message;
@@ -75,20 +85,6 @@ protected:
 private:
 
     friend class Model;
-};
-
-class Model
-{
-public:
-    
-    void callApi(NetObj*);
-    
-    static Model& getInstance()
-    {
-        static Model __m;
-        return __m;
-    }
-    
 };
 
 NETOBJ_END
