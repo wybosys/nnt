@@ -48,8 +48,6 @@ public:
     };
     
     typedef cocos2d::extension::CCHttpRequest req_type;
-    typedef cocos2d::extension::CCHttpResponse respn_type;
-    typedef cocos2d::extension::CCHttpClient cli_type;
     typedef json_object* result_obj;
     
     NetObj()
@@ -74,10 +72,10 @@ public:
     
     IDelegate* delegate;
     
-protected:        
-    
     int code;
     string message;
+    
+protected:
     
     typedef set<string> set_type;
     set_type __inputSet__;
@@ -85,6 +83,7 @@ protected:
 private:
 
     friend class Model;
+    
 };
 
 NETOBJ_END

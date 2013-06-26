@@ -307,6 +307,14 @@ static void* wrapper_thd(void* data)
     
     trace_msg("task's thread is exited.");
     
+# ifdef NNT_MSVC
+    
+# else
+    
+    pthread_exit(0);
+    
+# endif
+    
     return NULL;
 }
 

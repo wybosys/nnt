@@ -11,6 +11,9 @@ class Model
 {
 public:
     
+    Model();
+    ~Model();
+    
     void callApi(NetObj*);
     
     static Model& getInstance()
@@ -19,9 +22,16 @@ public:
         return __m;
     }
     
+    typedef cocos2d::extension::CCHttpResponse respn_type;
+    typedef cocos2d::extension::CCHttpClient cli_type;
+    
 protected:
     
-    void cbHttpResponse(NetObj::cli_type*, NetObj::respn_type*);
+    void cbHttpResponse(cli_type*, respn_type*);
+    
+private:
+    
+    class ModelTask* task;
     
 };
 
