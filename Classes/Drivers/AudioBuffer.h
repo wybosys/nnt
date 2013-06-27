@@ -92,6 +92,7 @@ public:
     ~PlayBuffer();
     
     virtual bool open();
+    virtual bool read(core::data&, uint offset);
     
     core::IoStream* stream;
 

@@ -429,14 +429,22 @@ static void HandlerPackets(
     trace_msg("audio buffer packets callback");
 }
 
-void update_info()
+bool update_info()
 {
     AudioStreamBasicDescription& fmt = d_owner->format;
+    
     UInt32 size = sizeof(fmt);
-    AudioFileGetProperty(d_owner->stm,
-                         kAudioFilePropertyDataFormat,
-                         &size,
-                         &fmt);
+    
+    OSStatus sta;
+    sta = AudioFileGetProperty(d_owner->stm,
+                               kAudioFilePropertyDataFormat,
+                               &size,
+                               &fmt);
+    
+    if (sta != 0)
+        return false;
+    
+    return true;
 }
 
 # endif
@@ -474,11 +482,33 @@ bool PlayBuffer::open()
         return false;
     }
     
-    d_ptr->update_info();
+    return d_ptr->update_info();
     
 # endif
     
-    return true;
+    return false;
+}
+
+bool PlayBuffer::read(core::data &da, uint offset)
+{
+# ifdef NNT_MACH
+    
+    UInt32 readed = da.length();
+    OSStatus sta = AudioFileReadBytes(stm,
+                                      YES,
+                                      offset,
+                                      &readed,
+                                      da.bytes());
+    
+    if (sta == 0)
+    {
+        da.set_length(readed);
+        return true;
+    }
+    
+# endif
+    
+    return false;
 }
 
 NNT_END_NS

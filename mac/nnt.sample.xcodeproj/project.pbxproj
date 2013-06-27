@@ -90,6 +90,7 @@
 		162F6DD7177BD2F30074229E /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD6177BD2F30074229E /* AudioPlayer.cpp */; };
 		162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */; };
 		162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F6DD9177BD7B90074229E /* OpenAL+NNT.h */; };
+		162F6DDD177C0D880074229E /* IoStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F6DDC177C0D880074229E /* IoStream.h */; };
 		1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */; };
 		1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F9171BFC1400B318A9 /* NetAddress.cpp */; };
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
@@ -746,6 +747,7 @@
 		162F6DD6177BD2F30074229E /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayer.cpp; sourceTree = "<group>"; };
 		162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "OpenAL+NNT.cpp"; sourceTree = "<group>"; };
 		162F6DD9177BD7B90074229E /* OpenAL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenAL+NNT.h"; sourceTree = "<group>"; };
+		162F6DDC177C0D880074229E /* IoStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IoStream.h; path = ../Classes/Core/IoStream.h; sourceTree = "<group>"; };
 		1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CmdArguments.cpp; path = ../Classes/Core/CmdArguments.cpp; sourceTree = "<group>"; };
 		1630A7F8171BFC1400B318A9 /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CmdArguments.h; path = ../Classes/Core/CmdArguments.h; sourceTree = "<group>"; };
 		1630A7F9171BFC1400B318A9 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetAddress.cpp; path = ../Classes/Core/NetAddress.cpp; sourceTree = "<group>"; };
@@ -2510,6 +2512,7 @@
 				169DD14F1457A4B5000A9889 /* FileCache.mm */,
 				1675ACF31515D0010046A630 /* Filesystem.cpp */,
 				1675ACF41515D0010046A630 /* Filesystem.h */,
+				162F6DDC177C0D880074229E /* IoStream.h */,
 				164093E3176F0C1E0032E1FF /* File+NNT.cpp */,
 				164093E4176F0C1E0032E1FF /* File+NNT.h */,
 				1675ACF81515D1850046A630 /* FsSamba.cpp */,
@@ -3461,6 +3464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */,
+				162F6DDD177C0D880074229E /* IoStream.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

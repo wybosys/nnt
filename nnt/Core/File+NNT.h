@@ -5,43 +5,10 @@
 # ifdef NNT_CXX
 
 # include "../TL/URL+NNT.h"
+# include "IoStream.h"
 
 NNT_BEGIN_HEADER_CXX
-
-class Io
-{
-public:
-    
-    typedef ntl::mpl::position<0> read;
-    typedef ntl::mpl::position<1> write;
-    typedef ntl::mpl::position<2> create;
-    typedef ntl::mpl::position<3> close;
-    typedef ntl::mpl::position<4> binary;
-    typedef ntl::mpl::position<5> append;
-    
-    enum seek
-    {
-        seek_cur = 0,
-        seek_end = 1,
-        seek_set = 2,
-    };
-    
-};
-
 NNT_BEGIN_NS(core)
-
-class IoStream
-: public VirObject
-{
-public:
-    
-    virtual usize write(core::data const&) = 0;
-    virtual usize read(core::data&) = 0;
-    virtual usize position() const = 0;
-    virtual void seek(offset, Io::seek) = 0;
-    virtual usize length() const = 0;
-    
-};
 
 NNTCLASS(File);
 

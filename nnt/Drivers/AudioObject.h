@@ -12,6 +12,9 @@
 
 # endif
 
+const UInt32 kAppleSoftwareAudioCodecManufacturer  = 'appl';
+const UInt32 kAppleHardwareAudioCodecManufacturer  = 'aphw';
+
 # endif
 
 # ifdef NNT_C_COMPATIABLE
