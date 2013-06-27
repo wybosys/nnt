@@ -93,6 +93,7 @@ public:
     
     virtual bool open();
     virtual bool read(core::data&, uint offset);
+    virtual usize length() const;
     
     core::IoStream* stream;
 

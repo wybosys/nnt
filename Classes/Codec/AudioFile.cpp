@@ -28,9 +28,19 @@ void FormatType::set_channel(uint v)
     _format.mChannelsPerFrame = v;
 }
 
+uint FormatType::channel() const
+{
+    return _format.mChannelsPerFrame;
+}
+
 void FormatType::set_bits(uint v)
 {
     _format.mBitsPerChannel = v;
+}
+
+uint FormatType::bits() const
+{
+    return _format.mBitsPerChannel;
 }
 
 void FormatType::set_sampler(real v)

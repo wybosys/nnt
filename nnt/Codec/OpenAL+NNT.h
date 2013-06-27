@@ -45,12 +45,29 @@ class Oal
     
 public:
     
+    enum
+    {
+        FORMAT_MONO = 0x10,
+        FORMAT_STEREO = 0x20,
+        FORMAT_8BITS = 0x1,
+        FORMAT_16BITS = 0x2,
+        
+        FORMAT_MONO8 = FORMAT_8BITS | FORMAT_MONO,
+        FORMAT_MONO16 = FORMAT_16BITS | FORMAT_MONO,
+        FORMAT_STEREO8 = FORMAT_8BITS | FORMAT_STEREO,
+        FORMAT_STEREO16 = FORMAT_16BITS | FORMAT_STEREO,
+    };
+    
     Oal();
     ~Oal();
     
     bool open();
     void set_mute(bool);
     bool is_mute() const;
+    bool read(core::data const&, int format, real freq);
+    bool play();
+    bool is_playing() const;
+    bool stop();
     
     audio::FormatType format;
 

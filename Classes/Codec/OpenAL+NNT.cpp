@@ -27,54 +27,6 @@ static ALvoid alBufferDataStaticProc(const ALint bid, ALenum format, ALvoid* dat
         func(bid, format, data, size, freq);
 }
 
-class sourceGroup
-{
-public:
-    
-    sourceGroup()
-    {
-        memset(this, 0, sizeof(*this));
-    }
-    
-    int startIndex;
-    int currentIndex;
-    int totalSources;
-    bool enabled;
-    bool nonInterruptible;
-    int *sourceStatuses;//pointer into array of source status information
-};
-
-class bufferInfo
-{
-public:
-    
-    bufferInfo()
-    {
-        memset(this, 0, sizeof(*this));
-    }
-    
-    ALuint bufferId;
-    int bufferState;
-    void* bufferData;
-    ALenum format;
-    ALsizei sizeInBytes;
-    ALsizei frequencyInHertz;
-};
-
-class sourceInfo
-{
-public:
-    
-    sourceInfo()
-    {
-        memset(this, 0, sizeof(*this));
-    }
-    
-    bool usable;
-    ALuint sourceId;
-    bufferInfo* attachedBuffer;
-};
-
 NNTDECL_PRIVATE_BEGIN_CXX(Oal)
 
 void init()
@@ -83,8 +35,8 @@ void init()
     mute = false;
     device = NULL;
     context = NULL;
-    buffers.resize(CD_BUFFERS_START);
-    sources.resize(CD_SOURCE_LIMIT);
+    source = 0;
+    buffer = 0;
 }
 
 void dealloc()
@@ -93,10 +45,7 @@ void dealloc()
 }
 
 void close()
-{
-    clear_buffers();
-    clear_sources();
-    
+{    
     if (context)
     {
         alcDestroyContext(context);
@@ -108,172 +57,33 @@ void close()
         alcCloseDevice(device);
         device = NULL;
     }
+
+    clean();
 }
 
-void create_buffers()
+void clean()
 {
-    for (uint i = 0; i < buffers.size(); ++i)
+    if (source)
     {
-        bufferInfo& bi = buffers.at(i);
-        create_buffer(bi);
-    }
-}
-
-void clear_buffers()
-{
-# define CD_BS_NEED_FREE(bs) ((bs == CD_BS_EMPTY) || (bs == CD_BS_LOADED))
-    
-    for (uint i = 0; i < buffers.size(); ++i)
-    {
-        bufferInfo& bi = buffers.at(i);
-        if (CD_BS_NEED_FREE(bi.bufferState))
-        {
-            unload_buffer(bi);
-        }
-    }
-}
-
-void create_buffer(bufferInfo& bi)
-{
-    if (bi.bufferState == CD_BS_NULL)
-    {
-        alGenBuffers(1, &bi.bufferId);
-        if (alGetError() == AL_NO_ERROR)
-        {
-            bi.bufferState = CD_BS_EMPTY;
-            bi.bufferData = NULL;
-        }
-        else
-        {
-            bi.bufferState = CD_BS_FAILED;
-        }
-    }
-}
-
-void unload_buffer(bufferInfo& bi)
-{
-    for (uint i = 0; i < totalSources; ++i)
-    {
-        sourceInfo& si = sources.at(i);
-        if (si.attachedBuffer == &bi)
-        {
-            ALint state;
-            alGetSourcei(si.sourceId, AL_SOURCE_STATE, &state);
-            if (state == AL_PLAYING)
-            {
-                alSourcei(si.sourceId, AL_LOOPING, false);
-                while (state == AL_PLAYING)
-                {
-                    alGetSourcei(si.sourceId, AL_SOURCE_STATE, &state);
-                    sleep_second(1);
-                }
-            }
-            
-            // stop.
-            alSourceStop(si.sourceId);
-            if (alGetError() != AL_NO_ERROR)
-                trace_msg("failed to stop source");
-            
-            // free.
-            alSourcei(si.sourceId, AL_BUFFER, 0);
-            if (alGetError() == AL_NO_ERROR)
-            {
-                si.attachedBuffer = NULL;
-            }
-            else
-            {
-                trace_msg("failed to clear source buffer");
-            }
-        }
+        ALint val;
+        alGetSourcei(source, AL_SOURCE_STATE, &val);
+        if (val == AL_PLAYING)
+            alSourceStop(source);
+        alSourcei(source, AL_BUFFER, 0);
     }
     
-    // free buffer.
-    alDeleteBuffers(1, &bi.bufferId);
-    bi.bufferId = 0;
-    bi.bufferState = CD_BS_NULL;
-    safe_free(bi.bufferData);
-}
-
-void create_sources()
-{
-    totalSources = 0;
-    bool failed = false;
-    for (uint i = 0; i < sources.size(); ++i)
+    if (buffer)
     {
-        sourceInfo& si = sources.at(i);
-        si.usable = false;
-        if (!failed)
-        {
-            alGenSources(1, &si.sourceId);
-            if (alGetError() == AL_NO_ERROR)
-            {
-                alSourcei(si.sourceId, AL_BUFFER, 0);
-                if (alGetError() == AL_NO_ERROR)
-                {
-                    si.usable = true;
-                    ++totalSources;
-                }
-                else
-                {
-                    failed = true;
-                }
-            }
-            else
-            {
-                failed = true;
-            }
-        }
+        alDeleteBuffers(1, &buffer);
+        buffer = 0;
     }
-}
-
-void clear_sources()
-{
-    for (uint i = 0; i < sources.size(); ++i)
-    {
-        sourceInfo& si = sources.at(i);
-        if (si.usable)
-        {
-            alDeleteSources(1, &si.sourceId);
-            si.usable = false;
-        }
-    }
-}
-
-void create_groups(uint defines[], uint count)
-{    
-    clear_groups();
     
-    groups.resize(count);
-    
-    uint sourceCount = 0;
-    for (uint i = 0; i < count; ++i)
+    if (source)
     {
-        sourceGroup& sg = groups.at(i);
-        sg.startIndex = 0;
-        sg.currentIndex = sg.startIndex;
-        sg.enabled = false;
-        sg.nonInterruptible = false;
-        sg.totalSources = defines[i];
-        sg.sourceStatuses = (int*)malloc(sizeof(sg.sourceStatuses[0]) * sg.totalSources);
-        if (sg.sourceStatuses)
-        {
-            for (uint j = 0; j < sg.totalSources; ++j)
-            {
-                sg.sourceStatuses[j] = (sourceCount + j) << 1;
-            }
-        }
-        sourceCount += defines[i];
+        alDeleteSources(1, &source);
+        source = 0;
     }
-}
 
-void clear_groups()
-{
-    for (uint i = 0; i < groups.size(); ++i)
-    {
-        sourceGroup& sg = groups.at(i);
-        safe_free(sg.sourceStatuses);
-    }
-    groups.clear();
 }
 
 real get_master_gain() const
@@ -288,30 +98,25 @@ real get_master_gain() const
 void set_master_gain(real v)
 {
     if (mute)
+    {
         gain_old = v;
+    }
     else
     {
         alListenerf(AL_GAIN, v);
     }
 }
 
-bool test_get_gain()
+void set_current()
 {
-    ALfloat testValue = .7f;
-    ALuint testSourceId = sources[0].sourceId;
-    alSourcef(testSourceId, AL_GAIN, 0.f);
-    alSourcef(testSourceId, AL_GAIN, testValue);
-    ALfloat gainVal;
-    alGetSourcef(testSourceId, AL_GAIN, &gainVal);
-    return testValue == gainVal;
+    alcMakeContextCurrent(context);
 }
 
 ALCdevice* device;
 ALCcontext* context;
+ALuint buffer;
+ALuint source;
 uint totalSources;
-core::vector<bufferInfo> buffers;
-core::vector<sourceInfo> sources;
-core::vector<sourceGroup> groups;
 bool mute;
 real gain_old;
 
@@ -341,20 +146,7 @@ bool Oal::open()
     if (d_ptr->context == NULL)
         return false;
     
-    alcMakeContextCurrent(d_ptr->context);
-    
-    d_ptr->create_buffers();
-    d_ptr->create_sources();
-    
-    // create source group.
-    {
-        uint sourceDefs[1];
-        sourceDefs[0] = d_ptr->totalSources;
-        d_ptr->create_groups(sourceDefs, 1);
-    }
-    
-    // test gain.
-    d_ptr->test_get_gain();
+    d_ptr->set_current();
     
     return true;
 }
@@ -378,6 +170,86 @@ void Oal::set_mute(bool b)
 bool Oal::is_mute() const
 {
     return d_ptr->mute;
+}
+
+bool Oal::read(core::data const& da, int format, real freq)
+{
+    d_ptr->set_current();
+    d_ptr->clean();
+        
+    // create new.
+    alGenSources(1, &d_ptr->source);
+    ALenum sta = alGetError();
+    if (sta != AL_NO_ERROR)
+        return false;
+    
+    alGenBuffers(1, &d_ptr->buffer);
+    sta = alGetError();
+    if (sta != AL_NO_ERROR)
+        return false;
+    
+    ALint fmt = 0;
+    switch (format)
+    {
+        case FORMAT_MONO8: fmt = AL_FORMAT_MONO8; break;
+        case FORMAT_MONO16: fmt = AL_FORMAT_MONO16; break;
+        case FORMAT_STEREO8: fmt = AL_FORMAT_STEREO8; break;
+        case FORMAT_STEREO16: fmt = AL_FORMAT_STEREO16; break;
+    }
+    
+    alBufferData(d_ptr->buffer,
+                 fmt,
+                 da.bytes(),
+                 da.length(),
+                 freq);
+    
+    if (alGetError() != AL_NO_ERROR)
+        return false;
+    
+    return true;
+}
+
+bool Oal::play()
+{
+    d_ptr->set_current();
+    
+    if (is_playing())
+        stop();
+    
+    //alSourcef(d_ptr->source, AL_PITCH, 0);
+    //alSourcei(d_ptr->source, AL_LOOPING, 0);//Set looping
+    //alSourcef(d_ptr->source, AL_GAIN, 1);
+    //float sourcePosAL[] = {1, 0.0f, 0.0f};//Set position - just using left and right panning
+    //alSourcefv(d_ptr->source, AL_POSITION, sourcePosAL);
+    alSourcei(d_ptr->source, AL_BUFFER, d_ptr->buffer);
+    
+    // clear error code.
+    alGetError();
+    
+    // play.
+    alSourcePlay(d_ptr->source);
+    
+    ALenum err = alGetError();
+    
+    return err == AL_NO_ERROR;
+}
+
+bool Oal::is_playing() const
+{
+    d_ptr->set_current();
+    
+    ALint state;
+    alGetSourcei(d_ptr->source, AL_SOURCE_STATE, &state);
+    return state == AL_PLAYING;
+}
+
+bool Oal::stop()
+{
+    d_ptr->set_current();
+    
+    alSourceStop(d_ptr->source);
+    
+    return alGetError() == AL_NO_ERROR;
 }
 
 NNT_END_NS

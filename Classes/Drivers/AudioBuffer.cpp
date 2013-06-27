@@ -359,7 +359,11 @@ NNTDECL_PRIVATE_BEGIN_CXX(PlayBuffer)
 
 void init()
 {
+# ifdef NNT_MACH
     
+    length = 0;
+    
+# endif
 }
 
 void dealloc()
@@ -444,8 +448,18 @@ bool update_info()
     if (sta != 0)
         return false;
     
+    UInt64 count;
+    size = sizeof(count);
+    sta = AudioFileGetProperty(d_owner->stm,
+                               kAudioFilePropertyAudioDataByteCount,
+                               &size,
+                               &count);
+    length = count;
+    
     return true;
 }
+
+usize length;
 
 # endif
 
@@ -509,6 +523,11 @@ bool PlayBuffer::read(core::data &da, uint offset)
 # endif
     
     return false;
+}
+
+usize PlayBuffer::length() const
+{
+    return d_ptr->length;
 }
 
 NNT_END_NS

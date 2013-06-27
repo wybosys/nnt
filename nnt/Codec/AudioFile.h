@@ -33,7 +33,9 @@ public:
     ~FormatType();
     
     void set_channel(uint);
+    uint channel() const;
     void set_bits(uint);
+    uint bits() const;
     void set_sampler(real);
     real sampler() const;
     
