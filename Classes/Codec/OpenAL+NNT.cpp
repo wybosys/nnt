@@ -317,11 +317,6 @@ real gain_old;
 
 NNTDECL_PRIVATE_END_CXX
 
-OalConfig::OalConfig()
-{
-    sample_rate = CD_SAMPLE_RATE_DEFAULT;
-}
-
 Oal::Oal()
 {
     NNTDECL_PRIVATE_CONSTRUCT(Oal);
@@ -336,7 +331,7 @@ bool Oal::open()
 {
     d_ptr->close();
     
-    alcSetMixerOutputRate(config.sample_rate);
+    alcSetMixerOutputRate(format.sampler());
     
     d_ptr->device = alcOpenDevice(NULL);
     if (d_ptr->device == NULL)

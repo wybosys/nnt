@@ -2,6 +2,8 @@
 # ifndef __NNT_OPENAL_928DEF4638E54407876284B0A4CF5FC6_H_INCLUDED
 # define __NNT_OPENAL_928DEF4638E54407876284B0A4CF5FC6_H_INCLUDED
 
+# include "AudioFile.h"
+
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(codec)
 
@@ -36,16 +38,6 @@ enum
 
 NNTDECL_PRIVATE_HEAD_CXX(Oal);
 
-class OalConfig
-{
-public:
-    
-    OalConfig();
-    
-    real sample_rate;    
-    
-};
-
 class Oal
 {
     
@@ -60,7 +52,7 @@ public:
     void set_mute(bool);
     bool is_mute() const;
     
-    OalConfig config;
+    audio::FormatType format;
 
 };
 

@@ -3,6 +3,7 @@
 # define __NNT_AUDIO_BUFFER_DC14C23D0DCB40929F7046C63F58A1C9_H_INCLUDED
 
 # include "AudioObject.h"
+# include "../Codec/AudioFile.h"
 
 NNT_BEGIN_HEADER_CXX
 
@@ -32,13 +33,14 @@ public:
     
     virtual bool open() = 0;
     virtual void close();
+    
+    audio::FileType type;
+    audio::FormatType format;
   
 # ifdef NNT_MACH
     
     AudioQueueRef queue;
     AudioFileID stm;
-    AudioFileTypeID type;
-    AudioStreamBasicDescription format;
     bool used;
     
     core::vector<AudioQueueBufferRef>& handle();

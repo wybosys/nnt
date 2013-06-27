@@ -41,18 +41,18 @@ usize calc_buffer_size() const
 {
     int packets, frames, bytes;
 	
-	frames = (int)ceil(d_owner->seconds * d_owner->format.mSampleRate);
+	frames = (int)ceil(d_owner->seconds * d_owner->format->mSampleRate);
 	
-	if (d_owner->format.mBytesPerFrame > 0)
+	if (d_owner->format->mBytesPerFrame > 0)
     {
-		bytes = frames * d_owner->format.mBytesPerFrame;
+		bytes = frames * d_owner->format->mBytesPerFrame;
 	}
     else
     {
 		UInt32 maxPacketSize;
-		if (d_owner->format.mBytesPerPacket > 0)
+		if (d_owner->format->mBytesPerPacket > 0)
         {
-			maxPacketSize = d_owner->format.mBytesPerPacket;	// constant packet size
+			maxPacketSize = d_owner->format->mBytesPerPacket;	// constant packet size
 		}
         else
         {
@@ -63,8 +63,8 @@ usize calc_buffer_size() const
                                       &propertySize))
                 return 0;
 		}
-		if (d_owner->format.mFramesPerPacket > 0)
-			packets = frames / d_owner->format.mFramesPerPacket;
+		if (d_owner->format->mFramesPerPacket > 0)
+			packets = frames / d_owner->format->mFramesPerPacket;
 		else
 			packets = frames;	// worst-case scenario: 1 frame in a packet
 		if (packets == 0)		// sanity check
@@ -124,7 +124,6 @@ Buffer::Buffer()
     
     queue = NULL;
     stm = NULL;
-    type = 0;
     used = false;
     
 # endif
@@ -325,7 +324,7 @@ bool RecordBuffer::open()
                                                     private_type::HandlerGetSize,
                                                     private_type::HandlerSetSize,
                                                     type,
-                                                    &format,
+                                                    format,
                                                     0,
                                                     &stm);
     
@@ -430,6 +429,16 @@ static void HandlerPackets(
     trace_msg("audio buffer packets callback");
 }
 
+void update_info()
+{
+    AudioStreamBasicDescription& fmt = d_owner->format;
+    UInt32 size = sizeof(fmt);
+    AudioFileGetProperty(d_owner->stm,
+                         kAudioFilePropertyDataFormat,
+                         &size,
+                         &fmt);
+}
+
 # endif
 
 NNTDECL_PRIVATE_END_CXX
@@ -464,6 +473,8 @@ bool PlayBuffer::open()
         trace_fmt("failed to open buffer, %.4s", (char*)&sta);
         return false;
     }
+    
+    d_ptr->update_info();
     
 # endif
     

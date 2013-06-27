@@ -38,6 +38,11 @@ void FormatType::set_sampler(real v)
     _format.mSampleRate = v;
 }
 
+real FormatType::sampler() const
+{
+    return _format.mSampleRate;
+}
+
 void FormatType::update(AudioQueueRef queue)
 {
     UInt32 sz = sizeof(_format);

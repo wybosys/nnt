@@ -42,6 +42,8 @@ bool Player::play(core::IoStream& stm, NntAudioFormat fmt)
     if (d_ptr->buf.open() == false)
         return false;
     
+    d_ptr->oal.format = d_ptr->buf.format;
+    
     d_ptr->oal.open();
     return true;
 }

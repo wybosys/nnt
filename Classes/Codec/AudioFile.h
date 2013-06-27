@@ -35,6 +35,7 @@ public:
     void set_channel(uint);
     void set_bits(uint);
     void set_sampler(real);
+    real sampler() const;
     
 # ifdef NNT_MACH
     
@@ -46,6 +47,21 @@ public:
     void update();
     
 # ifdef NNT_MACH
+    
+    AudioStreamBasicDescription* operator -> ()
+    {
+        return &_format;
+    }
+    
+    AudioStreamBasicDescription const* operator -> () const
+    {
+        return &_format;
+    }
+    
+    operator AudioStreamBasicDescription& ()
+    {
+        return _format;
+    }
     
     operator AudioStreamBasicDescription const& () const
     {
