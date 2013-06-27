@@ -30,12 +30,26 @@ public:
 
 NNT_BEGIN_NS(core)
 
+class IoStream
+: public VirObject
+{
+public:
+    
+    virtual usize write(core::data const&) = 0;
+    virtual usize read(core::data&) = 0;
+    virtual usize position() const = 0;
+    virtual void seek(offset, Io::seek) = 0;
+    virtual usize length() const = 0;
+    
+};
+
 NNTCLASS(File);
 
 NNTDECL_PRIVATE_HEAD_CXX(File);
 
 class File
-	: public cxx::Object<>
+	: public cxx::Object<>,
+public IoStream
 {
 	NNTDECL_PRIVATE_CXX(File);
 
@@ -55,11 +69,11 @@ public:
     bool open(url_type const& path, mask_t const& flag);
     void close();
 
-    usize write(core::data const&);
-    usize read(core::data&);
-    usize position() const;
-    void seek(offset, Io::seek);
-    usize length() const;
+    virtual usize write(core::data const&);
+    virtual usize read(core::data&);
+    virtual usize position() const;
+    virtual void seek(offset, Io::seek);
+    virtual usize length() const;
 
     //! return in-os file handle.
     handle_type handle() const;

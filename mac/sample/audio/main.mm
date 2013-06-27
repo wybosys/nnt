@@ -3,6 +3,7 @@
 
 # include <nnt/Drivers/MicDevice.h>
 # include <nnt/Codec/MicRecorder.h>
+# include <nnt/Codec/AudioPlayer.h>
 
 # include <nnt/Core/File+NNT.h>
 # include <nnt/Parser/WavParser.h>
@@ -179,11 +180,20 @@ void test_manual()
     
 }
 
+audio::Player plyer;
+
+void test_play()
+{
+    core::File f;
+    f.open(core::File::url_type("nessun dorma.mp3"), mask_t().on<Io::read>());
+    plyer.play(f);
+}
+
 int main(int argc, char** argv)
 {
-    task.start();
-    
+    //task.start();
     //if (1) test_manual();
+    if (1) test_play();
     
     cross::Application app;
     return app.execute(argc, argv);

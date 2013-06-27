@@ -1252,6 +1252,22 @@ typedef int bool;
 
 # ifdef NNT_CXX
 
+NNT_BEGIN_C
+
+void free(void*);
+
+NNT_END_C
+
+template <typename T>
+inline void safe_free(T*& obj)
+{
+    if (obj)
+    {
+        free((void*)obj);
+        obj = 0;
+    }
+}
+
 template <typename T>
 inline void safe_delete(T*& obj)
 {

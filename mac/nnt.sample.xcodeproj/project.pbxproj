@@ -87,6 +87,9 @@
 		162BA6CE150DE59300F33E1D /* libxerces-c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 162BA6CD150DE59300F33E1D /* libxerces-c.a */; };
 		162BA6D7150DF0F600F33E1D /* AlphabetFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D5150DF0F600F33E1D /* AlphabetFlow.m */; };
 		162BA6D9150DF15600F33E1D /* AlphabetFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */; };
+		162F6DD7177BD2F30074229E /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD6177BD2F30074229E /* AudioPlayer.cpp */; };
+		162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */; };
+		162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F6DD9177BD7B90074229E /* OpenAL+NNT.h */; };
 		1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */; };
 		1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F9171BFC1400B318A9 /* NetAddress.cpp */; };
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
@@ -740,6 +743,9 @@
 		162BA6D4150DF0F600F33E1D /* AlphabetFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlphabetFlow.h; path = ../Classes/Util/AlphabetFlow.h; sourceTree = "<group>"; };
 		162BA6D5150DF0F600F33E1D /* AlphabetFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlphabetFlow.m; path = ../Classes/Util/AlphabetFlow.m; sourceTree = "<group>"; };
 		162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlphabetFlow.cpp; path = ../Classes/Util/AlphabetFlow.cpp; sourceTree = "<group>"; };
+		162F6DD6177BD2F30074229E /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayer.cpp; sourceTree = "<group>"; };
+		162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "OpenAL+NNT.cpp"; sourceTree = "<group>"; };
+		162F6DD9177BD7B90074229E /* OpenAL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenAL+NNT.h"; sourceTree = "<group>"; };
 		1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CmdArguments.cpp; path = ../Classes/Core/CmdArguments.cpp; sourceTree = "<group>"; };
 		1630A7F8171BFC1400B318A9 /* CmdArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CmdArguments.h; path = ../Classes/Core/CmdArguments.h; sourceTree = "<group>"; };
 		1630A7F9171BFC1400B318A9 /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetAddress.cpp; path = ../Classes/Core/NetAddress.cpp; sourceTree = "<group>"; };
@@ -3275,8 +3281,11 @@
 		16E00A6E1608696500B35D3F /* Codec */ = {
 			isa = PBXGroup;
 			children = (
+				162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */,
+				162F6DD9177BD7B90074229E /* OpenAL+NNT.h */,
 				16E00A6F1608696600B35D3F /* AudioPlayer.h */,
 				16E00A701608696600B35D3F /* AudioPlayer.mm */,
+				162F6DD6177BD2F30074229E /* AudioPlayer.cpp */,
 				16E00A871608708400B35D3F /* EmojiCodec.mm */,
 				16E00A711608696600B35D3F /* EmojiCodec.cpp */,
 				16E00A721608696600B35D3F /* EmojiCodec.h */,
@@ -3451,6 +3460,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4034,6 +4044,8 @@
 				168DD704177811DC004B0D30 /* json_util.c in Sources */,
 				168DD705177811DC004B0D30 /* linkhash.c in Sources */,
 				168DD706177811DC004B0D30 /* printbuf.c in Sources */,
+				162F6DD7177BD2F30074229E /* AudioPlayer.cpp in Sources */,
+				162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

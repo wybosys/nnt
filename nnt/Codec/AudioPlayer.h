@@ -61,4 +61,32 @@ NNT_END_HEADER_CXX
 
 # endif // objc
 
+# ifdef NNT_CXX
+
+# include "../Core/File+NNT.h"
+
+NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(audio)
+
+NNTDECL_PRIVATE_HEAD_CXX(Player);
+
+class Player
+{
+    
+    NNTDECL_PRIVATE_CXX(Player);
+    
+public:
+    
+    Player();
+    ~Player();
+    
+    bool play(core::IoStream const&);
+
+};
+
+NNT_END_NS
+NNT_END_HEADER_CXX
+
+# endif
+
 # endif
