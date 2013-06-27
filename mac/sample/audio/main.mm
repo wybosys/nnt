@@ -187,6 +187,8 @@ void test_play()
     core::File f;
     f.open(core::File::url_type("nessun dorma.mp3"), mask_t().on<Io::read>());
     plyer.play(f, AUDIO_FORMAT_MP3);
+    //f.open(core::File::url_type("word.wav"), mask_t().on<Io::read>());
+    //plyer.play(f, AUDIO_FORMAT_WAVE);
 }
 
 int main(int argc, char** argv)

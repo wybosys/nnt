@@ -509,7 +509,7 @@ bool PlayBuffer::read(core::data &da, uint offset)
     
     UInt32 readed = da.length();
     OSStatus sta = AudioFileReadBytes(stm,
-                                      YES,
+                                      false,
                                       offset,
                                       &readed,
                                       da.bytes());
