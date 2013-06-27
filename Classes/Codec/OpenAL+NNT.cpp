@@ -17,6 +17,16 @@ static void alcSetMixerOutputRate(real val)
         func(val);
 }
 
+typedef ALvoid AL_APIENTRY (*funcAlBufferDataStaticProcPtr)(const ALint bid, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
+static ALvoid alBufferDataStaticProc(const ALint bid, ALenum format, ALvoid* data, ALsizei size, ALsizei freq)
+{
+    static funcAlBufferDataStaticProcPtr func = NULL;
+    if (func == NULL)
+        func = (funcAlBufferDataStaticProcPtr)alcGetProcAddress(NULL, (ALCchar const*)"alBufferDataStatic");
+    if (func)
+        func(bid, format, data, size, freq);
+}
+
 class sourceGroup
 {
 public:
@@ -62,7 +72,7 @@ public:
     
     bool usable;
     ALuint sourceId;
-    ALuint attachedBufferId;
+    bufferInfo* attachedBuffer;
 };
 
 NNTDECL_PRIVATE_BEGIN_CXX(Oal)
@@ -105,19 +115,7 @@ void create_buffers()
     for (uint i = 0; i < buffers.size(); ++i)
     {
         bufferInfo& bi = buffers.at(i);
-        if (bi.bufferState == CD_BS_NULL)
-        {
-            alGenBuffers(1, &bi.bufferId);
-            if (alGetError() == AL_NO_ERROR)
-            {
-                bi.bufferState = CD_BS_EMPTY;
-                bi.bufferData = NULL;
-            }
-            else
-            {
-                bi.bufferState = CD_BS_FAILED;
-            }
-        }
+        create_buffer(bi);
     }
 }
 
@@ -130,12 +128,70 @@ void clear_buffers()
         bufferInfo& bi = buffers.at(i);
         if (CD_BS_NEED_FREE(bi.bufferState))
         {
-            alDeleteBuffers(1, &bi.bufferId);
-            bi.bufferId = 0;
-            bi.bufferState = CD_BS_NULL;
-            safe_free(bi.bufferData);
+            unload_buffer(bi);
         }
     }
+}
+
+void create_buffer(bufferInfo& bi)
+{
+    if (bi.bufferState == CD_BS_NULL)
+    {
+        alGenBuffers(1, &bi.bufferId);
+        if (alGetError() == AL_NO_ERROR)
+        {
+            bi.bufferState = CD_BS_EMPTY;
+            bi.bufferData = NULL;
+        }
+        else
+        {
+            bi.bufferState = CD_BS_FAILED;
+        }
+    }
+}
+
+void unload_buffer(bufferInfo& bi)
+{
+    for (uint i = 0; i < totalSources; ++i)
+    {
+        sourceInfo& si = sources.at(i);
+        if (si.attachedBuffer == &bi)
+        {
+            ALint state;
+            alGetSourcei(si.sourceId, AL_SOURCE_STATE, &state);
+            if (state == AL_PLAYING)
+            {
+                alSourcei(si.sourceId, AL_LOOPING, false);
+                while (state == AL_PLAYING)
+                {
+                    alGetSourcei(si.sourceId, AL_SOURCE_STATE, &state);
+                    sleep_second(1);
+                }
+            }
+            
+            // stop.
+            alSourceStop(si.sourceId);
+            if (alGetError() != AL_NO_ERROR)
+                trace_msg("failed to stop source");
+            
+            // free.
+            alSourcei(si.sourceId, AL_BUFFER, 0);
+            if (alGetError() == AL_NO_ERROR)
+            {
+                si.attachedBuffer = NULL;
+            }
+            else
+            {
+                trace_msg("failed to clear source buffer");
+            }
+        }
+    }
+    
+    // free buffer.
+    alDeleteBuffers(1, &bi.bufferId);
+    bi.bufferId = 0;
+    bi.bufferState = CD_BS_NULL;
+    safe_free(bi.bufferData);
 }
 
 void create_sources()

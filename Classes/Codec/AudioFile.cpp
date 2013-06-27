@@ -2,6 +2,7 @@
 # include "Core.h"
 # include "AudioFile.h"
 # include "../Drivers/MicDevice.h"
+# include "../Core/File+NNT.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
@@ -143,6 +144,19 @@ FileType::FileType(core::string const& str)
     _type = FindType(str);
 }
 
+FileType::FileType(NntAudioFormat fmt)
+{
+    switch (fmt)
+    {
+        case AUDIO_FORMAT_AAC:
+            _type = kAudioFileAAC_ADTSType; break;
+        case AUDIO_FORMAT_MP3:
+            _type = kAudioFileMP3Type; break;
+        case AUDIO_FORMAT_WAVE:
+            _type = kAudioFileWAVEType; break;
+    }
+}
+
 void FileType::set(core::string const& str)
 {
     _strtype = str;
@@ -233,6 +247,25 @@ bool FileType::is_bigedian(FormatType const& fmt) const
 	return requiresBigEndian;
 }
 
+/*
+ 
+FileFormat::FileFormat()
+{
+    
+}
+
+FileFormat::~FileFormat()
+{
+    
+}
+
+void FileFormat::load(core::IoStream &stm)
+{
+    
+}
+
+ */
+ 
 # endif
 
 NNT_END_NS

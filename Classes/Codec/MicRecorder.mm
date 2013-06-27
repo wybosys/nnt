@@ -58,7 +58,7 @@ static void InputBufferHandler(void *                          inUserData,
 }
 
 AudioQueueRef queue;
-audio::Buffer buffer;
+audio::RecordBuffer buffer;
 
 NNTDECL_PRIVATE_END_CXX
 

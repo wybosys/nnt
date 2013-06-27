@@ -14,6 +14,26 @@
 
 # endif
 
+# ifdef NNT_C_COMPATIABLE
+
+NNT_BEGIN_HEADER_C
+
+typedef enum
+{
+# ifdef NNT_MACH
+    
+    AUDIO_FORMAT_AAC,
+    AUDIO_FORMAT_WAVE,
+    AUDIO_FORMAT_MP3,
+    
+# endif
+}
+NntAudioFormat;
+
+NNT_END_HEADER_C
+
+# endif
+
 # ifdef NNT_OBJC
 
 NNT_BEGIN_HEADER_OBJC

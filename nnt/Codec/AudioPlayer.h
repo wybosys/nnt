@@ -2,6 +2,8 @@
 # ifndef __NNT_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
 # define __NNT_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
 
+# include "../Drivers/AudioObject.h"
+
 # ifdef NNT_OBJC
 
 NNT_BEGIN_HEADER_OBJC
@@ -80,8 +82,8 @@ public:
     Player();
     ~Player();
     
-    bool play(core::IoStream const&);
-
+    bool play(core::IoStream&, NntAudioFormat format);
+    
 };
 
 NNT_END_NS

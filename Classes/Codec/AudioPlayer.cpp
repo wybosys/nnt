@@ -2,6 +2,8 @@
 # include "Core.h"
 # include "AudioPlayer.h"
 # include "OpenAL+NNT.h"
+# include "../Drivers/AudioBuffer.h"
+# include "AudioFile.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
@@ -19,6 +21,7 @@ void dealloc()
 }
 
 codec::Oal oal;
+audio::PlayBuffer buf;
 
 NNTDECL_PRIVATE_END_CXX
 
@@ -32,8 +35,13 @@ Player::~Player()
     NNTDECL_PRIVATE_DESTROY();
 }
 
-bool Player::play(core::IoStream const& stm)
+bool Player::play(core::IoStream& stm, NntAudioFormat fmt)
 {
+    d_ptr->buf.type = FileType(fmt);
+    d_ptr->buf.stream = &stm;
+    if (d_ptr->buf.open() == false)
+        return false;
+    
     d_ptr->oal.open();
     return true;
 }

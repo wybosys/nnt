@@ -4,12 +4,23 @@
 
 # ifdef NNT_MACH
 
-# ifdef NNT_CXX
-
 # include <AudioToolbox/AudioToolbox.h>
 # include <CoreAudio/CoreAudio.h>
 
+# endif
+
+# include "../Drivers/AudioObject.h"
+
+# ifdef NNT_CXX
+
 NNT_BEGIN_HEADER_CXX
+
+NNT_BEGIN_NS(core)
+
+class IoStream;
+
+NNT_END_NS
+
 NNT_BEGIN_NS(audio)
 
 class FileType;
@@ -25,9 +36,16 @@ public:
     void set_bits(uint);
     void set_sampler(real);
     
+# ifdef NNT_MACH
+    
     void update(AudioQueueRef);
+    
+# endif
+    
     void update(FileType const&);
     void update();
+    
+# ifdef NNT_MACH
     
     operator AudioStreamBasicDescription const& () const
     {
@@ -39,9 +57,15 @@ public:
         return &_format;
     }
     
+# endif
+    
 protected:
     
+# ifdef NNT_MACH
+    
     AudioStreamBasicDescription _format;
+    
+# endif
     
 };
 
@@ -51,12 +75,15 @@ public:
     
     FileType();
     FileType(core::string const&);
+    FileType(NntAudioFormat);
     
     ~FileType();
     
     void set(core::string const&);
     
     bool is_bigedian(FormatType const&) const;
+    
+# ifdef NNT_MACH
     
     static AudioFileTypeID FindType(core::string const&);
     
@@ -70,6 +97,8 @@ public:
         return &_type;
     }
     
+# endif
+    
     operator core::string () const
     {
         return _strtype;
@@ -77,15 +106,34 @@ public:
     
 protected:
     
-    core::string _strtype;    
+    core::string _strtype;
+    
+# ifdef NNT_MACH
+    
     AudioFileTypeID _type;
+    
+# endif
     
 };
 
+/*
+class FileFormat
+{
+public:
+    
+    FileFormat();
+    ~FileFormat();
+    
+    void load(core::IoStream&);
+    
+    FileType ft;
+    FormatType mt;
+    
+};
+ */
+
 NNT_END_NS
 NNT_END_HEADER_CXX
-
-# endif
 
 # endif
 

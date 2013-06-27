@@ -8,6 +8,12 @@ NNT_BEGIN_HEADER_CXX
 
 NNT_EXTERN cxx::signal_t kSignalBytesAvailable;
 
+NNT_BEGIN_NS(core)
+
+class IoStream;
+
+NNT_END_NS
+
 NNT_BEGIN_NS(audio)
 
 NNTDECL_PRIVATE_HEAD_CXX(Buffer);
@@ -24,8 +30,8 @@ public:
     Buffer();
     ~Buffer();
     
-    bool open();
-    void close();
+    virtual bool open() = 0;
+    virtual void close();
   
 # ifdef NNT_MACH
     
@@ -34,12 +40,6 @@ public:
     AudioFileTypeID type;
     AudioStreamBasicDescription format;
     bool used;
-    
-    void receive(AudioQueueRef                   inAQ,
-                 AudioQueueBufferRef             inBuffer,
-                 const AudioTimeStamp *          inStartTime,
-                 UInt32							inNumPackets,
-                 const AudioStreamPacketDescription *inPacketDesc);
     
     core::vector<AudioQueueBufferRef>& handle();
     bool need_release;
@@ -50,6 +50,49 @@ public:
     real seconds;
     core::data data;
     
+};
+
+NNTDECL_PRIVATE_HEAD_CXX(RecordBuffer);
+
+class RecordBuffer
+: public Buffer
+{
+    NNTDECL_PRIVATE_CXX(RecordBuffer);
+    
+    RecordBuffer();
+    ~RecordBuffer();
+    
+    virtual bool open();
+    
+# ifdef NNT_MACH
+    
+    void receive(AudioQueueRef                   inAQ,
+                 AudioQueueBufferRef             inBuffer,
+                 const AudioTimeStamp *          inStartTime,
+                 UInt32							inNumPackets,
+                 const AudioStreamPacketDescription *inPacketDesc);
+    
+# endif
+    
+};
+
+NNTDECL_PRIVATE_HEAD_CXX(PlayBuffer);
+
+class PlayBuffer
+: public Buffer
+{
+    
+    NNTDECL_PRIVATE_CXX(PlayBuffer);
+
+public:
+    
+    PlayBuffer();
+    ~PlayBuffer();
+    
+    virtual bool open();
+    
+    core::IoStream* stream;
+
 };
 
 NNT_END_NS

@@ -5,9 +5,13 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
-void Buffer::receive(AudioQueueRef inAQ, AudioQueueBufferRef inBuffer, const AudioTimeStamp *inStartTime, UInt32 inNumPackets, const AudioStreamPacketDescription *inPacketDesc)
+void RecordBuffer::receive(AudioQueueRef inAQ,
+                           AudioQueueBufferRef inBuffer,
+                           const AudioTimeStamp *inStartTime,
+                           UInt32 inNumPackets,
+                           const AudioStreamPacketDescription *inPacketDesc)
 {
-
+    
     OSStatus sta = AudioFileWritePackets(stm,
                                          FALSE,
                                          inBuffer->mAudioDataByteSize,

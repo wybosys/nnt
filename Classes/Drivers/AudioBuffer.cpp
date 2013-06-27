@@ -1,6 +1,7 @@
 
 # include "Core.h"
 # include "AudioBuffer.h"
+# include "../Core/File+NNT.h"
 
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
@@ -32,6 +33,154 @@ void dealloc()
     }
     
 # endif
+}
+
+# ifdef NNT_MACH
+
+usize calc_buffer_size() const
+{
+    int packets, frames, bytes;
+	
+	frames = (int)ceil(d_owner->seconds * d_owner->format.mSampleRate);
+	
+	if (d_owner->format.mBytesPerFrame > 0)
+    {
+		bytes = frames * d_owner->format.mBytesPerFrame;
+	}
+    else
+    {
+		UInt32 maxPacketSize;
+		if (d_owner->format.mBytesPerPacket > 0)
+        {
+			maxPacketSize = d_owner->format.mBytesPerPacket;	// constant packet size
+		}
+        else
+        {
+			UInt32 propertySize = sizeof(maxPacketSize);
+            if (AudioQueueGetProperty(d_owner->queue,
+                                      kAudioConverterPropertyMaximumOutputPacketSize,
+                                      &maxPacketSize,
+                                      &propertySize))
+                return 0;
+		}
+		if (d_owner->format.mFramesPerPacket > 0)
+			packets = frames / d_owner->format.mFramesPerPacket;
+		else
+			packets = frames;	// worst-case scenario: 1 frame in a packet
+		if (packets == 0)		// sanity check
+			packets = 1;
+		bytes = packets * maxPacketSize;
+	}
+    
+	return bytes;
+}
+
+core::vector<AudioQueueBufferRef> buffers;
+
+void clear_buffers()
+{
+    if (d_owner->need_release && d_owner->queue)
+    {
+        for (core::vector<AudioQueueBufferRef>::iterator each = buffers.begin();
+             each != buffers.end();
+             ++each)
+        {
+            if (*each != NULL)
+            {
+                AudioQueueFreeBuffer(d_owner->queue, *each);
+                *each = NULL;
+            }
+        }
+    }   
+}
+
+void create_buffers()
+{
+    clear_buffers();
+    
+    usize sz = calc_buffer_size();
+    
+    OSStatus sta;
+    for (core::vector<AudioQueueBufferRef>::iterator each = buffers.begin();
+         each != buffers.end();
+         ++each)
+    {
+        if ((sta = AudioQueueAllocateBuffer(d_owner->queue, sz, &*each)))
+        {
+            trace_fmt("failed to allocate audio buffer, %.4s", (char*)&sta);
+        }
+    }
+}
+
+# endif
+
+NNTDECL_PRIVATE_END_CXX
+
+Buffer::Buffer()
+{
+    NNTDECL_PRIVATE_CONSTRUCT(Buffer);
+    
+# ifdef NNT_MACH
+    
+    queue = NULL;
+    stm = NULL;
+    type = 0;
+    used = false;
+    
+# endif
+    
+    seconds = 0.5f;
+}
+
+Buffer::~Buffer()
+{
+    close();
+    
+    NNTDECL_PRIVATE_DESTROY();
+}
+
+NNTDECL_SIGNALS_BEGIN(Buffer, Object)
+NNT_SIGNAL(kSignalBytesAvailable)
+NNTDECL_SIGNALS_END
+
+void Buffer::close()
+{
+# ifdef NNT_MACH
+    
+    if (stm)
+    {
+        AudioFileClose(stm);
+        stm = NULL;
+    }
+    
+    d_ptr->clear_buffers();
+    
+    packets = 0;
+    
+# endif
+}
+
+# ifdef NNT_MACH
+
+core::vector<AudioQueueBufferRef>& Buffer::handle()
+{
+    return d_ptr->buffers;
+}
+
+# endif
+
+/////// RECORD BUFFER
+
+NNTDECL_PRIVATE_BEGIN_CXX(RecordBuffer)
+
+void init()
+{
+    
+}
+
+void dealloc()
+{
+    
 }
 
 # ifdef NNT_MACH
@@ -117,44 +266,6 @@ static void HandlerPackets(
     trace_msg("audio buffer packets callback");
 }
 
-usize calc_buffer_size() const
-{
-    int packets, frames, bytes;
-	
-	frames = (int)ceil(d_owner->seconds * d_owner->format.mSampleRate);
-	
-	if (d_owner->format.mBytesPerFrame > 0)
-    {
-		bytes = frames * d_owner->format.mBytesPerFrame;
-	}
-    else
-    {
-		UInt32 maxPacketSize;
-		if (d_owner->format.mBytesPerPacket > 0)
-        {
-			maxPacketSize = d_owner->format.mBytesPerPacket;	// constant packet size
-		}
-        else
-        {
-			UInt32 propertySize = sizeof(maxPacketSize);
-            if (AudioQueueGetProperty(d_owner->queue,
-                                      kAudioConverterPropertyMaximumOutputPacketSize,
-                                      &maxPacketSize,
-                                      &propertySize))
-                return 0;
-		}
-		if (d_owner->format.mFramesPerPacket > 0)
-			packets = frames / d_owner->format.mFramesPerPacket;
-		else
-			packets = frames;	// worst-case scenario: 1 frame in a packet
-		if (packets == 0)		// sanity check
-			packets = 1;
-		bytes = packets * maxPacketSize;
-	}
-    
-	return bytes;
-}
-
 void set_stream()
 {
     OSStatus err;
@@ -183,50 +294,31 @@ void set_stream()
 	}
     
     /*
-    if (err != 0)
-        trace_fmt("failed to set stream, %.4s", &err);
+     if (err != 0)
+     trace_fmt("failed to set stream, %.4s", &err);
      */
 }
-
-core::vector<AudioQueueBufferRef> buffers;
 
 # endif
 
 NNTDECL_PRIVATE_END_CXX
 
-Buffer::Buffer()
+RecordBuffer::RecordBuffer()
 {
-    NNTDECL_PRIVATE_CONSTRUCT(Buffer);
-    
-# ifdef NNT_MACH
-    
-    queue = NULL;
-    stm = NULL;
-    type = 0;
-    used = false;
-    
-# endif
-    
-    seconds = 0.5f;
+    NNTDECL_PRIVATE_CONSTRUCT(RecordBuffer);
 }
 
-Buffer::~Buffer()
+RecordBuffer::~RecordBuffer()
 {
-    close();
-    
     NNTDECL_PRIVATE_DESTROY();
 }
 
-NNTDECL_SIGNALS_BEGIN(Buffer, Object)
-NNT_SIGNAL(kSignalBytesAvailable)
-NNTDECL_SIGNALS_END
-
-bool Buffer::open()
+bool RecordBuffer::open()
 {
     close();
     
 # ifdef NNT_MACH
-        
+    
     OSStatus sta = AudioFileInitializeWithCallbacks(this,
                                                     private_type::HandlerRead,
                                                     private_type::HandlerWrite,
@@ -236,33 +328,24 @@ bool Buffer::open()
                                                     &format,
                                                     0,
                                                     &stm);
-        
+    
     if (sta != 0)
     {
         trace_fmt("failed to open buffer, %.4s", (char*)&sta);
         return false;
     }
     
-    d_ptr->set_stream();    
+    d_ptr->set_stream();
     
     // alloc.
-    usize sz = d_ptr->calc_buffer_size();
+    usize sz = Buffer::_d()->calc_buffer_size();
     if (sz == 0)
     {
         trace_fmt("failed to calc buffer size, %.4s", (char*)&sta);
         return false;
     }
     
-    for (core::vector<AudioQueueBufferRef>::iterator each = d_ptr->buffers.begin();
-         each != d_ptr->buffers.end();
-         ++each)
-    {
-        if ((sta = AudioQueueAllocateBuffer(queue, sz, &*each)))
-        {
-            trace_fmt("failed to allocate audio buffer, %.4s", (char*)&sta);
-            return false;
-        }
-    }
+    Buffer::_d()->create_buffers();
     
     return true;
     
@@ -271,43 +354,121 @@ bool Buffer::open()
     return false;
 }
 
-void Buffer::close()
+///////// PLAY BUFFER
+
+NNTDECL_PRIVATE_BEGIN_CXX(PlayBuffer)
+
+void init()
 {
-# ifdef NNT_MACH
     
-    if (stm)
-    {
-        AudioFileClose(stm);
-        stm = NULL;
-    }
+}
+
+void dealloc()
+{
     
-    if (need_release && queue)
-    {
-        for (core::vector<AudioQueueBufferRef>::iterator each = d_ptr->buffers.begin();
-             each != d_ptr->buffers.end();
-             ++each)
-        {
-            if (*each != NULL)
-            {
-                AudioQueueFreeBuffer(queue, *each);
-                *each = NULL;
-            }
-        }
-    }
-    
-    packets = 0;
-    
-# endif
 }
 
 # ifdef NNT_MACH
 
-core::vector<AudioQueueBufferRef>& Buffer::handle()
+static OSStatus HandlerRead(void *		inClientData,
+                            SInt64		inPosition,
+                            UInt32	requestCount,
+                            void *		buffer,
+                            UInt32 *	actualCount)
 {
-    return d_ptr->buffers;
+    use<PlayBuffer> buf = inClientData;
+    core::IoStream* stream = buf->stream;
+    
+    core::data da(requestCount);
+    stream->seek(inPosition, Io::seek_set);
+    *actualCount = stream->read(da);
+    memcpy(buffer, da.bytes(), *actualCount);
+    
+    return 0;
+}
+
+static OSStatus HandlerWrite(void * 		inClientData,
+                             SInt64		inPosition,
+                             UInt32		requestCount,
+                             const void *buffer,
+                             UInt32    * actualCount)
+{
+    trace_msg("play buffer request write");
+    return 0;
+}
+
+static SInt64 HandlerGetSize(void * 		inClientData)
+{
+    use<PlayBuffer> buf = inClientData;
+    core::IoStream* stream = buf->stream;
+    return stream->length();
+}
+
+static OSStatus HandlerSetSize(void *		inClientData,
+                               SInt64		inSize)
+{
+    trace_msg("play buffer set size");
+    return 0;
+}
+
+static void HandlerPropertyListener(
+                                    void *						inClientData,
+                                    AudioFileStreamID			inAudioFileStream,
+                                    AudioFileStreamPropertyID	inPropertyID,
+                                    UInt32 *					ioFlags)
+{
+    trace_msg("audio buffer property callback");
+}
+
+static void HandlerPackets(
+                           void *							inClientData,
+                           UInt32							inNumberBytes,
+                           UInt32							inNumberPackets,
+                           const void *					inInputData,
+                           AudioStreamPacketDescription	*inPacketDescriptions)
+{
+    trace_msg("audio buffer packets callback");
 }
 
 # endif
+
+NNTDECL_PRIVATE_END_CXX
+
+PlayBuffer::PlayBuffer()
+: stream(NULL)
+{
+    NNTDECL_PRIVATE_CONSTRUCT(PlayBuffer);
+}
+
+PlayBuffer::~PlayBuffer()
+{
+    NNTDECL_PRIVATE_DESTROY();
+}
+
+bool PlayBuffer::open()
+{
+    close();
+    
+# ifdef NNT_MACH
+    
+    OSStatus sta = AudioFileOpenWithCallbacks(this,
+                                              private_type::HandlerRead,
+                                              private_type::HandlerWrite,
+                                              private_type::HandlerGetSize,
+                                              private_type::HandlerSetSize,
+                                              type,
+                                              &stm);
+    
+    if (sta != 0)
+    {
+        trace_fmt("failed to open buffer, %.4s", (char*)&sta);
+        return false;
+    }
+    
+# endif
+    
+    return true;
+}
 
 NNT_END_NS
 NNT_END_CXX

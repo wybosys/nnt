@@ -905,9 +905,13 @@ cls##Private
 class cls; class cls##Private;
 
 # define NNTDECL_PRIVATE_CXX(cls) \
+private: \
 friend class cls##Private; \
 typedef cls##Private private_type; \
-private_type* d_ptr;
+private_type* d_ptr; \
+protected: \
+private_type* _d() const { return (private_type*)d_ptr; } \
+public:
 
 # define NNTDECL_PRIVATE_FRIEND(cls) \
 friend class cls; \
@@ -921,6 +925,7 @@ delete d_ptr;
 
 # define NNTDECL_PRIVATE_BEGIN_CXX(cls) \
 class cls##Private : public ::nnt::cxx::Object<> { \
+public: \
 typedef cls##Private self_type, private_type, _class; \
 typedef cls owner_type; \
 owner_type* d_owner; \
