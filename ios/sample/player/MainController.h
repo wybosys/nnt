@@ -4,6 +4,7 @@
 
 # include "File+NNT.h"
 # include "AudioPlayer.h"
+# include "ColorPalette.h"
 
 NNTAPP_BEGIN
 
@@ -38,6 +39,13 @@ public:
     ui::BevelButton btn_play;
     ui::BevelButton btn_stop;
 
+protected:
+    
+    void cb_bkg();
+    
+    core::Timer _tmr_bkg;
+    core::ColorWheel _cw;
+    
 };
 
 class MainController
@@ -61,7 +69,7 @@ protected:
     
     core::Timer _tmr_play;
     core::File _fd;
-    audio::Player _player;
+    audio::Player _player;    
     
 };
 

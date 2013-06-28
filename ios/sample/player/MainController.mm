@@ -44,6 +44,9 @@ MainView::MainView()
     
     btn_play.set_text(@"PLAY");
     btn_stop.set_text(@"STOP");
+    
+    _tmr_bkg.set(ns::TimeInterval::Second(1));
+    _tmr_bkg.connect(::kSignalTimerFired, _action(_class::cb_bkg), this);
 }
 
 void MainView::layout_subviews()
@@ -58,6 +61,13 @@ void MainView::layout_subviews()
     lnr_ctl << (flex)1 << (flex)1;
     btn_play.set_frame(lyt_ctl << lnr_ctl);
     btn_stop.set_frame(lyt_ctl << lnr_ctl);
+}
+
+void MainView::cb_bkg()
+{
+    static r = M_PI_4;
+    r += M_PI_360;
+    set_background(cg::Gradient(cg::Color::Black(), cg::Color::White(), 0, 1, r));
 }
 
 MainController::MainController()
