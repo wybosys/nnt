@@ -3,6 +3,12 @@
 # include "AudioBuffer.h"
 # include "../Core/File+NNT.h"
 
+# ifdef NNT_MACH
+
+# include "apple.prv/CAAudioFileFormats.h"
+
+# endif
+
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
@@ -287,7 +293,10 @@ void set_stream()
             // now set the magic cookie on the output file
             // even though some formats have cookies, some files don't take them, so we ignore the error
             /*err =*/
-            AudioFileSetProperty(d_owner->stm, kAudioFilePropertyMagicCookieData, propertySize, magicCookie);
+            AudioFileSetProperty(d_owner->stm,
+                                 kAudioFilePropertyMagicCookieData,
+                                 propertySize,
+                                 magicCookie);
         }
 		free(magicCookie);
 	}
@@ -361,14 +370,27 @@ void init()
 {
 # ifdef NNT_MACH
     
-    length = 0;
+    extstm = 0;
     
 # endif
 }
 
 void dealloc()
 {
+    clean();
+}
+
+void clean()
+{
+# ifdef NNT_MACH
     
+    if (extstm)
+    {
+        ExtAudioFileDispose(extstm);
+        extstm = NULL;
+    }
+    
+# endif
 }
 
 # ifdef NNT_MACH
@@ -433,33 +455,63 @@ static void HandlerPackets(
     trace_msg("audio buffer packets callback");
 }
 
-bool update_info()
+bool refresh()
 {
-    AudioStreamBasicDescription& fmt = d_owner->format;
+    OSStatus sta;
     
+    AudioStreamBasicDescription& fmt = d_owner->format;
     UInt32 size = sizeof(fmt);
     
-    OSStatus sta;
-    sta = AudioFileGetProperty(d_owner->stm,
-                               kAudioFilePropertyDataFormat,
-                               &size,
-                               &fmt);
+    // get input audio format.
+    {
+        sta = ExtAudioFileGetProperty(extstm,
+                                      kExtAudioFileProperty_FileDataFormat,
+                                      &size,
+                                      &fmt);
+        
+        if (sta != 0)
+            return false;
+    }
     
-    if (sta != 0)
-        return false;
+    // set output format.
+    {
+        ofmt.mSampleRate = fmt.mSampleRate;
+        ofmt.mChannelsPerFrame = fmt.mChannelsPerFrame;
+        ofmt.mFormatID = kAudioFormatLinearPCM;
+        ofmt.mBytesPerPacket = 2 * ofmt.mChannelsPerFrame;
+        ofmt.mFramesPerPacket = 1;
+        ofmt.mBytesPerFrame = 2 * ofmt.mChannelsPerFrame;
+        ofmt.mBitsPerChannel = 16;
+        ofmt.mFormatFlags = kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked | kAudioFormatFlagIsSignedInteger;
+        
+        sta = ExtAudioFileSetProperty(extstm,
+                                      kExtAudioFileProperty_ClientDataFormat,
+                                      sizeof(ofmt),
+                                      &ofmt);
+        if (sta)
+            return false;
+    }
     
-    UInt64 count;
-    size = sizeof(count);
-    sta = AudioFileGetProperty(d_owner->stm,
-                               kAudioFilePropertyAudioDataByteCount,
-                               &size,
-                               &count);
-    length = count;
+    // get data.
+    {
+        SInt64 count;
+        size = sizeof(count);
+        sta = ExtAudioFileGetProperty(extstm,
+                                      kExtAudioFileProperty_FileLengthFrames,
+                                      &size,
+                                      &count);
+        if (sta)
+            return false;
+        
+        frames = count;
+    }
     
     return true;
 }
 
-usize length;
+usize frames;
+AudioStreamBasicDescription ofmt;
+ExtAudioFileRef extstm;
 
 # endif
 
@@ -496,29 +548,47 @@ bool PlayBuffer::open()
         return false;
     }
     
-    return d_ptr->update_info();
+    sta = ExtAudioFileWrapAudioFileID(stm,
+                                      false,
+                                      &d_ptr->extstm);
+    if (sta != 0)
+    {
+        trace_fmt("failed to wrap buffer, %.4s", (char*)&sta);
+        return false;
+    }
+    
+    return d_ptr->refresh();
     
 # endif
     
     return false;
 }
 
+void PlayBuffer::close()
+{
+    Buffer::close();    
+    d_ptr->clean();
+}
+
 bool PlayBuffer::read(core::data &da, uint offset)
 {
 # ifdef NNT_MACH
     
-    UInt32 readed = da.length();
-    OSStatus sta = AudioFileReadBytes(stm,
-                                      false,
-                                      offset,
-                                      &readed,
-                                      da.bytes());
+    AudioBufferList buf;
+    buf.mNumberBuffers = 1;
+    buf.mBuffers[0].mDataByteSize = da.length();
+    buf.mBuffers[0].mNumberChannels = d_ptr->ofmt.mChannelsPerFrame;
+    buf.mBuffers[0].mData = da.bytes();
     
-    if (sta == 0)
-    {
-        da.set_length(readed);
-        return true;
-    }
+    UInt32 frames = d_ptr->frames;
+    OSStatus sta = ExtAudioFileRead(d_ptr->extstm,
+                                    &frames,
+                                    &buf);
+    
+    usize readed = frames * d_ptr->ofmt.mBytesPerFrame;
+    da.set_length(readed);
+    
+    return sta == 0;
     
 # endif
     
@@ -527,7 +597,13 @@ bool PlayBuffer::read(core::data &da, uint offset)
 
 usize PlayBuffer::length() const
 {
-    return d_ptr->length;
+# ifdef NNT_MACH
+    
+    return d_ptr->frames * d_ptr->ofmt.mBytesPerFrame;
+    
+# endif
+    
+    return 0;
 }
 
 NNT_END_NS

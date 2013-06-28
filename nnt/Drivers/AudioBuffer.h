@@ -64,7 +64,7 @@ class RecordBuffer
     RecordBuffer();
     ~RecordBuffer();
     
-    virtual bool open();
+    virtual bool open();    
     
 # ifdef NNT_MACH
     
@@ -92,6 +92,7 @@ public:
     ~PlayBuffer();
     
     virtual bool open();
+    virtual void close();
     virtual bool read(core::data&, uint offset);
     virtual usize length() const;
     
