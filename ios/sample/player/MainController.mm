@@ -65,7 +65,7 @@ void MainView::layout_subviews()
 
 void MainView::cb_bkg()
 {
-    static r = M_PI_4;
+    static real r = M_PI_4;
     r += M_PI_360;
     set_background(cg::Gradient(cg::Color::Black(), cg::Color::White(), 0, 1, r));
 }
