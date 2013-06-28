@@ -53,6 +53,8 @@ public:
     void update(FileType const&);
     void update();
     
+    void lpcmlize();
+    
 # ifdef NNT_MACH
     
     AudioStreamBasicDescription* operator -> ()

@@ -36,7 +36,6 @@ void init()
     device = NULL;
     context = NULL;
     source = 0;
-    buffer = 0;    
 }
 
 void dealloc()
@@ -69,13 +68,14 @@ void clean()
         alGetSourcei(source, AL_SOURCE_STATE, &val);
         if (val == AL_PLAYING)
             alSourceStop(source);
-        alSourcei(source, AL_BUFFER, 0);
+        if (buffers.size())
+            alSourceUnqueueBuffers(source, buffers.size(), &buffers[0]);
     }
     
-    if (buffer)
+    if (buffers.size())
     {
-        alDeleteBuffers(1, &buffer);
-        buffer = 0;
+        alDeleteBuffers(buffers.size(), &buffers[0]);
+        buffers.clear();
     }
     
     if (source)
@@ -114,7 +114,7 @@ void set_current()
 
 ALCdevice* device;
 ALCcontext* context;
-ALuint buffer;
+core::vector<ALuint> buffers;
 ALuint source;
 uint totalSources;
 bool mute;
@@ -174,7 +174,7 @@ bool Oal::is_mute() const
     return d_ptr->mute;
 }
 
-bool Oal::read(core::data const& da, int format, real freq)
+bool Oal::read(core::data const& da)
 {
     d_ptr->set_current();
     d_ptr->clean();
@@ -185,30 +185,65 @@ bool Oal::read(core::data const& da, int format, real freq)
     if (sta != AL_NO_ERROR)
         return false;
     
-    alGenBuffers(1, &d_ptr->buffer);
-    sta = alGetError();
+    length = 0;
+    return append(da);
+}
+
+bool Oal::append(core::data const& da)
+{
+    ALuint buffer;
+    alGenBuffers(1, &buffer);
+    ALenum sta = alGetError();
     if (sta != AL_NO_ERROR)
         return false;
     
+    d_ptr->buffers.push_back(buffer);
+    
     ALint fmt = 0;
-    switch (format)
+    switch (format.channel())
     {
-        case FORMAT_MONO8: fmt = AL_FORMAT_MONO8; break;
-        case FORMAT_MONO16: fmt = AL_FORMAT_MONO16; break;
-        case FORMAT_STEREO8: fmt = AL_FORMAT_STEREO8; break;
-        case FORMAT_STEREO16: fmt = AL_FORMAT_STEREO16; break;
+        case 1:
+        {
+            switch (format.bits())
+            {
+                case 8:
+                {
+                    fmt = AL_FORMAT_MONO8;
+                } break;
+                case 16:
+                {
+                    fmt = AL_FORMAT_MONO16;
+                } break;
+            }
+        } break;
+        case 2:
+        {
+            switch (format.bits())
+            {
+                case 8:
+                {
+                    fmt = AL_FORMAT_STEREO8;
+                } break;
+                case 16:
+                {
+                    fmt = AL_FORMAT_STEREO16;
+                } break;
+            }
+        } break;
     }
     
-    alBufferData(d_ptr->buffer,
+    alBufferData(buffer,
                  fmt,
                  da.bytes(),
                  da.length(),
-                 freq);
+                 format.sampler());
     
     if (alGetError() != AL_NO_ERROR)
         return false;
     
-    length = da.length() / freq / TRIEXP(MASK_CHECK(FORMAT_MONO, format), 1, 2) / TRIEXP(MASK_CHECK(FORMAT_8BITS, format), 1, 2);
+    real curlen = format.channel() * format.bits() / 8;
+    curlen = da.length() / format.sampler() / curlen;
+    length += curlen;
     
     return true;
 }
@@ -220,7 +255,10 @@ bool Oal::play()
     if (is_playing())
         stop();
     
-    alSourcei(d_ptr->source, AL_BUFFER, d_ptr->buffer);
+    if (d_ptr->buffers.size())
+        alSourceQueueBuffers(d_ptr->source,
+                             d_ptr->buffers.size(),
+                             &d_ptr->buffers[0]);
     
     // clear error code.
     alGetError();
@@ -251,7 +289,7 @@ bool Oal::stop()
     return alGetError() == AL_NO_ERROR;
 }
 
-bool Oal::seek(real v)
+bool Oal::seek(float v)
 {
     d_ptr->set_current();
     
@@ -260,7 +298,7 @@ bool Oal::seek(real v)
     return alGetError() == AL_NO_ERROR;
 }
 
-bool Oal::position(real& v)
+bool Oal::position(float& v)
 {
     d_ptr->set_current();
     
@@ -287,7 +325,7 @@ bool Oal::resume()
     return alGetError() == AL_NO_ERROR;
 }
 
-bool Oal::gain(real &v)
+bool Oal::gain(float &v)
 {
     d_ptr->set_current();
     

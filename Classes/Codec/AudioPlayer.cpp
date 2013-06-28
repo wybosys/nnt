@@ -47,7 +47,7 @@ real Player::length() const
 
 real Player::position() const
 {
-    real v = 0;
+    float v = 0;
     d_ptr->oal.position(v);
     return v;
 }
@@ -75,28 +75,14 @@ bool Player::play(core::IoStream& stm, NntAudioFormat fmt)
         return false;
     
     d_ptr->oal.format = d_ptr->buf.format;
+    d_ptr->oal.format.lpcmlize();
     d_ptr->oal.open();
     
     core::data tmp(d_ptr->buf.length());
     if (d_ptr->buf.read(tmp, 0) == false)
         return false;
     
-    int format = 0;
-    switch (d_ptr->buf.format.bits())
-    {
-        default:
-        case 16: format |= codec::Oal::FORMAT_16BITS; break;
-        case 8: format |= codec::Oal::FORMAT_8BITS; break;
-    }
-    
-    if (d_ptr->buf.format.channel() > 1)
-        format |= codec::Oal::FORMAT_STEREO;
-    else
-        format |= codec::Oal::FORMAT_MONO;
-    
-    if (d_ptr->oal.read(tmp,
-                        format,
-                        d_ptr->buf.format.sampler()) == false)
+    if (d_ptr->oal.read(tmp) == false)
         return false;
     
     return d_ptr->oal.play();

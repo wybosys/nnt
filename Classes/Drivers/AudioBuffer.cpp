@@ -455,6 +455,25 @@ static void HandlerPackets(
     trace_msg("audio buffer packets callback");
 }
 
+static void HandlerPropertyListenerProc(
+                                        void *						inClientData,
+                                        AudioFileStreamID			inAudioFileStream,
+                                        AudioFileStreamPropertyID	inPropertyID,
+                                        UInt32 *					ioFlags)
+{
+    
+}
+
+static void HandlerPacketsProc(
+                               void *							inClientData,
+                               UInt32							inNumberBytes,
+                               UInt32							inNumberPackets,
+                               const void *					inInputData,
+                               AudioStreamPacketDescription	*inPacketDescriptions)
+{
+    
+}
+
 bool refresh()
 {
     OSStatus sta;

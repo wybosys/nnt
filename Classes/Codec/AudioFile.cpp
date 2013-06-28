@@ -64,6 +64,27 @@ void FormatType::update(AudioQueueRef queue)
         trace_msg("failed to update format by queue");
 }
 
+void FormatType::lpcmlize()
+{
+    _format.mFormatID = kAudioFormatLinearPCM;
+    
+    if (_format.mBitsPerChannel == 0)
+        _format.mBitsPerChannel = 16;
+    if (_format.mBitsPerChannel > 8)
+        _format.mFormatFlags |= kLinearPCMFormatFlagIsSignedInteger;
+    _format.mFormatFlags |= kLinearPCMFormatFlagIsPacked;
+    
+    _format.mBytesPerPacket = _format.mBytesPerFrame = (_format.mBitsPerChannel / 8) * _format.mChannelsPerFrame;
+    _format.mFramesPerPacket = 1;
+    _format.mReserved = 0;
+    
+    UInt32 size = sizeof(_format);
+    AudioFormatGetProperty(kAudioFormatProperty_FormatInfo,
+                           0, NULL,
+                           &size,
+                           &_format);
+}
+
 void FormatType::update(FileType const& ft)
 {
     core::string file = ft;
@@ -107,7 +128,6 @@ void FormatType::update(FileType const& ft)
             if (_format.mBitsPerChannel == 0)
                 _format.mBitsPerChannel = 16;
             if (_format.mBitsPerChannel > 8)
-                
                 _format.mFormatFlags |= kLinearPCMFormatFlagIsSignedInteger;
             _format.mFormatFlags |= kLinearPCMFormatFlagIsPacked;
             
