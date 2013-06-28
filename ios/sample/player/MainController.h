@@ -4,7 +4,6 @@
 
 # include "File+NNT.h"
 # include "AudioPlayer.h"
-# include "ColorPalette.h"
 
 NNTAPP_BEGIN
 
@@ -44,7 +43,6 @@ protected:
     void cb_bkg();
     
     core::Timer _tmr_bkg;
-    core::ColorWheel _cw;
     
 };
 
