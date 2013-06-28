@@ -589,7 +589,7 @@ void PlayBuffer::close()
     d_ptr->clean();
 }
 
-bool PlayBuffer::read(core::data &da, uint offset)
+bool PlayBuffer::read(core::data &da)
 {
 # ifdef NNT_MACH
     
@@ -599,7 +599,7 @@ bool PlayBuffer::read(core::data &da, uint offset)
     buf.mBuffers[0].mNumberChannels = d_ptr->ofmt.mChannelsPerFrame;
     buf.mBuffers[0].mData = da.bytes();
     
-    UInt32 frames = d_ptr->frames;
+    UInt32 frames = da.length() / d_ptr->ofmt.mBytesPerFrame;
     OSStatus sta = ExtAudioFileRead(d_ptr->extstm,
                                     &frames,
                                     &buf);

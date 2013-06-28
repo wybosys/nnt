@@ -184,6 +184,10 @@ public:
     //! complete.
     bool complete() const;
     
+    //! run a sample thread.
+    typedef void (*thread_func)(void*);
+    static bool Run(thread_func, void*);
+    
 public:
 
 # ifdef main

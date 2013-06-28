@@ -401,6 +401,44 @@ void Task::resume()
     d_ptr->mtx_ctl.unlock();
 }
 
+struct thread_object
+{
+    Task::thread_func func;
+    void* param;
+};
+
+void* SampleThread(void* obj)
+{
+    thread_object* pam = (thread_object*)obj;
+    
+    pam->func(pam->param);
+    
+    delete pam;
+    return NULL;
+}
+
+bool Task::Run(thread_func func, void* param)
+{
+# ifdef NNT_MSVC
+    
+# else
+    
+    pthread_t tmp;
+    thread_object* obj = new thread_object;
+    obj->func = func;
+    obj->param = param;
+    int ret = pthread_create(&tmp, NULL, SampleThread, obj);
+    if (ret != 0)
+    {
+        delete obj;
+        return false;
+    }
+    
+    return true;
+    
+# endif
+}
+
 # else // kernel space.
 
 Spinlock::Spinlock()

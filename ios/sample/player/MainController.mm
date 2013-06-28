@@ -35,7 +35,7 @@ void WaveView::add(real v)
 
 MainView::MainView()
 {
-    set_background(cg::Gradient(cg::Color::Black(), cg::Color::White(), 0, 1, M_PI));
+    set_background(cg::Gradient(cg::Color::Black(), cg::Color::White(), 0, 1, M_PI_4));
                    
     add_sub(wave);
     add_sub(ctl_progress);

@@ -79,7 +79,7 @@ bool Player::play(core::IoStream& stm, NntAudioFormat fmt)
     d_ptr->oal.open();
     
     core::data tmp(d_ptr->buf.length());
-    if (d_ptr->buf.read(tmp, 0) == false)
+    if (d_ptr->buf.read(tmp) == false)
         return false;
     
     if (d_ptr->oal.read(tmp) == false)
