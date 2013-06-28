@@ -12,8 +12,12 @@
 
 # endif
 
+# ifdef NNT_TARGET_MAC
+
 const UInt32 kAppleSoftwareAudioCodecManufacturer  = 'appl';
 const UInt32 kAppleHardwareAudioCodecManufacturer  = 'aphw';
+
+# endif
 
 # endif
 

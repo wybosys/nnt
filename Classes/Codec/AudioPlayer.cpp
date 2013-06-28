@@ -40,6 +40,18 @@ void Player::seek(real v)
     d_ptr->oal.seek(v);
 }
 
+real Player::length() const
+{
+    return d_ptr->oal.length;
+}
+
+real Player::position() const
+{
+    real v = 0;
+    d_ptr->oal.position(v);
+    return v;
+}
+
 void Player::pause()
 {
     d_ptr->oal.pause();
@@ -48,6 +60,11 @@ void Player::pause()
 void Player::resume()
 {
     d_ptr->oal.resume();
+}
+
+void Player::stop()
+{
+    d_ptr->oal.stop();
 }
 
 bool Player::play(core::IoStream& stm, NntAudioFormat fmt)

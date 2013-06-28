@@ -36,7 +36,7 @@ void init()
     device = NULL;
     context = NULL;
     source = 0;
-    buffer = 0;
+    buffer = 0;    
 }
 
 void dealloc()
@@ -45,7 +45,9 @@ void dealloc()
 }
 
 void close()
-{    
+{
+    clean();
+    
     if (context)
     {
         alcDestroyContext(context);
@@ -57,8 +59,6 @@ void close()
         alcCloseDevice(device);
         device = NULL;
     }
-
-    clean();
 }
 
 void clean()
@@ -125,6 +125,8 @@ NNTDECL_PRIVATE_END_CXX
 Oal::Oal()
 {
     NNTDECL_PRIVATE_CONSTRUCT(Oal);
+    
+    length = 0;
 }
 
 Oal::~Oal()
@@ -206,6 +208,8 @@ bool Oal::read(core::data const& da, int format, real freq)
     if (alGetError() != AL_NO_ERROR)
         return false;
     
+    length = da.length() / freq / TRIEXP(MASK_CHECK(FORMAT_MONO, format), 1, 2) / TRIEXP(MASK_CHECK(FORMAT_8BITS, format), 1, 2);
+    
     return true;
 }
 
@@ -256,6 +260,15 @@ bool Oal::seek(real v)
     return alGetError() == AL_NO_ERROR;
 }
 
+bool Oal::position(real& v)
+{
+    d_ptr->set_current();
+    
+    alGetSourcef(d_ptr->source, AL_SEC_OFFSET, &v);
+    
+    return alGetError() == AL_NO_ERROR;
+}
+
 bool Oal::pause()
 {
     d_ptr->set_current();
@@ -270,6 +283,15 @@ bool Oal::resume()
     d_ptr->set_current();
     
     alSourcePlay(d_ptr->source);
+    
+    return alGetError() == AL_NO_ERROR;
+}
+
+bool Oal::gain(real &v)
+{
+    d_ptr->set_current();
+    
+    alGetSourcef(d_ptr->source, AL_GAIN, &v);
     
     return alGetError() == AL_NO_ERROR;
 }

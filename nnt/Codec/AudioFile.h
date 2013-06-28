@@ -5,7 +5,12 @@
 # ifdef NNT_MACH
 
 # include <AudioToolbox/AudioToolbox.h>
+
+# ifdef NNT_TARGET_MAC
 # include <CoreAudio/CoreAudio.h>
+# else
+# include <CoreAudio/CoreAudioTypes.h>
+# endif
 
 # endif
 

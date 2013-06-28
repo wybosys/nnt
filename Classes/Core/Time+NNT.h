@@ -112,14 +112,15 @@ public:
         this->_self = [[NNTNSTimer alloc] initWithTimeInterval:interval repeats:repeat];
     }
     
-    void set(NSTimeInterval interval, bool repeat = true)
+    void set(NSTimeInterval interval, bool repeat = true, bool as = true)
     {
         stop();
         
         this->_self.interval = interval;
         this->_self.repeat = repeat;
         
-        start();        
+        if (as == true)
+            start();
     }
     
     void start()

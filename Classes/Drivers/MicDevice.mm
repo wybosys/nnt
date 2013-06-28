@@ -7,8 +7,16 @@ NNT_BEGIN_NS(mic)
 
 real Device::SampleRate()
 {
-    real ret;
+    real ret;    
+    
+# ifdef NNT_TARGET_IOS
+    
+    ret = 44100;
+    
+# else
+    
     OSStatus err;
+    
 	AudioDeviceID deviceID = 0;
     
 	// get the default input device
@@ -27,6 +35,8 @@ real Device::SampleRate()
 	addr.mElement = 0;
 	size = sizeof(Float64);
 	err = AudioHardwareServiceGetPropertyData(deviceID, &addr, 0, NULL, &size, &ret);
+    
+# endif
     
 	return ret;
     
