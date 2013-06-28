@@ -216,11 +216,6 @@ bool Oal::play()
     if (is_playing())
         stop();
     
-    //alSourcef(d_ptr->source, AL_PITCH, 0);
-    //alSourcei(d_ptr->source, AL_LOOPING, 0);//Set looping
-    //alSourcef(d_ptr->source, AL_GAIN, 1);
-    //float sourcePosAL[] = {1, 0.0f, 0.0f};//Set position - just using left and right panning
-    //alSourcefv(d_ptr->source, AL_POSITION, sourcePosAL);
     alSourcei(d_ptr->source, AL_BUFFER, d_ptr->buffer);
     
     // clear error code.
@@ -248,6 +243,33 @@ bool Oal::stop()
     d_ptr->set_current();
     
     alSourceStop(d_ptr->source);
+    
+    return alGetError() == AL_NO_ERROR;
+}
+
+bool Oal::seek(real v)
+{
+    d_ptr->set_current();
+    
+    alSourcef(d_ptr->source, AL_SEC_OFFSET, v);
+    
+    return alGetError() == AL_NO_ERROR;
+}
+
+bool Oal::pause()
+{
+    d_ptr->set_current();
+    
+    alSourcePause(d_ptr->source);
+    
+    return alGetError() == AL_NO_ERROR;
+}
+
+bool Oal::resume()
+{
+    d_ptr->set_current();
+    
+    alSourcePlay(d_ptr->source);
     
     return alGetError() == AL_NO_ERROR;
 }

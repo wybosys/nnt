@@ -35,6 +35,21 @@ Player::~Player()
     NNTDECL_PRIVATE_DESTROY();
 }
 
+void Player::seek(real v)
+{
+    d_ptr->oal.seek(v);
+}
+
+void Player::pause()
+{
+    d_ptr->oal.pause();
+}
+
+void Player::resume()
+{
+    d_ptr->oal.resume();
+}
+
 bool Player::play(core::IoStream& stm, NntAudioFormat fmt)
 {
     d_ptr->buf.type = FileType(fmt);

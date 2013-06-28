@@ -82,7 +82,11 @@ public:
     Player();
     ~Player();
     
+    void seek(real);
     bool play(core::IoStream&, NntAudioFormat format);
+    void pause();
+    void resume();
+    void stop();
     
 };
 

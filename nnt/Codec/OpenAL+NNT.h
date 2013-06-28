@@ -65,9 +65,12 @@ public:
     void set_mute(bool);
     bool is_mute() const;
     bool read(core::data const&, int format, real freq);
+    bool seek(real);
     bool play();
     bool is_playing() const;
     bool stop();
+    bool pause();
+    bool resume();
     
     audio::FormatType format;
 
