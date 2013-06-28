@@ -45,7 +45,7 @@ MainView::MainView()
     btn_play.set_text(@"PLAY");
     btn_stop.set_text(@"STOP");
     
-    _tmr_bkg.set(ns::TimeInterval::Second(1));
+    _tmr_bkg.set(ns::TimeInterval::Second(1 / 5));
     _tmr_bkg.connect(::kSignalTimerFired, _action(_class::cb_bkg), this);
 }
 
