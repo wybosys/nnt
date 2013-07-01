@@ -1,4 +1,4 @@
 
-@interface WSIAppDelegate : WSIApplication
+@interface WSIAppDelegate : NNTApplication
 
 @end
