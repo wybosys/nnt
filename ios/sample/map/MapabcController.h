@@ -4,7 +4,7 @@
 
 NNTAPP_BEGIN_OBJC
 
-@interface MapabcController : WSIUIViewController
+@interface MapabcController : NNTUIViewController
 
 @end
 

@@ -4,7 +4,7 @@
 
 NNTAPP_BEGIN_OBJC
 
-@interface MainController : WSIUIViewController
+@interface MainController : NNTUIViewController
 
 @end
 

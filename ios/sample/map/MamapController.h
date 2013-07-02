@@ -4,7 +4,7 @@
 
 NNTAPP_BEGIN_OBJC
 
-@interface MamapController : WSIUIViewController
+@interface MamapController : NNTUIViewController
 
 @end
 
