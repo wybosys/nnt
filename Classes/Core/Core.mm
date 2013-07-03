@@ -122,7 +122,7 @@ NNT_END_HEADER_C
 
 + (void)Init {
 	trace_msg(@"NNT[OBJC] Toolkit");
-    trace_fmt(@"path: %@.", [[NSBundle mainBundle] bundlePath]);
+    trace_fmt(@"path: %@", [[NSBundle mainBundle] bundlePath]);
     
     __gs_nnt = [[NNT alloc] init];
     __gs_thread_condition = [[NSConditionLock alloc] initWithCondition:8];

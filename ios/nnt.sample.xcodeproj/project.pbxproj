@@ -72,6 +72,8 @@
 		161043A515CBC64100485DDF /* XimMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A315CBC64000485DDF /* XimMessage.h */; };
 		161043A815CBC67400485DDF /* XimRoster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161043A615CBC67300485DDF /* XimRoster.cpp */; };
 		161043A915CBC67400485DDF /* XimRoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A715CBC67400485DDF /* XimRoster.h */; };
+		161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 161180711783CF5B007591C8 /* NSSqliteArchive.h */; };
+		161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161180721783CF5B007591C8 /* NSSqliteArchive.mm */; };
 		1612293D17796D3A00A97278 /* JsonObjParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612293C17796D3A00A97278 /* JsonObjParser.cpp */; };
 		1612294617796D9100A97278 /* arraylist.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612293F17796D9100A97278 /* arraylist.c */; };
 		1612294717796D9100A97278 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294017796D9100A97278 /* debug.c */; };
@@ -1702,6 +1704,8 @@
 		161043A315CBC64000485DDF /* XimMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimMessage.h; sourceTree = "<group>"; };
 		161043A615CBC67300485DDF /* XimRoster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XimRoster.cpp; sourceTree = "<group>"; };
 		161043A715CBC67400485DDF /* XimRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimRoster.h; sourceTree = "<group>"; };
+		161180711783CF5B007591C8 /* NSSqliteArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSqliteArchive.h; sourceTree = "<group>"; };
+		161180721783CF5B007591C8 /* NSSqliteArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSSqliteArchive.mm; sourceTree = "<group>"; };
 		1612293C17796D3A00A97278 /* JsonObjParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonObjParser.cpp; sourceTree = "<group>"; };
 		1612293F17796D9100A97278 /* arraylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = arraylist.c; path = ../contrib/json/arraylist.c; sourceTree = "<group>"; };
 		1612294017796D9100A97278 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../contrib/json/debug.c; sourceTree = "<group>"; };
@@ -4113,6 +4117,8 @@
 				166552BC13A6086E008DF239 /* DBMS.h */,
 				166552BD13A6086E008DF239 /* DBMS.m */,
 				167BA28A15D4FD38006E5EBB /* DBMS.cpp */,
+				161180711783CF5B007591C8 /* NSSqliteArchive.h */,
+				161180721783CF5B007591C8 /* NSSqliteArchive.mm */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -6421,6 +6427,7 @@
 				162F71FF177D6AE50074229E /* AudioDevice.h in Headers */,
 				162F7202177D6AE50074229E /* AudioObject.h in Headers */,
 				162F7205177D6AE50074229E /* MicDevice.h in Headers */,
+				161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7348,6 +7355,7 @@
 				162F7204177D6AE50074229E /* MicDevice.cpp in Sources */,
 				162F7206177D6AE50074229E /* MicDevice.mm in Sources */,
 				162F7207177D6AE50074229E /* VoiceObject.cpp in Sources */,
+				161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

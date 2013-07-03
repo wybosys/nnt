@@ -28,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161180751783CFD7007591C8 /* NSSqliteArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSqliteArchive.h; sourceTree = "<group>"; };
 		167D943B170935D200B94D5E /* AIAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAction.h; sourceTree = "<group>"; };
 		167D943C170935D200B94D5E /* AIBehave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBehave.h; sourceTree = "<group>"; };
 		167D943D170935D200B94D5E /* AIBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBody.h; sourceTree = "<group>"; };
@@ -820,7 +821,7 @@
 		167D9793170935D400B94D5E /* ImageCodecReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodecReader.h; sourceTree = "<group>"; };
 		167D9795170935D400B94D5E /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		167D9796170935D400B94D5E /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
-		167D9797170935DC00B94D5E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		167D9797170935DC00B94D5E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
 		16D1AA2615AC1EE6004DE492 /* store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D1AA2A15AC1EE6004DE492 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		16D1AA2C15AC1EE6004DE492 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1921,6 +1922,7 @@
 				167D96AD170935D300B94D5E /* Spatialite+NNT.h */,
 				167D96AE170935D300B94D5E /* Sqlite+NNT.h */,
 				167D96AF170935D300B94D5E /* SqlServer+NNT.h */,
+				161180751783CFD7007591C8 /* NSSqliteArchive.h */,
 			);
 			path = Store;
 			sourceTree = "<group>";

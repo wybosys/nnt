@@ -2,16 +2,17 @@
 # include "Foundation+NNT.h"
 # include "MainController.h"
 
-# import "WSIBdb.h"
-# import "WSISqlite.h"
-# import "WSILevelDB.h"
+# import "Bdb+NNT.h"
+# import "Sqlite+NNT.h"
+# import "LevelDB+NNT.h"
+# import "NSSqliteArchive.h"
 
 NNTAPP_BEGIN_OBJC
 
 @implementation MainController
 
 - (void)testSqlite {
-    WSISqlite *sqlite = [[WSISqlite alloc] initWith:@"sqlite.db" type:WSIDirectoryTypeBundleWritable];
+    NNTSqlite *sqlite = [[NNTSqlite alloc] initWith:@"sqlite.db" type:NNTDirectoryTypeBundleWritable];
     DBMSqlDatatable *dt = [sqlite exec_ansi:"create table if not exists test (id int)"];
     
     NSString *str = @"";
@@ -43,7 +44,7 @@ NNTAPP_BEGIN_OBJC
 }
 
 - (void)testBdb {
-    WSIBdb *bdb = [[WSIBdb alloc] initWith:@"bdb.db" type:WSIDirectoryTypeBundle];
+    NNTBdb *bdb = [[NNTBdb alloc] initWith:@"bdb.db" type:NNTDirectoryTypeBundle];
     
     NSString *key = @"key", *val = @"val";
     NSData *dk = [key dataUsingEncoding:NSUTF8StringEncoding];
@@ -80,14 +81,15 @@ NNTAPP_BEGIN_OBJC
 }
 
 - (void)testBdbCxx {
-    ::wsi::store::test::Bdb bdb;
-    ::wsi::ut::Suite suit;
+    NNT_USINGCXXNAMESPACE;
+    store::test::Bdb bdb;
+    ut::Suite suit;
     suit.add(&bdb);
     suit.run();
 }
 
 - (void)testLevelDb {
-    WSILevelDB *ldb = [[WSILevelDB alloc] initWith:@"leveldb.db" type:WSIDirectoryTypeBundle];
+    NNTLevelDB *ldb = [[NNTLevelDB alloc] initWith:@"leveldb.db" type:NNTDirectoryTypeBundle];
     
     NSString *key = @"key", *val = @"val";
     NSData *dk = [key dataUsingEncoding:NSUTF8StringEncoding];
@@ -123,11 +125,44 @@ NNTAPP_BEGIN_OBJC
     trace_msg(str);
 }
 
+- (void)testSqliteArchive {
+    NSSqliteArchive* sq = [[NSSqliteArchive alloc] initWithDbname:@"test"];
+    NSArray* arr = [NSArray arrayWithObjects:
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"xiao a", @"name", @1, @"id", @1.12, @"value", nil],
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"xiao b", @"name", @2, @"id", @0.56, @"value", nil],
+                    [NSDictionary dictionaryWithObjectsAndKeys:@"xiao c", @"name", @3, @"id", @1.00, @"value", nil],
+                    nil];
+    // archive.
+    [sq archive:arr];
+    
+    // unarchive.
+    arr = [sq unarchive];
+    
+    // query.
+    NSDictionary* item = [NSDictionary dictionaryWithKey:@"name" forObj:@"xiao a"];
+    item = [sq query:item];
+    
+    // update.
+    item = [NSDictionary dictionaryWithKey:@"name" forObj:@"xiao b"];
+    NSDictionary* tgt = [NSDictionary dictionaryWithObjectsAndKeys:@"xiao b", @"name", @4, @"id", @9.99, @"value", nil];
+    [sq update:item forData:tgt];
+    
+    // delete.
+    item = [NSDictionary dictionaryWithKey:@"name" forObj:@"xiao c"];
+    [sq delete:item];
+    
+    // add.
+    item = [NSDictionary dictionaryWithObjectsAndKeys:@"xiao d", @"name", @9, @"id", @1.00, @"value", nil];
+    [sq insert:item];
+    
+    [sq release];
+}
+
 - (void)loadView {
-    WSIUIView *view = [[WSIUIView alloc] initWithFrame:CGRectZero];
+    NNTUIView *view = [[NNTUIView alloc] initWithFrame:CGRectZero];
     view.needAssistantView = YES;
     view.identity = @"demo::assistant";
-    WSIUIView *ass = [[WSIUIView alloc] initWithFrame:CGRectZero];
+    NNTUIView *ass = [[NNTUIView alloc] initWithFrame:CGRectZero];
     ass.backgroundColor = [UIColor redColor];
     [view setAssistantView:ass];
     [ass release];
@@ -135,10 +170,12 @@ NNTAPP_BEGIN_OBJC
     [view release];
 }
 
-- (void)viewIsLoading {    
-    WSIUIButton *button = nil;
+- (void)viewIsLoading {
+    NNT_USINGCXXNAMESPACE;
     
-    wsi::CGRectLayoutVBox lyt(CGRectMake(0, 0, 200, 200));
+    NNTUIButton *button = nil;
+    
+    CGRectLayoutVBox lyt(CGRectMake(0, 0, 200, 500));
     
     button = [UIBevelButton button];
     [button setTitle:@"SQLite" forState:UIControlStateNormal];
@@ -162,6 +199,12 @@ NNTAPP_BEGIN_OBJC
     [button setTitle:@"LevelDB" forState:UIControlStateNormal];
     button.frame = lyt.add_pixel(25);
     [button connect:kSignalViewClicked sel:@selector(testLevelDb) obj:self];
+    [self.view addSubview:button];
+    
+    button = [UIBevelButton button];
+    [button setTitle:@"SqliteArchive" forState:UIControlStateNormal];
+    button.frame = lyt.add_pixel(25);
+    [button connect:kSignalViewClicked sel:@selector(testSqliteArchive) obj:self];
     [self.view addSubview:button];
 }
 
