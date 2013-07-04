@@ -407,7 +407,7 @@ struct thread_object
     void* param;
 };
 
-void* SampleThread(void* obj)
+static void* SampleThread(void* obj)
 {
     thread_object* pam = (thread_object*)obj;
     

@@ -34,31 +34,6 @@ public:
     
 };
 
-NNT_BEGIN_NS(test)
-
-class Oracle
-: public ut::Case
-{
-public:
-    
-    Oracle() : ut::Case("ORACLE") {}
-    
-    virtual bool prepare();
-    virtual void collect();
-    virtual bool run();
-    
-public:
-    
-    connection_info cntinfo;
-    
-protected:
-    
-    store::Oracle* _ora;
-    
-};
-
-NNT_END_NS
-
 NNT_END_NS
 NNT_END_HEADER_CXX
 

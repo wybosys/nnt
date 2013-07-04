@@ -89,8 +89,6 @@
 		162BA6D9150DF15600F33E1D /* AlphabetFlow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162BA6D8150DF15600F33E1D /* AlphabetFlow.cpp */; };
 		162F6DD7177BD2F30074229E /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD6177BD2F30074229E /* AudioPlayer.cpp */; };
 		162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */; };
-		162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F6DD9177BD7B90074229E /* OpenAL+NNT.h */; };
-		162F6DDD177C0D880074229E /* IoStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F6DDC177C0D880074229E /* IoStream.h */; };
 		1630A7FB171BFC1400B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F7171BFC1400B318A9 /* CmdArguments.cpp */; };
 		1630A7FD171BFC1400B318A9 /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7F9171BFC1400B318A9 /* NetAddress.cpp */; };
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
@@ -118,7 +116,6 @@
 		1648F89B1587288600A47990 /* NSStyleString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1648F89A1587288600A47990 /* NSStyleString.mm */; };
 		1648F89D1587299100A47990 /* libgif.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1648F89C1587299100A47990 /* libgif.a */; };
 		164EFDB214F4D456005FEDD8 /* Bdb+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164EFDB114F4D456005FEDD8 /* Bdb+NNT.cpp */; };
-		164F23A41457D5C300396C42 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 164F23A31457D5C300396C42 /* libsqlite3.dylib */; };
 		164F24021457E2A300396C42 /* UITheme.mm in Sources */ = {isa = PBXBuildFile; fileRef = 164F24001457E2A300396C42 /* UITheme.mm */; };
 		16567ACE1509E6FE00ED2545 /* libpq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16567ACD1509E6FE00ED2545 /* libpq.a */; };
 		16567AD01509F4D600ED2545 /* DBMSqlAbstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16567ACF1509F4D500ED2545 /* DBMSqlAbstract.cpp */; };
@@ -392,6 +389,80 @@
 		16B09D90176EE28200B39F81 /* MicRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D8C176EE28200B39F81 /* MicRecorder.mm */; };
 		16B09D96176EE37100B39F81 /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B09D94176EE37100B39F81 /* AudioFile.cpp */; };
 		16BA0A0A1547C9570069968D /* DBMSOdbc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BA0A081547C9570069968D /* DBMSOdbc.cpp */; };
+		16C1DA34178536CB000ACD9F /* NSSqliteArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA30178536CB000ACD9F /* NSSqliteArchive.mm */; };
+		16C1DA3B17853926000ACD9F /* sqlite3+nnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA3917853926000ACD9F /* sqlite3+nnt.c */; };
+		16C1DA3D17853DB7000ACD9F /* btree.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA3C17853DB7000ACD9F /* btree.c */; };
+		16C1DA3F17853DFB000ACD9F /* pager.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA3E17853DFB000ACD9F /* pager.c */; };
+		16C1DA4117853E25000ACD9F /* backup.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4017853E25000ACD9F /* backup.c */; };
+		16C1DA4317853E6D000ACD9F /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4217853E6D000ACD9F /* util.c */; };
+		16C1DA4517853E9B000ACD9F /* bitvec.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4417853E9B000ACD9F /* bitvec.c */; };
+		16C1DA4717853EC9000ACD9F /* malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4617853EC9000ACD9F /* malloc.c */; };
+		16C1DA4917853F30000ACD9F /* wal.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4817853F30000ACD9F /* wal.c */; };
+		16C1DA4B17853F5E000ACD9F /* vdbe.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4A17853F5E000ACD9F /* vdbe.c */; };
+		16C1DA8C17853FA1000ACD9F /* alter.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4C17853F9F000ACD9F /* alter.c */; };
+		16C1DA8D17853FA1000ACD9F /* analyze.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4D17853F9F000ACD9F /* analyze.c */; };
+		16C1DA8E17853FA1000ACD9F /* attach.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4E17853F9F000ACD9F /* attach.c */; };
+		16C1DA8F17853FA1000ACD9F /* auth.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA4F17853F9F000ACD9F /* auth.c */; };
+		16C1DA9017853FA1000ACD9F /* btmutex.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5017853F9F000ACD9F /* btmutex.c */; };
+		16C1DA9117853FA1000ACD9F /* build.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5117853F9F000ACD9F /* build.c */; };
+		16C1DA9217853FA1000ACD9F /* callback.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5217853F9F000ACD9F /* callback.c */; };
+		16C1DA9317853FA1000ACD9F /* complete.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5317853F9F000ACD9F /* complete.c */; };
+		16C1DA9417853FA1000ACD9F /* ctime.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5417853F9F000ACD9F /* ctime.c */; };
+		16C1DA9517853FA1000ACD9F /* date.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5517853F9F000ACD9F /* date.c */; };
+		16C1DA9617853FA1000ACD9F /* delete.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5617853FA0000ACD9F /* delete.c */; };
+		16C1DA9717853FA1000ACD9F /* expr.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5717853FA0000ACD9F /* expr.c */; };
+		16C1DA9817853FA1000ACD9F /* fault.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5817853FA0000ACD9F /* fault.c */; };
+		16C1DA9917853FA1000ACD9F /* fkey.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5917853FA0000ACD9F /* fkey.c */; };
+		16C1DA9A17853FA1000ACD9F /* func.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5A17853FA0000ACD9F /* func.c */; };
+		16C1DA9B17853FA1000ACD9F /* global.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5B17853FA0000ACD9F /* global.c */; };
+		16C1DA9C17853FA1000ACD9F /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5C17853FA0000ACD9F /* hash.c */; };
+		16C1DA9D17853FA1000ACD9F /* insert.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5D17853FA0000ACD9F /* insert.c */; };
+		16C1DA9E17853FA1000ACD9F /* journal.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5E17853FA0000ACD9F /* journal.c */; };
+		16C1DA9F17853FA1000ACD9F /* legacy.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA5F17853FA0000ACD9F /* legacy.c */; };
+		16C1DAA117853FA1000ACD9F /* loadext.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6117853FA0000ACD9F /* loadext.c */; };
+		16C1DAA217853FA1000ACD9F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6217853FA0000ACD9F /* main.c */; };
+		16C1DAA317853FA1000ACD9F /* mem0.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6317853FA0000ACD9F /* mem0.c */; };
+		16C1DAA417853FA1000ACD9F /* mem1.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6417853FA0000ACD9F /* mem1.c */; };
+		16C1DAA517853FA1000ACD9F /* mem2.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6517853FA0000ACD9F /* mem2.c */; };
+		16C1DAA617853FA1000ACD9F /* mem3.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6617853FA0000ACD9F /* mem3.c */; };
+		16C1DAA717853FA1000ACD9F /* mem5.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6717853FA0000ACD9F /* mem5.c */; };
+		16C1DAA817853FA1000ACD9F /* memjournal.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6817853FA0000ACD9F /* memjournal.c */; };
+		16C1DAA917853FA1000ACD9F /* mutex_noop.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6917853FA0000ACD9F /* mutex_noop.c */; };
+		16C1DAAA17853FA1000ACD9F /* mutex_unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6A17853FA0000ACD9F /* mutex_unix.c */; };
+		16C1DAAB17853FA1000ACD9F /* mutex_w32.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6B17853FA0000ACD9F /* mutex_w32.c */; };
+		16C1DAAC17853FA1000ACD9F /* mutex.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6C17853FA0000ACD9F /* mutex.c */; };
+		16C1DAAD17853FA1000ACD9F /* notify.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6D17853FA0000ACD9F /* notify.c */; };
+		16C1DAAE17853FA1000ACD9F /* os_unix.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6E17853FA0000ACD9F /* os_unix.c */; };
+		16C1DAAF17853FA1000ACD9F /* os_win.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA6F17853FA0000ACD9F /* os_win.c */; };
+		16C1DAB017853FA1000ACD9F /* os.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7017853FA0000ACD9F /* os.c */; };
+		16C1DAB117853FA1000ACD9F /* pcache.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7117853FA0000ACD9F /* pcache.c */; };
+		16C1DAB217853FA1000ACD9F /* pcache1.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7217853FA0000ACD9F /* pcache1.c */; };
+		16C1DAB317853FA1000ACD9F /* pragma.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7317853FA0000ACD9F /* pragma.c */; };
+		16C1DAB417853FA1000ACD9F /* prepare.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7417853FA0000ACD9F /* prepare.c */; };
+		16C1DAB517853FA1000ACD9F /* printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7517853FA0000ACD9F /* printf.c */; };
+		16C1DAB617853FA1000ACD9F /* random.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7617853FA0000ACD9F /* random.c */; };
+		16C1DAB717853FA1000ACD9F /* resolve.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7717853FA0000ACD9F /* resolve.c */; };
+		16C1DAB817853FA1000ACD9F /* rowset.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7817853FA0000ACD9F /* rowset.c */; };
+		16C1DAB917853FA1000ACD9F /* select.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7917853FA0000ACD9F /* select.c */; };
+		16C1DABA17853FA1000ACD9F /* shell.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7A17853FA0000ACD9F /* shell.c */; };
+		16C1DABB17853FA1000ACD9F /* status.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7B17853FA0000ACD9F /* status.c */; };
+		16C1DABC17853FA1000ACD9F /* table.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7C17853FA0000ACD9F /* table.c */; };
+		16C1DABE17853FA1000ACD9F /* tokenize.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7E17853FA0000ACD9F /* tokenize.c */; };
+		16C1DABF17853FA1000ACD9F /* trigger.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA7F17853FA0000ACD9F /* trigger.c */; };
+		16C1DAC017853FA1000ACD9F /* update.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8017853FA0000ACD9F /* update.c */; };
+		16C1DAC117853FA1000ACD9F /* utf.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8117853FA0000ACD9F /* utf.c */; };
+		16C1DAC217853FA1000ACD9F /* vacuum.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8217853FA0000ACD9F /* vacuum.c */; };
+		16C1DAC317853FA1000ACD9F /* vdbeapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8317853FA1000ACD9F /* vdbeapi.c */; };
+		16C1DAC417853FA1000ACD9F /* vdbeaux.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8417853FA1000ACD9F /* vdbeaux.c */; };
+		16C1DAC517853FA1000ACD9F /* vdbeblob.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8517853FA1000ACD9F /* vdbeblob.c */; };
+		16C1DAC617853FA1000ACD9F /* vdbemem.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8617853FA1000ACD9F /* vdbemem.c */; };
+		16C1DAC717853FA1000ACD9F /* vdbesort.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8717853FA1000ACD9F /* vdbesort.c */; };
+		16C1DAC817853FA1000ACD9F /* vdbetrace.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8817853FA1000ACD9F /* vdbetrace.c */; };
+		16C1DAC917853FA1000ACD9F /* vtab.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8917853FA1000ACD9F /* vtab.c */; };
+		16C1DACA17853FA1000ACD9F /* walker.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8A17853FA1000ACD9F /* walker.c */; };
+		16C1DACB17853FA1000ACD9F /* where.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA8B17853FA1000ACD9F /* where.c */; };
+		16C1DAD017854020000ACD9F /* opcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DACD17854020000ACD9F /* opcodes.c */; };
+		16C1DAD117854020000ACD9F /* parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DACE17854020000ACD9F /* parse.c */; };
 		16C44CBF14A02D6100775B19 /* NSView+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBB14A02D6100775B19 /* NSView+NNT.mm */; };
 		16C44CC114A02D6100775B19 /* NSViewController+NNT.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C44CBD14A02D6100775B19 /* NSViewController+NNT.mm */; };
 		16CCEB391592FEF600A16A3C /* ACE+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CCEB371592FEF600A16A3C /* ACE+NNT.cpp */; };
@@ -796,7 +867,6 @@
 		1648F89A1587288600A47990 /* NSStyleString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSStyleString.mm; path = ../Classes/Core/NSStyleString.mm; sourceTree = "<group>"; };
 		1648F89C1587299100A47990 /* libgif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgif.a; path = ../lib/Mac/libgif.a; sourceTree = "<group>"; };
 		164EFDB114F4D456005FEDD8 /* Bdb+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Bdb+NNT.cpp"; path = "../Classes/Store/Bdb+NNT.cpp"; sourceTree = "<group>"; };
-		164F23A31457D5C300396C42 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		164F23FF1457E2A300396C42 /* UITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITheme.h; path = ../Classes/UIKit/UITheme.h; sourceTree = "<group>"; };
 		164F24001457E2A300396C42 /* UITheme.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UITheme.mm; path = ../Classes/UIKit/UITheme.mm; sourceTree = "<group>"; };
 		16567ACD1509E6FE00ED2545 /* libpq.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpq.a; path = ../lib/Mac/libpq.a; sourceTree = "<group>"; };
@@ -1237,6 +1307,81 @@
 		16B09D94176EE37100B39F81 /* AudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFile.cpp; sourceTree = "<group>"; };
 		16BA0A081547C9570069968D /* DBMSOdbc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DBMSOdbc.cpp; path = ../Classes/Store/DBMSOdbc.cpp; sourceTree = "<group>"; };
 		16BA0A091547C9570069968D /* DBMSOdbc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMSOdbc.h; path = ../Classes/Store/DBMSOdbc.h; sourceTree = "<group>"; };
+		16C1DA2F178536CB000ACD9F /* NSSqliteArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSSqliteArchive.h; path = ../Classes/Store/NSSqliteArchive.h; sourceTree = "<group>"; };
+		16C1DA30178536CB000ACD9F /* NSSqliteArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSSqliteArchive.mm; path = ../Classes/Store/NSSqliteArchive.mm; sourceTree = "<group>"; };
+		16C1DA3917853926000ACD9F /* sqlite3+nnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sqlite3+nnt.c"; path = "../contrib/sqlite/sqlite3+nnt.c"; sourceTree = "<group>"; };
+		16C1DA3C17853DB7000ACD9F /* btree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = btree.c; path = ../contrib/sqlite/btree.c; sourceTree = "<group>"; };
+		16C1DA3E17853DFB000ACD9F /* pager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pager.c; path = ../contrib/sqlite/pager.c; sourceTree = "<group>"; };
+		16C1DA4017853E25000ACD9F /* backup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = backup.c; path = ../contrib/sqlite/backup.c; sourceTree = "<group>"; };
+		16C1DA4217853E6D000ACD9F /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = ../contrib/sqlite/util.c; sourceTree = "<group>"; };
+		16C1DA4417853E9B000ACD9F /* bitvec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitvec.c; path = ../contrib/sqlite/bitvec.c; sourceTree = "<group>"; };
+		16C1DA4617853EC9000ACD9F /* malloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = malloc.c; path = ../contrib/sqlite/malloc.c; sourceTree = "<group>"; };
+		16C1DA4817853F30000ACD9F /* wal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wal.c; path = ../contrib/sqlite/wal.c; sourceTree = "<group>"; };
+		16C1DA4A17853F5E000ACD9F /* vdbe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbe.c; path = ../contrib/sqlite/vdbe.c; sourceTree = "<group>"; };
+		16C1DA4C17853F9F000ACD9F /* alter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = alter.c; path = ../contrib/sqlite/alter.c; sourceTree = "<group>"; };
+		16C1DA4D17853F9F000ACD9F /* analyze.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = analyze.c; path = ../contrib/sqlite/analyze.c; sourceTree = "<group>"; };
+		16C1DA4E17853F9F000ACD9F /* attach.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = attach.c; path = ../contrib/sqlite/attach.c; sourceTree = "<group>"; };
+		16C1DA4F17853F9F000ACD9F /* auth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = auth.c; path = ../contrib/sqlite/auth.c; sourceTree = "<group>"; };
+		16C1DA5017853F9F000ACD9F /* btmutex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = btmutex.c; path = ../contrib/sqlite/btmutex.c; sourceTree = "<group>"; };
+		16C1DA5117853F9F000ACD9F /* build.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = build.c; path = ../contrib/sqlite/build.c; sourceTree = "<group>"; };
+		16C1DA5217853F9F000ACD9F /* callback.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = callback.c; path = ../contrib/sqlite/callback.c; sourceTree = "<group>"; };
+		16C1DA5317853F9F000ACD9F /* complete.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = complete.c; path = ../contrib/sqlite/complete.c; sourceTree = "<group>"; };
+		16C1DA5417853F9F000ACD9F /* ctime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ctime.c; path = ../contrib/sqlite/ctime.c; sourceTree = "<group>"; };
+		16C1DA5517853F9F000ACD9F /* date.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = date.c; path = ../contrib/sqlite/date.c; sourceTree = "<group>"; };
+		16C1DA5617853FA0000ACD9F /* delete.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = delete.c; path = ../contrib/sqlite/delete.c; sourceTree = "<group>"; };
+		16C1DA5717853FA0000ACD9F /* expr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = expr.c; path = ../contrib/sqlite/expr.c; sourceTree = "<group>"; };
+		16C1DA5817853FA0000ACD9F /* fault.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fault.c; path = ../contrib/sqlite/fault.c; sourceTree = "<group>"; };
+		16C1DA5917853FA0000ACD9F /* fkey.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fkey.c; path = ../contrib/sqlite/fkey.c; sourceTree = "<group>"; };
+		16C1DA5A17853FA0000ACD9F /* func.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = func.c; path = ../contrib/sqlite/func.c; sourceTree = "<group>"; };
+		16C1DA5B17853FA0000ACD9F /* global.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = global.c; path = ../contrib/sqlite/global.c; sourceTree = "<group>"; };
+		16C1DA5C17853FA0000ACD9F /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hash.c; path = ../contrib/sqlite/hash.c; sourceTree = "<group>"; };
+		16C1DA5D17853FA0000ACD9F /* insert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = insert.c; path = ../contrib/sqlite/insert.c; sourceTree = "<group>"; };
+		16C1DA5E17853FA0000ACD9F /* journal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = journal.c; path = ../contrib/sqlite/journal.c; sourceTree = "<group>"; };
+		16C1DA5F17853FA0000ACD9F /* legacy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = legacy.c; path = ../contrib/sqlite/legacy.c; sourceTree = "<group>"; };
+		16C1DA6117853FA0000ACD9F /* loadext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = loadext.c; path = ../contrib/sqlite/loadext.c; sourceTree = "<group>"; };
+		16C1DA6217853FA0000ACD9F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../contrib/sqlite/main.c; sourceTree = "<group>"; };
+		16C1DA6317853FA0000ACD9F /* mem0.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem0.c; path = ../contrib/sqlite/mem0.c; sourceTree = "<group>"; };
+		16C1DA6417853FA0000ACD9F /* mem1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem1.c; path = ../contrib/sqlite/mem1.c; sourceTree = "<group>"; };
+		16C1DA6517853FA0000ACD9F /* mem2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem2.c; path = ../contrib/sqlite/mem2.c; sourceTree = "<group>"; };
+		16C1DA6617853FA0000ACD9F /* mem3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem3.c; path = ../contrib/sqlite/mem3.c; sourceTree = "<group>"; };
+		16C1DA6717853FA0000ACD9F /* mem5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem5.c; path = ../contrib/sqlite/mem5.c; sourceTree = "<group>"; };
+		16C1DA6817853FA0000ACD9F /* memjournal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = memjournal.c; path = ../contrib/sqlite/memjournal.c; sourceTree = "<group>"; };
+		16C1DA6917853FA0000ACD9F /* mutex_noop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mutex_noop.c; path = ../contrib/sqlite/mutex_noop.c; sourceTree = "<group>"; };
+		16C1DA6A17853FA0000ACD9F /* mutex_unix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mutex_unix.c; path = ../contrib/sqlite/mutex_unix.c; sourceTree = "<group>"; };
+		16C1DA6B17853FA0000ACD9F /* mutex_w32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mutex_w32.c; path = ../contrib/sqlite/mutex_w32.c; sourceTree = "<group>"; };
+		16C1DA6C17853FA0000ACD9F /* mutex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mutex.c; path = ../contrib/sqlite/mutex.c; sourceTree = "<group>"; };
+		16C1DA6D17853FA0000ACD9F /* notify.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = notify.c; path = ../contrib/sqlite/notify.c; sourceTree = "<group>"; };
+		16C1DA6E17853FA0000ACD9F /* os_unix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = os_unix.c; path = ../contrib/sqlite/os_unix.c; sourceTree = "<group>"; };
+		16C1DA6F17853FA0000ACD9F /* os_win.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = os_win.c; path = ../contrib/sqlite/os_win.c; sourceTree = "<group>"; };
+		16C1DA7017853FA0000ACD9F /* os.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = os.c; path = ../contrib/sqlite/os.c; sourceTree = "<group>"; };
+		16C1DA7117853FA0000ACD9F /* pcache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pcache.c; path = ../contrib/sqlite/pcache.c; sourceTree = "<group>"; };
+		16C1DA7217853FA0000ACD9F /* pcache1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pcache1.c; path = ../contrib/sqlite/pcache1.c; sourceTree = "<group>"; };
+		16C1DA7317853FA0000ACD9F /* pragma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pragma.c; path = ../contrib/sqlite/pragma.c; sourceTree = "<group>"; };
+		16C1DA7417853FA0000ACD9F /* prepare.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prepare.c; path = ../contrib/sqlite/prepare.c; sourceTree = "<group>"; };
+		16C1DA7517853FA0000ACD9F /* printf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = printf.c; path = ../contrib/sqlite/printf.c; sourceTree = "<group>"; };
+		16C1DA7617853FA0000ACD9F /* random.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = random.c; path = ../contrib/sqlite/random.c; sourceTree = "<group>"; };
+		16C1DA7717853FA0000ACD9F /* resolve.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = resolve.c; path = ../contrib/sqlite/resolve.c; sourceTree = "<group>"; };
+		16C1DA7817853FA0000ACD9F /* rowset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rowset.c; path = ../contrib/sqlite/rowset.c; sourceTree = "<group>"; };
+		16C1DA7917853FA0000ACD9F /* select.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = select.c; path = ../contrib/sqlite/select.c; sourceTree = "<group>"; };
+		16C1DA7A17853FA0000ACD9F /* shell.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = shell.c; path = ../contrib/sqlite/shell.c; sourceTree = "<group>"; };
+		16C1DA7B17853FA0000ACD9F /* status.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = status.c; path = ../contrib/sqlite/status.c; sourceTree = "<group>"; };
+		16C1DA7C17853FA0000ACD9F /* table.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = table.c; path = ../contrib/sqlite/table.c; sourceTree = "<group>"; };
+		16C1DA7E17853FA0000ACD9F /* tokenize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tokenize.c; path = ../contrib/sqlite/tokenize.c; sourceTree = "<group>"; };
+		16C1DA7F17853FA0000ACD9F /* trigger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = trigger.c; path = ../contrib/sqlite/trigger.c; sourceTree = "<group>"; };
+		16C1DA8017853FA0000ACD9F /* update.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = update.c; path = ../contrib/sqlite/update.c; sourceTree = "<group>"; };
+		16C1DA8117853FA0000ACD9F /* utf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = utf.c; path = ../contrib/sqlite/utf.c; sourceTree = "<group>"; };
+		16C1DA8217853FA0000ACD9F /* vacuum.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vacuum.c; path = ../contrib/sqlite/vacuum.c; sourceTree = "<group>"; };
+		16C1DA8317853FA1000ACD9F /* vdbeapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbeapi.c; path = ../contrib/sqlite/vdbeapi.c; sourceTree = "<group>"; };
+		16C1DA8417853FA1000ACD9F /* vdbeaux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbeaux.c; path = ../contrib/sqlite/vdbeaux.c; sourceTree = "<group>"; };
+		16C1DA8517853FA1000ACD9F /* vdbeblob.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbeblob.c; path = ../contrib/sqlite/vdbeblob.c; sourceTree = "<group>"; };
+		16C1DA8617853FA1000ACD9F /* vdbemem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbemem.c; path = ../contrib/sqlite/vdbemem.c; sourceTree = "<group>"; };
+		16C1DA8717853FA1000ACD9F /* vdbesort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbesort.c; path = ../contrib/sqlite/vdbesort.c; sourceTree = "<group>"; };
+		16C1DA8817853FA1000ACD9F /* vdbetrace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vdbetrace.c; path = ../contrib/sqlite/vdbetrace.c; sourceTree = "<group>"; };
+		16C1DA8917853FA1000ACD9F /* vtab.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vtab.c; path = ../contrib/sqlite/vtab.c; sourceTree = "<group>"; };
+		16C1DA8A17853FA1000ACD9F /* walker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = walker.c; path = ../contrib/sqlite/walker.c; sourceTree = "<group>"; };
+		16C1DA8B17853FA1000ACD9F /* where.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = where.c; path = ../contrib/sqlite/where.c; sourceTree = "<group>"; };
+		16C1DACD17854020000ACD9F /* opcodes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opcodes.c; path = ../contrib/sqlite/opcodes.c; sourceTree = "<group>"; };
+		16C1DACE17854020000ACD9F /* parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parse.c; path = ../contrib/sqlite/parse.c; sourceTree = "<group>"; };
 		16C44CBA14A02D6100775B19 /* NSView+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+NNT.h"; path = "../Classes/UIKit/NSView+NNT.h"; sourceTree = "<group>"; };
 		16C44CBB14A02D6100775B19 /* NSView+NNT.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSView+NNT.mm"; path = "../Classes/UIKit/NSView+NNT.mm"; sourceTree = "<group>"; };
 		16C44CBC14A02D6100775B19 /* NSViewController+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSViewController+NNT.h"; path = "../Classes/UIKit/NSViewController+NNT.h"; sourceTree = "<group>"; };
@@ -1728,7 +1873,6 @@
 				16D2DD051524347500E72C06 /* libicudata.a in Frameworks */,
 				16D2DD011524345200E72C06 /* libicuuc.a in Frameworks */,
 				1675ACFD1515D53D0046A630 /* libsmbclient.dylib in Frameworks */,
-				164F23A41457D5C300396C42 /* libsqlite3.dylib in Frameworks */,
 				162BA6CE150DE59300F33E1D /* libxerces-c.a in Frameworks */,
 				16567ACE1509E6FE00ED2545 /* libpq.a in Frameworks */,
 				16DCE94E1509A260003C48F9 /* libiconv.dylib in Frameworks */,
@@ -2413,7 +2557,6 @@
 				16DD17F1150472380053958F /* libuuid.a */,
 				16A44AE7149F15E800DF7F82 /* libz.dylib */,
 				16A449EF149F133800DF7F82 /* libxml2.dylib */,
-				164F23A31457D5C300396C42 /* libsqlite3.dylib */,
 				16DCE94D1509A260003C48F9 /* libiconv.dylib */,
 				16DCE94A1509A246003C48F9 /* libsybdb.a */,
 				169DD1161457A239000A9889 /* Cocoa.framework */,
@@ -2648,6 +2791,8 @@
 				16BA0A091547C9570069968D /* DBMSOdbc.h */,
 				16D3D2D9153FB2F7003A33CE /* Logger+NNT.cpp */,
 				16D3D2DA153FB2F7003A33CE /* Logger+NNT.h */,
+				16C1DA2F178536CB000ACD9F /* NSSqliteArchive.h */,
+				16C1DA30178536CB000ACD9F /* NSSqliteArchive.mm */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -2813,6 +2958,86 @@
 			);
 			name = apple.prv;
 			path = ../Classes/Drivers/apple.prv;
+			sourceTree = "<group>";
+		};
+		16C1DA3717853916000ACD9F /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				16C1DACD17854020000ACD9F /* opcodes.c */,
+				16C1DACE17854020000ACD9F /* parse.c */,
+				16C1DA4C17853F9F000ACD9F /* alter.c */,
+				16C1DA4D17853F9F000ACD9F /* analyze.c */,
+				16C1DA4E17853F9F000ACD9F /* attach.c */,
+				16C1DA4F17853F9F000ACD9F /* auth.c */,
+				16C1DA5017853F9F000ACD9F /* btmutex.c */,
+				16C1DA5117853F9F000ACD9F /* build.c */,
+				16C1DA5217853F9F000ACD9F /* callback.c */,
+				16C1DA5317853F9F000ACD9F /* complete.c */,
+				16C1DA5417853F9F000ACD9F /* ctime.c */,
+				16C1DA5517853F9F000ACD9F /* date.c */,
+				16C1DA5617853FA0000ACD9F /* delete.c */,
+				16C1DA5717853FA0000ACD9F /* expr.c */,
+				16C1DA5817853FA0000ACD9F /* fault.c */,
+				16C1DA5917853FA0000ACD9F /* fkey.c */,
+				16C1DA5A17853FA0000ACD9F /* func.c */,
+				16C1DA5B17853FA0000ACD9F /* global.c */,
+				16C1DA5C17853FA0000ACD9F /* hash.c */,
+				16C1DA5D17853FA0000ACD9F /* insert.c */,
+				16C1DA5E17853FA0000ACD9F /* journal.c */,
+				16C1DA5F17853FA0000ACD9F /* legacy.c */,
+				16C1DA6117853FA0000ACD9F /* loadext.c */,
+				16C1DA6217853FA0000ACD9F /* main.c */,
+				16C1DA6317853FA0000ACD9F /* mem0.c */,
+				16C1DA6417853FA0000ACD9F /* mem1.c */,
+				16C1DA6517853FA0000ACD9F /* mem2.c */,
+				16C1DA6617853FA0000ACD9F /* mem3.c */,
+				16C1DA6717853FA0000ACD9F /* mem5.c */,
+				16C1DA6817853FA0000ACD9F /* memjournal.c */,
+				16C1DA6917853FA0000ACD9F /* mutex_noop.c */,
+				16C1DA6A17853FA0000ACD9F /* mutex_unix.c */,
+				16C1DA6B17853FA0000ACD9F /* mutex_w32.c */,
+				16C1DA6C17853FA0000ACD9F /* mutex.c */,
+				16C1DA6D17853FA0000ACD9F /* notify.c */,
+				16C1DA6E17853FA0000ACD9F /* os_unix.c */,
+				16C1DA6F17853FA0000ACD9F /* os_win.c */,
+				16C1DA7017853FA0000ACD9F /* os.c */,
+				16C1DA7117853FA0000ACD9F /* pcache.c */,
+				16C1DA7217853FA0000ACD9F /* pcache1.c */,
+				16C1DA7317853FA0000ACD9F /* pragma.c */,
+				16C1DA7417853FA0000ACD9F /* prepare.c */,
+				16C1DA7517853FA0000ACD9F /* printf.c */,
+				16C1DA7617853FA0000ACD9F /* random.c */,
+				16C1DA7717853FA0000ACD9F /* resolve.c */,
+				16C1DA7817853FA0000ACD9F /* rowset.c */,
+				16C1DA7917853FA0000ACD9F /* select.c */,
+				16C1DA7A17853FA0000ACD9F /* shell.c */,
+				16C1DA7B17853FA0000ACD9F /* status.c */,
+				16C1DA7C17853FA0000ACD9F /* table.c */,
+				16C1DA7E17853FA0000ACD9F /* tokenize.c */,
+				16C1DA7F17853FA0000ACD9F /* trigger.c */,
+				16C1DA8017853FA0000ACD9F /* update.c */,
+				16C1DA8117853FA0000ACD9F /* utf.c */,
+				16C1DA8217853FA0000ACD9F /* vacuum.c */,
+				16C1DA8317853FA1000ACD9F /* vdbeapi.c */,
+				16C1DA8417853FA1000ACD9F /* vdbeaux.c */,
+				16C1DA8517853FA1000ACD9F /* vdbeblob.c */,
+				16C1DA8617853FA1000ACD9F /* vdbemem.c */,
+				16C1DA8717853FA1000ACD9F /* vdbesort.c */,
+				16C1DA8817853FA1000ACD9F /* vdbetrace.c */,
+				16C1DA8917853FA1000ACD9F /* vtab.c */,
+				16C1DA8A17853FA1000ACD9F /* walker.c */,
+				16C1DA8B17853FA1000ACD9F /* where.c */,
+				16C1DA4A17853F5E000ACD9F /* vdbe.c */,
+				16C1DA4817853F30000ACD9F /* wal.c */,
+				16C1DA4617853EC9000ACD9F /* malloc.c */,
+				16C1DA4417853E9B000ACD9F /* bitvec.c */,
+				16C1DA4217853E6D000ACD9F /* util.c */,
+				16C1DA3E17853DFB000ACD9F /* pager.c */,
+				16C1DA4017853E25000ACD9F /* backup.c */,
+				16C1DA3C17853DB7000ACD9F /* btree.c */,
+				16C1DA3917853926000ACD9F /* sqlite3+nnt.c */,
+			);
+			name = sqlite;
 			sourceTree = "<group>";
 		};
 		16CCEB361592FEF600A16A3C /* ace */ = {
@@ -3198,6 +3423,7 @@
 		16DD17E5150471B10053958F /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				16C1DA3717853916000ACD9F /* sqlite */,
 				168DD6F8177811C6004B0D30 /* json */,
 				16DEB6C41772AC0E0086591F /* yaml */,
 				164093B7176EFFF20032E1FF /* openvp */,
@@ -3463,8 +3689,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				162F6DDB177BD7B90074229E /* OpenAL+NNT.h in Headers */,
-				162F6DDD177C0D880074229E /* IoStream.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4050,6 +4274,80 @@
 				168DD706177811DC004B0D30 /* printbuf.c in Sources */,
 				162F6DD7177BD2F30074229E /* AudioPlayer.cpp in Sources */,
 				162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */,
+				16C1DA34178536CB000ACD9F /* NSSqliteArchive.mm in Sources */,
+				16C1DA3B17853926000ACD9F /* sqlite3+nnt.c in Sources */,
+				16C1DA3D17853DB7000ACD9F /* btree.c in Sources */,
+				16C1DA3F17853DFB000ACD9F /* pager.c in Sources */,
+				16C1DA4117853E25000ACD9F /* backup.c in Sources */,
+				16C1DA4317853E6D000ACD9F /* util.c in Sources */,
+				16C1DA4517853E9B000ACD9F /* bitvec.c in Sources */,
+				16C1DA4717853EC9000ACD9F /* malloc.c in Sources */,
+				16C1DA4917853F30000ACD9F /* wal.c in Sources */,
+				16C1DA4B17853F5E000ACD9F /* vdbe.c in Sources */,
+				16C1DA8C17853FA1000ACD9F /* alter.c in Sources */,
+				16C1DA8D17853FA1000ACD9F /* analyze.c in Sources */,
+				16C1DA8E17853FA1000ACD9F /* attach.c in Sources */,
+				16C1DA8F17853FA1000ACD9F /* auth.c in Sources */,
+				16C1DA9017853FA1000ACD9F /* btmutex.c in Sources */,
+				16C1DA9117853FA1000ACD9F /* build.c in Sources */,
+				16C1DA9217853FA1000ACD9F /* callback.c in Sources */,
+				16C1DA9317853FA1000ACD9F /* complete.c in Sources */,
+				16C1DA9417853FA1000ACD9F /* ctime.c in Sources */,
+				16C1DA9517853FA1000ACD9F /* date.c in Sources */,
+				16C1DA9617853FA1000ACD9F /* delete.c in Sources */,
+				16C1DA9717853FA1000ACD9F /* expr.c in Sources */,
+				16C1DA9817853FA1000ACD9F /* fault.c in Sources */,
+				16C1DA9917853FA1000ACD9F /* fkey.c in Sources */,
+				16C1DA9A17853FA1000ACD9F /* func.c in Sources */,
+				16C1DA9B17853FA1000ACD9F /* global.c in Sources */,
+				16C1DA9C17853FA1000ACD9F /* hash.c in Sources */,
+				16C1DA9D17853FA1000ACD9F /* insert.c in Sources */,
+				16C1DA9E17853FA1000ACD9F /* journal.c in Sources */,
+				16C1DA9F17853FA1000ACD9F /* legacy.c in Sources */,
+				16C1DAA117853FA1000ACD9F /* loadext.c in Sources */,
+				16C1DAA217853FA1000ACD9F /* main.c in Sources */,
+				16C1DAA317853FA1000ACD9F /* mem0.c in Sources */,
+				16C1DAA417853FA1000ACD9F /* mem1.c in Sources */,
+				16C1DAA517853FA1000ACD9F /* mem2.c in Sources */,
+				16C1DAA617853FA1000ACD9F /* mem3.c in Sources */,
+				16C1DAA717853FA1000ACD9F /* mem5.c in Sources */,
+				16C1DAA817853FA1000ACD9F /* memjournal.c in Sources */,
+				16C1DAA917853FA1000ACD9F /* mutex_noop.c in Sources */,
+				16C1DAAA17853FA1000ACD9F /* mutex_unix.c in Sources */,
+				16C1DAAB17853FA1000ACD9F /* mutex_w32.c in Sources */,
+				16C1DAAC17853FA1000ACD9F /* mutex.c in Sources */,
+				16C1DAAD17853FA1000ACD9F /* notify.c in Sources */,
+				16C1DAAE17853FA1000ACD9F /* os_unix.c in Sources */,
+				16C1DAAF17853FA1000ACD9F /* os_win.c in Sources */,
+				16C1DAB017853FA1000ACD9F /* os.c in Sources */,
+				16C1DAB117853FA1000ACD9F /* pcache.c in Sources */,
+				16C1DAB217853FA1000ACD9F /* pcache1.c in Sources */,
+				16C1DAB317853FA1000ACD9F /* pragma.c in Sources */,
+				16C1DAB417853FA1000ACD9F /* prepare.c in Sources */,
+				16C1DAB517853FA1000ACD9F /* printf.c in Sources */,
+				16C1DAB617853FA1000ACD9F /* random.c in Sources */,
+				16C1DAB717853FA1000ACD9F /* resolve.c in Sources */,
+				16C1DAB817853FA1000ACD9F /* rowset.c in Sources */,
+				16C1DAB917853FA1000ACD9F /* select.c in Sources */,
+				16C1DABA17853FA1000ACD9F /* shell.c in Sources */,
+				16C1DABB17853FA1000ACD9F /* status.c in Sources */,
+				16C1DABC17853FA1000ACD9F /* table.c in Sources */,
+				16C1DABE17853FA1000ACD9F /* tokenize.c in Sources */,
+				16C1DABF17853FA1000ACD9F /* trigger.c in Sources */,
+				16C1DAC017853FA1000ACD9F /* update.c in Sources */,
+				16C1DAC117853FA1000ACD9F /* utf.c in Sources */,
+				16C1DAC217853FA1000ACD9F /* vacuum.c in Sources */,
+				16C1DAC317853FA1000ACD9F /* vdbeapi.c in Sources */,
+				16C1DAC417853FA1000ACD9F /* vdbeaux.c in Sources */,
+				16C1DAC517853FA1000ACD9F /* vdbeblob.c in Sources */,
+				16C1DAC617853FA1000ACD9F /* vdbemem.c in Sources */,
+				16C1DAC717853FA1000ACD9F /* vdbesort.c in Sources */,
+				16C1DAC817853FA1000ACD9F /* vdbetrace.c in Sources */,
+				16C1DAC917853FA1000ACD9F /* vtab.c in Sources */,
+				16C1DACA17853FA1000ACD9F /* walker.c in Sources */,
+				16C1DACB17853FA1000ACD9F /* where.c in Sources */,
+				16C1DAD017854020000ACD9F /* opcodes.c in Sources */,
+				16C1DAD117854020000ACD9F /* parse.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

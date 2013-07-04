@@ -1,8 +1,12 @@
 
 # import "Core.h"
-# import <sqlite/sqlite3.h>
-//# import <sqlite/sqlite3ext.h>
+
+NNT_BEGIN_HEADER_C
+# include "../../contrib/sqlite/sqlite3.h"
+NNT_END_HEADER_C
+
 # import "NSSqliteArchive.h"
+# import "Directory+NNT.h"
 
 NNT_BEGIN_OBJC
 
@@ -18,6 +22,7 @@ NNT_BEGIN_OBJC
 @implementation NSSqliteArchive
 
 @synthesize sqlite = _db, tableName = _tablename;
+@dynamic cryptoKey;
 
 - (id)init {
     self = [super init];
@@ -91,6 +96,20 @@ NNT_BEGIN_OBJC
     }
     
     return self;
+}
+
+- (NSString*)cryptoKey {
+    return @"";
+}
+
+- (void)setCryptoKey:(NSString *)cryptoKey {
+    char const* key = [cryptoKey cStringUsingEncoding:NSUTF8StringEncoding];
+    int len = strlen(key);
+    if (len) {
+        sqlite3_rekey(_db, key, len);
+    } else {
+        sqlite3_rekey(_db, NULL, 0);
+    }
 }
 
 - (void)dropTable {

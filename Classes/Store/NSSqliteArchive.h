@@ -19,6 +19,7 @@ NNT_BEGIN_HEADER_OBJC
 
 @property (nonatomic, readonly) sqlite3* sqlite;
 @property (nonatomic, copy, readonly) NSString* tableName;
+@property (nonatomic, copy) NSString* cryptoKey;
 
 - (id)initWithDbname:(NSString*)name;
 - (id)initWithDbname:(NSString*)name tableName:(NSString*)table;

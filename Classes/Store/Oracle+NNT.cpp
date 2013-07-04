@@ -62,25 +62,5 @@ DBMSqlDatatable* Oracle::exec(const core::string &sql, const params_type &params
     return NULL;
 }
 
-NNT_BEGIN_NS(test)
-
-bool Oracle::prepare()
-{
-    _ora = new store::Oracle;
-    return true;
-}
-
-void Oracle::collect()
-{
-    safe_delete(_ora);
-}
-
-bool Oracle::run()
-{
-    return true;
-}
-
-NNT_END_NS
-
 NNT_END_NS 
 NNT_END_CXX

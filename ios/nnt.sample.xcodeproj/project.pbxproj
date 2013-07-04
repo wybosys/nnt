@@ -1120,6 +1120,8 @@
 		16BF9BBB154A4899000BF0A5 /* GifParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BF9BB9154A4899000BF0A5 /* GifParser.m */; };
 		16BFE08A15EC6E2A0055874D /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE08815EC6E2A0055874D /* StateMachine.cpp */; };
 		16BFE08B15EC6E2A0055874D /* StateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BFE08915EC6E2A0055874D /* StateMachine.h */; };
+		16C1DA2A17852F8C000ACD9F /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA2917852F8C000ACD9F /* sqlite3.c */; };
+		16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */; };
 		16C230B51485D70D000F2E4A /* OALogin.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C230B31485D70D000F2E4A /* OALogin.h */; };
 		16C230B61485D70D000F2E4A /* OALogin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C230B41485D70D000F2E4A /* OALogin.mm */; };
 		16C230BA1485D714000F2E4A /* OAPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C230B81485D714000F2E4A /* OAPush.h */; };
@@ -2762,6 +2764,8 @@
 		16BF9BB9154A4899000BF0A5 /* GifParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifParser.m; sourceTree = "<group>"; };
 		16BFE08815EC6E2A0055874D /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		16BFE08915EC6E2A0055874D /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
+		16C1DA2917852F8C000ACD9F /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = ../contrib/sqlite/sqlite3.c; sourceTree = "<group>"; };
+		16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sqlite3+nnt.c"; path = "../contrib/sqlite/sqlite3+nnt.c"; sourceTree = "<group>"; };
 		16C230B31485D70D000F2E4A /* OALogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALogin.h; sourceTree = "<group>"; };
 		16C230B41485D70D000F2E4A /* OALogin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OALogin.mm; sourceTree = "<group>"; };
 		16C230B81485D714000F2E4A /* OAPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPush.h; sourceTree = "<group>"; };
@@ -3641,6 +3645,7 @@
 		16358B3114A07BF1005F06B5 /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				16C1DA2817852F7C000ACD9F /* sqlite */,
 				1612293E17796D7B00A97278 /* json */,
 				16AC1CEE16F2D07F00316206 /* mongoose */,
 				1693685E16F192860021909E /* ossp-uuid */,
@@ -4985,6 +4990,15 @@
 			);
 			name = giflib;
 			path = ../contrib/giflib;
+			sourceTree = "<group>";
+		};
+		16C1DA2817852F7C000ACD9F /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				16C1DA2917852F8C000ACD9F /* sqlite3.c */,
+				16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */,
+			);
+			name = sqlite;
 			sourceTree = "<group>";
 		};
 		16C2D8F314457F5D00CA6EDF /* UIKit */ = {
@@ -7356,6 +7370,8 @@
 				162F7206177D6AE50074229E /* MicDevice.mm in Sources */,
 				162F7207177D6AE50074229E /* VoiceObject.cpp in Sources */,
 				161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */,
+				16C1DA2A17852F8C000ACD9F /* sqlite3.c in Sources */,
+				16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

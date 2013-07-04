@@ -1,18 +1,17 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 
-# include <wsi/Store/WSISqlServer.h>
-# include <wsi/Store/WSIPostgreSql.h>
-# include <wsi/Store/WSIBdb.h>
-# include <wsi/Store/WSIMySql.h>
-# include <wsi/Store/WSISqlite.h>
-# include <wsi/Store/WSIOracle.h>
+# include <nnt/Store/SqlServer+NNT.h>
+# include <nnt/Store/PostgreSql+NNT.h>
+# include <nnt/Store/Bdb+NNT.h>
+# include <nnt/Store/MySql+NNT.h>
+# include <nnt/Store/Sqlite+NNT.h>
 
-# include <wsi/Store/ArchiveZip.h>
-# include <wsi/Store/ArchiveRAR.h>
-# include <wsi/Store/Archive7Z.h>
+# include <nnt/Store/ArchiveZip.h>
+# include <nnt/Store/ArchiveRAR.h>
+# include <nnt/Store/Archive7Z.h>
 
-using namespace wsi;
+NNT_USINGCXXNAMESPACE;
 
 static void test_database()
 {
@@ -142,15 +141,6 @@ static void test_database()
             trace_msg(dt->to_string());
             dt->drop();
         }
-    }
-    
-    // connect oracle.
-    if (1)
-    {
-        store::test::Oracle ora;
-        ut::Suite su;
-        su.add(&ora);
-        su.run();
     }
     
     // connect bdb.
