@@ -9,14 +9,22 @@ NNT_BEGIN_OBJC
 @interface _NSInteger : NSObject @end @implementation _NSInteger @end
 @interface _NSFloat : NSObject @end @implementation _NSFloat @end
 
+@interface NSSqliteArchive ()
+
+@property (nonatomic, copy) NSString* tableName;
+
+@end
+
 @implementation NSSqliteArchive
 
-@synthesize sqlite = _db;
+@synthesize sqlite = _db, tableName = _tablename;
 
 - (id)init {
     self = [super init];
     
     sqlite3_initialize();
+    
+    self.tableName = @"data";
     
     return self;
 }
@@ -53,6 +61,24 @@ NNT_BEGIN_OBJC
     return self;
 }
 
+- (id)initWithDbname:(NSString *)name tableName:(NSString *)table {
+    self = [self init];
+    self.tableName = table;
+    
+    NSURL* dir = NNTDirectoryCreateWithType(@"nnt.archive", NSAppTempDirectory);
+    dir = [dir URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.db", name]];
+    
+    char const* file = [[dir relativePath] cStringUsingEncoding:NSUTF8StringEncoding];
+    int flag = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    int sta = sqlite3_open_v2(file, &_db, flag, NULL);
+    if (sta != SQLITE_OK) {
+        [self release];
+        return nil;
+    }
+    
+    return self;
+}
+
 - (id)initWithFile:(NSString*)name {
     self = [self init];
     
@@ -68,14 +94,16 @@ NNT_BEGIN_OBJC
 }
 
 - (void)dropTable {
-    ::std::string cmd = "select * from sqlite_master where type='table' and name='data'";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "select * from sqlite_master where type='table' and name='" + tbl + "'";
     sqlite3_stmt *stmt;
     sqlite3_prepare(_db, cmd.c_str(), cmd.length(), &stmt, NULL);
     sqlite3_step(stmt);
     int exist = sqlite3_data_count(stmt);
     sqlite3_finalize(stmt);
     if (exist) {
-        sqlite3_exec(_db, "drop table data", NULL, NULL, NULL);
+        cmd = "drop table " + tbl;
+        sqlite3_exec(_db, cmd.c_str(), NULL, NULL, NULL);
     }
 }
 
@@ -116,9 +144,10 @@ NNT_BEGIN_OBJC
             }
         }
     }
-    ::std::string cmd = "create table data ";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "create table " + tbl;
     if (fields.count) {
-        cmd += "(";
+        cmd += " (";
         
         // create id filed.
         cmd += "_id_ integer primary key autoincrement ";
@@ -150,7 +179,8 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)insert:(NSDictionary*)dict {
-    ::std::string cmd = "insert into data ";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "insert into " + tbl + " ";
     ::std::string fields = "(";
     ::std::string params = "(";
     
@@ -240,7 +270,8 @@ NNT_BEGIN_OBJC
 - (NSArray*)unarchive {
     NSMutableArray* ret = [NSMutableArray array];
     
-    ::std::string cmd = "select * from data";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "select * from " + tbl;
     sqlite3_stmt* stmt = NULL;
     sqlite3_prepare_v2(_db, cmd.c_str(), cmd.length(), &stmt, NULL);
     if (stmt == NULL)
@@ -283,7 +314,8 @@ NNT_BEGIN_OBJC
 }
 
 - (NSDictionary*)query:(NSDictionary*)item {
-    ::std::string cmd = "select * from data where ";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "select * from " + tbl + " where ";
     
     int count = 0;
     for (NSString* key in item.allKeys) {
@@ -372,7 +404,8 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)delete:(NSDictionary*)item {
-    ::std::string cmd = "delete from data where ";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "delete from " + tbl + " where ";
     
     int count = 0;
     for (NSString* key in item.allKeys) {
@@ -435,7 +468,8 @@ NNT_BEGIN_OBJC
 }
 
 - (BOOL)update:(NSDictionary*)from forData:(NSDictionary*)to {
-    ::std::string cmd = "update data set ";
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "update " + tbl + " set ";
     
     int count = 0;
     for (NSString* key in to.allKeys) {

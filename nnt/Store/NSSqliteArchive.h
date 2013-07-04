@@ -14,11 +14,14 @@ NNT_BEGIN_HEADER_OBJC
 
 @interface NSSqliteArchive : NSObject {
     sqlite3* _db;
+    NSString* _tablename;
 }
 
 @property (nonatomic, readonly) sqlite3* sqlite;
+@property (nonatomic, copy, readonly) NSString* tableName;
 
 - (id)initWithDbname:(NSString*)name;
+- (id)initWithDbname:(NSString*)name tableName:(NSString*)table;
 - (id)initWithFile:(NSString*)name;
 
 - (BOOL)archive:(NSArray*)arr;

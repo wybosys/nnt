@@ -126,7 +126,8 @@ NNTAPP_BEGIN_OBJC
 }
 
 - (void)testSqliteArchive {
-    NSSqliteArchive* sq = [[NSSqliteArchive alloc] initWithDbname:@"test"];
+    NSSqliteArchive* sq = [[NSSqliteArchive alloc] initWithDbname:@"test" tableName:@"TEST0"];
+    NSSqliteArchive* sq1 = [[NSSqliteArchive alloc] initWithDbname:@"test" tableName:@"TEST1"];
     NSArray* arr = [NSArray arrayWithObjects:
                     [NSDictionary dictionaryWithObjectsAndKeys:@"xiao a", @"name", @1, @"id", @1.12, @"value", nil],
                     [NSDictionary dictionaryWithObjectsAndKeys:@"xiao b", @"name", @2, @"id", @0.56, @"value", nil],
@@ -134,6 +135,7 @@ NNTAPP_BEGIN_OBJC
                     nil];
     // archive.
     [sq archive:arr];
+    [sq1 archive:arr];
     
     // unarchive.
     arr = [sq unarchive];
@@ -156,6 +158,7 @@ NNTAPP_BEGIN_OBJC
     [sq insert:item];
     
     [sq release];
+    [sq1 release];
 }
 
 - (void)loadView {
