@@ -120,15 +120,14 @@ NNT_BEGIN_OBJC
     if (fields.count) {
         cmd += "(";
         
-        int count = 0;
+        // create id filed.
+        cmd += "_id_ integer primary key autoincrement ";
+        
         for (NSString* key in fields.allKeys) {
             Class cls = [fields objectForKey:key];
             char const* fld_name = [key cStringUsingEncoding:NSUTF8StringEncoding];
             
-            if (count != 0)
-                cmd += ", ";
-            ++count;
-            
+            cmd += ", ";
             cmd += fld_name;
             cmd += " ";
             
