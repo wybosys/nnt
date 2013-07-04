@@ -1256,7 +1256,7 @@ static int findInodeInfo(
   ** the first page of the database, no damage is done.
   */
   if( statbuf.st_size==0 && (pFile->fsFlags & SQLITE_FSFLAGS_IS_MSDOS)!=0 ){
-    do{ rc = osWrite(fd, "S", 1); }while( rc<0 && errno==EINTR );
+    do{ rc = (int)osWrite(fd, "S", 1); }while( rc<0 && errno==EINTR );
     if( rc!=1 ){
       pFile->lastErrno = errno;
       return SQLITE_IOERR;
@@ -2955,7 +2955,7 @@ static int afpUnlock(sqlite3_file *id, int eFileLock) {
       rc = afpSetLock(context->dbPath, pFile, SHARED_FIRST, SHARED_SIZE, 0);
       if( rc==SQLITE_OK && (eFileLock==SHARED_LOCK || pInode->nShared>1) ){
         /* only re-establish the shared lock if necessary */
-        int sharedLockByte = SHARED_FIRST+pInode->sharedByte;
+        int sharedLockByte = SHARED_FIRST+(int)pInode->sharedByte;
         rc = afpSetLock(context->dbPath, pFile, sharedLockByte, 1, 1);
       } else {
         skipShared = 1;
@@ -3117,7 +3117,7 @@ static int seekAndRead(unixFile *id, sqlite3_int64 offset, void *pBuf, int cnt){
       }
       return -1;
     }
-    got = osRead(id->h, pBuf, cnt);
+    got = (int)osRead(id->h, pBuf, cnt);
 #endif
     if( got==cnt ) break;
     if( got<0 ){
@@ -3172,7 +3172,7 @@ static int unixRead(
       memcpy(pBuf, &((u8 *)(pFile->pMapRegion))[offset], amt);
       return SQLITE_OK;
     }else{
-      int nCopy = pFile->mmapSize - offset;
+      int nCopy = (int)pFile->mmapSize - offset;
       memcpy(pBuf, &((u8 *)(pFile->pMapRegion))[offset], nCopy);
       pBuf = &((u8 *)pBuf)[nCopy];
       amt -= nCopy;
@@ -3228,7 +3228,7 @@ static int seekAndWriteFd(
       if( piErrno ) *piErrno = (iSeek==-1 ? errno : 0);
       return -1;
     }
-    rc = osWrite(fd, pBuf, nBuf);
+    rc = (int)osWrite(fd, pBuf, nBuf);
   }while( rc<0 && errno==EINTR );
 #endif
 
@@ -3306,7 +3306,7 @@ static int unixWrite(
       memcpy(&((u8 *)(pFile->pMapRegion))[offset], pBuf, amt);
       return SQLITE_OK;
     }else{
-      int nCopy = pFile->mmapSize - offset;
+      int nCopy = (int)pFile->mmapSize - offset;
       memcpy(&((u8 *)(pFile->pMapRegion))[offset], pBuf, nCopy);
       pBuf = &((u8 *)pBuf)[nCopy];
       amt -= nCopy;
@@ -4355,7 +4355,7 @@ static int unixShmMap(
 
           /* Write to the last byte of each newly allocated or extended page */
           assert( (nByte % pgsz)==0 );
-          for(iPg=(sStat.st_size/pgsz); iPg<(nByte/pgsz); iPg++){
+          for(iPg=((int)sStat.st_size/pgsz); iPg<(nByte/pgsz); iPg++){
             if( seekAndWriteFd(pShmNode->h, iPg*pgsz + pgsz-1, "", 1, 0)!=1 ){
               const char *zFile = pShmNode->zFilename;
               rc = unixLogError(SQLITE_IOERR_SHMSIZE, "write", zFile);
@@ -6007,7 +6007,7 @@ static int unixRandomness(sqlite3_vfs *NotUsed, int nBuf, char *zBuf){
       assert( sizeof(t)+sizeof(pid)<=(size_t)nBuf );
       nBuf = sizeof(t) + sizeof(pid);
     }else{
-      do{ got = osRead(fd, zBuf, nBuf); }while( got<0 && errno==EINTR );
+      do{ got = (int)osRead(fd, zBuf, nBuf); }while( got<0 && errno==EINTR );
       robust_close(0, fd, __LINE__);
     }
   }
@@ -6316,7 +6316,7 @@ static int proxyGetLockPath(const char *dbPath, char *lPath, size_t maxLen){
                lPath, errno, getpid()));
       return SQLITE_IOERR_LOCK;
     }
-    len = strlcat(lPath, "sqliteplocks", maxLen);    
+    len = (int)strlcat(lPath, "sqliteplocks", maxLen);
   }
 # else
   len = strlcpy(lPath, "/tmp/", maxLen);
@@ -6324,7 +6324,7 @@ static int proxyGetLockPath(const char *dbPath, char *lPath, size_t maxLen){
 #endif
 
   if( lPath[len-1]!='/' ){
-    len = strlcat(lPath, "/", maxLen);
+    len = (int)strlcat(lPath, "/", maxLen);
   }
   
   /* transform the db path to a unique cache name */
@@ -6616,7 +6616,7 @@ static int proxyConchLock(unixFile *pFile, uuid_t myHostID, int lockType){
       
       if( nTries==2 ){  
         char tBuf[PROXY_MAXCONCHLEN];
-        int len = osPread(conchFile->h, tBuf, PROXY_MAXCONCHLEN, 0);
+        int len = (int)osPread(conchFile->h, tBuf, PROXY_MAXCONCHLEN, 0);
         if( len<0 ){
           pFile->lastErrno = errno;
           return SQLITE_IOERR_LOCK;
@@ -6777,7 +6777,7 @@ static int proxyTakeConch(unixFile *pFile){
         }else{
           strlcpy(&writeBuffer[PROXY_PATHINDEX], tempLockPath, MAXPATHLEN);
         }
-        writeSize = PROXY_PATHINDEX + strlen(&writeBuffer[PROXY_PATHINDEX]);
+        writeSize = PROXY_PATHINDEX + (int)strlen(&writeBuffer[PROXY_PATHINDEX]);
         robust_ftruncate(conchFile->h, writeSize);
         rc = unixWrite((sqlite3_file *)conchFile, writeBuffer, writeSize, 0);
         fsync(conchFile->h);
@@ -6991,7 +6991,7 @@ static int proxyGetDbPathForUnixFile(unixFile *pFile, char *dbPath){
   if( pFile->pMethod == &dotlockIoMethods ){
     /* dot lock style uses the locking context to store the dot lock
     ** file path */
-    int len = strlen((char *)pFile->lockingContext) - strlen(DOTLOCK_SUFFIX);
+      int len = (int)(strlen((char *)pFile->lockingContext) - strlen(DOTLOCK_SUFFIX));
     memcpy(dbPath, (char *)pFile->lockingContext, len + 1);
   }else{
     /* all other styles use the locking context to store the db file path */

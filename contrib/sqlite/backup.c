@@ -206,7 +206,7 @@ sqlite3_backup *sqlite3_backup_init(
 static int isFatalError(int rc){
   return (rc!=SQLITE_OK && rc!=SQLITE_BUSY && ALWAYS(rc!=SQLITE_LOCKED));
 }
-
+extern void *sqlite3PagerGetCodec(Pager *pPager);
 /*
 ** Parameter zSrcData points to a buffer containing the data for 
 ** page iSrcPg from the source database. Copy this data into the 

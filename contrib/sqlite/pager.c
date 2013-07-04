@@ -6569,6 +6569,13 @@ int sqlite3PagerNosync(Pager *pPager){
 }
 
 #ifdef SQLITE_HAS_CODEC
+extern void sqlite3PagerSetCodec(
+                                 Pager *pPager,
+                                 void *(*xCodec)(void*,void*,Pgno,int),
+                                 void (*xCodecSizeChng)(void*,int,int),
+                                 void (*xCodecFree)(void*),
+                                 void *pCodec
+                                 );
 /*
 ** Set or retrieve the codec for this pager
 */
@@ -6586,6 +6593,7 @@ void sqlite3PagerSetCodec(
   pPager->pCodec = pCodec;
   pagerReportSize(pPager);
 }
+extern void *sqlite3PagerGetCodec(Pager *pPager);
 void *sqlite3PagerGetCodec(Pager *pPager){
   return pPager->pCodec;
 }

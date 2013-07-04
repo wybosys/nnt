@@ -1,20 +1,33 @@
 
 # include "sqlite3.h"
 # include "btreeInt.h"
+# include "pager.h"
 
 extern int sqlite3CodecAttach(sqlite3* db, int ndb, void const* pkey, int lkey);
 extern void sqlite3CodecGetKey(sqlite3* db, int ndb, void** ppkey, int* plkey);
 extern void sqlite3_activate_see();
+
+static void* sqlite3_newkey(void const* pkey, int lkey)
+{
+    return 0;
+}
+
+static void sqlite3_freekey(void* key)
+{
+    
+}
 
 static int sqlite3_key_interop(sqlite3* db, void const* pkey, int lkey)
 {
     return sqlite3CodecAttach(db, 0, pkey, lkey);
 }
 
-static int sqlite3_rekey_interop(sqlite3* db, void const* pkey, int lkey)
+static int sqlite3_rekey_interop(sqlite3* db, void const* pkeystr, int lkey)
 {
     Btree* pbt = db->aDb[0].pBt;
     Pager* p = sqlite3BtreePager(pbt);
+    void* pcrypt = sqlite3PagerCodec(p);
+    void* pkey = sqlite3_newkey(pkeystr, lkey);
     return SQLITE_OK;
 }
 
