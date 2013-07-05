@@ -25,10 +25,15 @@ typedef struct
     aes_t* key;
     size_t pager_size;
     Pager* pager;
+    void* buf;
+    size_t lbuf;
 } sqlite3_crypto_t;
 
 static void sqlite3_free_crypto(sqlite3_crypto_t* cpt)
 {
+    if (cpt->buf)
+        free(cpt->buf);
+    
     aes_free(cpt->key);
     free(cpt);
 }
@@ -71,10 +76,15 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
     if (cpt == NULL)
         return data;
     
-    void* buf = NULL;
-    size_t sz = 0;
-    
-    u32 pagesize = cpt->pager_size;
+    /*
+     // free by sqlite internal.
+    if (cpt->buf)
+    {
+        free(cpt->buf);
+        cpt->buf = NULL;
+        cpt->lbuf = 0;
+    }
+     */
     
     switch (nmode)
     {
@@ -83,23 +93,27 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
         case 2: // reload a page
         case 3: // load page
         {
-            if (sqlite3_crypto_decrypt(cpt, data, pagesize, &buf, &sz) != 0)
+            if (sqlite3_crypto_decrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0)
                 return NULL;
-            memcpy(data, buf, pagesize);
+            memcpy(data, cpt->buf, cpt->pager_size);
         } break;
         case 6: // encrypt a page for the main database file
+        {
+            if (sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0)
+                return NULL;
+        } break;
         case 7: // encrypt a page for the journal file
         {
-            if (sqlite3_crypto_encrypt(cpt, data, pagesize, &buf, &sz) != 0)
+            aes_swap_rw(cpt->key);
+            if (sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0) {
+                aes_swap_rw(cpt->key);
                 return NULL;
-            memcpy(data, buf, pagesize);
+            }
+            aes_swap_rw(cpt->key);
         } break;
     }
     
-    if (buf)
-        free(buf);
-    
-    return data;
+    return cpt->buf == NULL ? data : cpt->buf;
 }
 
 void sqlite3PagerXCodecSizeChanged(void* codec, int size, int reverse)

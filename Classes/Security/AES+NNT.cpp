@@ -132,6 +132,13 @@ void aes_free(aes_t* o)
     free(o);
 }
 
+void aes_swap_rw(aes_t* o)
+{
+    EVP_CIPHER_CTX* t = o->encrypt;
+    o->encrypt = o->decrypt;
+    o->decrypt = t;
+}
+
 int aes_set_key(aes_t* o, void const* key, size_t lkey)
 {
     int nrounds = 5;

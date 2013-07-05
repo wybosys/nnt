@@ -30,6 +30,7 @@ typedef struct _aes_t aes_t;
 NNTAPI(aes_t*) aes_new();
 NNTAPI(void) aes_free(aes_t*);
 
+NNTAPI(void) aes_swap_rw(aes_t*);
 NNTAPI(void) aes_set_nopadding(aes_t*);
 NNTAPI(int) aes_set_key(aes_t*, void const* key, size_t lkey);
 NNTAPI(int) aes_encrypt(aes_t*, void const* data, size_t ldata, void** outdata, size_t* loutdata);

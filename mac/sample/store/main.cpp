@@ -52,8 +52,8 @@ static void test_database()
         info.url = "sqlite-new.db";
         sqlite.connect(info);
         sqlite.set_key("abcdef");
-        //sqlite.exec("create table test (id integer, name text)")->drop();
-        sqlite.exec("insert into test (id, name) values (1, 'test')");
+        sqlite.exec("create table test (id integer, name text)")->drop();
+        sqlite.exec("insert into test (id, name) values (1, 'test')")->drop();
         store::datatable_t* dt = NULL;
         dt = sqlite.exec("select * from test");
         trace_msg(dt->to_string());
