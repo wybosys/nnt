@@ -243,8 +243,6 @@ struct _ns_aes_t
 {
     void* encrypt;
     void* decrypt;
-    void* key;
-    int lkey;
 };
 
 nsaes_t* nsaes_new()
@@ -252,14 +250,11 @@ nsaes_t* nsaes_new()
     nsaes_t* ret = (nsaes_t*)malloc(sizeof(nsaes_t));
     ret->encrypt = calloc(kCCKeySizeAES128, 0);
     ret->decrypt = calloc(kCCKeySizeAES128, 0);
-    ret->key = NULL;
-    ret->lkey = 0;
     return ret;
 }
 
 void nsaes_free(nsaes_t* o)
 {
-    free(o->key);
     free(o->encrypt);
     free(o->decrypt);
     free(o);
@@ -274,10 +269,15 @@ void nsaes_swap_rw(nsaes_t* o)
 
 int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
 {
-    free(o->key);
-    o->key = calloc(lkey, 0);
-    o->lkey = lkey;
-    memcpy(o->key, key, MIN(lkey, kCCKeySizeAES128));
+    free(o->encrypt);
+    free(o->decrypt);
+    
+    o->encrypt = calloc(kCCKeySizeAES128, 0);
+    o->decrypt = calloc(kCCKeySizeAES128, 0);
+    
+    memcpy(o->encrypt, key, MIN(lkey, kCCKeySizeAES128));
+    memcpy(o->decrypt, key, MIN(lkey, kCCKeySizeAES128));
+
     return 0;
 }
 
@@ -287,7 +287,7 @@ int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, si
     CCCryptorStatus sta = CCCrypt(kCCEncrypt,
                                   kCCAlgorithmAES128,
                                   ccNoPadding | kCCModeCBC,
-                                  o->key,
+                                  o->encrypt,
                                   kCCKeySizeAES128,
                                   NULL,
                                   data,
@@ -311,7 +311,7 @@ int nsaes_decrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, si
     CCCryptorStatus sta = CCCrypt(kCCDecrypt,
                                   kCCAlgorithmAES128,
                                   ccNoPadding | kCCModeCBC,
-                                  o->key,
+                                  o->decrypt,
                                   kCCKeySizeAES128,
                                   NULL,
                                   data,

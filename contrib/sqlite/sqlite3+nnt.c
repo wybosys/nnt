@@ -47,18 +47,10 @@ typedef struct
     sqlite_aes_t* key;
     size_t pager_size;
     Pager* pager;
-    void* buf;
-    size_t lbuf;
 } sqlite3_crypto_t;
 
 static void sqlite3_free_crypto(sqlite3_crypto_t* cpt)
 {
-    /*
-     // will free by sqlite internal.
-    if (cpt->buf)
-        free(cpt->buf);
-     */
-    
     sqlite_aes_free(cpt->key);
     free(cpt);
 }
@@ -100,15 +92,8 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
     if (cpt == NULL)
         return data;
     
-    /*
-     // free by sqlite internal.
-    if (cpt->buf)
-    {
-        free(cpt->buf);
-        cpt->buf = NULL;
-        cpt->lbuf = 0;
-    }
-     */
+    void* buf = NULL;
+    size_t lbuf;
     
     switch (nmode)
     {
@@ -117,27 +102,22 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
         case 2: // reload a page
         case 3: // load page
         {
-            if (sqlite3_crypto_decrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0)
-                return NULL;
-            memcpy(data, cpt->buf, cpt->pager_size);
+            if (sqlite3_crypto_decrypt(cpt, data, cpt->pager_size, &buf, &lbuf) == 0)
+                memcpy(data, buf, cpt->pager_size);
         } break;
         case 6: // encrypt a page for the main database file
         {
-            if (sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0)
-                return NULL;
+            sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &buf, &lbuf);
         } break;
         case 7: // encrypt a page for the journal file
         {
             sqlite_aes_swap_rw(cpt->key);
-            if (sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0) {
-                sqlite_aes_swap_rw(cpt->key);
-                return NULL;
-            }
+            sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &buf, &lbuf);
             sqlite_aes_swap_rw(cpt->key);
         } break;
     }
     
-    return cpt->buf == NULL ? data : cpt->buf;
+    return buf == NULL ? data : buf;
 }
 
 void sqlite3PagerXCodecSizeChanged(void* codec, int size, int reverse)
