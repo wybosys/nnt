@@ -20,9 +20,31 @@ extern void* sqlite3PagerXCodec(void*, void*, Pgno, int);
 extern void sqlite3PagerXCodecSizeChanged(void*, int, int);
 extern void sqlite3PagerXCodecFree(void*);
 
+# if defined(NNT_MACH)
+
+#   define sqlite_aes_t nsaes_t
+#   define sqlite_aes_free nsaes_free
+#   define sqlite_aes_new nsaes_new
+#   define sqlite_aes_set_key nsaes_set_key
+#   define sqlite_aes_encrypt nsaes_encrypt
+#   define sqlite_aes_decrypt nsaes_decrypt
+#   define sqlite_aes_swap_rw nsaes_swap_rw
+
+# else
+
+#   define sqlite_aes_t aes_t
+#   define sqlite_aes_free aes_free
+#   define sqlite_aes_new aes_new
+#   define sqlite_aes_set_key aes_set_key
+#   define sqlite_aes_encrypt aes_encrypt
+#   define sqlite_aes_decrypt aes_decrypt
+#   define sqlite_aes_swap_rw aes_swap_rw
+
+# endif
+
 typedef struct
 {
-    aes_t* key;
+    sqlite_aes_t* key;
     size_t pager_size;
     Pager* pager;
     void* buf;
@@ -31,33 +53,35 @@ typedef struct
 
 static void sqlite3_free_crypto(sqlite3_crypto_t* cpt)
 {
+    /*
+     // will free by sqlite internal.
     if (cpt->buf)
         free(cpt->buf);
+     */
     
-    aes_free(cpt->key);
+    sqlite_aes_free(cpt->key);
     free(cpt);
 }
 
 static sqlite3_crypto_t* sqlite3_new_crypto(void const* skey, int lkey)
 {
     sqlite3_crypto_t* cpt = calloc(sizeof(sqlite3_crypto_t), 0);
-    cpt->key = aes_new();
-    if (aes_set_key(cpt->key, skey, lkey) != 0) {
+    cpt->key = sqlite_aes_new();
+    if (sqlite_aes_set_key(cpt->key, skey, lkey) != 0) {
         sqlite3_free_crypto(cpt);
         return NULL;
     }
-    aes_set_nopadding(cpt->key);
     return cpt;
 }
 
 static int sqlite3_crypto_encrypt(sqlite3_crypto_t* cpt, void* indata, size_t inlen, void** outdata, size_t* outlen)
 {
-    return aes_encrypt(cpt->key, indata, inlen, outdata, outlen);
+    return sqlite_aes_encrypt(cpt->key, indata, inlen, outdata, outlen);
 }
 
 static int sqlite3_crypto_decrypt(sqlite3_crypto_t* cpt,void* indata, size_t inlen, void** outdata, size_t* outlen)
 {
-    return aes_decrypt(cpt->key, indata, inlen, outdata, outlen);
+    return sqlite_aes_decrypt(cpt->key, indata, inlen, outdata, outlen);
 }
 
 static int sqlite3_key_interop(sqlite3* db, void const* skey, int lkey)
@@ -104,12 +128,12 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
         } break;
         case 7: // encrypt a page for the journal file
         {
-            aes_swap_rw(cpt->key);
+            sqlite_aes_swap_rw(cpt->key);
             if (sqlite3_crypto_encrypt(cpt, data, cpt->pager_size, &cpt->buf, &cpt->lbuf) != 0) {
-                aes_swap_rw(cpt->key);
+                sqlite_aes_swap_rw(cpt->key);
                 return NULL;
             }
-            aes_swap_rw(cpt->key);
+            sqlite_aes_swap_rw(cpt->key);
         } break;
     }
     

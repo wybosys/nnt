@@ -11,6 +11,8 @@
 # include <nnt/Store/ArchiveRAR.h>
 # include <nnt/Store/Archive7Z.h>
 
+# include <nnt/Security/AES+NNT.h>
+
 NNT_USINGCXXNAMESPACE;
 
 static void test_database()
@@ -44,7 +46,7 @@ static void test_database()
     }
     
     if (1)
-    {
+    {        
         store::Sqlite sqlite;
         sqlite.creatable = true;
         sqlite.readonly = false;
@@ -52,9 +54,10 @@ static void test_database()
         info.url = "sqlite-new.db";
         sqlite.connect(info);
         sqlite.set_key("abcdef");
-        sqlite.exec("create table test (id integer, name text)")->drop();
-        sqlite.exec("insert into test (id, name) values (1, 'test')")->drop();
         store::datatable_t* dt = NULL;
+        dt = sqlite.exec("create table test (id integer, name text)");
+        if (dt) dt->drop();
+        sqlite.exec("insert into test (id, name) values (1, 'test')")->drop();
         dt = sqlite.exec("select * from test");
         trace_msg(dt->to_string());
         dt->drop();

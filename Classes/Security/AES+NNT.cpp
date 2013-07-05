@@ -139,6 +139,12 @@ void aes_swap_rw(aes_t* o)
     o->decrypt = t;
 }
 
+static void aes_set_nopadding(aes_t* o)
+{
+    EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
+    EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
+}
+
 int aes_set_key(aes_t* o, void const* key, size_t lkey)
 {
     int nrounds = 5;
@@ -166,13 +172,9 @@ int aes_set_key(aes_t* o, void const* key, size_t lkey)
                        _key,
                        _iv);
     
+    aes_set_nopadding(o);
+    
     return 0;
-}
-
-void aes_set_nopadding(aes_t* o)
-{
-    EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
-    EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
 }
 
 int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
@@ -230,3 +232,103 @@ int aes_decrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t
 }
 
 NNT_END_C
+
+# ifdef NNT_MACH
+
+# import <CommonCrypto/CommonCrypto.h>
+
+NNT_BEGIN_C
+
+struct _ns_aes_t
+{
+    void* encrypt;
+    void* decrypt;
+    void* key;
+    int lkey;
+};
+
+nsaes_t* nsaes_new()
+{
+    nsaes_t* ret = (nsaes_t*)malloc(sizeof(nsaes_t));
+    ret->encrypt = calloc(kCCKeySizeAES128, 0);
+    ret->decrypt = calloc(kCCKeySizeAES128, 0);
+    ret->key = NULL;
+    ret->lkey = 0;
+    return ret;
+}
+
+void nsaes_free(nsaes_t* o)
+{
+    free(o->key);
+    free(o->encrypt);
+    free(o->decrypt);
+    free(o);
+}
+
+void nsaes_swap_rw(nsaes_t* o)
+{
+    void* t = o->encrypt;
+    o->encrypt = o->decrypt;
+    o->decrypt = t;
+}
+
+int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
+{
+    free(o->key);
+    o->key = calloc(lkey, 0);
+    o->lkey = lkey;
+    memcpy(o->key, key, MIN(lkey, kCCKeySizeAES128));
+    return 0;
+}
+
+int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
+{
+    *outdata = malloc(ldata);
+    CCCryptorStatus sta = CCCrypt(kCCEncrypt,
+                                  kCCAlgorithmAES128,
+                                  ccNoPadding | kCCModeCBC,
+                                  o->key,
+                                  kCCKeySizeAES128,
+                                  NULL,
+                                  data,
+                                  ldata,
+                                  *outdata,
+                                  ldata,
+                                  loutdata);
+    if (sta != kCCSuccess)
+    {
+        free(*outdata);
+        *loutdata = 0;
+        return -1;
+    }
+    
+    return 0;
+}
+
+int nsaes_decrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
+{
+    *outdata = malloc(ldata);
+    CCCryptorStatus sta = CCCrypt(kCCDecrypt,
+                                  kCCAlgorithmAES128,
+                                  ccNoPadding | kCCModeCBC,
+                                  o->key,
+                                  kCCKeySizeAES128,
+                                  NULL,
+                                  data,
+                                  ldata,
+                                  *outdata,
+                                  ldata,
+                                  loutdata);
+    if (sta != kCCSuccess)
+    {
+        free(*outdata);
+        *loutdata = 0;
+        return -1;
+    }
+    
+    return 0;
+}
+
+NNT_END_C
+
+# endif
