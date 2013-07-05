@@ -1,9 +1,10 @@
 
 # include "Core.h"
 # include "sqlite3.h"
-# include "btreeInt.h"
-# include "pager.h"
+# include "sqlite3.c"
 # include "../../Classes/Security/AES+NNT.h"
+
+const char sqlite3_version[] = SQLITE_VERSION;
 
 extern int sqlite3CodecAttach(sqlite3* db, int ndb, void const* skey, int lkey);
 extern void sqlite3CodecGetKey(sqlite3* db, int ndb, void** pskey, int* plkey);
