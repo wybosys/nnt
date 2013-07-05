@@ -176,7 +176,7 @@ int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t
     /* max ciphertext len for a n bytes of plaintext is n + AES_BLOCK_SIZE -1 bytes */
     int c_len = len_in + AES_BLOCK_SIZE, f_len = 0;
     *outdata = malloc(c_len);
-    
+        
     /* allows reusing of 'e' for multiple encryption cycles */
     EVP_EncryptInit_ex(o->encrypt, NULL, NULL, NULL, NULL);
     
