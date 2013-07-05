@@ -76,6 +76,9 @@ public:
     //! get origin db.
     void* origin() const;
     
+    //! set key.
+    void set_key(core::string const&);
+    
 };
 
 class SLDatabase

@@ -4,8 +4,7 @@
 
 NNT_BEGIN_HEADER_C
 
-# include <sqlite/sqlite3.h>
-//# include <sqlite/sqlite3ext.h>
+# include "../../contrib/sqlite/sqlite3.h"
 
 NNT_END_HEADER_C
 
@@ -191,6 +190,11 @@ DBMSqlDatatable* Sqlite::exec(core::string const& sql, params_type const& params
 void* Sqlite::origin() const
 {
     return d_ptr->db;
+}
+
+void Sqlite::set_key(core::string const& key)
+{
+    sqlite3_key(d_ptr->db, key.c_str(), key.length());
 }
 
 SLDatabase::SLDatabase()
