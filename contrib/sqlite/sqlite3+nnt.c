@@ -68,7 +68,7 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
 {
     sqlite3_crypto_t* cpt = (sqlite3_crypto_t*)codec;
     if (cpt == NULL)
-        return NULL;
+        return data;
     
     void* buf = NULL;
     size_t sz = 0;
@@ -77,30 +77,26 @@ void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
     
     switch (nmode)
     {
+        default: break;
         case 0: // undo a "case 7" journal file encryption
-        case 1: // reload a page
+        case 2: // reload a page
         case 3: // load page
         {
             if (sqlite3_crypto_decrypt(cpt, data, pagesize, &buf, &sz) != 0)
                 return NULL;
+            memcpy(data, buf, pagesize);
         } break;
         case 6: // encrypt a page for the main database file
+        case 7: // encrypt a page for the journal file
         {
             if (sqlite3_crypto_encrypt(cpt, data, pagesize, &buf, &sz) != 0)
                 return NULL;
-        } break;
-        case 7: // encrypt a page for the journal file
-        {
-            return data;
+            memcpy(data, buf, pagesize);
         } break;
     }
     
-    if (pagesize == sz)
-    {
-        memcpy(data, buf, sz);
+    if (buf)
         free(buf);
-        return NULL;
-    }
     
     return data;
 }
@@ -136,7 +132,9 @@ int sqlite3CodecAttach(sqlite3* db, int ndb, void const* skey, int lkey)
     Pager* pg = sqlite3BtreePager(bt);
     
     cpt->pager = pg;
-    sqlite3PagerSetCodec(pg, sqlite3PagerXCodec, sqlite3PagerXCodecSizeChanged, sqlite3PagerXCodecFree, cpt);
+    sqlite3PagerSetCodec(pg,
+                         sqlite3PagerXCodec, sqlite3PagerXCodecSizeChanged, sqlite3PagerXCodecFree,
+                         cpt);
 
     return SQLITE_OK;
 }

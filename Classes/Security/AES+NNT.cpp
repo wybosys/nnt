@@ -112,18 +112,22 @@ NNT_BEGIN_C
 
 struct _aes_t
 {
-    EVP_CIPHER_CTX evp;
+    EVP_CIPHER_CTX *encrypt;
+    EVP_CIPHER_CTX *decrypt;
 };
 
 aes_t* aes_new()
 {
     _aes_t* ret = (_aes_t*)calloc(sizeof(_aes_t), 0);
+    ret->encrypt = EVP_CIPHER_CTX_new();
+    ret->decrypt = EVP_CIPHER_CTX_new();
     return ret;
 }
 
 void aes_free(aes_t* o)
 {
-    EVP_CIPHER_CTX_cleanup(&o->evp);
+    EVP_CIPHER_CTX_free(o->encrypt);
+    EVP_CIPHER_CTX_free(o->decrypt);
 
     free(o);
 }
@@ -143,15 +147,25 @@ int aes_set_key(aes_t* o, void const* key, size_t lkey)
                              _iv))
         return -1;
     
-    EVP_CIPHER_CTX_init(&o->evp);
-    int sta = EVP_EncryptInit_ex(&o->evp, EVP_aes_256_cbc(), NULL, _key, _iv);
+    EVP_EncryptInit_ex(o->encrypt,
+                       EVP_aes_256_cbc(),
+                       NULL,
+                       _key,
+                       _iv);
+
+    EVP_DecryptInit_ex(o->decrypt,
+                       EVP_aes_256_cbc(),
+                       NULL,
+                       _key,
+                       _iv);
     
-    return sta == 1 ? 0 : -1;
+    return 0;
 }
 
 void aes_set_nopadding(aes_t* o)
 {
-    EVP_CIPHER_CTX_set_flags(&o->evp, EVP_CIPH_NO_PADDING);
+    EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
+    EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
 }
 
 int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
@@ -164,14 +178,14 @@ int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t
     *outdata = malloc(c_len);
     
     /* allows reusing of 'e' for multiple encryption cycles */
-    EVP_EncryptInit_ex(&o->evp, NULL, NULL, NULL, NULL);
+    EVP_EncryptInit_ex(o->encrypt, NULL, NULL, NULL, NULL);
     
     /* update ciphertext, c_len is filled with the length of ciphertext generated,
      *len is the size of plaintext in bytes */
-    EVP_EncryptUpdate(&o->evp, (uchar*)*outdata, &c_len, plaintext, len_in);
+    EVP_EncryptUpdate(o->encrypt, (uchar*)*outdata, &c_len, plaintext, len_in);
     
     /* update ciphertext with the final remaining bytes */
-    EVP_EncryptFinal_ex(&o->evp, (uchar*)*outdata + c_len, &f_len);
+    EVP_EncryptFinal_ex(o->encrypt, (uchar*)*outdata + c_len, &f_len);
     
     *loutdata = c_len + f_len;
     if (*loutdata == 0) {
@@ -192,9 +206,11 @@ int aes_decrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t
 	uchar *plaintext = (uchar*)*outdata;
     uchar *ciphertext = (uchar*)data;
     
-    EVP_DecryptInit_ex(&o->evp, NULL, NULL, NULL, NULL);
-    EVP_DecryptUpdate(&o->evp, plaintext, &p_len, ciphertext, ldata);
-    EVP_DecryptFinal_ex(&o->evp, plaintext + p_len, &f_len);
+    EVP_DecryptInit_ex(o->decrypt, NULL, NULL, NULL, NULL);
+    
+    EVP_DecryptUpdate(o->decrypt, plaintext, &p_len, ciphertext, ldata);
+    
+    EVP_DecryptFinal_ex(o->decrypt, plaintext + p_len, &f_len);
     
     *loutdata = p_len + f_len;
     if (*outdata == 0) {
