@@ -235,7 +235,7 @@ NNT_END_C
 
 # ifdef NNT_MACH
 
-# import <CommonCrypto/CommonCrypto.h>
+# include <CommonCrypto/CommonCrypto.h>
 
 NNT_BEGIN_C
 
