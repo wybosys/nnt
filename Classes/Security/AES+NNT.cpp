@@ -118,7 +118,7 @@ struct _aes_t
 
 aes_t* aes_new()
 {
-    _aes_t* ret = (_aes_t*)calloc(sizeof(_aes_t), 0);
+    _aes_t* ret = (_aes_t*)calloc(1, sizeof(_aes_t));
     ret->encrypt = EVP_CIPHER_CTX_new();
     ret->decrypt = EVP_CIPHER_CTX_new();
     return ret;
@@ -248,8 +248,8 @@ struct _ns_aes_t
 nsaes_t* nsaes_new()
 {
     nsaes_t* ret = (nsaes_t*)malloc(sizeof(nsaes_t));
-    ret->encrypt = calloc(kCCKeySizeAES128, 0);
-    ret->decrypt = calloc(kCCKeySizeAES128, 0);
+    ret->encrypt = calloc(1, sizeof(kCCKeySizeAES128));
+    ret->decrypt = calloc(1, sizeof(kCCKeySizeAES128));
     return ret;
 }
 
@@ -272,8 +272,8 @@ int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
     free(o->encrypt);
     free(o->decrypt);
     
-    o->encrypt = calloc(kCCKeySizeAES128, 0);
-    o->decrypt = calloc(kCCKeySizeAES128, 0);
+    o->encrypt = calloc(1, sizeof(kCCKeySizeAES128));
+    o->decrypt = calloc(1, sizeof(kCCKeySizeAES128));
     
     memcpy(o->encrypt, key, MIN(lkey, kCCKeySizeAES128));
     memcpy(o->decrypt, key, MIN(lkey, kCCKeySizeAES128));

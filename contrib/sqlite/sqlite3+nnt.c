@@ -57,7 +57,7 @@ static void sqlite3_free_crypto(sqlite3_crypto_t* cpt)
 
 static sqlite3_crypto_t* sqlite3_new_crypto(void const* skey, int lkey)
 {
-    sqlite3_crypto_t* cpt = calloc(sizeof(sqlite3_crypto_t), 0);
+    sqlite3_crypto_t* cpt = (sqlite3_crypto_t*)calloc(1, sizeof(sqlite3_crypto_t));
     cpt->key = sqlite_aes_new();
     if (sqlite_aes_set_key(cpt->key, skey, lkey) != 0) {
         sqlite3_free_crypto(cpt);
@@ -83,7 +83,7 @@ static int sqlite3_key_interop(sqlite3* db, void const* skey, int lkey)
 
 static int sqlite3_rekey_interop(sqlite3* db, void const* skey, int lkey)
 {
-    return SQLITE_OK;
+    return SQLITE_ERROR;
 }
 
 void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)
@@ -139,12 +139,12 @@ int sqlite3CodecAttach(sqlite3* db, int ndb, void const* skey, int lkey)
 
     sqlite3_crypto_t* cpt = NULL;
 
+    if (db->aDb == NULL)
+        return SQLITE_ERROR;
+
     // create key.
     cpt = sqlite3_new_crypto(skey, lkey);
     if (cpt == NULL)
-        return SQLITE_ERROR;
-    
-    if (db->aDb == NULL)
         return SQLITE_ERROR;
     
     Btree* bt = db->aDb[ndb].pBt;
