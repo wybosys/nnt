@@ -72,6 +72,8 @@
 		161043A515CBC64100485DDF /* XimMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A315CBC64000485DDF /* XimMessage.h */; };
 		161043A815CBC67400485DDF /* XimRoster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161043A615CBC67300485DDF /* XimRoster.cpp */; };
 		161043A915CBC67400485DDF /* XimRoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 161043A715CBC67400485DDF /* XimRoster.h */; };
+		161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 161180711783CF5B007591C8 /* NSSqliteArchive.h */; };
+		161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161180721783CF5B007591C8 /* NSSqliteArchive.mm */; };
 		1612293D17796D3A00A97278 /* JsonObjParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1612293C17796D3A00A97278 /* JsonObjParser.cpp */; };
 		1612294617796D9100A97278 /* arraylist.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612293F17796D9100A97278 /* arraylist.c */; };
 		1612294717796D9100A97278 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 1612294017796D9100A97278 /* debug.c */; };
@@ -283,6 +285,29 @@
 		162EE38F1537C7B700A47238 /* AVCamSnapshotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 162EE38B1537C7B700A47238 /* AVCamSnapshotManager.m */; };
 		162EF884148F0A5900D8E41B /* UIFlowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 162EF882148F0A5900D8E41B /* UIFlowView.h */; };
 		162EF885148F0A5900D8E41B /* UIFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162EF883148F0A5900D8E41B /* UIFlowView.m */; };
+		162F71CE177D683E0074229E /* File+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71CC177D683E0074229E /* File+NNT.cpp */; };
+		162F71CF177D683E0074229E /* File+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71CD177D683E0074229E /* File+NNT.h */; };
+		162F71E1177D6A6A0074229E /* AudioFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71DA177D6A6A0074229E /* AudioFile.cpp */; };
+		162F71E2177D6A6A0074229E /* AudioFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71DB177D6A6A0074229E /* AudioFile.h */; };
+		162F71E3177D6A6A0074229E /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71DC177D6A6A0074229E /* AudioPlayer.cpp */; };
+		162F71E4177D6A6A0074229E /* MicRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71DD177D6A6A0074229E /* MicRecorder.h */; };
+		162F71E5177D6A6A0074229E /* MicRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162F71DE177D6A6A0074229E /* MicRecorder.mm */; };
+		162F71E6177D6A6A0074229E /* OpenAL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71DF177D6A6A0074229E /* OpenAL+NNT.cpp */; };
+		162F71E7177D6A6A0074229E /* OpenAL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71E0177D6A6A0074229E /* OpenAL+NNT.h */; };
+		162F71E9177D6A8A0074229E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F71E8177D6A8A0074229E /* OpenAL.framework */; };
+		162F71FB177D6AE50074229E /* AudioBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71EE177D6AE50074229E /* AudioBuffer.cpp */; };
+		162F71FC177D6AE50074229E /* AudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71EF177D6AE50074229E /* AudioBuffer.h */; };
+		162F71FD177D6AE50074229E /* AudioBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F0177D6AE50074229E /* AudioBuffer.mm */; };
+		162F71FE177D6AE50074229E /* AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F1177D6AE50074229E /* AudioDevice.cpp */; };
+		162F71FF177D6AE50074229E /* AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71F2177D6AE50074229E /* AudioDevice.h */; };
+		162F7200177D6AE50074229E /* AudioDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F3177D6AE50074229E /* AudioDevice.mm */; };
+		162F7201177D6AE50074229E /* AudioObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F4177D6AE50074229E /* AudioObject.cpp */; };
+		162F7202177D6AE50074229E /* AudioObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71F5177D6AE50074229E /* AudioObject.h */; };
+		162F7203177D6AE50074229E /* AudioObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F6177D6AE50074229E /* AudioObject.mm */; };
+		162F7204177D6AE50074229E /* MicDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F7177D6AE50074229E /* MicDevice.cpp */; };
+		162F7205177D6AE50074229E /* MicDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 162F71F8177D6AE50074229E /* MicDevice.h */; };
+		162F7206177D6AE50074229E /* MicDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 162F71F9177D6AE50074229E /* MicDevice.mm */; };
+		162F7207177D6AE50074229E /* VoiceObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162F71FA177D6AE50074229E /* VoiceObject.cpp */; };
 		16307F001404F48D002559FA /* GRMustacheWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 16307EFE1404F48D002559FA /* GRMustacheWrapper.h */; };
 		16307F021404F48D002559FA /* GRMustacheWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16307EFF1404F48D002559FA /* GRMustacheWrapper.m */; };
 		1630A815171C021D00B318A9 /* CmdArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A811171C021D00B318A9 /* CmdArguments.cpp */; };
@@ -1095,6 +1120,7 @@
 		16BF9BBB154A4899000BF0A5 /* GifParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BF9BB9154A4899000BF0A5 /* GifParser.m */; };
 		16BFE08A15EC6E2A0055874D /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16BFE08815EC6E2A0055874D /* StateMachine.cpp */; };
 		16BFE08B15EC6E2A0055874D /* StateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BFE08915EC6E2A0055874D /* StateMachine.h */; };
+		16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */; };
 		16C230B51485D70D000F2E4A /* OALogin.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C230B31485D70D000F2E4A /* OALogin.h */; };
 		16C230B61485D70D000F2E4A /* OALogin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16C230B41485D70D000F2E4A /* OALogin.mm */; };
 		16C230BA1485D714000F2E4A /* OAPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C230B81485D714000F2E4A /* OAPush.h */; };
@@ -1679,6 +1705,8 @@
 		161043A315CBC64000485DDF /* XimMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimMessage.h; sourceTree = "<group>"; };
 		161043A615CBC67300485DDF /* XimRoster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XimRoster.cpp; sourceTree = "<group>"; };
 		161043A715CBC67400485DDF /* XimRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimRoster.h; sourceTree = "<group>"; };
+		161180711783CF5B007591C8 /* NSSqliteArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSqliteArchive.h; sourceTree = "<group>"; };
+		161180721783CF5B007591C8 /* NSSqliteArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSSqliteArchive.mm; sourceTree = "<group>"; };
 		1612293C17796D3A00A97278 /* JsonObjParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsonObjParser.cpp; sourceTree = "<group>"; };
 		1612293F17796D9100A97278 /* arraylist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = arraylist.c; path = ../contrib/json/arraylist.c; sourceTree = "<group>"; };
 		1612294017796D9100A97278 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../contrib/json/debug.c; sourceTree = "<group>"; };
@@ -1892,6 +1920,29 @@
 		162EE38B1537C7B700A47238 /* AVCamSnapshotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamSnapshotManager.m; sourceTree = "<group>"; };
 		162EF882148F0A5900D8E41B /* UIFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlowView.h; sourceTree = "<group>"; };
 		162EF883148F0A5900D8E41B /* UIFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowView.m; sourceTree = "<group>"; };
+		162F71CC177D683E0074229E /* File+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "File+NNT.cpp"; sourceTree = "<group>"; };
+		162F71CD177D683E0074229E /* File+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "File+NNT.h"; sourceTree = "<group>"; };
+		162F71DA177D6A6A0074229E /* AudioFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFile.cpp; sourceTree = "<group>"; };
+		162F71DB177D6A6A0074229E /* AudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFile.h; sourceTree = "<group>"; };
+		162F71DC177D6A6A0074229E /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayer.cpp; sourceTree = "<group>"; };
+		162F71DD177D6A6A0074229E /* MicRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicRecorder.h; sourceTree = "<group>"; };
+		162F71DE177D6A6A0074229E /* MicRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MicRecorder.mm; sourceTree = "<group>"; };
+		162F71DF177D6A6A0074229E /* OpenAL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "OpenAL+NNT.cpp"; sourceTree = "<group>"; };
+		162F71E0177D6A6A0074229E /* OpenAL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenAL+NNT.h"; sourceTree = "<group>"; };
+		162F71E8177D6A8A0074229E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		162F71EE177D6AE50074229E /* AudioBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioBuffer.cpp; sourceTree = "<group>"; };
+		162F71EF177D6AE50074229E /* AudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioBuffer.h; sourceTree = "<group>"; };
+		162F71F0177D6AE50074229E /* AudioBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioBuffer.mm; sourceTree = "<group>"; };
+		162F71F1177D6AE50074229E /* AudioDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDevice.cpp; sourceTree = "<group>"; };
+		162F71F2177D6AE50074229E /* AudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDevice.h; sourceTree = "<group>"; };
+		162F71F3177D6AE50074229E /* AudioDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioDevice.mm; sourceTree = "<group>"; };
+		162F71F4177D6AE50074229E /* AudioObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioObject.cpp; sourceTree = "<group>"; };
+		162F71F5177D6AE50074229E /* AudioObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioObject.h; sourceTree = "<group>"; };
+		162F71F6177D6AE50074229E /* AudioObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioObject.mm; sourceTree = "<group>"; };
+		162F71F7177D6AE50074229E /* MicDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MicDevice.cpp; sourceTree = "<group>"; };
+		162F71F8177D6AE50074229E /* MicDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicDevice.h; sourceTree = "<group>"; };
+		162F71F9177D6AE50074229E /* MicDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MicDevice.mm; sourceTree = "<group>"; };
+		162F71FA177D6AE50074229E /* VoiceObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VoiceObject.cpp; sourceTree = "<group>"; };
 		16307EFE1404F48D002559FA /* GRMustacheWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheWrapper.h; sourceTree = "<group>"; };
 		16307EFF1404F48D002559FA /* GRMustacheWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheWrapper.m; sourceTree = "<group>"; };
 		1630A811171C021D00B318A9 /* CmdArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdArguments.cpp; sourceTree = "<group>"; };
@@ -2712,6 +2763,7 @@
 		16BF9BB9154A4899000BF0A5 /* GifParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifParser.m; sourceTree = "<group>"; };
 		16BFE08815EC6E2A0055874D /* StateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateMachine.cpp; sourceTree = "<group>"; };
 		16BFE08915EC6E2A0055874D /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
+		16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sqlite3+nnt.c"; path = "../contrib/sqlite/sqlite3+nnt.c"; sourceTree = "<group>"; };
 		16C230B31485D70D000F2E4A /* OALogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OALogin.h; sourceTree = "<group>"; };
 		16C230B41485D70D000F2E4A /* OALogin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OALogin.mm; sourceTree = "<group>"; };
 		16C230B81485D714000F2E4A /* OAPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPush.h; sourceTree = "<group>"; };
@@ -3230,6 +3282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162F71E9177D6A8A0074229E /* OpenAL.framework in Frameworks */,
 				16DBF86D16DC8EFF0098709B /* PassKit.framework in Frameworks */,
 				16967E7F16D612A800D0F33A /* iAd.framework in Frameworks */,
 				16967E7D16D612A000D0F33A /* GameKit.framework in Frameworks */,
@@ -3270,6 +3323,13 @@
 			children = (
 				1603A91A15DCDE320029A54C /* AudioPlayer.h */,
 				1603A91B15DCDE320029A54C /* AudioPlayer.mm */,
+				162F71DC177D6A6A0074229E /* AudioPlayer.cpp */,
+				162F71DA177D6A6A0074229E /* AudioFile.cpp */,
+				162F71DB177D6A6A0074229E /* AudioFile.h */,
+				162F71DD177D6A6A0074229E /* MicRecorder.h */,
+				162F71DE177D6A6A0074229E /* MicRecorder.mm */,
+				162F71DF177D6A6A0074229E /* OpenAL+NNT.cpp */,
+				162F71E0177D6A6A0074229E /* OpenAL+NNT.h */,
 				1603AD4B15DCE2DA0029A54C /* SystemAudio.h */,
 				1603AD4C15DCE2DA0029A54C /* SystemAudio.mm */,
 				162AC3A415F05782002B87C9 /* QuickLooker.h */,
@@ -3583,6 +3643,7 @@
 		16358B3114A07BF1005F06B5 /* contrib */ = {
 			isa = PBXGroup;
 			children = (
+				16C1DA2817852F7C000ACD9F /* sqlite */,
 				1612293E17796D7B00A97278 /* json */,
 				16AC1CEE16F2D07F00316206 /* mongoose */,
 				1693685E16F192860021909E /* ossp-uuid */,
@@ -3803,6 +3864,7 @@
 				165E7D741564E1500094C5D2 /* MediaPlayer.framework */,
 				161D95AB157F239200371430 /* MessageUI.framework */,
 				16D3CF85153BA9EF003A33CE /* OpenGLES.framework */,
+				162F71E8177D6A8A0074229E /* OpenAL.framework */,
 				16DBF86C16DC8EFF0098709B /* PassKit.framework */,
 				16CFB6BC13AB03C400FAFCAC /* SystemConfiguration.framework */,
 				16F0E61116BA4C9B0068A20A /* StoreKit.framework */,
@@ -4058,6 +4120,8 @@
 				166552BC13A6086E008DF239 /* DBMS.h */,
 				166552BD13A6086E008DF239 /* DBMS.m */,
 				167BA28A15D4FD38006E5EBB /* DBMS.cpp */,
+				161180711783CF5B007591C8 /* NSSqliteArchive.h */,
+				161180721783CF5B007591C8 /* NSSqliteArchive.mm */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -4570,6 +4634,8 @@
 				16C732CC15EB25550030A9A3 /* Filesystem.mm */,
 				1675AF901515FFE90046A630 /* Filesystem.cpp */,
 				1675AF911515FFE90046A630 /* Filesystem.h */,
+				162F71CC177D683E0074229E /* File+NNT.cpp */,
+				162F71CD177D683E0074229E /* File+NNT.h */,
 				16C732CF15EB259F0030A9A3 /* FsLocal.mm */,
 				16189A4615E21ECC00E8CD1B /* FsLocal.cpp */,
 				16189A4715E21ECC00E8CD1B /* FsLocal.h */,
@@ -4922,6 +4988,14 @@
 			);
 			name = giflib;
 			path = ../contrib/giflib;
+			sourceTree = "<group>";
+		};
+		16C1DA2817852F7C000ACD9F /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				16C1DA2B17853574000ACD9F /* sqlite3+nnt.c */,
+			);
+			name = sqlite;
 			sourceTree = "<group>";
 		};
 		16C2D8F314457F5D00CA6EDF /* UIKit */ = {
@@ -5452,6 +5526,19 @@
 		16F0E61716BA527B0068A20A /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
+				162F71EE177D6AE50074229E /* AudioBuffer.cpp */,
+				162F71EF177D6AE50074229E /* AudioBuffer.h */,
+				162F71F0177D6AE50074229E /* AudioBuffer.mm */,
+				162F71F1177D6AE50074229E /* AudioDevice.cpp */,
+				162F71F2177D6AE50074229E /* AudioDevice.h */,
+				162F71F3177D6AE50074229E /* AudioDevice.mm */,
+				162F71F4177D6AE50074229E /* AudioObject.cpp */,
+				162F71F5177D6AE50074229E /* AudioObject.h */,
+				162F71F6177D6AE50074229E /* AudioObject.mm */,
+				162F71F7177D6AE50074229E /* MicDevice.cpp */,
+				162F71F8177D6AE50074229E /* MicDevice.h */,
+				162F71F9177D6AE50074229E /* MicDevice.mm */,
+				162F71FA177D6AE50074229E /* VoiceObject.cpp */,
 				16F0E62016BA52AA0068A20A /* iOSPrinter.h */,
 				16F0E62116BA52AA0068A20A /* iOSPrinter.mm */,
 				1670800E16D3838600C8C9A4 /* VoiceObject.h */,
@@ -6343,6 +6430,15 @@
 				16E51B6B176B3A7C0097BA46 /* AppStatistics.h in Headers */,
 				1612498C1778623800731002 /* ccView+NNT.h in Headers */,
 				1612498F1778623800731002 /* cocos2dx+NNT.h in Headers */,
+				162F71CF177D683E0074229E /* File+NNT.h in Headers */,
+				162F71E2177D6A6A0074229E /* AudioFile.h in Headers */,
+				162F71E4177D6A6A0074229E /* MicRecorder.h in Headers */,
+				162F71E7177D6A6A0074229E /* OpenAL+NNT.h in Headers */,
+				162F71FC177D6AE50074229E /* AudioBuffer.h in Headers */,
+				162F71FF177D6AE50074229E /* AudioDevice.h in Headers */,
+				162F7202177D6AE50074229E /* AudioObject.h in Headers */,
+				162F7205177D6AE50074229E /* MicDevice.h in Headers */,
+				161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7256,6 +7352,22 @@
 				1612294B17796D9100A97278 /* linkhash.c in Sources */,
 				1612294C17796D9100A97278 /* printbuf.c in Sources */,
 				1612294E17796E1900A97278 /* json_nnt.c in Sources */,
+				162F71CE177D683E0074229E /* File+NNT.cpp in Sources */,
+				162F71E1177D6A6A0074229E /* AudioFile.cpp in Sources */,
+				162F71E3177D6A6A0074229E /* AudioPlayer.cpp in Sources */,
+				162F71E5177D6A6A0074229E /* MicRecorder.mm in Sources */,
+				162F71E6177D6A6A0074229E /* OpenAL+NNT.cpp in Sources */,
+				162F71FB177D6AE50074229E /* AudioBuffer.cpp in Sources */,
+				162F71FD177D6AE50074229E /* AudioBuffer.mm in Sources */,
+				162F71FE177D6AE50074229E /* AudioDevice.cpp in Sources */,
+				162F7200177D6AE50074229E /* AudioDevice.mm in Sources */,
+				162F7201177D6AE50074229E /* AudioObject.cpp in Sources */,
+				162F7203177D6AE50074229E /* AudioObject.mm in Sources */,
+				162F7204177D6AE50074229E /* MicDevice.cpp in Sources */,
+				162F7206177D6AE50074229E /* MicDevice.mm in Sources */,
+				162F7207177D6AE50074229E /* VoiceObject.cpp in Sources */,
+				161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */,
+				16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
