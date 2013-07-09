@@ -33,17 +33,17 @@ NNT_BEGIN_OBJC
 
 @synthesize keys;
 
-- (void)dealloc {
-    safe_release(keys);
-    [super dealloc];
-}
-
 - (id)init {
     self = [super init];
     
     keys = [[NSMutableArray alloc] init];
     
     return self;
+}
+
+- (void)dealloc {
+    safe_release(keys);
+    [super dealloc];
 }
 
 - (NSMutableDictionary *)sortByAlphabetic:(NSArray *)chineseArray {
@@ -113,25 +113,3 @@ NNT_BEGIN_OBJC
 @end
 
 NNT_END_OBJC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
