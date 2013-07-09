@@ -1634,6 +1634,8 @@
 		7499EC5A15270DF60051E9D7 /* JuiceScreenManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7499EC4D15270DF60051E9D7 /* JuiceScreenManager.hpp */; };
 		7499EC5B15270DF60051E9D7 /* JuiceTree.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7499EC4E15270DF60051E9D7 /* JuiceTree.hpp */; };
 		7499EC5C15270DF60051E9D7 /* JuiceTypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7499EC4F15270DF60051E9D7 /* JuiceTypes.hpp */; };
+		843F7D11178AAC9B00DA5803 /* AlphabeticSort.mm in Sources */ = {isa = PBXBuildFile; fileRef = 843F7D0F178AAC9B00DA5803 /* AlphabeticSort.mm */; };
+		843F7D12178AAC9B00DA5803 /* AlphabeticSort.h in Headers */ = {isa = PBXBuildFile; fileRef = 843F7D10178AAC9B00DA5803 /* AlphabeticSort.h */; };
 		8BA71733160AACD400E2DF1C /* UIEmojiPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BA71731160AACD400E2DF1C /* UIEmojiPickerController.h */; };
 		8BA71734160AACD400E2DF1C /* UIEmojiPickerController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BA71732160AACD400E2DF1C /* UIEmojiPickerController.mm */; };
 /* End PBXBuildFile section */
@@ -3273,6 +3275,8 @@
 		7499EC4D15270DF60051E9D7 /* JuiceScreenManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceScreenManager.hpp; sourceTree = "<group>"; };
 		7499EC4E15270DF60051E9D7 /* JuiceTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceTree.hpp; sourceTree = "<group>"; };
 		7499EC4F15270DF60051E9D7 /* JuiceTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceTypes.hpp; sourceTree = "<group>"; };
+		843F7D0F178AAC9B00DA5803 /* AlphabeticSort.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AlphabeticSort.mm; sourceTree = "<group>"; };
+		843F7D10178AAC9B00DA5803 /* AlphabeticSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphabeticSort.h; sourceTree = "<group>"; };
 		8BA71731160AACD400E2DF1C /* UIEmojiPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIEmojiPickerController.h; sourceTree = "<group>"; };
 		8BA71732160AACD400E2DF1C /* UIEmojiPickerController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIEmojiPickerController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -5451,6 +5455,8 @@
 				16DB8C801444136B00E85F90 /* AlphabetFlow.h */,
 				160D4588152D4F6200FFD25B /* AlphabetFlow.cpp */,
 				16DB8C811444136B00E85F90 /* AlphabetFlow.m */,
+				843F7D10178AAC9B00DA5803 /* AlphabeticSort.h */,
+				843F7D0F178AAC9B00DA5803 /* AlphabeticSort.mm */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -6439,6 +6445,7 @@
 				162F7202177D6AE50074229E /* AudioObject.h in Headers */,
 				162F7205177D6AE50074229E /* MicDevice.h in Headers */,
 				161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */,
+				843F7D12178AAC9B00DA5803 /* AlphabeticSort.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6470,7 +6477,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */;
+			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -7368,6 +7375,7 @@
 				162F7207177D6AE50074229E /* VoiceObject.cpp in Sources */,
 				161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */,
 				16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */,
+				843F7D11178AAC9B00DA5803 /* AlphabeticSort.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7487,7 +7495,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */ = {
+		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBA13A5FF11008DF239 /* Debug */,
