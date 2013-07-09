@@ -11,9 +11,19 @@ NNT_BEGIN_HEADER_OBJC
 
 @end
 
+@interface AlphabeticSortResult : NNTObject
+
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic, retain) NSArray *value;
+
+@end
+
 @interface AlphabeticSort : NNTObject
 
-- (NSMutableDictionary *)sortByAlphabetic:(NSMutableArray*)chineseArray;
+@property (nonatomic, readonly) NSMutableArray *keys;
+
+- (NSMutableDictionary *)sortByAlphabetic:(NSArray *)chineseArray;
+- (NSArray *)sortedResult:(NSArray *)chineseArray;
 
 @end
 

@@ -17,9 +17,36 @@ NNT_BEGIN_OBJC
 
 @end
 
+@implementation AlphabeticSortResult
+
+@synthesize key = _key, value = _value;
+
+- (void)dealloc {
+    safe_release(_key);
+    safe_release(_value);
+    [super dealloc];
+}
+
+@end
+
 @implementation AlphabeticSort
 
-- (NSMutableDictionary *)sortByAlphabetic:(NSMutableArray *)chineseArray {
+@synthesize keys;
+
+- (void)dealloc {
+    safe_release(keys);
+    [super dealloc];
+}
+
+- (id)init {
+    self = [super init];
+    
+    keys = [[NSMutableArray alloc] init];
+    
+    return self;
+}
+
+- (NSMutableDictionary *)sortByAlphabetic:(NSArray *)chineseArray {
 
     NSMutableArray *chineseStringArray = [[NSMutableArray alloc] init];
     for (uint idx = 0; idx < chineseArray.count; ++idx) {
@@ -58,6 +85,29 @@ NNT_BEGIN_OBJC
     }
     
     return ret;
+}
+
+- (NSArray *)sortedResult:(NSArray *)chineseArray {
+    NSMutableDictionary *dict = [self sortByAlphabetic:chineseArray];
+    
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    
+    for (NSString *key in dict.allKeys) {
+        AlphabeticSortResult *as = [[AlphabeticSortResult alloc] init];
+        as.key = key;
+        as.value = [dict objectForKey:key null:@""];
+        [ret addObject:as];
+        safe_release(as);
+    }
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES]];
+    [ret sortUsingDescriptors:sortDescriptors];
+    
+    for (AlphabeticSortResult *as in ret) {
+        [keys  addObject:as.key];
+    }
+    
+    return ret.autorelease;
 }
 
 @end
