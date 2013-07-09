@@ -176,7 +176,6 @@ bool Oal::is_mute() const
 
 bool Oal::read(core::data const& da)
 {
-    d_ptr->set_current();
     d_ptr->clean();
         
     // create new.
@@ -250,8 +249,6 @@ bool Oal::append(core::data const& da)
 
 bool Oal::play()
 {
-    d_ptr->set_current();
-    
     if (is_playing())
         stop();
     
@@ -273,8 +270,6 @@ bool Oal::play()
 
 bool Oal::is_playing() const
 {
-    d_ptr->set_current();
-    
     ALint state;
     alGetSourcei(d_ptr->source, AL_SOURCE_STATE, &state);
     return state == AL_PLAYING;
@@ -282,8 +277,6 @@ bool Oal::is_playing() const
 
 bool Oal::stop()
 {
-    d_ptr->set_current();
-    
     alSourceStop(d_ptr->source);
     
     return alGetError() == AL_NO_ERROR;
@@ -291,8 +284,6 @@ bool Oal::stop()
 
 bool Oal::seek(float v)
 {
-    d_ptr->set_current();
-    
     alSourcef(d_ptr->source, AL_SEC_OFFSET, v);
     
     return alGetError() == AL_NO_ERROR;
@@ -300,17 +291,13 @@ bool Oal::seek(float v)
 
 bool Oal::position(float& v)
 {
-    d_ptr->set_current();
-    
     alGetSourcef(d_ptr->source, AL_SEC_OFFSET, &v);
     
     return alGetError() == AL_NO_ERROR;
 }
 
 bool Oal::pause()
-{
-    d_ptr->set_current();
-    
+{    
     alSourcePause(d_ptr->source);
     
     return alGetError() == AL_NO_ERROR;
@@ -318,8 +305,6 @@ bool Oal::pause()
 
 bool Oal::resume()
 {
-    d_ptr->set_current();
-    
     alSourcePlay(d_ptr->source);
     
     return alGetError() == AL_NO_ERROR;
@@ -327,8 +312,6 @@ bool Oal::resume()
 
 bool Oal::gain(float &v)
 {
-    d_ptr->set_current();
-    
     alGetSourcef(d_ptr->source, AL_GAIN, &v);
     
     return alGetError() == AL_NO_ERROR;
