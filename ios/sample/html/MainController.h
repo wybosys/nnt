@@ -4,8 +4,6 @@
 
 NNTAPP_BEGIN
 
-using namespace ::wsi;
-
 class MainView
 : public ui::View<MainView>
 {
