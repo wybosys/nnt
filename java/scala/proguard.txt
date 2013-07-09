@@ -1,0 +1,27 @@
+-dontwarn
+
+-dontnote
+
+-dontoptimize
+
+-dontobfuscate
+
+-dontskipnonpubliclibraryclasses
+
+-dontskipnonpubliclibraryclassmembers
+
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,
+                SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
+                
+-keep public class 
+nnt.*,
+nnt.context.**,
+nnt.core.**,
+nnt.cross.**,
+nnt.math.**,
+nnt.model.**,
+nnt.parser.**,
+nnt.store.**
+{
+    public protected *;
+}

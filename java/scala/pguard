@@ -1,0 +1,8 @@
+#!/bin/sh
+PROGUARD=/opt/local/share/java/proguard.jar
+LIBS=
+OUTPUT=lib/nnt-scala.jar
+rm -f $OUTPUT
+
+AJAR='/opt/local/share/java/android-sdk-macosx/platforms/android-17/android.jar'
+java -Xmx1g -jar $PROGUARD -injars 'bin:lib/scala-library.jar(!META-INF/MANIFEST.MF,!library.properties)' -outjar $OUTPUT -libraryjars $AJAR @proguard.txt
