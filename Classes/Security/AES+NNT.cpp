@@ -248,8 +248,8 @@ struct _ns_aes_t
 nsaes_t* nsaes_new()
 {
     nsaes_t* ret = (nsaes_t*)malloc(sizeof(nsaes_t));
-    ret->encrypt = calloc(1, sizeof(kCCKeySizeAES128));
-    ret->decrypt = calloc(1, sizeof(kCCKeySizeAES128));
+    ret->encrypt = calloc(1, kCCKeySizeAES128);
+    ret->decrypt = calloc(1, kCCKeySizeAES128);
     return ret;
 }
 
@@ -272,8 +272,8 @@ int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
     free(o->encrypt);
     free(o->decrypt);
     
-    o->encrypt = calloc(1, sizeof(kCCKeySizeAES128));
-    o->decrypt = calloc(1, sizeof(kCCKeySizeAES128));
+    o->encrypt = calloc(1, kCCKeySizeAES128);
+    o->decrypt = calloc(1, kCCKeySizeAES128);
     
     memcpy(o->encrypt, key, MIN(lkey, kCCKeySizeAES128));
     memcpy(o->decrypt, key, MIN(lkey, kCCKeySizeAES128));
