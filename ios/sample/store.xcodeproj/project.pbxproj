@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		167D9798170935DC00B94D5E /* libnnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 167D9797170935DC00B94D5E /* libnnt.a */; };
+		1699AA2A178E459F002DF564 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1699AA29178E459F002DF564 /* libcrypto.a */; };
 		16D1AA2B15AC1EE6004DE492 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D1AA2A15AC1EE6004DE492 /* UIKit.framework */; };
 		16D1AA2D15AC1EE6004DE492 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D1AA2C15AC1EE6004DE492 /* Foundation.framework */; };
 		16D1AA2F15AC1EE6004DE492 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16D1AA2E15AC1EE6004DE492 /* CoreGraphics.framework */; };
@@ -821,6 +822,7 @@
 		167D9795170935D400B94D5E /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		167D9796170935D400B94D5E /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
 		167D9797170935DC00B94D5E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		1699AA29178E459F002DF564 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../lib/iOS/libcrypto.a; sourceTree = "<group>"; };
 		16D1AA2615AC1EE6004DE492 /* store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = store.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D1AA2A15AC1EE6004DE492 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		16D1AA2C15AC1EE6004DE492 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -849,6 +851,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1699AA2A178E459F002DF564 /* libcrypto.a in Frameworks */,
 				167D9798170935DC00B94D5E /* libnnt.a in Frameworks */,
 				16D1AD4115AC2127004DE492 /* libleveldb.a in Frameworks */,
 				16D1AD3A15AC1F5A004DE492 /* libicucore.dylib in Frameworks */,
@@ -2220,7 +2223,6 @@
 		16D1AA1B15AC1EE5004DE492 = {
 			isa = PBXGroup;
 			children = (
-				167D9797170935DC00B94D5E /* libnnt.a */,
 				167D9439170935D200B94D5E /* nnt */,
 				16D1AA3015AC1EE6004DE492 /* store */,
 				16D1AA2915AC1EE6004DE492 /* Frameworks */,
@@ -2239,6 +2241,8 @@
 		16D1AA2915AC1EE6004DE492 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1699AA29178E459F002DF564 /* libcrypto.a */,
+				167D9797170935DC00B94D5E /* libnnt.a */,
 				16D1AA4C15AC1F29004DE492 /* Default@2x.png */,
 				16D1AA4A15AC1F25004DE492 /* Default.png */,
 				16D1AA4815AC1F21004DE492 /* logo@114.png */,

@@ -139,10 +139,13 @@ void aes_swap_rw(aes_t* o)
     o->decrypt = t;
 }
 
-static void aes_set_nopadding(aes_t* o)
+void aes_set_padding(aes_t* o, int b)
 {
-    EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
-    EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
+    if (b == 0)
+    {
+        EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
+        EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
+    }
 }
 
 int aes_set_key(aes_t* o, void const* key, size_t lkey)
@@ -171,8 +174,6 @@ int aes_set_key(aes_t* o, void const* key, size_t lkey)
                        NULL,
                        _key,
                        _iv);
-    
-    aes_set_nopadding(o);
     
     return 0;
 }
@@ -243,13 +244,15 @@ struct _ns_aes_t
 {
     void* encrypt;
     void* decrypt;
+    int padding;
 };
 
 nsaes_t* nsaes_new()
 {
     nsaes_t* ret = (nsaes_t*)malloc(sizeof(nsaes_t));
-    ret->encrypt = calloc(1, kCCKeySizeAES128);
-    ret->decrypt = calloc(1, kCCKeySizeAES128);
+    ret->encrypt = calloc(kCCKeySizeAES256, 1);
+    ret->decrypt = calloc(kCCKeySizeAES256, 1);
+    ret->padding = true;
     return ret;
 }
 
@@ -258,6 +261,11 @@ void nsaes_free(nsaes_t* o)
     free(o->encrypt);
     free(o->decrypt);
     free(o);
+}
+
+void nsaes_set_padding(nsaes_t* o, int b)
+{
+    o->padding = b;
 }
 
 void nsaes_swap_rw(nsaes_t* o)
@@ -269,31 +277,34 @@ void nsaes_swap_rw(nsaes_t* o)
 
 int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
 {
-    free(o->encrypt);
-    free(o->decrypt);
+    memset(o->encrypt, 0, kCCKeySizeAES256);
+    memset(o->decrypt, 0, kCCKeySizeAES256);
     
-    o->encrypt = calloc(1, kCCKeySizeAES128);
-    o->decrypt = calloc(1, kCCKeySizeAES128);
+    memcpy(o->encrypt, key, MIN(lkey, kCCKeySizeAES256));
+    memcpy(o->decrypt, key, MIN(lkey, kCCKeySizeAES256));
     
-    memcpy(o->encrypt, key, MIN(lkey, kCCKeySizeAES128));
-    memcpy(o->decrypt, key, MIN(lkey, kCCKeySizeAES128));
-
     return 0;
 }
 
 int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
-    *outdata = malloc(ldata);
+    *loutdata = ldata + kCCBlockSizeAES128;
+    *outdata = malloc(*loutdata);
+    CCOptions opt = kCCModeCBC;
+    if (o->padding)
+        opt |= kCCOptionPKCS7Padding;
+    else
+        opt |= ccNoPadding;
     CCCryptorStatus sta = CCCrypt(kCCEncrypt,
                                   kCCAlgorithmAES128,
-                                  ccNoPadding | kCCModeCBC,
+                                  opt,
                                   o->encrypt,
-                                  kCCKeySizeAES128,
+                                  kCCKeySizeAES256,
                                   NULL,
                                   data,
                                   ldata,
                                   *outdata,
-                                  ldata,
+                                  *loutdata,
                                   loutdata);
     if (sta != kCCSuccess)
     {
@@ -307,17 +318,23 @@ int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, si
 
 int nsaes_decrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
-    *outdata = malloc(ldata);
+    *loutdata = ldata + kCCBlockSizeAES128;
+    *outdata = malloc(*loutdata);
+    CCOptions opt = kCCModeCBC;
+    if (o->padding)
+        opt |= kCCOptionPKCS7Padding;
+    else
+        opt |= ccNoPadding;
     CCCryptorStatus sta = CCCrypt(kCCDecrypt,
                                   kCCAlgorithmAES128,
-                                  ccNoPadding | kCCModeCBC,
+                                  opt,
                                   o->decrypt,
-                                  kCCKeySizeAES128,
+                                  kCCKeySizeAES256,
                                   NULL,
                                   data,
                                   ldata,
                                   *outdata,
-                                  ldata,
+                                  *loutdata,
                                   loutdata);
     if (sta != kCCSuccess)
     {

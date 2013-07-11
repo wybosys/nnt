@@ -25,6 +25,7 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_t nsaes_t
 #   define sqlite_aes_free nsaes_free
 #   define sqlite_aes_new nsaes_new
+#   define sqlite_aes_set_padding nsaes_set_padding
 #   define sqlite_aes_set_key nsaes_set_key
 #   define sqlite_aes_encrypt nsaes_encrypt
 #   define sqlite_aes_decrypt nsaes_decrypt
@@ -35,6 +36,7 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_t aes_t
 #   define sqlite_aes_free aes_free
 #   define sqlite_aes_new aes_new
+#   define sqlite_aes_set_padding aes_set_padding
 #   define sqlite_aes_set_key aes_set_key
 #   define sqlite_aes_encrypt aes_encrypt
 #   define sqlite_aes_decrypt aes_decrypt
@@ -63,6 +65,7 @@ static sqlite3_crypto_t* sqlite3_new_crypto(void const* skey, int lkey)
         sqlite3_free_crypto(cpt);
         return NULL;
     }
+    sqlite_aes_set_padding(cpt->key, false);
     return cpt;
 }
 
