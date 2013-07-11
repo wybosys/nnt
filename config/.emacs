@@ -256,6 +256,9 @@
 (require 'git nil 'noerror)
 (require 'vc-git)
 
+;; maxima mode
+(add-to-list 'load-path "/opt/local/share/maxima/5.28.0/emacs")
+
 ;; python.
 (defun my-py-settings ()
   ;(elpa-require 'python-mode)
