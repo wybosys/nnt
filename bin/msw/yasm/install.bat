@@ -1,12 +1,13 @@
 @echo off
 
-if %PROCESSOR_ARCHITECTURE% == "AMD64" (
+if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
 		goto win64
 	) else (
 		goto win32
 	)
 
 :win32
+	echo "Win32"
 	rem msvc9 installed
 	if exist "%ProgramFiles%\Microsoft Visual Studio 9.0\VC\VCProjectDefaults" (
 		copy Win32\yasm.exe "%ProgramFiles%\Microsoft Visual Studio 9.0\VC\bin" /Y
@@ -21,6 +22,7 @@ if %PROCESSOR_ARCHITECTURE% == "AMD64" (
 	goto end
 
 :win64
+	echo "Win64"
 	rem msvc9 installed
 	if exist "%ProgramFiles(x86)%\Microsoft Visual Studio 9.0\VC\VCProjectDefaults" (
 		copy Win32\yasm.exe "%ProgramFiles(x86)%\Microsoft Visual Studio 9.0\VC\bin" /Y
