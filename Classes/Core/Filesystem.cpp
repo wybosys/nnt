@@ -6,7 +6,7 @@ NNT_BEGIN_CXX
 
 Filesystem::Filesystem()
 {
-    
+
 }
 
 Filesystem::~Filesystem()

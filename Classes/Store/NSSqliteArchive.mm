@@ -599,6 +599,77 @@ NNT_BEGIN_OBJC
     return suc;
 }
 
+- (BOOL)replace:(NSDictionary *)dict {
+    ::std::string tbl = [_tablename cStringUsingEncoding:NSUTF8StringEncoding];
+    ::std::string cmd = "replace into " + tbl + " ";
+    ::std::string fields = "(";
+    ::std::string params = "(";
+    
+    int count = 0;
+    for (NSString* key in dict.allKeys) {
+        if ([key isKindOfClass:[NSString class]] == NO)
+            continue;
+        
+        if (count != 0) {
+            fields += ", ";
+            params += ", ";
+        }
+        ++count;
+        
+        char const* fld_name = [key cStringUsingEncoding:NSUTF8StringEncoding];
+        fields += fld_name;
+        
+        ::std::stringstream ss;
+        ss << count;
+        params += ":" + ss.str();
+    }
+    
+    fields += ")";
+    params += ")";
+    
+    cmd += fields;
+    cmd += " values ";
+    cmd += params;
+    
+    // bind sql.
+    sqlite3_stmt* stmt;
+    sqlite3_prepare_v2(_db, cmd.c_str(), cmd.length(), &stmt, NULL);
+    if (stmt == NULL)
+        return NO;
+    
+    count = 0;
+    for (NSString* key in dict.allKeys) {
+        if ([key isKindOfClass:[NSString class]] == NO)
+            continue;
+        
+        ++count;
+        
+        id val = [dict objectForKey:key];
+        if ([val isKindOfClass:[NSString class]] ||
+            [val isKindOfClass:[[NSString string] class]]) {
+            char const* str = [val cStringUsingEncoding:NSUTF8StringEncoding];
+            sqlite3_bind_text(stmt, count, str, strlen(str), NULL);
+        } else if ([val isKindOfClass:[NSNumber class]]) {
+            ::std::string ot = ((NSNumber*)val).objCType;
+            if (ot == @encode(int) ||
+                ot == @encode(unsigned int) ||
+                ot == @encode(short) ||
+                ot == @encode(unsigned short) ||
+                ot == @encode(long) ||
+                ot == @encode(unsigned long)) {
+                sqlite3_bind_int(stmt, count, ((NSNumber*)val).intValue);
+            } else if (ot == @encode(float) ||
+                       ot == @encode(double)) {
+                sqlite3_bind_double(stmt, count, ((NSNumber*)val).doubleValue);
+            }
+        }
+    }
+    
+    BOOL suc = SQLITE_FAIL != sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    return suc;
+}
+
 @end
 
 NNT_END_OBJC

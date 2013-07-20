@@ -2,7 +2,7 @@
 # include "Foundation+NNT.h"
 # include "MainController.h"
 # include "FsSamba.h"
-# include "Directory+WSI.h"
+# include "Directory+NNT.h"
 # include "FsLocal.h"
 
 NNTAPP_BEGIN
