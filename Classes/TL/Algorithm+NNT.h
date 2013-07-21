@@ -956,6 +956,14 @@ inline T initial()
 
 # ifdef NNT_STL
 
+# ifdef max
+#   undef max
+# endif
+
+# ifdef min
+#   undef min
+# endif
+
 template <typename valT, typename iterT>
 static valT max(iterT begin, iterT const& end)
 {

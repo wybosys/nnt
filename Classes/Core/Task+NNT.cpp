@@ -407,7 +407,11 @@ struct thread_object
     void* param;
 };
 
+# ifdef NNT_MSVC
+static DWORD WINAPI SampleThread(LPVOID obj)
+# else
 static void* SampleThread(void* obj)
+# endif
 {
     thread_object* pam = (thread_object*)obj;
     
@@ -419,14 +423,22 @@ static void* SampleThread(void* obj)
 
 bool Task::Run(thread_func func, void* param)
 {
+    thread_object* obj = new thread_object;
+    obj->func = func;
+    obj->param = param;
+
 # ifdef NNT_MSVC
+
+    HANDLE h = ::CreateThread(NULL, 0, SampleThread, obj, NULL, NULL);
+    if (h == NULL)
+    {
+        delete obj;
+        return false;
+    }
     
 # else
     
     pthread_t tmp;
-    thread_object* obj = new thread_object;
-    obj->func = func;
-    obj->param = param;
     int ret = pthread_create(&tmp, NULL, SampleThread, obj);
     if (ret != 0)
     {
@@ -434,9 +446,9 @@ bool Task::Run(thread_func func, void* param)
         return false;
     }
     
-    return true;
-    
 # endif
+
+    return true;
 }
 
 # else // kernel space.

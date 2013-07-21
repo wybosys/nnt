@@ -4,7 +4,7 @@
 # include "../../Core/App.h"
 # include "../../Core/Boost+NNT.h"
 # include <boost/lexical_cast.hpp>
-# include "Python+NNT.h"
+# include "../Python+NNT.h"
 
 NNT_BEGIN_HEADER_C
 
