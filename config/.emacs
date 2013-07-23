@@ -1,5 +1,6 @@
 ;; for global
 (setq visible-bell t)
+(setq blink-cursor-mode 0)
 
 ;; for file.
 (prefer-coding-system 'utf-8)
