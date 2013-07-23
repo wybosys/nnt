@@ -132,30 +132,40 @@
       )
   )
 
+(defun my-colors ()
+  (interactive)
+  (cond ((eq window-system 'ns)
+         (setq x-colors (ns-list-colors))
+         )
+        )
+  )
+
 (defun my-gui ()
+  (my-colors)
   (custom-set-faces
-   '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
-   '(linum ((t (:inherit (shadow default) :background "gray96"))))
+   '(default ((t (:inherit nil :stipple nil :background "#FFFFFF" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 148 :width normal :foundry "outline"))))
+   '(linum ((t (:inherit (shadow default) :background "#FFFFFF"))))
    ) 
   ;; hl-line.
-  (set-face-background 'hl-line "gray96")
+  (set-face-background 'hl-line "#EEEEEE")
   ;; other
   (my-maximum)
   )
 
 (defun my-cli ()
   (custom-set-faces
-   '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
-   '(linum ((t (:inherit (shadow default) :background "color-255"))))
+   '(default ((t (:inherit nil :stipple nil :background "#FFFFFF" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
+   '(linum ((t (:inherit (shadow default) :background "#FFFFFF"))))
    )
   ;; hl-line.
-  (set-face-background 'hl-line "color-255")
+  (set-face-background 'hl-line "#EEEEEE")
   )
 
 (if (not window-system)
     (my-cli)
   (my-gui)
   )
+(tool-bar-mode -1)
 
 ;; yes-or-no.
 (defun my-mumble-or-no-p (prompt)
@@ -199,7 +209,7 @@
   (elpa-require 'yasnippet)
   (elpa-require 'yasnippet-bundle)
   )
-(add-hook 'after-init-hook 'my-yas)
+;(add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
@@ -564,13 +574,6 @@
 (global-set-key (kbd "<end>") 'bookmark-set)
 (global-set-key (kbd "<home>") 'bookmark-jump)
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "color-231" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline"))))
- '(linum ((t (:inherit (shadow default) :background "color-255")))))
 
 ;; clipboard
 (defun copy-from-osx ()
