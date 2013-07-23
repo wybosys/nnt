@@ -1,3 +1,6 @@
+;; for global
+(setq visible-bell t)
+
 ;; for file.
 (prefer-coding-system 'utf-8)
 (setq coding-system-for-read 'utf-8)
@@ -165,7 +168,9 @@
     (my-cli)
   (my-gui)
   )
-(tool-bar-mode -1)
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1)
+)
 
 ;; yes-or-no.
 (defun my-mumble-or-no-p (prompt)
