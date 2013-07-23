@@ -214,7 +214,7 @@
   (elpa-require 'yasnippet)
   (elpa-require 'yasnippet-bundle)
   )
-;(add-hook 'after-init-hook 'my-yas)
+(add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
