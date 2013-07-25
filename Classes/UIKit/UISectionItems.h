@@ -135,6 +135,11 @@ public:
         _items.erase_destroy(_items.begin() + idx);
     }
     
+    virtual void clear()
+    {
+        _items.clear();
+    }
+    
 protected:
     
     core::pointer_vector<item_type> _items;
