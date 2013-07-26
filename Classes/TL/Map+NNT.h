@@ -13,14 +13,14 @@
 # define USE_UNORDEREDMAP 1
 # include <unordered_map>
 # undef __DEPRECATED
-# include <ext/hash_map>
+//# include <ext/hash_map>
 # else
-# include <ext/hash_map>
+//# include <ext/hash_map>
 # endif
 # endif
 
 # ifdef NNT_MSVC
-# include <hash_map>
+//# include <hash_map>
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -32,14 +32,14 @@ using ::std::multimap;
 # ifdef NNT_GCC
 # ifdef USE_UNORDEREDMAP
 using ::std::unordered_map;
-using ::__gnu_cxx::hash_map;
+//using ::__gnu_cxx::hash_map;
 # else
-using ::__gnu_cxx::hash_map;
+//using ::__gnu_cxx::hash_map;
 # endif
 # endif
 
 # ifdef NNT_MSVC
-using ::stdext::hash_map;
+//using ::stdext::hash_map;
 # endif
 
 template <typename valT, typename keyT>

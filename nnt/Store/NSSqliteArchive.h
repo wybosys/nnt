@@ -31,6 +31,7 @@ NNT_BEGIN_HEADER_OBJC
 - (BOOL)delete:(NSDictionary*)item;
 - (BOOL)update:(NSDictionary*)item forData:(NSDictionary*)data;
 - (BOOL)insert:(NSDictionary*)item;
+- (BOOL)replace:(NSDictionary*)item;
 
 @end
 

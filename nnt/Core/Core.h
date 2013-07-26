@@ -91,6 +91,10 @@
 #   define NNT_BSD 1
 # endif
 
+# ifdef ANDROID
+#   define NNT_ANDROID 1
+# endif
+
 # if defined(__linux__) || defined(__linux)
 #   define NNT_LINUX 1
 # endif
@@ -107,7 +111,7 @@
 #   define NNT_X32 1
 # endif
 
-# ifdef __arm
+# if defined(__arm) || defined(__arm__)
 
 #   define NNT_ARM 1
 
@@ -291,6 +295,10 @@
 #   pragma warning (disable: 4819)
 #   pragma warning (disable: 4244)
 #   define NNT_DISABLE_WARNING(exp) warning (disable : exp)
+# endif
+
+# ifdef NNT_ANDROID
+#  pragma GCC diagnostic ignored "-Wpragmas"
 # endif
 
 # ifdef NNT_CLANG
@@ -1927,9 +1935,13 @@ static void trace_msg(char const* msg)
 // ignore assert.
 # include <assert.h>
 
+# if defined(__EXCEPTIONS)
+#   define NNT_EXCEPTIONS 1
+# endif
+
 static void nnt_assert(bool exp, char const* file, ulong line)
 {
-# ifdef NNT_CXX
+# if defined(NNT_CXX) && defined(NNT_EXCEPTIONS)
 
     if (!exp)
     {
