@@ -1,5 +1,6 @@
 ;; for global
 (setq visible-bell t)
+(setq blink-cursor-mode 0)
 
 ;; for file.
 (prefer-coding-system 'utf-8)
@@ -14,6 +15,11 @@
   (make-directory "~/.emacs.d/lisps"))
 (add-to-list 'load-path "~/.emacs.d/lisps/")
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
+
+;; dired.
+(require 'dired-x)
+(setq-default dired-omit-files-p t)
+(setq dired-omit-files "^\\.[^.]\\|\\.pdf$\\|\\.tex$|\\.DS_Store$")
 
 ;; package manager.
 (defun elpa-require (module &optional package)
@@ -214,7 +220,7 @@
   (elpa-require 'yasnippet)
   (elpa-require 'yasnippet-bundle)
   )
-;(add-hook 'after-init-hook 'my-yas)
+(add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
@@ -333,7 +339,7 @@
 (defun my-cedet-setting ()
   (setq 
    semantic-c-takeover-hideif t
-   semantic-symref-tool "cscope"
+   ;semantic-symref-tool "cscope"
    )    
   )
 
@@ -590,6 +596,8 @@
       (process-send-string proc text)
       (process-send-eof proc))))
 
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
-
+(cond ((eq system-type 'darwin)
+       (setq interprogram-cut-function 'paste-to-osx)
+       (setq interprogram-paste-function 'copy-from-osx)
+       )
+      )
