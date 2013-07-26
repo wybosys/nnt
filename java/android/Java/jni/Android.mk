@@ -11,4 +11,6 @@ LOCAL_C_INCLUDES := \
 ../../../Classes/Core \
 ../../../Classes/
 
+LOCAL_LDLIBS := -llog
+
 include $(BUILD_SHARED_LIBRARY)

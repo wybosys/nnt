@@ -93,6 +93,9 @@
 
 # ifdef ANDROID
 #   define NNT_ANDROID 1
+#   include <android/api-level.h>
+#   include <android/log.h>
+#   define NNT_ANDROID_LOG_TAG "nnt"
 # endif
 
 # if defined(__linux__) || defined(__linux)
@@ -299,6 +302,7 @@
 
 # ifdef NNT_ANDROID
 #  pragma GCC diagnostic ignored "-Wpragmas"
+#  define TMP_SELF_ENUM(cls) cls::
 # endif
 
 # ifdef NNT_CLANG
@@ -321,6 +325,10 @@
 
 # ifdef __BLOCKS__
 #   define NNT_BLOCKS 1
+# endif
+
+# ifndef TMP_SELF_ENUM
+#   define TMP_SELF_ENUM(cls)
 # endif
 
 # if defined(NNT_C_OPENCL)
@@ -1788,7 +1796,11 @@ inline_impl void trace_msg(T const& msg)
 inline_impl void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
+#   ifdef NNT_ANDROID
+    __android_log_print(ANDROID_LOG_DEBUG, NNT_ANDROID_LOG_TAG, msg);
+#   else 
     ::std::cout << msg << ::std::endl << ::std::flush;
+#   endif
 # else
     NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
     NNT_LINUX_EXPRESS(printk(KERN_DEBUG "nnt: %s.\n", msg));
@@ -1808,12 +1820,28 @@ inline_impl void trace_msg(T const& str)
 
 inline_impl int trace_fmt(char const* msg, ...)
 {
+# ifdef NNT_ANDROID
+# else
     printf("nnt: ");
+# endif
+    
     va_list va;
     va_start(va, msg);
-    int ret = vprintf(msg, va);
+    int ret;
+    
+# ifdef NNT_ANDROID
+    ret = __android_log_vprint(ANDROID_LOG_DEBUG, NNT_ANDROID_LOG_TAG, msg, va);
+# else
+    ret = vprintf(msg, va);
+# endif
+    
     va_end(va);
+    
+# ifdef NNT_ANDROID
+# else
     printf(".\n");
+# endif
+    
     return ret;
 }
 
@@ -1824,9 +1852,13 @@ inline_impl int trace_fmt(char const* msg, ...)
 static void trace_msg(char const* msg)
 {
 # ifdef NNT_USER_SPACE
+# ifdef NNT_ANDROID
+    __android_log_print(ANDROID_LOG_DEBUG, NNT_ANDROID_LOG_TAG, msg);
+# else
     printf(msg, 0);
     printf("\n");
     fflush(stdout);
+# endif
 # else
     NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
     NNT_LINUX_EXPRESS(printk(KERN_DEBUG "nnt: %s.\n", msg));

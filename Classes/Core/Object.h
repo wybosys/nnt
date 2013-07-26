@@ -235,7 +235,7 @@ protected:
     
     void _check_destroy()
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         if (_reference_count)
             throw exception::earlydrop();
 # endif

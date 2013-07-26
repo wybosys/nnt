@@ -222,28 +222,28 @@ public:
     template <typename R>
     struct add
     {        
-        typedef position<add::VALUE + R::VALUE> type;
+        typedef position<TMP_SELF_ENUM(add)VALUE + R::VALUE> type;
         enum { VALUE = type::VALUE };
     };
 
     template <typename R>
     struct sub
     {
-        typedef position<sub::VALUE - R::VALUE> type;
+        typedef position<TMP_SELF_ENUM(sub)VALUE - R::VALUE> type;
         enum { VALUE = type::VALUE };
     };
 
     template <typename R>
     struct mul
     {
-        typedef position<mul::VALUE * R::VALUE> type;
+        typedef position<TMP_SELF_ENUM(mul)VALUE * R::VALUE> type;
         enum { VALUE = type::VALUE };
     };
 
     template <typename R>
     struct div
     {
-        typedef position<div::VALUE / R::VALUE> type;
+        typedef position<TMP_SELF_ENUM(div)VALUE / R::VALUE> type;
         enum { VALUE = type::VALUE };
     };
 

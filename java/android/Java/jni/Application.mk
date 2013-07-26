@@ -1,2 +1,2 @@
 APP_STL := gnustl_static
-#APP_CFLAGS := -fpermissive
+APP_CFLAGS := -DDEBUG=1
