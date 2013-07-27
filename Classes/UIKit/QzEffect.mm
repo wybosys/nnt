@@ -406,8 +406,7 @@ void OpenBook::prepare()
 void OpenBook::active()
 {
     _layer().anchorPoint = CGPointMake(0, 0.5);
-    CATransform3D _3d = CATransform3DIdentity;
-    _3d = CATransform3DMakeRotation(M_PI_2, 0.0f, -1.0f, 0.0f);
+    CATransform3D _3d = CATransform3DMakeRotation(M_PI_2, 0.0f, -1.0f, 0.0f);
     _3d.m34 = 0.0001f;
     _layer().transform = _3d;
 }
