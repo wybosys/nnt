@@ -212,7 +212,6 @@ NNTDECL_PRIVATE_BEGIN_CXX(Task)
 void init()
 {
     hdl_thd = 0;
-    frun = 0;
     complete = false;    
     d_owner->count = 1;
 }
@@ -223,7 +222,6 @@ void dealloc()
 	this->wait();
 }
 
-owner_type::func_run frun;
 uint count;
 bool complete;
 
@@ -234,8 +232,11 @@ int run_once()
     mtx_run.lock();
     
     int ret = 0;
-    if (frun)
-        ret = (*frun)(d_owner);
+    if (d_owner->func)
+    {
+        ret = (*d_owner->func)(d_owner, d_owner->data);
+    }
+    
     if (ret)
     {
         mtx_run.unlock();
@@ -288,6 +289,9 @@ static void* wrapper_thd(void* data)
                 d_owner->d_ptr->complete = true;
             
             d_owner->d_ptr->mtx_ctl.unlock();
+            
+            if (!d_owner->d_ptr->complete)
+                d_owner->delay.sleep();
         }
     }
     else
@@ -300,6 +304,9 @@ static void* wrapper_thd(void* data)
                 d_owner->d_ptr->complete = true;
             
             d_owner->d_ptr->mtx_ctl.unlock();
+            
+            if (!d_owner->d_ptr->complete)
+                d_owner->delay.sleep();
         }
     }
     
@@ -347,6 +354,7 @@ void wait()
 NNTDECL_PRIVATE_END_CXX
 
 Task::Task()
+: func(0), data(NULL)
 {
     NNTDECL_PRIVATE_CONSTRUCT(Task);
 }
@@ -361,11 +369,11 @@ void Task::wait()
     d_ptr->wait();
 }
 
-bool Task::start(func_run func)
+bool Task::start(func_run f)
 {
     if (d_ptr->hdl_thd)
         return false;
-    d_ptr->frun = func;
+    func = f;
     return d_ptr->start();
 }
 

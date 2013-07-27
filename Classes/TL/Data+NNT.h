@@ -361,6 +361,11 @@ public:
         return *((byte*)_da + idx);
     }
     
+    void* buf() const
+    {
+        return (void*)_da;
+    }
+    
     byte* bytes() const
     {
         return (byte*)(byte const*)_da;

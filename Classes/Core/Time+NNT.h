@@ -358,6 +358,26 @@ typedef msvc::Timer Timer;
 typedef ns::Timer Timer;
 # endif
 
+NNTCLASS(TimeInterval);
+
+class TimeInterval
+{
+public:
+    
+    TimeInterval();
+    ~TimeInterval();
+    
+    void sleep() const;
+    
+    static TimeInterval Seconds(float);
+    static TimeInterval MilliSecond(int);
+    
+protected:
+    
+    long _val;
+    
+};
+
 NNT_END_NS
 
 NNT_END_HEADER_CXX

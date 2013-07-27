@@ -91,9 +91,8 @@ void MainController::view_loaded()
 
 void MainController::cb_progress()
 {
-    view().ctl_progress.set_max(_player.length());
-    view().ctl_progress.set_value(_player.position());
-    //view().wave.add(_player.gain());
+    //view().ctl_progress.set_max(_player.length());
+    //view().ctl_progress.set_value(_player.position());
 }
 
 void MainController::act_play()
@@ -102,7 +101,7 @@ void MainController::act_play()
     view().btn_play.set_text(@"PAUSE");
     
     _tmr_play.start();
-    _player.play(_fd, AUDIO_FORMAT_MP3);
+    //_player.play(_fd, AUDIO_FORMAT_MP3);
 }
 
 void MainController::act_pause()
@@ -111,7 +110,7 @@ void MainController::act_pause()
     view().btn_play.set_text(@"RESUME");
     
     _tmr_play.stop();
-    _player.pause();
+    //_player.pause();
 }
 
 void MainController::act_stop()

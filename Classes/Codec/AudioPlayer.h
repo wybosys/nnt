@@ -128,7 +128,7 @@ protected:
     
     void clean();
     
-    static void OpenALAudioPlayerStateWatcher(void*);
+    static int OpenALAudioPlayerStateWatcher(core::Task*, void*);
     
     unsigned int _src;
     unsigned int _buf;

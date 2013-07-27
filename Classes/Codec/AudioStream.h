@@ -9,6 +9,7 @@ class AudioStreamBasicDescription;
 # endif
 
 NNT_BEGIN_HEADER_CXX
+NNT_BEGIN_NS(audio)
 
 class AbstractPCMAudioStream
 : public cxx::Object<>
@@ -65,6 +66,7 @@ typedef PCMAudioStreamAndroid PCMAudioStream;
 
 # endif
 
+NNT_END_NS
 NNT_END_HEADER_CXX
 
 # endif

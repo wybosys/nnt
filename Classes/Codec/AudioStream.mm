@@ -4,6 +4,7 @@
 # include <AudioToolbox/AudioToolbox.h>
 
 NNT_BEGIN_CXX
+NNT_BEGIN_NS(audio)
 
 PCMAudioStreamIOS::PCMAudioStreamIOS()
 {
@@ -74,4 +75,5 @@ bool PCMAudioStreamIOS::load(core::string const& file)
     return readed != 0;
 }
 
+NNT_END_NS
 NNT_END_CXX

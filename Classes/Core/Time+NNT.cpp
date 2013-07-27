@@ -55,6 +55,37 @@ double millisec_tick_count(ulonglong tck)
 
 NNT_BEGIN_NS(core)
 
+TimeInterval::TimeInterval()
+: _val(0)
+{
+    
+}
+
+TimeInterval::~TimeInterval()
+{
+    
+}
+
+void TimeInterval::sleep() const
+{
+    if (_val)
+        usleep(_val);
+}
+
+TimeInterval TimeInterval::Seconds(float val)
+{
+    TimeInterval re;
+    re._val = val * 1e6;
+    return re;
+}
+
+TimeInterval TimeInterval::MilliSecond(int val)
+{
+    TimeInterval re;
+    re._val = val * 1e3;
+    return re;
+}
+
 Time::Time()
 {
     memset(&_tm, 0, sizeof(_tm));

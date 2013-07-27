@@ -21,6 +21,8 @@ NNT_END_HEADER_OBJC
 
 # ifdef NNT_CXX
 
+# include "Time+NNT.h"
+
 # ifdef NNT_USER_SPACE
 
 # ifdef NNT_UNIX
@@ -165,7 +167,9 @@ public:
     Task();
     ~Task();
     
-    typedef int (*func_run)(Task*);
+    typedef int (*func_run)(Task*, void*);
+    func_run func;
+    void* data;
     
     //! wait task stop.
     void wait();
@@ -190,8 +194,6 @@ public:
     //! run a sample thread.
     typedef void (*thread_func)(void*);
     static bool Run(thread_func, void*);
-    
-public:
 
 # ifdef main
 #   undef main
@@ -203,6 +205,8 @@ public:
     }
 
     uint count;
+    
+    core::TimeInterval delay;
 
 };
 

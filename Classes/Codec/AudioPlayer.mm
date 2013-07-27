@@ -148,6 +148,7 @@ NNTEVENT_END
 NNT_END_OBJC
 
 NNT_BEGIN_CXX
+
 NNT_BEGIN_NS(player)
 
 Audio::Audio()
@@ -194,4 +195,16 @@ void Audio::set_background(bool b)
 }
 
 NNT_END_NS
+
+NNT_BEGIN_NS(audio)
+
+void SetDefaultAudioSessionCategory()
+{
+    [[AVAudioSession sharedInstance]
+     setCategory:AVAudioSessionCategoryPlayAndRecord
+     error:NULL];
+}
+
+NNT_END_NS
+
 NNT_END_CXX

@@ -23,9 +23,15 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(audio)
 
+signal_t kSignalPlayerStopped = "::nnt::audio::player::stop";
+signal_t kSignalPlayerPlaying = "::nnt::audio::player::playing";
+signal_t kSignalPlayerSuspended = "::nnt::audio::player::suspended";
+
 AbstractAudioPlayer::AbstractAudioPlayer()
 {
-    //signals.add(kSignalAudioPlayerPlaying).add(kSignalAudioPlayerStopped).add(kSignalAudioPlayerSuspended);
+    register_signal(kSignalPlayerStopped);
+    register_signal(kSignalPlayerPlaying);
+    register_signal(kSignalPlayerSuspended);
 }
 
 AbstractAudioPlayer::~AbstractAudioPlayer()
@@ -144,9 +150,9 @@ OpenALAudioPlayer::OpenALAudioPlayer()
     alGenBuffers(1, &_buf);
     
     _tskwh.infinite();
-    //_tskwh.func = (CCTask::TaskFunc)CCOpenALAudioPlayerStateWatcher;
-    //_tskwh.data = this;
-    //_tskwh.delay = CCInterval::MilliSecond(10);
+    _tskwh.func = OpenALAudioPlayerStateWatcher;
+    _tskwh.data = this;
+    _tskwh.delay = core::TimeInterval::MilliSecond(10);
     _tskwh.start();
 }
 
@@ -254,25 +260,28 @@ bool OpenALAudioPlayer::is_suspended() const
     return state == AL_PAUSED;
 }
 
-void OpenALAudioPlayer::CCOpenALAudioPlayerStateWatcher(CCTask*, void* data)
+int OpenALAudioPlayer::OpenALAudioPlayerStateWatcher(core::Task*, void* data)
 {
-    CCOpenALAudioPlayer* ply = (CCOpenALAudioPlayer*)data;
-    CCAudioPlayerState sta = ply->state();
+    OpenALAudioPlayer* ply = (OpenALAudioPlayer*)data;
+    PlayerState sta = ply->state();
     if (sta == ply->_state)
-        return;
+        return 0;
     
     ply->_state = sta;
     
-    CCSignal sig;
+    signal_t sig;
+
     switch (sta)
     {
         default: break;
-        case kCCAudioPlayerStatePlaying: sig = kSignalAudioPlayerPlaying; break;
-        case kCCAudioPlayerStateStopped: sig = kSignalAudioPlayerStopped; break;
-        case kCCAudioPlayerStateSuspended: sig = kSignalAudioPlayerSuspended; break;
+        case kPlayerStatePlaying: sig = kSignalPlayerPlaying; break;
+        case kPlayerStateStopped: sig = kSignalPlayerStopped; break;
+        case kPlayerStateSuspended: sig = kSignalPlayerSuspended; break;
     }
     
-    ply->signals.emit(sig);
+    ply->emit(sig);
+    
+    return 0;
 }
 
 # endif

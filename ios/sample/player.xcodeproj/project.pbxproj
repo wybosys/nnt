@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1617933517A3C3A7009AA10C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1617933417A3C3A7009AA10C /* AVFoundation.framework */; };
 		162F6DF1177D61660074229E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F6DF0177D61660074229E /* UIKit.framework */; };
 		162F6DF3177D61660074229E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F6DF2177D61660074229E /* Foundation.framework */; };
 		162F6DF5177D61660074229E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F6DF4177D61660074229E /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1617933417A3C3A7009AA10C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		162F6DED177D61660074229E /* player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		162F6DF0177D61660074229E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		162F6DF2177D61660074229E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,7 +55,7 @@
 		162F6DFE177D61660074229E /* player-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "player-Prefix.pch"; sourceTree = "<group>"; };
 		162F6DFF177D61660074229E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		162F6E00177D61660074229E /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		162F6E0D177D61C80074229E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
+		162F6E0D177D61C80074229E /* libnnt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnnt.a; path = "../build/Release-iphoneos/libnnt.a"; sourceTree = "<group>"; };
 		162F6E0F177D61CF0074229E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		162F6E11177D61D70074229E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		162F6E13177D61DA0074229E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -931,6 +933,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1617933517A3C3A7009AA10C /* AVFoundation.framework in Frameworks */,
 				162F720D177D6BBC0074229E /* libboost_regex.a in Frameworks */,
 				162F720B177D6BA30074229E /* libACE.a in Frameworks */,
 				162F7209177D6B820074229E /* AudioToolbox.framework in Frameworks */,
@@ -981,6 +984,7 @@
 				162F6E11177D61D70074229E /* libxml2.dylib */,
 				162F720C177D6BBC0074229E /* libboost_regex.a */,
 				162F720A177D6BA30074229E /* libACE.a */,
+				1617933417A3C3A7009AA10C /* AVFoundation.framework */,
 				162F7208177D6B820074229E /* AudioToolbox.framework */,
 				162F6E0F177D61CF0074229E /* QuartzCore.framework */,
 				162F6E0D177D61C80074229E /* libnnt.a */,
