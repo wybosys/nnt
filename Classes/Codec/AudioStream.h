@@ -10,13 +10,13 @@ class AudioStreamBasicDescription;
 
 NNT_BEGIN_HEADER_CXX
 
-class CCAbstractPCMAudioStream
+class AbstractPCMAudioStream
 : public cxx::Object<>
 {
 public:
     
-    CCAbstractPCMAudioStream();
-    ~CCAbstractPCMAudioStream();
+    AbstractPCMAudioStream();
+    ~AbstractPCMAudioStream();
     
     // 读取一个文件
     virtual bool load(core::string const&) = 0;
@@ -25,13 +25,13 @@ public:
 
 # ifdef NNT_TARGET_IOS
 
-class CCPCMAudioStreamIOS
-: public CCAbstractPCMAudioStream
+class PCMAudioStreamIOS
+: public AbstractPCMAudioStream
 {
 public:
     
-    CCPCMAudioStreamIOS();
-    ~CCPCMAudioStreamIOS();
+    PCMAudioStreamIOS();
+    ~PCMAudioStreamIOS();
     
     virtual bool load(core::string const&);
     
@@ -40,28 +40,28 @@ protected:
     AudioStreamBasicDescription* _ofmt;
     core::data _buf;
     
-    friend class CCOpenALAudioPlayer;
+    friend class OpenALAudioPlayer;
 };
 
-typedef CCPCMAudioStreamIOS CCPCMAudioStream;
+typedef PCMAudioStreamIOS PCMAudioStream;
 
 # endif
 
 # ifdef NNT_TARGET_ANDROID
 
-class CCPCMAudioStreamAndroid
-: public CCAbstractPCMAudioStream
+class PCMAudioStreamAndroid
+: public AbstractPCMAudioStream
 {
 public:
     
-    CCPCMAudioStreamAndroid();
-    ~CCPCMAudioStreamAndroid();
+    PCMAudioStreamAndroid();
+    ~PCMAudioStreamAndroid();
     
     virtual bool load(CCString const&);
     
 };
 
-typedef CCPCMAudioStreamAndroid CCPCMAudioStream;
+typedef PCMAudioStreamAndroid PCMAudioStream;
 
 # endif
 

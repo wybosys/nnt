@@ -160,7 +160,10 @@ class Task
     NNTDECL_PRIVATE_CXX(Task);
     NNTDECL_NOCOPY(Task);
     
-public:       
+public:
+    
+    Task();
+    ~Task();
     
     typedef int (*func_run)(Task*);
     
@@ -200,11 +203,6 @@ public:
     }
 
     uint count;
-    
-protected:
-
-    Task();
-    virtual ~Task();
 
 };
 

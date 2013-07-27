@@ -3,6 +3,7 @@
 # define __NNT_AUTIOPLAYER_8C24C6E0E21543079AFD33641872FF65_H_INCLUDED
 
 # include "../Drivers/AudioObject.h"
+# include "AudioStream.h"
 
 # ifdef NNT_OBJC
 
@@ -65,32 +66,114 @@ NNT_END_HEADER_CXX
 
 # ifdef NNT_CXX
 
-# include "../Core/File+NNT.h"
+# include "../Core/Task+NNT.h"
 
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(audio)
 
-NNTDECL_PRIVATE_HEAD_CXX(Player);
-
-class Player
+typedef enum
 {
-    
-    NNTDECL_PRIVATE_CXX(Player);
-    
+    kPlayerStatePlaying,
+    kPlayerStateStopped,
+    kPlayerStateSuspended,
+    kPlayerStateWait,
+} PlayerState;
+
+NNT_EXTERN signal_t kSignalPlayerStopped;
+NNT_EXTERN signal_t kSignalPlayerPlaying;
+NNT_EXTERN signal_t kSignalPlayerSuspended;
+
+class AbstractAudioPlayer
+: public cxx::Object<>
+{
 public:
     
-    Player();
-    ~Player();
+    AbstractAudioPlayer();
+    ~AbstractAudioPlayer();
     
-    void seek(real);
-    real position() const;
-    real length() const;
-    bool play(core::IoStream&, NntAudioFormat format);
-    void pause();
-    void resume();
-    void stop();
+    virtual bool load(PCMAudioStream const&) = 0;
+    
+    virtual bool play() = 0;
+    virtual bool stop() = 0;
+    virtual bool resume() = 0;
+    virtual bool suspend() = 0;
+    virtual PlayerState state() const;
+    
+    virtual bool is_playing() const = 0;
+    virtual bool is_suspended() const = 0;
     
 };
+
+# ifdef NNT_TARGET_IOS
+
+class OpenALAudioPlayer
+: public AbstractAudioPlayer
+{
+public:
+    
+    OpenALAudioPlayer();
+    ~OpenALAudioPlayer();
+    
+    virtual bool load(PCMAudioStream const&);
+    
+    virtual bool play();
+    virtual bool stop();
+    virtual bool resume();
+    virtual bool suspend();
+    
+    virtual bool is_playing() const;
+    virtual bool is_suspended() const;
+    
+protected:
+    
+    void clean();
+    
+    static void OpenALAudioPlayerStateWatcher(void*);
+    
+    unsigned int _src;
+    unsigned int _buf;
+    core::Task _tskwh;
+    PlayerState _state;
+    
+};
+
+typedef OpenALAudioPlayer Player;
+
+# endif
+
+# ifdef NNT_TARGET_ANDROID
+
+/*
+ class CCOpenMaxAudioPlayer
+ : public CCAbstractAudioPlayer
+ {
+ 
+ };
+ */
+
+class CCOpenSLAudioPlayer
+: public CCAbstractAudioPlayer
+{
+public:
+    
+    CCOpenSLAudioPlayer();
+    ~CCOpenSLAudioPlayer();
+    
+    virtual bool load(CCPCMAudioStream const&);
+    
+    virtual bool play();
+    virtual bool stop();
+    virtual bool resume();
+    virtual bool suspend();
+    
+    virtual bool is_playing() const;
+    virtual bool is_suspended() const;
+    
+};
+
+typedef CCOpenSLAudioPlayer CCAudioPlayer;
+
+# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX

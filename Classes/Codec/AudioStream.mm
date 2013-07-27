@@ -5,17 +5,17 @@
 
 NNT_BEGIN_CXX
 
-CCPCMAudioStreamIOS::CCPCMAudioStreamIOS()
+PCMAudioStreamIOS::PCMAudioStreamIOS()
 {
     _ofmt = new AudioStreamBasicDescription;
 }
 
-CCPCMAudioStreamIOS::~CCPCMAudioStreamIOS()
+PCMAudioStreamIOS::~PCMAudioStreamIOS()
 {
     delete _ofmt;
 }
 
-bool CCPCMAudioStreamIOS::load(core::string const& file)
+bool PCMAudioStreamIOS::load(core::string const& file)
 {
     NSString* strurl = [NSString stringWithCString:file.c_str() encoding:NSUTF8StringEncoding];
     NSURL* url = [NSURL URLWithString:[strurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
