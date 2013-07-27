@@ -105,6 +105,11 @@
 		16165AE8148CBCA1002B87E4 /* OADouban.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16165AE6148CBCA1002B87E4 /* OADouban.mm */; };
 		1616E66014C81B0700BD8388 /* UIActionPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 1616E65E14C81B0700BD8388 /* UIActionPad.h */; };
 		1616E66114C81B0700BD8388 /* UIActionPad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1616E65F14C81B0700BD8388 /* UIActionPad.mm */; };
+		1617932E17A3AC53009AA10C /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617932A17A3AC53009AA10C /* AudioStream.cpp */; };
+		1617932F17A3AC53009AA10C /* AudioStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617932B17A3AC53009AA10C /* AudioStream.h */; };
+		1617933017A3AC53009AA10C /* OpenSL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1617932C17A3AC53009AA10C /* OpenSL+NNT.cpp */; };
+		1617933117A3AC53009AA10C /* OpenSL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617932D17A3AC53009AA10C /* OpenSL+NNT.h */; };
+		1617933317A3AC74009AA10C /* AudioStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1617933217A3AC74009AA10C /* AudioStream.mm */; };
 		16189A4815E21ECC00E8CD1B /* FsLocal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16189A4615E21ECC00E8CD1B /* FsLocal.cpp */; };
 		16189A4915E21ECC00E8CD1B /* FsLocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 16189A4715E21ECC00E8CD1B /* FsLocal.h */; };
 		161A25FF16880AC200B53AD1 /* AEModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161A25FD16880AC200B53AD1 /* AEModel.mm */; };
@@ -1740,6 +1745,11 @@
 		16165AE6148CBCA1002B87E4 /* OADouban.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OADouban.mm; sourceTree = "<group>"; };
 		1616E65E14C81B0700BD8388 /* UIActionPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActionPad.h; sourceTree = "<group>"; };
 		1616E65F14C81B0700BD8388 /* UIActionPad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIActionPad.mm; sourceTree = "<group>"; };
+		1617932A17A3AC53009AA10C /* AudioStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
+		1617932B17A3AC53009AA10C /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStream.h; sourceTree = "<group>"; };
+		1617932C17A3AC53009AA10C /* OpenSL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "OpenSL+NNT.cpp"; sourceTree = "<group>"; };
+		1617932D17A3AC53009AA10C /* OpenSL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenSL+NNT.h"; sourceTree = "<group>"; };
+		1617933217A3AC74009AA10C /* AudioStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioStream.mm; sourceTree = "<group>"; };
 		16189A4615E21ECC00E8CD1B /* FsLocal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FsLocal.cpp; sourceTree = "<group>"; };
 		16189A4715E21ECC00E8CD1B /* FsLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FsLocal.h; sourceTree = "<group>"; };
 		161A25FD16880AC200B53AD1 /* AEModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEModel.mm; sourceTree = "<group>"; };
@@ -3325,6 +3335,11 @@
 		1603A91915DCDE320029A54C /* Codec */ = {
 			isa = PBXGroup;
 			children = (
+				1617933217A3AC74009AA10C /* AudioStream.mm */,
+				1617932A17A3AC53009AA10C /* AudioStream.cpp */,
+				1617932B17A3AC53009AA10C /* AudioStream.h */,
+				1617932C17A3AC53009AA10C /* OpenSL+NNT.cpp */,
+				1617932D17A3AC53009AA10C /* OpenSL+NNT.h */,
 				1603A91A15DCDE320029A54C /* AudioPlayer.h */,
 				1603A91B15DCDE320029A54C /* AudioPlayer.mm */,
 				162F71DC177D6A6A0074229E /* AudioPlayer.cpp */,
@@ -6446,6 +6461,8 @@
 				162F7205177D6AE50074229E /* MicDevice.h in Headers */,
 				161180731783CF5B007591C8 /* NSSqliteArchive.h in Headers */,
 				843F7D12178AAC9B00DA5803 /* AlphabeticSort.h in Headers */,
+				1617932F17A3AC53009AA10C /* AudioStream.h in Headers */,
+				1617933117A3AC53009AA10C /* OpenSL+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6477,7 +6494,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */;
+			buildConfigurationList = 16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -7376,6 +7393,9 @@
 				161180741783CF5B007591C8 /* NSSqliteArchive.mm in Sources */,
 				16C1DA2C17853574000ACD9F /* sqlite3+nnt.c in Sources */,
 				843F7D11178AAC9B00DA5803 /* AlphabeticSort.mm in Sources */,
+				1617932E17A3AC53009AA10C /* AudioStream.cpp in Sources */,
+				1617933017A3AC53009AA10C /* OpenSL+NNT.cpp in Sources */,
+				1617933317A3AC74009AA10C /* AudioStream.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7495,7 +7515,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt" */ = {
+		16654BAC13A5FF11008DF239 /* Build configuration list for PBXProject "nnt.sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16654BBA13A5FF11008DF239 /* Debug */,

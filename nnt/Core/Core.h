@@ -93,6 +93,7 @@
 
 # ifdef ANDROID
 #   define NNT_ANDROID 1
+#   define NNT_TARGET_ANDROID NNT_ANDROID
 #   include <android/api-level.h>
 #   include <android/log.h>
 #   define NNT_ANDROID_LOG_TAG "nnt"
