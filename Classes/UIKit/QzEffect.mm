@@ -393,6 +393,25 @@ void Popin::active()
     _layer().opacity = 1.f;
 }
 
+OpenBook::OpenBook()
+{
+    this->set_duration(10.0f);
+}
+
+void OpenBook::prepare()
+{
+    _layer().transform = CATransform3DIdentity;
+}
+
+void OpenBook::active()
+{
+    _layer().anchorPoint = CGPointMake(0, 0.5);
+    CATransform3D _3d = CATransform3DIdentity;
+    _3d = CATransform3DMakeRotation(M_PI_2, 0.0f, -1.0f, 0.0f);
+    _3d.m34 = 0.0001f;
+    _layer().transform = _3d;
+}
+
 NNT_END_NS
 
 NNT_END_NS
