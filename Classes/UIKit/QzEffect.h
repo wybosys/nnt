@@ -356,6 +356,17 @@ public:
     
 };
 
+class OpenBook
+: public Effect
+{
+public:
+    
+    OpenBook();
+    
+    virtual void prepare();
+    virtual void active();
+};
+
 NNT_END_NS
 
 NNT_END_NS
