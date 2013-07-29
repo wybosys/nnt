@@ -8,7 +8,8 @@ LOCAL_SRC_FILES := NntCore.cpp \
 ../src/Object.cpp \
 ../src/Module.cpp \
 ../src/Time+NNT.cpp \
-../src/Task+NNT.cpp
+../src/Task+NNT.cpp \
+../src/File+NNT.cpp
 
 LOCAL_LDLIBS := -llog
 

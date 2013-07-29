@@ -276,6 +276,21 @@ JNIEXPORT jboolean Java_com_nnt_codec_Player_load(JNIEnv* env, jobject* obj, job
 	return false;
 }
 
+JNIEXPORT jboolean Java_com_nnt_codec_Player_play(JNIEnv* env, jobject* obj, jstring file)
+{
+	using namespace ::nnt::audio;
+	using namespace ::nnt::java;
+
+	Jni jni(env);
+	String f = jni.string(file);
+
+	PCMAudioStreamAndroid stream;
+	if (stream.load(f) == false)
+		return false;
+
+	return true;
+}
+
 NNT_END_C
 
 # endif

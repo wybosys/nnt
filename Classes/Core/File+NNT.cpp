@@ -114,7 +114,7 @@ bool File::open(url_type const& path, mask_t const& flag)
 # endif
     
 # else
-    
+
     core::string mode = opt<core::string>(flag.checked<Io::read>())["r"] + opt<core::string>(flag.checked<Io::write>())["w"] +
     opt<core::string>(flag.checked<Io::append>())["a"] +
     opt<core::string>(flag.checked<Io::create>())["+"] +
@@ -124,6 +124,11 @@ bool File::open(url_type const& path, mask_t const& flag)
 # endif
 
     return d_ptr->file != NULL;
+}
+
+bool File::is_opened() const
+{
+	return d_ptr->is_opened();
 }
 
 void File::close()
