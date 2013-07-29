@@ -4,8 +4,6 @@
 
 # ifdef NNT_TARGET_ANDROID
 
-# include <jni.h>
-
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(java)
 
@@ -112,6 +110,38 @@ Jni::Jni()
 Jni::~Jni()
 {
     NNTDECL_PRIVATE_DESTROY();
+}
+
+Class Jni::find_class(core::string const& name) const
+{
+    Class ret;
+    ret._jni = this;
+    ret._h = (Class::handle_type)d_ptr->env->FindClass(name.c_str());
+    return ret;
+}
+
+Class::Class()
+    : _jni(NULL)
+{
+}
+
+Class::~Class()
+{
+}
+
+Method Class::static_method(core::string const& name, core::string const& param) const
+{
+    Method ret;
+    ret._h = _jni->_d()->env->GetStaticMethodID(_h, name.c_str(), param.c_str());
+    return ret;
+}
+
+Method::Method()
+{
+}
+
+Method::~Method()
+{
 }
 
 NNT_END_NS

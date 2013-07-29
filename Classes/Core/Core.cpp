@@ -9,6 +9,12 @@
 
 # endif
 
+# ifdef NNT_TARGET_ANDROID
+
+#  include <jni.h>
+
+# endif
+
 NNT_BEGIN_CXX
 
 static NNT __gs_nntobject;
@@ -181,5 +187,14 @@ char const* NNTVersion()
 {
     return NNT_VERSION_STR;
 }
+
+# ifdef NNT_TARGET_ANDROID
+
+JNIEXPORT jstring JNICALL Java_com_nnt_core_Nnt_VersionStr(JNIEnv* env)
+{
+    return env->NewStringUTF(NNT_VERSION_STR);
+}
+
+# endif
 
 NNT_END_C

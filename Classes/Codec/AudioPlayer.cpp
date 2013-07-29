@@ -19,6 +19,7 @@
 # include <SLES/OpenSLES.h>
 # include <SLES/OpenSLES_Android.h>
 # include "OpenSL+NNT.h"
+# include "../Java/Jni.h"
 
 # endif
 
@@ -265,3 +266,16 @@ bool CCOpenSLAudioPlayer::is_suspended() const
 
 NNT_END_NS
 NNT_END_CXX
+
+# ifdef NNT_TARGET_ANDROID
+
+NNT_BEGIN_C
+
+JNIEXPORT jboolean Java_com_nnt_codec_Player_load(JNIEnv* env, jobject* obj, jobject* stmobj)
+{
+	return false;
+}
+
+NNT_END_C
+
+# endif
