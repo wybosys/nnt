@@ -9,7 +9,9 @@ LOCAL_SRC_FILES := NntCodec.cpp \
 ../src/OpenSL+NNT.cpp
 
 LOCAL_LDLIBS := -llog
-LOCAL_LDFLAGS := -L../Core/libs/armeabi -lNntCore
+LOCAL_LDFLAGS := \
+-L../Core/libs/armeabi -lNntCore \
+-L../Java/libs/armeabi -lNntJava 
 
 LOCAL_C_INCLUDES := \
 ../../../Classes/Core \

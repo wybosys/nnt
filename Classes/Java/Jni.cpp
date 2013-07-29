@@ -49,8 +49,6 @@ void init()
     if (__gs_vm == NULL)
         trace_msg("java vm is null");
     vm = __gs_vm;
-
-    attach();
 }
 
 void dealloc()
@@ -59,30 +57,42 @@ void dealloc()
     vm = NULL;
 }
 
-bool attach()
+bool attach(JNIEnv* en)
 {
     bool ret = true;
-    jint code = vm->GetEnv((void**)&env, JNI_VERSION_1_4);
-    switch (code)
+    env = en;
+    if (env == NULL)
     {
-        case JNI_OK: break;
-        case JNI_EDETACHED:
+        jint code = vm->GetEnv((void**)&env, JNI_VERSION_1_4);
+        switch (code)
         {
-            if (vm->AttachCurrentThread(&env, NULL) < 0)
+            case JNI_OK: break;
+            case JNI_EDETACHED:
             {
-                trace_msg("failed attach java env");
+                if (vm->AttachCurrentThread(&env, NULL) < 0)
+                {
+                    trace_msg("failed attach java env");
+                    ret = false;
+                }
+                else
+                {
+                    need_detach = true;
+                }
+            } break;
+            case JNI_EVERSION:
+            {
+                trace_msg("java version 1.4 is not support");
                 ret = false;
-            }
-            else
-            {
-                need_detach = true;
-            }
-        } break;
-        case JNI_EVERSION:
+            } break;
+        }
+    }
+    else
+    {
+        if (vm->AttachCurrentThread(&env, NULL) < 0)
         {
-            trace_msg("java version 1.4 is not support");
+            trace_msg("failed attach java env");
             ret = false;
-        } break;
+        }
     }
     return ret;
 }
@@ -102,9 +112,11 @@ bool need_detach;
 
 NNTDECL_PRIVATE_END
     
-Jni::Jni()
+Jni::Jni(JNIEnv* env)
 {
     NNTDECL_PRIVATE_CONSTRUCT(Jni);
+
+    d_ptr->attach(env);
 }
 
 Jni::~Jni()
@@ -116,7 +128,19 @@ Class Jni::find_class(core::string const& name) const
 {
     Class ret;
     ret._jni = this;
-    ret._h = (Class::handle_type)d_ptr->env->FindClass(name.c_str());
+    ret._h = (jclass)d_ptr->env->FindClass(name.c_str());
+    return ret;
+}
+
+String Jni::string(jstring str) const
+{
+    String ret;
+    jboolean cpy = false;
+    char const* buf = d_ptr->env->GetStringUTFChars(str, &cpy);
+    size_t lbuf = d_ptr->env->GetStringUTFLength(str);
+    ret._buf = core::string(buf, lbuf);
+    if (cpy)
+        d_ptr->env->ReleaseStringUTFChars(str, buf);
     return ret;
 }
 
@@ -141,6 +165,14 @@ Method::Method()
 }
 
 Method::~Method()
+{
+}
+
+String::String()
+{
+}
+
+String::~String()
 {
 }
 

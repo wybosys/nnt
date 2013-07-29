@@ -3,9 +3,11 @@
 # define __NNT_JNI_A08636757F00437F8AFF10B79F636BC4_H_INCLUDED
 
 # ifdef NNT_TARGET_ANDROID
+#   define NNT_JNI
+# endif
 
-# include <jni.h>
-
+# ifdef NNT_JNI
+#   include <jni.h>
 # endif
 
 NNT_BEGIN_HEADER_CXX
@@ -61,16 +63,6 @@ protected:
 
 class Method
 {
-protected:
-
-    typedef
-# ifdef JNI_H_
-    jmethodID
-# else
-    void*
-# endif
-    handle_type;
-    
 public:
 
     Method();
@@ -78,7 +70,7 @@ public:
 
 protected:
 
-    Handle<handle_type> _h;
+    Handle<jmethodID> _h;
 
     friend class Jni;
     friend class Class;
@@ -86,18 +78,8 @@ protected:
 
 class Class
 {
-protected:
-
-    typedef
-# ifdef JNI_H_
-    jclass
-# else
-    void*
-# endif
-    handle_type;
-    
 public:
-
+    
     Class();
     ~Class();
 
@@ -106,8 +88,33 @@ public:
 protected:
 
     Jni const* _jni;
-    Handle<handle_type> _h;
+    Handle<jclass> _h;
 
+    friend class Jni;
+};
+
+class String
+{
+public:
+
+    String();
+    ~String();
+
+    operator core::string const& () const
+    {
+        return _buf;
+    }
+
+    char const* c_str() const
+    {
+        return _buf.c_str();
+    }
+
+protected:
+
+    core::string _buf;
+    jstring _s;
+    
     friend class Jni;
 };
 
@@ -119,10 +126,11 @@ class Jni
     
 public:
 
-	Jni();
+	Jni(JNIEnv* = NULL);
 	~Jni();
 
     Class find_class(core::string const&) const;
+    String string(jstring) const;
     
 private:
 

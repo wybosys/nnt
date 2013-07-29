@@ -50,7 +50,10 @@ NNT_END_CXX
 NNT_BEGIN_C
 
 JNIEXPORT jboolean Java_com_nnt_codec_audio_PCMStream_load(JNIEnv* env, jobject* obj, jstring file)
-{
+{    
+	::nnt::java::Jni jni(env);
+	::nnt::java::String str = jni.string(file);
+	trace_msg(str);
 	return false;
 }
 
