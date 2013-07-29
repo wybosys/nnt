@@ -1,11 +1,7 @@
 package com.nnt.codec.audio;
 
-public class Player {
+public class Player extends com.nnt.codec.Object {
 	
 		public native boolean load(PCMStream stream);
-
-		static {
-			System.loadLibrary("NntCodec");
-		}
 		
 }
