@@ -148,6 +148,16 @@ public:
         }
     }
     
+    string_type& filename()
+    {
+        if (components.size() == 0)
+        {
+            static string_type fn_null;
+            return fn_null;
+        }
+        return *components.rbegin();
+    }
+    
     string_type const& filename() const
     {
         if (components.size() == 0)

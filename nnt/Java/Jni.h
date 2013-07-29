@@ -5,6 +5,20 @@
 NNT_BEGIN_HEADER_CXX
 NNT_BEGIN_NS(java)
 
+NNTCLASS(Jni);
+
+NNTDECL_PRIVATE_HEAD_CXX(Jni);
+
+class Jni
+{
+    NNTDECL_PRIVATE_CXX(Jni);
+    
+public:
+
+	Jni();
+	~Jni();
+    
+};
 
 NNT_END_NS
 NNT_END_HEADER_CXX

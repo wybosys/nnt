@@ -1711,7 +1711,10 @@ NNT_END_HEADER_C
 #   include <iostream>
 #   include <iomanip>
 #   include <algorithm>
+
+# ifdef NNT_EXCEPTIONS
 #   include <exception>
+# endif
 
 # endif
 
@@ -1800,7 +1803,7 @@ inline_impl void trace_msg(char const* msg)
 #   ifdef NNT_ANDROID
     __android_log_print(ANDROID_LOG_DEBUG, NNT_ANDROID_LOG_TAG, msg);
 #   else 
-    ::std::cout << msg << ::std::endl << ::std::flush;
+    ::std::cout << "nnt: " << msg << "." << ::std::endl << ::std::flush;
 #   endif
 # else
     NNT_BSD_EXPRESS(uprintf("nnt: %s.\n", msg));
@@ -1941,7 +1944,11 @@ static void trace_msg(char const* msg)
 # include "../TL/Allocate+NNT.h"
 # include "../TL/Memory+NNT.h"
 # include "../TL/Stdtype+NNT.h"
-# include "../TL/Exception+NNT.h"
+
+# ifdef NNT_EXCEPTIONS
+#   include "../TL/Exception+NNT.h"
+# endif
+
 # include "../TL/Operator+NNT.h"
 # include "../TL/Types+NNT.h"
 # include "../TL/Function+NNT.h"

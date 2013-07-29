@@ -1,10 +1,17 @@
 
 # include "Core.h"
-# include "OpenAL+NNT.h"
 # include <OpenAL/al.h>
 # include <OpenAL/alc.h>
+# include "OpenAL+NNT.h"
 
 NNT_BEGIN_CXX
+
+NNT_BEGIN_NS(audio)
+
+extern void SetDefaultAudioSessionCategory();
+
+NNT_END_NS
+
 NNT_BEGIN_NS(codec)
 
 typedef ALvoid AL_APIENTRY (*funcAlcMixerOutputRateProcPtr)(ALdouble const value);
@@ -315,6 +322,79 @@ bool Oal::gain(float &v)
     alGetSourcef(d_ptr->source, AL_GAIN, &v);
     
     return alGetError() == AL_NO_ERROR;
+}
+
+OpenALDevice::OpenALDevice()
+{
+# ifdef NNT_TARGET_IOS
+    // 启动audio
+    AudioSessionInitialize(NULL, NULL,
+                           HandlerInterruptionListenerCallback, this);
+# endif
+    
+    audio::SetDefaultAudioSessionCategory();
+    
+    // 建立openal 环境
+    dev = alcOpenDevice(NULL);
+    ctx = alcCreateContext(dev, NULL);
+    alcMakeContextCurrent(ctx);
+}
+
+OpenALDevice::~OpenALDevice()
+{
+    alcMakeContextCurrent(NULL);
+    alcDestroyContext(ctx);
+    alcCloseDevice(dev);
+}
+
+void OpenALDevice::suspend()
+{
+    alcSuspendContext(ctx);
+}
+
+void OpenALDevice::resume()
+{
+    alcProcessContext(ctx);
+}
+
+void OpenALDevice::HandlerInterruptionListenerCallback(void *inUserData, UInt32 interruptionState)
+{
+# ifdef NNT_TARGET_IOS
+    
+    OpenALDevice* vp = (OpenALDevice*)inUserData;
+    
+    if (interruptionState == kAudioSessionBeginInterruption)
+    {
+        vp->becomingInterrupted();
+    }
+    else if (interruptionState == kAudioSessionEndInterruption)
+    {
+        vp->resignInterrupte();
+    }
+    
+# endif
+}
+
+void OpenALDevice::becomingInterrupted()
+{
+# ifdef NNT_TARGET_IOS
+    AudioSessionSetActive(false);
+# endif
+    
+    alcSuspendContext(ctx);
+    alcMakeContextCurrent(NULL);
+}
+
+void OpenALDevice::resignInterrupte()
+{
+    audio::SetDefaultAudioSessionCategory();
+    
+# ifdef NNT_TARGET_IOS
+    AudioSessionSetActive(true);
+# endif
+    
+    alcMakeContextCurrent(ctx);
+    alcProcessContext(ctx);
 }
 
 NNT_END_NS

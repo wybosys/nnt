@@ -94,6 +94,19 @@
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
 		1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */; };
 		1638EAC1150F2076000B8C35 /* ObjectDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAC0150F2076000B8C35 /* ObjectDL.cpp */; };
+		163E7B2517A6157B00426E74 /* Android.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B1E17A6157B00426E74 /* Android.cpp */; };
+		163E7B2817A6157B00426E74 /* Jni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2317A6157B00426E74 /* Jni.cpp */; };
+		163E7B2D17A615E900426E74 /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2A17A615E900426E74 /* AudioStream.cpp */; };
+		163E7B2F17A615E900426E74 /* AudioStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2C17A615E900426E74 /* AudioStream.mm */; };
+		163E7B3217A618A500426E74 /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3017A618A500426E74 /* Module.cpp */; };
+		163E7B3C17A61CE900426E74 /* Stdtype+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3417A61CE900426E74 /* Stdtype+NNT.cpp */; };
+		163E7B3D17A61CE900426E74 /* Stdtype+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 163E7B3517A61CE900426E74 /* Stdtype+NNT.h */; };
+		163E7B3E17A61CE900426E74 /* Unicode+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3617A61CE900426E74 /* Unicode+NNT.cpp */; };
+		163E7B3F17A61CE900426E74 /* Unicode+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 163E7B3717A61CE900426E74 /* Unicode+NNT.h */; };
+		163E7B4017A61CE900426E74 /* URI+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3817A61CE900426E74 /* URI+NNT.cpp */; };
+		163E7B4117A61CE900426E74 /* URI+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 163E7B3917A61CE900426E74 /* URI+NNT.h */; };
+		163E7B4217A61CE900426E74 /* URL+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3A17A61CE900426E74 /* URL+NNT.cpp */; };
+		163E7B4317A61CE900426E74 /* URL+NNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 163E7B3B17A61CE900426E74 /* URL+NNT.h */; };
 		164093C6176F00010032E1FF /* cluster.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093B9176F00010032E1FF /* cluster.c */; };
 		164093C8176F00010032E1FF /* FFT2.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093BB176F00010032E1FF /* FFT2.c */; };
 		164093CB176F00010032E1FF /* gmm.c in Sources */ = {isa = PBXBuildFile; fileRef = 164093BE176F00010032E1FF /* gmm.c */; };
@@ -761,6 +774,23 @@
 		1638EABA150F13E0000B8C35 /* SOAPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPParser.h; sourceTree = "<group>"; };
 		1638EABE150F1DC9000B8C35 /* ObjectDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectDL.h; path = ../Classes/Core/ObjectDL.h; sourceTree = "<group>"; };
 		1638EAC0150F2076000B8C35 /* ObjectDL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectDL.cpp; path = ../Classes/Core/ObjectDL.cpp; sourceTree = "<group>"; };
+		163E7B1E17A6157B00426E74 /* Android.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Android.cpp; sourceTree = "<group>"; };
+		163E7B1F17A6157B00426E74 /* Android.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Android.h; sourceTree = "<group>"; };
+		163E7B2317A6157B00426E74 /* Jni.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jni.cpp; sourceTree = "<group>"; };
+		163E7B2417A6157B00426E74 /* Jni.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jni.h; sourceTree = "<group>"; };
+		163E7B2A17A615E900426E74 /* AudioStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
+		163E7B2B17A615E900426E74 /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStream.h; sourceTree = "<group>"; };
+		163E7B2C17A615E900426E74 /* AudioStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioStream.mm; sourceTree = "<group>"; };
+		163E7B3017A618A500426E74 /* Module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Module.cpp; path = ../Classes/Core/Module.cpp; sourceTree = "<group>"; };
+		163E7B3117A618A500426E74 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Module.h; path = ../Classes/Core/Module.h; sourceTree = "<group>"; };
+		163E7B3417A61CE900426E74 /* Stdtype+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Stdtype+NNT.cpp"; path = "../Classes/TL/Stdtype+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B3517A61CE900426E74 /* Stdtype+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Stdtype+NNT.h"; path = "../Classes/TL/Stdtype+NNT.h"; sourceTree = "<group>"; };
+		163E7B3617A61CE900426E74 /* Unicode+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Unicode+NNT.cpp"; path = "../Classes/TL/Unicode+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B3717A61CE900426E74 /* Unicode+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Unicode+NNT.h"; path = "../Classes/TL/Unicode+NNT.h"; sourceTree = "<group>"; };
+		163E7B3817A61CE900426E74 /* URI+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "URI+NNT.cpp"; path = "../Classes/TL/URI+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B3917A61CE900426E74 /* URI+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "URI+NNT.h"; path = "../Classes/TL/URI+NNT.h"; sourceTree = "<group>"; };
+		163E7B3A17A61CE900426E74 /* URL+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "URL+NNT.cpp"; path = "../Classes/TL/URL+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B3B17A61CE900426E74 /* URL+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "URL+NNT.h"; path = "../Classes/TL/URL+NNT.h"; sourceTree = "<group>"; };
 		164093B9176F00010032E1FF /* cluster.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cluster.c; sourceTree = "<group>"; };
 		164093BB176F00010032E1FF /* FFT2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FFT2.c; sourceTree = "<group>"; };
 		164093BE176F00010032E1FF /* gmm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gmm.c; sourceTree = "<group>"; };
@@ -2000,6 +2030,18 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		163E7B1D17A6157B00426E74 /* Java */ = {
+			isa = PBXGroup;
+			children = (
+				163E7B1E17A6157B00426E74 /* Android.cpp */,
+				163E7B1F17A6157B00426E74 /* Android.h */,
+				163E7B2317A6157B00426E74 /* Jni.cpp */,
+				163E7B2417A6157B00426E74 /* Jni.h */,
+			);
+			name = Java;
+			path = ../Classes/Java;
+			sourceTree = "<group>";
+		};
 		164093B7176EFFF20032E1FF /* openvp */ = {
 			isa = PBXGroup;
 			children = (
@@ -2196,6 +2238,14 @@
 				167D006C17095C8300B94D5E /* Vector+NNT.cpp */,
 				167D006D17095C8300B94D5E /* Vector+NNT.h */,
 				167D006E17095C8300B94D5E /* Vector+NNT.mm */,
+				163E7B3417A61CE900426E74 /* Stdtype+NNT.cpp */,
+				163E7B3517A61CE900426E74 /* Stdtype+NNT.h */,
+				163E7B3617A61CE900426E74 /* Unicode+NNT.cpp */,
+				163E7B3717A61CE900426E74 /* Unicode+NNT.h */,
+				163E7B3817A61CE900426E74 /* URI+NNT.cpp */,
+				163E7B3917A61CE900426E74 /* URI+NNT.h */,
+				163E7B3A17A61CE900426E74 /* URL+NNT.cpp */,
+				163E7B3B17A61CE900426E74 /* URL+NNT.h */,
 			);
 			name = TL;
 			sourceTree = "<group>";
@@ -2484,6 +2534,7 @@
 				16B09CF4176EAFF100B39F81 /* Drivers */,
 				16FE6652152704F90095521B /* Engine */,
 				16F98CF0149EE19800240965 /* Graphic */,
+				163E7B1D17A6157B00426E74 /* Java */,
 				1614B0E3174F17B400C26C42 /* HGC */,
 				167D010F1709726500B94D5E /* Mach */,
 				16FE664C152704A70095521B /* Math */,
@@ -2610,6 +2661,8 @@
 				16A26B671771B25100E2053A /* framework.prv.mm */,
 				16A26B631771B1FA00E2053A /* framework.prv.cpp */,
 				16A26B641771B1FA00E2053A /* framework.prv.h */,
+				163E7B3017A618A500426E74 /* Module.cpp */,
+				163E7B3117A618A500426E74 /* Module.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -3310,6 +3363,9 @@
 		16E00A6E1608696500B35D3F /* Codec */ = {
 			isa = PBXGroup;
 			children = (
+				163E7B2A17A615E900426E74 /* AudioStream.cpp */,
+				163E7B2B17A615E900426E74 /* AudioStream.h */,
+				163E7B2C17A615E900426E74 /* AudioStream.mm */,
 				162F6DD8177BD7B90074229E /* OpenAL+NNT.cpp */,
 				162F6DD9177BD7B90074229E /* OpenAL+NNT.h */,
 				16E00A6F1608696600B35D3F /* AudioPlayer.h */,
@@ -3489,6 +3545,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163E7B3D17A61CE900426E74 /* Stdtype+NNT.h in Headers */,
+				163E7B3F17A61CE900426E74 /* Unicode+NNT.h in Headers */,
+				163E7B4117A61CE900426E74 /* URI+NNT.h in Headers */,
+				163E7B4317A61CE900426E74 /* URL+NNT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4076,6 +4136,15 @@
 				162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */,
 				16C1DA34178536CB000ACD9F /* NSSqliteArchive.mm in Sources */,
 				16C1DA3B17853926000ACD9F /* sqlite3+nnt.c in Sources */,
+				163E7B2517A6157B00426E74 /* Android.cpp in Sources */,
+				163E7B2817A6157B00426E74 /* Jni.cpp in Sources */,
+				163E7B2D17A615E900426E74 /* AudioStream.cpp in Sources */,
+				163E7B2F17A615E900426E74 /* AudioStream.mm in Sources */,
+				163E7B3217A618A500426E74 /* Module.cpp in Sources */,
+				163E7B3C17A61CE900426E74 /* Stdtype+NNT.cpp in Sources */,
+				163E7B3E17A61CE900426E74 /* Unicode+NNT.cpp in Sources */,
+				163E7B4017A61CE900426E74 /* URI+NNT.cpp in Sources */,
+				163E7B4217A61CE900426E74 /* URL+NNT.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

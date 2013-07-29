@@ -128,7 +128,7 @@ protected:
     
     void clean();
     
-    static void OpenALAudioPlayerStateWatcher(void*);
+    static int OpenALAudioPlayerStateWatcher(core::Task*, void*);
     
     unsigned int _src;
     unsigned int _buf;
@@ -143,23 +143,15 @@ typedef OpenALAudioPlayer Player;
 
 # ifdef NNT_TARGET_ANDROID
 
-/*
- class CCOpenMaxAudioPlayer
- : public CCAbstractAudioPlayer
- {
- 
- };
- */
-
-class CCOpenSLAudioPlayer
-: public CCAbstractAudioPlayer
+class OpenSLAudioPlayer
+: public AbstractAudioPlayer
 {
 public:
     
-    CCOpenSLAudioPlayer();
-    ~CCOpenSLAudioPlayer();
+    OpenSLAudioPlayer();
+    ~OpenSLAudioPlayer();
     
-    virtual bool load(CCPCMAudioStream const&);
+    virtual bool load(PCMAudioStream const&);
     
     virtual bool play();
     virtual bool stop();
@@ -171,7 +163,7 @@ public:
     
 };
 
-typedef CCOpenSLAudioPlayer CCAudioPlayer;
+typedef OpenSLAudioPlayer Player;
 
 # endif
 

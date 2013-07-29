@@ -11,6 +11,6 @@ LOCAL_C_INCLUDES := \
 ../../../Classes/Core \
 ../../../Classes/
 
-LOCAL_LDLIBS := -llog
+LOCAL_LDLIBS := -llog -L../Core/libs/armeabi -lNntCore
 
 include $(BUILD_SHARED_LIBRARY)

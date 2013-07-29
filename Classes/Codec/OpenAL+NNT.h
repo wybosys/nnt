@@ -67,6 +67,28 @@ public:
 
 };
 
+class OpenALDevice
+{
+public:
+    
+    OpenALDevice();    
+    ~OpenALDevice();
+    
+    void suspend();
+    void resume();
+    
+    ALCdevice* dev;
+    ALCcontext* ctx;
+    
+protected:
+    
+    static void HandlerInterruptionListenerCallback(void *inUserData, UInt32 interruptionState);
+    
+    void becomingInterrupted();    
+    void resignInterrupte();
+    
+};
+
 NNT_END_NS
 NNT_END_HEADER_CXX
 

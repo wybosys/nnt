@@ -198,11 +198,16 @@ NNT_END_NS
 
 NNT_BEGIN_NS(audio)
 
+void SetDefaultAudioSessionCategory();
 void SetDefaultAudioSessionCategory()
 {
+# ifdef NNT_TARGET_IOS
+    
     [[AVAudioSession sharedInstance]
      setCategory:AVAudioSessionCategoryPlayAndRecord
      error:NULL];
+    
+# endif
 }
 
 NNT_END_NS

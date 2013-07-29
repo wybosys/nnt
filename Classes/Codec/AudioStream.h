@@ -2,7 +2,7 @@
 # ifndef __NNT_AUDIOSTREAM_994260C3757F40CB958C6BAAE2670905_H_INCLUDED
 # define __NNT_AUDIOSTREAM_994260C3757F40CB958C6BAAE2670905_H_INCLUDED
 
-# ifdef NNT_TARGET_IOS
+# ifdef NNT_MACH
 
 class AudioStreamBasicDescription;
 
@@ -24,15 +24,15 @@ public:
     
 };
 
-# ifdef NNT_TARGET_IOS
+# ifdef NNT_MACH
 
-class PCMAudioStreamIOS
+class PCMAudioStreamMach
 : public AbstractPCMAudioStream
 {
 public:
     
-    PCMAudioStreamIOS();
-    ~PCMAudioStreamIOS();
+    PCMAudioStreamMach();
+    ~PCMAudioStreamMach();
     
     virtual bool load(core::string const&);
     
@@ -44,7 +44,7 @@ protected:
     friend class OpenALAudioPlayer;
 };
 
-typedef PCMAudioStreamIOS PCMAudioStream;
+typedef PCMAudioStreamMach PCMAudioStream;
 
 # endif
 
@@ -58,7 +58,7 @@ public:
     PCMAudioStreamAndroid();
     ~PCMAudioStreamAndroid();
     
-    virtual bool load(CCString const&);
+    virtual bool load(core::string const&);
     
 };
 

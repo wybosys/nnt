@@ -792,7 +792,7 @@ Event<EVENT_TPL_IMPL>::connect(signal_t const& sig, object_t* tgt, event_func fu
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";
@@ -816,7 +816,7 @@ Event<EVENT_TPL_IMPL>::connect(signal_t const&  sig, event_pure act)
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";
@@ -839,7 +839,7 @@ Event<EVENT_TPL_IMPL>::redirect(signal_t const& sig, signal_t const& sigto, obje
     typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to redirect signal: [";
         msg += sig;
         msg += "] .";
@@ -886,7 +886,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, object
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -915,7 +915,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, object
     typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -943,7 +943,7 @@ template_impl void Event<EVENT_TPL_IMPL>::disconnect(signal_t const& sig, event_
 	typename_ store_type::iterator found = _store.find(sig);
 	if (found == _store.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to disconnect signal: [";
         msg += sig;
         msg += "] .";
@@ -977,7 +977,7 @@ template_impl void Event<EVENT_TPL_IMPL>::unblock(signal_t const& sig)
     typename_ block_type::iterator found = ::std::find(_block.begin(), _block.end(), sig);
     if (found == _block.end())
     {
-# ifdef NNT_DEBUG
+# if defined(NNT_DEBUG) && defined(NNT_EXCEPTIONS)
         ::std::string msg = "failed to connect signal: [";
         msg += sig;
         msg += "] .";

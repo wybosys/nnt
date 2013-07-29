@@ -1,7 +1,6 @@
 
 # include "Core.h"
 # include "AudioPlayer.h"
-# include "OpenAL+NNT.h"
 # include "../Drivers/AudioBuffer.h"
 # include "AudioFile.h"
 # include "AudioStream.h"
@@ -11,12 +10,15 @@
 # include <OpenAL/al.h>
 # include <OpenAL/alc.h>
 # include <AudioToolbox/AudioToolbox.h>
+# include "OpenAL+NNT.h"
 
 # endif
 
 # ifdef NNT_TARGET_ANDROID
 
 # include <SLES/OpenSLES.h>
+# include <SLES/OpenSLES_Android.h>
+# include "OpenSL+NNT.h"
 
 # endif
 
@@ -50,80 +52,6 @@ PlayerState AbstractAudioPlayer::state() const
 
 # ifdef NNT_TARGET_IOS
 
-extern void SetDefaultAudioSessionCategory();
-
-class CCOpenALDevice
-{
-public:
-    
-    CCOpenALDevice()
-    {
-        // 启动audio
-        AudioSessionInitialize(NULL, NULL,
-                               HandlerInterruptionListenerCallback, this);
-        
-        SetDefaultAudioSessionCategory();
-        
-        // 建立openal 环境
-        dev = alcOpenDevice(NULL);
-        ctx = alcCreateContext(dev, NULL);
-        alcMakeContextCurrent(ctx);
-    }
-    
-    ~CCOpenALDevice()
-    {
-        alcMakeContextCurrent(NULL);
-        alcDestroyContext(ctx);
-        alcCloseDevice(dev);
-    }
-    
-    void suspend()
-    {
-        alcSuspendContext(ctx);
-    }
-    
-    void resume()
-    {
-        alcProcessContext(ctx);
-    }
-    
-    ALCdevice* dev;
-    ALCcontext* ctx;
-    
-protected:
-    
-    friend void HandlerInterruptionListenerCallback(void *inUserData, UInt32 interruptionState);
-    static void HandlerInterruptionListenerCallback(void *inUserData, UInt32 interruptionState) {
-        CCOpenALDevice* vp = (CCOpenALDevice*)inUserData;
-        
-        if (interruptionState == kAudioSessionBeginInterruption)
-        {
-            vp->becomingInterrupted();
-        }
-        else if (interruptionState == kAudioSessionEndInterruption)
-        {
-            vp->resignInterrupte();
-        }
-    }
-    
-    void becomingInterrupted()
-    {
-        AudioSessionSetActive(false);
-        alcSuspendContext(ctx);
-        alcMakeContextCurrent(NULL);
-    }
-    
-    void resignInterrupte()
-    {
-        SetDefaultAudioSessionCategory();
-        
-        AudioSessionSetActive(true);
-        alcMakeContextCurrent(ctx);
-        alcProcessContext(ctx);
-    }
-    
-};
-
 static bool alSuccessFail()
 {
     ALenum sta = alGetError();
@@ -141,7 +69,7 @@ static bool alSuccessFail()
     return sta == AL_NO_ERROR;
 }
 
-static CCOpenALDevice __gs_openal_device;
+static codec::OpenALDevice __gs_openal_device;
 
 OpenALAudioPlayer::OpenALAudioPlayer()
 : _state(kPlayerStateStopped)
