@@ -1,6 +1,5 @@
 ;; for global
 (setq visible-bell t)
-;(setq blink-cursor-mode nil)
 (blink-cursor-mode 0)
 
 ;; for file.
@@ -43,13 +42,13 @@
   )
 
 ;; may case os-x crash. 
-;(defun ai-require-file (module file)
-;  (if (require module nil 'noerror) nil
-;    (elpa-require 'auto-install)    
-;    (auto-install-from-emacswiki file)
-;    (require module)
-;    )
-;  )
+                                        ;(defun ai-require-file (module file)
+                                        ;  (if (require module nil 'noerror) nil
+                                        ;    (elpa-require 'auto-install)    
+                                        ;    (auto-install-from-emacswiki file)
+                                        ;    (require module)
+                                        ;    )
+                                        ;  )
 
 (defun ai-require-url (module url)
   (if (require module nil 'noerror) nil
@@ -72,10 +71,10 @@
 
 (defun mi-use-package-url (name url)
   (let ((file (concat "~/.emacs.d/lisps/" name))
-	 (url-request-method "GET")
-	 (url-request-extra-headers nil)
-	 (url-mime-accept-string "*/*")
-	 )
+        (url-request-method "GET")
+        (url-request-extra-headers nil)
+        (url-mime-accept-string "*/*")
+        )
     (unless (file-exists-p file)
       (let ((file-buffer-name (url-retrieve-synchronously url)))
 	    (with-current-buffer file-buffer-name
@@ -113,6 +112,7 @@
  '(column-number-mode t)
  '(ecb-layout-window-sizes nil)
  '(ecb-options-version "2.40")
+ '(ecb-source-path (quote (("/opt/local/include" "Local Headers") ("/" "/"))))
  '(global-auto-revert-mode t)
  '(global-hl-line-mode 1)
  '(global-linum-mode 1)
@@ -122,7 +122,6 @@
  '(initial-scratch-message "")
  '(linum-format "%-5d")
  '(scroll-bar-mode (quote right))
- ;'(session-use-package t nil (session))
  '(show-paren-mode t)
  '(tab-width 4))
 
@@ -139,7 +138,7 @@
          )
         ((eq window-system 'ns)
          )
-      )
+        )
   )
 
 (defun my-colors ()
@@ -177,7 +176,7 @@
   )
 (if (fboundp 'tool-bar-mode)
     (tool-bar-mode -1)
-)
+  )
 
 ;; yes-or-no.
 (defun my-mumble-or-no-p (prompt)
@@ -201,7 +200,7 @@
 
 ;; hl-paren
 (defun my-hlparen ()  
-  ; hl paren
+                                        ; hl paren
   (mi-require-url 'highlight-parentheses "highlight-parentheses.el" "http://nschum.de/src/emacs/highlight-parentheses/highlight-parentheses.el")
   (define-globalized-minor-mode global-highlight-parentheses-mode
     highlight-parentheses-mode
@@ -209,7 +208,7 @@
       (highlight-parentheses-mode t)
       ))
   (global-highlight-parentheses-mode t)
-  ; rainbow
+                                        ; rainbow
   (mi-require-url 'rainbow-delimiters "rainbow-delimiters.el" "http://github.com/jlr/rainbow-delimiters/raw/master/rainbow-delimiters.el")
   (global-rainbow-delimiters-mode t)
   )
@@ -252,8 +251,8 @@
   (elpa-require 'desktop)
   (require 'desktop)
   (session-initialize)
-)
-;(add-hook 'after-init-hook 'my-session)
+  )
+                                        ;(add-hook 'after-init-hook 'my-session)
 
 ;; uniquify buffer name
 (require 'uniquify)
@@ -283,15 +282,15 @@
 
 ;; python.
 (defun my-py-settings ()
-  ;(elpa-require 'python-mode)
+                                        ;(elpa-require 'python-mode)
   (elpa-require 'python-magic)
   (elpa-require 'python-pylint)
-  ;(elpa-require 'ipython)
+                                        ;(elpa-require 'ipython)
   (setq ropemacs-guess-project t)
   (setq ropemacs-enable-autoimport t)
   (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"))
-)
+  )
 (add-hook 'python-mode-hook 'my-py-settings)
 
 ;; javascript.
@@ -333,28 +332,34 @@
 (defun my-company ()
   (elpa-require 'company)
   (global-company-mode)
-)
+  )
 (add-hook 'after-init-hook 'my-company)
 
 ;; cedet
 (defun my-cedet-setting ()
   (setq 
    semantic-c-takeover-hideif t
-   ;semantic-symref-tool "cscope"
-   )    
+                                        ;semantic-symref-tool "cscope"
+   semantic-idle-completions-mode t
+   semantic-decoration-mode t
+   semantic-highlight-func-mode t
+   semantic-show-unmatched-syntax-mode t
+   )
   )
 
 (defun check-expansion ()
-    (save-excursion
-      (if (looking-at "\\_>") t
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
         (backward-char 1)
-        (if (looking-at "\\.") t
-          (backward-char 1)
-          (if (looking-at "->") t nil)))))
+        (if (looking-at "->") t nil)))))
 
 (defun do-yas-expand ()  
   (let ((yas/fallback-behavior 'return-nil))
-      (yas/expand)))
+    (yas/expand)
+    )
+  )
 
 (defun tab-indent-or-complete ()
   (interactive)
@@ -367,55 +372,55 @@
           (indent-for-tab-command)))))
 
 (defun my-cedet-keymap ()
-    (local-set-key (kbd "RET") 'newline-and-indent)
-    (local-set-key (kbd "TAB") 'tab-indent-or-complete)
-)
+  (local-set-key (kbd "RET") 'newline-and-indent)
+  (local-set-key (kbd "TAB") 'tab-indent-or-complete)
+  )
 
 (defun my-cedet-setup ()
-	(require 'cedet)
-	(my-cedet-setting)
-	(my-cedet-keymap)
-)
+  (require 'cedet)
+  (my-cedet-setting)
+  (my-cedet-keymap)
+  )
 
 (defun my-cedet-launch ()
   (semantic-mode)
-)
+  )
 
 ;; ecb
 (defun my-ecb-layouts ()
-	(setq ecb-windows-width 30)
-	(ecb-layout-define "my-layout" left nil
-	  (ecb-split-ver 0.4 t)
-	  (if (fboundp (quote ecb-set-directories-buffer)) (ecb-set-directories-buffer) (ecb-set-default-ecb-buffer))
-	  (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-	  (ecb-split-ver 0.5 t)
-	  (if (fboundp (quote ecb-set-sources-buffer)) (ecb-set-sources-buffer) (ecb-set-default-ecb-buffer))
-	  (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-	  (if (fboundp (quote ecb-set-methods-buffer)) (ecb-set-methods-buffer) (ecb-set-default-ecb-buffer))
-	  (dotimes (i 2) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-	  (dotimes (i 3) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
-	  )
-	(ecb-layout-switch "my-layout")
-)
+  (setq ecb-windows-width 30)
+  (ecb-layout-define "my-layout" left nil
+                     (ecb-split-ver 0.4 t)
+                     (if (fboundp (quote ecb-set-directories-buffer)) (ecb-set-directories-buffer) (ecb-set-default-ecb-buffer))
+                     (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
+                     (ecb-split-ver 0.5 t)
+                     (if (fboundp (quote ecb-set-sources-buffer)) (ecb-set-sources-buffer) (ecb-set-default-ecb-buffer))
+                     (dotimes (i 1) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
+                     (if (fboundp (quote ecb-set-methods-buffer)) (ecb-set-methods-buffer) (ecb-set-default-ecb-buffer))
+                     (dotimes (i 2) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
+                     (dotimes (i 3) (other-window 1) (if (equal (selected-window) ecb-compile-window) (other-window 1)))
+                     )
+  (ecb-layout-switch "my-layout")
+  )
 
 (unless (boundp 'x-max-tooltip-size)
-  	(setq x-max-tooltip-size '(80 . 40)))
+  (setq x-max-tooltip-size '(80 . 40)))
 
 (defun my-ecb-setting () 
-	(setq 
-		global-ede-mode t
-		ecb-auto-activate t
-		ecb-tip-of-the-day nil
-		inhibit-startup-message t
-		ecb-auto-compatibility-check nil
-		ecb-version-check nil        
-		)
-)
+  (setq 
+   global-ede-mode t
+   ecb-auto-activate t
+   ecb-tip-of-the-day nil
+   inhibit-startup-message t
+   ecb-auto-compatibility-check nil
+   ecb-version-check nil        
+   )
+  )
 
 (defun my-ecb-keys ()
-    ;(local-set-key "." 'semantic-complete-self-insert)
-    ;(local-set-key ">" 'semantic-complete-self-insert)
-)
+                                        ;(local-set-key "." 'semantic-complete-self-insert)
+                                        ;(local-set-key ">" 'semantic-complete-self-insert)
+  )
 
 (defun my-ecb-setup ()
   (my-cedet-setup)
@@ -425,45 +430,45 @@
   (ecb-activate)
   (my-ecb-layouts)
   (my-cedet-launch)
-)
+  )
 
 ;; mydev
 (defun mydev ()
-	(interactive)
-	(my-ecb-setup)
-	)
-		
+  (interactive)
+  (my-ecb-setup)
+  )
+
 ;; heander to source.
 (defun my-h2s ()
   (elpa-require 'cl-lib)
-  ;(mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
+                                        ;(mi-require-url 'eassist "eassist.el" "http://www.emacswiki.org/emacs/download/eassist.el")
   (mi-require-url 'eassist "eassist.el" "https://raw.github.com/emacsmirror/cedet/master/contrib/eassist.el")
   (setq eassist-header-switches
-	'(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
-	  ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
-	  ("hpp" . ("cpp" "cxx" "c++" "cc" "CC" "C"))
-	  ("hxx" . ("cxx" "cpp" "c++" "cc" "CC" "C"))
-	  ("h++" . ("c++" "cpp" "cxx" "cc" "CC" "C"))
-	  ("H" . ("C" "CC" "cc" "cpp" "cxx" "c++" "mm" "m"))
-	  ("HH" . ("CC" "cc" "C" "cpp" "cxx" "c++"))
-	  ("cpp" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
-	  ("cxx" . ("hxx" "hpp" "h++" "HH" "hh" "H" "h"))
-	  ("c++" . ("h++" "hpp" "hxx" "HH" "hh" "H" "h"))
-	  ("CC" . ("HH" "hh" "hpp" "hxx" "h++" "H" "h"))
-	  ("cc" . ("hh" "HH" "hpp" "hxx" "h++" "H" "h"))
-	  ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
-	  ("c" . ("h"))
-	  ("m" . ("h"))
-	  ("mm" . ("h"))
-      ))
+        '(("h" . ("cpp" "cxx" "c++" "CC" "cc" "C" "c" "mm" "m"))
+          ("hh" . ("cc" "CC" "cpp" "cxx" "c++" "C"))
+          ("hpp" . ("cpp" "cxx" "c++" "cc" "CC" "C"))
+          ("hxx" . ("cxx" "cpp" "c++" "cc" "CC" "C"))
+          ("h++" . ("c++" "cpp" "cxx" "cc" "CC" "C"))
+          ("H" . ("C" "CC" "cc" "cpp" "cxx" "c++" "mm" "m"))
+          ("HH" . ("CC" "cc" "C" "cpp" "cxx" "c++"))
+          ("cpp" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
+          ("cxx" . ("hxx" "hpp" "h++" "HH" "hh" "H" "h"))
+          ("c++" . ("h++" "hpp" "hxx" "HH" "hh" "H" "h"))
+          ("CC" . ("HH" "hh" "hpp" "hxx" "h++" "H" "h"))
+          ("cc" . ("hh" "HH" "hpp" "hxx" "h++" "H" "h"))
+          ("C" . ("hpp" "hxx" "h++" "HH" "hh" "H" "h"))
+          ("c" . ("h"))
+          ("m" . ("h"))
+          ("mm" . ("h"))
+          ))
   (local-set-key "\M-o" 'eassist-switch-h-cpp)
   )
 
 ;; cscope
 (defun my-cscope ()
   (elpa-require 'ascope)
-)
-	
+  )
+
 ;; c mode.
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (defun my-c-mode ()
@@ -482,7 +487,7 @@
                                   (lambda() 
                                     (mydev))
                                   ))
-)
+          )
 
 ;; verilog
 (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
@@ -538,7 +543,7 @@
                                    (knr-argdecl-intro . -)
                                    (innamespace . 0)
                                    ))
-    ;(c-echo-syntactic-information-p . t) // verbose while indent.
+                                        ;(c-echo-syntactic-information-p . t) // verbose while indent.
     ) 
   "My C script style."
   )
@@ -556,22 +561,22 @@
 (defun my-undo ()
   (elpa-require 'undo-tree)
   (undo-tree-mode)
-)
+  )
 
 (add-hook 'after-init-hook 'my-undo)
 
 ;; auto compelete.
-;(require 'auto-complete)
-;(global-auto-complete-mode t)
+                                        ;(require 'auto-complete)
+                                        ;(global-auto-complete-mode t)
 
 ;; hex mode.
 (add-to-list 'auto-mode-alist '("\\.wav\\'" . hexl-mode))
 
 ;; buffer
 (defun my-switch-to-lastbuffer ()
-	(interactive)
-	(switch-to-buffer nil)
-)
+  (interactive)
+  (switch-to-buffer nil)
+  )
 
 ;; global bind keys.
 (global-set-key (kbd "C-x <left>") 'my-switch-to-lastbuffer)
