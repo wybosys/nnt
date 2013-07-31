@@ -521,7 +521,7 @@
 (defconst my-c-style
   '(
     (c-tab-always-indent . t)
-    (c-comment-only-line-offset . 4)
+    (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist     . ((substatement-open before)
                                    (brace-list-open)
                                    ))

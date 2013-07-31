@@ -135,12 +135,10 @@ Class Jni::find_class(core::string const& name) const
 String Jni::string(jstring str) const
 {
     String ret;
-    jboolean cpy = false;
-    char const* buf = d_ptr->env->GetStringUTFChars(str, &cpy);
+    char const* buf = d_ptr->env->GetStringUTFChars(str, NULL);
     size_t lbuf = d_ptr->env->GetStringUTFLength(str);
     ret._buf = core::string(buf, lbuf);
-    if (cpy)
-        d_ptr->env->ReleaseStringUTFChars(str, buf);
+    d_ptr->env->ReleaseStringUTFChars(str, buf);
     return ret;
 }
 
