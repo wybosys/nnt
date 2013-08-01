@@ -41,7 +41,7 @@
     )
   )
 
-;; may case os-x crash. 
+;; may cause os-x crash. 
                                         ;(defun ai-require-file (module file)
                                         ;  (if (require module nil 'noerror) nil
                                         ;    (elpa-require 'auto-install)    
@@ -543,7 +543,7 @@
                                    (knr-argdecl-intro . -)
                                    (innamespace . 0)
                                    ))
-                                        ;(c-echo-syntactic-information-p . t) // verbose while indent.
+    ;(c-echo-syntactic-information-p . t) // verbose while indent.
     ) 
   "My C script style."
   )
