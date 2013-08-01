@@ -510,7 +510,8 @@
       )
 
 ;; php
-(autoload 'php-mode "php-mode" "PHP mode" t)
+(mi-use-package-url "php-mode-new.el" "http://mewde.googlecode.com/files/php-mode-new.el")
+(autoload 'php-mode "php-mode-new.el" "PHP mode" t)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; objc
