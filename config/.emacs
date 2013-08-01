@@ -509,14 +509,17 @@
       verilog-linter             "my_lint_shell_command"
       )
 
-;; php
+;; php.
 (mi-use-package-url "php-mode-new.el" "http://mewde.googlecode.com/files/php-mode-new.el")
 (autoload 'php-mode "php-mode-new.el" "PHP mode" t)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
-;; objc
+;; objc.
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . objc-mode))
+
+;; web browser.
+;(mi-use-package-url "nero.el" "http://nero-el.googlecode.com/svn/nero.el")
 
 ;; script style.
 (defconst my-c-style
