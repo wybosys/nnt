@@ -392,11 +392,10 @@ NNT_USINGCXXNAMESPACE;
 
 - (BOOL)process:(id)_result {
     ns::Dictionary dict(_result);
-    user_id = ns::String(dict[@"id"]);
-    nickname = ns::String(dict[@"name"]);
-    
-    self.result = dict;
-    
+    ns::Dictionary response(dict[@"response"]);
+    self.user_id = response[@"id"];
+    self.nickname = response[@"name"];
+    self.result = response;
     return YES;
 }
 

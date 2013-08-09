@@ -54,7 +54,7 @@ NNT_BEGIN_HEADER_OBJC
 
 @interface OApiRenRenUserLoginGet_2_0 : OApiRenRen_2_0
 
-@property (nonatomic, readonly) NSString *user_id, *nickname;
+@property (nonatomic, copy) NSString *user_id, *nickname;
 
 @end
 
@@ -85,7 +85,6 @@ NNT_BEGIN_NS(sns)
 typedef oauth::Function<OApiRenRenUserInfo> Userinfo;
 typedef oauth::Function<OApiRenRenUserInfo_2_0> Userinfo_2_0;
 typedef oauth::Function<OApiRenRenUserLoginGet_2_0> UserLoginGet_2_0;
-typedef oauth::Function<OApiRenRenBlogPut_2_0> BolgPut_2_0;
 
 class Post
 : public oauth::PostFunction<OApiRenRenWeiboPost>

@@ -34,6 +34,7 @@ public:
 	~File();
 
     bool open(url_type const& path, mask_t const& flag);
+    bool is_opened() const;
     void close();
 
     virtual usize write(core::data const&);
