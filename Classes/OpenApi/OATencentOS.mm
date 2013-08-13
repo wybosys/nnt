@@ -192,6 +192,10 @@ NNT_BEGIN_OBJC
     self.url = @"https://graph.qq.com/user/get_user_info";
     self.classRpc = [HttpRequest_Get class];
     
+    JsonObjParser *parser = [[JsonObjParser alloc] init];
+    self.objparser = parser;
+    safe_release(parser);
+    
     return self;
 }
 

@@ -372,8 +372,13 @@ void MainController::act_info_renren()
     store::Configuration* config = &store::Configuration::shared();
     ns::Dictionary dict = config->get_obj(@"openapi::renren::data");
     _renren.load(dict);
-    renren::sns::Userinfo api;
+    //renren::sns::Userinfo api;
+    //renren::sns::Userinfo_2_0 api;
+    renren::sns::UserLoginGet_2_0 api;
     _renren.execute(api);
+    
+    ns::Dictionary data(api.nsobject().result);
+    
 }
 
 void MainController::act_post_renren()
@@ -381,7 +386,8 @@ void MainController::act_post_renren()
     store::Configuration* config = &store::Configuration::shared();
     ns::Dictionary dict = config->get_obj(@"openapi::renren::data");
     _renren.load(dict);
-    renren::sns::Post api;
+    //renren::sns::Post api;
+    renren::sns::BlogPut api;
     api.set_content(view().txt_post.text());
     api.set_title(@"WSI");
     _renren.execute(api);

@@ -38,7 +38,7 @@ NNT_USINGCXXNAMESPACE;
     self.responseType = @"code";    
     self.grantType = @"authorization_code";    
     self.redirectUrl = @"http://widget.renren.com/callback.html";
-    self.scopes = [NSMutableArray arrayWithObjects:@"publish_blog", nil];
+    self.scopes = [NSMutableArray arrayWithObjects:@"publish_blog",@"read_user_blog", nil];
     
     return self;
 }
@@ -329,5 +329,116 @@ NNT_USINGCXXNAMESPACE;
 }
 
 @end
+
+@implementation OApiRenRen_2_0
+
+- (id)init {
+    self = [super init];
+    
+    self.classRpc = [HttpRequest_Get class];
+    
+    JsonObjParser *parser = [[JsonObjParser alloc] init];
+    self.objparser = parser;
+    safe_release(parser);
+    
+    return self;
+}
+
+- (NSMutableArray *)get_params {
+    ns::MutableArray arr(super.get_params);
+    arr << pair(@"access_token", self.request.access_token);
+    return arr;
+}
+
+@end
+
+@implementation OApiRenRenUserInfo_2_0
+
+- (id)init {
+    self = [super init];
+    
+    self.url = @"https://api.renren.com/v2/user/get";
+    
+    return self;
+}
+
+- (NSMutableArray *)get_params {
+    ns::MutableArray arr(super.get_params);
+    
+    arr << ns::Pair(@"userId", self.request.user_id);
+    
+    return arr;
+}
+
+@end
+
+@implementation OApiRenRenUserLoginGet_2_0
+
+@synthesize user_id, nickname;
+
+- (void)dealloc {
+    safe_release(user_id);
+    safe_release(nickname);
+    [super dealloc];
+}
+
+- (id)init {
+    self = [super init];
+    
+    self.url = @"https://api.renren.com/v2/user/login/get";
+    
+    return self;
+}
+
+- (BOOL)process:(id)_result {
+    ns::Dictionary dict(_result);
+    ns::Dictionary response(dict[@"response"]);
+    self.user_id = response[@"id"];
+    self.nickname = response[@"name"];
+    self.result = response;
+    return YES;
+}
+
+@end
+
+@implementation OApiRenRenBlogPut_2_0
+
+@synthesize title, content;
+
+- (void)dealloc {
+    safe_release(title);
+    safe_release(content);
+    [super dealloc];
+}
+
+- (id)init {
+    self = [super init];
+    
+    self.url = @"https://api.renren.com/v2/blog/put";
+    self.classRpc = [HttpRequest_Post class];
+    
+    return self;
+}
+
+- (NSMutableArray *)get_params {
+    ns::MutableArray arr(super.get_params);
+    
+    arr << ns::Pair(@"title", self.title);
+    
+    arr << ns::Pair(@"content", self.content);
+    
+    return arr;
+}
+
+- (void)setTitle:(NSString *)_title {
+    NSString *str = _title;
+    if ([str length] > 100) {
+        str = [str substringToIndex:99];
+    }
+    [NNTObject refobjSet:&title ref:str];
+}
+
+@end
+
 
 NNT_END_OBJC

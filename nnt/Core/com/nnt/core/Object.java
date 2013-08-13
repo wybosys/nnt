@@ -1,6 +1,6 @@
 package com.nnt.core;
 
-public class Object {
+public abstract class Object {
 
 	static {
 		System.loadLibrary("NntCore");
