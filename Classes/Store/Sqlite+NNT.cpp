@@ -197,6 +197,14 @@ void Sqlite::set_key(core::string const& key)
     sqlite3_key(d_ptr->db, key.c_str(), key.length());
 }
 
+void Sqlite::re_key(core::string const& key)
+{
+    if (key.length())
+        sqlite3_rekey(d_ptr->db, key.c_str(), key.length());
+    else
+        sqlite3_rekey(d_ptr->db, NULL, 0);
+}
+
 SLDatabase::SLDatabase()
 {
     PASS;

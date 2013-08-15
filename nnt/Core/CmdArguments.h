@@ -9,20 +9,46 @@ class Arguments
 {
 public:
 
-    Arguments(int argc = 0, char* argv[] = NULL);
+    Arguments(int argc = 0, char** argv = NULL);
     Arguments(core::string const&);
     ~Arguments();
 
-    void set(int argc, char* argv[]);
+    void set(int argc, char** argv);
     void set(core::string const&);
     void clear();
 
-    usize size() const;
+    usize count() const;
     core::string& operator [] (int idx);
+    core::string last() const;
 
     core::string cmd;
-    core::vector<core::string> arguments;
+    
+    typedef core::vector<core::string> arguments_type;
+    arguments_type arguments;
+    
+protected:
+    
+    class _Finder
+    {
+    public:                
+        
+        _Finder& operator = (arguments_type::const_iterator);
+        
+        arguments_type::const_iterator _pos;
+        arguments_type const* _argus;
+        
+        core::string value() const;
+        
+    };
+    
+public:
 
+    _Finder find(core::string const&) const;
+    _Finder operator [] (core::string const& k) const
+    {
+        return find(k);
+    }
+    
 };
 
 NNT_END_NS

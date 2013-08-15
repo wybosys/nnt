@@ -79,6 +79,9 @@ public:
     //! set key.
     void set_key(core::string const&);
     
+    //! reset key.
+    void re_key(core::string const&);
+    
 };
 
 class SLDatabase

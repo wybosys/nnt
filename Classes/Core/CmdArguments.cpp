@@ -6,7 +6,7 @@
 NNT_BEGIN_CXX
 NNT_BEGIN_NS(cmd)
 
-Arguments::Arguments(int argc /* = 0 */, char* argv[] /* = NULL */)
+Arguments::Arguments(int argc /* = 0 */, char** argv /* = NULL */)
 {
     set(argc, argv);
 }
@@ -27,7 +27,7 @@ void Arguments::clear()
     arguments.clear();
 }
 
-void Arguments::set(int argc, char* argv[])
+void Arguments::set(int argc, char** argv)
 {
     clear();
 
@@ -49,7 +49,7 @@ void Arguments::set(core::string const& str)
     split< ::std::vector<core::string> >(arguments, str, is_any_of(" "));
 }
 
-usize Arguments::size() const
+usize Arguments::count() const
 {
     return arguments.size();
 }
@@ -57,6 +57,32 @@ usize Arguments::size() const
 core::string& Arguments::operator [] (int idx)
 {
     return arguments[idx];
+}
+
+Arguments::_Finder& Arguments::_Finder::operator = (arguments_type::const_iterator iter)
+{
+    _pos = iter;
+    return *this;
+}
+
+Arguments::_Finder Arguments::find(core::string const& k) const
+{
+    _Finder ret;
+    ret._argus = &arguments;
+    ret._pos = ::std::find(arguments.begin(), arguments.end(), k);
+    return ret;
+}
+
+core::string Arguments::_Finder::value() const
+{
+    if (_pos != _argus->end())
+        return *(_pos + 1);
+    return "";
+}
+
+core::string Arguments::last() const
+{
+    return *arguments.rbegin();
 }
 
 NNT_END_NS

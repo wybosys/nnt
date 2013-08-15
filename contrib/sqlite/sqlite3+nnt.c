@@ -20,6 +20,7 @@ extern void* sqlite3PagerXCodec(void*, void*, Pgno, int);
 extern void sqlite3PagerXCodecSizeChanged(void*, int, int);
 extern void sqlite3PagerXCodecFree(void*);
 
+/*
 # if defined(NNT_MACH)
 
 #   define sqlite_aes_t nsaes_t
@@ -32,6 +33,7 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_swap_rw nsaes_swap_rw
 
 # else
+*/
 
 #   define sqlite_aes_t aes_t
 #   define sqlite_aes_free aes_free
@@ -41,8 +43,10 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_encrypt aes_encrypt
 #   define sqlite_aes_decrypt aes_decrypt
 #   define sqlite_aes_swap_rw aes_swap_rw
+#   define sqlite_aes_set_enkey aes_set_enkey
+#   define sqlite_aes_set_dekey aes_set_dekey
 
-# endif
+//# endif
 
 typedef struct
 {
@@ -86,7 +90,60 @@ static int sqlite3_key_interop(sqlite3* db, void const* skey, int lkey)
 
 static int sqlite3_rekey_interop(sqlite3* db, void const* skey, int lkey)
 {
-    return SQLITE_ERROR;
+    Btree* pbt = db->aDb[0].pBt;
+	Pager *p = sqlite3BtreePager(pbt);
+    
+    sqlite3_crypto_t* oldcrypt = sqlite3PagerGetCodec(p);
+    sqlite3_crypto_t* newcrypt = sqlite3_new_crypto(skey, lkey);
+    
+    sqlite_aes_set_dekey(newcrypt->key, TRIEXP(oldcrypt, oldcrypt->key, NULL));
+    
+	int rc = sqlite3BtreeBeginTrans(pbt, 1);
+    
+	if (rc == SQLITE_OK)
+	{
+        newcrypt->pager = p;
+        sqlite3PagerSetCodec(p,
+                             sqlite3PagerXCodec, sqlite3PagerXCodecSizeChanged, sqlite3PagerXCodecFree,
+                             newcrypt);
+        
+		// Rewrite all the pages in the database using the new encryption key
+		Pgno nPage;
+		Pgno nSkip = PAGER_MJ_PGNO(p);
+		Pgno n;
+		DbPage* pPage;
+        
+		sqlite3PagerPagecount(p, (int*)&nPage);
+        
+		for(n = 1;
+            rc == SQLITE_OK && n <= nPage;
+            ++n)
+		{
+			if (n == nSkip)
+                continue;
+            
+			pPage = sqlite3PagerLookup(p, n);
+            
+			if(pPage)
+			{
+				rc = sqlite3PagerWrite(pPage);
+				sqlite3PagerUnref(pPage);
+			}
+		}
+	}
+    
+    if (rc != SQLITE_OK)
+    {
+        // failed, rooback
+        sqlite3BtreeRollback(pbt, SQLITE_OK);
+        sqlite3_free_crypto(newcrypt);
+    }
+    else
+    {
+        rc = sqlite3BtreeCommit(pbt);
+    }
+
+	return rc;
 }
 
 void* sqlite3PagerXCodec(void* codec, void* data, Pgno pno, int nmode)

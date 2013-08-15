@@ -78,7 +78,7 @@ public:
     
     virtual usize count() const
     {
-        return argu.size();
+        return argu.count();
     }
     
     virtual core::string& at(int idx)

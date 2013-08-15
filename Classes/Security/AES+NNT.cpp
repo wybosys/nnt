@@ -132,6 +132,38 @@ void aes_free(aes_t* o)
     free(o);
 }
 
+void aes_set_enkey(aes_t* t, aes_t const* r)
+{
+    if (t->encrypt == NULL)
+        t->encrypt = EVP_CIPHER_CTX_new();
+    
+    if (r)
+    {
+        EVP_CIPHER_CTX_copy(t->encrypt, r->encrypt);
+    }
+    else
+    {
+        EVP_CIPHER_CTX_free(t->encrypt);
+        t->encrypt = NULL;
+    }
+}
+
+void aes_set_dekey(aes_t* t, aes_t const* r)
+{
+    if (t->decrypt == NULL)
+        t->decrypt = EVP_CIPHER_CTX_new();
+    
+    if (r)
+    {
+        EVP_CIPHER_CTX_copy(t->decrypt, r->decrypt);
+    }
+    else
+    {
+        EVP_CIPHER_CTX_free(t->decrypt);
+        t->decrypt = NULL;
+    }
+}
+
 void aes_swap_rw(aes_t* o)
 {
     EVP_CIPHER_CTX* t = o->encrypt;
@@ -143,13 +175,38 @@ void aes_set_padding(aes_t* o, int b)
 {
     if (b == 0)
     {
-        EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
-        EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
+        if (o->encrypt)
+            EVP_CIPHER_CTX_set_flags(o->encrypt, EVP_CIPH_NO_PADDING);
+        
+        if (o->decrypt)
+            EVP_CIPHER_CTX_set_flags(o->decrypt, EVP_CIPH_NO_PADDING);
     }
 }
 
 int aes_set_key(aes_t* o, void const* key, size_t lkey)
 {
+    if (key)
+    {
+        if (o->encrypt == NULL)
+            o->encrypt = EVP_CIPHER_CTX_new();
+        if (o->decrypt == NULL)
+            o->decrypt = EVP_CIPHER_CTX_new();
+    }
+    else
+    {
+        if (o->encrypt)
+        {
+            EVP_CIPHER_CTX_free(o->encrypt);
+            o->encrypt = NULL;
+        }
+        if (o->decrypt)
+        {
+            EVP_CIPHER_CTX_free(o->decrypt);
+            o->decrypt = NULL;
+        }
+        return 0;
+    }
+    
     int nrounds = 5;
     unsigned char _key[32], _iv[32];
     
@@ -180,6 +237,14 @@ int aes_set_key(aes_t* o, void const* key, size_t lkey)
 
 int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
+    if (o->encrypt == NULL)
+    {
+        *outdata = malloc(ldata);
+        memcpy(*outdata, data, ldata);
+        *loutdata = ldata;
+        return ldata;
+    }
+    
     usize const len_in = ldata;
     uchar *plaintext = (uchar*)data;
     
@@ -209,6 +274,14 @@ int aes_encrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t
 
 int aes_decrypt(aes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
+    if (o->decrypt == NULL)
+    {
+        *outdata = malloc(ldata);
+        memcpy(*outdata, data, ldata);
+        *loutdata = ldata;
+        return ldata;
+    }
+    
     int p_len = ldata, f_len = 0;
     
     *outdata = malloc(p_len);
