@@ -1,16 +1,16 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMRAWController.h"
 
-WSIAPP_BEGIN_OBJC
+NNT_USINGNAMESPACE;
 
-using namespace ::wsi::ui;
+NNTAPP_BEGIN_OBJC
 
-@interface TMRawView : WSINSView {
-    TextView<>* text;
+@interface TMRawView : NNTNSView {
+    ui::TextView* text;
 }
 
-@property (nonatomic, readonly) TextView<>* text;
+@property (nonatomic, readonly) ui::TextView* text;
 
 @end
 
@@ -21,7 +21,7 @@ using namespace ::wsi::ui;
 - (id)initWithZero {
     self = [super initWithZero];
     
-    text = new TextView<>;
+    text = new ui::TextView;
     
     [self addSubview:*text];        
     

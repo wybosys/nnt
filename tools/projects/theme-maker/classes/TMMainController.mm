@@ -1,28 +1,25 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMMainController.h"
 # import "TMColorController.h"
 # import "TMRAWController.h"
 # import "TMImageController.h"
 # import "TMGradientController.h"
 
-WSIAPP_BEGIN_OBJC
+NNT_USINGNAMESPACE;
 
-using namespace ::wsi;
-using namespace ::wsi::ui;
+NNTAPP_BEGIN_OBJC
 
-@interface TMMainView : WSINSView {
-   
-    
-    ListView<> *lst_avail;        
-    TabView<> *tab_obj;
+@interface TMMainView : NNTNSView {
+    //ui::ListView<> *lst_avail;
+    ui::TabView<> *tab_obj;
 }
 
-@property (nonatomic, readonly) PushButton *btn_open, *btn_new, *btn_save, *btn_reveal;
-@property (nonatomic, readonly) PushButton *btn_add, *btn_del, *btn_modify;
-@property (nonatomic, readonly) TextField<> *txt_path, *txt_key;
-@property (nonatomic, readonly) ListView<> *lst_avail; 
-@property (nonatomic, readonly) TabView<> *tab_obj;
+@property (nonatomic, readonly) ui::PushButton *btn_open, *btn_new, *btn_save, *btn_reveal;
+@property (nonatomic, readonly) ui::PushButton *btn_add, *btn_del, *btn_modify;
+@property (nonatomic, readonly) ui::TextField *txt_path, *txt_key;
+//@property (nonatomic, readonly) ui::ListView<> *lst_avail;
+@property (nonatomic, readonly) ui::TabView<> *tab_obj;
 
 @end
 
@@ -31,35 +28,35 @@ using namespace ::wsi::ui;
 @synthesize btn_open, btn_new, btn_save, btn_reveal;
 @synthesize btn_add, btn_del, btn_modify;
 @synthesize txt_path, txt_key;
-@synthesize lst_avail;
+//@synthesize lst_avail;
 @synthesize tab_obj;
 
 - (id)initWithZero {
     self = [super initWithZero];
     
-    btn_open = new PushButton;
-    btn_new = new PushButton;
-    btn_save = new PushButton;
-    btn_reveal = new PushButton;
-    btn_add = new PushButton;
-    btn_del = new PushButton;
-    btn_modify = new PushButton;
-    txt_path = new TextField<>;
-    txt_key = new TextField<>;
-    lst_avail = new ListView<>;
-    tab_obj = new TabView<>;
+    btn_open = new ui::PushButton;
+    btn_new = new ui::PushButton;
+    btn_save = new ui::PushButton;
+    btn_reveal = new ui::PushButton;
+    btn_add = new ui::PushButton;
+    btn_del = new ui::PushButton;
+    btn_modify = new ui::PushButton;
+    txt_path = new ui::TextField;
+    txt_key = new ui::TextField;
+    //lst_avail = new ListView<>;
+    tab_obj = new ui::TabView<>;
     
-    btn_open->set_title(@"OPEN");
-    btn_new->set_title(@"NEW");
-    btn_save->set_title(@"SAVE");
-    btn_reveal->set_title(@"REVEAL");
-    btn_add->set_title(@"ADD");
-    btn_del->set_title(@"DEL");
-    btn_modify->set_title(@"MODIFY");
+    btn_open->set_text(@"OPEN");
+    btn_new->set_text(@"NEW");
+    btn_save->set_text(@"SAVE");
+    btn_reveal->set_text(@"REVEAL");
+    btn_add->set_text(@"ADD");
+    btn_del->set_text(@"DEL");
+    btn_modify->set_text(@"MODIFY");
     
-    lst_avail->add_col(@"KEY");
+    //lst_avail->add_col(@"KEY");
     
-    wsi::ns::MutableArray tabs;
+    ns::MutableArray tabs;
     TMImageController* ctlr_image = [[TMImageController alloc] init];
     TMGradientController* ctlr_grad = [[TMGradientController alloc] init];
     TMColorController* ctlr_color = [[TMColorController alloc] init];
@@ -80,8 +77,8 @@ using namespace ::wsi::ui;
     [self addSubview:*btn_modify];
     [self addSubview:*txt_path];
     [self addSubview:*txt_key];
-    [self addSubview:*lst_avail];
-    [self addSubview:*tab_obj];
+    //[self addSubview:*lst_avail];
+    //[self addSubview:*tab_obj];
         
     return self;
 }

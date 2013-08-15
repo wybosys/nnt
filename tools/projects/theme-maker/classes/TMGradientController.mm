@@ -1,8 +1,8 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMGradientController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation TMGradientController
 
@@ -14,4 +14,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

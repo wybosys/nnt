@@ -119,33 +119,15 @@ public:
         return **_view;
     }
     
-    inline view_type& view()
+    view_type& view()
     {
         [this->_self view];
         return *_view;
     }
     
-    inline view_type const& view() const
+    view_type const& view() const
     {
         return *_view;
-    }
-    
-    virtual void Release()
-    {
-        if (this->_reference_count() == 1)
-        {
-            this->Destroy();
-        }
-        else
-        {
-            super::Release();
-        }
-    }
-    
-    virtual void Destroy()
-    {
-        this->_self = nil;
-        super::Destroy();
     }
     
     virtual void* cxxobject() const
@@ -158,6 +140,16 @@ public:
         return this->_self;
     }
     
+    virtual void drop()
+    {
+        super::drop();
+    }
+    
+    virtual void destroy()
+    {
+        this->_self = nil;
+        super::destroy();
+    }
     
 protected:
     

@@ -1,10 +1,10 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMColorController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
-@interface TMColorView : WSINSView {
+@interface TMColorView : NNTNSView {
     NSColorPanel* pn_color;
 }
 
@@ -48,14 +48,14 @@ WSIAPP_BEGIN_OBJC
 - (id)dataObject {
     TMColorView* view = (TMColorView*)self.view;
     NSColor* color = view.pn_color.color;
-    WCGColor* colr = [WCGColor colorWithComponentRed:[color redComponent] 
+    NgColor* colr = [NgColor colorWithComponentRed:[color redComponent]
                                                green:[color greenComponent]
                                                 blue:[color blueComponent]
                                                alpha:[color alphaComponent]];
     return colr;
 }
 
-- (void)setDataObject:(WCGColor*)colr {
+- (void)setDataObject:(NgColor*)colr {
     TMColorView* view = (TMColorView*)self.view;
     NSColor* color = [NSColor colorWithSRGBRed:[colr redComponent]
                                          green:[colr greenComponent]
@@ -66,4 +66,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

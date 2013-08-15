@@ -1,6 +1,6 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 
-@interface AppDelegate : WSIApplication
+@interface AppDelegate : NNTApplication
 
 @end

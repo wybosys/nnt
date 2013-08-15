@@ -1,8 +1,8 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMDataController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @implementation TMDataController
 
@@ -10,4 +10,4 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC

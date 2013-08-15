@@ -2,9 +2,9 @@
 # ifndef __TM_MAIN_A2214BFC841748BB86149F5F4E53D058_H_INCLUDED
 # define __TM_MAIN_A2214BFC841748BB86149F5F4E53D058_H_INCLUDED
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
-@interface TMMainController : WSINSViewController {
+@interface TMMainController : NNTNSViewController {
     NSURL *load_path, *save_path;
     UITheme* theme;
 }
@@ -13,11 +13,9 @@ WSIAPP_BEGIN_OBJC
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC
 
-WSIAPP_BEGIN
-
-using namespace ::wsi;
+NNTAPP_BEGIN
 
 class MainView
 : public ui::View<MainView>
@@ -43,6 +41,6 @@ public:
     void view_loaded();
 };
 
-WSIAPP_END
+NNTAPP_END
 
 # endif

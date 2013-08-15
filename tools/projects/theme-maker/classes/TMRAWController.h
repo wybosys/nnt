@@ -4,12 +4,12 @@
 
 # import "TMDataController.h"
 
-WSIAPP_BEGIN_OBJC
+NNTAPP_BEGIN_OBJC
 
 @interface TMRawController : TMDataController
 
 @end
 
-WSIAPP_END_OBJC
+NNTAPP_END_OBJC
 
 # endif

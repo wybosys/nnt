@@ -1,21 +1,20 @@
 
-# import <wsi/WSIFoundation.h>
+# import <nnt/Foundation+NNT.h>
 # import "TMImageController.h"
 
-WSIAPP_BEGIN_OBJC
+NNT_USINGNAMESPACE;
 
-using namespace ::wsi;
-using namespace ::wsi::ui;
+NNTAPP_BEGIN_OBJC
 
-@interface TMImageView : WSINSView {
-    PushButton *btn_open, *btn_export;
-    TextField<> *txt_path;
-    ImageView<> *img_main;
+@interface TMImageView : NNTNSView {
+    ui::PushButton *btn_open, *btn_export;
+    ui::TextField *txt_path;
+    ui::ImageView<> *img_main;
 }
 
-@property (nonatomic, readonly) PushButton *btn_open, *btn_export;
-@property (nonatomic, readonly) TextField<> *txt_path;
-@property (nonatomic, readonly) ImageView<> *img_main;
+@property (nonatomic, readonly) ui::PushButton *btn_open, *btn_export;
+@property (nonatomic, readonly) ui::TextField *txt_path;
+@property (nonatomic, readonly) ui::ImageView<> *img_main;
 
 @end
 
