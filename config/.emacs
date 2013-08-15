@@ -103,6 +103,17 @@
   (mi-use-package-url name url)
   (require module nil 'noerror))
 
+(defun mi-add-require (name)
+  (add-to-list 'load-path (concat "~/.emacs.d/lisps/" name))
+  )
+(defun mi-require-git (module name url) 
+  (if (require module nil 'noerror) nil
+    (message (concat "Git cloning from " url))
+    (shell-command (concat (concat "git clone " url) (concat " ~/.emacs.d/lisps/" name)))
+    (message (concat "Please use root account to compile the " (concat "~/.emacs.d/lisps/" name)))
+    )
+  )
+
 ;; guide setting.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -282,6 +293,7 @@
 
 ;; python.
 (defun my-py-settings ()
+  (mi-require-git 'pymacs "pymacs" "https://github.com/pinard/Pymacs.git")
                                         ;(elpa-require 'python-mode)
   (elpa-require 'python-magic)
   (elpa-require 'python-pylint)
@@ -291,6 +303,7 @@
   (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"))
   )
+(mi-add-require "pymacs")
 (add-hook 'python-mode-hook 'my-py-settings)
 
 ;; javascript.
