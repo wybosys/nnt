@@ -17,6 +17,8 @@ NNTCLASS(Jni);
 NNTCLASS(Class);
 NNTCLASS(Method);
 
+# ifdef NNT_JNI
+
 template <typename T>
 class Handle
 {
@@ -137,6 +139,8 @@ private:
     friend class Class;
 
 };
+
+# endif
 
 NNT_END_NS
 NNT_END_HEADER_CXX
