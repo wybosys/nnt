@@ -625,3 +625,12 @@
        )
       )
 
+;; duplicate line
+(defun dublicate-line ()
+  (interactive)
+  (save-excursion
+    (let ((begin (line-beginning-position)) 
+          (end (line-end-position)))
+      (move-beginning-of-line 2)
+      (insert (concat (buffer-substring-no-properties begin end) "\n")))))
+
