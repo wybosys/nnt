@@ -94,8 +94,8 @@
 		1630A801171BFC2500B318A9 /* SOAPObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1630A7FF171BFC2500B318A9 /* SOAPObject.cpp */; };
 		1638EABB150F13E0000B8C35 /* SOAPParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAB9150F13DF000B8C35 /* SOAPParser.cpp */; };
 		1638EAC1150F2076000B8C35 /* ObjectDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1638EAC0150F2076000B8C35 /* ObjectDL.cpp */; };
-		163E7B2517A6157B00426E74 /* Android.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B1E17A6157B00426E74 /* Android.cpp */; };
-		163E7B2817A6157B00426E74 /* Jni.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2317A6157B00426E74 /* Jni.cpp */; };
+		163E7B2517A6157B00426E74 /* Android+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B1E17A6157B00426E74 /* Android+NNT.cpp */; };
+		163E7B2817A6157B00426E74 /* Jni+NNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2317A6157B00426E74 /* Jni+NNT.cpp */; };
 		163E7B2D17A615E900426E74 /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2A17A615E900426E74 /* AudioStream.cpp */; };
 		163E7B2F17A615E900426E74 /* AudioStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B2C17A615E900426E74 /* AudioStream.mm */; };
 		163E7B3217A618A500426E74 /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 163E7B3017A618A500426E74 /* Module.cpp */; };
@@ -774,10 +774,10 @@
 		1638EABA150F13E0000B8C35 /* SOAPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPParser.h; sourceTree = "<group>"; };
 		1638EABE150F1DC9000B8C35 /* ObjectDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectDL.h; path = ../Classes/Core/ObjectDL.h; sourceTree = "<group>"; };
 		1638EAC0150F2076000B8C35 /* ObjectDL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectDL.cpp; path = ../Classes/Core/ObjectDL.cpp; sourceTree = "<group>"; };
-		163E7B1E17A6157B00426E74 /* Android.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Android.cpp; sourceTree = "<group>"; };
-		163E7B1F17A6157B00426E74 /* Android.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Android.h; sourceTree = "<group>"; };
-		163E7B2317A6157B00426E74 /* Jni.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jni.cpp; sourceTree = "<group>"; };
-		163E7B2417A6157B00426E74 /* Jni.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jni.h; sourceTree = "<group>"; };
+		163E7B1E17A6157B00426E74 /* Android+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Android+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B1F17A6157B00426E74 /* Android+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Android+NNT.h"; sourceTree = "<group>"; };
+		163E7B2317A6157B00426E74 /* Jni+NNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "Jni+NNT.cpp"; sourceTree = "<group>"; };
+		163E7B2417A6157B00426E74 /* Jni+NNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jni+NNT.h"; sourceTree = "<group>"; };
 		163E7B2A17A615E900426E74 /* AudioStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
 		163E7B2B17A615E900426E74 /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStream.h; sourceTree = "<group>"; };
 		163E7B2C17A615E900426E74 /* AudioStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioStream.mm; sourceTree = "<group>"; };
@@ -2033,10 +2033,10 @@
 		163E7B1D17A6157B00426E74 /* Java */ = {
 			isa = PBXGroup;
 			children = (
-				163E7B1E17A6157B00426E74 /* Android.cpp */,
-				163E7B1F17A6157B00426E74 /* Android.h */,
-				163E7B2317A6157B00426E74 /* Jni.cpp */,
-				163E7B2417A6157B00426E74 /* Jni.h */,
+				163E7B1E17A6157B00426E74 /* Android+NNT.cpp */,
+				163E7B1F17A6157B00426E74 /* Android+NNT.h */,
+				163E7B2317A6157B00426E74 /* Jni+NNT.cpp */,
+				163E7B2417A6157B00426E74 /* Jni+NNT.h */,
 			);
 			name = Java;
 			path = ../Classes/Java;
@@ -4136,8 +4136,8 @@
 				162F6DDA177BD7B90074229E /* OpenAL+NNT.cpp in Sources */,
 				16C1DA34178536CB000ACD9F /* NSSqliteArchive.mm in Sources */,
 				16C1DA3B17853926000ACD9F /* sqlite3+nnt.c in Sources */,
-				163E7B2517A6157B00426E74 /* Android.cpp in Sources */,
-				163E7B2817A6157B00426E74 /* Jni.cpp in Sources */,
+				163E7B2517A6157B00426E74 /* Android+NNT.cpp in Sources */,
+				163E7B2817A6157B00426E74 /* Jni+NNT.cpp in Sources */,
 				163E7B2D17A615E900426E74 /* AudioStream.cpp in Sources */,
 				163E7B2F17A615E900426E74 /* AudioStream.mm in Sources */,
 				163E7B3217A618A500426E74 /* Module.cpp in Sources */,

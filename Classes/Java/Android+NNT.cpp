@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "Android.h"
+# include "Android+NNT.h"
 
 # ifdef NNT_TARGET_ANDROID
 

@@ -1,6 +1,6 @@
 
 # include "Core.h"
-# include "Jni.h"
+# include "Jni+NNT.h"
 
 # ifdef NNT_TARGET_ANDROID
 
