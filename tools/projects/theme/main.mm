@@ -71,7 +71,7 @@ void usage()
 
 void version()
 {
-    ::std::cout << "The theme editor for wsi-uikit-theme file." << ::std::endl;
+    ::std::cout << "The theme editor for uikit-theme file." << ::std::endl;
 }
 
 bool load_theme(::std::string const& input)
