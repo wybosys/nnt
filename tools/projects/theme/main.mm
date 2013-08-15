@@ -1,25 +1,24 @@
 
 # import <Foundation/Foundation.h>
-# import <wsi/WSIFoundation.h>
-# import <wsi/UITheme.h>
+# import <nnt/Foundation+NNT.h>
 
-WSI_EXTERN void process_loop(void);
-WSI_EXTERN void usage(void);
-WSI_EXTERN void version(void);
-WSI_EXTERN bool check_quit(::std::string const&);
-WSI_EXTERN bool load_theme(::std::string const&);
-WSI_EXTERN bool find_key(::std::string const&);
-WSI_EXTERN bool list_all(::std::string const&);
-WSI_EXTERN bool close_theme(::std::string const&);
+NNT_EXTERN void process_loop(void);
+NNT_EXTERN void usage(void);
+NNT_EXTERN void version(void);
+NNT_EXTERN bool check_quit(::std::string const&);
+NNT_EXTERN bool load_theme(::std::string const&);
+NNT_EXTERN bool find_key(::std::string const&);
+NNT_EXTERN bool list_all(::std::string const&);
+NNT_EXTERN bool close_theme(::std::string const&);
 
-WSI_STATIC UITheme* gs_theme = nil;
+NNT_STATIC UITheme* gs_theme = nil;
 
 int main (int argc, const char * argv[])
 {
     @autoreleasepool {        
-        [WSI Init];
+        [NNT Init];
         process_loop();
-        [WSI Fin];
+        [NNT Fin];
     }
     return 0;
 }
@@ -40,10 +39,10 @@ void process_loop()
         
         if (0) { PASS; }
         
-        elif (load_theme(input)) {}
-        elif (find_key(input)) {}
-        elif (list_all(input)) {}
-        elif (close_theme(input)) {}
+        else if (load_theme(input)) {}
+        else if (find_key(input)) {}
+        else if (list_all(input)) {}
+        else if (close_theme(input)) {}
         
         else { usage(); }
     }
@@ -83,7 +82,7 @@ bool load_theme(::std::string const& input)
     zero_release(gs_theme);
     // load
     gs_theme = [[UITheme alloc] init];
-    if (![gs_theme loadTheme:[NSString stringWithCString:file.c_str() encoding:NSASCIIStringEncoding] type:WSIDirectoryTypeAbsolute])
+    if (![gs_theme loadTheme:[NSString stringWithCString:file.c_str() encoding:NSASCIIStringEncoding] type:NNTDirectoryTypeAbsolute])
     {
         zero_release(gs_theme);
     }
@@ -107,7 +106,7 @@ bool find_key(::std::string const& input)
     return true;
 }
 
-WSI_EXTERN bool list_all_func(char const* key, uint klen, id obj);
+NNT_EXTERN bool list_all_func(char const* key, uint klen, id obj);
 bool list_all_func(char const* key, uint klen, id obj)
 {
     ::std::cout << "key is: [" << key << "] object is: [" << object_getClassName(obj) << "]" << ::std::endl;
