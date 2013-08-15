@@ -1,5 +1,5 @@
 
-# include <wsi/WSIFoundation.h>
+# include <nnt/Foundation+NNT.h>
 
 int main(int argc, char *argv[])
 {

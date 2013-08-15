@@ -10,7 +10,7 @@
 		169DD0EF14579DA1000A9889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169DD0EE14579DA1000A9889 /* Foundation.framework */; };
 		169DD0F214579DA1000A9889 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 169DD0F114579DA1000A9889 /* main.mm */; };
 		169DD0F614579DA1000A9889 /* theme.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169DD0F514579DA1000A9889 /* theme.1 */; };
-		169DD13B1457A368000A9889 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169DD13A1457A368000A9889 /* wsi.framework */; };
+		16A5A7F917BC8465000A5C3C /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A5A7F817BC8465000A5C3C /* nnt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +32,7 @@
 		169DD0F114579DA1000A9889 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		169DD0F414579DA1000A9889 /* theme-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "theme-Prefix.pch"; sourceTree = "<group>"; };
 		169DD0F514579DA1000A9889 /* theme.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = theme.1; sourceTree = "<group>"; };
-		169DD13A1457A368000A9889 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = ../../mac/build/Release/wsi.framework; sourceTree = "<group>"; };
+		16A5A7F817BC8465000A5C3C /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = nnt.framework; path = ../../mac/build/Release/nnt.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169DD13B1457A368000A9889 /* wsi.framework in Frameworks */,
+				16A5A7F917BC8465000A5C3C /* nnt.framework in Frameworks */,
 				169DD0EF14579DA1000A9889 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +68,7 @@
 		169DD0ED14579DA1000A9889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				169DD13A1457A368000A9889 /* wsi.framework */,
+				16A5A7F817BC8465000A5C3C /* nnt.framework */,
 				169DD0EE14579DA1000A9889 /* Foundation.framework */,
 			);
 			name = Frameworks;

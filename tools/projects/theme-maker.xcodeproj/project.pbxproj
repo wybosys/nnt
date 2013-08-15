@@ -13,8 +13,8 @@
 		161E20FB152D876B0031D976 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 161E20F9152D876B0031D976 /* Credits.rtf */; };
 		161E20FE152D876B0031D976 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E20FD152D876B0031D976 /* AppDelegate.mm */; };
 		161E2101152D876B0031D976 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161E20FF152D876B0031D976 /* MainMenu.xib */; };
-		161E2117152D882B0031D976 /* wsi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E2116152D882B0031D976 /* wsi.framework */; };
 		161E211C152D89960031D976 /* TMMainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161E211B152D89960031D976 /* TMMainController.mm */; };
+		16A5A7F717BC845B000A5C3C /* nnt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A5A7F617BC845B000A5C3C /* nnt.framework */; };
 		16F2AF501532BCB80047DB0B /* TMColorController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4B1532BCB80047DB0B /* TMColorController.mm */; };
 		16F2AF511532BCB80047DB0B /* TMImageController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4D1532BCB80047DB0B /* TMImageController.mm */; };
 		16F2AF521532BCB80047DB0B /* TMRAWController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F2AF4F1532BCB80047DB0B /* TMRAWController.mm */; };
@@ -36,9 +36,9 @@
 		161E20FC152D876B0031D976 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		161E20FD152D876B0031D976 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		161E2100152D876B0031D976 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		161E2116152D882B0031D976 /* wsi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = wsi.framework; path = "../../../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/tools-hepbwodoidnhhcbrtcmpledershu/Build/Products/Debug/wsi.framework"; sourceTree = "<group>"; };
 		161E211A152D89960031D976 /* TMMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMainController.h; sourceTree = "<group>"; };
 		161E211B152D89960031D976 /* TMMainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMMainController.mm; sourceTree = "<group>"; };
+		16A5A7F617BC845B000A5C3C /* nnt.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = nnt.framework; path = ../../mac/build/Release/nnt.framework; sourceTree = "<group>"; };
 		16F2AF4A1532BCB80047DB0B /* TMColorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMColorController.h; sourceTree = "<group>"; };
 		16F2AF4B1532BCB80047DB0B /* TMColorController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TMColorController.mm; sourceTree = "<group>"; };
 		16F2AF4C1532BCB80047DB0B /* TMImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMImageController.h; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161E2117152D882B0031D976 /* wsi.framework in Frameworks */,
+				16A5A7F717BC845B000A5C3C /* nnt.framework in Frameworks */,
 				161E20EB152D876B0031D976 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +67,6 @@
 		161E20DB152D876B0031D976 = {
 			isa = PBXGroup;
 			children = (
-				161E2116152D882B0031D976 /* wsi.framework */,
 				161E20F0152D876B0031D976 /* theme-maker */,
 				161E20E9152D876B0031D976 /* Frameworks */,
 				161E20E7152D876B0031D976 /* Products */,
@@ -85,6 +84,7 @@
 		161E20E9152D876B0031D976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16A5A7F617BC845B000A5C3C /* nnt.framework */,
 				161E20EA152D876B0031D976 /* Cocoa.framework */,
 				161E20EC152D876B0031D976 /* Other Frameworks */,
 			);
