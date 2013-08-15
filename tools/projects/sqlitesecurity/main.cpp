@@ -11,16 +11,12 @@ int main(int argc, char** argv)
     if (args.count() == 0)
     {
         trace_msg("lost arguments");
-        //return 0;
+        return 0;
     }
     
-    //core::string type = args["-t"].value();
-    //core::string key = args["-k"].value();
-    //core::string path = args.last();
-    
-    core::string type = "decrypt";
-    core::string key = "u42hpdfsaphyp9r32hjiofw";
-    core::string path = "/Users/wybo/Desktop/dog.db";
+    core::string type = args["-t"].value();
+    core::string key = args["-k"].value();
+    core::string path = args.last();
     
     trace_msg("type " + type);
     trace_msg("key " + key);
