@@ -336,9 +336,42 @@ void nsaes_free(nsaes_t* o)
     free(o);
 }
 
+void nsaes_set_enkey(nsaes_t* t, nsaes_t const* r)
+{
+    if (t->encrypt == NULL)
+        t->encrypt = malloc(kCCKeySizeAES256);
+    
+    if (r)
+    {
+        memcpy(t->encrypt, r->encrypt, kCCKeySizeAES256);
+    }
+    else
+    {
+        free(t->encrypt);
+        t->encrypt = NULL;
+    }
+}
+
+void nsaes_set_dekey(nsaes_t* t, nsaes_t const* r)
+{
+    if (t->decrypt == NULL)
+        t->decrypt = malloc(kCCKeySizeAES256);
+    
+    if (r)
+    {
+        memcpy(t->decrypt, r->decrypt, kCCKeySizeAES256);
+    }
+    else
+    {
+        free(t->decrypt);
+        t->decrypt = NULL;
+    }
+}
+
 void nsaes_set_padding(nsaes_t* o, int b)
 {
-    o->padding = b;
+    if (o)
+        o->padding = b;
 }
 
 void nsaes_swap_rw(nsaes_t* o)
@@ -350,6 +383,30 @@ void nsaes_swap_rw(nsaes_t* o)
 
 int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
 {
+    if (key)
+    {
+        if (o->encrypt == NULL)
+            o->encrypt = malloc(kCCKeySizeAES256);
+        if (o->decrypt == NULL)
+            o->decrypt = malloc(kCCKeySizeAES256);
+    }
+    else
+    {
+        if (o->encrypt)
+        {
+            free(o->encrypt);
+            o->encrypt = NULL;
+        }
+        
+        if (o->decrypt)
+        {
+            free(o->decrypt);
+            o->decrypt = NULL;
+        }
+        
+        return 0;
+    }
+    
     memset(o->encrypt, 0, kCCKeySizeAES256);
     memset(o->decrypt, 0, kCCKeySizeAES256);
     
@@ -361,6 +418,14 @@ int nsaes_set_key(nsaes_t* o, void const* key, size_t lkey)
 
 int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
+    if (o->encrypt == NULL)
+    {
+        *outdata = malloc(ldata);
+        *loutdata = ldata;
+        memcpy(*outdata, data, ldata);
+        return 0;
+    }
+    
     *loutdata = ldata + kCCBlockSizeAES128;
     *outdata = malloc(*loutdata);
     CCOptions opt = kCCModeCBC;
@@ -391,6 +456,14 @@ int nsaes_encrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, si
 
 int nsaes_decrypt(nsaes_t* o, void const* data, size_t ldata, void** outdata, size_t* loutdata)
 {
+    if (o->decrypt == NULL)
+    {
+        *outdata = malloc(ldata);
+        *loutdata = ldata;
+        memcpy(*outdata, data, ldata);
+        return 0;
+    }
+    
     *loutdata = ldata + kCCBlockSizeAES128;
     *outdata = malloc(*loutdata);
     CCOptions opt = kCCModeCBC;

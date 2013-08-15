@@ -20,7 +20,6 @@ extern void* sqlite3PagerXCodec(void*, void*, Pgno, int);
 extern void sqlite3PagerXCodecSizeChanged(void*, int, int);
 extern void sqlite3PagerXCodecFree(void*);
 
-/*
 # if defined(NNT_MACH)
 
 #   define sqlite_aes_t nsaes_t
@@ -31,9 +30,10 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_encrypt nsaes_encrypt
 #   define sqlite_aes_decrypt nsaes_decrypt
 #   define sqlite_aes_swap_rw nsaes_swap_rw
+#   define sqlite_aes_set_enkey nsaes_set_enkey
+#   define sqlite_aes_set_dekey nsaes_set_dekey
 
 # else
-*/
 
 #   define sqlite_aes_t aes_t
 #   define sqlite_aes_free aes_free
@@ -46,7 +46,7 @@ extern void sqlite3PagerXCodecFree(void*);
 #   define sqlite_aes_set_enkey aes_set_enkey
 #   define sqlite_aes_set_dekey aes_set_dekey
 
-//# endif
+# endif
 
 typedef struct
 {
@@ -110,25 +110,24 @@ static int sqlite3_rekey_interop(sqlite3* db, void const* skey, int lkey)
 		// Rewrite all the pages in the database using the new encryption key
 		Pgno nPage;
 		Pgno nSkip = PAGER_MJ_PGNO(p);
-		Pgno n;
-		DbPage* pPage;
         
 		sqlite3PagerPagecount(p, (int*)&nPage);
         
-		for(n = 1;
+		for(Pgno n = 1;
             rc == SQLITE_OK && n <= nPage;
             ++n)
 		{
 			if (n == nSkip)
                 continue;
             
-			pPage = sqlite3PagerLookup(p, n);
+            DbPage* pPage = NULL;
+            sqlite3PagerGet(p, n, &pPage);
+
+            if (pPage == NULL)
+                continue;
             
-			if(pPage)
-			{
-				rc = sqlite3PagerWrite(pPage);
-				sqlite3PagerUnref(pPage);
-			}
+            rc = sqlite3PagerWrite(pPage);
+            sqlite3PagerUnref(pPage);
 		}
 	}
     

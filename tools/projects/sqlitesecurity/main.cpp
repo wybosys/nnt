@@ -14,9 +14,16 @@ int main(int argc, char** argv)
         //return 0;
     }
     
-    core::string type = args["-t"].value();
-    core::string key = args["-k"].value();
-    core::string path = args.last();
+    //core::string type = args["-t"].value();
+    //core::string key = args["-k"].value();
+    //core::string path = args.last();
+    
+    core::string type = "decrypt";
+    core::string key = "u42hpdfsaphyp9r32hjiofw";
+    core::string path = "/Users/wybo/Desktop/dog.db";
+    
+    trace_msg("type " + type);
+    trace_msg("key " + key);
         
     if (type == "encrypt")
     {
