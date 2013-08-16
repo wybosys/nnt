@@ -61,12 +61,19 @@ NNTOBJECT_PROP;
 NNT_EXTERN signal_t kSignalViewClicked;
 
 # define UITABLEVIEW_IMPL_PULLMOREHEADER \
-- (void)scrollViewDidScroll:(NNTUITableView *)tabview{ \
-[tabview startPullMoreHeader]; \
-} \
-- (void)scrollViewDidEndDragging:(NNTUITableView *)tabview willDecelerate:(BOOL)decelerate{	\
-[tabview endPullMoreHeader]; \
+- (void)scrollViewDidScroll:(NNTUITableView *)tableView {\
+    if (tableView.pullRefreshHeader)\
+        [tableView startPullRefreshHeader];\
+    if (tableView.pullMoreHeader)\
+        [tableView startPullMoreHeader];\
+}\
+- (void)scrollViewDidEndDragging:(NNTUITableView *)tableView willDecelerate:(BOOL)decelerate {\
+    if (tableView.pullRefreshHeader)\
+        [tableView endPullRefreshHeader];\
+    if (tableView.pullMoreHeader)\
+        [tableView endPullMoreHeader];\
 }
+
 
 
 NNT_END_HEADER_OBJC
