@@ -11,6 +11,7 @@ signal_t kSignalPullHeaderMore = @"::nnt::ui::tableview::pull::moreload";
 # define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
 # define BACKGROUND_COLOR  [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0]
 # define FLIP_ANIMATION_DURATION 0.18f
+# define REFRESH_REGION_HEIGHT 65.0f
 
 @interface UIPullRefreshHeaderView ()
 
@@ -26,15 +27,13 @@ NNTEVENT_BEGIN
 NNTEVENT_SIGNAL(kSignalPullHeaderReload)
 NNTEVENT_END
 
-- (id)initWithFrame:(CGRect)frame  {
-    self = [super initWithFrame:frame];
-    if (self == nil)
-        return nil;
+- (id)initWithZero  {
+    self = [super initWithZero];
     
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.backgroundColor = BACKGROUND_COLOR;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
+    UILabel *label = [[UILabel alloc] initWithZero];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     label.font = [UIFont systemFontOfSize:12.0f];
     label.textColor = TEXT_COLOR;
@@ -46,7 +45,7 @@ NNTEVENT_END
     _lastUpdatedLabel=label;
     [label release];
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
+    label = [[UILabel alloc] initWithZero];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     label.font = [UIFont boldSystemFontOfSize:13.0f];
     label.textColor = TEXT_COLOR;
@@ -59,7 +58,6 @@ NNTEVENT_END
     [label release];
     
     CALayer *layer = [CALayer layer];
-    layer.frame = CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f);
     layer.contentsGravity = kCAGravityResizeAspect;
     layer.contents = (id)NgImageLoadPngData(png_arrow_blue, sizeof(png_arrow_blue));
     
@@ -73,7 +71,6 @@ NNTEVENT_END
     _arrowImage=layer;
     
     UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
     [self addSubview:view];
     _activityView = view;
     [view release];
@@ -81,6 +78,14 @@ NNTEVENT_END
     [self setState:UITableViewPullRefreshStateNormal];
 	
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _lastUpdatedLabel.frame = CGRectMake(0.0f, self.frame.size.height - 30.0f, self.frame.size.width, 20.0f);
+    _statusLabel.frame = CGRectMake(0.0f, self.frame.size.height - 48.0f, self.frame.size.width, 20.0f);
+    _arrowImage.frame = CGRectMake(25.0f, self.frame.size.height - 65.0f, 30.0f, 55.0f);
+    _activityView.frame = CGRectMake(25.0f, self.frame.size.height - 38.0f, 20.0f, 20.0f);
 }
 
 - (void)refreshLastUpdatedDate {
@@ -178,7 +183,8 @@ NNTEVENT_END
 			[CATransaction begin];
 			[CATransaction setAnimationDuration:FLIP_ANIMATION_DURATION];
 			_arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
-			[CATransaction commit];			
+			[CATransaction commit];
+            [self refreshLastUpdatedDate];
         } break;
 		case UITableViewPullRefreshStateNormal: {
 			if (_state == UITableViewPullRefreshStatePulling) {
@@ -205,7 +211,8 @@ NNTEVENT_END
 			[CATransaction begin];
 			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions]; 
 			_arrowImage.hidden = YES;
-			[CATransaction commit];			
+			[CATransaction commit];
+            [self refreshLastUpdatedDate];
         } break;
 		default: break;
 	}
@@ -230,10 +237,8 @@ NNTEVENT_BEGIN
 NNTEVENT_SIGNAL(kSignalPullHeaderMore)
 NNTEVENT_END
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self == nil)
-        return nil;
+- (id)initWithZero {
+    self = [super initWithZero];
     
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.backgroundColor = BACKGROUND_COLOR;
@@ -247,22 +252,46 @@ NNTEVENT_END
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = UITextAlignmentCenter;
     [self addSubview:label];
-    _moreLabel = label;
+    _lastUpdatedLabel=label;
     [label release];
+    
+    label = [[UILabel alloc] initWithZero];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    label.font = [UIFont boldSystemFontOfSize:13.0f];
+    label.textColor = TEXT_COLOR;
+    label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = UITextAlignmentCenter;
+    [self addSubview:label];
+    _statusLabel=label;
+    [label release];
+    
+    CALayer *layer = [CALayer layer];
+    layer.contentsGravity = kCAGravityResizeAspect;
+    layer.contents = (id)NgImageLoadPngData(png_arrow_blue, sizeof(png_arrow_blue));
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        layer.contentsScale = [[UIScreen mainScreen] scale];
+    }
+#endif
+    
+    [[self layer] addSublayer:layer];
+    _arrowImage=layer;
     
     UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self addSubview:view];
     _activityView = view;
     [view release];
     
-    [self setState:UITableViewPullRefreshStateNormal];
-    
+    [self setState:UITableViewPullMoreStateNormal];
+
     return self;
 }
 
 - (void)dealloc {
     zero_release(model);
-    
     [super dealloc];
 }
 
@@ -271,39 +300,85 @@ NNTEVENT_END
 }
 
 - (void)layoutSubviews {
-    CGRect rc_client = self.bounds;
-    _moreLabel.frame = CGRectMake(0, 0, rc_client.size.width, 20.0f);
-    _activityView.frame = CGRectMake(25.f, 0, 20.0f, 20.0f);
+    [super layoutSubviews];
+    _lastUpdatedLabel.frame = CGRectMake(0.0f, 40.0f, self.frame.size.width, 20.0f);
+    _statusLabel.frame = CGRectMake(0.0f, 20.0f, self.frame.size.width, 20.0f);
+    _arrowImage.frame = CGRectMake(25.0f, 20.0f, 30.0f, 55.0f);
+    _activityView.frame = CGRectMake(25.0f, 20.0f, 20.0f, 20.0f);
+}
+
+- (void)refreshLastUpdatedDate {
+    if ([_delegate respondsToSelector:@selector(MoreTableHeaderDataSourceLastUpdate:)]) {
+		
+		NSDate *date = [_delegate MoreTableHeaderDataSourceLastUpdate:self];
+		
+		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehaviorDefault];
+        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        
+		_lastUpdatedLabel.text = [NSString stringWithFormat:_W(@"Last Updated: %@"), [dateFormatter stringFromDate:date]];
+		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"NNTUIRefreshTableView_LastRefresh"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		
+	} else {
+		
+		_lastUpdatedLabel.text = nil;
+	}
+
 }
 
 - (void)refreshScrollViewDidScroll:(UIScrollView *)scrollView {
-    //CGRect rc_content = CGRectMakeSz(scrollView.contentSize);
-    CGRect rc_content = self.rectForLayout;
-    
-    CGPoint lt = CGRectLeftBottom(&rc_content);
-    [self moveTo:lt];
-    
-    if (_state == UITableViewPullMoreStateLoading) {		
-		CGFloat offset = MAX(scrollView.contentOffset.y * -1, 0);
-		offset = MIN(offset, 60);
-		scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);		
-	} else if (scrollView.isDragging) {		
-		BOOL _loading = NO;
-		if ([_delegate respondsToSelector:@selector(MoreTableHeaderDataSourceIsLoading:)]) {
-			_loading = [_delegate MoreTableHeaderDataSourceIsLoading:self];
-		}		
-        if (!_loading) {
-            int doff = scrollView.contentSize.height - scrollView.bounds.size.height;
-            if (_state == UITableViewPullMoreStatePulling && (int)scrollView.contentOffset.y <= doff ) {
-                [self setState:UITableViewPullMoreStateNormal];
-            } else if (_state == UITableViewPullMoreStateNormal && (int)scrollView.contentOffset.y > doff && (int)scrollView.contentOffset.y > 0) {
-                [self setState:UITableViewPullMoreStatePulling];
-            }		
+//    //CGRect rc_content = CGRectMakeSz(scrollView.contentSize);
+//    CGRect rc_content = self.rectForLayout;
+//    
+//    CGPoint lt = CGRectLeftBottom(&rc_content);
+//    [self moveTo:lt];
+//    
+//    if (_state == UITableViewPullMoreStateLoading) {		
+//		CGFloat offset = MAX(scrollView.contentOffset.y * -1, 0);
+//		offset = MIN(offset, 60);
+//		scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);		
+//	} else if (scrollView.isDragging) {		
+//		BOOL _loading = NO;
+//		if ([_delegate respondsToSelector:@selector(MoreTableHeaderDataSourceIsLoading:)]) {
+//			_loading = [_delegate MoreTableHeaderDataSourceIsLoading:self];
+//		}		
+//        if (!_loading) {
+//            int doff = scrollView.contentSize.height - scrollView.bounds.size.height;
+//            if (_state == UITableViewPullMoreStatePulling && (int)scrollView.contentOffset.y <= doff ) {
+//                [self setState:UITableViewPullMoreStateNormal];
+//            } else if (_state == UITableViewPullMoreStateNormal && (int)scrollView.contentOffset.y > doff && (int)scrollView.contentOffset.y > 0) {
+//                [self setState:UITableViewPullMoreStatePulling];
+//            }		
+//        }
+//		if (scrollView.contentInset.top != 0) {
+//			scrollView.contentInset = UIEdgeInsetsZero;
+//		}
+//	}
+    if (_state == UITableViewPullMoreStateLoading) {
+        CGFloat offset = MAX(scrollView.contentOffset.y * -1, 0);
+        offset = MIN(offset, 60);
+        scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, REFRESH_REGION_HEIGHT, 0.0f);
+    } else if (scrollView.isDragging) {
+        BOOL _loading = NO;
+        if ([_delegate respondsToSelector:@selector(MoreTableHeaderDataSourceIsLoading:)]) {
+            _loading = [_delegate MoreTableHeaderDataSourceIsLoading:self];
         }
+        
+        if (_state == UITableViewPullMoreStatePulling &&
+            (scrollView.contentOffset.y+scrollView.frame.size.height) < scrollView.contentSize.height+REFRESH_REGION_HEIGHT &&
+            scrollView.contentOffset.y > 0.0f && !_loading) {
+			[self setState:UITableViewPullMoreStateNormal];
+		} else if (_state == UITableViewPullMoreStateNormal &&
+                   scrollView.contentOffset.y+(scrollView.frame.size.height) > scrollView.contentSize.height+REFRESH_REGION_HEIGHT && !_loading) {
+			[self setState:UITableViewPullMoreStatePulling];
+		}
+		
 		if (scrollView.contentInset.top != 0) {
 			scrollView.contentInset = UIEdgeInsetsZero;
 		}
-	}
+    }
 }
 
 - (void)refreshScrollViewDidEndDragging:(UIScrollView *)scrollView {
@@ -339,19 +414,34 @@ NNTEVENT_END
 - (void)setState:(UITableViewPullMoreState)aState{	
 	switch (aState) {
 		case UITableViewPullMoreStatePulling: {	
-			_moreLabel.text = _W(@"Release to load more...");
+            _statusLabel.text = NSLocalizedString(@"Release to load more...", @"Release to load more");
+			[CATransaction begin];
+			[CATransaction setAnimationDuration:FLIP_ANIMATION_DURATION];
+            _arrowImage.transform = CATransform3DIdentity;
+			[CATransaction commit];
         } break;
 		case UITableViewPullMoreStateNormal: {
-			_moreLabel.text = _W(@"Pull down to load more...");
-			[_activityView stopAnimating];			
+            _statusLabel.text = NSLocalizedString(@"Pull up to load more...", @"Pull up to load more");
+			[_activityView stopAnimating];
+			[CATransaction begin];
+			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+			_arrowImage.hidden = NO;
+            _arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
+			[CATransaction commit];
         } break;
 		case UITableViewPullMoreStateLoading: {			
-			_moreLabel.text = _W(@"Loading...");
+            _statusLabel.text = NSLocalizedString(@"Loading...", @"Loading Status");
 			[_activityView startAnimating];
+			[CATransaction begin];
+			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+			_arrowImage.hidden = YES;
+			[CATransaction commit];
         } break;
 		default: break;
 	}
-	
+    
+    [self refreshLastUpdatedDate];
+    
 	_state = aState;
 }
 

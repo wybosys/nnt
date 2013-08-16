@@ -37,6 +37,10 @@ typedef uint UITableViewPullMoreState;
 - (void)MoreTableHeaderDidTriggerRefresh:(UIPullMoreHeaderView*)view;
 - (BOOL)MoreTableHeaderDataSourceIsLoading:(UIPullMoreHeaderView*)view;
 
+@optional
+
+- (NSDate*)MoreTableHeaderDataSourceLastUpdate:(UIPullMoreHeaderView *)view;
+
 @end
 
 @interface UIPullRefreshHeaderView : NNTUIView {   
@@ -74,7 +78,9 @@ typedef uint UITableViewPullMoreState;
     id<NNTUITablePullMoreDelegate> _delegate;
     UITableViewPullMoreState _state;    
     
-    UILabel* _moreLabel;
+    UILabel *_lastUpdatedLabel;
+    UILabel *_statusLabel;
+    CALayer *_arrowImage;
     UIActivityIndicatorView *_activityView;        
 }
 
@@ -82,6 +88,7 @@ typedef uint UITableViewPullMoreState;
 @property (nonatomic, assign) uint pageno;
 @property (nonatomic, retain) id model;
 
+- (void)refreshLastUpdatedDate;
 - (void)refreshScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)refreshScrollViewDidEndDragging:(UIScrollView *)scrollView;
 - (void)refreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView;

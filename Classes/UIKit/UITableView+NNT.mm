@@ -206,6 +206,12 @@ static BOOL __gs_view_waitingtouch = NO;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    if (pullRefreshHeader)
+        pullRefreshHeader.frame = CGRectMake(0.f, 0 - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
+    
+    if (pullMoreHeader)
+        pullMoreHeader.frame = CGRectMake(0, MAX(self.contentSize.height, self.bounds.size.height), self.bounds.size.width, self.bounds.size.height);
+    
     if (topHeaderView && topHeaderView.hidden == NO) {
         CGRect rc_top = topHeaderView.frame;
         rc_top.origin = CGPointZero;
@@ -307,6 +313,10 @@ NNTOBJECT_IMPL_NOSIGNALS;
 
 - (BOOL)MoreTableHeaderDataSourceIsLoading:(UIPullMoreHeaderView *)view {
     return isPullMoreHeaderloading;
+}
+
+- (NSDate*)MoreTableHeaderDataSourceLastUpdate:(UIPullMoreHeaderView *)view {
+    return [NSDate date];
 }
 
 # pragma mark touch event
