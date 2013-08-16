@@ -54,6 +54,8 @@ NNTAPI(void) nsaes_swap_rw(nsaes_t*);
 NNTAPI(int) nsaes_set_key(nsaes_t*, void const* key, size_t lkey);
 NNTAPI(int) nsaes_encrypt(nsaes_t*, void const* data, size_t ldata, void** outdata, size_t* loutdata);
 NNTAPI(int) nsaes_decrypt(nsaes_t*, void const* data, size_t ldata, void** outdata, size_t* loutdata);
+NNTAPI(void) nsaes_set_enkey(nsaes_t*, nsaes_t const*);
+NNTAPI(void) nsaes_set_dekey(nsaes_t*, nsaes_t const*);
 
 NNT_END_HEADER_C
 
