@@ -3,6 +3,7 @@
 # define __NNT_UI_HEADERVIEW_F07055FCC87B40C89CB8ED217F6EF701_H_INCLUDED
 
 # import "UIView+NNT.h"
+# import "UIImageView+NNT.h"
 
 NNT_BEGIN_HEADER_OBJC
 
@@ -41,6 +42,16 @@ NNTDECL_EXTERN_CLASS(UIHeaderView);
 }
 
 @property (nonatomic, readonly) NNTUILabel *normalLabel, *actionLabel;
+
+@end
+
+@interface UILogoHeaderView : UIActivityHeaderView {
+    NNTUILabel *_timeLine;
+    NNTUIImageView *_logo;
+}
+
+@property (nonatomic, readonly) NNTUILabel *timeLine;
+@property (nonatomic, retain) NNTUIImageView *logo;
 
 @end
 
