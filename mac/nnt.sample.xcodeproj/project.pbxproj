@@ -293,6 +293,7 @@
 		167EBB6414F36A030012570E /* VHtmlChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5B14F36A030012570E /* VHtmlChart.m */; };
 		167EBB6614F36A030012570E /* VHtmlTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 167EBB5D14F36A030012570E /* VHtmlTable.m */; };
 		167EBB6A14F36AE50012570E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EBB6914F36AE50012570E /* SystemConfiguration.framework */; };
+		1688310C17C5C0F400A88E2F /* sqlite3+nnt.h in Headers */ = {isa = PBXBuildFile; fileRef = 1688310B17C5C0F400A88E2F /* sqlite3+nnt.h */; };
 		168DD6F51777E878004B0D30 /* JsonObjParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168DD6F41777E878004B0D30 /* JsonObjParser.cpp */; };
 		168DD700177811DC004B0D30 /* arraylist.c in Sources */ = {isa = PBXBuildFile; fileRef = 168DD6F9177811DC004B0D30 /* arraylist.c */; };
 		168DD701177811DC004B0D30 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 168DD6FA177811DC004B0D30 /* debug.c */; };
@@ -1066,6 +1067,7 @@
 		167EBB5E14F36A030012570E /* VHtmlTable_bg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = VHtmlTable_bg.gif; sourceTree = "<group>"; };
 		167EBB5F14F36A030012570E /* VHtmlTable_CSS.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = VHtmlTable_CSS.css; sourceTree = "<group>"; };
 		167EBB6914F36AE50012570E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1688310B17C5C0F400A88E2F /* sqlite3+nnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "sqlite3+nnt.h"; path = "../contrib/sqlite/sqlite3+nnt.h"; sourceTree = "<group>"; };
 		168B11861542580800D9325A /* JuiceOpenGLDarwinDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLDarwinDriver.hpp; sourceTree = "<group>"; };
 		168B11871542580800D9325A /* JuiceOpenGLES1.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLES1.hpp; sourceTree = "<group>"; };
 		168B11881542580800D9325A /* JuiceOpenGLES2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JuiceOpenGLES2.hpp; sourceTree = "<group>"; };
@@ -2888,6 +2890,7 @@
 		16C1DA3717853916000ACD9F /* sqlite */ = {
 			isa = PBXGroup;
 			children = (
+				1688310B17C5C0F400A88E2F /* sqlite3+nnt.h */,
 				16C1DA3917853926000ACD9F /* sqlite3+nnt.c */,
 			);
 			name = sqlite;
@@ -3549,6 +3552,7 @@
 				163E7B3F17A61CE900426E74 /* Unicode+NNT.h in Headers */,
 				163E7B4117A61CE900426E74 /* URI+NNT.h in Headers */,
 				163E7B4317A61CE900426E74 /* URL+NNT.h in Headers */,
+				1688310C17C5C0F400A88E2F /* sqlite3+nnt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

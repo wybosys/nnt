@@ -2,6 +2,7 @@
 # include "Core.h"
 # include "sqlite3.h"
 # include "sqlite3.c"
+# include "sqlite3+nnt.h"
 # include "../../Classes/Security/AES+NNT.h"
 
 const char sqlite3_version[] = SQLITE_VERSION;
