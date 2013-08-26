@@ -103,7 +103,7 @@
   (mi-use-package-url name url)
   (require module nil 'noerror))
 
-(defun mi-add-require (name)
+(defun mi-add-git (name)
   (add-to-list 'load-path (concat "~/.emacs.d/lisps/" name))
   )
 (defun mi-require-git (module name url) 
@@ -111,6 +111,12 @@
     (message (concat "Git cloning from " url))
     (shell-command (concat (concat "git clone " url) (concat " ~/.emacs.d/lisps/" name)))
     (message (concat "Please use root account to compile the " (concat "~/.emacs.d/lisps/" name)))
+    )
+  )
+(defun mi-use-git (module name url)
+  (if (featurep module) nil
+    (message (concat "Git cloning from " url))
+    (shell-command (concat (concat "git clone " url) (concat " ~/.emacs.d/lisps/" name)))    
     )
   )
 
@@ -308,7 +314,7 @@
   (setq ropemacs-codeassist-maxfixes 3) ;; stop parse if error N times
   (setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging"))
   )
-(mi-add-require "pymacs")
+(mi-add-git "pymacs")
 (add-hook 'python-mode-hook 'my-py-settings)
 
 ;; javascript.
@@ -637,6 +643,18 @@
                              "tidy -i -xml -utf8 --quiet y --indent-attributes y -" (buffer-name) t)
     )
   )
+
+;; scala
+(mi-add-git "scala-mode2")
+(mi-require-git 'scala-mode2 "scala-mode2" "https://github.com/hvesalai/scala-mode2.git")
+
+;; groovy
+(mi-add-git "groovy-mode")
+(mi-require-git 'groovy-mode "groovy-mode" "https://github.com/russel/Emacs-Groovy-Mode.git")
+(add-hook 'groovy-mode-hook
+          '(lambda ()
+             (require 'groovy-electric)
+             (groovy-electric-mode)))
 
 ;; global bind keys.
 (global-set-key (kbd "C-x <left>") 'my-switch-to-lastbuffer)
