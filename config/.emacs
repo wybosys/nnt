@@ -285,8 +285,10 @@
 (require 'saveplace)
 
 ;; vcm.
-(require 'git nil 'noerror)
+(mi-require-url 'git "git.el" "https://raw.github.com/wybosys/nnt/master/contrib/git/git.el")
+(mi-require-url 'git-blame "git-blame.el" "https://raw.github.com/wybosys/nnt/master/contrib/git/git-blame.el")
 (require 'vc-git)
+(mi-require-url 'egit "egit.el" "https://raw.github.com/jimhourihan/egit/master/egit.el")
 
 ;; maxima mode
 (add-to-list 'load-path "/opt/local/share/maxima/5.28.0/emacs")
