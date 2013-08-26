@@ -383,7 +383,12 @@
       (backward-char 1)
       (if (looking-at "\\.") t
         (backward-char 1)
-        (if (looking-at "->") t nil)))))
+        (if (looking-at "->") t 
+          nil)
+        )
+      )
+    )
+  )
 
 (defun do-yas-expand ()  
   (let ((yas/fallback-behavior 'return-nil))
@@ -399,7 +404,11 @@
             (null (do-yas-expand)))
         (if (check-expansion)
             (company-complete-common)
-          (indent-for-tab-command)))))
+          (indent-for-tab-command)
+          )
+      )
+    )
+  )
 
 (defun my-cedet-keymap ()
   (local-set-key (kbd "RET") 'newline-and-indent)
