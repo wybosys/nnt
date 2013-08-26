@@ -360,6 +360,18 @@
    )
   )
 
+(defun my-semantic-c-processed-files ()
+  (if (string-match ".h[px]*$" buffer-file-name)
+      ;; if file is c-header, add to semantic
+      (progn        
+        (if (boundp 'semantic-lex-c-preprocessor-symbol-file)      
+            (add-to-list 'semantic-lex-c-preprocessor-symbol-file buffer-file-name)
+          )
+        )
+    )
+  )
+(add-hook 'find-file-hook 'my-semantic-c-processed-files)
+
 (defun check-expansion ()
   (save-excursion
     (if (looking-at "\\_>") t
@@ -497,8 +509,9 @@
           '(lambda ()
              (my-c-mode)
              (run-with-idle-timer 0.01 nil 
-                                  (lambda() 
-                                    (mydev))
+                                  (lambda ()
+                                    (mydev)
+                                    )                                  
                                   ))
           )
 
