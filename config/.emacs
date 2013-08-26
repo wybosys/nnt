@@ -595,6 +595,22 @@
   (switch-to-buffer nil)
   )
 
+;; xml
+(defun xml-format()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point)
+                             "tidy -i -xml -utf8 --quiet y -" (buffer-name) t)
+    )
+  )
+(defun xml-pretty()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point)
+                             "tidy -i -xml -utf8 --quiet y --indent-attributes y -" (buffer-name) t)
+    )
+  )
+
 ;; global bind keys.
 (global-set-key (kbd "C-x <left>") 'my-switch-to-lastbuffer)
 (global-set-key (kbd "C-x <right>") 'other-window)
