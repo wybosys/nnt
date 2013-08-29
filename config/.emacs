@@ -317,6 +317,9 @@
 (mi-add-git "pymacs")
 (add-hook 'python-mode-hook 'my-py-settings)
 
+;; json
+;(mi-require-url 'json-mode "json-mode.el" "https://raw.github.com/joshwnj/json-mode/master/json-mode.el")
+
 ;; javascript.
 (defun my-js-settings ()
   (elpa-require 'js2-mode)
@@ -647,6 +650,7 @@
 ;; scala
 (mi-add-git "scala-mode2")
 (mi-require-git 'scala-mode2 "scala-mode2" "https://github.com/hvesalai/scala-mode2.git")
+
 
 ;; groovy
 (mi-add-git "groovy-mode")
