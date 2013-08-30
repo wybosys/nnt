@@ -355,6 +355,18 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
+;; glsl
+(mi-use-package-url "glsl-mode.el" "https://raw.github.com/jimhourihan/glsl-mode/master/glsl-mode.el")
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
+
+;; cg toolkit
+(mi-use-package-url "cg-mode.el" "http://www.emacswiki.org/emacs/download/cg-mode.el")
+(add-to-list 'auto-mode-alist '("\\.cg\\'" . cg-mode))
+
 ;; company.
 (defun my-company ()
   (elpa-require 'company)
