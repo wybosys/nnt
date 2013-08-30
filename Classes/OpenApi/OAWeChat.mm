@@ -51,8 +51,10 @@ NNTDECL_PRIVATE_IMPL(WeChat)
 
 - (void)onResp:(BaseResp*)resp {
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+# ifdef NNT_DEBUG
         SendMessageToWXResp* obj = (SendMessageToWXResp*)resp;
         trace_msg(obj.errStr);
+# endif
     }
 }
 

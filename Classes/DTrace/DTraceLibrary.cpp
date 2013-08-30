@@ -16,7 +16,10 @@ NNT_BEGIN_C
 
 int wluad_object_counter(lua_State* state)
 {
+# ifdef NNT_DEBUG
     lua_pushinteger(state, ::nnt::Object::__global_object_counter);
+# endif
+    
     return 1;
 }
 
