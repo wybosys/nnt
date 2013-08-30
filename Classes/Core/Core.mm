@@ -197,6 +197,13 @@ NNT_END_HEADER_C
 
 @end
 
+void _trace_msg(NSString* __str) {
+    NNTConsole* console = [NNTConsole shared];
+    NSString* str = [__str unescape];
+    str = [NSString stringWithFormat:@"%@.", str];
+    [console println:str];
+}
+
 void _trace_obj(NSString* __objname, id __obj) {
     NNTConsole* console = [NNTConsole shared];
         
@@ -264,13 +271,6 @@ void _trace_int(NSString *__objname, int __val) {
 void _trace_float(NSString *__objname, float __val) {
     NNTConsole* console = [NNTConsole shared];
     [console println:[NSString stringWithFormat:@"%@ = %f", __objname, __val]];
-}
-
-void _trace_msg(NSString* __str) {
-    NNTConsole* console = [NNTConsole shared];
-    NSString* str = [__str unescape];
-    str = [NSString stringWithFormat:@"%@.", str];
-    [console println:str];
 }
 
 NNT_END_OBJC
