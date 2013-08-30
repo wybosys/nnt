@@ -364,8 +364,11 @@
 (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
 
 ;; cg toolkit
-(mi-use-package-url "cg-mode.el" "http://www.emacswiki.org/emacs/download/cg-mode.el")
+(mi-use-package-url "cg-mode.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/cg-mode.el")
 (add-to-list 'auto-mode-alist '("\\.cg\\'" . cg-mode))
+
+;; opencl
+(add-to-list 'auto-mode-alist '("\\.cl\\'" . c-mode))
 
 ;; company.
 (defun my-company ()
