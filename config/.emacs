@@ -320,6 +320,14 @@
 ;; json
 ;(mi-require-url 'json-mode "json-mode.el" "https://raw.github.com/joshwnj/json-mode/master/json-mode.el")
 
+;; markdown
+(mi-require-url 'markdown-mode "markdown-mode.el" "http://jblevins.org/projects/markdown-mode/markdown-mode.el")
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; javascript.
 (defun my-js-settings ()
   (elpa-require 'js2-mode)
