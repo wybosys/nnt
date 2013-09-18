@@ -39,10 +39,10 @@ NNT_BEGIN_OBJC
     UIOAuthView* authview = (UIOAuthView*)[super authView];
     authview.title.text = [OASina Name];
         
-    [authview registerFilter:@"nnt://oauth/2.0/redirect\\?code=\\S+" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
+    [authview registerFilter:@"http://nnt//oauth/2.0/redirect\\?code=\\S+" signal:@"authorize_success" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
     [authview connect:@"authorize_success" sel:@selector(act_authorize_success:) obj:self];
     
-    [authview registerFilter:@"nnt://oauth/2.0/redirect\\?error" signal:@"authorize_failed" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
+    [authview registerFilter:@"http://nnt//oauth/2.0/redirect\\?error" signal:@"authorize_failed" type:UIWebViewFilterTypeStartLoad].shouldStartLoad = NO;
     [authview connect:@"authorize_failed" sel:@selector(act_authorize_failed) obj:self];
     
     return authview;

@@ -263,7 +263,7 @@ NNTEVENT_END
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString* url = [request.URL absoluteString];
-    trace_fmt(@"load: %@.", url);
+    trace_fmt(@"load: %@", url);
     
     BOOL ret = YES;
     // use filter.
