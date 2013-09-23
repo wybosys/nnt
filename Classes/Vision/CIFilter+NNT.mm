@@ -121,7 +121,8 @@ static ::NSString* const _system_categories[] = {
     kCICategoryNonSquarePixels,
     kCICategoryHighDynamicRange,
     
-    kCICategoryApplePrivate,
+    //kCICategoryApplePrivate,
+    
     kCICategoryBuiltIn,
     
 # if defined(__MAC_10_5) && !defined(NNT_TARGET_IOS)
