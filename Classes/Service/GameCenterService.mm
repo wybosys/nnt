@@ -297,7 +297,7 @@ NNTEVENT_END
 }
 
 - (GKScore*)object {
-    return _score;
+    return (GKScore*)_score;
 }
 
 @end
