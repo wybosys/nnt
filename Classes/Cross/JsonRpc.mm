@@ -37,7 +37,7 @@ NNT_BEGIN_OBJC
 }
 
 - (NSDictionary*)call:(NSString *)__method params:(NSArray*)__params {
-	NSArray *req = [NSDictionary dictionaryWithObjectsAndKeys:
+	NSObject *req = [NSDictionary dictionaryWithObjectsAndKeys:
 						protocol, @"jsonrpc",
 						[owner service], @"service",
 						__method, @"method",
