@@ -63,6 +63,13 @@ public:
     {
         PASS;
     }
+    
+    void bind(objc_type* win)
+    {
+        super::_set(win);
+    }
+    
+protected:
 
     friend class Application;
 };

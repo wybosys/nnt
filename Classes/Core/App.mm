@@ -939,7 +939,7 @@ Application& Application::getInstance()
 
 ui::Window& Application::window()
 {
-    _win._set((ui::Window::objc_type*)__gs_app.window);
+    _win.bind((ui::Window::objc_type*)__gs_app.window);
     return _win;
 }
 

@@ -325,9 +325,9 @@ period = _period
         BOOL callable = YES;
         
         if (each.shotcount != -1) {
-            if (each.shotcount == 0)
+            if (each.shotcount == 0) {
                 callable = NO;
-            else if (--each.shotcount == 0) {
+            } else if (--each.shotcount == 0) {
                 if (need_removes == nil)
                     need_removes = [[NSMutableArray alloc] init];
                 
@@ -337,19 +337,29 @@ period = _period
                 
         // period check.
         if (callable && each.period && !each.period.isDuring)
+        {
             callable = NO;
+        }
         
         // for next.
         if (callable && each.veto)
+        {
             callable = NO;
+        }
         
         // frenquency limit.
         if (callable && each.waitFrequency == YES)
+        {
             callable = NO;
+        }
         
         // parallel limit.
-        if (callable && each.parallel != -1 && each.running >= each.parallel)
+        if (callable &&
+            (int)each.parallel != -1 &&
+            each.running >= each.parallel)
+        {
             callable = NO;
+        }
         
         // if callable?
         if (callable == NO)

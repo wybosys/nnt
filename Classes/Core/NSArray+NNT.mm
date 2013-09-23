@@ -166,7 +166,7 @@ uint kNSMutableArrayInitCapacity = 4;
 
 + (NSMutableArray*)safeArray:(id)obj {
     if (obj == nil) {
-        return [NSArray array];
+        return [NSMutableArray array];
     }
     if ([obj isKindOfClass:[NSMutableArray class]])
         return obj;

@@ -139,7 +139,7 @@ NSString* GetStringEncodingName(NSStringEncoding encoding)
     usize const len = [self length];
     if (len == 0)
         return @"";
-    usize const buf_len = [self length] << 1 + 1;
+    usize const buf_len = ([self length] << 1) + 1;
     unichar *buf = (unichar*)malloc(buf_len);
     uindex j = 0;
     for (uindex i = 0; i < len; ++i) {

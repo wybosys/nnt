@@ -275,8 +275,6 @@ void _trace_float(NSString *__objname, float __val) {
 
 NNT_END_OBJC
 
-NNT_BEGIN_C
-
 int VersionCmp(version_t const* l, version_t const* r) {
     if (l->major > r->major)
         return 1;
@@ -316,5 +314,3 @@ NSString* NNTGetFeedbackEmail()
 {
     return NNTMACRO_TOSTR_OBJC(NNT_FEEDBACK_EMAIL);
 }
-
-NNT_END_C
