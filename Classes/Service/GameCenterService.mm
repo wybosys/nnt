@@ -296,8 +296,8 @@ NNTEVENT_END
     _score.value = _value = value;
 }
 
-- (GKScore*)object {
-    return (GKScore*)_score;
+- (void*)object {
+    return _score;
 }
 
 @end
