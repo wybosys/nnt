@@ -305,6 +305,9 @@
 ;; whitespace-mode.
 (mi-require-url 'whitespace "whitespace.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/whitespace.el")
 
+;; sql.
+(mi-require-url 'sql "sql.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/sql.el")
+
 ;; maxima mode
 (add-to-list 'load-path "/opt/local/share/maxima/5.28.0/emacs")
 
