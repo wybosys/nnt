@@ -300,7 +300,7 @@
 (mi-require-url 'egit "egit.el" "https://raw.github.com/jimhourihan/egit/master/egit.el")
 
 ;; hl-chars
-;(mi-require-url 'highlight-chars "highlight-chars.el" "http://www.emacswiki.org/emacs-en/download/highlight-chars.el")
+;(mi-require-url 'highlight-chars "highlight-chars.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/highlight-chars.el")
 
 ;; maxima mode
 (add-to-list 'load-path "/opt/local/share/maxima/5.28.0/emacs")
