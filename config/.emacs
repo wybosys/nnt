@@ -293,6 +293,10 @@
 (setq-default save-place t)
 (require 'saveplace)
 
+;; go.
+(mi-require-url 'go-mode "go-mode.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/go-mode.el")
+(mi-require-url 'go-mode-load "go-mode-load.el" "https://raw.github.com/wybosys/nnt/master/contrib/emacs/go-mode-load.el")
+
 ;; vcm.
 (mi-require-url 'git "git.el" "https://raw.github.com/wybosys/nnt/master/contrib/git/git.el")
 (mi-require-url 'git-blame "git-blame.el" "https://raw.github.com/wybosys/nnt/master/contrib/git/git-blame.el")
