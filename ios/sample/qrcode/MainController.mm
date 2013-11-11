@@ -40,7 +40,7 @@ void MainView::layout_subviews()
 void MainView::act_try(EventObj& evt)
 {
     img_origin.set_image(ui::Image::Img(evt.result()));
-    img_gray.set_image(ui::Image::Img(evt.data()));
+    img_gray.set_image(ui::Image::Img((void*)evt.data()));
 }
 
 MainController::MainController()
