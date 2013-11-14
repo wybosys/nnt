@@ -25,6 +25,9 @@ NNT_BEGIN_HEADER_OBJC
 //! coretype.
 - (uint)coreType;
 
+//! encode
+- (NSString*)urlEncoded;
+
 @end
 
 NNTDECL_CATEGORY(NSData, NNT);

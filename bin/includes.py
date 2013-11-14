@@ -7,7 +7,7 @@ import shutil
 print("generate include files")
 
 whites = re.compile(r'^.+\.py$')
-blacks = re.compile(r'build|.DS_Store|.svn|.git|_.+|^.+\.a$|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.s$|^.+\.asm$|^.+\.inc$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv|^.+\.res$|^.+\.txt$|^.+\.pyc$|^.+\.log$|^.+\.err$|^.+\.wrn$|objchk.+|^.+\.cl$|^.+\.cu$|^\.rope.+$|^sources$|^.+\.mk$|^proj\..+$')
+blacks = re.compile(r'build|.DS_Store|.svn|.git|_.+|^.+\.a$|^.+\.c$|^.+\.cpp$|^.+\.cxx$|^.+\.m$|^.+\.mm$|^.+\.s$|^.+\.asm$|^.+\.inc$|^.+\.png$|^.+\.jpg$|^.+\.jpeg$|^.+\.gif$|^.+\.css$|^.+\.prv|^.+\.res$|^.+\.txt$|^.+\.pyc$|^.+\.log$|^.+\.err$|^.+\.wrn$|objchk.+|^.+\.cl$|^.+\.cu$|^\.rope.+$|^sources$|^.+\.mk$|^proj\..+$|^.+\.java$')
 cheaders = re.compile(r'^.+\.h$|^.+\.hpp$|^.+\.hxx$')
 
 workdir = os.getcwd()

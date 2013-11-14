@@ -56,13 +56,11 @@ public:
     CGRectLayout(rect_type, CGMargin const& mrg, CGPadding const& pad);
     ~CGRectLayout();
     
-public:
-    
     //! set space.
     void set_space(int);
     
     //! move to
-    void move_to(int __x, int __y);
+    void move_to(int x, int y);
     
     //! get percent
     float percent_w(float) const;
