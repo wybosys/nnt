@@ -1,18 +1,10 @@
-//
-//  main.m
-//  openurl
-//
-//  Created by wybo on 13-11-14.
-//  Copyright (c) 2013年 nnt. All rights reserved.
-//
 
-#import <UIKit/UIKit.h>
+# include "Foundation+NNT.h"
+# include "Execution+NNT.h"
+# include "AppDelegate.h"
 
-#import "AppDelegate.h"
-
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    }
+    ::nntapp::App app;
+    return app.execute(argc, argv);
 }

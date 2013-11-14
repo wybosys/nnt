@@ -17,6 +17,7 @@ MainView::MainView()
     add_sub(txt_result);
     
     ctlr_reader.connect(kSignalTry, _action(_class::act_try), this);
+    txt_result.set_readonly();
 }
 
 void MainView::layout_subviews()

@@ -86,9 +86,9 @@ public:
         this->_self.textColor = color;
     }
     
-    void set_alignment(UITextAlignment align)
+    void set_alignment(uint align)
     {
-        this->_self.textAlignment = align;
+        this->_self.textAlignment = (NSTextAlignment)align;
     }
     
 };

@@ -27,6 +27,11 @@
 		16E4556B1834985F00A93CD8 /* types.py in Resources */ = {isa = PBXBuildFile; fileRef = 16E454331834985E00A93CD8 /* types.py */; };
 		16E4556C1834985F00A93CD8 /* __init__.py in Resources */ = {isa = PBXBuildFile; fileRef = 16E454351834985E00A93CD8 /* __init__.py */; };
 		16E4556D1834985F00A93CD8 /* cli.py in Resources */ = {isa = PBXBuildFile; fileRef = 16E454361834985E00A93CD8 /* cli.py */; };
+		16E4556F18349ABE00A93CD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E4556E18349ABE00A93CD8 /* QuartzCore.framework */; };
+		16E4557118349ACB00A93CD8 /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E4557018349ACB00A93CD8 /* libdb.a */; };
+		16E4557318349AD500A93CD8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E4557218349AD500A93CD8 /* libicucore.dylib */; };
+		16E4557518349ADC00A93CD8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E4557418349ADC00A93CD8 /* libxml2.dylib */; };
+		16E4557818349BC900A93CD8 /* MainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E4557718349BC900A93CD8 /* MainController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -912,6 +917,12 @@
 		16E455601834985F00A93CD8 /* ImageCodecReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodecReader.h; sourceTree = "<group>"; };
 		16E455621834985F00A93CD8 /* StateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
 		16E455631834985F00A93CD8 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
+		16E4556E18349ABE00A93CD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		16E4557018349ACB00A93CD8 /* libdb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdb.a; path = ../../lib/iOS/libdb.a; sourceTree = "<group>"; };
+		16E4557218349AD500A93CD8 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		16E4557418349ADC00A93CD8 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		16E4557618349BC900A93CD8 /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
+		16E4557718349BC900A93CD8 /* MainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,6 +930,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E4557518349ADC00A93CD8 /* libxml2.dylib in Frameworks */,
+				16E4557318349AD500A93CD8 /* libicucore.dylib in Frameworks */,
+				16E4557118349ACB00A93CD8 /* libdb.a in Frameworks */,
+				16E4556F18349ABE00A93CD8 /* QuartzCore.framework in Frameworks */,
 				16E44DDD1834976F00A93CD8 /* libnnt.a in Frameworks */,
 				16E44DB0183496AE00A93CD8 /* CoreGraphics.framework in Frameworks */,
 				16E44DB2183496AE00A93CD8 /* UIKit.framework in Frameworks */,
@@ -961,6 +976,10 @@
 		16E44DAC183496AE00A93CD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16E4557418349ADC00A93CD8 /* libxml2.dylib */,
+				16E4557218349AD500A93CD8 /* libicucore.dylib */,
+				16E4557018349ACB00A93CD8 /* libdb.a */,
+				16E4556E18349ABE00A93CD8 /* QuartzCore.framework */,
 				16E44DDC1834976F00A93CD8 /* libnnt.a */,
 				16E44DAD183496AE00A93CD8 /* Foundation.framework */,
 				16E44DAF183496AE00A93CD8 /* CoreGraphics.framework */,
@@ -975,6 +994,8 @@
 			children = (
 				16E44DBC183496AE00A93CD8 /* AppDelegate.h */,
 				16E44DBD183496AE00A93CD8 /* AppDelegate.mm */,
+				16E4557618349BC900A93CD8 /* MainController.h */,
+				16E4557718349BC900A93CD8 /* MainController.mm */,
 				16E44DB4183496AE00A93CD8 /* Supporting Files */,
 			);
 			path = openurl;
@@ -2675,6 +2696,7 @@
 			files = (
 				16E44DBE183496AE00A93CD8 /* AppDelegate.mm in Sources */,
 				16E44DBA183496AE00A93CD8 /* main.mm in Sources */,
+				16E4557818349BC900A93CD8 /* MainController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2788,6 +2810,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "openurl/openurl-Prefix.pch";
 				INFOPLIST_FILE = "openurl/openurl-Info.plist";
@@ -2795,6 +2818,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/allinone-chrgdpgfcueekfcntnxzmppvugoy/Build/Products/Debug-iphoneos",
+					/work/develop/nnt/lib/iOS,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -2808,6 +2832,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "openurl/openurl-Prefix.pch";
 				INFOPLIST_FILE = "openurl/openurl-Info.plist";
@@ -2815,6 +2840,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/allinone-chrgdpgfcueekfcntnxzmppvugoy/Build/Products/Debug-iphoneos",
+					/work/develop/nnt/lib/iOS,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

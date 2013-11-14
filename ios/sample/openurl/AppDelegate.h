@@ -1,15 +1,21 @@
-//
-//  AppDelegate.h
-//  openurl
-//
-//  Created by wybo on 13-11-14.
-//  Copyright (c) 2013年 nnt. All rights reserved.
-//
 
-#import <UIKit/UIKit.h>
+# ifndef APPDELEGATE
+# define APPDELEGATE
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+# include "MainController.h"
 
-@property (strong, nonatomic) UIWindow *window;
+NNTAPP_BEGIN
 
-@end
+class App
+: public Application
+{
+public:
+    
+    void load();
+    MainController ctlr;
+    
+};
+
+NNTAPP_END
+
+# endif

@@ -193,7 +193,7 @@ public:
             case NgAlignmentRight: align = TextAlignment<Right>(); break;
             default: align = TextAlignment<Center>(); break;
         }
-        this->_self.textAlignment = (UITextAlignment)align;
+        this->_self.textAlignment = (NSTextAlignment)align;
         this->_self.textColor _assign_ ui::Color(ts.fontcolor());
         this->_self.shadowColor _assign_ ui::Color(ts.shadow().color());
         this->_self.font = ts.uifont();
