@@ -237,7 +237,7 @@
   (elpa-require 'yasnippet)
   (elpa-require 'yasnippet-bundle)
   )
-(add-hook 'after-init-hook 'my-yas)
+;(add-hook 'after-init-hook 'my-yas)
 
 ;; icicles.
 (defun my-icicle ()
@@ -561,7 +561,7 @@
   (my-h2s)	
   (my-cscope)
   ;; add yas template.
-  (yas/define-snippets 'c-mode my-yas-c-comment 'cc-mode)
+  ;(yas/define-snippets 'c-mode my-yas-c-comment 'cc-mode)
   )
 
 (add-hook 'c-mode-common-hook 
